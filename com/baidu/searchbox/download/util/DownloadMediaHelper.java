@@ -163,7 +163,7 @@ public class DownloadMediaHelper {
     }
 
     public static Uri getMediaFileUri(String str, String str2) {
-        return MediaFileProcessor.a(getMediaFileUriSource(FileClassifyHelper.getCategory(FileClassifyHelper.getFileSuffix(str), str2)));
+        return MediaFileProcessor.c(getMediaFileUriSource(FileClassifyHelper.getCategory(FileClassifyHelper.getFileSuffix(str), str2)));
     }
 
     public static MediaFileProcessor.UriSource getMediaFileUriSource(String str, String str2) {
@@ -242,7 +242,7 @@ public class DownloadMediaHelper {
                 if (DEBUG) {
                     Log.d(TAG, "deleteMediaFile: " + j);
                 }
-                if (MediaFileProcessor.delete(context, ContentUris.withAppendedId(MediaFileProcessor.a(uriSource), j), (String) null, (String[]) null, new a0() { // from class: com.baidu.searchbox.download.util.DownloadMediaHelper.2
+                if (MediaFileProcessor.a(context, ContentUris.withAppendedId(MediaFileProcessor.c(uriSource), j), null, null, new a0() { // from class: com.baidu.searchbox.download.util.DownloadMediaHelper.2
                     @Override // com.baidu.tieba.a0
                     public void onFailed(int i) {
                     }
@@ -298,7 +298,7 @@ public class DownloadMediaHelper {
                 }
                 Uri queryMediaFileUri = queryMediaFileUri(context, str, str2);
                 if (queryMediaFileUri != null) {
-                    if (MediaFileProcessor.delete(context, queryMediaFileUri, (String) null, (String[]) null, str, new a0() { // from class: com.baidu.searchbox.download.util.DownloadMediaHelper.1
+                    if (MediaFileProcessor.b(context, queryMediaFileUri, null, null, str, new a0() { // from class: com.baidu.searchbox.download.util.DownloadMediaHelper.1
                         @Override // com.baidu.tieba.a0
                         public void onFailed(int i) {
                         }
@@ -343,11 +343,11 @@ public class DownloadMediaHelper {
                 }
                 Uri queryMediaFileUri = queryMediaFileUri(context, str, str2);
                 if (queryMediaFileUri != null) {
-                    int delete = MediaFileProcessor.delete(context, queryMediaFileUri, (String) null, (String[]) null, str, a0Var);
-                    if (delete > 0 && a0Var != null) {
-                        a0Var.onPermitted(Integer.valueOf(delete));
+                    int b = MediaFileProcessor.b(context, queryMediaFileUri, null, null, str, a0Var);
+                    if (b > 0 && a0Var != null) {
+                        a0Var.onPermitted(Integer.valueOf(b));
                     }
-                    if (delete <= 0) {
+                    if (b <= 0) {
                         return false;
                     }
                     return true;
@@ -366,11 +366,11 @@ public class DownloadMediaHelper {
         }
         File file = new File(str);
         if (file.exists()) {
-            boolean delete2 = file.delete();
-            if (!delete2 && DEBUG) {
+            boolean delete = file.delete();
+            if (!delete && DEBUG) {
                 Log.w("DownloadManager", "deleteMediaFile delete file failed");
             }
-            return delete2;
+            return delete;
         }
         return false;
     }
@@ -523,7 +523,7 @@ public class DownloadMediaHelper {
             str3 = null;
         }
         try {
-            cursor = MediaFileProcessor.query(context, getMediaFileUriSource(str, str2), strArr, str3, new String[]{name, pathDir + "/"}, (String) null);
+            cursor = MediaFileProcessor.f(context, getMediaFileUriSource(str, str2), strArr, str3, new String[]{name, pathDir + "/"}, null);
         } catch (Exception e) {
             e = e;
             cursor = null;

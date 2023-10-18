@@ -10,7 +10,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.webview.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0650a {
+    public static class C0633a {
         public static final a Os = new a((byte) 0);
     }
 
@@ -33,7 +33,7 @@ public final class a {
     }
 
     public static a pR() {
-        return C0650a.Os;
+        return C0633a.Os;
     }
 
     public final void a(b bVar) {

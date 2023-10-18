@@ -20,7 +20,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.TransientReceiv
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractReceiverParameterDescriptor extends DeclarationDescriptorImpl implements ReceiverParameterDescriptor {
     public static final Name RECEIVER_PARAMETER_NAME = Name.special("<this>");
 

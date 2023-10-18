@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.core.content.FileProvider;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class tr2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tr2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
+    public final ge3 a;
 
     public tr2() {
         Interceptable interceptable = $ic;
@@ -26,24 +26,81 @@ public class tr2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ge3("swan_local_ab_data");
+        if (ProcessUtils.isMainProcess()) {
+            this.a.clear();
+        }
+        c();
     }
 
-    public JSONObject a() {
+    public static tr2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (tr2.class) {
+                    if (b == null) {
+                        b = new tr2();
+                    }
+                }
+            }
+            return b;
+        }
+        return (tr2) invokeV.objValue;
+    }
+
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("userId", this.a);
-                jSONObject.put(FileProvider.DISPLAYNAME_FIELD, this.b);
-                jSONObject.put("volumeLevel", this.c);
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
-            }
+            return this.a.getString(Config.SID, "");
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final void c() {
+        String substring;
+        Object e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
+            List<ur2> c = new sr2().c();
+            for (ur2 ur2Var : c) {
+                vr2 b2 = ur2Var.b();
+                wr2 c2 = ur2Var.c();
+                if (b2 == null) {
+                    e = c2.d();
+                } else {
+                    e = b2.e();
+                }
+                if (e instanceof Boolean) {
+                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
+                } else if (e instanceof Double) {
+                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
+                } else if (e instanceof Integer) {
+                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
+                } else if (e instanceof Long) {
+                    this.a.writeLong(c2.e(), ((Long) e).longValue());
+                } else if (e instanceof String) {
+                    this.a.writeString(c2.e(), (String) e);
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (ur2 ur2Var2 : c) {
+                vr2 b3 = ur2Var2.b();
+                if (b3 != null) {
+                    sb.append(b3.d());
+                    sb.append("-");
+                }
+            }
+            if (sb.length() == 0) {
+                substring = "";
+            } else {
+                substring = sb.substring(0, sb.length() - 1);
+            }
+            this.a.writeString(Config.SID, substring);
+        }
     }
 }

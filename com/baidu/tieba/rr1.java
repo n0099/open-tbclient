@@ -1,16 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public final class rr1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Context;
+/* loaded from: classes8.dex */
+public interface rr1 {
+    zr1 a(Context context);
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? "2.34.0" : (String) invokeV.objValue;
-    }
+    vr1 b(Context context);
+
+    zr1 c(Context context);
+
+    k72 d();
+
+    wr1 e(Context context, int i);
+
+    zr1 f(Context context);
+
+    zr1 g(Context context);
+
+    l72 h(Context context, int i);
+
+    zr1 i(Context context);
+
+    boolean j(int i);
 }

@@ -1,195 +1,70 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.lcp.sdk.pb.LcmPb$Common;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class x90 {
-    public static /* synthetic */ Interceptable $ic;
-    public static a a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = "";
-            this.c = "";
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "CommonData{manufacture='" + this.a + "', userKey='" + this.b + "', modelType='" + this.c + "'}";
-            }
-            return (String) invokeV.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948255066, "Lcom/baidu/tieba/x90;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948255066, "Lcom/baidu/tieba/x90;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948255066, "Lcom/baidu/tieba/x90;")) == null) {
+            return;
         }
-        a = new a();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948255066, "Lcom/baidu/tieba/x90;");
+        }
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                if (y90.a) {
-                    z90.c("LCPCommon", "getAppVersionName NameNotFoundException", e);
-                    return null;
-                }
-                return null;
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || 7 - a > 3) {
+            return;
         }
-        return (String) invokeL.objValue;
+        Log.i("cyber-" + str, str2);
     }
 
-    public static Object b(Context context, boolean z) {
-        InterceptResult invokeLZ;
-        String a2;
+    public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, context, z)) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            if (TextUtils.isEmpty(a(context))) {
-                a2 = "";
-            } else {
-                a2 = a(context);
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            String b = aa0.b(context);
-            String e = aa0.e(context);
-            try {
-                if (z) {
-                    if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(e)) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
-                        jSONObject.put("cuid", e);
-                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
-                        jSONObject.put("app_id", b);
-                        jSONObject.put("app_version", a2);
-                        jSONObject.put("sdk_version", "3460016");
-                        jSONObject.put("ts", currentTimeMillis);
-                        jSONObject.put("manufacture", a.a);
-                        jSONObject.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, a.c);
-                        jSONObject.put("user_key", a.b);
-                        jSONObject.put("sign", d(b, e, "android", currentTimeMillis));
-                        return jSONObject;
-                    }
-                    if (y90.a) {
-                        z90.b("LCPCommon", "getData appId : " + b + ", cuid :" + e);
-                    }
-                    return null;
-                }
-                String str = "nonNet";
-                if (RequsetNetworkUtils.isNetworkAvailable(context)) {
-                    if (RequsetNetworkUtils.isWifiConnected(context)) {
-                        str = "wifi";
-                    } else {
-                        str = RequsetNetworkUtils.getMobileType(context);
-                    }
-                }
-                z90.b("HEHE", "commonData :" + a.toString());
-                LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder();
-                newBuilder.v(e);
-                newBuilder.w("android");
-                newBuilder.t(b);
-                newBuilder.u(a2);
-                newBuilder.A("3460016");
-                newBuilder.z(str);
-                newBuilder.x(a.a);
-                newBuilder.y(a.c);
-                newBuilder.B(a.b);
-                return newBuilder.build();
-            } catch (Exception e2) {
-                if (y90.a) {
-                    z90.c("LCPCommon", "getData :", e2);
-                }
-                return null;
-            }
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || 7 - a > 6) {
+            return;
         }
-        return invokeLZ.objValue;
+        Log.e("cyber-" + str, str2, th);
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
-                StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    int i = b & 255;
-                    if (i < 16) {
-                        sb.append(0);
-                    }
-                    sb.append(Integer.toHexString(i));
-                }
-                return sb.toString();
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - a > 4) {
+            return;
         }
-        return (String) invokeL.objValue;
+        Log.i("cyber-" + str, str2);
     }
 
-    @SuppressLint({"DefaultLocale"})
-    public static String d(String str, String str2, String str3, long j) {
-        InterceptResult invokeCommon;
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
-            return c(String.format("%s%s%s%d", str, str2, str3, Long.valueOf(j)));
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - a > 5) {
+            return;
         }
-        return (String) invokeCommon.objValue;
+        Log.w("cyber-" + str, str2);
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || 7 - a > 6) {
+            return;
+        }
+        Log.e("cyber-" + str, str2);
     }
 }

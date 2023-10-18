@@ -17,8 +17,8 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
 
     public ListRecommendDivider(@NonNull Context context) {
         Resources resources = context.getResources();
-        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0708b3);
-        this.b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0708b4);
+        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0708ae);
+        this.b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0708af);
         Paint paint = new Paint();
         this.c = paint;
         paint.setColor(resources.getColor(R.color.obfuscated_res_0x7f060b39));

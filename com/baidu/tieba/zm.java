@@ -1,47 +1,77 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.view.View;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.bdtask.framework.utils.DebugTrace;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.xm;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 /* loaded from: classes9.dex */
 public class zm {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile zm d;
     public transient /* synthetic */ FieldHolder $fh;
-    public wm a;
-    public an b;
-    public RecyclerView c;
-    public VelocityTracker d;
-    public float e;
-    public float f;
-    public int g;
-    public int h;
-    public int i;
-    public lt5 j;
-    public RecyclerView.OnChildAttachStateChangeListener k;
-    public RecyclerView.OnScrollListener l;
-    public RecyclerView.OnItemTouchListener m;
+    public qm a;
+    public ConcurrentLinkedQueue<lm> b;
+    public volatile boolean c;
 
     /* loaded from: classes9.dex */
-    public class a implements RecyclerView.OnChildAttachStateChangeListener {
+    public static class a implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zm a;
 
-        public a(zm zmVar) {
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function0
+        /* renamed from: a */
+        public Unit invoke() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                System.loadLibrary("bdptask");
+                return null;
+            }
+            return (Unit) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ wm b;
+        public final /* synthetic */ zm c;
+
+        public b(zm zmVar, String str, wm wmVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zmVar};
+                Object[] objArr = {zmVar, str, wmVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,89 +81,26 @@ public class zm {
                     return;
                 }
             }
-            this.a = zmVar;
+            this.c = zmVar;
+            this.a = str;
+            this.b = wmVar;
         }
 
-        @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
-        public void onChildViewAttachedToWindow(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.a.r(view2);
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
-        public void onChildViewDetachedFromWindow(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) {
-                return;
-            }
-            this.a.s(view2);
+            this.c.l(this.a, this.b);
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b extends RecyclerView.OnScrollListener {
+    public class c implements xm.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zm a;
-
-        public b(zm zmVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zmVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zmVar;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
-                this.a.u(i);
-            }
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) != null) {
-                return;
-            }
-            this.a.t(i, i2);
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements RecyclerView.OnItemTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zm a;
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-        public void onRequestDisallowInterceptTouchEvent(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            }
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-        public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, motionEvent) == null) {
-            }
-        }
 
         public c(zm zmVar) {
             Interceptable interceptable = $ic;
@@ -153,198 +120,237 @@ public class zm {
             this.a = zmVar;
         }
 
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-        public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            float f;
+        @Override // com.baidu.tieba.xm.b
+        public void a(boolean z, byte[] bArr) {
+            om a;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, recyclerView, motionEvent)) == null) {
-                int actionMasked = motionEvent.getActionMasked();
-                if (actionMasked == 0) {
-                    this.a.c.stopScroll();
-                    this.a.e = motionEvent.getX();
-                    this.a.f = motionEvent.getY();
-                    zm zmVar = this.a;
-                    View x = zmVar.x(zmVar.e, this.a.f);
-                    zm zmVar2 = this.a;
-                    zmVar2.g = zmVar2.c.getChildAdapterPosition(x);
-                    if (this.a.d == null) {
-                        this.a.d = VelocityTracker.obtain();
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, bArr) == null) {
+                String str = "";
+                try {
+                    try {
+                        DebugTrace.a.a("doHandShake response");
+                        if (z && bArr != null && (a = tm.a(bArr)) != null) {
+                            byte i = a.i();
+                            byte[] o = a.o();
+                            if (o != null) {
+                                DebugTrace debugTrace = DebugTrace.a;
+                                debugTrace.a("doHandShake response schemeType =" + ((int) i));
+                                if (i != 21) {
+                                    if (i == 22) {
+                                        if (sm.a(this.a.a, o) != null) {
+                                            DebugTrace.a.a("doHandShake serverHello");
+                                            this.a.a.b(1);
+                                            while (true) {
+                                                lm lmVar = (lm) this.a.b.poll();
+                                                if (lmVar == null) {
+                                                    return;
+                                                }
+                                                this.a.n(lmVar.a(), lmVar.b());
+                                            }
+                                        } else {
+                                            str = "params decode error";
+                                        }
+                                    }
+                                } else {
+                                    DebugTrace.a.a("doHandShake alert");
+                                    em a2 = em.a(o);
+                                    if (a2 != null) {
+                                        DebugTrace.a.a("bdtls ubc handshake alert");
+                                        if (a2.b() != null) {
+                                            str = a2.b();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        DebugTrace debugTrace2 = DebugTrace.a;
+                        debugTrace2.a("exception=" + e.getMessage());
                     }
-                    this.a.d.addMovement(motionEvent);
-                    return false;
-                }
-                int i = 1;
-                if (actionMasked == 2) {
-                    float x2 = motionEvent.getX();
-                    float y = motionEvent.getY();
-                    if (this.a.i == 2) {
-                        f = y - this.a.f;
-                    } else {
-                        f = x2 - this.a.e;
-                    }
-                    if (f >= 0.0f) {
-                        i = 2;
-                    }
-                    if (i != this.a.h) {
-                        this.a.h = i;
-                        this.a.d.clear();
-                    }
-                    this.a.d.addMovement(motionEvent);
-                    this.a.d.computeCurrentVelocity(50);
-                    zm zmVar3 = this.a;
-                    zmVar3.v(zmVar3.d.getXVelocity(), this.a.d.getYVelocity());
-                    this.a.e = x2;
-                    this.a.f = y;
-                    return false;
-                } else if (actionMasked == 3 || actionMasked == 1) {
-                    this.a.e = 0.0f;
-                    this.a.f = 0.0f;
-                    this.a.d.clear();
-                    return false;
-                } else {
-                    return false;
+                    this.a.f(str);
+                } finally {
+                    this.a.c = false;
                 }
             }
-            return invokeLL.booleanValue;
         }
     }
 
-    public zm(xm xmVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448323802, "Lcom/baidu/tieba/zm;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448323802, "Lcom/baidu/tieba/zm;");
+                return;
+            }
+        }
+        ho.a(new a());
+        d = new zm();
+    }
+
+    public static zm b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return d;
+        }
+        return (zm) invokeV.objValue;
+    }
+
+    public qm i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a == null) {
+                this.a = new qm();
+            }
+            return this.a;
+        }
+        return (qm) invokeV.objValue;
+    }
+
+    public zm() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xmVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = new a(this);
-        this.l = new b(this);
-        this.m = new c(this);
-        this.a = new wm(xmVar);
-        this.b = new an(xmVar);
+        this.a = new qm();
+        this.c = false;
+        this.b = new ConcurrentLinkedQueue<>();
     }
 
-    public final void t(int i, int i2) {
+    public final void c(int i, wm wmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            if (this.c instanceof BdTypeRecyclerView) {
-                this.b.p(i, i2, this.g);
-            }
-            this.a.l(i, i2, this.g);
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, wmVar) == null) && wmVar != null) {
+            wmVar.b(i);
         }
     }
 
-    public final void r(View view2) {
+    public void g(String str, wm wmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            if (this.c instanceof BdTypeRecyclerView) {
-                this.b.k(view2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, wmVar) == null) {
+            ExecutorUtilsExt.postOnSerial(new b(this, str, wmVar), "SessionController");
+        }
+    }
+
+    public final void o(String str, wm wmVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, wmVar) == null) {
+            if (wmVar != null && str != null) {
+                DebugTrace.a.a("doNormalApplicationDataRequest");
+                wmVar.e(false);
+                wmVar.f(str.getBytes());
+                return;
+            }
+            c(-1, wmVar);
+        }
+    }
+
+    public final void f(String str) {
+        int i;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            DebugTrace.a.a("onHandshakeError");
+            if (TextUtils.equals(str, "down grade")) {
+                i = 2;
             } else {
-                this.a.g(view2);
+                i = -1;
             }
-        }
-    }
-
-    public final void s(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (this.c instanceof BdTypeRecyclerView) {
-                this.b.l(view2);
-            } else {
-                this.a.h(view2);
-            }
-        }
-    }
-
-    public void q(RecyclerView recyclerView, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, recyclerView, i) != null) || recyclerView == null) {
-            return;
-        }
-        RecyclerView recyclerView2 = this.c;
-        if (recyclerView2 != null) {
-            recyclerView2.removeOnItemTouchListener(this.m);
-            this.c.removeOnScrollListener(this.l);
-            this.c.removeOnChildAttachStateChangeListener(this.k);
-        }
-        this.c = recyclerView;
-        this.i = i;
-        if (recyclerView instanceof BdTypeRecyclerView) {
-            this.b.e((BdTypeRecyclerView) recyclerView, i);
-        } else {
-            this.a.e(recyclerView, i);
-        }
-        this.c.addOnItemTouchListener(this.m);
-        this.c.addOnScrollListener(this.l);
-        this.c.addOnChildAttachStateChangeListener(this.k);
-    }
-
-    public final void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (i == 1) {
-                if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-                    if (this.j == null) {
-                        this.j = new lt5("anim_switch_slide");
+            this.a.b(i);
+            while (true) {
+                lm poll = this.b.poll();
+                if (poll != null) {
+                    if (i == 2) {
+                        o(poll.a(), poll.b());
+                    } else {
+                        wm b2 = poll.b();
+                        if (b2 != null) {
+                            if (TextUtils.isEmpty(str)) {
+                                str2 = "connect fail";
+                            } else {
+                                str2 = str;
+                            }
+                            b2.c(new IOException(str2));
+                        }
                     }
-                    this.j.b();
-                }
-            } else if (i == 0 && this.j != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-                this.j.c();
-            }
-            if (this.c instanceof BdTypeRecyclerView) {
-                this.b.q(i);
-            }
-            this.a.m(i);
-        }
-    }
-
-    public final void v(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            if (this.c instanceof BdTypeRecyclerView) {
-                this.b.t(f, f2, this.g);
-            }
-            this.a.o(f, f2, this.g);
-        }
-    }
-
-    public void w() {
-        RecyclerView recyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (recyclerView = this.c) != null) {
-            recyclerView.removeOnItemTouchListener(this.m);
-            this.c.removeOnScrollListener(this.l);
-            this.c.removeOnChildAttachStateChangeListener(this.k);
-        }
-    }
-
-    public View x(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            RecyclerView recyclerView = this.c;
-            if (recyclerView == null) {
-                return null;
-            }
-            for (int childCount = recyclerView.getChildCount() - 1; childCount >= 0; childCount--) {
-                View childAt = this.c.getChildAt(childCount);
-                float translationX = childAt.getTranslationX();
-                float translationY = childAt.getTranslationY();
-                if (f >= childAt.getLeft() + translationX && f <= childAt.getRight() + translationX && f2 >= childAt.getTop() + translationY && f2 <= childAt.getBottom() + translationY) {
-                    return childAt;
+                } else {
+                    return;
                 }
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void l(String str, wm wmVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, wmVar) == null) {
+            if (this.a.a() != 2) {
+                if (!this.a.k()) {
+                    if (this.b == null) {
+                        this.b = new ConcurrentLinkedQueue<>();
+                    }
+                    this.b.offer(new lm(str, wmVar));
+                    m();
+                    return;
+                }
+                n(str, wmVar);
+                return;
+            }
+            o(str, wmVar);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            DebugTrace.a.a("doHandShake");
+            if (this.c) {
+                DebugTrace.a.a("doHandShake isHandshakeRunning");
+                return;
+            }
+            this.c = true;
+            byte[] e = ym.c().e(this.a);
+            if (e != null && e.length > 0) {
+                new xm().a(e, new c(this));
+                return;
+            }
+            this.c = false;
+            f("record data error");
+        }
+    }
+
+    public final void n(String str, wm wmVar) {
+        byte[] f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, wmVar) == null) {
+            if (str != null && wmVar != null) {
+                if (TextUtils.equals(wmVar.a(), "GET")) {
+                    f = ym.c().f(this.a, null);
+                } else {
+                    f = ym.c().f(this.a, str);
+                }
+                if (f != null) {
+                    DebugTrace.a.a("doBdtlsApplicationDataRequest");
+                    wmVar.e(true);
+                    wmVar.f(f);
+                    return;
+                }
+                c(-1, wmVar);
+                return;
+            }
+            c(-1, null);
+        }
     }
 }

@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.config.AppConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunchTask> {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final int HIGH_PRIORITY = 3;

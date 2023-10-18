@@ -1,15 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.net.request.Headers;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tieba.aj0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public abstract class mt0<T> implements lt0<T> {
+public class mt0 implements aj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.aj0
+    public void a(@Nullable String str, @Nullable String str2, aj0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, aVar) == null) {
+        }
+    }
 
     public mt0() {
         Interceptable interceptable = $ic;
@@ -22,14 +33,6 @@ public abstract class mt0<T> implements lt0<T> {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.kt0
-    public void c(Headers headers, InputStream inputStream, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, headers, inputStream, i) == null) {
-            throw new IllegalStateException("走错路了");
         }
     }
 }

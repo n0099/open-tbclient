@@ -392,9 +392,9 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.g = (int) (getResources().getDisplayMetrics().density * 86.0f * 0.6f);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09e7, (ViewGroup) this, true);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091fa1);
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f09238c);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09d3, (ViewGroup) this, true);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091fac);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f092396);
             this.b = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setTextViewShadowStringArrayId(R.array.S_O_X001);
             this.b.setDefaultSelectorColorResourceId(R.color.CAM_X0101);
@@ -409,16 +409,16 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
             this.b.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(BdUtilHelper.getDimens(context, R.dimen.tbds166), -1));
             this.b.H();
             this.b.setOnTabItemClickListener(new b(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902f1);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902f5);
             this.c = textView;
             EMManager.from(textView).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X10).setTextStyle(R.string.F_X01).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0301);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091db8);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091dda);
             this.d = textView2;
             EMManager.from(textView2).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X07).setTextStyle(R.string.F_X02);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091db6);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091dd8);
             this.e = findViewById;
             ((RelativeLayout.LayoutParams) findViewById.getLayoutParams()).setMargins(0, -BdUtilHelper.getDimens(context, R.dimen.tbds20), 0, 0);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091db7);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091dd9);
             this.f = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_common_pull_refresh);
             if (this.f.isAnimating()) {
@@ -458,7 +458,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (z) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    BdUtilHelper.showLongToast(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0e42));
+                    BdUtilHelper.showLongToast(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0e4f));
                     return;
                 }
                 d dVar = this.i;

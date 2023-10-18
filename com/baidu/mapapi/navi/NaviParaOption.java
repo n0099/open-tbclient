@@ -6,7 +6,6 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.searchbox.network.outback.EngineName;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +44,7 @@ public class NaviParaOption {
                 if (i != 3) {
                     if (i != 4) {
                         if (i != 5) {
-                            return EngineName.DEFAULT_ENGINE;
+                            return "DEFAULT";
                         }
                         return "HIGHWAY";
                     }

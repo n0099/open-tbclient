@@ -1,372 +1,106 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.BdStatsItem;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cg {
+public abstract class cg {
     public static /* synthetic */ Interceptable $ic;
-    public static b a;
-    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public abstract String a();
 
-    public static String b(int i) {
-        InterceptResult invokeI;
+    public cg() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? 1 == i ? "2G" : 2 == i ? "3G" : 3 == i ? "4G" : 4 == i ? "5G" : 5 == i ? "WIFI" : "N" : (String) invokeI.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public fg a;
-        public fg b;
-        public fg c;
-        public fg d;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new fg();
-            this.b = new fg();
-            this.c = new fg();
-            this.d = new fg();
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a.g + this.b.g + this.c.g + this.d.g;
-            }
-            return invokeV.intValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.c.g > 0) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.b.g > 0) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.a.g > 0) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.d.g > 0) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.a.a();
-                this.b.a();
-                this.c.a();
-                this.d.a();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448301513, "Lcom/baidu/tieba/cg;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448301513, "Lcom/baidu/tieba/cg;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new b(null);
-        b = new Object();
+        this.a = false;
     }
 
-    public static fg a() {
-        InterceptResult invokeV;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (BdNetTypeUtil.isWifiNet()) {
-                return a.d;
-            }
-            if (BdNetTypeUtil.is4GNet()) {
-                return a.c;
-            }
-            if (BdNetTypeUtil.is3GNet()) {
-                return a.b;
-            }
-            return a.a;
-        }
-        return (fg) invokeV.objValue;
-    }
-
-    public static void c(boolean z, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            synchronized (b) {
-                fg a2 = a();
-                if (z) {
-                    a2.l++;
-                    a2.m += j;
-                }
-            }
-        }
-    }
-
-    public static void e(boolean z, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            fg a2 = a();
-            if (z) {
-                a2.r++;
-                a2.s += j;
-            }
-        }
-    }
-
-    public static void f(boolean z, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            synchronized (b) {
-                fg a2 = a();
-                a2.d++;
-                if (z) {
-                    a2.e++;
-                    a2.f += j;
-                }
-            }
-        }
-    }
-
-    public static void i(boolean z, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            fg a2 = a();
-            a2.a++;
-            if (z) {
-                a2.b++;
-                a2.c += j;
-            }
-        }
-    }
-
-    public static void k(boolean z, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            fg a2 = a();
-            if (z) {
-                a2.n++;
-                a2.o += j;
-            }
-        }
-    }
-
-    public static void l(boolean z, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            synchronized (b) {
-                fg a2 = a();
-                if (z) {
-                    a2.j++;
-                    a2.k += j;
-                }
-            }
-        }
-    }
-
-    public static void d(boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            fg a2 = a();
-            if (z) {
-                a2.t++;
-            }
-            if (z2) {
-                a2.u++;
-            }
-            if (z3) {
-                a2.v++;
-            }
-        }
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && a.a() > 10) {
-            if (a.e()) {
-                h(a.d, 5);
-            }
-            if (a.b()) {
-                h(a.c, 3);
-            }
-            if (a.c()) {
-                h(a.b, 2);
-            }
-            if (a.d()) {
-                h(a.a, 1);
-            }
-            a.f();
-        }
-    }
-
-    public static void h(fg fgVar, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65544, null, fgVar, i) != null) || fgVar == null || !BdBaseApplication.getInst().isSmallFlow()) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a) {
             return;
         }
-        BdStatsItem statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-        statsItem.append("action", "imgStat");
-        statsItem.append("memoryCount", String.valueOf(fgVar.a));
-        statsItem.append("memorySucCount", String.valueOf(fgVar.b));
-        statsItem.append("memoryTime", String.valueOf(fgVar.c));
-        statsItem.append("localCount", String.valueOf(fgVar.d));
-        statsItem.append("localSucCount", String.valueOf(fgVar.e));
-        statsItem.append("localTime", String.valueOf(fgVar.f));
-        statsItem.append("netCount", String.valueOf(fgVar.g));
-        statsItem.append("netSucCount", String.valueOf(fgVar.h));
-        statsItem.append("netTime", String.valueOf(fgVar.i));
-        statsItem.append("taskCount", String.valueOf(fgVar.j));
-        statsItem.append("taskTime", String.valueOf(fgVar.k));
-        statsItem.append("decodeCount", String.valueOf(fgVar.l));
-        statsItem.append("decodeTime", String.valueOf(fgVar.m));
-        statsItem.append("saveMemoryCount", String.valueOf(fgVar.n));
-        statsItem.append("saveMemoryTime", String.valueOf(fgVar.o));
-        statsItem.append("saveLocalCount", String.valueOf(fgVar.p));
-        statsItem.append("saveLocalTime", String.valueOf(fgVar.q));
-        statsItem.append("memoryHitCount", String.valueOf(fgVar.t));
-        statsItem.append("localHitCount", String.valueOf(fgVar.u));
-        statsItem.append("netHitCount", String.valueOf(fgVar.v));
-        statsItem.append("totalHitCount", String.valueOf(fgVar.t + fgVar.u + fgVar.v));
-        statsItem.append("totalCount", String.valueOf(fgVar.r));
-        statsItem.append("totalTime", String.valueOf(fgVar.s));
-        statsItem.append("cdnCount", String.valueOf(fgVar.w));
-        statsItem.append("ipCount", String.valueOf(fgVar.x));
-        statsItem.append("cdnAndIpCount", String.valueOf(fgVar.y));
-        statsItem.append("imgSize", String.valueOf(fgVar.z));
-        statsItem.append(FpsTracer.UBC_KEY_NET_TYPE, b(i));
-        BdStatisticsManager.getInstance().performance("image", statsItem);
-    }
-
-    public static void j(boolean z, String str, nf nfVar, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65546, null, new Object[]{Boolean.valueOf(z), str, nfVar, Long.valueOf(j), Long.valueOf(j2)}) != null) || !BdUtilHelper.isNetOk()) {
+        this.a = true;
+        if (TextUtils.isEmpty(a())) {
             return;
         }
-        synchronized (b) {
-            boolean m = m(str);
-            boolean z2 = false;
-            if (nfVar != null && !StringUtils.isNull(nfVar.k)) {
-                z2 = true;
+        try {
+            new JSONObject().put("version", i);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void c(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
             }
-            fg a2 = a();
-            if (m) {
-                a2.w++;
-            }
-            if (z2) {
-                a2.x++;
-            }
-            if (m && z2) {
-                a2.y++;
-            }
-            a2.g++;
-            if (z) {
-                a2.h++;
-                a2.i += j;
-                a2.z += j2;
-            }
-            if (a.a() > 100) {
-                g();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j)));
+            String str = a + "_download";
+            if (i == 0) {
+                bg.c(str, arrayList);
+            } else {
+                bg.b(str, arrayList);
             }
         }
     }
 
-    public static boolean m(String str) {
-        InterceptResult invokeL;
+    public void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (str == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
             }
-            int indexOf = str.indexOf("hiphotos");
-            if (indexOf > 0 && indexOf < 20) {
-                return true;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_install";
+            if (i == 13) {
+                bg.c(str, arrayList);
+            } else {
+                bg.b(str, arrayList);
             }
-            int indexOf2 = str.indexOf("tiebapic");
-            if (indexOf2 <= 0 || indexOf2 >= 20) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
+    }
+
+    public void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_launch";
+            if (i == 14) {
+                bg.c(str, arrayList);
+            } else {
+                bg.b(str, arrayList);
+            }
+        }
     }
 }

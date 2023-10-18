@@ -1,6 +1,7 @@
 package com.sina.weibo.sdk.utils;
 
 import android.content.Context;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +34,7 @@ public class NetworkHelper {
             StringBuilder sb = new StringBuilder();
             sb.append("Android");
             sb.append("__");
-            sb.append("weibo");
+            sb.append(ShareItem.OUTSIDE_SHARE_WEIBO);
             sb.append("__");
             sb.append("sdk");
             sb.append("__");

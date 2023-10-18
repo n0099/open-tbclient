@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,13 +9,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dy2 implements f13 {
+public class dy2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dy2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
+    public String a;
+    public String b;
+    public String c;
+    public la1 d;
+
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != -2) {
+                return i != 0 ? 6 : 0;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
 
     public dy2() {
         Interceptable interceptable = $ic;
@@ -27,46 +40,38 @@ public class dy2 implements f13 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = Integer.MIN_VALUE;
-        this.b = Integer.MIN_VALUE;
-        this.c = -1;
-        this.d = -1;
     }
 
-    @Override // com.baidu.tieba.f13
-    public boolean isValid() {
+    public static dy2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a != Integer.MIN_VALUE && this.b != Integer.MIN_VALUE) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (dy2.class) {
+                    if (e == null) {
+                        e = new dy2();
+                    }
+                }
             }
-            return false;
+            return e;
         }
-        return invokeV.booleanValue;
+        return (dy2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.f13
-    public void a(JSONObject jSONObject) throws JSONException {
-        int i;
+    @NonNull
+    public static JSONObject c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("left") && jSONObject.has("top")) {
-            this.a = xo3.g(jSONObject.optInt("left"));
-            this.b = xo3.g(jSONObject.optInt("top"));
-            int i2 = -1;
-            if (jSONObject.has("width")) {
-                i = Math.abs(xo3.g(jSONObject.optInt("width")));
-            } else {
-                i = -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("finalUrl", str);
+            } catch (JSONException unused) {
             }
-            this.c = i;
-            if (jSONObject.has("height")) {
-                i2 = Math.abs(xo3.g(jSONObject.optInt("height")));
-            }
-            this.d = i2;
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

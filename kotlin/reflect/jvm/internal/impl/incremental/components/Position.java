@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.incremental.components;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.Serializable;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class Position implements Serializable {
     public static final Companion Companion = new Companion(null);
     public static final Position NO_POSITION = new Position(-1, -1);
@@ -29,7 +29,7 @@ public final class Position implements Serializable {
         return "Position(line=" + this.line + ", column=" + this.column + SmallTailInfo.EMOTION_SUFFIX;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

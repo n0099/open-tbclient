@@ -1,12 +1,12 @@
 package com.baidu.tbadk.message.websockt;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.oe;
+import com.baidu.tieba.m9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class TbSocketReponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,10 +31,10 @@ public abstract class TbSocketReponsedMessage extends SocketResponsedMessage {
         }
     }
 
-    public static void saveProtocolBufferDataToCache(oe<byte[]> oeVar, String str, byte[] bArr) {
+    public static void saveProtocolBufferDataToCache(m9<byte[]> m9Var, String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, oeVar, str, bArr) == null) && str != null && oeVar != null && bArr != null && bArr.length > 0) {
-            oeVar.g(str, bArr);
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, m9Var, str, bArr) == null) && str != null && m9Var != null && bArr != null && bArr.length > 0) {
+            m9Var.g(str, bArr);
         }
     }
 }

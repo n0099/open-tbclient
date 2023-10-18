@@ -28,7 +28,7 @@ public final class FeatureCodes {
     public static List<Integer> getAll() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(1000);
-        arrayList.add(1100);
+        arrayList.add(Integer.valueOf((int) BASIC_FILTER));
         arrayList.add(1200);
         arrayList.add(1300);
         arrayList.add(1400);
@@ -44,7 +44,7 @@ public final class FeatureCodes {
         arrayList.add(2000);
         arrayList.add(Integer.valueOf((int) FACE_DUMOJI));
         arrayList.add(2100);
-        arrayList.add(3100);
+        arrayList.add(Integer.valueOf((int) TRACK_3D));
         arrayList.add(2200);
         arrayList.add(2300);
         return arrayList;

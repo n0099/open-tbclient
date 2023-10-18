@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser;
 
+import com.baidu.mobads.sdk.api.IAdInterListener;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.boxes.FullBox;
@@ -70,7 +71,7 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("AbstractFullBox.java", AbstractFullBox.class);
-        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setVersion", "com.googlecode.mp4parser.AbstractFullBox", "int", "version", "", "void"), 51);
-        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setFlags", "com.googlecode.mp4parser.AbstractFullBox", "int", "flags", "", "void"), 64);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setVersion", "com.googlecode.mp4parser.AbstractFullBox", IAdInterListener.AdProdType.PRODUCT_INTERSTITIAL, "version", "", "void"), 51);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setFlags", "com.googlecode.mp4parser.AbstractFullBox", IAdInterListener.AdProdType.PRODUCT_INTERSTITIAL, "flags", "", "void"), 64);
     }
 }

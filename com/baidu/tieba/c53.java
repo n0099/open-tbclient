@@ -1,10 +1,20 @@
 package com.baidu.tieba;
 
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface c53 {
-    public static final boolean a = qr1.a;
+public class c53 extends a53 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String i;
 
-    List<o43> a(JSONObject jSONObject);
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
 }

@@ -1,129 +1,223 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.FrsSpriteNewUserGuide;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
-import com.baidu.tieba.core.widget.SpriteBottomTipView;
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.widget.SwipeBackLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tieba.bq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThemeColorInfo;
-import tbclient.ThemeElement;
-/* loaded from: classes5.dex */
-public final class fq7 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class fq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public ViewGroup b;
+    public gq7 c;
+    public bq7 d;
+    public rn5 e;
+    public bq7.a f;
+    public Runnable g;
 
-    public static final void a(SpriteBottomTipView.a aVar, FrsSpriteNewUserGuide.BubbleText bubbleText) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        ThemeColorInfo themeColorInfo;
-        ThemeElement themeElement;
-        ThemeColorInfo themeColorInfo2;
-        ThemeElement themeElement2;
-        FrsSpriteNewUserGuide.ButtonInfo buttonInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, aVar, bubbleText) == null) {
-            Intrinsics.checkNotNullParameter(aVar, "<this>");
-            ThemeColorInfo themeColorInfo3 = null;
-            if (bubbleText != null) {
-                str = bubbleText.title;
-            } else {
-                str = null;
+    /* loaded from: classes6.dex */
+    public class a implements bq7.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fq7 a;
+
+        public a(fq7 fq7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fq7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (StringUtils.isNull(str)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f087e);
-            }
-            aVar.s(str);
-            if (bubbleText != null) {
-                str2 = bubbleText.text;
-            } else {
-                str2 = null;
-            }
-            aVar.g(str2);
-            if (bubbleText != null && (buttonInfo = bubbleText.buttonInfo) != null) {
-                str3 = buttonInfo.text;
-            } else {
-                str3 = null;
-            }
-            aVar.e(str3);
-            if (bubbleText != null && (themeColorInfo2 = bubbleText.bgUrlTheme) != null && (themeElement2 = themeColorInfo2.day) != null) {
-                str4 = themeElement2.pattern_image;
-            } else {
-                str4 = null;
-            }
-            aVar.c(str4);
-            if (bubbleText != null && (themeColorInfo = bubbleText.bgUrlTheme) != null && (themeElement = themeColorInfo.dark) != null) {
-                str5 = themeElement.pattern_image;
-            } else {
-                str5 = null;
-            }
-            aVar.b(str5);
-            if (bubbleText != null) {
-                themeColorInfo3 = bubbleText.textColor;
-            }
-            b(aVar, themeColorInfo3);
+            this.a = fq7Var;
         }
-    }
 
-    public static final void b(SpriteBottomTipView.a aVar, ThemeColorInfo themeColorInfo) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, aVar, themeColorInfo) == null) && themeColorInfo != null) {
-            ThemeElement themeElement = themeColorInfo.day;
-            String str2 = null;
-            if (themeElement != null) {
-                str = themeElement.font_color;
-            } else {
-                str = null;
-            }
-            int f = fia.f(str);
-            if (!fia.e(f)) {
-                aVar.t(Integer.valueOf(f));
-                aVar.h(Integer.valueOf(f));
-            }
-            ThemeElement themeElement2 = themeColorInfo.dark;
-            if (themeElement2 != null) {
-                str2 = themeElement2.font_color;
-            }
-            int f2 = fia.f(str2);
-            if (!fia.e(f2)) {
-                aVar.v(Integer.valueOf(f2));
-                aVar.j(Integer.valueOf(f2));
+        @Override // com.baidu.tieba.bq7.a
+        public void onStateChanged(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 1) {
+                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        if (this.a.e == null) {
+                            this.a.e = new rn5("anim_switch_trans_frs");
+                        }
+                        this.a.e.b();
+                        BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsActivityConfig.KEY_FPS_FRS_FROM, "frs", "tran");
+                    }
+                } else if (i == 2) {
+                    this.a.k();
+                    if (this.a.e != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        this.a.e.c();
+                    }
+                    BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsActivityConfig.KEY_FPS_FRS);
+                } else if (i == 0) {
+                    this.a.j();
+                }
             }
         }
     }
 
-    public static final void c(SpriteBottomTipView.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            Intrinsics.checkNotNullParameter(aVar, "<this>");
-            sa5 sa5Var = new sa5();
-            sa5Var.s(R.color.CAM_X0601, R.color.CAM_X0920);
-            sa5Var.k(UtilHelper.getDimenPixelSize(R.dimen.tbds10), UtilHelper.getDimenPixelSize(R.dimen.tbds10));
-            sa5Var.p(0);
-            sa5Var.n(0);
-            sa5Var.h(UtilHelper.getDimenPixelSize(R.dimen.tbds42));
-            sa5Var.f(1);
-            sa5Var.j(0, R.drawable.ic_icon_mybar_pure_list_arrow16_right, TBSpecificationButtonConfig.IconType.WEBP);
-            aVar.d(sa5Var);
-            aVar.f(R.dimen.T_X07);
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fq7 a;
+
+        public b(fq7 fq7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fq7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fq7Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
+            }
         }
     }
 
-    public static final void d(SpriteBottomTipView.a aVar) {
+    public fq7(Context context, ViewGroup viewGroup, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
-            Intrinsics.checkNotNullParameter(aVar, "<this>");
-            aVar.w(R.dimen.T_X05);
-            aVar.k(R.dimen.T_X07);
-            aVar.u(R.color.CAM_X0610);
-            aVar.i(R.color.CAM_X0610);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewGroup, intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.f = new a(this);
+        this.g = new b(this);
+        this.a = context;
+        this.b = viewGroup;
+        gq7 gq7Var = new gq7(context);
+        this.c = gq7Var;
+        bq7 a2 = cq7.a(gq7Var, intent);
+        this.d = a2;
+        a2.b(this.f);
+    }
+
+    public static boolean i(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {
+            if (intent == null || intent.getIntExtra("transition_type", 0) == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SafeHandler.getInst().removeCallbacks(this.g);
+            if (this.d.a() == 1) {
+                SafeHandler.getInst().postDelayed(this.g, 10L);
+                return;
+            }
+            k();
+            this.d.c();
+        }
+    }
+
+    public final void g() {
+        View findViewById;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ViewGroup viewGroup = this.b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.b.getChildAt(0).setVisibility(8);
+            }
+            ViewGroup viewGroup2 = this.b;
+            if (viewGroup2 != null && (findViewById = viewGroup2.findViewById(16908290)) != null) {
+                findViewById.setVisibility(8);
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ViewGroup viewGroup = this.b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.b.getChildAt(0).setVisibility(0);
+            }
+            ViewGroup viewGroup2 = this.b;
+            if (viewGroup2 != null && viewGroup2.findViewById(16908290) != null) {
+                this.b.findViewById(16908290).setVisibility(0);
+            }
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.b == null) {
+            return;
+        }
+        f();
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ViewParent parent = this.c.a.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(this.c.a);
+            }
+            SafeHandler.getInst().removeCallbacks(this.g);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.b == null) {
+            return;
+        }
+        j();
+        this.b.addView(this.c.a);
+        g();
+        this.d.d();
     }
 }

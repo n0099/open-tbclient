@@ -1,77 +1,78 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ea4 {
+public class ea4 extends ba4<bs2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947727601, "Lcom/baidu/tieba/ea4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947727601, "Lcom/baidu/tieba/ea4;");
+                return;
+            }
+        }
+        boolean z = am1.a;
+    }
 
     public ea4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final boolean a() {
+    public static ea4 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            s23 d = d();
-            if (d != null) {
-                return d.a();
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new ea4();
         }
-        return invokeV.booleanValue;
+        return (ea4) invokeV.objValue;
     }
 
-    public final s23 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ba4
+    public boolean b(Context context, bs2 bs2Var, yr2 yr2Var, p53 p53Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            gb3 M = gb3.M();
-            if (M != null) {
-                return M.m0();
-            }
-            return null;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, bs2Var, yr2Var, p53Var, jSONObject)) == null) {
+            return e(context, bs2Var, yr2Var, p53Var);
         }
-        return (s23) invokeV.objValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    public final void b(WebSocketTask task) {
+    public final boolean e(Context context, bs2 bs2Var, yr2 yr2Var, p53 p53Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
-            Intrinsics.checkNotNullParameter(task, "task");
-            s23 d = d();
-            if (d != null) {
-                d.b(task);
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bs2Var, yr2Var, p53Var)) == null) {
+            p22.i("map", "MapUpdateAction start");
+            boolean i = y94.b().i(context, bs2Var);
+            p22.i("map", "MapUpdateAction end");
+            return i;
         }
-    }
-
-    public final void c(String taskId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
-            Intrinsics.checkNotNullParameter(taskId, "taskId");
-            s23 d = d();
-            if (d != null) {
-                d.c(taskId);
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

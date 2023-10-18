@@ -1,93 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class ka2 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
-    public static tj3 b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ka2 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947906285, "Lcom/baidu/tieba/ka2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947906285, "Lcom/baidu/tieba/ka2;");
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(String str);
+
+        WebResourceResponse b(String str, Map<String, String> map, boolean z);
+
+        boolean c();
+
+        String d();
+
+        String getMimeType();
+
+        Map<String, String> getRequestHeaders();
     }
 
-    public ka2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static tj3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (ka2.class) {
-                    if (b == null) {
-                        b = new tj3("swan_about_page_sp", true);
-                    }
-                }
-            }
-            return b;
-        }
-        return (tj3) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (a == -1) {
-                a = a().getInt(b(), 0);
-            }
-            if (a != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        String O;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            gb3 b0 = gb3.b0();
-            if (b0 == null) {
-                O = i32.a(fb3.K().getAppId());
-            } else {
-                O = b0.O();
-            }
-            return "pref_tool_" + O;
-        }
-        return (String) invokeV.objValue;
-    }
+    WebResourceResponse a(@NonNull a aVar);
 }

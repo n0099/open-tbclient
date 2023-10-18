@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.searchbox.config.AppConfig;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractSpeedStats {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "AbstractSpeedStats";

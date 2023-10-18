@@ -1,32 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.android.util.KVStorageFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-@Singleton
-@Service
 /* loaded from: classes9.dex */
-public class zw3 implements ev2 {
+public class zw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile zw3 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ev2
-    public Map<Class, Object> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
+    public SharedPreferences a;
 
     public zw3() {
         Interceptable interceptable = $ic;
@@ -38,54 +25,43 @@ public class zw3 implements ev2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
     }
 
-    @Override // com.baidu.tieba.ev2
-    public void a(dc3 dc3Var) {
+    public static zw3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dc3Var) == null) {
-            vw3.b().a(dc3Var);
-            vw3.a().a(dc3Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (zw3.class) {
+                    if (b == null) {
+                        b = new zw3();
+                    }
+                }
+            }
+            return b;
         }
+        return (zw3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ev2
-    public Map<String, Object> b(@NonNull hz1 hz1Var) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hz1Var)) == null) {
-            Map<String, Object> b = vw3.b().b(hz1Var);
-            Map<String, Object> b2 = vw3.a().b(hz1Var);
-            HashMap hashMap = new HashMap();
-            if (b != null) {
-                hashMap.putAll(b);
-            }
-            if (b2 != null) {
-                hashMap.putAll(b2);
-            }
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getBoolean("gamecenter_wifi_resume_download_flag", false);
         }
-        return (Map) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ev2
-    public Map<String, Object> c(@NonNull hz1 hz1Var) {
-        InterceptResult invokeL;
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hz1Var)) == null) {
-            Map<String, Object> c = vw3.b().c(hz1Var);
-            Map<String, Object> c2 = vw3.a().c(hz1Var);
-            HashMap hashMap = new HashMap();
-            if (c != null) {
-                hashMap.putAll(c);
-            }
-            if (c2 != null) {
-                hashMap.putAll(c2);
-            }
-            return hashMap;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putBoolean("gamecenter_wifi_resume_download_flag", z);
+            edit.apply();
         }
-        return (Map) invokeL.objValue;
     }
 }

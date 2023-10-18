@@ -5,9 +5,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.sd6;
-import com.baidu.tieba.yd6;
-import com.baidu.tieba.zd6;
+import com.baidu.tieba.b86;
+import com.baidu.tieba.h86;
+import com.baidu.tieba.i86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yd6 mData;
+    public h86 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpecialLiveResponseMessage() {
@@ -40,13 +40,13 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public yd6 getData() {
+    public h86 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (yd6) invokeV.objValue;
+        return (h86) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -57,14 +57,14 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            this.mData = new yd6();
+            this.mData = new h86();
             jSONObject.optInt("concern_live_show");
             boolean z = true;
             JSONObject optJSONObject = jSONObject.optJSONObject("head_live");
             if (optJSONObject != null) {
-                sd6 sd6Var = new sd6();
-                sd6Var.a(optJSONObject);
-                this.mData.a = sd6Var;
+                b86 b86Var = new b86();
+                b86Var.a(optJSONObject);
+                this.mData.a = b86Var;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("tab_info");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -85,16 +85,16 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
                 alaUserInfoData.parserJson(optJSONObject2);
                 this.mData.d = alaUserInfoData;
             }
-            yd6 yd6Var = this.mData;
+            h86 h86Var = this.mData;
             if (jSONObject.optInt("is_like") != 1) {
                 z = false;
             }
-            yd6Var.c = z;
+            h86Var.c = z;
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user_sign_info");
             if (optJSONObject2 != null) {
-                zd6 zd6Var = new zd6();
-                zd6Var.a(optJSONObject3);
-                this.mData.e = zd6Var;
+                i86 i86Var = new i86();
+                i86Var.a(optJSONObject3);
+                this.mData.e = i86Var;
             }
         }
     }

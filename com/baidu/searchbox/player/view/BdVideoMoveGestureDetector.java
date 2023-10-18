@@ -20,7 +20,7 @@ public class BdVideoMoveGestureDetector implements IKernelGestureDetector {
     public OnMoveGestureListener listener;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1063view;
+    public final View f1064view;
 
     @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\bf\u0018\u00002\u00020\u0001J\u0010\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H&J\u0010\u0010\u0006\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H&¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector$OnMoveGestureListener;", "", "onMoveBegin", "", "detector", "Lcom/baidu/searchbox/player/view/BdVideoMoveGestureDetector;", "onMoveEnd", "framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes4.dex */
@@ -50,7 +50,7 @@ public class BdVideoMoveGestureDetector implements IKernelGestureDetector {
 
     public BdVideoMoveGestureDetector(View view2, OnMoveGestureListener onMoveGestureListener) {
         Intrinsics.checkNotNullParameter(view2, "view");
-        this.f1063view = view2;
+        this.f1064view = view2;
         this.listener = onMoveGestureListener;
     }
 
@@ -73,7 +73,7 @@ public class BdVideoMoveGestureDetector implements IKernelGestureDetector {
     }
 
     public final View getView() {
-        return this.f1063view;
+        return this.f1064view;
     }
 
     public final boolean isMoveDetected() {
@@ -128,7 +128,7 @@ public class BdVideoMoveGestureDetector implements IKernelGestureDetector {
                 float f7 = f5 - this.lastY;
                 BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "BdVideoMoveGestureDetector->dx=" + f6 + ", y=" + f7);
                 if (!this.isMoveDetected) {
-                    if (Math.abs(event.getX(1) - event.getX(0)) <= BdGestureHelper.touchSlop(this.f1063view) && Math.abs(event.getY(1) - event.getY(0)) <= BdGestureHelper.touchSlop(this.f1063view)) {
+                    if (Math.abs(event.getX(1) - event.getX(0)) <= BdGestureHelper.touchSlop(this.f1064view) && Math.abs(event.getY(1) - event.getY(0)) <= BdGestureHelper.touchSlop(this.f1064view)) {
                         z2 = false;
                     } else {
                         z2 = true;
@@ -138,7 +138,7 @@ public class BdVideoMoveGestureDetector implements IKernelGestureDetector {
                         return false;
                     }
                 }
-                boolean actionMoveEnabled = BdGestureHelper.actionMoveEnabled(this.f1063view, f6, f7);
+                boolean actionMoveEnabled = BdGestureHelper.actionMoveEnabled(this.f1064view, f6, f7);
                 this.isMoveDetected = actionMoveEnabled;
                 if (actionMoveEnabled) {
                     if (f6 == 0.0f) {
@@ -179,14 +179,14 @@ public class BdVideoMoveGestureDetector implements IKernelGestureDetector {
 
     public void setTranslate(float f, float f2) {
         boolean z;
-        if (this.f1063view.getScaleX() <= 1.0f) {
-            View view2 = this.f1063view;
+        if (this.f1064view.getScaleX() <= 1.0f) {
+            View view2 = this.f1064view;
             view2.setTranslationX(view2.getTranslationX() + f);
-            View view3 = this.f1063view;
+            View view3 = this.f1064view;
             view3.setTranslationY(view3.getTranslationY() + f2);
             return;
         }
-        PointF scaleMovePointF$default = BdGestureHelper.getScaleMovePointF$default(this.f1063view, f, f2, false, 4, null);
+        PointF scaleMovePointF$default = BdGestureHelper.getScaleMovePointF$default(this.f1064view, f, f2, false, 4, null);
         boolean z2 = true;
         if (scaleMovePointF$default.x == 0.0f) {
             z = true;
@@ -194,14 +194,14 @@ public class BdVideoMoveGestureDetector implements IKernelGestureDetector {
             z = false;
         }
         if (!z) {
-            View view4 = this.f1063view;
+            View view4 = this.f1064view;
             view4.setTranslationX(view4.getTranslationX() + scaleMovePointF$default.x);
         }
         if (scaleMovePointF$default.y != 0.0f) {
             z2 = false;
         }
         if (!z2) {
-            View view5 = this.f1063view;
+            View view5 = this.f1064view;
             view5.setTranslationY(view5.getTranslationY() + scaleMovePointF$default.y);
         }
     }

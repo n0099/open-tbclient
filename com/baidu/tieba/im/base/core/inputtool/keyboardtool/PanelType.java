@@ -11,12 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import kotlin.Metadata;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-@Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0007\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004j\u0002\b\u0005j\u0002\b\u0006j\u0002\b\u0007¨\u0006\b"}, d2 = {"Lcom/baidu/tieba/im/base/core/inputtool/keyboardtool/PanelType;", "", "(Ljava/lang/String;I)V", "INPUT_KEYBOARD", "VOICE", "EXPRESSION", "PICTURE", HlsPlaylistParser.METHOD_NONE, "im-base-core_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\b\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004j\u0002\b\u0005j\u0002\b\u0006j\u0002\b\u0007j\u0002\b\b¨\u0006\t"}, d2 = {"Lcom/baidu/tieba/im/base/core/inputtool/keyboardtool/PanelType;", "", "(Ljava/lang/String;I)V", "INPUT_KEYBOARD", "VOICE", "EXPRESSION", "PICTURE", HlsPlaylistParser.METHOD_NONE, "INPUTCHANGE", "im-base-core_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class PanelType {
     public static final /* synthetic */ PanelType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final PanelType EXPRESSION;
+    public static final PanelType INPUTCHANGE;
     public static final PanelType INPUT_KEYBOARD;
     public static final PanelType NONE;
     public static final PanelType PICTURE;
@@ -24,7 +25,7 @@ public final class PanelType {
     public transient /* synthetic */ FieldHolder $fh;
 
     public static final /* synthetic */ PanelType[] $values() {
-        return new PanelType[]{INPUT_KEYBOARD, VOICE, EXPRESSION, PICTURE, NONE};
+        return new PanelType[]{INPUT_KEYBOARD, VOICE, EXPRESSION, PICTURE, NONE, INPUTCHANGE};
     }
 
     public static PanelType valueOf(String str) {
@@ -57,6 +58,7 @@ public final class PanelType {
         EXPRESSION = new PanelType("EXPRESSION", 2);
         PICTURE = new PanelType("PICTURE", 3);
         NONE = new PanelType(HlsPlaylistParser.METHOD_NONE, 4);
+        INPUTCHANGE = new PanelType("INPUTCHANGE", 5);
         $VALUES = $values();
     }
 

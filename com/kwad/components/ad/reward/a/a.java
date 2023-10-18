@@ -78,13 +78,13 @@ public final class a extends d implements View.OnClickListener {
 
     /* renamed from: com.kwad.components.ad.reward.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0608a {
+    public static class C0591a {
         public CharSequence ov;
         public CharSequence ow;
         public CharSequence ox;
         public CharSequence title;
 
-        public C0608a(@NonNull CouponInfo couponInfo) {
+        public C0591a(@NonNull CouponInfo couponInfo) {
             this.title = couponInfo.displayTitle;
             this.ov = couponInfo.displayValue;
             this.ow = !TextUtils.isEmpty(couponInfo.displayBase) ? String.format("满%s可用", couponInfo.displayBase) : "";
@@ -92,15 +92,15 @@ public final class a extends d implements View.OnClickListener {
         }
 
         @Nullable
-        public static C0608a a(CouponInfo couponInfo) {
+        public static C0591a a(CouponInfo couponInfo) {
             if (couponInfo == null) {
                 return null;
             }
-            return new C0608a(couponInfo);
+            return new C0591a(couponInfo);
         }
 
         @Nullable
-        public static C0608a u(AdTemplate adTemplate) {
+        public static C0591a u(AdTemplate adTemplate) {
             List<CouponInfo> list;
             AdProductInfo bN = com.kwad.sdk.core.response.a.a.bN(com.kwad.sdk.core.response.a.d.bQ(adTemplate));
             if (bN == null || (list = bN.couponList) == null || list.size() <= 0) {
@@ -110,7 +110,7 @@ public final class a extends d implements View.OnClickListener {
         }
 
         public final CharSequence N(Context context) {
-            AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ae));
+            AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070499));
             SpannableString spannableString = new SpannableString("¥" + ((Object) this.ov));
             spannableString.setSpan(absoluteSizeSpan, 0, 1, 17);
             return spannableString;
@@ -138,7 +138,7 @@ public final class a extends d implements View.OnClickListener {
 
     public a(Context context, @Nullable ViewGroup viewGroup, @Nullable int[] iArr) {
         this.oi = iArr;
-        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04dd, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04d8, viewGroup, false);
         this.es = viewGroup2;
         d(viewGroup2);
     }
@@ -157,35 +157,35 @@ public final class a extends d implements View.OnClickListener {
         return a(imageView, j);
     }
 
-    private void a(C0608a c0608a) {
-        if (c0608a == null) {
+    private void a(C0591a c0591a) {
+        if (c0591a == null) {
             return;
         }
         TextView textView = this.eQ;
         if (textView != null) {
-            textView.setText(c0608a.getTitle());
+            textView.setText(c0591a.getTitle());
         }
         TextView textView2 = this.ol;
         if (textView2 != null) {
-            textView2.setText(c0608a.N(this.es.getContext()));
+            textView2.setText(c0591a.N(this.es.getContext()));
         }
         TextView textView3 = this.iu;
         if (textView3 != null) {
-            textView3.setText(c0608a.gl());
+            textView3.setText(c0591a.gl());
         }
         Button button = this.om;
         if (button != null) {
-            button.setText(c0608a.gm());
+            button.setText(c0591a.gm());
         }
     }
 
     private void d(ViewGroup viewGroup) {
-        this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f0912a3);
-        this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912a1);
-        this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912a6);
-        this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912a4);
-        this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912a5);
-        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912a2);
+        this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f0912bc);
+        this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912ba);
+        this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912bf);
+        this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912bd);
+        this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912be);
+        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912bb);
         this.om = button;
         button.setOnClickListener(this);
     }
@@ -257,7 +257,7 @@ public final class a extends d implements View.OnClickListener {
     @Override // com.kwad.components.ad.reward.k.d
     public final void a(u uVar) {
         super.a(uVar);
-        a(C0608a.u(uVar.getAdTemplate()));
+        a(C0591a.u(uVar.getAdTemplate()));
         this.es.post(new AnonymousClass1(uVar, com.kwad.components.ad.reward.kwai.b.ge()));
     }
 

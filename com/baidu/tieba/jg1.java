@@ -1,57 +1,24 @@
 package com.baidu.tieba;
-
-import com.baidu.android.util.soloader.SoLoader;
-import com.baidu.perf.signal.register.NativeSignalCapture;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class jg1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface jg1 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947882229, "Lcom/baidu/tieba/jg1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947882229, "Lcom/baidu/tieba/jg1;");
-                return;
-            }
-        }
-        SoLoader.load(AppRuntime.getAppContext(), "signal-register");
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
     }
 
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            NativeSignalCapture.clearANRListener();
-            synchronized (NativeSignalCapture.sANRMutex) {
-                NativeSignalCapture.unRegisterANR();
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onPrepared();
     }
 
-    public static void a(hg1 hg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, hg1Var) == null) {
-            NativeSignalCapture.addANRListener(hg1Var);
-        }
-    }
+    void a();
 
-    public static void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            synchronized (NativeSignalCapture.sANRMutex) {
-                NativeSignalCapture.registerANR(i);
-            }
-        }
-    }
+    void b();
+
+    void playCompletion();
+
+    void playPause();
+
+    void playResume();
 }

@@ -1,132 +1,243 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.di6;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.browser.exception.UnzipErrorException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedOutputStream;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.CRC32;
+import java.util.zip.CheckedInputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes5.dex */
-public final class fi6 extends di6<fi6> {
+public class fi6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public gi6 s;
-    public float t;
-    public boolean u;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public <K> fi6(K k, ei6<K> ei6Var) {
-        super(k, ei6Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {k, ei6Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(objArr2[0], (ei6) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947765142, "Lcom/baidu/tieba/fi6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947765142, "Lcom/baidu/tieba/fi6;");
                 return;
             }
         }
-        this.s = null;
-        this.t = Float.MAX_VALUE;
-        this.u = false;
+        a = new String[]{"../", "~/", "__MACOSX/"};
     }
 
-    @Override // com.baidu.tieba.di6
-    public void h() {
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0048, code lost:
+        throw new com.baidu.tieba.browser.exception.UnzipErrorException("创建文件夹节点时出现错误，文件夹创建失败：" + r2.getPath());
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(@NonNull File file, @NonNull ZipInputStream zipInputStream) throws UnzipErrorException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l();
-            this.s.g(e());
-            super.h();
-        }
-    }
-
-    @Override // com.baidu.tieba.di6
-    public boolean j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (this.u) {
-                float f = this.t;
-                if (f != Float.MAX_VALUE) {
-                    this.s.e(f);
-                    this.t = Float.MAX_VALUE;
-                }
-                this.b = this.s.a();
-                this.a = 0.0f;
-                this.u = false;
-                return true;
-            }
-            if (this.t != Float.MAX_VALUE) {
-                this.s.a();
-                long j2 = j / 2;
-                di6.h h = this.s.h(this.b, this.a, j2);
-                this.s.e(this.t);
-                this.t = Float.MAX_VALUE;
-                di6.h h2 = this.s.h(h.a, h.b, j2);
-                this.b = h2.a;
-                this.a = h2.b;
-            } else {
-                di6.h h3 = this.s.h(this.b, this.a, j);
-                this.b = h3.a;
-                this.a = h3.b;
-            }
-            float max = Math.max(this.b, this.h);
-            this.b = max;
-            float min = Math.min(max, this.g);
-            this.b = min;
-            if (!k(min, this.a)) {
-                return false;
-            }
-            this.b = this.s.a();
-            this.a = 0.0f;
-            return true;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public boolean k(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return this.s.c(f, f2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            gi6 gi6Var = this.s;
-            if (gi6Var != null) {
-                double a = gi6Var.a();
-                if (a <= this.g) {
-                    if (a >= this.h) {
-                        return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, file, zipInputStream) == null) {
+            String str = null;
+            while (true) {
+                try {
+                    try {
+                        try {
+                            ZipEntry nextEntry = zipInputStream.getNextEntry();
+                            if (nextEntry != null) {
+                                str = nextEntry.getName();
+                                if (d(str)) {
+                                    File file2 = new File(file, str);
+                                    if (nextEntry.isDirectory()) {
+                                        if (!file2.exists() && !file2.mkdirs()) {
+                                            break;
+                                        }
+                                    } else {
+                                        b(file2, zipInputStream, true);
+                                    }
+                                }
+                            } else {
+                                try {
+                                    zipInputStream.closeEntry();
+                                    return;
+                                } catch (IOException unused) {
+                                    return;
+                                }
+                            }
+                        } catch (IOException e) {
+                            throw new UnzipErrorException("I/O error has occurred:" + str, e);
+                        }
+                    } catch (ZipException e2) {
+                        throw new UnzipErrorException("a ZIP file error has occurred:" + str, e2);
                     }
-                    throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
+                } catch (Throwable th) {
+                    try {
+                        zipInputStream.closeEntry();
+                    } catch (IOException unused2) {
+                    }
+                    throw th;
                 }
-                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
             }
-            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
         }
     }
 
-    public fi6 m(gi6 gi6Var) {
+    public static void b(File file, ZipInputStream zipInputStream, boolean z) throws UnzipErrorException {
+        BufferedOutputStream bufferedOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65538, null, file, zipInputStream, z) == null) {
+            byte[] bArr = new byte[1024];
+            FileOutputStream fileOutputStream = null;
+            try {
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                try {
+                    bufferedOutputStream = new BufferedOutputStream(fileOutputStream2);
+                    while (true) {
+                        try {
+                            int read = zipInputStream.read(bArr, 0, 1024);
+                            if (read != -1) {
+                                bufferedOutputStream.write(bArr, 0, read);
+                            } else {
+                                bufferedOutputStream.flush();
+                                di6.a(fileOutputStream2, bufferedOutputStream);
+                                return;
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            fileOutputStream = fileOutputStream2;
+                            try {
+                                if (z) {
+                                    b(file, zipInputStream, false);
+                                    di6.a(fileOutputStream, bufferedOutputStream);
+                                    return;
+                                }
+                                throw new UnzipErrorException("解压后写入文件时错误：" + file, e);
+                            } catch (Throwable th) {
+                                th = th;
+                                di6.a(fileOutputStream, bufferedOutputStream);
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            fileOutputStream = fileOutputStream2;
+                            di6.a(fileOutputStream, bufferedOutputStream);
+                            throw th;
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    bufferedOutputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedOutputStream = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                bufferedOutputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedOutputStream = null;
+            }
+        }
+    }
+
+    public static void c(File file, File file2) throws UnzipErrorException {
+        Closeable closeable;
+        Closeable closeable2;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, file, file2) == null) {
+            if (file2 != null && file != null) {
+                if (file.exists() && file.isFile() && file.canRead()) {
+                    if (bi6.a(file2)) {
+                        Closeable closeable3 = null;
+                        try {
+                            inputStream = new FileInputStream(file);
+                            try {
+                                closeable = new CheckedInputStream(inputStream, new CRC32());
+                                try {
+                                    closeable2 = new ZipInputStream(closeable);
+                                } catch (FileNotFoundException e) {
+                                    e = e;
+                                    closeable2 = null;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    closeable2 = null;
+                                }
+                            } catch (FileNotFoundException e2) {
+                                e = e2;
+                                closeable2 = null;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                closeable = null;
+                                closeable2 = null;
+                            }
+                        } catch (FileNotFoundException e3) {
+                            e = e3;
+                            inputStream = null;
+                            closeable2 = null;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            closeable = null;
+                            closeable2 = null;
+                            di6.a(closeable3, closeable, closeable2);
+                            throw th;
+                        }
+                        try {
+                            a(file2, closeable2);
+                            di6.a(inputStream, closeable, closeable2);
+                            return;
+                        } catch (FileNotFoundException e4) {
+                            e = e4;
+                            closeable3 = closeable;
+                            try {
+                                throw new UnzipErrorException("读取源文件时出现错误:" + file.getPath(), e);
+                            } catch (Throwable th4) {
+                                th = th4;
+                                closeable = closeable3;
+                                closeable3 = inputStream;
+                                di6.a(closeable3, closeable, closeable2);
+                                throw th;
+                            }
+                        } catch (Throwable th5) {
+                            th = th5;
+                            closeable3 = inputStream;
+                            di6.a(closeable3, closeable, closeable2);
+                            throw th;
+                        }
+                    }
+                    throw new UnzipErrorException("目标文件夹创建失败：" + file2.getPath());
+                }
+                throw new UnzipErrorException("源文件不存在或不可读：" + file.getPath());
+            }
+            throw new UnzipErrorException("参数传入错误：destFile == null || srcFile == null");
+        }
+    }
+
+    public static boolean d(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gi6Var)) == null) {
-            this.s = gi6Var;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            for (String str2 : a) {
+                if (str.contains(str2)) {
+                    return false;
+                }
+            }
+            return true;
         }
-        return (fi6) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

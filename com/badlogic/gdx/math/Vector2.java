@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.n7;
+import com.baidu.tieba.z2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class Vector2 implements Serializable, e<Vector2> {
+public class Vector2 implements Serializable, c<Vector2> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Vector2 X;
     public static final Vector2 Y;
@@ -139,7 +139,7 @@ public class Vector2 implements Serializable, e<Vector2> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return ((n7.a(this.x) + 31) * 31) + n7.a(this.y);
+            return ((z2.a(this.x) + 31) * 31) + z2.a(this.y);
         }
         return invokeV.intValue;
     }
@@ -209,8 +209,8 @@ public class Vector2 implements Serializable, e<Vector2> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
-            float m = d.m(0.0f, 6.2831855f);
-            return set(d.c(m), d.o(m));
+            float k = b.k(0.0f, 6.2831855f);
+            return set(b.c(k), b.l(k));
         }
         return (Vector2) invokeV.objValue;
     }
@@ -453,7 +453,7 @@ public class Vector2 implements Serializable, e<Vector2> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, vector2)) == null) {
-            return d.h((this.x * vector2.y) - (this.y * vector2.x));
+            return b.g((this.x * vector2.y) - (this.y * vector2.x));
         }
         return invokeL.booleanValue;
     }
@@ -463,7 +463,7 @@ public class Vector2 implements Serializable, e<Vector2> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, vector2)) == null) {
-            return d.h(dot(vector2));
+            return b.g(dot(vector2));
         }
         return invokeL.booleanValue;
     }
@@ -763,7 +763,7 @@ public class Vector2 implements Serializable, e<Vector2> {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048623, this, vector2, f)) == null) {
-            return d.i((this.x * vector2.y) - (this.y * vector2.x), f);
+            return b.h((this.x * vector2.y) - (this.y * vector2.x), f);
         }
         return invokeLF.booleanValue;
     }
@@ -773,7 +773,7 @@ public class Vector2 implements Serializable, e<Vector2> {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048627, this, vector2, f)) == null) {
-            return d.i(dot(vector2), f);
+            return b.h(dot(vector2), f);
         }
         return invokeLF.booleanValue;
     }
@@ -923,7 +923,7 @@ public class Vector2 implements Serializable, e<Vector2> {
                 return false;
             }
             Vector2 vector2 = (Vector2) obj;
-            if (n7.a(this.x) == n7.a(vector2.x) && n7.a(this.y) == n7.a(vector2.y)) {
+            if (z2.a(this.x) == z2.a(vector2.x) && z2.a(this.y) == z2.a(vector2.y)) {
                 return true;
             }
             return false;
@@ -962,11 +962,11 @@ public class Vector2 implements Serializable, e<Vector2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    public Vector2 interpolate(Vector2 vector2, float f, c cVar) {
+    public Vector2 interpolate(Vector2 vector2, float f, a aVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{vector2, Float.valueOf(f), cVar})) == null) {
-            return lerp(vector2, cVar.a(f));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{vector2, Float.valueOf(f), aVar})) == null) {
+            return lerp(vector2, aVar.a(f));
         }
         return (Vector2) invokeCommon.objValue;
     }

@@ -21,7 +21,7 @@ public class SyncTextView extends CriusTextView {
         super(context, attributeSet, i);
     }
 
-    public void update(@Nullable RenderData renderData, boolean z, boolean z2) {
+    public void b(@Nullable RenderData renderData, boolean z, boolean z2) {
         if (renderData == null) {
             return;
         }

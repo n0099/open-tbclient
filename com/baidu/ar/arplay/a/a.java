@@ -12,6 +12,7 @@ import com.baidu.ar.arplay.core.message.ARPMessage;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.down.manage.DownloadConstants;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.download.util.LocalDataScanHelper;
 import com.tencent.connect.common.Constants;
@@ -177,7 +178,7 @@ public final class a {
                         com.baidu.ar.arplay.c.b.b(str, "onError: " + i);
                         C0050a c0050a2 = c0050a;
                         com.baidu.ar.arplay.a.a.b bVar = c0050a2.dg;
-                        bVar.dX = "ERROR";
+                        bVar.dX = bx.l;
                         bVar.dY = i;
                         a.a(c0050a2);
                         a.this.b(new b() { // from class: com.baidu.ar.arplay.a.a.10.1

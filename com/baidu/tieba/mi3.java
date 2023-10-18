@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.swan.game.ad.utils.NetworkUtils;
-import com.baidu.tieba.dw2;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.net.Uri;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,29 +15,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableBitmap;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 /* loaded from: classes7.dex */
-public final class mi3 {
+public class mi3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public interface b {
+        void a(String str, Bitmap bitmap);
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a extends BaseBitmapDataSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ii3 a;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
 
-        public a(ii3 ii3Var) {
+        public a(b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ii3Var};
+                Object[] objArr = {bVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,14 +57,50 @@ public final class mi3 {
                     return;
                 }
             }
-            this.a = ii3Var;
+            this.a = bVar;
+            this.b = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
+        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nh3.k("4165", this.a.f());
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                super.onCancellation(dataSource);
+                this.a.a(this.b, null);
+            }
+        }
+
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
+                this.a.a(this.b, null);
+            }
+        }
+
+        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
+        public void onNewResultImpl(Bitmap bitmap) {
+            Bitmap copy;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    try {
+                        if (bitmap.getConfig() == null) {
+                            copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+                        } else {
+                            copy = bitmap.copy(bitmap.getConfig(), true);
+                        }
+                        this.a.a(this.b, copy);
+                        return;
+                    } catch (Exception e) {
+                        if (mi3.a) {
+                            Log.e("SwanAppFrescoImageUtils", e.getMessage());
+                        }
+                        this.a.a(this.b, null);
+                        return;
+                    }
+                }
+                this.a.a(this.b, null);
             }
         }
     }
@@ -70,95 +118,136 @@ public final class mi3 {
                 return;
             }
         }
-        a = qr1.a;
+        a = am1.a;
     }
 
-    public static String a(Response response) {
+    public static Bitmap b(DataSource<CloseableReference<CloseableImage>> dataSource) {
         InterceptResult invokeL;
-        ResponseBody body;
-        String str;
+        CloseableReference<CloseableImage> closeableReference;
+        Throwable th;
+        Bitmap underlyingBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, response)) == null) {
-            if (response == null || (body = response.body()) == null) {
-                return "";
-            }
-            JSONObject jSONObject = null;
-            try {
-                str = body.string();
-            } catch (IOException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                str = null;
-            }
-            if (str == null) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dataSource)) == null) {
+            if (dataSource == null) {
+                return null;
             }
             try {
-                jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
+                closeableReference = dataSource.getResult();
+                if (closeableReference != null) {
+                    try {
+                        CloseableImage closeableImage = closeableReference.get();
+                        if (closeableImage != null && (closeableImage instanceof CloseableBitmap) && (underlyingBitmap = ((CloseableBitmap) closeableImage).getUnderlyingBitmap()) != null && !underlyingBitmap.isRecycled()) {
+                            try {
+                                Bitmap createBitmap = Bitmap.createBitmap(underlyingBitmap);
+                                dataSource.close();
+                                CloseableReference.closeSafely(closeableReference);
+                                return createBitmap;
+                            } catch (OutOfMemoryError unused) {
+                                System.gc();
+                            }
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        dataSource.close();
+                        CloseableReference.closeSafely(closeableReference);
+                        throw th;
+                    }
+                }
+                dataSource.close();
+                CloseableReference.closeSafely(closeableReference);
+                return null;
+            } catch (Throwable th3) {
+                closeableReference = null;
+                th = th3;
+            }
+        } else {
+            return (Bitmap) invokeL.objValue;
+        }
+    }
+
+    public static Bitmap c(Uri uri, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, uri, context)) == null) {
+            if (uri != null && context != null) {
+                if (d(uri)) {
+                    if (a) {
+                        Log.i("SwanAppFrescoImageUtils", "start get Bitmap from memory, uri : " + uri.toString());
+                    }
+                    return b(Fresco.getImagePipeline().fetchImageFromBitmapCache(ImageRequest.fromUri(uri), context.getApplicationContext()));
+                }
                 if (a) {
-                    e2.printStackTrace();
+                    Log.i("SwanAppFrescoImageUtils", "start get Bitmap from sdcard, uri : " + uri.toString());
+                }
+                DataSource<Boolean> isInDiskCache = Fresco.getImagePipeline().isInDiskCache(uri);
+                if (isInDiskCache != null && isInDiskCache.hasResult() && isInDiskCache.getResult() != null && isInDiskCache.getResult().booleanValue()) {
+                    try {
+                        return b(Fresco.getImagePipeline().fetchDecodedImage(ImageRequest.fromUri(uri), context));
+                    } finally {
+                        isInDiskCache.close();
+                    }
                 }
             }
-            if (jSONObject == null) {
-                return "";
+            return null;
+        }
+        return (Bitmap) invokeLL.objValue;
+    }
+
+    public static boolean d(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
+            if (uri != null && Fresco.getImagePipeline().isInBitmapMemoryCache(uri)) {
+                return true;
             }
-            return jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, "");
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void b(String str, int i, String str2, int i2, String str3) {
+    public static void e(String str, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) != null) || TextUtils.equals(str, GameAssistConstKt.METHOD_GET_LOCATION)) {
-            return;
-        }
-        c(str, i, str2, i2, str3, null);
-    }
-
-    public static void c(String str, int i, String str2, int i2, String str3, Response response) {
-        oa2 H;
-        mx1 q3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, response}) == null) {
-            ii3 ii3Var = new ii3();
-            gb3 b0 = gb3.b0();
-            if (b0 == null || (H = tw2.T().H()) == null || (q3 = H.q3()) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, bVar) == null) {
+            Uri C = jj3.C(str);
+            if (C == null) {
+                bVar.a(str, null);
                 return;
             }
-            String l = q3.l();
-            dw2.a W = b0.W();
-            String Z = b0.Z();
-            String appId = b0.getAppId();
-            String W2 = W.W();
-            String v1 = W.v1();
-            String i3 = lk3.i(tw2.T().getCoreVersion(), W.G());
-            String a2 = a(response);
-            String d = NetworkUtils.d();
-            ii3Var.a = zh3.n(W.G());
-            ii3Var.c = b0.W().T();
-            ii3Var.d = b0.W().V();
-            ii3Var.f = appId;
-            ii3Var.a("name", Z);
-            ii3Var.a("apiName", str);
-            ii3Var.a(CloudStabilityUBCUtils.KEY_ERROR_CODE, String.valueOf(i));
-            ii3Var.a("errorMsg", str2);
-            ii3Var.a("pagePath", l);
-            if (i2 != -1) {
-                ii3Var.a("oldErrorCode", String.valueOf(i2));
-            }
-            ii3Var.a("oldErrorMsg", str3);
-            ii3Var.a("scheme", W2);
-            ii3Var.a("appVersion", v1);
-            ii3Var.a("swan", i3);
-            ii3Var.a("requestid", a2);
-            ii3Var.a("net", d);
-            if (ri4.b() != null) {
-                ii3Var.a("SDKVersion", ri4.b().b());
-                ii3Var.a("hostName", ri4.b().c());
-            }
-            ao3.j(new a(ii3Var), "monitor");
+            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, str), UiThreadImmediateExecutorService.getInstance());
         }
+    }
+
+    public static void f(Uri uri, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, uri, str) != null) || uri == null) {
+            return;
+        }
+        if (a) {
+            Log.i("SwanAppFrescoImageUtils", "start preFetch into memory, uri : " + uri.toString());
+        }
+        Fresco.getImagePipeline().prefetchToBitmapCache(ImageRequestBuilder.newBuilderWithSource(uri).build(), str);
+    }
+
+    public static Bitmap g(Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bitmap, i, i2)) == null) {
+            if (bitmap == null || i <= 0 || i2 <= 0) {
+                return null;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (width == 0 || height == 0) {
+                return null;
+            }
+            Matrix matrix = new Matrix();
+            matrix.postScale(i / width, i2 / height);
+            try {
+                return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            } catch (Exception | OutOfMemoryError unused) {
+                return null;
+            }
+        }
+        return (Bitmap) invokeLII.objValue;
     }
 }

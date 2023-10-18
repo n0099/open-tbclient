@@ -363,7 +363,7 @@ public final class CountDownView extends LinearLayout {
             setGravity(16);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
             setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zz6
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.iu6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e3c;
-import com.baidu.tieba.f3c;
-import com.baidu.tieba.j3c;
+import com.baidu.tieba.bxb;
+import com.baidu.tieba.cxb;
+import com.baidu.tieba.gxb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                     return;
                 }
             }
-            this.shapes = j3c.i();
+            this.shapes = gxb.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,7 +109,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-                j3c.a(list);
+                gxb.a(list);
                 this.shapes = list;
                 return this;
             }
@@ -154,39 +154,39 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public FrameEntity decode(e3c e3cVar) throws IOException {
+        public FrameEntity decode(bxb bxbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e3cVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bxbVar)) == null) {
                 Builder builder = new Builder();
-                long c = e3cVar.c();
+                long c = bxbVar.c();
                 while (true) {
-                    int f = e3cVar.f();
+                    int f = bxbVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
                                         if (f != 5) {
-                                            FieldEncoding g = e3cVar.g();
-                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(e3cVar));
+                                            FieldEncoding g = bxbVar.g();
+                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(bxbVar));
                                         } else {
-                                            builder.shapes.add(ShapeEntity.ADAPTER.decode(e3cVar));
+                                            builder.shapes.add(ShapeEntity.ADAPTER.decode(bxbVar));
                                         }
                                     } else {
-                                        builder.clipPath(ProtoAdapter.STRING.decode(e3cVar));
+                                        builder.clipPath(ProtoAdapter.STRING.decode(bxbVar));
                                     }
                                 } else {
-                                    builder.transform(Transform.ADAPTER.decode(e3cVar));
+                                    builder.transform(Transform.ADAPTER.decode(bxbVar));
                                 }
                             } else {
-                                builder.layout(Layout.ADAPTER.decode(e3cVar));
+                                builder.layout(Layout.ADAPTER.decode(bxbVar));
                             }
                         } else {
-                            builder.alpha(ProtoAdapter.FLOAT.decode(e3cVar));
+                            builder.alpha(ProtoAdapter.FLOAT.decode(bxbVar));
                         }
                     } else {
-                        e3cVar.d(c);
+                        bxbVar.d(c);
                         return builder.build();
                     }
                 }
@@ -197,27 +197,27 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(f3c f3cVar, FrameEntity frameEntity) throws IOException {
+        public void encode(cxb cxbVar, FrameEntity frameEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, f3cVar, frameEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cxbVar, frameEntity) == null) {
                 Float f = frameEntity.alpha;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(f3cVar, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(cxbVar, 1, f);
                 }
                 Layout layout = frameEntity.layout;
                 if (layout != null) {
-                    Layout.ADAPTER.encodeWithTag(f3cVar, 2, layout);
+                    Layout.ADAPTER.encodeWithTag(cxbVar, 2, layout);
                 }
                 Transform transform = frameEntity.transform;
                 if (transform != null) {
-                    Transform.ADAPTER.encodeWithTag(f3cVar, 3, transform);
+                    Transform.ADAPTER.encodeWithTag(cxbVar, 3, transform);
                 }
                 String str = frameEntity.clipPath;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(f3cVar, 4, str);
+                    ProtoAdapter.STRING.encodeWithTag(cxbVar, 4, str);
                 }
-                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(f3cVar, 5, frameEntity.shapes);
-                f3cVar.k(frameEntity.unknownFields());
+                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(cxbVar, 5, frameEntity.shapes);
+                cxbVar.k(frameEntity.unknownFields());
             }
         }
 
@@ -276,7 +276,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 if (transform != null) {
                     newBuilder2.transform = Transform.ADAPTER.redact(transform);
                 }
-                j3c.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
+                gxb.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -345,7 +345,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         this.layout = layout;
         this.transform = transform;
         this.clipPath = str;
-        this.shapes = j3c.g("shapes", list);
+        this.shapes = gxb.g("shapes", list);
     }
 
     public boolean equals(Object obj) {
@@ -359,7 +359,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 return false;
             }
             FrameEntity frameEntity = (FrameEntity) obj;
-            if (unknownFields().equals(frameEntity.unknownFields()) && j3c.f(this.alpha, frameEntity.alpha) && j3c.f(this.layout, frameEntity.layout) && j3c.f(this.transform, frameEntity.transform) && j3c.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes)) {
+            if (unknownFields().equals(frameEntity.unknownFields()) && gxb.f(this.alpha, frameEntity.alpha) && gxb.f(this.layout, frameEntity.layout) && gxb.f(this.transform, frameEntity.transform) && gxb.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes)) {
                 return true;
             }
             return false;
@@ -425,7 +425,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             builder.layout = this.layout;
             builder.transform = this.transform;
             builder.clipPath = this.clipPath;
-            builder.shapes = j3c.c("shapes", this.shapes);
+            builder.shapes = gxb.c("shapes", this.shapes);
             builder.addUnknownFields(unknownFields());
             return builder;
         }

@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
+import java.util.Queue;
 /* loaded from: classes8.dex */
-public class sj3 extends qj3 {
+public class sj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Queue<Runnable> a;
+    public Runnable b;
 
     public sj3() {
         Interceptable interceptable = $ic;
@@ -23,52 +24,49 @@ public class sj3 extends qj3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayDeque();
+        this.b = null;
     }
 
-    @Override // com.baidu.tieba.qj3
-    @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(pj3 pj3Var) {
+    public synchronized boolean a(Runnable runnable) {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pj3Var)) == null) {
-            oj3 b = uj3.b(pj3Var.a);
-            if (b == null) {
-                if (!qj3.a) {
-                    return Bundle.EMPTY;
-                }
-                throw new IllegalArgumentException("illegal sp.");
-            }
-            int i = pj3Var.b;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                if (qj3.a) {
-                                    throw new IllegalArgumentException("wrong info params.");
-                                }
-                            } else {
-                                b.putFloat(pj3Var.c, Float.parseFloat(pj3Var.d));
-                            }
-                        } else {
-                            b.putString(pj3Var.c, pj3Var.d);
-                        }
-                    } else {
-                        b.putBoolean(pj3Var.c, Boolean.parseBoolean(pj3Var.d));
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            synchronized (this) {
+                z = true;
+                if (runnable == null) {
+                    z2 = true;
                 } else {
-                    b.putLong(pj3Var.c, Long.parseLong(pj3Var.d));
+                    z2 = false;
                 }
-            } else {
-                b.putInt(pj3Var.c, Integer.parseInt(pj3Var.d));
+                if (!z2) {
+                    this.a.offer(runnable);
+                }
+                if (this.b == null && !this.a.isEmpty()) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                if (z3) {
+                    while (!this.a.isEmpty()) {
+                        Runnable poll = this.a.poll();
+                        this.b = poll;
+                        if (poll != null) {
+                            poll.run();
+                        }
+                        this.b = null;
+                    }
+                }
+                z = (z2 || !z3) ? false : false;
             }
-            if (qj3.a) {
-                Log.d("SwanAppSpDelegation", "Put: " + pj3Var);
-            }
-            return Bundle.EMPTY;
+            return z;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

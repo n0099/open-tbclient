@@ -8,6 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.BDLocation;
+import com.baidu.mobads.sdk.internal.cj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -348,7 +349,7 @@ public class c {
                             } else if (!networkLocationType.contains("cl") || this.h != 1) {
                                 if (locType == 61 && this.i == 1 && location != null) {
                                     DecimalFormat decimalFormat = new DecimalFormat("0.00");
-                                    DecimalFormat decimalFormat2 = new DecimalFormat("0.0");
+                                    DecimalFormat decimalFormat2 = new DecimalFormat(cj.d);
                                     DecimalFormat decimalFormat3 = new DecimalFormat("0.000000");
                                     double longitude = location.getLongitude();
                                     double latitude = location.getLatitude();

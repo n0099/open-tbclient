@@ -17,21 +17,21 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k49;
+import com.baidu.tieba.co5;
+import com.baidu.tieba.dz8;
+import com.baidu.tieba.hy8;
 import com.baidu.tieba.lego.card.model.SingleLineCard;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.tieba.lego.view.MoreButton;
-import com.baidu.tieba.s49;
-import com.baidu.tieba.w39;
-import com.baidu.tieba.wt5;
-import com.baidu.tieba.zia;
+import com.baidu.tieba.pda;
+import com.baidu.tieba.vy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public MoreButton r;
     public ImageView s;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,8 +73,8 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                w39.e(this.a).d(TiebaStatic.Params.OBJ_URL, this.a.getScheme()).b("obj_locate", this.b.getStatPosition()).a(this.a);
-                zia.c(this.b.i, this.a.getScheme());
+                hy8.e(this.a).d(TiebaStatic.Params.OBJ_URL, this.a.getScheme()).b("obj_locate", this.b.getStatPosition()).a(this.a);
+                pda.c(this.b.i, this.a.getScheme());
             }
         }
     }
@@ -121,7 +121,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
             return;
         }
         boolean z = false;
-        if (r()) {
+        if (t()) {
             if (!ColorUtils.isColorInvalid(singleLineCard.getBgColorNight())) {
                 this.m.setBackgroundColor(singleLineCard.getBgColorNight());
                 z = true;
@@ -145,13 +145,13 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         }
     }
 
-    private void setMoreColor(s49 s49Var) {
+    private void setMoreColor(dz8 dz8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, s49Var) == null) {
-            if (s49Var == null) {
+        if (interceptable == null || interceptable.invokeL(65538, this, dz8Var) == null) {
+            if (dz8Var == null) {
                 SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0302);
             } else {
-                y(this.r, s49Var.b(), s49Var.c(), R.color.CAM_X0302);
+                A(this.r, dz8Var.b(), dz8Var.c(), R.color.CAM_X0302);
             }
         }
     }
@@ -161,7 +161,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, singleLineCard) != null) || singleLineCard == null) {
             return;
         }
-        y(this.q, singleLineCard.getIconTitleColor(), singleLineCard.getIconTitleColorNight(), R.color.CAM_X0302);
+        A(this.q, singleLineCard.getIconTitleColor(), singleLineCard.getIconTitleColorNight(), R.color.CAM_X0302);
     }
 
     private void setTitleColor(SingleLineCard singleLineCard) {
@@ -169,14 +169,14 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         if ((interceptable != null && interceptable.invokeL(65541, this, singleLineCard) != null) || singleLineCard == null) {
             return;
         }
-        y(this.p, singleLineCard.getTitleColor(), singleLineCard.getTitleColorNight(), R.color.CAM_X0105);
+        A(this.p, singleLineCard.getTitleColor(), singleLineCard.getTitleColorNight(), R.color.CAM_X0105);
     }
 
-    public final String C(SingleLineCard singleLineCard) {
+    public final String E(SingleLineCard singleLineCard) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, singleLineCard)) == null) {
-            if (r()) {
+            if (t()) {
                 return singleLineCard.getIconUrlNight();
             }
             return singleLineCard.getIconUrl();
@@ -186,11 +186,11 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: D */
-    public void t(SingleLineCard singleLineCard, int i) {
+    /* renamed from: F */
+    public void v(SingleLineCard singleLineCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleLineCard, i) == null) {
-            wt5.a(this.i, getRootView());
+            co5.a(this.i, getRootView());
             SkinManager.setBackgroundColor(this.n, R.color.CAM_X0308);
             if (singleLineCard != null) {
                 setBgColor(singleLineCard);
@@ -203,8 +203,8 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: E */
-    public void u(SingleLineCard singleLineCard) {
+    /* renamed from: G */
+    public void w(SingleLineCard singleLineCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, singleLineCard) == null) {
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070275);
@@ -223,15 +223,15 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
             this.m.setLayoutParams(layoutParams);
             if (singleLineCard.isShowLeftIcon()) {
                 this.o.setVisibility(0);
-                if (!TextUtils.isEmpty(C(singleLineCard))) {
+                if (!TextUtils.isEmpty(E(singleLineCard))) {
                     this.o.setImageDrawable(null);
-                    this.o.startLoad(C(singleLineCard), 10, false);
+                    this.o.startLoad(E(singleLineCard), 10, false);
                 } else if (!TextUtils.isEmpty(singleLineCard.getIconTitle())) {
                     this.o.setVisibility(8);
                     setPrefixTitle(singleLineCard);
                 } else {
                     this.q.setVisibility(8);
-                    SkinManager.setImageResource(this.o, k49.a(singleLineCard.getIconType()));
+                    SkinManager.setImageResource(this.o, vy8.a(singleLineCard.getIconType()));
                 }
             } else {
                 this.q.setVisibility(8);
@@ -253,9 +253,9 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
                 this.p.setSingleLine(true);
             }
             this.p.setText(singleLineCard.getCardTitle());
-            SpannableString k = k(singleLineCard.getCardTitle(), singleLineCard.getParams(), singleLineCard.getParamColor(), singleLineCard.getParamColorNight());
-            if (k != null) {
-                this.p.setText(k);
+            SpannableString m = m(singleLineCard.getCardTitle(), singleLineCard.getParams(), singleLineCard.getParamColor(), singleLineCard.getParamColorNight());
+            if (m != null) {
+                this.p.setText(m);
             }
             if (singleLineCard.getGravity() == 1) {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.p.getLayoutParams();
@@ -278,7 +278,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
                 setOnClickListener(null);
                 this.s.setVisibility(8);
             }
-            s49 buttonInfo = singleLineCard.getButtonInfo();
+            dz8 buttonInfo = singleLineCard.getButtonInfo();
             if (buttonInfo.f()) {
                 this.r.setVisibility(0);
                 this.s.setVisibility(8);
@@ -290,18 +290,18 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View q() {
+    public View s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e6, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e5, (ViewGroup) null);
             this.m = linearLayout;
-            this.n = (View) l(linearLayout, R.id.obfuscated_res_0x7f0914d6);
-            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f0914d5);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f09259d);
-            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f0925c3);
-            this.r = (MoreButton) l(this.m, R.id.obfuscated_res_0x7f09178d);
-            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091f25);
+            this.n = (View) n(linearLayout, R.id.obfuscated_res_0x7f0914f0);
+            this.o = (TbImageView) n(this.m, R.id.obfuscated_res_0x7f0914ef);
+            this.p = (TextView) n(this.m, R.id.obfuscated_res_0x7f0925a7);
+            this.q = (TextView) n(this.m, R.id.obfuscated_res_0x7f0925cd);
+            this.r = (MoreButton) n(this.m, R.id.obfuscated_res_0x7f0917a8);
+            this.s = (ImageView) n(this.m, R.id.obfuscated_res_0x7f091f45);
             return this.m;
         }
         return (View) invokeV.objValue;

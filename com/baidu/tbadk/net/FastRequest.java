@@ -28,10 +28,10 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.CookieHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hja;
-import com.baidu.tieba.nb;
-import com.baidu.tieba.qn6;
-import com.baidu.tieba.rx5;
+import com.baidu.tieba.l6;
+import com.baidu.tieba.xda;
+import com.baidu.tieba.zh6;
+import com.baidu.tieba.zr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import kotlin.Unit;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,13 +68,13 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
     public final String i;
     public boolean j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface e<Result> {
         @Nullable
         @WorkerThread
@@ -91,7 +91,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String JSON_ARRAY = "[]";
@@ -141,17 +141,17 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
                 super.decodeLogicInBackGround(i, jSONObject);
                 Object extra = getmOrginalMessage().getExtra();
-                rx5.d(extra instanceof c);
+                zr5.d(extra instanceof c);
                 c cVar = (c) extra;
                 Type type = cVar.a;
                 e eVar = cVar.b;
                 String str = cVar.c;
                 int i2 = cVar.d;
-                rx5.b(type);
+                zr5.b(type);
                 if (jSONObject == null) {
                     jSONObject = new JSONObject();
                     setError(-1);
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06ac));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06b2));
                 }
                 if (GlobalBuildConfig.isDebug()) {
                     if (str != null) {
@@ -175,36 +175,38 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class b<Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Type a;
         @NonNull
         public String b;
+        @NonNull
+        public String c;
 
         @Deprecated
-        public void d(int i, @NonNull String str, @Nullable Result result) {
+        public void f(int i, @NonNull String str, @Nullable Result result) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, result) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048580, this, i, str, result) == null) {
             }
         }
 
-        public void e() {
+        public void g() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             }
         }
 
-        public void f() {
+        public void h() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             }
         }
 
-        public void g(@NonNull Result result) {
+        public void i(@NonNull Result result) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, result) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, result) == null) {
             }
         }
 
@@ -222,7 +224,8 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
                 }
             }
             this.b = "";
-            this.a = b(getClass());
+            this.c = "";
+            this.a = c(getClass());
         }
 
         @NonNull
@@ -230,21 +233,31 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @NonNull
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return this.b;
             }
             return (String) invokeV.objValue;
         }
 
-        public final Type getType() {
+        public final Type d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return this.a;
             }
             return (Type) invokeV.objValue;
         }
 
-        public static Type b(Class<?> cls) {
+        public static Type c(Class<?> cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
@@ -257,22 +270,29 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             return (Type) invokeL.objValue;
         }
 
-        public void c(int i, @NonNull String str, @Nullable Exception exc, @Nullable Result result) {
+        public void e(int i, @NonNull String str, @Nullable Exception exc, @Nullable Result result) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, exc, result}) == null) {
-                d(i, str, result);
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, exc, result}) == null) {
+                f(i, str, result);
             }
         }
 
-        public void h(@Nullable String str) {
+        public void j(@Nullable String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && str != null) {
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && str != null) {
+                this.c = str;
+            }
+        }
+
+        public void k(@Nullable String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && str != null) {
                 this.b = str;
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -300,7 +320,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -335,27 +355,28 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (!(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                     if (this.a.e != null) {
-                        this.a.e.c(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage.getDecodeException(), null);
-                        this.a.e.e();
+                        this.a.e.e(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage.getDecodeException(), null);
+                        this.a.e.g();
                         return;
                     }
                     return;
                 }
                 JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
                 if (this.a.e != null) {
-                    this.a.e.h(jsonHttpResponsedMessage.getLogId());
+                    this.a.e.k(jsonHttpResponsedMessage.getLogId());
+                    this.a.e.j(jsonHttpResponsedMessage.getErrorString());
                     Object resultData = jsonHttpResponsedMessage.getResultData();
                     if (jsonHttpResponsedMessage.getError() != 0) {
-                        this.a.e.c(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString(), jsonHttpResponsedMessage.getDecodeException(), resultData);
+                        this.a.e.e(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString(), jsonHttpResponsedMessage.getDecodeException(), resultData);
                     } else {
                         try {
-                            this.a.e.g(resultData);
+                            this.a.e.i(resultData);
                         } catch (Exception e) {
                             BdLog.detailException(httpResponsedMessage.getClass().getName(), new IllegalStateException("业务处理网络返回的数据出现异常，请处理！", e), true);
-                            this.a.e.c(-21, NetWorkErr.NETWORK_DATA_EXCEPTION_MSG, e, resultData);
+                            this.a.e.e(-21, NetWorkErr.NETWORK_DATA_EXCEPTION_MSG, e, resultData);
                         }
                     }
-                    this.a.e.e();
+                    this.a.e.g();
                 }
             }
         }
@@ -382,7 +403,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         this.c = new HashMap();
         this.d = new HashMap();
         this.j = false;
-        TbHttpMessageTask e2 = hja.e(i, str, ResponseMessage.class, false, true, true, true);
+        TbHttpMessageTask e2 = xda.e(i, str, ResponseMessage.class, false, true, true, true);
         this.a = e2;
         this.i = e2.getUrl();
         d dVar = new d(this, i, true);
@@ -391,7 +412,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
     }
 
     @NonNull
-    public <Result> FastRequest P(@Nullable b<Result> bVar) {
+    public <Result> FastRequest Q(@Nullable b<Result> bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
@@ -402,18 +423,18 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
     }
 
     @NonNull
-    public FastRequest Q(int i) {
+    public FastRequest R(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.a.setConnectTimeOut(new nb(i, i, i));
+            this.a.setConnectTimeOut(new l6(i, i, i));
             return this;
         }
         return (FastRequest) invokeI.objValue;
     }
 
     @NonNull
-    public FastRequest R(boolean z) {
+    public FastRequest S(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
@@ -424,7 +445,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
     }
 
     @NonNull
-    public FastRequest S(@NonNull HttpMessageTask.HTTP_METHOD http_method) {
+    public FastRequest T(@NonNull HttpMessageTask.HTTP_METHOD http_method) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, http_method)) == null) {
@@ -434,7 +455,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         return (FastRequest) invokeL.objValue;
     }
 
-    public FastRequest T(boolean z) {
+    public FastRequest U(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
@@ -445,7 +466,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
     }
 
     @NonNull
-    public <Result> FastRequest U(@NonNull e<Result> eVar) {
+    public <Result> FastRequest V(@NonNull e<Result> eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, eVar)) == null) {
@@ -456,18 +477,18 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
     }
 
     @NonNull
-    public FastRequest V(int i) {
+    public FastRequest W(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.a.setTimeOut(new nb(i, i, i));
+            this.a.setTimeOut(new l6(i, i, i));
             return this;
         }
         return (FastRequest) invokeI.objValue;
     }
 
     @NonNull
-    public FastRequest W(int i) {
+    public FastRequest X(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
@@ -487,7 +508,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
     }
 
     @NonNull
-    public FastRequest N(@NonNull String str, @NonNull Object obj) {
+    public FastRequest O(@NonNull String str, @NonNull Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
@@ -497,7 +518,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         return (FastRequest) invokeLL.objValue;
     }
 
-    public void O() {
+    public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!this.c.isEmpty()) {
@@ -513,9 +534,9 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             }
             b bVar = this.e;
             if (bVar != null) {
-                bVar.f();
+                bVar.h();
                 c cVar = new c(null);
-                cVar.a = this.e.getType();
+                cVar.a = this.e.d();
                 cVar.b = this.f;
                 cVar.c = this.g;
                 cVar.d = this.h;
@@ -523,7 +544,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             }
             if (this.j) {
                 Map<String, String> b2 = CookieHelper.b();
-                if (!qn6.b(b2)) {
+                if (!zh6.b(b2)) {
                     for (Map.Entry<String, String> entry2 : b2.entrySet()) {
                         httpMessage.addCookie(entry2.getKey(), entry2.getValue());
                     }

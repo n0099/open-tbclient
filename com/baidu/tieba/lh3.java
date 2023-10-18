@@ -1,69 +1,14 @@
 package com.baidu.tieba;
-
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class lh3 implements jh3<JSONObject> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray b;
-
-    public lh3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = null;
-        }
-    }
-
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("stageError", this.b);
-            } catch (JSONException e) {
-                if (jh3.a) {
-                    Log.e("WhiteCollector", Log.getStackTraceString(e));
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
-            if (this.b == null) {
-                this.b = new JSONArray();
-            }
-            this.b.put(jSONObject);
-            if (jh3.a) {
-                Log.d("WhiteCollector", "FEStage: " + jSONObject);
-            }
-        }
-    }
+/* loaded from: classes7.dex */
+public interface lh3 {
+    public static final kh3<Long> b = new kh3<>("index_cost_recent_launch_total");
+    public static final kh3<Long> c = new kh3<>("index_cost_recent_download");
+    public static final kh3<Long> d = new kh3<>("index_cost_recent_page_switch");
+    public static final kh3<Long> e = new kh3<>("index_cost_recent_page_rendered_initial");
+    public static final kh3<Long> f = new kh3<>("index_cost_current_page_rendered");
+    public static final kh3<Long> g = new kh3<>("index_cost_startup_page_first_rendered");
+    public static final kh3<Long> h = new kh3<>("index_storage_size");
+    public static final kh3<Long> i = new kh3<>("index_cost_on_screen");
+    public static final kh3<String> j = new kh3<>("index_start_up_api_info");
+    public static final kh3<String> k = new kh3<>("index_prelink_info");
 }

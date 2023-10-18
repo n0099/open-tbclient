@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
-/* loaded from: classes8.dex */
-public interface yx0 {
-    void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes9.dex */
+public abstract class yx0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(BdThumbSeekBar bdThumbSeekBar);
-
-    void c(BdThumbSeekBar bdThumbSeekBar);
+    public abstract void a(xx0 xx0Var);
 }

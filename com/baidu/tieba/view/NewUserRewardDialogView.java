@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.ul;
+import com.baidu.tieba.rg;
+import com.baidu.tieba.x15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -161,7 +161,7 @@ public class NewUserRewardDialogView extends LinearLayout {
             this.g = (TextView) findViewById(R.id.new_user_dialog_share);
             this.a.setKeepLastFrame(true);
             MessageManager.getInstance().registerListener(this.h);
-            this.b.setRoundLayoutRadius(p75.B(R.string.J_X06));
+            this.b.setRoundLayoutRadius(x15.B(R.string.J_X06));
         }
     }
 
@@ -212,13 +212,13 @@ public class NewUserRewardDialogView extends LinearLayout {
         this.d.setText(iconStampData.stampText);
         int i = iconStampData.stampType;
         if (i == 1) {
-            this.a.setSourcePath(ul.b("post_1_times.mp4"));
+            this.a.setSourcePath(rg.b("post_1_times.mp4"));
         } else if (i == 2) {
-            this.a.setSourcePath(ul.b("reply_1_times.mp4"));
+            this.a.setSourcePath(rg.b("reply_1_times.mp4"));
         } else if (i == 3) {
-            this.a.setSourcePath(ul.b("post_7_times.mp4"));
+            this.a.setSourcePath(rg.b("post_7_times.mp4"));
         } else {
-            this.a.setSourcePath(ul.b("reply_7_times.mp4"));
+            this.a.setSourcePath(rg.b("reply_7_times.mp4"));
         }
         this.a.play();
     }

@@ -4,6 +4,7 @@ import androidx.annotation.WorkerThread;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.UiUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.base.core.repo.MsgProcessor;
 import com.baidu.tieba.im.base.core.uilist.Action;
@@ -12,7 +13,6 @@ import com.baidu.tieba.im.lib.socket.msg.TbNoticeModifySysMsg;
 import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.TopBubbleData;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.NoticeModifySysItem;
-import com.baidu.tieba.lg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -116,7 +116,7 @@ public final class NoticeModifySysItem extends BaseItem<TbNoticeModifySysMsg> {
                 Intrinsics.checkNotNullParameter(op, "op");
                 Intrinsics.checkNotNullParameter(source, "source");
                 if (source.g() && baseItem != null && baseItem.getTbMsg() != null) {
-                    lg.g(new Runnable() { // from class: com.baidu.tieba.io8
+                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.si8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -176,7 +176,7 @@ public final class NoticeModifySysItem extends BaseItem<TbNoticeModifySysMsg> {
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.bn
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.yh
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ImageUrlData extends OrmObject implements Serializable, Comparable<ImageUrlData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_TYPE_CHUDIAN = 1;
@@ -60,7 +60,7 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
     public String userId;
     public String userNameShow;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class GuideInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STATUS_SHOW = 1;

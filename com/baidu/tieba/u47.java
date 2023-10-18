@@ -1,84 +1,62 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.gif.NSGif;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.lib.safe.BdCloseHelper;
-import com.baidu.adp.widget.ImageView.BdImage;
+import android.text.SpannableStringBuilder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.faceshop.DiyEmotionData;
+import com.baidu.tieba.feed.data.protobuf.FeedHeadExtensionKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.AbstractComponent;
+import tbclient.ComponentFactory;
+import tbclient.FeedEntrybarComponent;
+import tbclient.FeedFeedback;
+import tbclient.FeedHeadComponent;
+import tbclient.FeedHeadFigureComponent;
+import tbclient.FeedItem;
+import tbclient.FeedKV;
+import tbclient.FeedLayout;
+import tbclient.FeedLinkComponent;
+import tbclient.FeedLiveComponent;
+import tbclient.FeedOriginComponent;
+import tbclient.FeedPicComponent;
+import tbclient.FeedPostExpose;
+import tbclient.FeedRoomComponent;
+import tbclient.FeedSocialComponent;
+import tbclient.FeedVideoAdComponent;
+import tbclient.FeedVideoComponent;
+import tbclient.LayoutFactory;
+import tbclient.ThreadRecommendInfo;
+import tbclient.TitleComponent;
+import tbclient.Voice;
 /* loaded from: classes8.dex */
-public class u47 extends pj5 {
+public abstract class u47 implements v47<LayoutFactory>, k77, l67, w37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> e;
-    public Set<String> f;
-    public int g;
+    public Map<String, ? extends l77> a;
+    public Map<String, String> b;
+    public boolean c;
 
-    @Override // com.baidu.tieba.pj5
-    public String g() {
-        InterceptResult invokeV;
+    public Object e(String key, String value) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "用户Diy表情" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, key, value)) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(value, "value");
+            return null;
         }
-        return invokeV.intValue;
+        return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.pj5
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
+    public abstract h77<?> h(w27<?> w27Var, k37 k37Var);
 
     public u47() {
         Interceptable interceptable = $ic;
@@ -93,251 +71,358 @@ public class u47 extends pj5 {
                 return;
             }
         }
-        this.e = new ArrayList<>();
-        this.f = new HashSet();
-        this.g = 3;
-        x();
+        this.a = new HashMap();
+        this.b = new HashMap();
     }
 
-    public final void x() {
+    @Override // com.baidu.tieba.l67
+    public void a(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            t(2);
-            q(4);
-            BdImage bdImage = new BdImage(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f080b51)), false);
-            super.s(bdImage);
-            super.r(bdImage);
-            y();
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            this.b = map;
         }
     }
 
-    @Override // com.baidu.tieba.pj5
-    public String b(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.w37
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= this.e.size()) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.k77
+    public void d(Map<String, ? extends l77> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            this.a = map;
+        }
+    }
+
+    public final Map<String, Object> f(List<FeedKV> list) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
                 return null;
             }
-            return this.e.get(i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            return this.f.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.e;
-            if (arrayList != null && arrayList.size() != 0) {
-                return this.e.size();
-            }
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public BdImage e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.d();
-        }
-        return (BdImage) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return cn5.b();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public EmotionGroupType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return EmotionGroupType.USER_DIY;
-        }
-        return (EmotionGroupType) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public BdImage n(String str) {
-        InterceptResult invokeL;
-        ByteArrayOutputStream byteArrayOutputStream;
-        Throwable th;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            File file = new File(u(str).getAbsolutePath().replace("_s.jpg", "_b.gif"));
-            if (!file.exists()) {
-                return null;
-            }
-            try {
-                fileInputStream = new FileInputStream(file);
-            } catch (Exception e) {
-                e = e;
-                fileInputStream = null;
-                byteArrayOutputStream = null;
-            } catch (Throwable th2) {
-                byteArrayOutputStream = null;
-                th = th2;
-                fileInputStream = null;
-            }
-            try {
-                byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                try {
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = fileInputStream.read(bArr, 0, 1024);
-                            if (read != -1) {
-                                byteArrayOutputStream.write(bArr, 0, read);
-                            } else {
-                                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                                BdImage bdImage = new BdImage(NSGif.f(byteArray, 0, byteArray.length));
-                                BdCloseHelper.close((InputStream) fileInputStream);
-                                BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                                return bdImage;
-                            }
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            for (FeedKV feedKV : list) {
+                String str = feedKV.key;
+                if (str != null && str.length() != 0) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                if (!z2) {
+                    String str2 = feedKV.value;
+                    if (str2 != null && str2.length() != 0) {
+                        z3 = false;
+                    } else {
+                        z3 = true;
+                    }
+                    if (!z3) {
+                        String str3 = feedKV.key;
+                        Intrinsics.checkNotNullExpressionValue(str3, "info.key");
+                        String str4 = feedKV.value;
+                        Intrinsics.checkNotNullExpressionValue(str4, "info.value");
+                        Object e = e(str3, str4);
+                        if (e != null) {
+                            String str5 = feedKV.key;
+                            Intrinsics.checkNotNullExpressionValue(str5, "info.key");
+                            linkedHashMap.put(str5, e);
                         }
-                    } catch (Exception e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        BdCloseHelper.close((InputStream) fileInputStream);
-                        BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                        return null;
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
-                    BdCloseHelper.close((InputStream) fileInputStream);
-                    BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                    throw th;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                byteArrayOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                byteArrayOutputStream = null;
-                BdCloseHelper.close((InputStream) fileInputStream);
-                BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                throw th;
-            }
-        } else {
-            return (BdImage) invokeL.objValue;
-        }
-    }
-
-    public File u(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
-            String replace2 = replace.substring(0, replace.indexOf(",")).replace("diy_", "");
-            if (replace2.contains("_")) {
-                replace2 = replace2.substring(replace2.indexOf("_") + 1);
-            }
-            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + cn5.c() + "/" + replace2 + "_s.jpg");
-        }
-        return (File) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public BdImage o(String str) {
-        InterceptResult invokeL;
-        Bitmap image;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if ("#(meme,diysetting)".equals(str)) {
-                return new BdImage(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f080ad7)), false);
-            }
-            File u = u(str);
-            if (u == null || (image = FileHelper.getImage(u.getAbsolutePath())) == null) {
-                return null;
-            }
-            return new BdImage(image, false, str);
-        }
-        return (BdImage) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || i == this.g) {
-            return;
-        }
-        this.g = i;
-        BdImage bdImage = new BdImage(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f080b51)), false);
-        super.s(bdImage);
-        super.r(bdImage);
-        TbImageMemoryCache.A().r(BdResourceLoader.getInstance().genCacheKey("#(meme,diysetting)", 20));
-    }
-
-    public final Bitmap v(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bitmap)) == null) {
-            if (TbadkCoreApplication.getInst().getSkinType() != 0) {
-                Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-                PorterDuffColorFilter porterDuffColorFilter = new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0105), PorterDuff.Mode.SRC_IN);
-                Paint paint = new Paint();
-                paint.setColorFilter(porterDuffColorFilter);
-                new Canvas(createBitmap).drawBitmap(bitmap, 0.0f, 0.0f, paint);
-                return createBitmap;
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public boolean w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            if (this.e != null && !TextUtils.isEmpty(str)) {
-                Iterator<String> it = this.e.iterator();
-                while (it.hasNext()) {
-                    if (it.next().contains(str)) {
-                        return true;
                     }
                 }
             }
-            return false;
+            return linkedHashMap;
         }
-        return invokeL.booleanValue;
+        return (Map) invokeL.objValue;
     }
 
-    public void y() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v47
+    /* renamed from: g */
+    public h77<?> b(LayoutFactory originData) {
+        InterceptResult invokeL;
+        m37 m37Var;
+        ThreadRecommendInfo threadRecommendInfo;
+        m37 m37Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            List<DiyEmotionData> r = y47.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
-            this.e.clear();
-            this.f.clear();
-            for (DiyEmotionData diyEmotionData : r) {
-                this.e.add(diyEmotionData.getSharpText());
-                this.f.add(diyEmotionData.getSharpText());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, originData)) == null) {
+            Intrinsics.checkNotNullParameter(originData, "originData");
+            ArrayList arrayList = new ArrayList();
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            k37 k37Var = new k37();
+            k37Var.h(this.a);
+            FeedLayout feedLayout = originData.feed;
+            Intrinsics.checkNotNullExpressionValue(feedLayout, "originData.feed");
+            l37.b(k37Var, feedLayout);
+            k37Var.g(this.b);
+            k37Var.f(this.c);
+            r47 r47Var = new r47();
+            for (ComponentFactory componentFactory : originData.feed.components) {
+                String str = componentFactory.component;
+                if (str != null) {
+                    String str2 = "";
+                    String str3 = null;
+                    switch (str.hashCode()) {
+                        case -1644137503:
+                            if (str.equals("feed_head")) {
+                                FeedHeadComponent feedHeadComponent = componentFactory.feed_head;
+                                if (feedHeadComponent == null) {
+                                    break;
+                                } else {
+                                    FeedFeedback feedFeedback = originData.feed.feedback;
+                                    if (feedFeedback != null) {
+                                        m37Var = q57.a(feedFeedback, k37Var);
+                                    } else {
+                                        m37Var = null;
+                                    }
+                                    boolean c = FeedHeadExtensionKt.c(originData.feed.business_info);
+                                    List<ComponentFactory> list = originData.feed.components;
+                                    Intrinsics.checkNotNullExpressionValue(list, "originData.feed.components");
+                                    FeedHeadExtensionKt.h(feedHeadComponent, arrayList, m37Var, c, k37Var, list);
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -1644093164:
+                            if (str.equals("feed_item")) {
+                                FeedItem feedItem = componentFactory.feed_item;
+                                if (feedItem != null) {
+                                    c57.c(feedItem, arrayList, k37Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -1644014085:
+                            if (str.equals("feed_link")) {
+                                FeedLinkComponent feedLinkComponent = componentFactory.feed_link;
+                                if (feedLinkComponent != null) {
+                                    e57.a(feedLinkComponent, arrayList);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -1644013843:
+                            if (str.equals("feed_live")) {
+                                FeedLiveComponent feedLiveComponent = componentFactory.feed_live;
+                                if (feedLiveComponent != null) {
+                                    f57.a(feedLiveComponent, arrayList, k37Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -1643829540:
+                            if (str.equals("feed_room")) {
+                                FeedRoomComponent feedRoomComponent = componentFactory.feed_room;
+                                if (feedRoomComponent != null) {
+                                    h57.a(feedRoomComponent, arrayList, k37Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -1461408349:
+                            if (str.equals("feed_abstract")) {
+                                AbstractComponent abstractComponent = componentFactory.feed_abstract;
+                                if (abstractComponent != null) {
+                                    z47.b(abstractComponent, arrayList, spannableStringBuilder, k37Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -1035731907:
+                            if (str.equals("feed_videoad")) {
+                                FeedVideoComponent feedVideoComponent = componentFactory.feed_video;
+                                if (feedVideoComponent != null) {
+                                    str3 = feedVideoComponent.schema;
+                                }
+                                if (str3 != null) {
+                                    str2 = str3;
+                                }
+                                r47Var.j(o57.a(str2, k37Var));
+                                FeedVideoAdComponent feedVideoAdComponent = componentFactory.feed_videoad;
+                                if (feedVideoAdComponent != null) {
+                                    n57.b(feedVideoAdComponent, arrayList, r47Var, k37Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -993000478:
+                            if (str.equals("feed_entrybar")) {
+                                FeedEntrybarComponent feedEntrybarComponent = componentFactory.feed_entrybar;
+                                if (feedEntrybarComponent != null) {
+                                    b57.a(feedEntrybarComponent, arrayList, l37.d(k37Var, "enter_forum_btn_click", null, 2, null));
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -984476251:
+                            if (str.equals("feed_postexpose")) {
+                                FeedPostExpose feedPostExpose = componentFactory.feed_postexpose;
+                                if (feedPostExpose != null) {
+                                    j57.a(feedPostExpose, arrayList, k37Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case -191576215:
+                            if (str.equals("feed_pic")) {
+                                FeedPicComponent feedPicComponent = componentFactory.feed_pic;
+                                if (feedPicComponent != null) {
+                                    i57.c(feedPicComponent, arrayList, k37Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 301292525:
+                            if (str.equals("feed_recomtag")) {
+                                List<ThreadRecommendInfo> list2 = componentFactory.feed_recomtag;
+                                if (list2 != null && (threadRecommendInfo = (ThreadRecommendInfo) CollectionsKt___CollectionsKt.firstOrNull((List<? extends Object>) list2)) != null) {
+                                    r57.a(threadRecommendInfo, arrayList);
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                            break;
+                        case 582564983:
+                            if (str.equals("feed_title")) {
+                                List<ComponentFactory> list3 = originData.feed.components;
+                                Intrinsics.checkNotNullExpressionValue(list3, "originData.feed.components");
+                                boolean a = n67.a(list3);
+                                TitleComponent titleComponent = componentFactory.feed_title;
+                                if (titleComponent != null) {
+                                    m57.a(titleComponent, arrayList, spannableStringBuilder, k37Var, a);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 584396442:
+                            if (str.equals("feed_video")) {
+                                FeedVideoComponent feedVideoComponent2 = componentFactory.feed_video;
+                                if (feedVideoComponent2 != null) {
+                                    str3 = feedVideoComponent2.schema;
+                                }
+                                if (str3 != null) {
+                                    str2 = str3;
+                                }
+                                r47Var.j(o57.a(str2, k37Var));
+                                FeedVideoComponent feedVideoComponent3 = componentFactory.feed_video;
+                                if (feedVideoComponent3 != null) {
+                                    o57.c(feedVideoComponent3, arrayList, r47Var, k37Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 584579921:
+                            if (str.equals("feed_voice")) {
+                                Voice voice = componentFactory.feed_voice;
+                                if (voice != null) {
+                                    p57.a(voice, arrayList, k37Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 744478951:
+                            if (str.equals("feed_origin")) {
+                                FeedOriginComponent feedOriginComponent = componentFactory.feed_origin;
+                                if (feedOriginComponent != null) {
+                                    g57.a(feedOriginComponent, arrayList, k37Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 856047918:
+                            if (str.equals("feed_social")) {
+                                FeedSocialComponent feedSocialComponent = componentFactory.feed_social;
+                                if (feedSocialComponent != null) {
+                                    l57.a(feedSocialComponent, arrayList, k37Var, r47Var);
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                        case 1804018946:
+                            if (str.equals("feed_head_figure")) {
+                                FeedHeadFigureComponent feedHeadFigureComponent = componentFactory.feed_head_figure;
+                                if (feedHeadFigureComponent != null) {
+                                    n47 d = l37.d(k37Var, "virtual_head_show", null, 2, null);
+                                    n47 d2 = l37.d(k37Var, "virtual_head_click", null, 2, null);
+                                    FeedFeedback feedFeedback2 = originData.feed.feedback;
+                                    if (feedFeedback2 != null) {
+                                        m37Var2 = q57.a(feedFeedback2, k37Var);
+                                    } else {
+                                        m37Var2 = null;
+                                    }
+                                    FeedHeadExtensionKt.i(feedHeadFigureComponent, arrayList, d, d2, m37Var2, l37.e(k37Var, "head_local_stat_info"));
+                                    break;
+                                } else {
+                                    break;
+                                }
+                            } else {
+                                continue;
+                            }
+                    }
+                }
             }
+            String str4 = originData.feed.schema;
+            Intrinsics.checkNotNullExpressionValue(str4, "originData.feed.schema");
+            return h(new w27<>(arrayList, str4, Intrinsics.areEqual(k37Var.a().a().get("is_grey_mode"), "1"), k37Var.a().a().get("thread_id"), k37Var.a().a().get("user_id"), f(originData.feed.appendix), null, 64, null), k37Var);
         }
+        return (h77) invokeL.objValue;
     }
 }

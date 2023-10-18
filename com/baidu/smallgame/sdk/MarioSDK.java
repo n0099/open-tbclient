@@ -11,7 +11,7 @@ import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
-import com.baidu.tieba.lo1;
+import com.baidu.tieba.vi1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,15 +70,6 @@ public class MarioSDK {
             return (List) invokeV.objValue;
         }
 
-        public Context getContext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.f;
-            }
-            return (Context) invokeV.objValue;
-        }
-
         public void f(DebugConsole debugConsole) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, debugConsole) != null) || debugConsole == null) {
@@ -89,28 +80,28 @@ public class MarioSDK {
 
         public void h(Context context) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
                 this.f = context;
             }
         }
 
         public void i(ArBridge.FirstFrameListener firstFrameListener) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, firstFrameListener) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, firstFrameListener) == null) {
                 this.c = firstFrameListener;
             }
         }
 
         public void j(GLSurfaceView.Renderer renderer) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, renderer) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, renderer) == null) {
                 this.b = renderer;
             }
         }
 
         public void k(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, surfaceHolder) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, surfaceHolder) == null) {
                 this.a = surfaceHolder;
             }
         }
@@ -142,26 +133,26 @@ public class MarioSDK {
             if (aVar == null) {
                 return null;
             }
-            lo1 lo1Var = new lo1();
+            vi1 vi1Var = new vi1();
             if (aVar.a != null) {
-                lo1Var.p(aVar.a);
+                vi1Var.q(aVar.a);
             }
             if (aVar.c != null) {
-                lo1Var.setFirstFrameListener(aVar.c);
+                vi1Var.setFirstFrameListener(aVar.c);
             }
-            lo1Var.setRenderMode(aVar.d);
+            vi1Var.setRenderMode(aVar.d);
             if (aVar.f != null) {
-                lo1Var.o(aVar.f);
+                vi1Var.p(aVar.f);
             }
             if (aVar.b != null) {
-                lo1Var.setRenderer(aVar.b);
+                vi1Var.setRenderer(aVar.b);
             }
             if (aVar.g() != null) {
                 for (DebugConsole debugConsole : aVar.g()) {
-                    lo1Var.addDebugConsole(debugConsole);
+                    vi1Var.addDebugConsole(debugConsole);
                 }
             }
-            return lo1Var;
+            return vi1Var;
         }
         return (AREngineDelegate) invokeL.objValue;
     }

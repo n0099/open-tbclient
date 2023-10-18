@@ -1,74 +1,65 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
-import org.json.JSONArray;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qn6 {
+public final class qn6 implements l77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    public static <E> boolean a(Collection<E> collection) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.l77
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, collection)) == null) {
-            if (collection != null && !collection.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13693" : (String) invokeV.objValue;
     }
 
-    public static <K, V> boolean b(Map<K, V> map) {
-        InterceptResult invokeL;
+    public qn6(String locate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {locate};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return true;
         }
-        return invokeL.booleanValue;
+        Intrinsics.checkNotNullParameter(locate, "locate");
+        this.a = locate;
     }
 
-    public static boolean c(JSONArray jSONArray) {
+    @Override // com.baidu.tieba.l77
+    public Map<String, String> a(v27 businessInfo) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
-            if (jSONArray != null && jSONArray.length() != 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_locate", this.a);
+            if (JavaTypesHelper.toInt(a.get("is_video_work"), 0) == 1) {
+                str = "1";
+            } else {
+                str = "0";
             }
-            return true;
+            hashMap.put("obj_source", str);
+            return hashMap;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <E> boolean e(E[] eArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eArr)) == null) {
-            if (eArr != null && eArr.length != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (Map) invokeL.objValue;
     }
 }

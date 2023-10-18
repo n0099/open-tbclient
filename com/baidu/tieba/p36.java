@@ -1,9 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.searchbox.download.model.StopStatus;
+import com.baidu.searchbox.download.util.ApkUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.filedownloader.TbDownloadManagerEcom;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,23 +19,113 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
-import org.json.JSONObject;
+import tbclient.ApkDetail;
 /* loaded from: classes7.dex */
-public class p36 {
+public class p36 implements IAdDownloader {
     public static /* synthetic */ Interceptable $ic;
-    public static final p36 k;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
+
+    /* loaded from: classes7.dex */
+    public class a implements z97 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
+        public final eg0 a;
+        @NonNull
+        public final ah0 b;
+
+        public a(@NonNull p36 p36Var, @NonNull eg0 eg0Var, ah0 ah0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p36Var, eg0Var, ah0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eg0Var;
+            this.b = ah0Var;
+        }
+
+        @Override // com.baidu.tieba.z97
+        public void a(@NonNull DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) {
+                mg0 mg0Var = new mg0();
+                mg0Var.b = downloadData.getStatusMsg();
+                if (TextUtils.equals(downloadData.getStatusMsg(), StopStatus.DOWNLOAD_FAIL.name())) {
+                    mg0Var.c = true;
+                }
+                this.b.d(mg0Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.z97
+        public void b(@NonNull DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
+                this.a.h = s36.j(pe0.b(), this.a.k);
+                this.b.onSuccess(this.a.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.z97
+        public void c(@NonNull DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData) == null) {
+                this.b.c(this.a.b, downloadData.getProcess());
+            }
+        }
+
+        @Override // com.baidu.tieba.z97
+        public void d(@NonNull DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
+                if (this.a.c == AdDownloadStatus.INSTALLED && ApkUtil.hasInstalled(pe0.b(), this.a.d)) {
+                    return;
+                }
+                mg0 mg0Var = new mg0();
+                mg0Var.b = "user_cancel";
+                this.b.d(mg0Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.z97
+        public void e(@NonNull DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) {
+                if (downloadData.getSize() > 0) {
+                    fg0 fg0Var = this.a.q;
+                    if (fg0Var.e <= 0) {
+                        fg0Var.e = downloadData.getSize();
+                    }
+                }
+                this.b.a(this.a.b, downloadData.getLength(), downloadData.getSize());
+            }
+        }
+
+        @Override // com.baidu.tieba.z97
+        public void f(@NonNull DownloadData downloadData, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048581, this, downloadData, i) == null) {
+                Uri uri = downloadData.getUri();
+                if (uri != null && !TextUtils.isEmpty(uri.toString())) {
+                    eg0 eg0Var = this.a;
+                    eg0Var.k = uri;
+                    eg0Var.i = 0.0f;
+                    eg0Var.j = 0.0f;
+                }
+                this.b.b(this.a.q.e, s36.j(pe0.b(), this.a.k));
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +140,7 @@ public class p36 {
                 return;
             }
         }
-        k = new p36();
+        a = TbadkCoreApplication.getInst().getResources().getString(R.string.item_download);
     }
 
     public p36() {
@@ -55,202 +153,74 @@ public class p36 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new AtomicBoolean(false);
     }
 
-    public static p36 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public int a(@NonNull eg0 eg0Var, @NonNull ah0 ah0Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return k;
-        }
-        return (p36) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("tieba_pic_ad_req_num", 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_first_floor", 4);
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_floor_interval", 7);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.g == 1) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, eg0Var, ah0Var)) == null) {
+            if (TextUtils.isEmpty(eg0Var.g)) {
+                mg0 mg0Var = new mg0();
+                mg0Var.b = "download url is null";
+                ah0Var.d(mg0Var);
+                return -1;
             }
-            return false;
+            TbDownloadManagerEcom.i().g(e(eg0Var), new a(this, eg0Var, ah0Var));
+            return eg0Var.g.hashCode();
         }
-        return invokeV.booleanValue;
+        return invokeLL.intValue;
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void b(@NonNull eg0 eg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("ad_photo_browser_insert_mode", -1) != 1) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eg0Var) == null) {
+            TbDownloadManagerEcom.i().b(e(eg0Var));
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void c(@NonNull eg0 eg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.b == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eg0Var) == null) {
+            TbDownloadManagerEcom.i().f(e(eg0Var));
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void d(@NonNull eg0 eg0Var, @NonNull ah0 ah0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.j == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, eg0Var, ah0Var) == null) {
+            a aVar = new a(this, eg0Var, ah0Var);
+            TbDownloadManagerEcom.i().g(e(eg0Var), aVar);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean j() {
-        InterceptResult invokeV;
+    public final DownloadData e(eg0 eg0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.h == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, eg0Var)) == null) {
+            DownloadData downloadData = new DownloadData();
+            downloadData.setUrl(eg0Var.g);
+            downloadData.setName(eg0Var.p.h);
+            downloadData.setSource(5);
+            ItemData itemData = new ItemData();
+            itemData.buttonLink = eg0Var.g;
+            itemData.buttonName = a;
+            itemData.buttonLinkType = 1;
+            ig0 ig0Var = eg0Var.p;
+            itemData.mTitle = ig0Var.h;
+            itemData.pkgName = eg0Var.d;
+            itemData.mIconUrl = ig0Var.g;
+            itemData.mIconSize = 1.0d;
+            itemData.fileType = "app";
+            itemData.apkDetail = new ApkDetail.Builder().build(true);
+            downloadData.setItemData(itemData);
+            return downloadData;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.d == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.i == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.e == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, jSONObject) == null) {
-            boolean z = this.a.get();
-            if (jSONObject != null && !z) {
-                this.a.set(true);
-                this.b = jSONObject.optInt("tieba_lazy_launch_switch", 1);
-                this.c = jSONObject.optInt("tieba_lazy_launch_internal", 60);
-                jSONObject.optInt("tieba_max_fake_progress", 50);
-                jSONObject.optInt("tieba_max_fake_time", 60);
-                jSONObject.optLong("tieba_max_fake_speed", 768000L);
-                SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0);
-                this.j = jSONObject.optInt("tieba_video_mobile_net_autoplay", 1);
-                this.g = jSONObject.optInt("tieba_12.4_download_path", 1);
-                jSONObject.optInt("tieba_landing_page_type_switch", -1);
-                this.d = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
-                this.e = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
-                this.f = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
-                jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
-                jSONObject.optInt("tieba_follow_up_expire_time", 7);
-                jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
-                jSONObject.optInt("tieba_follow_up_gap_time", 5);
-                this.h = jSONObject.optInt("tieba_video_ad_jump_switch", 0);
-                this.i = jSONObject.optInt("hide_landing_page_ad_download_tip", 0);
-                SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putInt("video_flow_first_floor", jSONObject.optInt("video_flow_first_floor", 4));
-                edit.putInt("video_flow_floor_interval", jSONObject.optInt("video_flow_floor_interval", 7));
-                int optInt = jSONObject.optInt("ad_photo_browser_insert_mode", -1);
-                if (optInt != -1) {
-                    edit.putInt("ad_photo_browser_insert_mode", optInt);
-                }
-                int optInt2 = jSONObject.optInt("tieba_pic_ad_req_num", -1);
-                if (optInt2 != -1) {
-                    edit.putInt("tieba_pic_ad_req_num", optInt2);
-                }
-                edit.commit();
-            }
-        }
+        return (DownloadData) invokeL.objValue;
     }
 }

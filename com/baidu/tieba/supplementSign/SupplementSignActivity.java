@@ -11,7 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.TBWebViewActivity;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 import com.baidu.tbadk.core.hybrid.BridgeWebView;
-import com.baidu.tieba.oka;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.efa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +28,7 @@ public class SupplementSignActivity extends TBWebViewActivity {
     public int c;
     public int d;
     public CustomMessageListener e;
-    public oka f;
+    public efa f;
 
     /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
@@ -83,7 +84,7 @@ public class SupplementSignActivity extends TBWebViewActivity {
         this.c = 0;
         this.d = 0;
         this.e = new a(this, 2001194);
-        this.f = new oka(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+        this.f = new efa(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SupplementSignActivity this$0;
@@ -106,7 +107,7 @@ public class SupplementSignActivity extends TBWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.oka
+            @Override // com.baidu.tieba.efa
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -118,7 +119,7 @@ public class SupplementSignActivity extends TBWebViewActivity {
                         try {
                             JSONObject jSONObject = new JSONObject(str3);
                             this.this$0.b = jSONObject.optInt("all");
-                            SupplementSignActivity.O0(this.this$0, jSONObject.optInt("signed", 0));
+                            SupplementSignActivity.Q0(this.this$0, jSONObject.optInt("signed", 0));
                             SupplementSignActivity.R0(this.this$0, jSONObject.optInt("bonus", 0));
                         } catch (Throwable th) {
                             BdLog.e(th);
@@ -154,22 +155,7 @@ public class SupplementSignActivity extends TBWebViewActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.browser.TBWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            Intent intent = getIntent();
-            if (intent != null) {
-                this.a = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
-            }
-            addJsPromptInterface(this.f);
-            this.mView.C(false);
-            registerListener(this.e);
-        }
-    }
-
-    public static /* synthetic */ int O0(SupplementSignActivity supplementSignActivity, int i) {
+    public static /* synthetic */ int Q0(SupplementSignActivity supplementSignActivity, int i) {
         int i2 = supplementSignActivity.c + i;
         supplementSignActivity.c = i2;
         return i2;
@@ -179,6 +165,22 @@ public class SupplementSignActivity extends TBWebViewActivity {
         int i2 = supplementSignActivity.d + i;
         supplementSignActivity.d = i2;
         return i2;
+    }
+
+    @Override // com.baidu.tbadk.browser.TBWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            Intent intent = getIntent();
+            if (intent != null) {
+                this.a = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
+            }
+            HybridLog.getInstance().i("resign", "补签页：旧浏览框架");
+            addJsPromptInterface(this.f);
+            this.mView.C(false);
+            registerListener(this.e);
+        }
     }
 
     @Override // com.baidu.tbadk.browser.TBWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

@@ -23,11 +23,11 @@ import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fia;
-import com.baidu.tieba.ns5;
-import com.baidu.tieba.ta5;
-import com.baidu.tieba.va5;
-import com.baidu.tieba.y95;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.d55;
+import com.baidu.tieba.g45;
+import com.baidu.tieba.tm5;
+import com.baidu.tieba.vca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public CardLinkInfoData b;
-    public va5 c;
+    public d55 c;
     public View d;
     public TbImageView e;
     public View f;
@@ -117,11 +117,11 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) tagText);
             int tagColorId = getTagColorId();
-            y95 y95Var = new y95(n, -1, tagColorId, p, tagColorId, q, t);
-            y95Var.b(o);
-            y95Var.h(r);
-            y95Var.i(s);
-            spannableStringBuilder.setSpan(y95Var, 0, tagText.length(), 17);
+            g45 g45Var = new g45(n, -1, tagColorId, p, tagColorId, q, t);
+            g45Var.b(o);
+            g45Var.h(r);
+            g45Var.i(s);
+            spannableStringBuilder.setSpan(g45Var, 0, tagText.length(), 17);
             spannableStringBuilder.append((CharSequence) this.b.getTitle());
             this.g.setText(spannableStringBuilder);
         } else {
@@ -206,7 +206,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             CardLinkInfoData cardLinkInfoData = this.b;
             if (cardLinkInfoData != null && !StringUtils.isNull(cardLinkInfoData.getTagColor()) && this.b.getTagColor().startsWith("CAM_")) {
-                i = fia.d(this.a, this.b.getTagColor());
+                i = vca.d(this.a, this.b.getTagColor());
             } else {
                 i = 0;
             }
@@ -243,10 +243,10 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         }
     }
 
-    public void setClickListener(va5 va5Var) {
+    public void setClickListener(d55 d55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, va5Var) == null) {
-            this.c = va5Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, d55Var) == null) {
+            this.c = d55Var;
         }
     }
 
@@ -302,14 +302,14 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
                 setTextBtnInfo(this.b.getBtnText());
                 String textBtnStatus = this.b.getTextBtnStatus();
                 if ("1".equals(textBtnStatus)) {
-                    this.k.setConfig(new ta5());
+                    this.k.setConfig(new b55());
                     this.k.setUseDisableState(true);
                 } else if ("2".equals(textBtnStatus)) {
-                    ta5 ta5Var = new ta5();
-                    ta5Var.t(R.color.CAM_X0110);
-                    this.k.setConfig(ta5Var);
+                    b55 b55Var = new b55();
+                    b55Var.t(R.color.CAM_X0110);
+                    this.k.setConfig(b55Var);
                 } else {
-                    this.k.setConfig(new ta5());
+                    this.k.setConfig(new b55());
                 }
             } else if ("2".equals(btnStyle)) {
                 this.k.setVisibility(8);
@@ -359,7 +359,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ns5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a);
+            tm5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a);
             if (currentVisiblePageExtra != null) {
                 return currentVisiblePageExtra.a();
             }
@@ -389,33 +389,33 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             if (view2.getId() == R.id.tb_mount_card_icon) {
-                va5 va5Var = this.c;
-                if (va5Var != null) {
-                    va5Var.a("2");
+                d55 d55Var = this.c;
+                if (d55Var != null) {
+                    d55Var.a("2");
                 }
                 a("2");
             } else if (view2.getId() == R.id.tb_mount_card_text_btn) {
-                va5 va5Var2 = this.c;
-                if (va5Var2 != null) {
-                    va5Var2.a("3");
+                d55 d55Var2 = this.c;
+                if (d55Var2 != null) {
+                    d55Var2.a("3");
                 }
                 a("3");
             } else if (view2.getId() == R.id.tb_mount_card_arrow_btn) {
-                va5 va5Var3 = this.c;
-                if (va5Var3 != null) {
-                    va5Var3.a("5");
+                d55 d55Var3 = this.c;
+                if (d55Var3 != null) {
+                    d55Var3.a("5");
                 }
                 a("5");
             } else if (view2.getId() == R.id.tb_mount_card_del_btn) {
-                va5 va5Var4 = this.c;
-                if (va5Var4 != null) {
-                    va5Var4.a("4");
+                d55 d55Var4 = this.c;
+                if (d55Var4 != null) {
+                    d55Var4.a("4");
                 }
                 a("4");
             } else {
-                va5 va5Var5 = this.c;
-                if (va5Var5 != null) {
-                    va5Var5.a("1");
+                d55 d55Var5 = this.c;
+                if (d55Var5 != null) {
+                    d55Var5.a("1");
                 }
                 a("1");
             }

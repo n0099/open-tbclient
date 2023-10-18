@@ -57,7 +57,7 @@ public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         CalendarItemStyle calendarItemStyle;
         int yearForPosition = getYearForPosition(i);
-        String string = viewHolder.textView.getContext().getString(R.string.obfuscated_res_0x7f0f0cfb);
+        String string = viewHolder.textView.getContext().getString(R.string.obfuscated_res_0x7f0f0d08);
         viewHolder.textView.setText(String.format(Locale.getDefault(), "%d", Integer.valueOf(yearForPosition)));
         viewHolder.textView.setContentDescription(String.format(string, Integer.valueOf(yearForPosition)));
         CalendarStyle calendarStyle = this.materialCalendar.getCalendarStyle();
@@ -81,6 +81,6 @@ public class YearGridAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new ViewHolder((TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0669, viewGroup, false));
+        return new ViewHolder((TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d065c, viewGroup, false));
     }
 }

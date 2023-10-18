@@ -3,10 +3,10 @@ package com.baidu.live.asynctask;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.tieba.ca0;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.ea0;
-import com.baidu.tieba.kd0;
+import com.baidu.tieba.a50;
+import com.baidu.tieba.b50;
+import com.baidu.tieba.h80;
+import com.baidu.tieba.z40;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
@@ -14,18 +14,18 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
-    public static final ca0 k = ca0.e();
+    public static final z40 k = z40.e();
     public static final e l = new e(Looper.getMainLooper());
     public final AtomicBoolean c = new AtomicBoolean(false);
     public final AtomicBoolean d = new AtomicBoolean(false);
     public volatile BdAsyncTaskStatus e = BdAsyncTaskStatus.PENDING;
     public int f = 1;
     public int g = 0;
-    public ea0 h = null;
+    public b50 h = null;
     public boolean i = false;
     public boolean j = false;
     public final f<ParamsT, ResultT> a = new a();
-    public final da0<ResultT> b = new b(this.a, this);
+    public final a50<ResultT> b = new b(this.a, this);
 
     /* loaded from: classes3.dex */
     public enum BdAsyncTaskStatus {
@@ -67,12 +67,12 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends da0<ResultT> {
+    public class b extends a50<ResultT> {
         public b(Callable callable, BdAsyncTask bdAsyncTask) {
             super(callable, bdAsyncTask);
         }
 
-        @Override // com.baidu.tieba.da0
+        @Override // com.baidu.tieba.a50
         public void a() {
             BdAsyncTask.this.d();
         }
@@ -159,7 +159,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         e(true);
     }
 
-    public ea0 j() {
+    public b50 j() {
         return this.h;
     }
 
@@ -217,9 +217,9 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         return null;
     }
 
-    public synchronized void v(ea0 ea0Var) {
+    public synchronized void v(b50 b50Var) {
         if (this.e == BdAsyncTaskStatus.PENDING) {
-            this.h = ea0Var;
+            this.h = b50Var;
         } else {
             throw new IllegalStateException("the task is already running");
         }
@@ -236,12 +236,12 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         return i2;
     }
 
-    public synchronized int x(kd0 kd0Var) {
+    public synchronized int x(h80 h80Var) {
         int i;
         if (this.e == BdAsyncTaskStatus.PENDING) {
             i = this.g;
-            if (kd0Var != null) {
-                this.g = kd0Var.b();
+            if (h80Var != null) {
+                this.g = h80Var.b();
             }
         } else {
             throw new IllegalStateException("the task is already running");

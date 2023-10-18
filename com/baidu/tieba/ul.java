@@ -1,71 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.utils.UniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class ul {
+public final class ul {
     public static /* synthetic */ Interceptable $ic;
+    public static final ul a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318966, "Lcom/baidu/tieba/ul;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (str.contains(".so")) {
-                String[] split = str.split("\\.");
-                StringBuilder sb = new StringBuilder();
-                if (uh.a()) {
-                    str3 = "so_64_cache";
-                } else {
-                    str3 = "so_cache";
-                }
-                sb.append(str3);
-                sb.append(File.separator);
-                sb.append(split[0]);
-                str2 = sb.toString();
-            } else if (str.contains(".mp3")) {
-                str2 = "mp3_cache";
-            } else if (str.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION)) {
-                str2 = "mp4_cache";
-            } else {
-                str2 = "res_cache";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448318966, "Lcom/baidu/tieba/ul;");
+                return;
             }
-            return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
         }
-        return (String) invokeL.objValue;
+        a = new ul();
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public ul() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return a(str) + File.separator + str;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public final rl a(TaskInfo taskInfo, UniqueId uniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null && str.endsWith("libturbonet.so")) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, uniqueId)) == null) {
+            if (Intrinsics.areEqual(uniqueId, wl.c.a())) {
+                return new wl(taskInfo);
             }
-            return false;
+            if (Intrinsics.areEqual(uniqueId, xl.c.a())) {
+                return new xl(taskInfo);
+            }
+            if (Intrinsics.areEqual(uniqueId, yl.c.a())) {
+                return new yl(taskInfo);
+            }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (rl) invokeLL.objValue;
     }
 }

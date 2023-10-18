@@ -46,18 +46,18 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cy5;
+import com.baidu.tieba.de8;
+import com.baidu.tieba.ge8;
+import com.baidu.tieba.gs5;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter;
-import com.baidu.tieba.mi8;
-import com.baidu.tieba.ol8;
-import com.baidu.tieba.or5;
-import com.baidu.tieba.pj8;
-import com.baidu.tieba.pl8;
-import com.baidu.tieba.tj8;
+import com.baidu.tieba.ks5;
+import com.baidu.tieba.ul5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.wj8;
-import com.baidu.tieba.yx5;
+import com.baidu.tieba.wc8;
+import com.baidu.tieba.yf8;
+import com.baidu.tieba.zd8;
+import com.baidu.tieba.zf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,7 +84,7 @@ public class OfficialBarFeedMsglistView extends BdBaseView<OfficialBarFeedActivi
     public View j;
     public View k;
     public ViewGroup l;
-    public mi8 m;
+    public wc8 m;
     public BdTypeListView n;
     public boolean o;
     public String p;
@@ -131,7 +131,7 @@ public class OfficialBarFeedMsglistView extends BdBaseView<OfficialBarFeedActivi
     }
 
     /* loaded from: classes6.dex */
-    public class b extends yx5<Void> {
+    public class b extends gs5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -157,14 +157,14 @@ public class OfficialBarFeedMsglistView extends BdBaseView<OfficialBarFeedActivi
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yx5
+        @Override // com.baidu.tieba.gs5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (!StringUtils.isNull(this.a)) {
-                    pj8.w().z(Long.parseLong(this.a), this.b);
+                    zd8.w().z(Long.parseLong(this.a), this.b);
                     return null;
                 }
                 return null;
@@ -202,7 +202,7 @@ public class OfficialBarFeedMsglistView extends BdBaseView<OfficialBarFeedActivi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 OfficialBarFeedMsglistView officialBarFeedMsglistView = this.a;
-                officialBarFeedMsglistView.s(view2, officialBarFeedMsglistView.b.getPageActivity());
+                officialBarFeedMsglistView.u(view2, officialBarFeedMsglistView.b.getPageActivity());
             }
         }
     }
@@ -261,15 +261,15 @@ public class OfficialBarFeedMsglistView extends BdBaseView<OfficialBarFeedActivi
         ViewGroup viewGroup = (ViewGroup) baseActivity.findViewById(R.id.msg_root_view);
         this.l = viewGroup;
         baseActivity.showLoadingView(viewGroup);
-        u(baseActivity);
-        x(baseActivity);
         y(baseActivity);
+        z(baseActivity);
+        A(baseActivity);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void s(View view2, Activity activity) {
+    public void u(View view2, Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, view2, activity) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, view2, activity) == null) {
             if (view2 == this.c) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2008022, new OfficialBarTipActivityConfig(getPageContext().getPageActivity())));
             } else if (view2 == this.j) {
@@ -286,79 +286,78 @@ public class OfficialBarFeedMsglistView extends BdBaseView<OfficialBarFeedActivi
         }
     }
 
-    public void B(LongSparseArray<wj8> longSparseArray) {
+    public final void A(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, longSparseArray) == null) && longSparseArray != null && longSparseArray.size() > 0) {
-            this.m.e(longSparseArray);
-        }
-    }
-
-    public final void y(BaseActivity baseActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, baseActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, baseActivity) == null) {
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) baseActivity.findViewById(R.id.origin_list_container);
             this.t = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(0.0f);
         }
     }
 
-    public final void C(int i) {
+    public void C(LongSparseArray<ge8> longSparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (this.r == null) {
-                this.r = NoDataViewFactory.a(this.b.getPageActivity(), this.l, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, i), NoDataViewFactory.e.a(R.string.official_feed_no_data), null);
-                NoDataViewFactory.d.a aVar = new NoDataViewFactory.d.a();
-                aVar.i(NoDataViewFactory.ImgType.CREATE);
-                this.r.setImgOption(aVar.f());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, longSparseArray) == null) && longSparseArray != null && longSparseArray.size() > 0) {
+            this.m.e(longSparseArray);
+        }
+    }
+
+    public void B(List<zf8> list, List<de8> list2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
+            this.m.c(list);
+            if (this.o) {
+                BdTypeListView bdTypeListView = this.n;
+                bdTypeListView.setSelection(bdTypeListView.getBottom());
             }
-            if (this.r.getVisibility() == 0) {
+            this.a.hideLoadingView(this.l);
+            if (!ListUtils.isEmpty(list)) {
+                x();
+            } else if (ListUtils.isEmpty(list2)) {
+                D(454);
+            } else {
+                D(854);
+            }
+            if (ListUtils.isEmpty(list2)) {
                 return;
             }
-            this.r.f(this.b, TbadkApplication.getInst().getSkinType());
-            this.r.setVisibility(0);
-        }
-    }
-
-    public void D(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
-            new BdTopToast(this.a).setIcon(z).setContent(str).show(this.l);
-        }
-    }
-
-    public void E(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
-            cy5.c(new b(this, str, j), null);
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter.c
-    public void b(View view2, Object obj, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (obj instanceof OfficialBarFeedMsglistAdapter.a) {
-                OfficialBarFeedMsglistAdapter.a aVar = (OfficialBarFeedMsglistAdapter.a) obj;
-                SingleForumBroadcastFeedActivityConfig singleForumBroadcastFeedActivityConfig = new SingleForumBroadcastFeedActivityConfig(this.b.getPageActivity(), String.valueOf(aVar.c()), aVar.b());
-                singleForumBroadcastFeedActivityConfig.setSource((byte) 1);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, singleForumBroadcastFeedActivityConfig));
-                StatisticItem statisticItem = new StatisticItem("c13862");
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("fid", aVar.c());
-                TiebaStatic.log(statisticItem);
-            } else if (obj instanceof ol8.a) {
-                h((ol8.a) obj, this.b.getPageActivity());
+            HashSet hashSet = new HashSet();
+            if (list != null) {
+                for (zf8 zf8Var : list) {
+                    if (zf8Var.c() != null) {
+                        hashSet.add(zf8Var.c().b());
+                    }
+                }
+            }
+            ArrayList<? extends ul5> arrayList = new ArrayList<>(10);
+            for (int i = 0; i < 10 && i < list2.size(); i++) {
+                de8 de8Var = list2.get(i);
+                OfficialBarFeedMsglistAdapter.a aVar = new OfficialBarFeedMsglistAdapter.a();
+                aVar.f(de8Var.c());
+                aVar.g(de8Var.a());
+                aVar.i(de8Var.d());
+                if (!hashSet.contains(de8Var.b())) {
+                    aVar.i(0);
+                }
+                aVar.j(de8Var.e());
+                aVar.h(Long.parseLong(de8Var.b()));
+                aVar.k(de8Var.f());
+                arrayList.add(aVar);
+            }
+            this.d.m(arrayList);
+            if (this.k != null && this.n.getHeaderViewsCount() <= 0) {
+                this.n.addHeaderView(this.k);
             }
         }
     }
 
-    public final void h(ol8.a aVar, Context context) {
+    public final void t(yf8.a aVar, Context context) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, aVar, context) != null) || aVar == null) {
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar, context) != null) || aVar == null) {
             return;
         }
-        E(aVar.e, System.currentTimeMillis());
+        F(aVar.e, System.currentTimeMillis());
         if (StringUtils.isNull(aVar.d)) {
             return;
         }
@@ -402,58 +401,59 @@ public class OfficialBarFeedMsglistView extends BdBaseView<OfficialBarFeedActivi
         TiebaStatic.log(statisticItem);
     }
 
-    public void z(List<pl8> list, List<tj8> list2) {
+    public final void D(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, list, list2) == null) {
-            this.m.c(list);
-            if (this.o) {
-                BdTypeListView bdTypeListView = this.n;
-                bdTypeListView.setSelection(bdTypeListView.getBottom());
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (this.r == null) {
+                this.r = NoDataViewFactory.a(this.b.getPageActivity(), this.l, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, i), NoDataViewFactory.e.a(R.string.official_feed_no_data), null);
+                NoDataViewFactory.d.a aVar = new NoDataViewFactory.d.a();
+                aVar.i(NoDataViewFactory.ImgType.CREATE);
+                this.r.setImgOption(aVar.f());
             }
-            this.a.hideLoadingView(this.l);
-            if (!ListUtils.isEmpty(list)) {
-                t();
-            } else if (ListUtils.isEmpty(list2)) {
-                C(454);
-            } else {
-                C(854);
-            }
-            if (ListUtils.isEmpty(list2)) {
+            if (this.r.getVisibility() == 0) {
                 return;
             }
-            HashSet hashSet = new HashSet();
-            if (list != null) {
-                for (pl8 pl8Var : list) {
-                    if (pl8Var.c() != null) {
-                        hashSet.add(pl8Var.c().b());
-                    }
-                }
-            }
-            ArrayList<? extends or5> arrayList = new ArrayList<>(10);
-            for (int i = 0; i < 10 && i < list2.size(); i++) {
-                tj8 tj8Var = list2.get(i);
-                OfficialBarFeedMsglistAdapter.a aVar = new OfficialBarFeedMsglistAdapter.a();
-                aVar.f(tj8Var.c());
-                aVar.g(tj8Var.a());
-                aVar.i(tj8Var.d());
-                if (!hashSet.contains(tj8Var.b())) {
-                    aVar.i(0);
-                }
-                aVar.j(tj8Var.e());
-                aVar.h(Long.parseLong(tj8Var.b()));
-                aVar.k(tj8Var.f());
-                arrayList.add(aVar);
-            }
-            this.d.m(arrayList);
-            if (this.k != null && this.n.getHeaderViewsCount() <= 0) {
-                this.n.addHeaderView(this.k);
+            this.r.f(this.b, TbadkApplication.getInst().getSkinType());
+            this.r.setVisibility(0);
+        }
+    }
+
+    public void E(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
+            new BdTopToast(this.a).setIcon(z).setContent(str).show(this.l);
+        }
+    }
+
+    public void F(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
+            ks5.c(new b(this, str, j), null);
+        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter.c
+    public void b(View view2, Object obj, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (obj instanceof OfficialBarFeedMsglistAdapter.a) {
+                OfficialBarFeedMsglistAdapter.a aVar = (OfficialBarFeedMsglistAdapter.a) obj;
+                SingleForumBroadcastFeedActivityConfig singleForumBroadcastFeedActivityConfig = new SingleForumBroadcastFeedActivityConfig(this.b.getPageActivity(), String.valueOf(aVar.c()), aVar.b());
+                singleForumBroadcastFeedActivityConfig.setSource((byte) 1);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, singleForumBroadcastFeedActivityConfig));
+                StatisticItem statisticItem = new StatisticItem("c13862");
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem.param("fid", aVar.c());
+                TiebaStatic.log(statisticItem);
+            } else if (obj instanceof yf8.a) {
+                t((yf8.a) obj, this.b.getPageActivity());
             }
         }
     }
 
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.h.onChangeSkinType(getPageContext(), i);
             this.h.onBackBtnOnChangeSkin();
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0302, 1);
@@ -468,20 +468,20 @@ public class OfficialBarFeedMsglistView extends BdBaseView<OfficialBarFeedActivi
                 noDataView.f(this.b, i);
             }
             if (this.c != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080b81, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080b82, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            mi8 mi8Var = this.m;
-            if (mi8Var != null) {
-                mi8Var.notifyDataSetChanged();
+            wc8 wc8Var = this.m;
+            if (wc8Var != null) {
+                wc8Var.notifyDataSetChanged();
             }
         }
     }
 
-    public final void u(BaseActivity<OfficialBarFeedActivity> baseActivity) {
+    public final void y(BaseActivity<OfficialBarFeedActivity> baseActivity) {
         String str;
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, baseActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, baseActivity) == null) {
             NavigationBar navigationBar = (NavigationBar) baseActivity.findViewById(R.id.lay_title_bar);
             this.h = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.u);
@@ -494,7 +494,7 @@ public class OfficialBarFeedMsglistView extends BdBaseView<OfficialBarFeedActivi
             }
             this.p = str;
             if (this.o) {
-                string = this.p + baseActivity.getString(R.string.obfuscated_res_0x7f0f077f);
+                string = this.p + baseActivity.getString(R.string.obfuscated_res_0x7f0f0785);
             } else {
                 string = baseActivity.getPageContext().getString(R.string.subscribe_bar_title);
             }
@@ -506,26 +506,26 @@ public class OfficialBarFeedMsglistView extends BdBaseView<OfficialBarFeedActivi
                 addTextButton.setOnClickListener(this.u);
                 return;
             }
-            View addCustomView = this.h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d075a, this.u);
+            View addCustomView = this.h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d074d, this.u);
             this.i = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090af8);
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090b13);
             this.c = imageView;
             imageView.setClickable(true);
             this.c.setOnClickListener(this.u);
         }
     }
 
-    public final void t() {
+    public final void x() {
         NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (noDataView = this.r) != null && noDataView.getVisibility() == 0) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (noDataView = this.r) != null && noDataView.getVisibility() == 0) {
             this.r.setVisibility(8);
         }
     }
 
-    public final void x(BaseActivity baseActivity) {
+    public final void z(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, baseActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, baseActivity) == null) {
             this.s = (FrameLayout) baseActivity.findViewById(R.id.layout_main);
             BdTypeListView bdTypeListView = (BdTypeListView) baseActivity.findViewById(R.id.lis_msg);
             this.n = bdTypeListView;
@@ -534,20 +534,20 @@ public class OfficialBarFeedMsglistView extends BdBaseView<OfficialBarFeedActivi
                 layoutParams.topMargin = BdUtilHelper.getDimens(this.mContext.getPageActivity(), R.dimen.tbds_7);
                 this.n.setLayoutParams(layoutParams);
             }
-            mi8 mi8Var = new mi8(this.b, this.n, this);
-            this.m = mi8Var;
-            mi8Var.d(this.o);
+            wc8 wc8Var = new wc8(this.b, this.n, this);
+            this.m = wc8Var;
+            wc8Var.d(this.o);
             ((ProgressBar) baseActivity.findViewById(R.id.msg_progress)).setVisibility(8);
             this.n.setItemsCanFocus(true);
             this.n.setFocusable(false);
             this.n.setFocusableInTouchMode(false);
             this.n.setClickable(false);
             if (!this.o) {
-                View inflate = View.inflate(baseActivity, R.layout.obfuscated_res_0x7f0d0758, null);
+                View inflate = View.inflate(baseActivity, R.layout.obfuscated_res_0x7f0d074b, null);
                 this.k = inflate;
-                this.g = inflate.findViewById(R.id.obfuscated_res_0x7f0919e2);
-                this.f = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0919ed);
-                RecyclerView recyclerView = (RecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f0919ee);
+                this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091a0b);
+                this.f = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f091a16);
+                RecyclerView recyclerView = (RecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f091a17);
                 this.e = recyclerView;
                 recyclerView.setLayoutManager(new LinearLayoutManager(baseActivity, 0, false));
                 OfficialBarFeedMsglistAdapter officialBarFeedMsglistAdapter = new OfficialBarFeedMsglistAdapter(baseActivity.getPageContext(), this);

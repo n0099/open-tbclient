@@ -1,67 +1,26 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.InlineExecutionProhibitedException;
-import java.util.concurrent.Executor;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes6.dex */
-public final class kbb implements Executor {
+public class kbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
+    public AudioPlayData a;
+    public lbb b;
 
-    /* loaded from: classes6.dex */
-    public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Runnable a;
-        public Thread b;
-        public InlineExecutionProhibitedException c;
-
-        public a(Runnable runnable, Thread thread) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {runnable, thread};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-            this.b = thread;
-        }
-
-        public /* synthetic */ a(Runnable runnable, Thread thread, ibb ibbVar) {
-            this(runnable, thread);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (Thread.currentThread() == this.b) {
-                    this.c = new InlineExecutionProhibitedException();
-                } else {
-                    this.a.run();
-                }
-            }
-        }
-    }
-
-    public kbb(Executor executor) {
+    public kbb(AudioPlayData audioPlayData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
+            Object[] objArr = {audioPlayData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -71,19 +30,39 @@ public final class kbb implements Executor {
                 return;
             }
         }
-        this.a = executor;
+        this.a = audioPlayData;
+        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
+            return;
+        }
+        this.b = new lbb(audioPlayData.audioPath);
     }
 
-    @Override // java.util.concurrent.Executor
-    public void execute(Runnable runnable) {
+    public lbb a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            a aVar = new a(runnable, Thread.currentThread(), null);
-            this.a.execute(aVar);
-            if (aVar.c != null) {
-                throw aVar.c;
-            }
-            aVar.b = null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (lbb) invokeV.objValue;
+    }
+
+    public AudioPlayData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            lbb lbbVar = this.b;
+            return lbbVar != null && lbbVar.i();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(lbb lbbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lbbVar) == null) {
+            this.b = lbbVar;
         }
     }
 }

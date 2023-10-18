@@ -30,7 +30,7 @@ public class ah {
         try {
             try {
                 File file = new File(new File(context.getExternalFilesDir(null), "/.vdevdir/"), "lcfp.lock");
-                y.m846a(file);
+                y.m845a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -155,7 +155,7 @@ public class ah {
                 y.a(bufferedReader);
                 throw th;
             }
-        } else if (!y.m846a(file)) {
+        } else if (!y.m845a(file)) {
             return true;
         }
         arrayList.add(str2);

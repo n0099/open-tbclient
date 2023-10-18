@@ -1,7 +1,18 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.mq2;
+import com.baidu.tieba.t43;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,18 +20,124 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class g54 implements f54 {
+public class g54 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, h54> a;
-    public HashMap<String, ArrayList<f54>> b;
-    public String c;
-    public n94 d;
-    public final Object e;
+    public t43 a;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ xx1 c;
+        public final /* synthetic */ mq2 d;
+        public final /* synthetic */ g54 e;
+
+        public a(g54 g54Var, SwanAppActivity swanAppActivity, String str, xx1 xx1Var, mq2 mq2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g54Var, swanAppActivity, str, xx1Var, mq2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = g54Var;
+            this.a = swanAppActivity;
+            this.b = str;
+            this.c = xx1Var;
+            this.d = mq2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.f(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xx1 a;
+
+        public b(g54 g54Var, xx1 xx1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g54Var, xx1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xx1Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                b84.a(this.a, true, new i54(false));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xx1 a;
+        public final /* synthetic */ mq2 b;
+        public final /* synthetic */ g54 c;
+
+        public c(g54 g54Var, xx1 xx1Var, mq2 mq2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g54Var, xx1Var, mq2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = g54Var;
+            this.a = xx1Var;
+            this.b = mq2Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                b84.a(this.a, true, new i54(true));
+                this.c.e(this.b);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,118 +152,92 @@ public class g54 implements f54 {
                 return;
             }
         }
-        f = qr1.a;
+        b = am1.a;
     }
 
-    public g54(String str) {
+    public g54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final void c(xx1 xx1Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, xx1Var, str) == null) {
+            yz3 yz3Var = new yz3();
+            yz3Var.errMsg = str;
+            b84.a(xx1Var, false, yz3Var);
+        }
+    }
+
+    public void d(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+            xx1 G = xx1.G(jsObject);
+            if (G == null) {
+                G = new xx1();
+            }
+            xx1 xx1Var = G;
+            p53 q = o53.K().q();
+            if (!q.I()) {
+                c(xx1Var, "reload failed, api internal error.");
                 return;
             }
-        }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.e = new Object();
-        this.c = str;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f) {
-                Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
-            }
-            if (this.d == null) {
-                this.d = n94.b();
-            }
-            h54 h54Var = new h54(this.d, this.c, str, this);
-            this.a.put(str, h54Var);
-            h54Var.e();
-        }
-    }
-
-    @Override // com.baidu.tieba.f54
-    public void a(String str, String str2) {
-        ArrayList<f54> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.get(i).a(str, str2);
-                        if (f) {
-                            Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
-                        }
-                    }
-                    this.a.remove(str);
-                }
-            }
-        }
-    }
-
-    public void e(String str, f54 f54Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, f54Var) == null) {
-            synchronized (this.e) {
-                if (!d(str)) {
-                    if (f) {
-                        Log.e("AudioDownloadManager", "start load url = " + str);
-                    }
-                    c(str);
-                } else if (f) {
-                    Log.e("AudioDownloadManager", "re load url = " + str);
-                }
-                b(str, f54Var);
-            }
-        }
-    }
-
-    public final void b(String str, f54 f54Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f54Var) == null) {
-            if (this.b.containsKey(str)) {
-                this.b.get(str).add(f54Var);
+            SwanAppActivity w = q.w();
+            mq2.a X = q.X();
+            if (w == null) {
+                c(xx1Var, "reload failed, api internal error.");
                 return;
             }
-            ArrayList<f54> arrayList = new ArrayList<>();
-            arrayList.add(f54Var);
-            this.b.put(str, arrayList);
-        }
-    }
-
-    public final boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.a.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.f54
-    public void fail(int i, String str) {
-        ArrayList<f54> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.get(i2).fail(i, str);
-                    }
-                    this.a.remove(str);
-                }
+            String C = xx1Var.C("content");
+            if (TextUtils.isEmpty(C)) {
+                C = w.getString(R.string.obfuscated_res_0x7f0f01b1);
             }
+            jj3.e0(new a(this, w, C, xx1Var, X));
+        }
+    }
+
+    public final void e(@NonNull mq2 mq2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mq2Var) == null) {
+            String I = mq2Var.I();
+            String i1 = nq2.i1(mq2Var.I(), mq2Var.U(), mq2Var.H());
+            Bundle bundle = new Bundle();
+            bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, I);
+            bundle.putString("scheme", i1);
+            bundle.putInt("target", SwanAppProcessInfo.current().index);
+            if (b) {
+                Log.d("SwanGameReloadApi", "reload-appid:" + mq2Var.I());
+            }
+            k23.Q().W(bundle, h54.class);
+        }
+    }
+
+    public final void f(@NonNull Activity activity, @NonNull String str, @NonNull xx1 xx1Var, @NonNull mq2 mq2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, str, xx1Var, mq2Var) == null) {
+            t43 t43Var = this.a;
+            if (t43Var != null && t43Var.isShowing()) {
+                c(xx1Var, "reload failed, the reload dialog has been displayed.");
+                return;
+            }
+            t43.a aVar = new t43.a(activity);
+            aVar.U(R.string.obfuscated_res_0x7f0f01b2);
+            aVar.x(str);
+            aVar.a();
+            aVar.n(new xk3());
+            aVar.m(false);
+            aVar.B(R.string.obfuscated_res_0x7f0f0141, new b(this, xx1Var));
+            aVar.O(R.string.obfuscated_res_0x7f0f01d1, new c(this, xx1Var, mq2Var));
+            this.a = aVar.X();
         }
     }
 }

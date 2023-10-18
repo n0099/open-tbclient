@@ -25,12 +25,12 @@ public class i {
         String str;
         if (a == null || igVar == null) {
             str = "rc params is null, not cpra";
-        } else if (com.xiaomi.push.j.m714a(com.xiaomi.push.s.m725a())) {
+        } else if (com.xiaomi.push.j.m713a(com.xiaomi.push.s.m724a())) {
             return a.a(igVar);
         } else {
             str = "rc app not permission to cpra";
         }
-        com.xiaomi.channel.commonutils.logger.b.m183a(str);
+        com.xiaomi.channel.commonutils.logger.b.m182a(str);
         return false;
     }
 }

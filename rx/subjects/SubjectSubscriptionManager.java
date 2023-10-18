@@ -1,34 +1,34 @@
 package rx.subjects;
 
-import com.baidu.tieba.kcc;
-import com.baidu.tieba.lcc;
-import com.baidu.tieba.ohc;
-import com.baidu.tieba.qcc;
-import com.baidu.tieba.xcc;
-import com.baidu.tieba.ycc;
+import com.baidu.tieba.h6c;
+import com.baidu.tieba.i6c;
+import com.baidu.tieba.n6c;
+import com.baidu.tieba.nbc;
+import com.baidu.tieba.u6c;
+import com.baidu.tieba.v6c;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes2.dex */
-public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements kcc.a<T> {
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements h6c.a<T> {
     public static final long serialVersionUID = 6035251036011671568L;
     public boolean active;
     public volatile Object latest;
-    public ycc<c<T>> onAdded;
-    public ycc<c<T>> onStart;
-    public ycc<c<T>> onTerminated;
+    public v6c<c<T>> onAdded;
+    public v6c<c<T>> onStart;
+    public v6c<c<T>> onTerminated;
 
     /* loaded from: classes2.dex */
-    public class a implements xcc {
+    public class a implements u6c {
         public final /* synthetic */ c a;
 
         public a(c cVar) {
             this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.xcc
+        @Override // com.baidu.tieba.u6c
         public void call() {
             SubjectSubscriptionManager.this.remove(this.a);
         }
@@ -97,15 +97,15 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     }
 
     /* loaded from: classes2.dex */
-    public static final class c<T> implements lcc<T> {
-        public final qcc<? super T> a;
+    public static final class c<T> implements i6c<T> {
+        public final n6c<? super T> a;
         public boolean b = true;
         public boolean c;
         public List<Object> d;
         public boolean e;
 
-        public c(qcc<? super T> qccVar) {
-            this.a = qccVar;
+        public c(n6c<? super T> n6cVar) {
+            this.a = n6cVar;
         }
 
         public void a(Object obj) {
@@ -147,12 +147,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             NotificationLite.a(this.a, obj);
         }
 
-        @Override // com.baidu.tieba.lcc
+        @Override // com.baidu.tieba.i6c
         public void onError(Throwable th) {
             this.a.onError(th);
         }
 
-        @Override // com.baidu.tieba.lcc
+        @Override // com.baidu.tieba.i6c
         public void onNext(T t) {
             this.a.onNext(t);
         }
@@ -213,7 +213,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.baidu.tieba.lcc
+        @Override // com.baidu.tieba.i6c
         public void onCompleted() {
             this.a.onCompleted();
         }
@@ -248,11 +248,11 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return true;
     }
 
-    public void call(qcc<? super T> qccVar) {
-        c<T> cVar = new c<>(qccVar);
-        addUnsubscriber(qccVar, cVar);
+    public void call(n6c<? super T> n6cVar) {
+        c<T> cVar = new c<>(n6cVar);
+        addUnsubscriber(n6cVar, cVar);
         this.onStart.call(cVar);
-        if (!qccVar.isUnsubscribed() && add(cVar) && qccVar.isUnsubscribed()) {
+        if (!n6cVar.isUnsubscribed() && add(cVar) && n6cVar.isUnsubscribed()) {
             remove(cVar);
         }
     }
@@ -286,12 +286,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return getAndSet(b.d).b;
     }
 
-    public void addUnsubscriber(qcc<? super T> qccVar, c<T> cVar) {
-        qccVar.b(ohc.a(new a(cVar)));
+    public void addUnsubscriber(n6c<? super T> n6cVar, c<T> cVar) {
+        n6cVar.b(nbc.a(new a(cVar)));
     }
 
-    @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
+    @Override // com.baidu.tieba.v6c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((qcc) ((qcc) obj));
+        call((n6c) ((n6c) obj));
     }
 }

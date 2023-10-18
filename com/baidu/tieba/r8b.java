@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.write.write.sticker.view.StickerView;
+import android.os.IBinder;
 /* loaded from: classes7.dex */
 public interface r8b {
-    void a(StickerView stickerView);
+    IBinder a(String str);
 
-    void b(StickerView stickerView, boolean z);
-
-    void c(StickerView stickerView);
-
-    void onDelete();
+    void b();
 }

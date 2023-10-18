@@ -4,7 +4,7 @@ import java.lang.annotation.Annotation;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.SourceElement;
 import kotlin.reflect.jvm.internal.impl.descriptors.SourceFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ReflectAnnotationSource implements SourceElement {
     public final Annotation annotation;
 

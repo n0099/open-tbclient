@@ -19,7 +19,7 @@ import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.constants.ClassLiteralValue;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmPrimitiveType;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ReflectClassStructure {
     public static final ReflectClassStructure INSTANCE = new ReflectClassStructure();
 

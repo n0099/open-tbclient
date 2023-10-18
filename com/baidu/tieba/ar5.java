@@ -1,124 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.SocketMessageListener;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tbadkCore.location.LocationSocketRequestMessage;
-import com.baidu.tieba.tbadkCore.location.LocationSocketResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.RemoveViewNPE;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ar5 implements fq5<LocationEvent> {
+public final class ar5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ar5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SocketMessageListener a;
 
-    /* loaded from: classes5.dex */
-    public class a extends SocketMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ar5 ar5Var, int i, boolean z) {
-            super(i, z);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624805, "Lcom/baidu/tieba/ar5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ar5Var, Integer.valueOf(i), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: g */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            LocationData locationData;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || socketResponsedMessage == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947624805, "Lcom/baidu/tieba/ar5;");
                 return;
             }
-            LocationEvent locationEvent = new LocationEvent();
-            locationEvent.setType(1);
-            locationEvent.eventType = 1;
-            locationEvent.errorCode = socketResponsedMessage.getError();
-            locationEvent.errorMsg = socketResponsedMessage.getErrorString();
-            if (socketResponsedMessage instanceof LocationSocketResponsedMessage) {
-                locationEvent.locationData = ((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData();
-            }
-            if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
-                LocationModel.P(locationData);
-                yka.a().f(System.currentTimeMillis());
-                yka.a().d(locationEvent.locationData);
-            }
-            MutiProcessManager.publishEvent(locationEvent);
         }
+        a = new ar5();
     }
 
     public ar5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new a(this, 303017, true);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fq5
-    /* renamed from: a */
-    public boolean onEvent(LocationEvent locationEvent) {
+    @JvmStatic
+    public static final void a(BdRecyclerView viewGroup, int i, NullPointerException e) {
+        fr5 fr5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65538, null, viewGroup, i, e) == null) {
+            Intrinsics.checkNotNullParameter(viewGroup, "viewGroup");
+            Intrinsics.checkNotNullParameter(e, "e");
+            View childAt = viewGroup.getChildAt(i);
+            Intrinsics.checkNotNullExpressionValue(childAt, "viewGroup.getChildAt(index)");
+            if (childAt instanceof ViewGroup) {
+                fr5Var = a.b((ViewGroup) childAt);
+            } else {
+                fr5Var = null;
+            }
+            if (fr5Var != null) {
+                String str = "BdRecyclerView removeViewAt() NPE at index: " + i + ", the out parent is: [class: " + childAt.getClass().getSimpleName() + ", id: " + childAt.getId() + "], internal parent is: [class: " + fr5Var.b().getClass().getSimpleName() + ", id: " + fr5Var.b().getId() + "], child index is: " + fr5Var.a();
+                Throwable initCause = new RemoveViewNPE().initCause(new Throwable(str, e));
+                BdLog.detailException(initCause);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", str));
+                initCause.printStackTrace();
+            }
+        }
+    }
+
+    public final fr5 b(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, locationEvent)) == null) {
-            if (locationEvent == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int childCount = viewGroup.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = viewGroup.getChildAt(i);
+                if (childAt instanceof ViewGroup) {
+                    b((ViewGroup) childAt);
+                } else if (childAt == null) {
+                    return new fr5(viewGroup, i);
+                }
             }
-            if (locationEvent.getType() == 3) {
-                MessageManager.getInstance().unRegisterListener(this.a);
-                MessageManager.getInstance().registerListener(this.a);
-                LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
-                locationSocketRequestMessage.setLat(locationEvent.lat);
-                locationSocketRequestMessage.setLng(locationEvent.lng);
-                MessageManager.getInstance().sendMessage(locationSocketRequestMessage);
-            } else if (locationEvent.eventType == 1) {
-                LocationSocketResponsedMessage locationSocketResponsedMessage = new LocationSocketResponsedMessage();
-                locationSocketResponsedMessage.setError(locationEvent.errorCode);
-                locationSocketResponsedMessage.setErrorString(locationEvent.errorMsg);
-                locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
-                MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
-            } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                yka.a().d(locationEvent.locationData);
-            } else {
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
-            }
-            return false;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (fr5) invokeL.objValue;
     }
 }

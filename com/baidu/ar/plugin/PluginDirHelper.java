@@ -2,7 +2,6 @@ package com.baidu.ar.plugin;
 
 import android.content.Context;
 import android.os.Environment;
-import com.bytedance.pangle.plugin.Plugin;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +44,7 @@ public class PluginDirHelper {
 
     public static void init(Context context) {
         if (sBaseDir == null) {
-            File file = new File(context.getCacheDir().getParentFile(), Plugin.TAG);
+            File file = new File(context.getCacheDir().getParentFile(), "Plugin");
             sBaseDir = file;
             enforceDirExists(file);
         }

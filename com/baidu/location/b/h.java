@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.Jni;
+import com.baidu.mobads.sdk.api.IAdInterListener;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -173,7 +174,7 @@ public class h {
                 if (z && (str = this.i) != null) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
-                        jSONObject.put("prod", com.baidu.location.e.b.e);
+                        jSONObject.put(IAdInterListener.AdReqParam.PROD, com.baidu.location.e.b.e);
                         jSONObject.put(Config.DEVICE_UPTIME, System.currentTimeMillis());
                         this.b.e(jSONObject.toString());
                     } catch (Exception unused) {

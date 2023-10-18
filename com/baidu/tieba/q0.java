@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class q0<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a8<p0<T>> a;
+    public g3<p0<T>> a;
 
     public q0() {
         Interceptable interceptable = $ic;
@@ -24,7 +24,7 @@ public class q0<T> {
                 return;
             }
         }
-        this.a = new a8<>();
+        this.a = new g3<>();
     }
 
     public void d() {
@@ -44,19 +44,19 @@ public class q0<T> {
     public void b(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            p0<T>[] o = this.a.o();
-            int i = this.a.b;
-            for (int i2 = 0; i2 < i; i2++) {
-                o[i2].a(this, t);
+            p0<T>[] i = this.a.i();
+            int i2 = this.a.b;
+            for (int i3 = 0; i3 < i2; i3++) {
+                i[i3].a(this, t);
             }
-            this.a.p();
+            this.a.j();
         }
     }
 
     public void c(p0<T> p0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p0Var) == null) {
-            this.a.i(p0Var, true);
+            this.a.g(p0Var, true);
         }
     }
 }

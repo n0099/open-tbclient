@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ea8;
+import com.baidu.tieba.ei8;
 import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
-import com.baidu.tieba.kf8;
-import com.baidu.tieba.oo8;
-import com.baidu.tieba.tf8;
-import com.baidu.tieba.un8;
+import com.baidu.tieba.v98;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,9 +27,9 @@ public class AddEmojiPendantVH extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public final tf8 c;
+    public final ea8 c;
     @Nullable
-    public un8 d;
+    public ei8 d;
     public final TbImageView e;
     public final TextView f;
 
@@ -61,19 +61,19 @@ public class AddEmojiPendantVH extends BaseTagItemViewHolder {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null && this.a.c != null) {
-                oo8.e(this.a.c, 2, this.a.d.b());
+                yi8.e(this.a.c, 2, this.a.d.b());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AddEmojiPendantVH(@NonNull View view2, @Nullable tf8 tf8Var) {
+    public AddEmojiPendantVH(@NonNull View view2, @Nullable ea8 ea8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tf8Var};
+            Object[] objArr = {view2, ea8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,22 +84,22 @@ public class AddEmojiPendantVH extends BaseTagItemViewHolder {
                 return;
             }
         }
-        this.c = tf8Var;
+        this.c = ea8Var;
         view2.setOnClickListener(new a(this));
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds14);
         view2.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090996);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090997);
+        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909b1);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909b2);
         h(TbadkApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder
-    public void f(kf8 kf8Var, Context context, int i) {
+    public void f(v98 v98Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, kf8Var, context, i) == null) {
-            if (kf8Var instanceof un8) {
-                this.d = (un8) kf8Var;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, v98Var, context, i) == null) {
+            if (v98Var instanceof ei8) {
+                this.d = (ei8) v98Var;
             }
             SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f0800e3);
             this.f.setVisibility(8);

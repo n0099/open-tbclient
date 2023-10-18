@@ -7,20 +7,20 @@ import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.tieba.ap3;
-import com.baidu.tieba.fb3;
-import com.baidu.tieba.fo3;
-import com.baidu.tieba.h63;
-import com.baidu.tieba.qr1;
-import com.baidu.tieba.xo3;
+import com.baidu.tieba.am1;
+import com.baidu.tieba.gj3;
+import com.baidu.tieba.jj3;
+import com.baidu.tieba.o53;
+import com.baidu.tieba.oi3;
+import com.baidu.tieba.q03;
 @Autowired
 /* loaded from: classes4.dex */
 public class SwanAppLauncherActivity extends Activity {
-    public static final boolean b = qr1.a;
+    public static final boolean b = am1.a;
     public Object a;
 
     /* loaded from: classes4.dex */
-    public class a implements h63.b {
+    public class a implements q03.b {
         public a() {
         }
     }
@@ -37,13 +37,13 @@ public class SwanAppLauncherActivity extends Activity {
     }
 
     @Inject(force = false)
-    public h63 a() {
-        return h63.a;
+    public q03 a() {
+        return q03.a;
     }
 
     public final void b() {
         SwanLauncher.j().m(getIntent().getExtras());
-        fb3.M().post(new b());
+        o53.M().post(new b());
     }
 
     @Override // android.app.Activity
@@ -62,14 +62,14 @@ public class SwanAppLauncherActivity extends Activity {
     @DebugTrace
     public void onCreate(Bundle bundle) {
         String str;
-        int c0 = ap3.c0(this);
+        int c0 = jj3.c0(this);
         super.onCreate(bundle);
-        ap3.g(this, c0);
-        xo3.b(this);
+        jj3.g(this, c0);
+        gj3.b(this);
         if (b) {
             Log.d("SwanAppLauncherActivity", "onCreate");
         }
-        if (fo3.a(this)) {
+        if (oi3.a(this)) {
             return;
         }
         if (getIntent() != null) {

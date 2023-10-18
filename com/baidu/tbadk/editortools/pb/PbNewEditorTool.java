@@ -7,8 +7,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij5;
-import com.baidu.tieba.jj5;
+import com.baidu.tieba.od5;
+import com.baidu.tieba.pd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class PbNewEditorTool extends ij5 {
+/* loaded from: classes5.dex */
+public class PbNewEditorTool extends od5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditText t;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class InputShowType {
         public static final /* synthetic */ InputShowType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -123,61 +123,61 @@ public class PbNewEditorTool extends ij5 {
         this.p = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45, 70};
     }
 
-    public void g(TextWatcher textWatcher) {
+    public void h(TextWatcher textWatcher) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, textWatcher) == null) {
             this.t.addTextChangedListener(textWatcher);
         }
     }
 
-    public void h(int i) {
-        jj5 jj5Var;
+    public void i(int i) {
+        pd5 pd5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (jj5Var = this.m) != null) {
-            ((PbNewInputContainer) jj5Var).G(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (pd5Var = this.m) != null) {
+            ((PbNewInputContainer) pd5Var).G(i);
         }
     }
 
-    public void k(TextWatcher textWatcher) {
+    public void l(TextWatcher textWatcher) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
             this.t.removeTextChangedListener(textWatcher);
         }
     }
 
-    public void l(String str) {
+    public void m(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && this.m != null && !StringUtils.isNull(str)) {
             ((PbNewInputContainer) this.m).setDefaultHint(str);
         }
     }
 
-    public void m(InputShowType inputShowType) {
+    public void n(InputShowType inputShowType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, inputShowType) == null) {
-            jj5 jj5Var = this.m;
-            if (jj5Var instanceof PbNewInputContainer) {
-                ((PbNewInputContainer) jj5Var).setFromType(inputShowType);
+            pd5 pd5Var = this.m;
+            if (pd5Var instanceof PbNewInputContainer) {
+                ((PbNewInputContainer) pd5Var).setFromType(inputShowType);
             }
         }
     }
 
-    public void n(String str) {
+    public void o(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.m != null && !StringUtils.isNull(str)) {
             ((PbNewInputContainer) this.m).setHint(str);
         }
     }
 
-    public void o(int i) {
-        jj5 jj5Var;
+    public void p(int i) {
+        pd5 pd5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (jj5Var = this.m) != null) {
-            ((PbNewInputContainer) jj5Var).setType(i);
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (pd5Var = this.m) != null) {
+            ((PbNewInputContainer) pd5Var).setType(i);
         }
     }
 
-    public EditText i() {
+    public EditText j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -186,11 +186,11 @@ public class PbNewEditorTool extends ij5 {
         return (EditText) invokeV.objValue;
     }
 
-    public void j() {
-        jj5 jj5Var;
+    public void k() {
+        pd5 pd5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jj5Var = this.m) != null) {
-            ((PbNewInputContainer) jj5Var).T();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (pd5Var = this.m) != null) {
+            ((PbNewInputContainer) pd5Var).T();
         }
     }
 }

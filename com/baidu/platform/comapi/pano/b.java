@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b extends HttpClient.ProtoResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ a.InterfaceC0126a a;
+    public final /* synthetic */ a.InterfaceC0128a a;
     public final /* synthetic */ a b;
 
-    public b(a aVar, a.InterfaceC0126a interfaceC0126a) {
+    public b(a aVar, a.InterfaceC0128a interfaceC0128a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, interfaceC0126a};
+            Object[] objArr = {aVar, interfaceC0128a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,7 +30,7 @@ public class b extends HttpClient.ProtoResultCallback {
             }
         }
         this.b = aVar;
-        this.a = interfaceC0126a;
+        this.a = interfaceC0128a;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
@@ -46,9 +46,9 @@ public class b extends HttpClient.ProtoResultCallback {
         c a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            a.InterfaceC0126a interfaceC0126a = this.a;
+            a.InterfaceC0128a interfaceC0128a = this.a;
             a = this.b.a(str);
-            interfaceC0126a.a((a.InterfaceC0126a) a);
+            interfaceC0128a.a((a.InterfaceC0128a) a);
         }
     }
 }

@@ -1,15 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.videoplay.service.VideoVerticalPageFragmentService;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.kp5;
+import com.baidu.tieba.lp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dq5 implements kk1 {
+public abstract class dq5<Q extends kp5, P extends lp5> extends cq5 implements gq5<P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h(BdUniqueId bdUniqueId);
+
+    public abstract void i(ko5 ko5Var);
 
     public dq5() {
         Interceptable interceptable = $ic;
@@ -23,12 +36,5 @@ public class dq5 implements kk1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.kk1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new VideoVerticalPageFragmentService() : invokeV.objValue;
     }
 }

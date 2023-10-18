@@ -18,11 +18,11 @@ import com.baidu.permissionhelper.context.ContextCompat;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.c16;
-import com.baidu.tieba.d16;
-import com.baidu.tieba.di;
-import com.baidu.tieba.e16;
-import com.baidu.tieba.zh;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.kv5;
+import com.baidu.tieba.lv5;
+import com.baidu.tieba.mv5;
+import com.baidu.tieba.wc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,12 +46,12 @@ public class TBLottieAnimationView extends LottieAnimationView implements Lifecy
     public Lifecycle lifecycle;
     public boolean lifecycleEnable;
     public boolean mDisableRestoreInstanceState;
-    public e16.a mLoadCallback;
-    public e16 mLoader;
+    public mv5.a mLoadCallback;
+    public mv5 mLoader;
     public String mUrl;
 
     /* loaded from: classes5.dex */
-    public class a implements e16.a {
+    public class a implements mv5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBLottieAnimationView a;
@@ -74,10 +74,10 @@ public class TBLottieAnimationView extends LottieAnimationView implements Lifecy
             this.a = tBLottieAnimationView;
         }
 
-        @Override // com.baidu.tieba.e16.a
+        @Override // com.baidu.tieba.mv5.a
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !di.isEmpty(str)) {
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !ad.isEmpty(str)) {
                 this.a.setAnimationDir(str);
             }
         }
@@ -397,7 +397,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Lifecy
             try {
                 return file.mkdirs();
             } catch (Exception e2) {
-                TiebaStatic.file(e2, di.join("FileHelper", ".", "CheckTempDir", " ", str));
+                TiebaStatic.file(e2, ad.join("FileHelper", ".", "CheckTempDir", " ", str));
                 return false;
             }
         }
@@ -462,13 +462,13 @@ public class TBLottieAnimationView extends LottieAnimationView implements Lifecy
 
     private void dealImageAsset(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, this, str) != null) || di.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65544, this, str) != null) || ad.isEmpty(str)) {
             return;
         }
-        d16 d16Var = new d16();
-        d16Var.d(str);
-        d16Var.c(getFristLoadInternal());
-        setImageAssetDelegate(d16Var);
+        lv5 lv5Var = new lv5();
+        lv5Var.d(str);
+        lv5Var.c(getFristLoadInternal());
+        setImageAssetDelegate(lv5Var);
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView, android.view.View
@@ -484,7 +484,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Lifecy
 
     public void setAnimationDir(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, str) != null) || di.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048587, this, str) != null) || ad.isEmpty(str)) {
             return;
         }
         dealImageAsset(str);
@@ -523,7 +523,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Lifecy
                 lifecycle.removeObserver(this);
             }
             if (z) {
-                Lifecycle a2 = c16.a(getContext());
+                Lifecycle a2 = kv5.a(getContext());
                 this.lifecycle = a2;
                 if (a2 != null) {
                     a2.addObserver(this);
@@ -534,7 +534,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Lifecy
 
     private void dealJsonFile(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65545, this, str) != null) || di.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65545, this, str) != null) || ad.isEmpty(str)) {
             return;
         }
         boolean z = this.isSettingForPlay;
@@ -549,11 +549,11 @@ public class TBLottieAnimationView extends LottieAnimationView implements Lifecy
 
     public void setAnimationUrl(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !di.isEmpty(str) && !str.equals(this.mUrl)) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !ad.isEmpty(str) && !str.equals(this.mUrl)) {
             this.mUrl = str;
-            e16 e16Var = new e16(getAnimationPath(), str, this.mLoadCallback);
-            this.mLoader = e16Var;
-            e16Var.execute(new Void[0]);
+            mv5 mv5Var = new mv5(getAnimationPath(), str, this.mLoadCallback);
+            this.mLoader = mv5Var;
+            mv5Var.execute(new Void[0]);
         }
     }
 
@@ -573,7 +573,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Lifecy
             if (!file.exists() || file.length() <= 0) {
                 return null;
             }
-            return zh.v(file);
+            return wc.v(file);
         }
         return (InputStream) invokeLL.objValue;
     }

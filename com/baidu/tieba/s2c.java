@@ -1,179 +1,124 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import androidx.constraintlayout.motion.widget.Key;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
+import android.os.Build;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.Layout;
-import com.opensource.svgaplayer.proto.ShapeEntity;
-import com.opensource.svgaplayer.proto.Transform;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class s2c {
-    public static /* synthetic */ Interceptable $ic;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import javax.net.ssl.HttpsURLConnection;
+/* loaded from: classes8.dex */
+public class s2c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 1;
+    public static final char[] d;
+    public static s2c e;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public v2c b;
-    public Matrix c;
-    public n2c d;
-    public List<SVGAVideoShapeEntity> e;
+    public final HandlerThread a;
+    public final Handler b;
 
-    public s2c(FrameEntity frameEntity) {
-        float f;
-        float f2;
-        float f3;
-        float f4;
-        float f5;
-        float f6;
-        float f7;
-        float f8;
-        float f9;
-        float f10;
-        float f11;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frameEntity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String[] a;
+        public final /* synthetic */ s2c b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(s2c s2cVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s2cVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = s2cVar;
+            this.a = new String[]{"tinyvideoplayer", "lpfplayerfirstaccess", "lpfplayerdownload"};
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                Log.i("playStats", "handle msg " + message.what);
+                int i = message.what;
+                if (i < this.a.length && i >= 0) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    for (int i2 = 0; !this.b.h(this.a[message.what], (String) message.obj, currentTimeMillis, s2c.c) && i2 < 5; i2++) {
+                    }
+                    s2c.b();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948100965, "Lcom/baidu/tieba/s2c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948100965, "Lcom/baidu/tieba/s2c;");
                 return;
             }
         }
-        this.b = new v2c(0.0d, 0.0d, 0.0d, 0.0d);
-        this.c = new Matrix();
-        this.e = CollectionsKt__CollectionsKt.emptyList();
-        Float f12 = frameEntity.alpha;
-        if (f12 != null) {
-            f = f12.floatValue();
-        } else {
-            f = 0.0f;
-        }
-        this.a = f;
-        Layout layout = frameEntity.layout;
-        if (layout != null) {
-            Float f13 = layout.x;
-            if (f13 != null) {
-                f8 = f13.floatValue();
-            } else {
-                f8 = 0.0f;
-            }
-            double d = f8;
-            Float f14 = layout.y;
-            if (f14 != null) {
-                f9 = f14.floatValue();
-            } else {
-                f9 = 0.0f;
-            }
-            double d2 = f9;
-            Float f15 = layout.width;
-            if (f15 != null) {
-                f10 = f15.floatValue();
-            } else {
-                f10 = 0.0f;
-            }
-            double d3 = f10;
-            Float f16 = layout.height;
-            if (f16 != null) {
-                f11 = f16.floatValue();
-            } else {
-                f11 = 0.0f;
-            }
-            this.b = new v2c(d, d2, d3, f11);
-        }
-        Transform transform = frameEntity.transform;
-        if (transform != null) {
-            float[] fArr = new float[9];
-            Float f17 = transform.a;
-            if (f17 != null) {
-                f2 = f17.floatValue();
-            } else {
-                f2 = 1.0f;
-            }
-            Float f18 = transform.b;
-            if (f18 != null) {
-                f3 = f18.floatValue();
-            } else {
-                f3 = 0.0f;
-            }
-            Float f19 = transform.c;
-            if (f19 != null) {
-                f4 = f19.floatValue();
-            } else {
-                f4 = 0.0f;
-            }
-            Float f20 = transform.d;
-            if (f20 != null) {
-                f5 = f20.floatValue();
-            } else {
-                f5 = 1.0f;
-            }
-            Float f21 = transform.tx;
-            if (f21 != null) {
-                f6 = f21.floatValue();
-            } else {
-                f6 = 0.0f;
-            }
-            Float f22 = transform.ty;
-            if (f22 != null) {
-                f7 = f22.floatValue();
-            } else {
-                f7 = 0.0f;
-            }
-            fArr[0] = f2;
-            fArr[1] = f4;
-            fArr[2] = f6;
-            fArr[3] = f3;
-            fArr[4] = f5;
-            fArr[5] = f7;
-            fArr[6] = 0.0f;
-            fArr[7] = 0.0f;
-            fArr[8] = 1.0f;
-            this.c.setValues(fArr);
-        }
-        String str = frameEntity.clipPath;
-        if (str != null) {
-            str = str.length() > 0 ? str : null;
-            if (str != null) {
-                this.d = new n2c(str);
-            }
-        }
-        List<ShapeEntity> list = frameEntity.shapes;
-        Intrinsics.checkExpressionValueIsNotNull(list, "obj.shapes");
-        ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-        for (ShapeEntity it : list) {
-            Intrinsics.checkExpressionValueIsNotNull(it, "it");
-            arrayList.add(new SVGAVideoShapeEntity(it));
-        }
-        this.e = arrayList;
+        d = "0123456789abcdef".toCharArray();
+        e = null;
     }
 
-    public s2c(JSONObject jSONObject) {
-        boolean z;
+    public static /* synthetic */ int b() {
+        int i = c;
+        c = i + 1;
+        return i;
+    }
+
+    public static s2c f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            s2c s2cVar = e;
+            if (s2cVar != null) {
+                return s2cVar;
+            }
+            synchronized (s2c.class) {
+                if (e == null) {
+                    e = new s2c();
+                }
+            }
+            return e;
+        }
+        return (s2c) invokeV.objValue;
+    }
+
+    public s2c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -183,101 +128,128 @@ public final class s2c {
                 return;
             }
         }
-        s2c s2cVar = this;
-        s2cVar.b = new v2c(0.0d, 0.0d, 0.0d, 0.0d);
-        s2cVar.c = new Matrix();
-        s2cVar.e = CollectionsKt__CollectionsKt.emptyList();
-        s2cVar.a = jSONObject.optDouble(Key.ALPHA, 0.0d);
-        JSONObject optJSONObject = jSONObject.optJSONObject(TtmlNode.TAG_LAYOUT);
-        if (optJSONObject != null) {
-            s2cVar.b = new v2c(optJSONObject.optDouble("x", 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
+        HandlerThread handlerThread = new HandlerThread("yy-vod-stats-report");
+        this.a = handlerThread;
+        handlerThread.start();
+        this.b = new a(this, this.a.getLooper());
+    }
+
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            char[] cArr = new char[bArr.length * 2];
+            for (int i = 0; i < bArr.length; i++) {
+                int i2 = bArr[i] & 255;
+                int i3 = i * 2;
+                char[] cArr2 = d;
+                cArr[i3] = cArr2[i2 >>> 4];
+                cArr[i3 + 1] = cArr2[i2 & 15];
+            }
+            return new String(cArr);
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("transform");
-        if (optJSONObject2 != null) {
-            double optDouble = optJSONObject2.optDouble("a", 1.0d);
-            double optDouble2 = optJSONObject2.optDouble("b", 0.0d);
-            double optDouble3 = optJSONObject2.optDouble("c", 0.0d);
-            double optDouble4 = optJSONObject2.optDouble("d", 1.0d);
-            double optDouble5 = optJSONObject2.optDouble(MapBundleKey.MapObjKey.OBJ_TEXT, 0.0d);
-            double optDouble6 = optJSONObject2.optDouble("ty", 0.0d);
-            float f = (float) optDouble3;
-            z = true;
-            float f2 = (float) 0.0d;
-            float[] fArr = {(float) optDouble, f, (float) optDouble5, (float) optDouble2, (float) optDouble4, (float) optDouble6, f2, f2, (float) 1.0d};
-            s2cVar = this;
-            s2cVar.c.setValues(fArr);
-        } else {
-            z = true;
+        return (String) invokeL.objValue;
+    }
+
+    public static String g(String str) {
+        MessageDigest messageDigest;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            try {
+                messageDigest = MessageDigest.getInstance("MD5");
+            } catch (NoSuchAlgorithmException e2) {
+                e2.printStackTrace();
+                messageDigest = null;
+            }
+            if (messageDigest == null) {
+                return "";
+            }
+            messageDigest.update(str.getBytes());
+            return d(messageDigest.digest());
         }
-        String optString = jSONObject.optString("clipPath");
-        if (optString != null) {
-            if (optString.length() <= 0 ? false : z) {
-                s2cVar.d = new n2c(optString);
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str, long j) {
+        InterceptResult invokeLJ;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            return ("&time=" + ("" + (j / 1000))) + "&key=" + g(str + str2 + "HiidoYYSystem");
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public static void i(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65545, null, i, i2, str) == null) {
+            Log.i("playStats", "tid:" + i + "type:" + i2 + ", stats:" + str);
+            try {
+                f().b.obtainMessage(i2, str).sendToTarget();
+            } catch (NullPointerException e2) {
+                e2.printStackTrace();
             }
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("shapes");
-        if (optJSONArray != null) {
-            ArrayList arrayList = new ArrayList();
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
-                if (optJSONObject3 != null) {
-                    arrayList.add(new SVGAVideoShapeEntity(optJSONObject3));
+    }
+
+    public final boolean h(String str, String str2, long j, int i) {
+        InterceptResult invokeCommon;
+        URL url;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            boolean z = false;
+            if (str2 == null) {
+                return false;
+            }
+            String str3 = "https://mlog.bigda.com/c.gif?act=" + str + e(str, j) + str2 + "&seq=" + i;
+            HttpURLConnection httpURLConnection = null;
+            try {
+                url = new URL(str3);
+            } catch (MalformedURLException e2) {
+                e2.printStackTrace();
+                url = null;
+            }
+            if (url == null) {
+                Log.e("playStats", "report url failed!");
+                return false;
+            }
+            try {
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
+                try {
+                    if (Build.VERSION.SDK_INT < 21 && (httpURLConnection2 instanceof HttpsURLConnection)) {
+                        ((HttpsURLConnection) httpURLConnection2).setSSLSocketFactory(new t2c());
+                    }
+                    httpURLConnection2.setConnectTimeout(10000);
+                    httpURLConnection2.setReadTimeout(6000);
+                    httpURLConnection2.connect();
+                    int responseCode = httpURLConnection2.getResponseCode();
+                    Log.i("playStats", "url : " + str3);
+                    Log.i("playStats", "code : " + responseCode);
+                    if (responseCode == 200) {
+                        z = true;
+                    }
+                    if (httpURLConnection2 != null) {
+                        httpURLConnection2.disconnect();
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    httpURLConnection = httpURLConnection2;
+                    try {
+                        th.printStackTrace();
+                        Log.e("playStats", "open connection except!");
+                        return z;
+                    } finally {
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                    }
                 }
+            } catch (Throwable th2) {
+                th = th2;
             }
-            s2cVar.e = CollectionsKt___CollectionsKt.toList(arrayList);
+            return z;
         }
-    }
-
-    public final double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public final v2c b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (v2c) invokeV.objValue;
-    }
-
-    public final n2c c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (n2c) invokeV.objValue;
-    }
-
-    public final List<SVGAVideoShapeEntity> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final Matrix e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final void f(List<SVGAVideoShapeEntity> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.e = list;
-        }
+        return invokeCommon.booleanValue;
     }
 }

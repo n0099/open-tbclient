@@ -1,17 +1,32 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class ir3 extends ActivityDelegation implements zp3<Bundle> {
+public class ir3 implements np2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.np2
+    public Map<Class, Object> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
 
     public ir3() {
         Interceptable interceptable = $ic;
@@ -27,31 +42,50 @@ public class ir3 extends ActivityDelegation implements zp3<Bundle> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zp3
-    /* renamed from: c */
-    public void a(Bundle bundle) {
+    @Override // com.baidu.tieba.np2
+    public void a(m63 m63Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.mResult.putBundle("result", bundle);
-            finish();
+        if (interceptable == null || interceptable.invokeL(1048576, this, m63Var) == null) {
+            er3.b().a(m63Var);
+            er3.a().a(m63Var);
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.np2
+    public Map<String, Object> b(@NonNull rt1 rt1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean c = fo3.c(this.mParams, "isRealName", false);
-            String g = fo3.g(this.mParams, "swanAppId");
-            if (c) {
-                hr3.H(getAgent(), g, this);
-            } else {
-                hr3.K(getAgent(), g, this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rt1Var)) == null) {
+            Map<String, Object> b = er3.b().b(rt1Var);
+            Map<String, Object> b2 = er3.a().b(rt1Var);
+            HashMap hashMap = new HashMap();
+            if (b != null) {
+                hashMap.putAll(b);
             }
-            return false;
+            if (b2 != null) {
+                hashMap.putAll(b2);
+            }
+            return hashMap;
         }
-        return invokeV.booleanValue;
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.np2
+    public Map<String, Object> c(@NonNull rt1 rt1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rt1Var)) == null) {
+            Map<String, Object> c = er3.b().c(rt1Var);
+            Map<String, Object> c2 = er3.a().c(rt1Var);
+            HashMap hashMap = new HashMap();
+            if (c != null) {
+                hashMap.putAll(c);
+            }
+            if (c2 != null) {
+                hashMap.putAll(c2);
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

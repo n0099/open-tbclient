@@ -1,43 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
+import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
+import com.baidu.tieba.feed.component.uistate.CardVirtualHeadUiStateKt;
+import com.baidu.tieba.feed.helper.CommonOnClickKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class h27 {
+public final class h27 implements h77<h27> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EnterForumTabFeedFragment a;
-    public BdTypeRecyclerView b;
-    public t27 c;
-    public k27 d;
-    public m27 e;
-    public l27 f;
-    public n27 g;
-    public u27 h;
-    public p27 i;
-    public r27 j;
-    public q27 k;
-    public o27 l;
-    public s27 m;
-    public j27 n;
-    public v27 o;
-    public List<om> p;
+    public final a37 a;
+    public final m37 b;
+    public final String c;
+    public final String d;
+    public final Function2<View, String, Unit> e;
+    public final Function2<View, String, Boolean> f;
+    public final Function2<m37, View, Unit> g;
+    public final Function1<n47, Unit> h;
 
-    public h27(EnterForumTabFeedFragment enterForumTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
+    @Override // com.baidu.tieba.h77
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "virtual_head" : (String) invokeV.objValue;
+    }
+
+    public h27 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (h27) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof h27) {
+                h27 h27Var = (h27) obj;
+                return Intrinsics.areEqual(this.a, h27Var.a) && Intrinsics.areEqual(this.b, h27Var.b) && Intrinsics.areEqual(this.c, h27Var.c) && Intrinsics.areEqual(this.d, h27Var.d) && Intrinsics.areEqual(this.e, h27Var.e) && Intrinsics.areEqual(this.f, h27Var.f) && Intrinsics.areEqual(this.g, h27Var.g) && Intrinsics.areEqual(this.h, h27Var.h);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            m37 m37Var = this.b;
+            int hashCode2 = (hashCode + (m37Var == null ? 0 : m37Var.hashCode())) * 31;
+            String str = this.c;
+            int hashCode3 = (hashCode2 + (str == null ? 0 : str.hashCode())) * 31;
+            String str2 = this.d;
+            return ((((((((hashCode3 + (str2 != null ? str2.hashCode() : 0)) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.g.hashCode()) * 31) + this.h.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return "CardVirtualHeadUiState(headData=" + this.a + ", feedBackData=" + this.b + ", schema=" + this.c + ", authorUserId=" + this.d + ", onItemClick=" + this.e + ", onImageClick=" + this.f + ", onFeedBackClick=" + this.g + ", onStat=" + this.h + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public h27(a37 headData, m37 m37Var, String str, String str2, Function2<? super View, ? super String, Unit> onItemClick, Function2<? super View, ? super String, Boolean> onImageClick, Function2<? super m37, ? super View, Unit> onFeedBackClick, Function1<? super n47, Unit> onStat) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {enterForumTabFeedFragment, bdTypeRecyclerView};
+            Object[] objArr = {headData, m37Var, str, str2, onItemClick, onImageClick, onFeedBackClick, onStat};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,100 +99,131 @@ public class h27 {
                 return;
             }
         }
-        this.p = new LinkedList();
-        this.a = enterForumTabFeedFragment;
-        this.b = bdTypeRecyclerView;
-        a();
+        Intrinsics.checkNotNullParameter(headData, "headData");
+        Intrinsics.checkNotNullParameter(onItemClick, "onItemClick");
+        Intrinsics.checkNotNullParameter(onImageClick, "onImageClick");
+        Intrinsics.checkNotNullParameter(onFeedBackClick, "onFeedBackClick");
+        Intrinsics.checkNotNullParameter(onStat, "onStat");
+        this.a = headData;
+        this.b = m37Var;
+        this.c = str;
+        this.d = str2;
+        this.e = onItemClick;
+        this.f = onImageClick;
+        this.g = onFeedBackClick;
+        this.h = onStat;
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            t27 t27Var = new t27(this.a.getPageContext(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId(), this.a.e2());
-            this.c = t27Var;
-            t27Var.y(this.b);
-            this.p.add(this.c);
-            k27 k27Var = new k27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.a.getUniqueId(), this.a.e2());
-            this.d = k27Var;
-            k27Var.z(this.b);
-            this.p.add(this.d);
-            m27 m27Var = new m27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.a.getUniqueId(), this.a.e2());
-            this.e = m27Var;
-            m27Var.y(this.b);
-            this.p.add(this.e);
-            l27 l27Var = new l27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.a.getUniqueId(), this.a.e2());
-            this.f = l27Var;
-            l27Var.y(this.b);
-            this.p.add(this.f);
-            n27 n27Var = new n27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.a.getUniqueId(), this.a.e2());
-            this.g = n27Var;
-            n27Var.y(this.b);
-            this.p.add(this.g);
-            u27 u27Var = new u27(this.a.getPageContext(), ThreadData.TYPE_VIDEO, this.a.getUniqueId(), this.a.e2());
-            this.h = u27Var;
-            u27Var.B(this.b);
-            this.p.add(this.h);
-            p27 p27Var = new p27(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.e2());
-            this.i = p27Var;
-            p27Var.u(this.b);
-            this.p.add(this.i);
-            r27 r27Var = new r27(this.a.getPageContext(), ThreadData.TYPE_SINGLE_LINK, this.a.getUniqueId(), this.a.e2());
-            this.j = r27Var;
-            r27Var.y(this.b);
-            this.p.add(this.j);
-            q27 q27Var = new q27(this.a.getPageContext(), ThreadData.TYPE_MULTI_LINK, this.a.getUniqueId(), this.a.e2());
-            this.k = q27Var;
-            q27Var.u(this.b);
-            this.p.add(this.k);
-            o27 o27Var = new o27(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.e2());
-            this.l = o27Var;
-            o27Var.y(this.b);
-            this.p.add(this.l);
-            s27 s27Var = new s27(this.a.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, this.a.getUniqueId(), this.a.e2());
-            this.m = s27Var;
-            s27Var.y(this.b);
-            this.p.add(this.m);
-            j27 j27Var = new j27(this.a.getPageContext(), ThreadData.TYPE_ARTICLE, this.a.getUniqueId(), this.a.e2());
-            this.n = j27Var;
-            j27Var.z(this.b);
-            this.p.add(this.n);
-            v27 v27Var = new v27(this.a.getPageContext(), y35.d, this.a.getUniqueId(), this.a.e2());
-            this.o = v27Var;
-            v27Var.x(this.b);
-            this.p.add(this.o);
-            this.b.addAdapters(this.p);
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ h27(a37 a37Var, m37 m37Var, String str, String str2, Function2 function2, Function2 function22, Function2 function23, Function1 function1, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(a37Var, m37Var, str, str2, r7, r8, r9, r10);
+        Function2<View, String, Unit> function24;
+        Function2 function25;
+        Function2<m37, View, Unit> function26;
+        Function1<n47, Unit> function12;
+        Function2 function27;
+        if ((i & 16) != 0) {
+            function24 = CommonOnClickKt.b();
+        } else {
+            function24 = function2;
+        }
+        if ((i & 32) != 0) {
+            function27 = CardVirtualHeadUiStateKt.a;
+            function25 = function27;
+        } else {
+            function25 = function22;
+        }
+        if ((i & 64) != 0) {
+            function26 = CommonOnClickKt.a();
+        } else {
+            function26 = function23;
+        }
+        if ((i & 128) != 0) {
+            function12 = CardUiStateKt.b();
+        } else {
+            function12 = function1;
         }
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
-        }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.h77
+    public /* bridge */ /* synthetic */ h27 b() {
+        d();
+        return this;
     }
 
-    public void c(ArrayList<bn> arrayList) {
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.b.setData(arrayList);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void d(boolean z) {
+    public final m37 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            k27 k27Var = this.d;
-            if (k27Var != null) {
-                k27Var.setFromCDN(z);
-            }
-            l27 l27Var = this.f;
-            if (l27Var != null) {
-                l27Var.setFromCDN(z);
-            }
-            m27 m27Var = this.e;
-            if (m27Var != null) {
-                m27Var.setFromCDN(z);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
+        return (m37) invokeV.objValue;
+    }
+
+    public final a37 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (a37) invokeV.objValue;
+    }
+
+    public final Function2<m37, View, Unit> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public final Function2<View, String, Boolean> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public final Function2<View, String, Unit> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.e;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public final Function1<n47, Unit> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.h;
+        }
+        return (Function1) invokeV.objValue;
+    }
+
+    public final String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.rs;
 import com.baidu.tieba.widget.InterestForumTagView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class InterestForumTagLayout extends LinearLayout implements ux {
+public class InterestForumTagLayout extends LinearLayout implements rs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float a;
@@ -163,7 +163,7 @@ public class InterestForumTagLayout extends LinearLayout implements ux {
         }
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.rs
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
@@ -176,8 +176,8 @@ public class InterestForumTagLayout extends LinearLayout implements ux {
                 int childCount = linearLayout.getChildCount();
                 for (int i2 = 0; i2 < childCount; i2++) {
                     View childAt = this.d.getChildAt(i2);
-                    if (childAt instanceof ux) {
-                        ((ux) childAt).onChangeSkinType(tbPageContext, i);
+                    if (childAt instanceof rs) {
+                        ((rs) childAt).onChangeSkinType(tbPageContext, i);
                     }
                 }
             }
@@ -285,9 +285,9 @@ public class InterestForumTagLayout extends LinearLayout implements ux {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d != null && getContext() != null) {
             if (this.g) {
-                string = this.b.getString(R.string.obfuscated_res_0x7f0f0abb);
+                string = this.b.getString(R.string.obfuscated_res_0x7f0f0ac6);
             } else {
-                string = this.b.getString(R.string.obfuscated_res_0x7f0f0ab9);
+                string = this.b.getString(R.string.obfuscated_res_0x7f0f0ac4);
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             EMTextView eMTextView = new EMTextView(getContext());
@@ -322,7 +322,7 @@ public class InterestForumTagLayout extends LinearLayout implements ux {
             setOrientation(1);
             TextView textView = new TextView(getContext());
             this.c = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0abf));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0aca));
             addView(this.c, new LinearLayout.LayoutParams(-2, -2));
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
@@ -330,7 +330,7 @@ public class InterestForumTagLayout extends LinearLayout implements ux {
             addView(relativeLayout, layoutParams);
             ImageView imageView = new ImageView(getContext());
             this.f = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f091151);
+            imageView.setId(R.id.obfuscated_res_0x7f09116b);
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds42);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimens, dimens);
             layoutParams2.addRule(11, -1);
@@ -342,7 +342,7 @@ public class InterestForumTagLayout extends LinearLayout implements ux {
             this.d.setMinimumHeight(BdUtilHelper.getDimens(getContext(), R.dimen.tbds68));
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams3.addRule(15, -1);
-            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f091151);
+            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f09116b);
             relativeLayout.addView(this.d, layoutParams3);
             onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
         }

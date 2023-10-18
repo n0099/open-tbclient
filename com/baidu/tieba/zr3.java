@@ -1,293 +1,121 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
+import android.database.Cursor;
+import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tieba.oz1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.util.HashMap;
 /* loaded from: classes9.dex */
-public class zr3 extends pg3 {
+public class zr3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean t;
     public transient /* synthetic */ FieldHolder $fh;
-    public String s;
 
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends fg3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zr3 c;
-
-        /* loaded from: classes9.dex */
-        public class a implements zp3<Bundle> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.zp3
-            /* renamed from: b */
-            public void a(Bundle bundle) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-                    if (bundle == null) {
-                        eg3.k("null stoken", Boolean.TRUE);
-                        this.a.e(new OAuthException(10001));
-                        return;
-                    }
-                    String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
-                    if (TextUtils.isEmpty(string)) {
-                        eg3.k("empty stoken", Boolean.TRUE);
-                        this.a.e(new OAuthException(10001));
-                        return;
-                    }
-                    this.a.c.s = string;
-                    this.a.d();
-                }
-            }
-        }
-
-        public c(zr3 zr3Var) {
-            oz1.d dVar;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zr3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = zr3Var;
-            if (zr3Var.o != null && (dVar = zr3Var.n) != null && dVar.a) {
-                long j = dVar.b;
-                if (zr3.t) {
-                    Log.d("LoginRequest", "send timeout " + j + "ms msg");
-                }
-                zr3Var.o.sendEmptyMessageDelayed(1, j < 0 ? 0L : j);
-            }
-        }
-
-        public /* synthetic */ c(zr3 zr3Var, a aVar) {
-            this(zr3Var);
-        }
-
-        @Override // com.baidu.tieba.fg3
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                hr3.t(this.c.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b extends fg3 implements sr1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zr3 c;
-
-        public b(zr3 zr3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zr3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = zr3Var;
-        }
-
-        public /* synthetic */ b(zr3 zr3Var, a aVar) {
-            this(zr3Var);
-        }
-
-        @Override // com.baidu.tieba.fg3
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                boolean e = nu2.h0().e(this.c.m);
-                if (zr3.t) {
-                    Log.d("LoginRequest", "LoginPreparation isLogin : " + e + " call stack:" + Log.getStackTraceString(new Exception()));
-                }
-                if (e) {
-                    zr3 zr3Var = this.c;
-                    zr3Var.h(new c(zr3Var, null));
-                    return true;
-                }
-                this.c.M().N().f(this.c.m, this.c.p, this);
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.sr1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                eg3.k("onResult :: " + i, Boolean.FALSE);
-                if (i != -2) {
-                    if (i != 0) {
-                        eg3.k("login error ERR_BY_LOGIN", Boolean.TRUE);
-                        e(new OAuthException(10004));
-                        return;
-                    }
-                    eg3.k("Login Preparation ok, is already login", Boolean.FALSE);
-                    zr3 zr3Var = this.c;
-                    zr3Var.h(new c(zr3Var, null));
-                    d();
-                    return;
-                }
-                eg3.k("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
-                e(new OAuthException(10004));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948369518, "Lcom/baidu/tieba/zr3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948369518, "Lcom/baidu/tieba/zr3;");
-                return;
-            }
-        }
-        t = qr1.a;
-    }
-
-    @Override // com.baidu.tieba.pg3
-    @NonNull
-    public fg3 Q() {
+    public static HashMap<String, PMSAppInfo> a() {
         InterceptResult invokeV;
+        HashMap<String, PMSAppInfo> hashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new b(this, null);
-        }
-        return (fg3) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zr3(Activity activity, oz1.d dVar, Bundle bundle) {
-        super(activity, dVar, bundle);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, dVar, bundle};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Activity) objArr2[0], (oz1.d) objArr2[1], (Bundle) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Cursor query = fe4.a().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
+            HashMap<String, PMSAppInfo> hashMap2 = new HashMap<>();
+            if (query != null && query.moveToFirst()) {
+                int columnIndex = query.getColumnIndex("app_id");
+                int columnIndex2 = query.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
+                int columnIndex3 = query.getColumnIndex("app_sign");
+                int columnIndex4 = query.getColumnIndex("version_code");
+                int columnIndex5 = query.getColumnIndex(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
+                int columnIndex6 = query.getColumnIndex("description");
+                int columnIndex7 = query.getColumnIndex("app_status");
+                int columnIndex8 = query.getColumnIndex("status_detail");
+                int columnIndex9 = query.getColumnIndex("status_desc");
+                int columnIndex10 = query.getColumnIndex("resume_date");
+                int columnIndex11 = query.getColumnIndex("icon_url");
+                int columnIndex12 = query.getColumnIndex("app_name");
+                int columnIndex13 = query.getColumnIndex("service_category");
+                int columnIndex14 = query.getColumnIndex("subject_info");
+                HashMap<String, PMSAppInfo> hashMap3 = hashMap2;
+                int columnIndex15 = query.getColumnIndex("type");
+                int columnIndex16 = query.getColumnIndex("pkg_size");
+                int columnIndex17 = query.getColumnIndex("pending_err_code");
+                int columnIndex18 = query.getColumnIndex("app_category");
+                int columnIndex19 = query.getColumnIndex("orientation");
+                int columnIndex20 = query.getColumnIndex("max_age");
+                int columnIndex21 = query.getColumnIndex("create_time");
+                int columnIndex22 = query.getColumnIndex("webview_domains");
+                int columnIndex23 = query.getColumnIndex("web_action");
+                int columnIndex24 = query.getColumnIndex("domains");
+                int columnIndex25 = query.getColumnIndex(SwanAppBearInfo.BEAR_INFO);
+                int columnIndex26 = query.getColumnIndex("server_ext");
+                int columnIndex27 = query.getColumnIndex("pay_protected");
+                while (true) {
+                    PMSAppInfo pMSAppInfo = new PMSAppInfo();
+                    int i = columnIndex14;
+                    pMSAppInfo.appId = query.getString(columnIndex);
+                    pMSAppInfo.appKey = query.getString(columnIndex2);
+                    int i2 = columnIndex;
+                    int i3 = columnIndex2;
+                    pMSAppInfo.appSign = query.getLong(columnIndex3);
+                    pMSAppInfo.versionCode = query.getInt(columnIndex4);
+                    pMSAppInfo.versionName = query.getString(columnIndex5);
+                    pMSAppInfo.description = query.getString(columnIndex6);
+                    pMSAppInfo.appStatus = query.getInt(columnIndex7);
+                    pMSAppInfo.statusDetail = query.getString(columnIndex8);
+                    pMSAppInfo.statusDesc = query.getString(columnIndex9);
+                    pMSAppInfo.resumeDate = query.getString(columnIndex10);
+                    pMSAppInfo.iconUrl = query.getString(columnIndex11);
+                    pMSAppInfo.appName = query.getString(columnIndex12);
+                    pMSAppInfo.serviceCategory = query.getString(columnIndex13);
+                    pMSAppInfo.subjectInfo = query.getString(i);
+                    int i4 = columnIndex15;
+                    pMSAppInfo.type = query.getInt(i4);
+                    int i5 = columnIndex3;
+                    int i6 = columnIndex16;
+                    pMSAppInfo.pkgSize = query.getLong(i6);
+                    int i7 = columnIndex17;
+                    pMSAppInfo.pendingErrCode = query.getInt(i7);
+                    int i8 = columnIndex18;
+                    pMSAppInfo.appCategory = query.getInt(i8);
+                    int i9 = columnIndex19;
+                    pMSAppInfo.setOrientation(query.getInt(i9));
+                    int i10 = columnIndex4;
+                    int i11 = columnIndex20;
+                    pMSAppInfo.maxAge = query.getLong(i11);
+                    int i12 = columnIndex21;
+                    pMSAppInfo.createTime = query.getLong(i12);
+                    pMSAppInfo.webViewDomains = query.getString(columnIndex22);
+                    pMSAppInfo.webAction = query.getString(columnIndex23);
+                    pMSAppInfo.domains = query.getString(columnIndex24);
+                    pMSAppInfo.bearInfo = query.getString(columnIndex25);
+                    pMSAppInfo.serverExt = query.getString(columnIndex26);
+                    pMSAppInfo.payProtected = query.getInt(columnIndex27);
+                    hashMap = hashMap3;
+                    hashMap.put(pMSAppInfo.appId, pMSAppInfo);
+                    if (!query.moveToNext()) {
+                        break;
+                    }
+                    hashMap3 = hashMap;
+                    columnIndex = i2;
+                    columnIndex14 = i;
+                    columnIndex2 = i3;
+                    columnIndex21 = i12;
+                    columnIndex3 = i5;
+                    columnIndex15 = i4;
+                    columnIndex16 = i6;
+                    columnIndex17 = i7;
+                    columnIndex18 = i8;
+                    columnIndex20 = i11;
+                    columnIndex19 = i9;
+                    columnIndex4 = i10;
+                }
+            } else {
+                hashMap = hashMap2;
             }
+            sl4.d(query);
+            return hashMap;
         }
-        x();
-        y();
-    }
-
-    @Override // com.baidu.tieba.pg3, com.baidu.tieba.dg3
-    public boolean j() {
-        InterceptResult invokeV;
-        Object obj;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                boolean isEmpty = TextUtils.isEmpty(this.q);
-                if (isEmpty) {
-                    obj = M().O();
-                } else {
-                    obj = this.q;
-                }
-                jSONObject.put("ma_id", obj);
-                JSONObject jSONObject2 = new JSONObject();
-                if (isEmpty) {
-                    str = M().O();
-                } else {
-                    str = this.q;
-                }
-                jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, str);
-                jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
-                jSONObject2.put("host_key_hash", eg3.g());
-                jSONObject2.put("stoken", this.s);
-                String l = nu2.o().l();
-                if (!TextUtils.isEmpty(l)) {
-                    jSONObject2.put("host_api_key", l);
-                }
-                jSONObject.put("open", jSONObject2);
-            } catch (JSONException e) {
-                if (t) {
-                    e.printStackTrace();
-                }
-            }
-            v("data", jSONObject.toString());
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (HashMap) invokeV.objValue;
     }
 }

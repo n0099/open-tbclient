@@ -1,187 +1,84 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bj2 implements V8Engine.JavaScriptExceptionDelegate {
+public class bj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oi2 a;
+    public String a;
     public String b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
+    public String g;
+    public int h;
+    public String i;
+    public String j;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final boolean d;
-        public transient /* synthetic */ FieldHolder $fh;
-        public JSEvent a;
-        public String b;
-        public String c;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-917170878, "Lcom/baidu/tieba/bj2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-917170878, "Lcom/baidu/tieba/bj2$a;");
-                    return;
-                }
-            }
-            d = qr1.a;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = new JSEvent("error");
-        }
-
-        public JSEvent a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("message", this.b);
-                    jSONObject.put("stack", this.c);
-                } catch (JSONException e) {
-                    if (d) {
-                        Log.e("V8Exception", Log.getStackTraceString(e));
-                    }
-                }
-                if (jSONObject.length() > 0) {
-                    this.a.data = jSONObject;
-                }
-                return this.a;
-            }
-            return (JSEvent) invokeV.objValue;
-        }
-
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947646815, "Lcom/baidu/tieba/bj2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947646815, "Lcom/baidu/tieba/bj2;");
-                return;
-            }
-        }
-        boolean z = qr1.a;
-    }
-
-    public bj2(oi2 oi2Var) {
+    public bj2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {oi2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = "";
-        this.a = oi2Var;
     }
 
-    public final void a(String str, String str2) {
+    @NonNull
+    public static bj2 a(@NonNull mq2 mq2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || this.a.m() == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mq2Var)) == null) {
+            bj2 bj2Var = new bj2();
+            bj2Var.a = mq2Var.I();
+            bj2Var.c = mq2Var.L();
+            bj2Var.d = mq2Var.R();
+            bj2Var.f = mq2Var.H();
+            bj2Var.i = mq2Var.U();
+            bj2Var.h = mq2Var.q1();
+            bj2Var.e = System.currentTimeMillis();
+            bj2Var.g = String.valueOf(mq2Var.w1());
+            bj2Var.b = mq2Var.J();
+            bj2Var.j = mq2Var.x1();
+            return bj2Var;
         }
-        EventTarget m = this.a.m();
-        a aVar = new a();
-        aVar.b(str + "\n" + str2);
-        aVar.c("");
-        m.dispatchEvent(aVar.a());
+        return (bj2) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
-    @SuppressLint({"SwanDebugLog"})
-    public void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo) {
-        String str;
+    public static bj2 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8ExceptionInfo) != null) || v8ExceptionInfo == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            bj2 bj2Var = new bj2();
+            bj2Var.a = jSONObject.optString("bundle_id");
+            bj2Var.e = jSONObject.optLong("time");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject != null) {
+                bj2Var.b = optJSONObject.optString("appkey");
+                bj2Var.g = optJSONObject.optString("pkg_type");
+                bj2Var.c = optJSONObject.optString("app_name");
+                bj2Var.d = optJSONObject.optString("app_icon");
+                bj2Var.j = optJSONObject.optString("version_code");
+                bj2Var.f = optJSONObject.optInt("frame_type");
+                bj2Var.h = optJSONObject.optInt("pay_protected");
+            }
+            return bj2Var;
         }
-        String str2 = "";
-        if (TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
-            str = "";
-        } else {
-            str = v8ExceptionInfo.exceptionMsg;
-        }
-        if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
-            str2 = v8ExceptionInfo.exceptionTrace;
-        }
-        Log.e("V8Exception", this.a.l0() + "msg: " + str + " ,stack: " + str2);
-        this.a.w().a(str);
-        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.b.equals(str)) {
-            return;
-        }
-        this.b = str;
-        a(str, str2);
-        rs1 j = ou2.j();
-        j.e(str + ParamableElem.DIVIDE_PARAM + str2);
-        ai3.b(v8ExceptionInfo);
-        ou2.i().r(v8ExceptionInfo);
+        return (bj2) invokeL.objValue;
     }
 }

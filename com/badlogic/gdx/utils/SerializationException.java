@@ -2,7 +2,7 @@ package com.badlogic.gdx.utils;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d8;
+import com.baidu.tieba.j3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SerializationException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d8 trace;
+    public j3 trace;
 
     public SerializationException() {
         Interceptable interceptable = $ic;
@@ -111,10 +111,10 @@ public class SerializationException extends RuntimeException {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (str != null) {
                 if (this.trace == null) {
-                    this.trace = new d8(512);
+                    this.trace = new j3(512);
                 }
                 this.trace.a('\n');
-                this.trace.n(str);
+                this.trace.f(str);
                 return;
             }
             throw new IllegalArgumentException("info cannot be null.");
@@ -138,14 +138,14 @@ public class SerializationException extends RuntimeException {
             if (this.trace == null) {
                 return super.getMessage();
             }
-            d8 d8Var = new d8(512);
-            d8Var.n(super.getMessage());
-            if (d8Var.length() > 0) {
-                d8Var.a('\n');
+            j3 j3Var = new j3(512);
+            j3Var.f(super.getMessage());
+            if (j3Var.length() > 0) {
+                j3Var.a('\n');
             }
-            d8Var.n("Serialization trace:");
-            d8Var.j(this.trace);
-            return d8Var.toString();
+            j3Var.f("Serialization trace:");
+            j3Var.b(this.trace);
+            return j3Var.toString();
         }
         return (String) invokeV.objValue;
     }

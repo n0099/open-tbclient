@@ -1,25 +1,37 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.ugc.utils.FileUtils;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class pbb {
+public abstract class pbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
-    public String b;
-    public boolean c;
+    public a a;
+    public int b;
+    public pbb c;
+    public mbb d;
+    public volatile boolean e;
+    public volatile boolean f;
+    public String g;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(pbb pbbVar);
+
+        void b(pbb pbbVar);
+
+        void c(int i, int i2);
+
+        void d(String str, pbb pbbVar);
+    }
 
     public pbb() {
         Interceptable interceptable = $ic;
@@ -31,144 +43,141 @@ public class pbb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new JSONObject();
     }
 
-    public JSONObject g() {
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        String fileNameWithOutExtention;
+        StringBuilder sb;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            if (str2 == null) {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(this.g)) {
+                sb = new StringBuilder();
+                fileNameWithOutExtention = FileUtils.removeExtention(str);
+            } else {
+                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
+                sb = new StringBuilder();
+                sb.append(this.g);
+            }
+            sb.append(fileNameWithOutExtention);
+            sb.append(str2);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public abstract void b();
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public abstract void d(mbb mbbVar);
+
+    public void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    public void f(pbb pbbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, pbbVar) == null) {
+            this.c = pbbVar;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
+            return;
+        }
+        this.e = true;
+        a aVar = this.a;
+        if (aVar != null) {
+            aVar.d(getClass().getName() + str, this);
+        }
+    }
+
+    public abstract void h();
+
+    public void i(int i) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
+            return;
+        }
+        aVar.c(this.b, i);
+    }
+
+    public boolean j(mbb mbbVar) {
+        InterceptResult invokeL;
+        List<kbb> a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, mbbVar)) == null) {
+            if (mbbVar != null && mbbVar.c() != null && mbbVar.c().size() == 1 && mbbVar.c().get(0).a() != null && (a2 = mbbVar.c().get(0).a()) != null && a2.size() == 1) {
+                kbb kbbVar = a2.get(0);
+                if (kbbVar.b() != null && !kbbVar.b().isNeedEdit()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public boolean h() {
+    public void l(mbb mbbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, mbbVar) == null) {
+            this.d = mbbVar;
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.c(this.b, 100);
+                this.a.b(this);
+            }
+            pbb pbbVar = this.c;
+            if (pbbVar != null) {
+                pbbVar.d(mbbVar);
+            }
+        }
+    }
+
+    public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
     }
 
-    public String l() {
+    public mbb n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (mbb) invokeV.objValue;
     }
 
-    public void a(String str) {
+    public void o() {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            i(UbcRemoteStat.CONNECTED, "preconnect_app_hosts", str);
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
+            return;
         }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            i("bdns", "baidu_dns_enabled", Boolean.valueOf(z));
-        }
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            i(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            i(UbcRemoteStat.CONNECTED, "preconnect_enabled", Boolean.valueOf(z));
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            i(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            if (new File(str).isDirectory()) {
-                this.b = str;
-                return;
-            }
-            throw new IllegalArgumentException("Storage path must be set to existing directory");
-        }
-    }
-
-    public void d(int i, long j) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (i != 3 && i != 2) {
-                if (l() != null) {
-                    throw new IllegalArgumentException("Storage path must not be set");
-                }
-            } else if (l() != null) {
-                this.c = true;
-            } else {
-                throw new IllegalArgumentException("Storage path must be set");
-            }
-            if (i != 0 && i != 2) {
-                z = false;
-            } else {
-                z = true;
-            }
-            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(!z));
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2 && i != 3) {
-                        throw new IllegalArgumentException("Unknown cache mode");
-                    }
-                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 2);
-                } else {
-                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 1);
-                }
-            } else {
-                i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 0);
-            }
-            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
-        }
-    }
-
-    public void i(String str, String str2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, obj) == null) {
-            try {
-                JSONObject optJSONObject = this.a.optJSONObject(str);
-                if (optJSONObject == null) {
-                    optJSONObject = new JSONObject();
-                }
-                optJSONObject.put(str2, obj);
-                this.a.put(str, optJSONObject);
-            } catch (JSONException e) {
-                throw new IllegalStateException("JSON expcetion:", e);
-            }
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            if (i >= 0) {
-                i("misc", "request_timeout", Integer.valueOf(i));
-                return;
-            }
-            throw new IllegalArgumentException(String.format("Invalid timeout second, %d is negative.", Integer.valueOf(i)));
-        }
+        aVar.a(this);
     }
 }

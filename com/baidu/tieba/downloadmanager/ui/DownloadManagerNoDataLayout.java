@@ -48,7 +48,7 @@ public class DownloadManagerNoDataLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-1, BdUtilHelper.getDimens(context, R.dimen.tbds585)));
             this.b = NoDataViewFactory.b(getContext(), this, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NORESULT, BdUtilHelper.getDimens(context, R.dimen.M_H_X010)), null, null, true);
-            this.a = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04da);
+            this.a = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04e0);
             this.b.setVisibility(0);
         }
     }

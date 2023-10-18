@@ -3,7 +3,7 @@ package com.baidu.searchbox.live.interfaces.defaultimpl.utils;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.InputStream;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Md5 {
     public static final char[] HEX_DIGITS = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 

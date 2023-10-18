@@ -1,160 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class nz1 extends lz1 {
+public class nz1 extends wy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public boolean e;
 
-    @Override // com.baidu.tieba.jz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CheckSessionApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements zp3<jg3<JSONObject>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rs1 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
-
-        public a(nz1 nz1Var, rs1 rs1Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nz1Var, rs1Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rs1Var;
-            this.b = callbackHandler;
-            this.c = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zp3
-        /* renamed from: b */
-        public void a(jg3<JSONObject> jg3Var) {
-            JSONObject wrapCallbackParams;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jg3Var) == null) {
-                if (jg3Var.c() && nz1.y(jg3Var.a)) {
-                    JSONObject optJSONObject = jg3Var.a.optJSONObject("data");
-                    if (optJSONObject != null && optJSONObject.optBoolean("result")) {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
-                        zh3.T("checkSession", "success");
-                    } else {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "session key expired");
-                        zh3.U("checkSession", "fail", "session key expired");
-                    }
-                } else {
-                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jg3Var.b());
-                    this.a.g(this.b, wrapCallbackParams.toString());
-                    zh3.U("checkSession", "fail", "result failed");
-                }
-                this.b.handleSchemeDispatchCallback(this.c, wrapCallbackParams.toString());
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nz1(@NonNull hz1 hz1Var) {
-        super(hz1Var);
+    public nz1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((hz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = false;
     }
 
-    public static boolean y(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.wy1
+    public void a(xy1 xy1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject != null && TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, xy1Var, canvas) == null) && this.e) {
+            xy1Var.f.quadTo(this.a, this.b, this.c, this.d);
         }
-        return invokeL.booleanValue;
     }
 
-    public g32 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.wy1
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#checkSession", false);
-            zh3.T("checkSession", "create");
-            rs1 j = ou2.j();
-            CallbackHandler f = a().f();
-            gb3 b0 = gb3.b0();
-            if (b0 == null) {
-                j.g(f, UnitedSchemeUtility.wrapCallbackParams(1001, "swan app is null").toString());
-                zh3.U("checkSession", "fail", "empty swanApp");
-                return new g32(1001, "swan app is null");
-            }
-            String O = b0.O();
-            if (TextUtils.isEmpty(O)) {
-                j.g(f, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
-                zh3.U("checkSession", "fail", "empty app key");
-                return new g32(1001, "empty app key");
-            }
-            JSONObject r = jz1.r(str);
-            if (r == null) {
-                j.g(f, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
-                zh3.U("checkSession", "fail", "empty joParams");
-                return new g32(201, "empty joParams");
-            }
-            String optString = r.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                j.g(f, UnitedSchemeUtility.wrapCallbackParams(201, "cb is empty").toString());
-                zh3.U("checkSession", "fail", "empty cb");
-                return new g32(201, "cb is empty");
-            }
-            Context context = getContext();
-            if (!b0.N().e(context)) {
-                j.g(f, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-                zh3.U("checkSession", "fail", "account not login");
-                return new g32(10004, "user not logged in");
-            }
-            zh3.T("checkSession", "checkSession");
-            mg3 g = fb3.K().x().a().b().g(context, O);
-            g.q("checkSession");
-            g.o(new a(this, j, f, optString));
-            g.call();
-            return new g32(0);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 3) {
+            this.a = gj3.g((float) jSONArray.optDouble(0));
+            this.b = gj3.g((float) jSONArray.optDouble(1));
+            this.c = gj3.g((float) jSONArray.optDouble(2));
+            this.d = gj3.g((float) jSONArray.optDouble(3));
+            this.e = true;
         }
-        return (g32) invokeL.objValue;
     }
 }

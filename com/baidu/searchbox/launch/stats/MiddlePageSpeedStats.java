@@ -5,7 +5,7 @@ import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class MiddlePageSpeedStats extends AbstractSpeedStats {
     public static final String APP_2_MIDDLE_GAP = "app2middle";
     public static final String ONCREATE = "create";

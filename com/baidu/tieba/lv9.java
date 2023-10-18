@@ -1,77 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.widget.MediaController;
+import com.baidu.tieba.play.TbVideoViewContainer;
 /* loaded from: classes7.dex */
-public class lv9 extends om<hw9, CardViewHolder<zw9>> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public zw9 b;
+public interface lv9 extends MediaController.MediaPlayerControl {
+    void a(long j, long j2, long j3);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lv9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-    }
+    int getCurrentPositionSync();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: s */
-    public CardViewHolder<zw9> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.b = new zw9(this.a);
-            return new CardViewHolder<>(this.b);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
+    int getPcdnState();
 
-    public void onScroll() {
-        zw9 zw9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (zw9Var = this.b) != null) {
-            zw9Var.onScroll();
-        }
-    }
+    void setLooping(boolean z);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, hw9 hw9Var, CardViewHolder<zw9> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hw9Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(hw9Var);
-            return cardViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
-    }
+    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
+
+    void setOperableVideoContainer(fw9 fw9Var);
+
+    void setPlayMode(String str);
+
+    void setStageType(String str);
+
+    void setVideoPath(String str, String str2);
+
+    void setVideoStatData(aw9 aw9Var);
+
+    void setVolume(float f, float f2);
+
+    void stopPlayback();
 }

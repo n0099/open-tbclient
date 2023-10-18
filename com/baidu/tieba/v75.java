@@ -1,31 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class v75 implements t75 {
+public class v75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.t75
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
+    public List<w75> a;
 
     public v75() {
         Interceptable interceptable = $ic;
@@ -41,47 +29,40 @@ public class v75 implements t75 {
         }
     }
 
-    @Override // com.baidu.tieba.t75
-    public w75 a() {
-        InterceptResult invokeV;
+    public void a(JSONArray jSONArray) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            w75 w75Var = new w75();
-            w75Var.c(R.drawable.icon_banner_n);
-            w75Var.g(R.drawable.icon_banner_s);
-            w75Var.h(R.dimen.obfuscated_res_0x7f07039d);
-            w75Var.d(81);
-            w75Var.e(R.dimen.obfuscated_res_0x7f07039d);
-            return w75Var;
-        }
-        return (w75) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t75
-    public z75 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            z75 z75Var = new z75();
-            Resources resources = TbadkCoreApplication.getInst().getResources();
-            if (resources != null) {
-                z75Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c4));
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            try {
+                if (jSONArray == null) {
+                    SharedPrefHelper.getInstance().putString("key_index_tab_info_list", "[]");
+                    return;
+                }
+                JSONArray jSONArray2 = new JSONArray(SharedPrefHelper.getInstance().getString("key_index_tab_info_list", "[]"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    w75 w75Var = new w75();
+                    w75 w75Var2 = new w75();
+                    w75Var.i(jSONArray.getJSONObject(i));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        w75Var2.i(jSONArray2.getJSONObject(i2));
+                        if (w75Var.c != null && w75Var.c.equals(w75Var2.c)) {
+                            if (!TextUtils.isEmpty(w75Var2.e) && w75Var2.e.equals(w75Var.e)) {
+                                z = false;
+                                w75Var.f = z;
+                            }
+                            z = true;
+                            w75Var.f = z;
+                        }
+                    }
+                    if (!w75Var.f()) {
+                        this.a.add(w75Var);
+                    }
+                }
+                SharedPrefHelper.getInstance().putString("key_index_tab_info_list", jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return z75Var;
         }
-        return (z75) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t75
-    public TbImageView d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            TbImageView tbImageView = new TbImageView(context);
-            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            tbImageView.setGifIconSupport(false);
-            return tbImageView;
-        }
-        return (TbImageView) invokeL.objValue;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.launch.stats;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class SpeedStatsStampTable {
     public static final int AD_CALL_SHOW_END_STAMP_KEY = 3308;
     public static final int AD_CALL_SHOW_START_STAMP_KEY = 3307;

@@ -1,6 +1,7 @@
 package com.baidu.tieba.browser.log;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.sdk.internal.a;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -72,7 +73,7 @@ public final class HybridLog {
                 return;
             }
         }
-        this.instance = new TbLog("hybrid");
+        this.instance = new TbLog(a.g);
     }
 
     public static HybridLog valueOf(String str) {

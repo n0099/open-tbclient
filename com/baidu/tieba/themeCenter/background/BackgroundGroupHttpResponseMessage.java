@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ara;
-import com.baidu.tieba.dqa;
+import com.baidu.tieba.qla;
+import com.baidu.tieba.tka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import tbclient.GetBgByCategory.ThemeBgInMain;
 public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<dqa> mBackgroundGroupList;
-    public ara mRecommand;
+    public List<tka> mBackgroundGroupList;
+    public qla mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundGroupHttpResponseMessage(int i) {
@@ -60,24 +60,24 @@ public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
         DataRes dataRes = getBgByCategoryResIdl.data;
         if (dataRes != null) {
             if (dataRes.recommend != null) {
-                ara araVar = new ara();
-                this.mRecommand = araVar;
-                araVar.d(getBgByCategoryResIdl.data.recommend);
+                qla qlaVar = new qla();
+                this.mRecommand = qlaVar;
+                qlaVar.d(getBgByCategoryResIdl.data.recommend);
             }
             if (getBgByCategoryResIdl.data.bgs != null) {
                 this.mBackgroundGroupList = new ArrayList();
                 for (ThemeBgInMain themeBgInMain : getBgByCategoryResIdl.data.bgs) {
                     if (themeBgInMain != null && !StringUtils.isNull(themeBgInMain.bg_category)) {
-                        dqa dqaVar = new dqa();
-                        dqaVar.c(themeBgInMain);
-                        this.mBackgroundGroupList.add(dqaVar);
+                        tka tkaVar = new tka();
+                        tkaVar.c(themeBgInMain);
+                        this.mBackgroundGroupList.add(tkaVar);
                     }
                 }
             }
         }
     }
 
-    public List<dqa> getGroupList() {
+    public List<tka> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -86,12 +86,12 @@ public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public ara getRecommand() {
+    public qla getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (ara) invokeV.objValue;
+        return (qla) invokeV.objValue;
     }
 }

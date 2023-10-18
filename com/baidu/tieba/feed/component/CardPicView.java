@@ -16,13 +16,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac7;
-import com.baidu.tieba.ea7;
-import com.baidu.tieba.k67;
-import com.baidu.tieba.q77;
-import com.baidu.tieba.rc7;
-import com.baidu.tieba.y97;
-import com.baidu.tieba.z97;
+import com.baidu.tieba.a77;
+import com.baidu.tieba.h47;
+import com.baidu.tieba.i47;
+import com.baidu.tieba.j67;
+import com.baidu.tieba.n47;
+import com.baidu.tieba.t07;
+import com.baidu.tieba.z17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,10 +31,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class CardPicView extends CardFrameView<q77> implements rc7 {
+public class CardPicView extends CardFrameView<z17> implements a77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k67.e c;
+    public final t07.e c;
     public int d;
     public int e;
     public LinearLayout f;
@@ -46,15 +46,15 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
-        public final /* synthetic */ q77 b;
+        public final /* synthetic */ z17 b;
         public final /* synthetic */ CardPicView c;
 
-        public a(CardPicView cardPicView, int i, q77 q77Var) {
+        public a(CardPicView cardPicView, int i, z17 z17Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cardPicView, Integer.valueOf(i), q77Var};
+                Object[] objArr = {cardPicView, Integer.valueOf(i), z17Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -66,7 +66,7 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
             }
             this.c = cardPicView;
             this.a = i;
-            this.b = q77Var;
+            this.b = z17Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -80,8 +80,8 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
                     this.b.i().invoke(this.c.getContext(), Integer.valueOf(this.a), rect, j);
                 }
                 if (this.b.h().a.size() > this.a) {
-                    for (ea7 ea7Var : this.b.h().a.get(this.a).i) {
-                        this.b.f().invoke(ea7Var);
+                    for (n47 n47Var : this.b.h().a.get(this.a).i) {
+                        this.b.f().invoke(n47Var);
                     }
                 }
             }
@@ -106,7 +106,7 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
                 return;
             }
         }
-        this.c = k67.a().a();
+        this.c = t07.a().a();
         this.g = new ArrayList();
         l(context);
     }
@@ -121,7 +121,7 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
                 layoutParams.width = getMinImageWidth();
                 layoutParams.height = getMinImageWidth();
                 childAt.setLayoutParams(layoutParams);
-                k67.d dVar = new k67.d();
+                t07.d dVar = new t07.d();
                 dVar.a = R.string.J_X05;
                 if (i2 == 0) {
                     dVar.b = 5;
@@ -154,7 +154,7 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
             layoutParams.width = minImageWidth;
             layoutParams.height = i;
             childAt.setLayoutParams(layoutParams);
-            k67.d dVar = new k67.d();
+            t07.d dVar = new t07.d();
             dVar.a = R.string.J_X05;
             dVar.b = 15;
             this.c.c(this.g.get(0), dVar);
@@ -180,7 +180,7 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
                 return;
             }
         }
-        this.c = k67.a().a();
+        this.c = t07.a().a();
         this.g = new ArrayList();
         l(context);
     }
@@ -204,7 +204,7 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
                 return;
             }
         }
-        this.c = k67.a().a();
+        this.c = t07.a().a();
         this.g = new ArrayList();
         l(context);
     }
@@ -227,7 +227,7 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.rc7
+    @Override // com.baidu.tieba.a77
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -245,21 +245,21 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
         }
     }
 
-    public final void j(y97 y97Var, int i) {
+    public final void j(h47 h47Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, y97Var, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, h47Var, i) == null) {
             View childAt = this.f.getChildAt(i);
             if (!(childAt instanceof FrameLayout)) {
                 return;
             }
             FrameLayout frameLayout = (FrameLayout) childAt;
-            ac7.a.b(frameLayout);
-            List<z97> list = y97Var.h;
+            j67.a.b(frameLayout);
+            List<i47> list = h47Var.h;
             if (list == null) {
                 return;
             }
-            for (z97 z97Var : list) {
-                ac7.a.a(getContext(), z97Var, frameLayout);
+            for (i47 i47Var : list) {
+                j67.a.a(getContext(), i47Var, frameLayout);
             }
         }
     }
@@ -267,25 +267,25 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.feed.component.CardFrameView
     /* renamed from: k */
-    public void e(q77 q77Var) {
+    public void e(z17 z17Var) {
         boolean z;
         ImageView.ScaleType scaleType;
-        y97 y97Var;
+        h47 h47Var;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, q77Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, z17Var) == null) {
             m();
-            if (q77Var == null) {
+            if (z17Var == null) {
                 return;
             }
-            List<y97> list = q77Var.h().a;
+            List<h47> list = z17Var.h().a;
             if (ListUtils.isEmpty(list)) {
                 return;
             }
             int min = Math.min(list.size(), 3);
             float f = 0.0f;
-            if (min == 1 && (y97Var = list.get(0)) != null && (i = y97Var.c) != 0) {
-                f = (y97Var.b * 1.0f) / i;
+            if (min == 1 && (h47Var = list.get(0)) != null && (i = h47Var.c) != 0) {
+                f = (h47Var.b * 1.0f) / i;
             }
             if (min == 1) {
                 i(f);
@@ -293,13 +293,13 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
                 h(min);
             }
             for (int i2 = 0; i2 < min; i2++) {
-                y97 y97Var2 = list.get(i2);
-                if (y97Var2 == null) {
+                h47 h47Var2 = list.get(i2);
+                if (h47Var2 == null) {
                     break;
                 }
-                j(y97Var2, i2);
+                j(h47Var2, i2);
                 ImageView imageView = this.g.get(i2);
-                if (min > 1 && y97Var2.e > 0.0d && y97Var2.f > 0.0d) {
+                if (min > 1 && h47Var2.e > 0.0d && h47Var2.f > 0.0d) {
                     z = true;
                 } else {
                     z = false;
@@ -310,10 +310,10 @@ public class CardPicView extends CardFrameView<q77> implements rc7 {
                     scaleType = ImageView.ScaleType.CENTER_CROP;
                 }
                 imageView.setScaleType(scaleType);
-                this.c.e(imageView, z, (float) y97Var2.e, (float) y97Var2.f);
-                this.c.b(imageView, y97Var2.d);
-                this.c.f(this.g.get(i2), y97Var2.a);
-                this.f.getChildAt(i2).setOnClickListener(new a(this, i2, q77Var));
+                this.c.e(imageView, z, (float) h47Var2.e, (float) h47Var2.f);
+                this.c.b(imageView, h47Var2.d);
+                this.c.f(this.g.get(i2), h47Var2.a);
+                this.f.getChildAt(i2).setOnClickListener(new a(this, i2, z17Var));
             }
             if (list.size() > 3) {
                 this.h.setText(getContext().getString(R.string.constrain_image_extra_text, Integer.valueOf(list.size() - 3)));

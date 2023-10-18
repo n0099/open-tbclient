@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.dca;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.cs5;
+import com.baidu.tieba.er7;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.g5a;
+import com.baidu.tieba.t6a;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.uw7;
-import com.baidu.tieba.ux5;
+import com.baidu.tieba.tz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -128,7 +128,7 @@ public class FrsActivityConfig extends IntentConfig {
         BdUniqueId gen = BdUniqueId.gen();
         this.mPageId = gen;
         intent.putExtra(FRS_PAGE_ID, gen);
-        dca.b("frs");
+        t6a.b("frs");
     }
 
     public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
@@ -243,61 +243,61 @@ public class FrsActivityConfig extends IntentConfig {
                 i2 = 6;
             }
             if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                frsRequestData.Y(uw7.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                frsRequestData.Z(er7.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
-            frsRequestData.setSortType(uw7.d(i2));
+            frsRequestData.setSortType(er7.d(i2));
             if (i2 == 5) {
-                frsRequestData.b0(1);
+                frsRequestData.c0(1);
             } else {
-                frsRequestData.b0(0);
+                frsRequestData.c0(0);
             }
-            frsRequestData.M("forum_name", di.getUrlEncode(stringExtra));
-            frsRequestData.M("client_type", "2");
+            frsRequestData.N("forum_name", ad.getUrlEncode(stringExtra));
+            frsRequestData.N("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
-            uw7.e(i2, frsRequestData);
-            frsRequestData.j0("2");
-            frsRequestData.k0("-2");
-            frsRequestData.d0(stringExtra);
-            frsRequestData.r0(1);
-            frsRequestData.V(0);
-            frsRequestData.q0(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
-            frsRequestData.p0(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
-            frsRequestData.o0(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
+            er7.e(i2, frsRequestData);
+            frsRequestData.k0("2");
+            frsRequestData.l0("-2");
+            frsRequestData.e0(stringExtra);
+            frsRequestData.s0(1);
+            frsRequestData.W(0);
+            frsRequestData.r0(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+            frsRequestData.q0(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+            frsRequestData.p0(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
             if (TbImageHelper.getInstance().isShowBigImage()) {
                 i = 2;
             } else {
                 i = 1;
             }
-            frsRequestData.t0(i);
+            frsRequestData.u0(i);
             if (uri != null) {
-                frsRequestData.n0(uri.toString());
+                frsRequestData.o0(uri.toString());
             }
-            frsRequestData.f0(null);
-            frsRequestData.s0(stringExtra3);
-            frsRequestData.e0(JavaTypesHelper.toLong(ux5.a(), 0L));
+            frsRequestData.g0(null);
+            frsRequestData.t0(stringExtra3);
+            frsRequestData.f0(JavaTypesHelper.toLong(cs5.a(), 0L));
             frsRequestData.setStType(stringExtra2);
-            frsRequestData.a0(1);
+            frsRequestData.b0(1);
             frsRequestData.setNeedCache(true);
             frsRequestData.setUpdateType(3);
-            frsRequestData.Z(longExtra);
-            uw7.e(i2, frsRequestData);
-            frsRequestData.h0(1);
+            frsRequestData.a0(longExtra);
+            er7.e(i2, frsRequestData);
+            frsRequestData.i0(1);
             frsRequestData.setPushTid(intent.getStringExtra(MainTabActivityConfig.PUSH_TID));
-            if (ThreadData.isRecAppLoaded.get() && g5a.m().b() != null) {
-                int d = g5a.m().b().d(stringExtra, false);
-                int e = g5a.m().b().e(stringExtra, false);
-                if (frsRequestData.R() == 1) {
+            if (ThreadData.isRecAppLoaded.get() && tz9.m().b() != null) {
+                int d = tz9.m().b().d(stringExtra, false);
+                int e = tz9.m().b().e(stringExtra, false);
+                if (frsRequestData.S() == 1) {
                     d++;
-                } else if (frsRequestData.R() == 2) {
+                } else if (frsRequestData.S() == 2) {
                     e++;
                 }
-                frsRequestData.l0(d);
-                frsRequestData.g0(e);
+                frsRequestData.m0(d);
+                frsRequestData.h0(e);
             }
             FrsNetModel frsNetModel = new FrsNetModel(null, frsRequestData);
             frsNetModel.setUniqueId(this.mPageId);
-            frsNetModel.o0(frsNetModel);
+            frsNetModel.p0(frsNetModel);
             TbadkCoreApplication.getInst().getFrsModeArray().put(this.mPageId.getId(), frsNetModel);
             frsNetModel.loadData();
             frsRequestData.setPushTid(null);

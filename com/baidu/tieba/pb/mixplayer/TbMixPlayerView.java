@@ -28,14 +28,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.LiveRoomEntranceButton;
 import com.baidu.tbadk.widget.CardLiveLabelView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.az4;
+import com.baidu.tieba.cr5;
+import com.baidu.tieba.hh9;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.pb.mixplayer.TbLiveMixPlayerConfig;
 import com.baidu.tieba.pb.mixplayer.TbMixPlayerView;
 import com.baidu.tieba.play.OnStatusChangedListener;
 import com.baidu.tieba.play.TbVideoView;
-import com.baidu.tieba.s45;
-import com.baidu.tieba.um9;
-import com.baidu.tieba.uw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,7 +63,7 @@ public final class TbMixPlayerView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public final TbVideoView a;
     public final Lazy b;
-    public um9 c;
+    public hh9 c;
     public a d;
     public b e;
     public TbLiveMixPlayerConfig.LiveStatus f;
@@ -176,7 +176,7 @@ public final class TbMixPlayerView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resource, transition) == null) {
                 Intrinsics.checkNotNullParameter(resource, "resource");
-                this.a.getLiveCloseCover().setImageBitmap(uw5.a(resource, 50, false));
+                this.a.getLiveCloseCover().setImageBitmap(cr5.a(resource, 50, false));
             }
         }
 
@@ -535,10 +535,10 @@ public final class TbMixPlayerView extends RelativeLayout {
         }
     }
 
-    public final void setTbMixPlayerConfig(um9 um9Var) {
+    public final void setTbMixPlayerConfig(hh9 hh9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, um9Var) == null) {
-            this.c = um9Var;
+        if (interceptable == null || interceptable.invokeL(1048601, this, hh9Var) == null) {
+            this.c = hh9Var;
         }
     }
 
@@ -548,9 +548,9 @@ public final class TbMixPlayerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            um9 um9Var = this$0.c;
-            if (um9Var instanceof TbLiveMixPlayerConfig) {
-                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) um9Var;
+            hh9 hh9Var = this$0.c;
+            if (hh9Var instanceof TbLiveMixPlayerConfig) {
+                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) hh9Var;
             } else {
                 tbLiveMixPlayerConfig = null;
             }
@@ -630,7 +630,7 @@ public final class TbMixPlayerView extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tm9
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gh9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -694,20 +694,20 @@ public final class TbMixPlayerView extends RelativeLayout {
         return (b) invokeV.objValue;
     }
 
-    public final um9 getTbMixPlayerConfig() {
+    public final hh9 getTbMixPlayerConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.c;
         }
-        return (um9) invokeV.objValue;
+        return (hh9) invokeV.objValue;
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             addView(this.a, new RelativeLayout.LayoutParams(-1, -1));
-            this.a.setVideoStatusChangeListener(new OnStatusChangedListener() { // from class: com.baidu.tieba.sm9
+            this.a.setVideoStatusChangeListener(new OnStatusChangedListener() { // from class: com.baidu.tieba.fh9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -719,6 +719,7 @@ public final class TbMixPlayerView extends RelativeLayout {
                     }
                 }
             });
+            this.a.setUseDurationStatistic(false);
         }
     }
 
@@ -830,9 +831,9 @@ public final class TbMixPlayerView extends RelativeLayout {
         TbLiveMixPlayerConfig tbLiveMixPlayerConfig;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            um9 um9Var = this.c;
-            if (um9Var instanceof TbLiveMixPlayerConfig) {
-                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) um9Var;
+            hh9 hh9Var = this.c;
+            if (hh9Var instanceof TbLiveMixPlayerConfig) {
+                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) hh9Var;
             } else {
                 tbLiveMixPlayerConfig = null;
             }
@@ -870,7 +871,7 @@ public final class TbMixPlayerView extends RelativeLayout {
                 }
             }
             DefaultLog.getInstance().i("TbMixPlayer", "播放-play");
-            this.a.R(2);
+            this.a.start();
         }
     }
 
@@ -905,17 +906,17 @@ public final class TbMixPlayerView extends RelativeLayout {
         TbLiveMixPlayerConfig tbLiveMixPlayerConfig;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            um9 um9Var = this.c;
-            if (um9Var instanceof TbLiveMixPlayerConfig) {
-                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) um9Var;
+            hh9 hh9Var = this.c;
+            if (hh9Var instanceof TbLiveMixPlayerConfig) {
+                tbLiveMixPlayerConfig = (TbLiveMixPlayerConfig) hh9Var;
             } else {
                 tbLiveMixPlayerConfig = null;
             }
             if (tbLiveMixPlayerConfig != null) {
-                s45 s45Var = tbLiveMixPlayerConfig.a().mContainerSize;
-                s45 s45Var2 = tbLiveMixPlayerConfig.a().mPlayerSize;
-                if (s45Var != null && s45Var2 != null && !s45Var.c() && !s45Var2.c()) {
-                    r(this, (s45Var.b() * 1.0f) / s45Var.a());
+                az4 az4Var = tbLiveMixPlayerConfig.a().mContainerSize;
+                az4 az4Var2 = tbLiveMixPlayerConfig.a().mPlayerSize;
+                if (az4Var != null && az4Var2 != null && !az4Var.c() && !az4Var2.c()) {
+                    r(this, (az4Var.b() * 1.0f) / az4Var.a());
                 } else {
                     r(this, 1.78f);
                 }
@@ -937,7 +938,7 @@ public final class TbMixPlayerView extends RelativeLayout {
         }
     }
 
-    public final void setMixPlayerConfig(um9 mixPlayerConfig) {
+    public final void setMixPlayerConfig(hh9 mixPlayerConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, mixPlayerConfig) == null) {
             Intrinsics.checkNotNullParameter(mixPlayerConfig, "mixPlayerConfig");

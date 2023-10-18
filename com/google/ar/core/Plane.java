@@ -23,10 +23,6 @@ public class Plane extends TrackableBase {
         super(0L, null);
     }
 
-    public Type getType() {
-        return Type.forNumber(nativeGetType(this.b.a, this.a));
-    }
-
     /* loaded from: classes9.dex */
     public enum Type {
         HORIZONTAL_UPWARD_FACING(0),

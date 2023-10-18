@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dz4;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
 import com.baidu.tieba.filedownloader.logs.DownloaderLog;
 import com.baidu.tieba.filedownloader.utils.PermissionUtil;
+import com.baidu.tieba.laa;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.rm0;
+import com.baidu.tieba.lt4;
+import com.baidu.tieba.oh0;
 import com.baidu.tieba.util.AdApkInstallHelper;
-import com.baidu.tieba.vfa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,10 +119,10 @@ public final class AdApkInstallHelper {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
                     Intrinsics.checkNotNullParameter(params, "params");
-                    vfa h = new TbDownloadManager().m().h(this.a, this.b);
+                    laa j = new TbDownloadManager().m().j(this.a, this.b);
                     ItemData itemData = new ItemData();
-                    itemData.parseJson(h.c());
-                    dz4.b().a(this.c, String.valueOf(h.p()), itemData.mTitle, h.d(), itemData.mTbFileDownloaderType);
+                    itemData.parseJson(j.c());
+                    lt4.b().a(this.c, String.valueOf(j.p()), itemData.mTitle, j.d(), itemData.mTbFileDownloaderType);
                     return 0L;
                 }
                 return (Long) invokeL.objValue;
@@ -216,7 +216,7 @@ public final class AdApkInstallHelper {
                                 return;
                             }
                             DownloaderLog.getInstance().i("AdApkInstallHelper", "下载器：函数 installApp，开始安装");
-                            rm0.d(new File(this.$path));
+                            oh0.d(new File(this.$path));
                             DownloadData downloadData2 = this.$downloadData;
                             if (downloadData2 != null) {
                                 String id = downloadData2.getId();

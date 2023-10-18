@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.poly.widget.ProgressButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj1;
+import com.baidu.tieba.kd1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     public ListView a;
     public ProgressButton b;
     public List<PayChannelEntity> c;
-    public aj1 d;
+    public kd1 d;
     public b e;
 
     /* loaded from: classes3.dex */
@@ -108,9 +108,9 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d081e, (ViewGroup) this, true);
-            this.a = (ListView) findViewById(R.id.obfuscated_res_0x7f091cd2);
-            ProgressButton progressButton = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091cd6);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0811, (ViewGroup) this, true);
+            this.a = (ListView) findViewById(R.id.obfuscated_res_0x7f091cfa);
+            ProgressButton progressButton = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091cfe);
             this.b = progressButton;
             progressButton.setText("下一步");
             this.b.setOnClickListener(this);
@@ -121,7 +121,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091cd6) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091cfe) {
             this.b.setEnable(false);
             b bVar = this.e;
             if (bVar != null) {
@@ -179,7 +179,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010162);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010161);
             loadAnimation.setAnimationListener(new a(this));
             startAnimation(loadAnimation);
         }
@@ -189,14 +189,33 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setVisibility(0);
-            startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010168));
+            startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010167));
+        }
+    }
+
+    public void d(List<PayChannelEntity> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c = list;
+            if (this.d == null) {
+                this.d = new kd1(getContext());
+            }
+            this.a.setAdapter((ListAdapter) this.d);
+            this.d.b(this.c);
+        }
+    }
+
+    public void setOptionListener(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.e = bVar;
         }
     }
 
     public PayChannelEntity getSelectedChildrenEntity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             List<PayChannelEntity> list = this.c;
             if (list != null && list.size() > 0) {
                 for (int i = 0; i < this.c.size(); i++) {
@@ -214,7 +233,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             List<PayChannelEntity> list = this.c;
             if (list != null && list.size() > 0 && i >= 0 && i < this.c.size()) {
                 for (int i2 = 0; i2 < this.c.size(); i2++) {
@@ -230,25 +249,6 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
             }
             this.d.b(this.c);
             this.d.notifyDataSetChanged();
-        }
-    }
-
-    public void setOptionListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public void update(List<PayChannelEntity> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.c = list;
-            if (this.d == null) {
-                this.d = new aj1(getContext());
-            }
-            this.a.setAdapter((ListAdapter) this.d);
-            this.d.b(this.c);
         }
     }
 }

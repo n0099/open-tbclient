@@ -1,381 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class pj0 {
     public static /* synthetic */ Interceptable $ic;
+    public static rj0 a;
+    public static sj0 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kj0 a;
-        public final /* synthetic */ Map b;
-        public final /* synthetic */ boolean c;
-
-        public a(kj0 kj0Var, Map map, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kj0Var, map, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kj0Var;
-            this.b = map;
-            this.c = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                pj0.t(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    public static void t(kj0 kj0Var, Map<String, String> map, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(65555, null, kj0Var, map, z) != null) || kj0Var == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948063827, "Lcom/baidu/tieba/pj0;")) == null) {
             return;
         }
-        kj0Var.a(z, map);
-    }
-
-    public static Map<String, String> w(String str, int i, String str2) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65558, null, str, i, str2)) == null) {
-            Map<String, String> u = u(i, str2);
-            if (str != null) {
-                u.put("data", str);
-            }
-            return u;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return (Map) invokeLIL.objValue;
-    }
-
-    public static Map<String, String> b(kj0 kj0Var, @Nullable gj0 gj0Var, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{kj0Var, gj0Var, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return c(kj0Var, gj0Var, null, i, z);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948063827, "Lcom/baidu/tieba/pj0;");
         }
-        return (Map) invokeCommon.objValue;
     }
 
-    public static Map<String, String> d(kj0 kj0Var, String str, int i, boolean z) {
-        InterceptResult invokeCommon;
+    public pj0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{kj0Var, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return e(kj0Var, str, null, i, z);
-        }
-        return (Map) invokeCommon.objValue;
-    }
-
-    public static void s(kj0 kj0Var, Map<String, String> map, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{kj0Var, map, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (hk0.b()) {
-                t(kj0Var, map, z);
-            } else {
-                hk0.c(new a(kj0Var, map, z));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static Map<String, String> c(kj0 kj0Var, @Nullable gj0 gj0Var, @Nullable String str, int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static rj0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{kj0Var, gj0Var, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            Map<String, String> v = v(str, i);
-            if (gj0Var != null) {
-                String str2 = (String) i31.b(gj0Var.d(), WebChromeClient.KEY_ARG_CALLBACK);
-                if (!TextUtils.isEmpty(str2)) {
-                    i31.e(v, WebChromeClient.KEY_ARG_CALLBACK, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (pj0.class) {
+                    if (a == null) {
+                        a = (rj0) ServiceManager.getService(rj0.a);
+                    }
+                    if (a == null) {
+                        a = rj0.b;
+                    }
                 }
             }
-            s(kj0Var, v, i, z);
-            return v;
+            return a;
         }
-        return (Map) invokeCommon.objValue;
+        return (rj0) invokeV.objValue;
     }
 
-    public static Map<String, String> e(kj0 kj0Var, String str, @Nullable String str2, int i, boolean z) {
-        InterceptResult invokeCommon;
-        gj0 gj0Var;
+    public static sj0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{kj0Var, str, str2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                gj0Var = new gj0(str);
-            } else {
-                gj0Var = null;
-            }
-            return c(kj0Var, gj0Var, str2, i, z);
-        }
-        return (Map) invokeCommon.objValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return !TextUtils.isEmpty(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return TextUtils.equals("vendor/ad", str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String i(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) {
-            if (uri == null) {
-                return null;
-            }
-            List<String> pathSegments = uri.getPathSegments();
-            if (g31.g(pathSegments)) {
-                return null;
-            }
-            return (String) g31.d(pathSegments, g31.l(pathSegments) - 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String m(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, uri)) == null) {
-            if (uri == null) {
-                return null;
-            }
-            return uri.getScheme();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                return TextUtils.equals("dlink", i(Uri.parse(str)));
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (Uri.parse(str) == null) {
-                r(str);
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
-            w31.e(new ClogBuilder().y(ClogBuilder.LogType.EXCEPTION).k("1").l("1002").m(str));
-        }
-    }
-
-    @Nullable
-    public static String h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                if (!str.startsWith("javascript:")) {
-                    str = "javascript:" + str;
-                }
-                return str + "('" + str2 + "');";
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
-            Context b = sj0.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (b == null) {
-                return "applicationContext为空";
-            }
-            if (i != 0) {
-                if (i != 101) {
-                    if (i != 201) {
-                        if (i != 202) {
-                            if (i != 301) {
-                                if (i != 302) {
-                                    switch (i) {
-                                        case 401:
-                                            return b.getString(R.string.nad_scheme_err_message_action_sec_check_fail);
-                                        case 402:
-                                            return b.getString(R.string.nad_scheme_err_message_action_acl_check_fail);
-                                        case 403:
-                                            return b.getString(R.string.nad_scheme_err_message_action_allow_close);
-                                        default:
-                                            return b.getString(R.string.nad_scheme_err_message_parse_fail);
-                                    }
-                                }
-                                return b.getString(R.string.nad_scheme_err_message_action_notfound);
-                            }
-                            return b.getString(R.string.nad_scheme_err_message_module_notfound);
-                        }
-                        return b.getString(R.string.nad_scheme_err_message_params_parse_fail);
+                synchronized (pj0.class) {
+                    if (b == null) {
+                        b = (sj0) ServiceManager.getService(sj0.a);
                     }
-                    return b.getString(R.string.nad_scheme_err_message_parse_fail);
-                }
-                return b.getString(R.string.nad_scheme_err_message_not_support);
-            }
-            return b.getString(R.string.nad_scheme_err_message_ok);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static String k(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, uri)) == null) {
-            if (uri == null) {
-                return null;
-            }
-            String host = uri.getHost();
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(host)) {
-                sb.append(host);
-            }
-            List<String> pathSegments = uri.getPathSegments();
-            if (!g31.g(pathSegments)) {
-                for (int i = 0; i < g31.l(pathSegments) - 1; i++) {
-                    sb.append("/");
-                    sb.append((String) g31.d(pathSegments, i));
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public static String p(@Nullable Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, map)) == null) {
-            if (map == null || i31.b(map, WebChromeClient.KEY_ARG_CALLBACK) == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            h31.f(jSONObject, "status", i31.b(map, "status"));
-            h31.f(jSONObject, "message", i31.b(map, "message"));
-            h31.f(jSONObject, "data", i31.b(map, "data"));
-            return h((String) i31.b(map, WebChromeClient.KEY_ARG_CALLBACK), h31.a(jSONObject.toString()));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public static HashMap<String, String> l(@Nullable Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, uri)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            if (uri != null) {
-                try {
-                    Set<String> queryParameterNames = uri.getQueryParameterNames();
-                    if (queryParameterNames != null) {
-                        for (String str : queryParameterNames) {
-                            hashMap.put(str, uri.getQueryParameter(str));
-                        }
+                    if (b == null) {
+                        b = sj0.b;
                     }
-                } catch (Exception unused) {
                 }
             }
-            return hashMap;
+            return b;
         }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public static void q(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) {
-            ClogBuilder m = new ClogBuilder().y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_IS_LIVE).m(str);
-            if (!TextUtils.isEmpty(str2)) {
-                m.p(str2);
-            }
-            w31.e(m);
-        }
-    }
-
-    public static Map<String, String> u(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65556, null, i, str)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("status", String.valueOf(i));
-            hashMap.put("message", str);
-            return hashMap;
-        }
-        return (Map) invokeIL.objValue;
-    }
-
-    public static Map<String, String> v(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65557, null, str, i)) == null) {
-            return w(str, i, j(i));
-        }
-        return (Map) invokeLI.objValue;
+        return (sj0) invokeV.objValue;
     }
 }

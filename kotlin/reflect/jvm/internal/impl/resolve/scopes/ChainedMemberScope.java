@@ -54,17 +54,17 @@ public final class ChainedMemberScope implements MemberScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2109getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2108getContributedClassifier(Name name, LookupLocation lookupLocation) {
         ClassifierDescriptor classifierDescriptor = null;
         for (MemberScope memberScope : this.scopes) {
-            ClassifierDescriptor mo2109getContributedClassifier = memberScope.mo2109getContributedClassifier(name, lookupLocation);
-            if (mo2109getContributedClassifier != null) {
-                if ((mo2109getContributedClassifier instanceof ClassifierDescriptorWithTypeParameters) && ((ClassifierDescriptorWithTypeParameters) mo2109getContributedClassifier).isExpect()) {
+            ClassifierDescriptor mo2108getContributedClassifier = memberScope.mo2108getContributedClassifier(name, lookupLocation);
+            if (mo2108getContributedClassifier != null) {
+                if ((mo2108getContributedClassifier instanceof ClassifierDescriptorWithTypeParameters) && ((ClassifierDescriptorWithTypeParameters) mo2108getContributedClassifier).isExpect()) {
                     if (classifierDescriptor == null) {
-                        classifierDescriptor = mo2109getContributedClassifier;
+                        classifierDescriptor = mo2108getContributedClassifier;
                     }
                 } else {
-                    return mo2109getContributedClassifier;
+                    return mo2108getContributedClassifier;
                 }
             }
         }

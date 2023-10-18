@@ -1,17 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ed5 {
+public abstract class ed5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+
+    public abstract gd5 b(Context context);
+
+    public abstract void c(gd5 gd5Var);
+
+    public abstract void d(gd5 gd5Var);
 
     public ed5() {
         Interceptable interceptable = $ic;
@@ -27,24 +31,15 @@ public class ed5 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public gd5 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            gd5 b = b(context);
+            d(b);
+            c(b);
+            return b;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optString("client_id");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return (gd5) invokeL.objValue;
     }
 }

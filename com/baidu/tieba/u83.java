@@ -1,45 +1,83 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.content.Context;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class u83 {
+public class u83 extends m73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Bitmap a;
 
-    public u83(String id, String text, Bitmap img) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u83(m63 m63Var) {
+        super(m63Var, "/swanAPI/prefetchAppData");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {id, text, img};
+            Object[] objArr = {m63Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(id, "id");
-        Intrinsics.checkNotNullParameter(text, "text");
-        Intrinsics.checkNotNullParameter(img, "img");
-        this.a = img;
     }
 
-    public final Bitmap a() {
-        InterceptResult invokeV;
+    public final PrefetchEvent j(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            PrefetchEvent.b bVar = new PrefetchEvent.b();
+            bVar.e(jSONObject.optString("state"));
+            bVar.d(jSONObject.optString("schema"));
+            bVar.c(jSONObject.optString("scene"));
+            bVar.a(jSONObject.optString("appKey"));
+            return bVar.b();
         }
-        return (Bitmap) invokeV.objValue;
+        return (PrefetchEvent) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m73
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
+            if (m73.b) {
+                Log.d("PrefetchAppData", "handle entity: " + unitedSchemeEntity.getUri().toString());
+            }
+            String param = unitedSchemeEntity.getParam("params");
+            JSONObject d = pi3.d(param);
+            PrefetchEvent j = j(d);
+            if (j != null && j.isValid()) {
+                if (!f42.c(d.optString("netconf", "1"))) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
+                    return false;
+                }
+                o92.g().f(j);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "invalid params: " + param);
+            return false;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -228,10 +228,10 @@ public final class TypeIntersector {
         ArrayList<UnwrappedType> arrayList = new ArrayList();
         for (SimpleType simpleType : list) {
             if (simpleType.getConstructor() instanceof IntersectionTypeConstructor) {
-                Collection<KotlinType> mo2108getSupertypes = simpleType.getConstructor().mo2108getSupertypes();
-                Intrinsics.checkExpressionValueIsNotNull(mo2108getSupertypes, "type.constructor.supertypes");
-                ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2108getSupertypes, 10));
-                for (KotlinType it : mo2108getSupertypes) {
+                Collection<KotlinType> mo2107getSupertypes = simpleType.getConstructor().mo2107getSupertypes();
+                Intrinsics.checkExpressionValueIsNotNull(mo2107getSupertypes, "type.constructor.supertypes");
+                ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2107getSupertypes, 10));
+                for (KotlinType it : mo2107getSupertypes) {
                     Intrinsics.checkExpressionValueIsNotNull(it, "it");
                     SimpleType upperIfFlexible = FlexibleTypesKt.upperIfFlexible(it);
                     if (simpleType.isMarkedNullable()) {

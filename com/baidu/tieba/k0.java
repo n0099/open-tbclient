@@ -26,7 +26,7 @@ public abstract class k0 {
         }
     }
 
-    public void update(float f) {
+    public void i(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
         }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.VideoRedIcon.DataReq;
 import tbclient.VideoRedIcon.VideoRedIconReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VideoRedIconRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_VIDEO_TAB = "video_tab";

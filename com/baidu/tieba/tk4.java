@@ -1,133 +1,279 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.am4;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class tk4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tk4 m;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public final HashSet<String> b;
+    public final HashSet<String> c;
+    public final HashSet<String> d;
+    public final HashSet<String> e;
+    public final HashMap<String, String> f;
+    public final HashMap<String, String> g;
+    public final HashMap<String, xk4> h;
+    public final HashSet<String> i;
+    public int j;
+    public int k;
+    public int l;
 
-    public static <T> void a(@NonNull ll4 ll4Var, @NonNull List<il4<T>> list) {
+    public tk4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, ll4Var, list) == null) {
-            for (il4<T> il4Var : list) {
-                ll4Var.c(gl4.b().a(il4Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new HashSet<>();
+        this.c = new HashSet<>();
+        this.d = new HashSet<>();
+        this.e = new HashSet<>();
+        this.f = new HashMap<>();
+        this.g = new HashMap<>();
+        this.h = new HashMap<>();
+        this.i = new HashSet<>();
     }
 
-    public static synchronized void d(cm4 cm4Var, bj4 bj4Var) {
+    public static tk4 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, cm4Var, bj4Var) == null) {
-            synchronized (tk4.class) {
-                il4<hk4> i = kl4.i(cm4Var.a, bj4Var);
-                ll4 ll4Var = new ll4(bj4Var);
-                ll4Var.c(gl4.b().a(i));
-                ll4Var.e();
-            }
-        }
-    }
-
-    public static synchronized void g(List<hk4> list, bj4 bj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, list, bj4Var) == null) {
-            synchronized (tk4.class) {
-                List<il4<hk4>> e = kl4.e(list, bj4Var);
-                ll4 ll4Var = new ll4(bj4Var);
-                a(ll4Var, e);
-                ll4Var.e();
-            }
-        }
-    }
-
-    @NonNull
-    public static ll4 b(am4 am4Var, bj4 bj4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, am4Var, bj4Var)) == null) {
-            List<il4<am4.a>> f = kl4.f(am4Var.a, bj4Var);
-            ll4 ll4Var = new ll4(bj4Var);
-            for (il4<am4.a> il4Var : f) {
-                ll4Var.c(gl4.b().a(il4Var));
-            }
-            return ll4Var;
-        }
-        return (ll4) invokeLL.objValue;
-    }
-
-    public static synchronized void e(dm4 dm4Var, bj4 bj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, dm4Var, bj4Var) == null) {
-            synchronized (tk4.class) {
-                List<il4<gk4>> h = kl4.h(dm4Var.a, bj4Var);
-                ll4 ll4Var = new ll4(bj4Var);
-                for (il4<gk4> il4Var : h) {
-                    ll4Var.c(gl4.b().a(il4Var));
-                }
-                ll4Var.e();
-            }
-        }
-    }
-
-    public static synchronized void c(bm4 bm4Var, bj4 bj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, bm4Var, bj4Var) == null) {
-            synchronized (tk4.class) {
-                il4<dk4> d = kl4.d(bm4Var.d, bj4Var);
-                il4<fk4> g = kl4.g(bm4Var.a, bj4Var);
-                il4<bk4> c = kl4.c(bm4Var.f, bj4Var);
-                List<il4<gk4>> h = kl4.h(bm4Var.b, bj4Var);
-                List<il4<hk4>> e = kl4.e(bm4Var.c, bj4Var);
-                ll4 ll4Var = new ll4(bj4Var);
-                ll4Var.c(gl4.b().a(d));
-                ll4Var.c(gl4.b().a(g));
-                ll4Var.c(gl4.b().a(c));
-                a(ll4Var, h);
-                a(ll4Var, e);
-                ll4Var.e();
-            }
-        }
-    }
-
-    public static synchronized void f(yn4 yn4Var, bj4 bj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, yn4Var, bj4Var) == null) {
-            synchronized (tk4.class) {
-                il4<dk4> d = kl4.d(yn4Var.b, bj4Var);
-                il4<dk4> d2 = kl4.d(yn4Var.a, bj4Var);
-                il4<bk4> c = kl4.c(yn4Var.c, bj4Var);
-                ll4 ll4Var = new ll4(bj4Var);
-                if (d != null) {
-                    ll4Var.c(gl4.b().a(d));
-                }
-                if (d2 != null) {
-                    ll4Var.c(gl4.b().a(d2));
-                }
-                if (c != null) {
-                    ll4Var.c(gl4.b().a(c));
-                }
-                if (yn4Var.d != null) {
-                    for (ik4 ik4Var : yn4Var.d) {
-                        il4<ik4> j = kl4.j(ik4Var, bj4Var);
-                        if (j != null) {
-                            ll4Var.c(gl4.b().a(j));
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (m == null) {
+                synchronized (tk4.class) {
+                    if (m == null) {
+                        m = new tk4();
                     }
                 }
-                if (yn4Var.e != null) {
-                    for (hk4 hk4Var : yn4Var.e) {
-                        il4<hk4> i = kl4.i(hk4Var, bj4Var);
-                        if (i != null) {
-                            ll4Var.c(gl4.b().a(i));
-                        }
-                    }
+            }
+            return m;
+        }
+        return (tk4) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.l;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return this.d.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (uk4.h().r()) {
+                return true;
+            }
+            return this.c.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.g.containsKey(str)) {
+                return this.g.get(str);
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && this.i.contains(str)) {
+                return "1";
+            }
+            return "0";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            xk4 xk4Var = this.h.get(str);
+            if (xk4Var != null && xk4Var.b()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            xk4 xk4Var = this.h.get(str);
+            if (xk4Var != null && xk4Var.c()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || i < this.k) {
+            return;
+        }
+        this.k = i;
+        jl4.e().putInt("ubc_data_expire_time", i);
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048589, this, i) != null) || i < this.l) {
+            return;
+        }
+        this.l = i;
+        jl4.e().putInt("ubc_database_limit", i);
+    }
+
+    public void p(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048590, this, i) != null) || (i2 = i * 60000) < this.j) {
+            return;
+        }
+        this.j = i2;
+    }
+
+    public boolean c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            if (this.b.contains(str)) {
+                return false;
+            }
+            if ((i & 16) == 0 && (i & 32) == 0) {
+                return true;
+            }
+            return this.e.contains(str);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public int i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (uk4.h().q() || TextUtils.isEmpty(str) || !this.f.containsKey(str)) {
+                return 0;
+            }
+            return Integer.parseInt(this.f.get(str));
+        }
+        return invokeL.intValue;
+    }
+
+    public void k(sk4 sk4Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, sk4Var, context) == null) {
+            this.a = context;
+            this.j = 360000;
+            jl4 e = jl4.e();
+            this.k = e.getInt("ubc_data_expire_time", 259200000);
+            this.l = e.getInt("ubc_database_limit", 4000);
+            sk4Var.e().w(this.b, this.e, this.c, this.d, this.f, this.g, this.h, this.i);
+        }
+    }
+
+    public void q(List<wk4> list) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
+            for (wk4 wk4Var : list) {
+                if ("0".equals(wk4Var.b)) {
+                    this.b.add(wk4Var.a);
+                } else {
+                    this.b.remove(wk4Var.a);
                 }
-                ll4Var.e();
+                if ("1".equals(wk4Var.c)) {
+                    this.c.add(wk4Var.a);
+                } else {
+                    this.c.remove(wk4Var.a);
+                }
+                if ("1".equals(wk4Var.f)) {
+                    this.d.add(wk4Var.a);
+                } else {
+                    this.d.remove(wk4Var.a);
+                }
+                int i2 = wk4Var.g;
+                if (i2 >= 1 && i2 <= 100) {
+                    this.f.put(wk4Var.a, String.valueOf(i2));
+                } else {
+                    this.f.remove(wk4Var.a);
+                }
+                if (!TextUtils.isEmpty(wk4Var.h)) {
+                    this.g.put(wk4Var.a, wk4Var.h);
+                } else {
+                    this.g.remove(wk4Var.a);
+                }
+                int i3 = wk4Var.j;
+                if (i3 != 0 && (i = wk4Var.i) != 0) {
+                    xk4 xk4Var = new xk4(wk4Var.a, i3, i);
+                    this.h.put(xk4Var.a(), xk4Var);
+                }
+                if (TextUtils.equals(wk4Var.k, "1")) {
+                    this.i.add(wk4Var.a);
+                } else {
+                    this.i.remove(wk4Var.a);
+                }
             }
         }
     }

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.mobads.sdk.internal.cl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.InvocationTargetException;
@@ -67,7 +68,7 @@ public class ProxyChangeListener {
         @UsedByReflection("WebView embedders call this to override proxy settings")
         public void onReceive(Context context, final Intent intent) {
             if (intent.getAction().equals("android.intent.action.PROXY_CHANGE")) {
-                ProxyChangeListener.this.runOnThread(new Runnable() { // from class: com.baidu.tieba.bbc
+                ProxyChangeListener.this.runOnThread(new Runnable() { // from class: com.baidu.tieba.y4c
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,7 +184,7 @@ public class ProxyChangeListener {
     }
 
     public void updateProxyConfigFromConnectivityManager(final Intent intent) {
-        runOnThread(new Runnable() { // from class: com.baidu.tieba.abc
+        runOnThread(new Runnable() { // from class: com.baidu.tieba.x4c
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -206,7 +207,7 @@ public class ProxyChangeListener {
             return ProxyConfig.fromProxyInfo((ProxyInfo) extras.get("android.intent.extra.PROXY_INFO"));
         }
         try {
-            Object obj = extras.get("proxy");
+            Object obj = extras.get(cl.c);
             if (obj == null) {
                 return null;
             }

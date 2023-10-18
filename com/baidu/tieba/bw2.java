@@ -1,147 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import com.baidu.tieba.mq2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Integer> a;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final bw2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-905165105, "Lcom/baidu/tieba/bw2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-905165105, "Lcom/baidu/tieba/bw2$a;");
-                    return;
+    public static JSONObject a(zv2 zv2Var, boolean z, Bitmap bitmap, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{zv2Var, Boolean.valueOf(z), bitmap, Boolean.valueOf(z2)})) == null) {
+            JSONObject e = yv2.e();
+            if (zv2Var != null) {
+                try {
+                    e.put("page", zv2Var.b);
+                } catch (JSONException e2) {
+                    if (p53.v) {
+                        e2.printStackTrace();
+                    }
                 }
             }
-            a = new bw2();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659308, "Lcom/baidu/tieba/bw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            e.put("firstPage", z2);
+            if (z && bitmap != null) {
+                e.put("image", yv2.c(bitmap));
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947659308, "Lcom/baidu/tieba/bw2;");
-                return;
-            }
+            return e;
         }
-        boolean z = qr1.a;
-        nu2.g0().getSwitch("swan_pms_request_retry_count", 1);
-        b = 1;
+        return (JSONObject) invokeCommon.objValue;
     }
 
-    public bw2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap();
-    }
-
-    public static bw2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a.a;
-        }
-        return (bw2) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.put(str, Integer.valueOf(c(str) + 1));
-        }
-    }
-
-    public final int c(String str) {
+    public static JSONObject b(zv2 zv2Var) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Integer num = this.a.get(str);
-            if (num == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, zv2Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (zv2Var != null) {
+                try {
+                    if (zv2Var.g == 0) {
+                        str = "0";
+                    } else {
+                        str = "1";
+                    }
+                    jSONObject.put("isH5Componet", str);
+                } catch (JSONException e) {
+                    if (p53.v) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            return num.intValue();
+            return jSONObject;
         }
-        return invokeL.intValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public boolean f(String str) {
-        InterceptResult invokeL;
+    public static void c(zv2 zv2Var, int i, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (d() && c(str) < b) {
-                return true;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{zv2Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            d(zv2Var, i, false, null, z, i2);
+        }
+    }
+
+    public static void d(zv2 zv2Var, int i, boolean z, Bitmap bitmap, boolean z2, int i2) {
+        mq2.a X;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{zv2Var, Integer.valueOf(i), Boolean.valueOf(z), bitmap, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
+            ih3 ih3Var = new ih3();
+            ih3Var.k(5L);
+            ih3Var.i(i);
+            if (!dc3.d || z2) {
+                ih3Var.f(a(zv2Var, z, bitmap, z2).toString());
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.remove(str);
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = ri4.b().i().getInt("get_pkg_retry_switch", 0);
-            g82.i("GetPkgRetryController", "getServerRetrySwitch:" + i);
-            if (i != 1) {
-                return false;
+            String valueOf = String.valueOf(i2);
+            qc3 qc3Var = new qc3();
+            qc3Var.p(ih3Var);
+            qc3Var.q(ic3.n(o53.K().k()));
+            qc3Var.m(o53.K().getAppId());
+            qc3Var.s = zv2Var.b;
+            qc3Var.n(false);
+            p53 c0 = p53.c0();
+            if (c0 == null) {
+                X = null;
+            } else {
+                X = c0.X();
             }
-            return true;
+            if (!dc3.d || z2) {
+                qc3Var.s(valueOf);
+                qc3Var.r(X);
+                qc3Var.e(b(zv2Var));
+                qc3Var.e(pb3.d().e());
+                qc3Var.e(pb3.d().g());
+            }
+            ic3.R(qc3Var);
         }
-        return invokeV.booleanValue;
-    }
-
-    public String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            return str + "_" + str2;
-        }
-        return (String) invokeLL.objValue;
     }
 }

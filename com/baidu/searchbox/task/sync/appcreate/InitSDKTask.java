@@ -14,14 +14,14 @@ import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.fv4;
-import com.baidu.tieba.h1a;
 import com.baidu.tieba.image.ImageViewerActivity;
-import com.baidu.tieba.nl;
-import com.baidu.tieba.ul;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.np4;
+import com.baidu.tieba.rg;
+import com.baidu.tieba.uv9;
 /* loaded from: classes4.dex */
 public class InitSDKTask extends LaunchTask {
-    public h1a cyberMediaContextDef = new h1a();
+    public uv9 cyberMediaContextDef = new uv9();
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -73,15 +73,15 @@ public class InitSDKTask extends LaunchTask {
 
     private void initTBTaskSDK() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            fv4.f().g(TbadkCoreApplication.getInst());
+            np4.f().g(TbadkCoreApplication.getInst());
         }
     }
 
     private void initTurbonet() {
         try {
-            String a = ul.a("libturbonet.so");
+            String a = rg.a("libturbonet.so");
             if (FileUtils.exists(a)) {
-                nl.d(TbadkCoreApplication.getInst().getApplicationContext().getClassLoader(), a);
+                kg.d(TbadkCoreApplication.getInst().getApplicationContext().getClassLoader(), a);
             }
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

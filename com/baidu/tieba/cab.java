@@ -1,30 +1,64 @@
 package com.baidu.tieba;
 
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.AutoChangeLineView;
-import com.baidu.tieba.write.write.work.selectview.SelectTagView;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.aab;
+import com.baidu.tieba.dab;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: lambda */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class cab implements AutoChangeLineView.b {
+public final class cab implements aab.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ cab a = new cab();
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ cab() {
+    @Override // com.baidu.tieba.aab.a
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
-    @Override // com.baidu.tbadk.core.view.AutoChangeLineView.b
-    public final CharSequence a(TextView textView, int i, Object obj) {
-        InterceptResult invokeLIL;
+    @Override // com.baidu.tieba.aab.a
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, obj)) == null) {
-            String str = (String) obj;
-            SelectTagView.d(textView, i, str);
-            return str;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return (CharSequence) invokeLIL.objValue;
+    }
+
+    public cab() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.aab.a
+    public final void a(Activity activity) {
+        dab dabVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            dabVar = dab.a.a;
+            dabVar.c(new WeakReference<>(activity));
+        }
+    }
+
+    @Override // com.baidu.tieba.aab.a
+    public final void onActivityDestroyed(Activity activity) {
+        dab dabVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            dabVar = dab.a.a;
+            dabVar.d(activity);
+        }
     }
 }

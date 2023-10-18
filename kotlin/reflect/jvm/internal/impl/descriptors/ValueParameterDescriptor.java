@@ -3,10 +3,10 @@ package kotlin.reflect.jvm.internal.impl.descriptors;
 import java.util.Collection;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public interface ValueParameterDescriptor extends ParameterDescriptor, VariableDescriptor {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class DefaultImpls {
         public static boolean isLateInit(ValueParameterDescriptor valueParameterDescriptor) {
             return false;

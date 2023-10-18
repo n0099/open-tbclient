@@ -10,8 +10,8 @@ import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.util.gson.JavaGsonWidget;
 import com.baidu.tbadk.util.gson.KotlinGsonWidget;
 import com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory;
+import com.baidu.tieba.hr5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.zw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,12 +31,13 @@ import java.util.List;
 import java.util.Map;
 import kotlin.Metadata;
 import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Metadata(d1 = {"\u00004\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010 \n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u001a#\u0010\u0004\u001a\u0002H\u0005\"\u0004\b\u0000\u0010\u0005*\u00020\u00032\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u0002H\u00050\u0007¢\u0006\u0002\u0010\b\u001a/\u0010\u0004\u001a\u0002H\u0005\"\u0004\b\u0000\u0010\u0005*\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n0\t2\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u0002H\u00050\u0007¢\u0006\u0002\u0010\u000b\u001a$\u0010\f\u001a\b\u0012\u0004\u0012\u0002H\u00050\r\"\u0004\b\u0000\u0010\u0005*\u00020\u00032\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u0002H\u00050\u0007\u001a\n\u0010\u000e\u001a\u00020\u000f*\u00020\u0010\u001a\n\u0010\u0011\u001a\u00020\u0003*\u00020\u0010\u001a\n\u0010\u0011\u001a\u00020\u0003*\u00020\n\u001a\u0016\u0010\u0012\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n0\t*\u00020\u0010\u001a\u0016\u0010\u0012\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n0\t*\u00020\n\u001a\u0016\u0010\u0012\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n0\t*\u00020\u0003\u001a\u001c\u0010\u0013\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n0\t0\r*\u00020\u0003\"\u0010\u0010\u0000\u001a\u00020\u00018\u0006X\u0087\u0004¢\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0003X\u0086T¢\u0006\u0002\n\u0000¨\u0006\u0014"}, d2 = {"GSON", "Lcom/google/gson/Gson;", "GSON_FORMAT_LOG", "", "toEntity", ExifInterface.GPS_DIRECTION_TRUE, Bundle.EXTRA_KEY_CLAZZ, "Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "", "", "(Ljava/util/Map;Ljava/lang/Class;)Ljava/lang/Object;", "toEntityList", "", "toJSONObject", "Lorg/json/JSONObject;", "Landroid/os/Bundle;", "toJson", "toMap", "toMapList", "tbadkcore_release"}, k = 2, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u00006\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\u001a#\u0010\u0004\u001a\u0002H\u0005\"\u0004\b\u0000\u0010\u0005*\u00020\u00032\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u0002H\u00050\u0007¢\u0006\u0002\u0010\b\u001a/\u0010\u0004\u001a\u0002H\u0005\"\u0004\b\u0000\u0010\u0005*\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n0\t2\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u0002H\u00050\u0007¢\u0006\u0002\u0010\u000b\u001a$\u0010\f\u001a\b\u0012\u0004\u0012\u0002H\u00050\r\"\u0004\b\u0000\u0010\u0005*\u00020\u00032\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u0002H\u00050\u0007\u001a%\u0010\u000e\u001a\u0004\u0018\u0001H\u0005\"\u0004\b\u0000\u0010\u0005*\u00020\u00032\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u0002H\u00050\u0007¢\u0006\u0002\u0010\b\u001a\n\u0010\u000f\u001a\u00020\u0010*\u00020\u0011\u001a\n\u0010\u0012\u001a\u00020\u0003*\u00020\u0011\u001a\n\u0010\u0012\u001a\u00020\u0003*\u00020\n\u001a\u0016\u0010\u0013\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n0\t*\u00020\u0011\u001a\u0016\u0010\u0013\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n0\t*\u00020\n\u001a\u0016\u0010\u0013\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n0\t*\u00020\u0003\u001a\u001c\u0010\u0014\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n0\t0\r*\u00020\u0003\u001a\u0016\u0010\u0015\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n0\t*\u00020\u0003\"\u0010\u0010\u0000\u001a\u00020\u00018\u0006X\u0087\u0004¢\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0003X\u0086T¢\u0006\u0002\n\u0000¨\u0006\u0016"}, d2 = {"GSON", "Lcom/google/gson/Gson;", "GSON_FORMAT_LOG", "", "toEntity", ExifInterface.GPS_DIRECTION_TRUE, Bundle.EXTRA_KEY_CLAZZ, "Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "", "", "(Ljava/util/Map;Ljava/lang/Class;)Ljava/lang/Object;", "toEntityList", "", "toEntityNullable", "toJSONObject", "Lorg/json/JSONObject;", "Landroid/os/Bundle;", "toJson", "toMap", "toMapList", "toMapSafe", "tbadkcore_release"}, k = 2, mv = {1, 6, 0}, xi = 48)
 @JvmName(name = "DataExt")
 /* loaded from: classes5.dex */
 public final class DataExt {
@@ -81,8 +82,8 @@ public final class DataExt {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
                 Intrinsics.checkNotNullParameter(f, "f");
-                zw5 zw5Var = (zw5) f.getAnnotation(zw5.class);
-                if (zw5Var != null && !zw5Var.serialize()) {
+                hr5 hr5Var = (hr5) f.getAnnotation(hr5.class);
+                if (hr5Var != null && !hr5Var.serialize()) {
                     return true;
                 }
                 return false;
@@ -126,8 +127,8 @@ public final class DataExt {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
                 Intrinsics.checkNotNullParameter(f, "f");
-                zw5 zw5Var = (zw5) f.getAnnotation(zw5.class);
-                if (zw5Var != null && !zw5Var.deserialize()) {
+                hr5 hr5Var = (hr5) f.getAnnotation(hr5.class);
+                if (hr5Var != null && !hr5Var.deserialize()) {
                     return true;
                 }
                 return false;
@@ -282,6 +283,21 @@ public final class DataExt {
         return (T) invokeLL.objValue;
     }
 
+    public static final <T> T toEntityNullable(String str, Class<T> clazz) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, clazz)) == null) {
+            Intrinsics.checkNotNullParameter(str, "<this>");
+            Intrinsics.checkNotNullParameter(clazz, "clazz");
+            try {
+                return (T) toEntity(str, clazz);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (T) invokeLL.objValue;
+    }
+
     public static final <T> List<T> toEntityList(String str, Class<T> clazz) throws JsonSyntaxException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -308,7 +324,7 @@ public final class DataExt {
         Object obj;
         Object wrap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
             Intrinsics.checkNotNullParameter(bundle, "<this>");
             JSONObject jSONObject = new JSONObject();
             for (String str : bundle.keySet()) {
@@ -337,7 +353,7 @@ public final class DataExt {
     public static final String toJson(android.os.Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bundle)) == null) {
             Intrinsics.checkNotNullParameter(bundle, "<this>");
             String jSONObject = toJSONObject(bundle).toString();
             Intrinsics.checkNotNullExpressionValue(jSONObject, "this.toJSONObject().toString()");
@@ -349,7 +365,7 @@ public final class DataExt {
     public static final Map<String, Object> toMap(android.os.Bundle bundle) throws JsonSyntaxException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bundle)) == null) {
             Intrinsics.checkNotNullParameter(bundle, "<this>");
             return toMap(toJson(bundle));
         }
@@ -359,7 +375,7 @@ public final class DataExt {
     public static final List<Map<String, Object>> toMapList(String str) throws JsonSyntaxException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
             Intrinsics.checkNotNullParameter(str, "<this>");
             List<Map<String, Object>> list = (List) GSON.fromJson(str, new d());
             if (list == null) {
@@ -370,10 +386,24 @@ public final class DataExt {
         return (List) invokeL.objValue;
     }
 
+    public static final Map<String, Object> toMapSafe(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            Intrinsics.checkNotNullParameter(str, "<this>");
+            try {
+                return toMap(str);
+            } catch (Exception unused) {
+                return MapsKt__MapsKt.emptyMap();
+            }
+        }
+        return (Map) invokeL.objValue;
+    }
+
     public static final String toJson(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) {
             Intrinsics.checkNotNullParameter(obj, "<this>");
             try {
                 String json = GSON.toJson(obj);
@@ -391,7 +421,7 @@ public final class DataExt {
     public static final Map<String, Object> toMap(String str) throws JsonSyntaxException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
             Intrinsics.checkNotNullParameter(str, "<this>");
             try {
                 Object fromJson = GSON.fromJson(str, JavaGsonWidget.a);
@@ -409,7 +439,7 @@ public final class DataExt {
     public static final Map<String, Object> toMap(Object obj) throws JsonSyntaxException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) {
             Intrinsics.checkNotNullParameter(obj, "<this>");
             return toMap(toJson(obj));
         }

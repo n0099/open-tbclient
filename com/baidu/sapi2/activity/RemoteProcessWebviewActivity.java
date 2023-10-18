@@ -193,25 +193,25 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
         ViewStub viewStub2;
         int i;
         if (this.a) {
-            setTheme(R.style.obfuscated_res_0x7f100196);
+            setTheme(R.style.obfuscated_res_0x7f100190);
         }
-        this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092a1c);
-        this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09259d);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925a8);
+        this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092a0e);
+        this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0925a7);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925b2);
         this.mLeftBtnIv = imageView;
         imageView.setOnClickListener(this);
-        this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0925b8);
-        this.dividerLine = findViewById(R.id.obfuscated_res_0x7f0925b0);
-        this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920df);
+        this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0925c2);
+        this.dividerLine = findViewById(R.id.obfuscated_res_0x7f0925ba);
+        this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920ea);
         this.mTitle.setText(this.c);
         if (this.b) {
             if (this.mIsShowBottomBackText) {
-                if (this.bottomBackView == null && (viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0922f6)) != null) {
+                if (this.bottomBackView == null && (viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f092300)) != null) {
                     this.bottomBackView = viewStub2.inflate();
-                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ffc);
-                    this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f0920de);
-                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fff);
-                    this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f092048);
+                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f092007);
+                    this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f0920e9);
+                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09200a);
+                    this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f092053);
                     this.mBottomBackBtnIv.setOnClickListener(this);
                     this.mBottomBackTvText.setOnClickListener(this);
                     ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);

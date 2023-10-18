@@ -15,7 +15,7 @@ import kotlin.reflect.jvm.internal.UtilKt;
 import kotlin.reflect.jvm.internal.calls.Caller;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0006\",\u0010\u0003\u001a\u00020\u0001*\u0006\u0012\u0002\b\u00030\u00002\u0006\u0010\u0002\u001a\u00020\u00018F@FX\u0086\u000e¢\u0006\f\u001a\u0004\b\u0003\u0010\u0004\"\u0004\b\u0005\u0010\u0006¨\u0006\u0007"}, d2 = {"Lkotlin/reflect/KCallable;", "", "value", "isAccessible", "(Lkotlin/reflect/KCallable;)Z", "setAccessible", "(Lkotlin/reflect/KCallable;Z)V", "kotlin-reflection"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @JvmName(name = "KCallablesJvm")
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class KCallablesJvm {
     public static final boolean isAccessible(KCallable<?> kCallable) {
         boolean z;
@@ -133,7 +133,7 @@ public final class KCallablesJvm {
             KCallableImpl<?> asKCallableImpl = UtilKt.asKCallableImpl(kCallable);
             AccessibleObject accessibleObject = null;
             if (asKCallableImpl != null && (defaultCaller = asKCallableImpl.getDefaultCaller()) != null) {
-                obj = defaultCaller.mo2099getMember();
+                obj = defaultCaller.mo2098getMember();
             } else {
                 obj = null;
             }
@@ -218,7 +218,7 @@ public final class KCallablesJvm {
             KCallableImpl<?> asKCallableImpl = UtilKt.asKCallableImpl(kCallable);
             AccessibleObject accessibleObject = null;
             if (asKCallableImpl != null && (defaultCaller = asKCallableImpl.getDefaultCaller()) != null) {
-                obj = defaultCaller.mo2099getMember();
+                obj = defaultCaller.mo2098getMember();
             } else {
                 obj = null;
             }

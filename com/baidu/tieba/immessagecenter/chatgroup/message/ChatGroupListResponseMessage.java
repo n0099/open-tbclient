@@ -2,13 +2,12 @@ package com.baidu.tieba.immessagecenter.chatgroup.message;
 
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.es8;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.fs8;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
+import com.baidu.tieba.om8;
+import com.baidu.tieba.pm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,11 +56,11 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
                     this.groupId = optJSONObject.optLong("mid_group_id", 0L);
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("banner");
                     if (optJSONObject2 != null) {
-                        fs8 fs8Var = new fs8();
-                        fs8Var.h(optJSONObject2);
-                        this.mList.add(fs8Var);
+                        pm8 pm8Var = new pm8();
+                        pm8Var.i(optJSONObject2);
+                        this.mList.add(pm8Var);
                     }
                     JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                     if (optJSONArray != null) {
@@ -77,9 +76,9 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     }
                     JSONObject optJSONObject4 = optJSONObject.optJSONObject("footer");
                     if (optJSONObject4 != null) {
-                        es8 es8Var = new es8();
-                        es8Var.c(optJSONObject4);
-                        this.mList.add(es8Var);
+                        om8 om8Var = new om8();
+                        om8Var.c(optJSONObject4);
+                        this.mList.add(om8Var);
                         return;
                     }
                     return;

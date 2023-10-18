@@ -1,199 +1,183 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.kt;
+import com.baidu.tieba.vt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.TreeSet;
 /* loaded from: classes7.dex */
-public class no5 implements mo5 {
+public class no5 extends oo5<py4, ThreadCardViewHolder<py4>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final TreeSet<ChatMsg> d;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final mo5 c;
+    public bk6<py4> g;
 
-    @Override // com.baidu.tieba.mo5
-    public void c(@NonNull Context context, long j, @Nullable ep5 ep5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Long.valueOf(j), ep5Var}) == null) {
-        }
-    }
+    /* loaded from: classes7.dex */
+    public class a extends bk6<py4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ no5 b;
 
-    @Override // com.baidu.tieba.mo5
-    public void d(@NonNull Context context, long j, @NonNull wo5 wo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), wo5Var}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void g(@NonNull xo5 xo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xo5Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void j(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull wo5 wo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), list, wo5Var}) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948009205, "Lcom/baidu/tieba/no5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(no5 no5Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {no5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948009205, "Lcom/baidu/tieba/no5;");
-                return;
+            this.b = no5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bk6
+        /* renamed from: d */
+        public void a(View view2, py4 py4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, py4Var) == null) {
+                this.b.u(view2, py4Var);
             }
         }
-        d = new TreeSet<>(mo5.b);
     }
 
-    public no5(@NonNull mo5 mo5Var) {
+    /* loaded from: classes7.dex */
+    public class b implements ii {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ no5 a;
+
+        public b(no5 no5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {no5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = no5Var;
+        }
+
+        @Override // com.baidu.tieba.ii
+        public void b(View view2, yh yhVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, yhVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                this.a.O(view2, yhVar);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public no5(TbPageContext tbPageContext) {
+        super(tbPageContext, ThreadData.TYPE_ARTICLE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mo5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = mo5Var;
+        this.g = new a(this);
     }
 
-    @Override // com.baidu.tieba.mo5
-    public void a(long j) {
+    public final void O(View view2, yh yhVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.c.a(j);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, yhVar) == null) && (yhVar instanceof py4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            ThreadData threadData = ((py4) yhVar).t;
+            threadData.objType = 1;
+            ThreadCardUtils.jumpToPB((jv4) threadData, view2.getContext(), C(), false);
+            ((ThreadCardViewHolder) view2.getTag()).a().q(new vt.a(1));
         }
     }
 
-    @Override // com.baidu.tieba.mo5
-    public void k(@NonNull xo5 xo5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: P */
+    public ThreadCardViewHolder<py4> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, xo5Var) == null) {
-            this.c.k(xo5Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
+            kt.b bVar = new kt.b(this.c.getPageActivity());
+            zr zrVar = new zr(this.c.getPageActivity());
+            zrVar.q(this.mPageId);
+            zrVar.C(this.c);
+            bVar.o(zrVar);
+            bVar.n(new xr(this.c.getPageActivity()));
+            bVar.h(new hs(this.c.getPageActivity()));
+            mt mtVar = new mt(this.c.getPageActivity());
+            pv4 pv4Var = new pv4();
+            pv4Var.b = x();
+            pv4Var.h = y();
+            mtVar.E(pv4Var);
+            mtVar.G(A());
+            mtVar.L(B());
+            mtVar.H(C());
+            bVar.m(mtVar);
+            bVar.l().i(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds35));
+            bVar.l().b(R.drawable.addresslist_item_bg);
+            bVar.l().h(BdUtilHelper.getDimens(this.c.getPageActivity(), R.dimen.tbds17));
+            kt k = bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.d);
+            k.t(C());
+            ThreadCardViewHolder<py4> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.mPageId);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.mo5
-    public void b(@NonNull Context context, @NonNull String str, long j, @NonNull ChatMsg chatMsg, boolean z, @NonNull cp5 cp5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: Q */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, py4 py4Var, ThreadCardViewHolder<py4> threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, Long.valueOf(j), chatMsg, Boolean.valueOf(z), cp5Var}) == null) {
-            this.c.b(context, str, j, chatMsg, z, cp5Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py4Var, threadCardViewHolder})) == null) {
+            if (py4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null) {
+                py4Var.t.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().s(i);
+                threadCardViewHolder.e(py4Var);
+                threadCardViewHolder.a().r(this.g);
+                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+                M(threadCardViewHolder.getView(), py4Var, i, i);
+                return threadCardViewHolder.getView();
+            }
+            return null;
         }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void e(@NonNull Context context, boolean z, int i, @NonNull bp5 bp5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i), bp5Var}) == null) {
-            this.c.e(context, z, i, bp5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void i(@NonNull Context context, long j, @NonNull List<ChatMsg> list, @NonNull zo5 zo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Long.valueOf(j), list, zo5Var}) == null) {
-            this.c.i(context, j, list, zo5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void n(@NonNull Context context, long j, @NonNull ChatMsg chatMsg, @NonNull dp5 dp5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{context, Long.valueOf(j), chatMsg, dp5Var}) == null) {
-            dp5Var.onSendMessageResult(-1003, null);
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void f(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull wo5 wo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), list, wo5Var}) == null) {
-            this.c.f(context, i, j, list, wo5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void m(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull vo5 vo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), list, vo5Var}) == null) {
-            vo5Var.a(i, j, list, -1003, "");
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void q(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull vo5 vo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), list, vo5Var}) == null) {
-            vo5Var.a(i, j, list, -1003, "");
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void h(@NonNull Context context, long j, long j2, int i, boolean z, boolean z2, @Nullable q95<List<? extends ChatMsg>> q95Var, @NonNull ap5 ap5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), q95Var, ap5Var}) == null) {
-            ap5Var.a(-1003, "", d);
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void l(@NonNull Context context, long j, @NonNull to5 to5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, Long.valueOf(j), to5Var}) == null) {
-            to5Var.a(j, -1003, "", null);
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void o(@NonNull Context context, long j, @NonNull wo5 wo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, Long.valueOf(j), wo5Var}) == null) {
-            this.c.o(context, j, wo5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void r(@NonNull Context context, long j, @NonNull uo5 uo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{context, Long.valueOf(j), uo5Var}) == null) {
-            this.c.r(context, j, uo5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.mo5
-    public void p(@NonNull Context context, long j, long j2, @NonNull String str, long j3, int i, @NonNull yo5 yo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3), Integer.valueOf(i), yo5Var}) == null) {
-            this.c.p(context, j, j2, str, j3, i, yo5Var);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

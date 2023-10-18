@@ -16,12 +16,12 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am0;
-import com.baidu.tieba.d61;
-import com.baidu.tieba.hl0;
-import com.baidu.tieba.p61;
+import com.baidu.tieba.c11;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.q01;
+import com.baidu.tieba.xg0;
 /* loaded from: classes3.dex */
-public class AdProgressButton extends View implements am0<AdProgressButton> {
+public class AdProgressButton extends View implements xg0<AdProgressButton> {
     public int a;
     public int b;
     public Paint c;
@@ -35,7 +35,7 @@ public class AdProgressButton extends View implements am0<AdProgressButton> {
     public Typeface k;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.am0
+    @Override // com.baidu.tieba.xg0
     @NonNull
     public AdProgressButton getRealView() {
         return this;
@@ -49,11 +49,11 @@ public class AdProgressButton extends View implements am0<AdProgressButton> {
         this.h = 100;
         this.i = 0;
         this.j = 0;
-        d(context, null);
+        e(context, null);
     }
 
-    @Override // com.baidu.tieba.am0
-    public void c(@NonNull ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.xg0
+    public void d(@NonNull ViewGroup viewGroup) {
         if (!(viewGroup instanceof RelativeLayout)) {
             return;
         }
@@ -65,7 +65,7 @@ public class AdProgressButton extends View implements am0<AdProgressButton> {
 
     public void setForeground(int i) {
         this.f = i;
-        e();
+        f();
         postInvalidate();
     }
 
@@ -102,13 +102,13 @@ public class AdProgressButton extends View implements am0<AdProgressButton> {
 
     public void setTextColor(int i) {
         this.b = i;
-        e();
+        f();
         postInvalidate();
     }
 
     public void setTextSize(int i) {
         this.e = i;
-        e();
+        f();
         postInvalidate();
     }
 
@@ -120,13 +120,13 @@ public class AdProgressButton extends View implements am0<AdProgressButton> {
         this.h = 100;
         this.i = 0;
         this.j = 0;
-        d(context, attributeSet);
+        e(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.am0
-    public void update(String str, @NonNull hl0 hl0Var) {
-        if (hl0Var.c == AdDownloadStatus.DOWNLOADING) {
-            setProgress((int) (hl0Var.i * 100.0f));
+    @Override // com.baidu.tieba.xg0
+    public void c(String str, @NonNull eg0 eg0Var) {
+        if (eg0Var.c == AdDownloadStatus.DOWNLOADING) {
+            setProgress((int) (eg0Var.i * 100.0f));
             return;
         }
         setProgressNoText(0);
@@ -141,7 +141,7 @@ public class AdProgressButton extends View implements am0<AdProgressButton> {
         this.h = 100;
         this.i = 0;
         this.j = 0;
-        d(context, attributeSet);
+        e(context, attributeSet);
     }
 
     public void b(Canvas canvas) {
@@ -158,12 +158,12 @@ public class AdProgressButton extends View implements am0<AdProgressButton> {
         }
     }
 
-    public final void d(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d61.nad_progress);
+    public final void e(Context context, AttributeSet attributeSet) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q01.nad_progress);
         int color = getResources().getColor(R.color.nad_progress_download_button_text_color);
         int color2 = getResources().getColor(R.color.nad_progress_download_button_fg);
-        int a = p61.c.a(getContext(), 11.0f);
-        int a2 = p61.c.a(getContext(), 12.0f);
+        int a = c11.c.a(getContext(), 11.0f);
+        int a2 = c11.c.a(getContext(), 12.0f);
         this.j = 1;
         this.f = obtainStyledAttributes.getInteger(0, color2);
         this.b = obtainStyledAttributes.getColor(8, color);
@@ -175,10 +175,10 @@ public class AdProgressButton extends View implements am0<AdProgressButton> {
         obtainStyledAttributes.recycle();
         this.k = Typeface.defaultFromStyle(1);
         setBackgroundDrawable(getResources().getDrawable(R.drawable.nad_feed_download_btn_bg));
-        e();
+        f();
     }
 
-    public void e() {
+    public void f() {
         this.c = new Paint();
         Paint paint = new Paint();
         this.d = paint;

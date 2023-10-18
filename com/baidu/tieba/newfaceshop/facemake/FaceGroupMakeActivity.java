@@ -35,13 +35,13 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dg9;
-import com.baidu.tieba.eg9;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.fy5;
+import com.baidu.tieba.hz4;
 import com.baidu.tieba.newfaceshop.BarInformationModel;
 import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
-import com.baidu.tieba.z45;
+import com.baidu.tieba.ns5;
+import com.baidu.tieba.qa9;
+import com.baidu.tieba.ra9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInformationModel.b {
+public class FaceGroupMakeActivity extends BaseActivity implements qa9.c, BarInformationModel.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -67,7 +67,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
     public TextView j;
     public TextView k;
     public ImageView l;
-    public dg9 m;
+    public qa9 m;
     public ArrayList<FaceData> n;
     public FaceData o;
     public Activity p;
@@ -144,20 +144,20 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
             }
             String trim = this.a.f.getText().toString().trim();
             if (TextUtils.isEmpty(trim)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f06fe);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0704);
             } else if (this.a.n.size() - 1 < 8) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0708);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f070e);
             } else if (this.a.n.size() - 1 > 24) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f06fc);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0702);
             } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0e42);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0e4f);
             } else if (this.a.e1() && this.a.u == null) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0aa2);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0aad);
             } else {
                 ArrayList arrayList = new ArrayList();
                 arrayList.addAll(this.a.n);
                 arrayList.remove(this.a.o);
-                eg9 l = eg9.l();
+                ra9 l = ra9.l();
                 if (this.a.u != null) {
                     i = this.a.u.forum_id;
                 } else {
@@ -233,13 +233,13 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.k.setMaxWidth(((this.a.i.getWidth() - this.a.j.getWidth()) - this.a.l.getWidth()) - BdUtilHelper.getDimens(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703ba));
+                this.a.k.setMaxWidth(((this.a.i.getWidth() - this.a.j.getWidth()) - this.a.l.getWidth()) - BdUtilHelper.getDimens(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703b6));
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e implements z45.e {
+    public class e implements hz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceGroupMakeActivity a;
@@ -262,19 +262,19 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
             this.a = faceGroupMakeActivity;
         }
 
-        @Override // com.baidu.tieba.z45.e
-        public void onClick(z45 z45Var) {
+        @Override // com.baidu.tieba.hz4.e
+        public void onClick(hz4 hz4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
-                z45Var.dismiss();
-                eg9.l().i();
+            if (interceptable == null || interceptable.invokeL(1048576, this, hz4Var) == null) {
+                hz4Var.dismiss();
+                ra9.l().i();
                 this.a.finish();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class f implements z45.e {
+    public class f implements hz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceGroupMakeActivity a;
@@ -297,11 +297,11 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
             this.a = faceGroupMakeActivity;
         }
 
-        @Override // com.baidu.tieba.z45.e
-        public void onClick(z45 z45Var) {
+        @Override // com.baidu.tieba.hz4.e
+        public void onClick(hz4 hz4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
-                z45Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, hz4Var) == null) {
+                hz4Var.dismiss();
             }
         }
     }
@@ -337,8 +337,8 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null && (fy5.c(spanned.toString()) - (i4 - i3)) + fy5.c(charSequence.toString()) > this.a) {
-                    this.b.showToast(R.string.obfuscated_res_0x7f0f0f37);
+                if (spanned != null && charSequence != null && (ns5.c(spanned.toString()) - (i4 - i3)) + ns5.c(charSequence.toString()) > this.a) {
+                    this.b.showToast(R.string.obfuscated_res_0x7f0f0f44);
                     return "";
                 }
                 return charSequence;
@@ -398,11 +398,11 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
 
     public final void f1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.s == null) {
                 this.s = new BarInformationModel(getPageContext());
             }
-            this.s.M(this);
+            this.s.N(this);
         }
     }
 
@@ -414,10 +414,10 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
         }
     }
 
-    @Override // com.baidu.tieba.dg9.c
-    public void f0(FaceData faceData) {
+    @Override // com.baidu.tieba.qa9.c
+    public void g0(FaceData faceData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, faceData) != null) || faceData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, faceData) != null) || faceData == null) {
             return;
         }
         this.n.remove(faceData);
@@ -425,13 +425,13 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
         i1();
     }
 
-    @Override // com.baidu.tieba.dg9.c
+    @Override // com.baidu.tieba.qa9.c
     public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ArrayList<FaceData> arrayList = this.n;
             if (arrayList != null && arrayList.size() - 1 >= 24) {
-                showToast(R.string.obfuscated_res_0x7f0f06fc);
+                showToast(R.string.obfuscated_res_0x7f0f0702);
                 return;
             }
             ArrayList arrayList2 = new ArrayList();
@@ -447,7 +447,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
     public final void g1() {
         FaceGroupDraft k;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (k = eg9.l().k()) != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (k = ra9.l().k()) != null) {
             if (!TextUtils.isEmpty(k.getName())) {
                 this.f.setText(k.getName());
             }
@@ -464,11 +464,11 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             ArrayList<FaceData> arrayList = this.n;
             if ((arrayList != null && arrayList.size() > 1) || !TextUtils.isEmpty(this.f.getText())) {
-                z45 z45Var = new z45(this.p);
-                z45Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f0702));
-                z45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04c4, new e(this));
-                z45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d0, new f(this));
-                z45Var.create(getPageContext()).show();
+                hz4 hz4Var = new hz4(this.p);
+                hz4Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f0708));
+                hz4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04c8, new e(this));
+                hz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d2, new f(this));
+                hz4Var.create(getPageContext()).show();
                 return;
             }
             finish();
@@ -516,7 +516,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
             this.o = faceData;
             faceData.type = 4;
             this.n.add(faceData);
-            if (this.q && ((k = eg9.l().k()) == null || k.getForumId() != 0)) {
+            if (this.q && ((k = ra9.l().k()) == null || k.getForumId() != 0)) {
                 this.r = true;
             }
             initView();
@@ -530,7 +530,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
     public final void i1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.d.setText(String.format(getText(R.string.obfuscated_res_0x7f0f06fd).toString(), Integer.valueOf(this.n.size() - 1)));
+            this.d.setText(String.format(getText(R.string.obfuscated_res_0x7f0f0703).toString(), Integer.valueOf(this.n.size() - 1)));
         }
     }
 
@@ -538,7 +538,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.g = (LinearLayout) findViewById(R.id.layout_root);
-            this.h = (FaceImageLayout) findViewById(R.id.obfuscated_res_0x7f0914a5);
+            this.h = (FaceImageLayout) findViewById(R.id.obfuscated_res_0x7f0914be);
             this.a = (NavigationBar) findViewById(R.id.navigation_bar);
             this.b = new FaceGroupMakeTitleBar(this.p);
             this.b.setLayoutParams(new RelativeLayout.LayoutParams(BdUtilHelper.getEquipmentWidth(getPageContext().getPageActivity()), -1));
@@ -547,30 +547,30 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
             this.c = (NoNetworkView) findViewById(R.id.view_no_network);
             if (e1()) {
-                this.b.setTitle(this.p.getText(R.string.obfuscated_res_0x7f0f0703).toString());
+                this.b.setTitle(this.p.getText(R.string.obfuscated_res_0x7f0f0709).toString());
             } else {
-                this.b.setTitle(this.p.getText(R.string.obfuscated_res_0x7f0f0704).toString());
+                this.b.setTitle(this.p.getText(R.string.obfuscated_res_0x7f0f070a).toString());
             }
-            this.b.setRightText(this.p.getText(R.string.obfuscated_res_0x7f0f05ac).toString());
+            this.b.setRightText(this.p.getText(R.string.obfuscated_res_0x7f0f05b2).toString());
             this.b.setRightListener(new b(this));
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090977);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090992);
             this.f = editText;
             editText.setFilters(new InputFilter[]{new g(this, 20)});
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0926ed);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0926e9);
             i1();
-            this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090e83);
-            dg9 dg9Var = new dg9(this.n);
-            this.m = dg9Var;
-            dg9Var.f(this);
+            this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090e9d);
+            qa9 qa9Var = new qa9(this.n);
+            this.m = qa9Var;
+            qa9Var.f(this);
             this.e.setAdapter((ListAdapter) this.m);
             this.h.setListener(new c(this));
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090357);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092791);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092790);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09035b);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092786);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092785);
             this.k = textView;
             textView.setOnClickListener(this);
             this.i.setVisibility(8);
-            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f091239);
+            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f09124f);
             this.i.getViewTreeObserver().addOnGlobalLayoutListener(new d(this));
         }
     }
@@ -595,9 +595,9 @@ public class FaceGroupMakeActivity extends BaseActivity implements dg9.c, BarInf
                 return;
             }
             this.k.setClickable(true);
-            this.k.setText(R.string.obfuscated_res_0x7f0f070c);
+            this.k.setText(R.string.obfuscated_res_0x7f0f0712);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0304);
-            FaceGroupDraft k = eg9.l().k();
+            FaceGroupDraft k = ra9.l().k();
             if (k != null && k.getForumId() != 0) {
                 Iterator<BazhuInfoData.BaInfo> it = this.t.iterator();
                 while (it.hasNext()) {

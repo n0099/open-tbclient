@@ -1,74 +1,58 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "FestivalTipViewHelper")
-/* loaded from: classes6.dex */
-public final class kya {
+/* loaded from: classes7.dex */
+public final class kya implements cya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Integer[] a;
+    public final Function1<cd5, Unit> b;
 
-    public static final void a(String str, String str2, TbRichTextView.Position position) {
-        boolean z;
+    public kya(Integer[] codes, Function1<? super cd5, Unit> onEditorAction) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, position) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FESTIVAL_TIP_VIEW_CLICK);
-            boolean z2 = false;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                statisticItem.addParam("tid", str);
-            }
-            if (!((str2 == null || str2.length() == 0) ? true : true)) {
-                statisticItem.addParam("pid", str2);
-            }
-            if (position != null) {
-                statisticItem.addParam("obj_locate", position.getIndex());
-            }
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
-        }
-    }
-
-    public static final void b(zja postData, TbRichTextView richTextView, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, postData, richTextView, z) == null) {
-            Intrinsics.checkNotNullParameter(postData, "postData");
-            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
-            if (postData.G() != null) {
-                if (z) {
-                    richTextView.getLayoutStrategy().m(-1);
-                } else {
-                    richTextView.getLayoutStrategy().m(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004));
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {codes, onEditorAction};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(codes, "codes");
+        Intrinsics.checkNotNullParameter(onEditorAction, "onEditorAction");
+        this.a = codes;
+        this.b = onEditorAction;
     }
 
-    public static final void c(zja postData, TbRichTextView richTextView) {
-        Rect rect;
+    @Override // com.baidu.tieba.cya
+    public Integer[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, postData, richTextView) == null) {
-            Intrinsics.checkNotNullParameter(postData, "postData");
-            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
-            a26 layoutStrategy = richTextView.getLayoutStrategy();
-            if (postData.G() != null) {
-                rect = new Rect(-1, -1, -1, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds53));
-            } else {
-                rect = null;
-            }
-            layoutStrategy.s(rect);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Integer[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cya
+    public void b(cd5 action) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
+            Intrinsics.checkNotNullParameter(action, "action");
+            this.b.invoke(action);
         }
     }
 }

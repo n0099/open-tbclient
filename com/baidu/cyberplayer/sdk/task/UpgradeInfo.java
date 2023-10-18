@@ -62,10 +62,10 @@ public class UpgradeInfo {
                     CyberLog.e(TAG, "first three version not match");
                     return null;
                 }
-                boolean has3 = jSONObject.has("force");
+                boolean has3 = jSONObject.has(KEY_INT_FORCE_UPGRADE);
                 boolean has4 = jSONObject.has(KEY_STR_EXTEND_INFO);
                 if (has3) {
-                    if (jSONObject.getInt("force") != 1) {
+                    if (jSONObject.getInt(KEY_INT_FORCE_UPGRADE) != 1) {
                         z2 = false;
                     }
                     z = z2;

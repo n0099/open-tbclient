@@ -2,7 +2,7 @@ package com.baidu.searchbox.interaction.cloudcontrol;
 
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.searchbox.interaction.cloudcontrol.ccs.InteractionPrivacySwitch;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class InteractionCommonParamManager {
     public static String processUrl(String str) {
         if (InteractionPrivacySwitch.getInteractionPrivacySwitch()) {

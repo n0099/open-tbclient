@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+/* loaded from: classes9.dex */
+public interface yt4<T> {
+    void onError(int i, String str);
 
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-/* loaded from: classes8.dex */
-public interface yt4 {
-    boolean onMissionCompleted(CompleteTaskToastData completeTaskToastData);
+    void onSuccess(T t);
 }

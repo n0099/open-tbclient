@@ -1,84 +1,162 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wi8 implements bn {
+public class wi8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948271651, "Lcom/baidu/tieba/wi8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948271651, "Lcom/baidu/tieba/wi8;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public wi8() {
+    public static void a(@NonNull String str, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, j);
+            statisticItem.param("fid", j2);
+            statisticItem.param("room_id", j3);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.tieba.bn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void i(@NonNull String str, int i, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return e;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_id", i);
+            statisticItem.param("obj_locate", j);
+            statisticItem.param("obj_type", !z ? 1 : 0);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            TiebaStatic.log(statisticItem);
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public static void k(@NonNull String str, String str2, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b)) {
-                return true;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_id", str2);
+            statisticItem.param("obj_source", j);
+            statisticItem.param("obj_type", !z ? 1 : 0);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static String b(AbilityItem abilityItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, abilityItem)) == null) {
+            if (abilityItem != null && abilityItem.getStyleConf() != null) {
+                return abilityItem.getStyleConf().getContent();
             }
-            return false;
+            return "";
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public void a(JSONObject jSONObject) {
+    public static void h(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15264");
+            statisticItem.param("obj_type", i);
+            TiebaStatic.log(statisticItem);
         }
-        this.a = jSONObject.optString("pid");
-        this.b = jSONObject.optString("url");
+    }
+
+    public static void c(@NonNull String str, String str2, long j, long j2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", str2);
+            statisticItem.param("fid", j);
+            statisticItem.param("room_id", j2);
+            statisticItem.param("obj_locate", i);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void d(@NonNull String str, int i, long j, long j2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str2}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_type", i);
+            statisticItem.param("fid", j);
+            statisticItem.param("room_id", j2);
+            statisticItem.param("uid", str2);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void e(@NonNull String str, String str2, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", str2);
+            statisticItem.param("fid", j);
+            statisticItem.param("room_id", j2);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void f(@NonNull String str, int i, @Nullable AbilityItem abilityItem, String str2, String str3, long j, long j2, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), abilityItem, str2, str3, Long.valueOf(j), Long.valueOf(j2), str4, str5}) == null) {
+            TiebaStatic.log(new StatisticItem(str).param("obj_type", i).param("obj_id", str2).param("obj_name", str3).param("fid", j).param("obj_param1", j2).param(TiebaStatic.Params.OBJ_PARAM2, str4).param(TiebaStatic.Params.OBJ_PARAM3, str5));
+        }
+    }
+
+    public static void g(@NonNull String str, int i, @Nullable AbilityItem abilityItem, @Nullable TbBaseMsg tbBaseMsg, String str2, String str3, long j, long j2) {
+        String str4;
+        long j3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Integer.valueOf(i), abilityItem, tbBaseMsg, str2, str3, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            String str5 = "";
+            if (abilityItem == null || abilityItem.getStyleConf() == null) {
+                str4 = "";
+            } else {
+                str4 = abilityItem.getStyleConf().getContent();
+            }
+            StatisticItem param = new StatisticItem(str).param("obj_type", i).param("obj_name", str4);
+            if (abilityItem != null) {
+                str5 = abilityItem.getType();
+            }
+            StatisticItem param2 = param.param("obj_source", str5).param("fid", j2);
+            long j4 = 0;
+            if (tbBaseMsg != null) {
+                j3 = tbBaseMsg.getSessionId();
+            } else {
+                j3 = 0;
+            }
+            StatisticItem param3 = param2.param("room_id", j3);
+            if (tbBaseMsg != null) {
+                j4 = tbBaseMsg.getMsgId();
+            }
+            TiebaStatic.log(param3.param("obj_id", j4).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_param1", str2).param(TiebaStatic.Params.OBJ_PARAM2, str3).param(TiebaStatic.Params.OBJ_PARAM3, j));
+        }
+    }
+
+    public static void j(@NonNull String str, String str2, long j, String str3, String str4, long j2, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, Long.valueOf(j), str3, str4, Long.valueOf(j2), str5}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_source", str2);
+            statisticItem.param("obj_locate", j);
+            statisticItem.param("obj_id", str3);
+            statisticItem.param("obj_name", str4);
+            statisticItem.param("fid", j2);
+            statisticItem.param("obj_param1", str5);
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.searchbox.live.gesture;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface OnGestureListener {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SimpleOnGestureListener implements OnGestureListener {
         @Override // com.baidu.searchbox.live.gesture.OnGestureListener
         public void onCloseEvent() {

@@ -53,13 +53,13 @@ public class ax implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo268a() {
+    public String mo267a() {
         return a(this.a, this.b);
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo269a() {
+    public boolean mo268a() {
         return (this.f126a == null || this.f127a == null) ? false : true;
     }
 }

@@ -1,35 +1,27 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.RectF;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.response.TaskProcessData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class mk extends fk {
+public final class mk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path t;
-    public Paint u;
-    public a v;
-    public boolean w;
+    public final TaskStatus a;
+    public final jk b;
+    public final TaskProcessData c;
+    public final String d;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        Path a(RectF rectF);
-
-        void b(Canvas canvas);
-    }
-
-    public mk() {
+    public mk(TaskStatus taskStatus, jk jkVar, TaskProcessData taskProcessData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {taskStatus, jkVar, taskProcessData, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,61 +31,18 @@ public abstract class mk extends fk {
                 return;
             }
         }
-        this.t = new Path();
-        this.u = null;
-        this.w = false;
+        this.a = taskStatus;
+        this.b = jkVar;
+        this.c = taskProcessData;
+        this.d = str;
     }
 
-    @Override // com.baidu.tieba.dk
-    public void c(gk gkVar, ImageView imageView, ImageView.ScaleType scaleType) {
-        Path a2;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, gkVar, imageView, scaleType) == null) {
-            super.c(gkVar, imageView, scaleType);
-            a aVar = this.v;
-            if (aVar == null || (a2 = aVar.a(j())) == null) {
-                return;
-            }
-            this.t.set(a2);
-            if (this.u == null) {
-                Paint paint = new Paint();
-                this.u = paint;
-                paint.setStyle(Paint.Style.STROKE);
-                this.u.setAntiAlias(true);
-                this.u.setColor(637534208);
-                this.u.setDither(true);
-                this.u.setStrokeWidth(2.0f);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "taskStatus:" + this.a + "\n uiConfig:" + this.b + "\n totalProcess:" + this.c + "\n extra:" + this.d;
         }
-    }
-
-    @Override // com.baidu.tieba.dk
-    public void g(Canvas canvas, gk gkVar, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, gkVar, imageView) == null) {
-            super.g(canvas, gkVar, imageView);
-            if (!this.w) {
-                return;
-            }
-            canvas.drawPath(this.t, this.u);
-            a aVar = this.v;
-            if (aVar != null) {
-                aVar.b(canvas);
-            }
-        }
-    }
-
-    public void t(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.v = aVar;
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.w = z;
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -13,8 +13,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.qj0;
-import com.baidu.tieba.rj0;
+import com.baidu.tieba.ne0;
+import com.baidu.tieba.oe0;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import kotlin.Metadata;
@@ -23,7 +23,7 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
 public class ComponentArchManager implements LifecycleObserver {
     public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends rj0>, rj0> b;
+    public final SimpleArrayMap<Class<? extends oe0>, oe0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -47,7 +47,7 @@ public class ComponentArchManager implements LifecycleObserver {
         return false;
     }
 
-    public final void r(IComponentPlugin component, boolean z) {
+    public final void s(IComponentPlugin component, boolean z) {
         Intrinsics.checkNotNullParameter(component, "component");
         k(component);
         c(component);
@@ -57,7 +57,7 @@ public class ComponentArchManager implements LifecycleObserver {
         this.a.add(component);
     }
 
-    public final void w(Class<? extends rj0> clazz, rj0 componentService) {
+    public final void w(Class<? extends oe0> clazz, oe0 componentService) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
         Intrinsics.checkNotNullParameter(componentService, "componentService");
         this.b.put(clazz, componentService);
@@ -68,21 +68,17 @@ public class ComponentArchManager implements LifecycleObserver {
             if ((i & 2) != 0) {
                 z = true;
             }
-            componentArchManager.r(iComponentPlugin, z);
+            componentArchManager.s(iComponentPlugin, z);
             return;
         }
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: registerComponent");
     }
 
-    public final void A() {
+    public final void B() {
         Lifecycle lifecycle = this.d;
         for (IComponentPlugin iComponentPlugin : this.a) {
             lifecycle.removeObserver(iComponentPlugin);
         }
-    }
-
-    public final Context getContext() {
-        return this.c;
     }
 
     public final void o() {
@@ -94,12 +90,12 @@ public class ComponentArchManager implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
         o();
-        A();
+        B();
         this.b.clear();
         this.a.clear();
     }
 
-    public final void B(IComponentPlugin componentPlugin) {
+    public final void C(IComponentPlugin componentPlugin) {
         Intrinsics.checkNotNullParameter(componentPlugin, "componentPlugin");
         g(componentPlugin);
         this.a.remove(componentPlugin);
@@ -108,18 +104,18 @@ public class ComponentArchManager implements LifecycleObserver {
     public void b(ViewGroup parentView) {
         Intrinsics.checkNotNullParameter(parentView, "parentView");
         for (IComponentPlugin iComponentPlugin : this.a) {
-            iComponentPlugin.J(parentView);
+            iComponentPlugin.K(parentView);
         }
     }
 
     public final void c(IComponentPlugin iComponentPlugin) {
         Context context = this.c;
         if (context != null) {
-            iComponentPlugin.u((Activity) context);
-            iComponentPlugin.injectContext(this.c);
-            iComponentPlugin.y(this);
-            iComponentPlugin.x();
-            iComponentPlugin.z();
+            iComponentPlugin.x((Activity) context);
+            iComponentPlugin.p(this.c);
+            iComponentPlugin.z(this);
+            iComponentPlugin.y();
+            iComponentPlugin.A();
             return;
         }
         throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
@@ -130,10 +126,10 @@ public class ComponentArchManager implements LifecycleObserver {
         iComponentPlugin.m();
     }
 
-    public final void j(qj0 event) {
+    public final void j(ne0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         for (IComponentPlugin iComponentPlugin : this.a) {
-            iComponentPlugin.s(event);
+            iComponentPlugin.t(event);
         }
     }
 
@@ -148,12 +144,12 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public <T extends rj0> T p(Class<T> clazz) {
+    public <T extends oe0> T q(Class<T> clazz) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
-        rj0 rj0Var = this.b.get(clazz);
-        if (!(rj0Var instanceof rj0)) {
-            rj0Var = null;
+        oe0 oe0Var = this.b.get(clazz);
+        if (!(oe0Var instanceof oe0)) {
+            oe0Var = null;
         }
-        return (T) rj0Var;
+        return (T) oe0Var;
     }
 }

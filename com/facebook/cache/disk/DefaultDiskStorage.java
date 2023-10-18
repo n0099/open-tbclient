@@ -2,7 +2,6 @@ package com.facebook.cache.disk;
 
 import android.os.Environment;
 import com.baidu.android.util.media.WebpUtils;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.facebook.binaryresource.BinaryResource;
@@ -530,7 +529,7 @@ public class DefaultDiskStorage implements DiskStorage {
                 return WebpUtils.TYPE_IMG_WEBP;
             }
             if (bArr[0] == 71 && bArr[1] == 73) {
-                return NativeConstants.TYPE_GIF;
+                return "gif";
             }
             return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
         }

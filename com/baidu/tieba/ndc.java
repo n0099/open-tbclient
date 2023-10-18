@@ -1,97 +1,37 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kcc;
+import com.baidu.tieba.agc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes7.dex */
-public final class ndc<T, R> implements kcc.a<R> {
+public class ndc implements IYYPayResultView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kcc<T> a;
-    public final ddc<? super T, ? extends R> b;
+    public Activity a;
+    public AbsViewEventHandler b;
+    public Dialog c;
+    public rcc d;
+    public IPayCallback<CurrencyChargeMessage> e;
+    public IYYPayResultView.c f;
 
-    /* loaded from: classes7.dex */
-    public static final class a<T, R> extends qcc<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final qcc<? super R> e;
-        public final ddc<? super T, ? extends R> f;
-        public boolean g;
-
-        public a(qcc<? super R> qccVar, ddc<? super T, ? extends R> ddcVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qccVar, ddcVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = qccVar;
-            this.f = ddcVar;
-        }
-
-        @Override // com.baidu.tieba.qcc
-        public void f(mcc mccVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mccVar) == null) {
-                this.e.f(mccVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.lcc
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                if (this.g) {
-                    ygc.j(th);
-                    return;
-                }
-                this.g = true;
-                this.e.onError(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.lcc
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                try {
-                    this.e.onNext(this.f.call(t));
-                } catch (Throwable th) {
-                    wcc.e(th);
-                    unsubscribe();
-                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.lcc
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-                return;
-            }
-            this.e.onCompleted();
-        }
-    }
-
-    public ndc(kcc<T> kccVar, ddc<? super T, ? extends R> ddcVar) {
+    public ndc(Activity activity, IYYPayResultView iYYPayResultView, AbsViewEventHandler absViewEventHandler, Dialog dialog, rcc rccVar, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayResultView.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kccVar, ddcVar};
+            Object[] objArr = {activity, iYYPayResultView, absViewEventHandler, dialog, rccVar, iPayCallback, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -101,21 +41,49 @@ public final class ndc<T, R> implements kcc.a<R> {
                 return;
             }
         }
-        this.a = kccVar;
-        this.b = ddcVar;
+        RLog.info("PayResultViewCallback", "create PayResultViewCallback payCallback:" + iPayCallback);
+        this.a = activity;
+        this.b = absViewEventHandler;
+        this.c = dialog;
+        this.d = rccVar;
+        this.e = iPayCallback;
+        this.f = cVar;
     }
 
-    public void call(qcc<? super R> qccVar) {
+    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
+    public void a(jec jecVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qccVar) == null) {
-            a aVar = new a(qccVar, this.b);
-            qccVar.b(aVar);
-            this.a.O(aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jecVar) == null) {
+            IYYPayResultView.c cVar = this.f;
+            if (cVar != null && cVar.j != null) {
+                cfc.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+                agc.b bVar = this.f.j;
+                bVar.c = jecVar;
+                bVar.j = "2";
+                this.d.d(this.a, bVar, this.e);
+                return;
+            }
+            RLog.error("PayResultViewCallback", "toPayWayDialog error payResultViewParams:" + this.f, new Object[0]);
+            cfc.b(this.c, PayDialogType.PAY_RESULT_DIALOG);
         }
     }
 
-    @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((qcc) ((qcc) obj));
+    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            RLog.info("PayResultViewCallback", "onBtnConfirm");
+            cfc.b(this.c, PayDialogType.PAY_RESULT_DIALOG);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d.c(this.a, this.b);
+        }
+        return invokeV.booleanValue;
     }
 }

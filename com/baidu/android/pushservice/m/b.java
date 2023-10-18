@@ -21,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.heytap.mcssdk.PushService;
 import java.io.File;
 import java.io.FileFilter;
@@ -559,7 +558,7 @@ public class b {
                 }
             }
             a = new g("belongTo", 0);
-            b = new g(TTDownloadField.TT_DOWNLOAD_URL, 1);
+            b = new g("downloadUrl", 1);
             c = new g("title", 2);
             d = new g("description", 3);
             e = new g("savePath", 4);

@@ -1,25 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface hx1 {
-    px1 a(Context context);
+public class hx1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    lx1 b(Context context);
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    px1 c(Context context);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-732496469, "Lcom/baidu/tieba/hx1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-732496469, "Lcom/baidu/tieba/hx1$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[BasePendingOperation.OperationType.values().length];
+            a = iArr;
+            try {
+                iArr[BasePendingOperation.OperationType.OPERATION_TYPE_MAIN_THREAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
 
-    bd2 d();
-
-    mx1 e(Context context, int i);
-
-    px1 f(Context context);
-
-    px1 g(Context context);
-
-    cd2 h(Context context, int i);
-
-    px1 i(Context context);
-
-    boolean j(int i);
+    public static dx1 a(BasePendingOperation.OperationType operationType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, operationType)) == null) {
+            int i = a.a[operationType.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    return new ix1();
+                }
+                return new gx1();
+            }
+            return new fx1();
+        }
+        return (dx1) invokeL.objValue;
+    }
 }

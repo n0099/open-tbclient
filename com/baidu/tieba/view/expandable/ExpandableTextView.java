@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f26;
+import com.baidu.tieba.ow5;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -46,8 +46,8 @@ public class ExpandableTextView extends RelativeLayout {
     public e l;
     public boolean m;
     public ViewTreeObserver.OnGlobalLayoutListener n;
-    public f26 o;
-    public f26 p;
+    public ow5 o;
+    public ow5 p;
     public View.OnClickListener q;
 
     /* loaded from: classes8.dex */
@@ -161,10 +161,10 @@ public class ExpandableTextView extends RelativeLayout {
     }
 
     /* loaded from: classes8.dex */
-    public class b extends f26 {
+    public class b extends ow5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ExpandableTextView m;
+        public final /* synthetic */ ExpandableTextView n;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ExpandableTextView expandableTextView, int i, String str) {
@@ -185,24 +185,24 @@ public class ExpandableTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.m = expandableTextView;
+            this.n = expandableTextView;
         }
 
-        @Override // com.baidu.tieba.f26, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.ow5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.m.q();
+            this.n.q();
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c extends f26 {
+    public class c extends ow5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ExpandableTextView m;
+        public final /* synthetic */ ExpandableTextView n;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(ExpandableTextView expandableTextView, int i, String str) {
@@ -223,16 +223,16 @@ public class ExpandableTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.m = expandableTextView;
+            this.n = expandableTextView;
         }
 
-        @Override // com.baidu.tieba.f26, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.ow5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.m.r();
+            this.n.r();
         }
     }
 

@@ -9,10 +9,10 @@ import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.view.Surface;
 import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
-import com.baidu.tieba.ekb;
-import com.baidu.tieba.kkb;
-import com.baidu.tieba.rkb;
-import com.baidu.tieba.ukb;
+import com.baidu.tieba.ffb;
+import com.baidu.tieba.mfb;
+import com.baidu.tieba.pfb;
+import com.baidu.tieba.zeb;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.nio.ByteBuffer;
@@ -370,7 +370,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
         int i4;
         Surface surface;
         String e2 = "video/avc";
-        MediaCodecInfo m = kkb.m("video/avc");
+        MediaCodecInfo m = ffb.m("video/avc");
         if (m == null) {
             return;
         }
@@ -380,10 +380,10 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
         MediaExtractor mediaExtractor = null;
         try {
             try {
-                e = kkb.b(this.mSourcePath);
+                e = ffb.b(this.mSourcePath);
                 try {
                     try {
-                        MediaFormat trackFormat = e.getTrackFormat(kkb.f(e));
+                        MediaFormat trackFormat = e.getTrackFormat(ffb.f(e));
                         if (this.mOutWidth == 0) {
                             i = trackFormat.getInteger("width");
                         } else {
@@ -396,8 +396,8 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                         }
                         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                         mediaMetadataRetriever.setDataSource(this.mSourcePath);
-                        int b = ((int) (ekb.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                        if (rkb.b) {
+                        int b = ((int) (zeb.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
+                        if (mfb.b) {
                             trackFormat.setInteger("rotation-degrees", b);
                         } else {
                             trackFormat.setInteger("rotation-degrees", b);
@@ -408,13 +408,13 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             i = i5;
                         }
                         String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
-                        if (!ukb.a(extractMetadata)) {
-                            this.mSourceVideoDuration = ekb.c(extractMetadata, 0L);
+                        if (!pfb.a(extractMetadata)) {
+                            this.mSourceVideoDuration = zeb.c(extractMetadata, 0L);
                         }
                         this.mLastProgressPercent = 0;
                         String str = e2;
                         if (this.mEncodeHevcVideo) {
-                            MediaCodecInfo m2 = kkb.m(MimeTypes.VIDEO_H265);
+                            MediaCodecInfo m2 = ffb.m(MimeTypes.VIDEO_H265);
                             str = e2;
                             if (m2 != null) {
                                 m = m2;
@@ -428,17 +428,17 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                         } else {
                             i3 = this.mOutBitRate;
                         }
-                        kkb.n(trackFormat, createVideoFormat, MediaInfo.DPM_KEY_BITRATE, i3);
+                        ffb.n(trackFormat, createVideoFormat, MediaInfo.DPM_KEY_BITRATE, i3);
                         if (this.mFrameRate == 0) {
                             i4 = 30;
                         } else {
                             i4 = this.mFrameRate;
                         }
-                        kkb.n(trackFormat, createVideoFormat, "frame-rate", i4);
-                        kkb.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
+                        ffb.n(trackFormat, createVideoFormat, "frame-rate", i4);
+                        ffb.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
                         AtomicReference atomicReference = new AtomicReference();
                         try {
-                            e2 = kkb.d(m, createVideoFormat, atomicReference);
+                            e2 = ffb.d(m, createVideoFormat, atomicReference);
                         } catch (Exception unused) {
                             if (i % 16 != 0) {
                                 i += 16 - (i % 16);
@@ -448,7 +448,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             }
                             createVideoFormat.setInteger("width", i);
                             createVideoFormat.setInteger("height", i2);
-                            e2 = kkb.d(m, createVideoFormat, atomicReference);
+                            e2 = ffb.d(m, createVideoFormat, atomicReference);
                         }
                         try {
                             m = new InputSurface((Surface) atomicReference.get());
@@ -460,7 +460,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                 } else {
                                     surface = null;
                                 }
-                                mediaCodec2 = kkb.c(trackFormat, surface);
+                                mediaCodec2 = ffb.c(trackFormat, surface);
                                 try {
                                     doExtractDecodeEditEncodeMux(e, mediaCodec2, e2, m, this.mOutputSurface);
                                     if (e != 0) {

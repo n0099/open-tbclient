@@ -3,127 +3,191 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidKeyException;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class vz extends xz {
+public class vz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] d;
-    public byte[] e;
-    public byte[] f;
+    public String a;
+    public boolean b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vz(tz tzVar) {
-        super(tzVar);
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return i != 5 ? -1 : 0;
+                        }
+                        return 1;
+                    }
+                    return 3;
+                }
+                return 4;
+            }
+            return 6;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return i != 6 ? -1 : 1;
+                        }
+                        return 2;
+                    }
+                    return 3;
+                }
+                return 4;
+            }
+            return 5;
+        }
+        return invokeI.intValue;
+    }
+
+    public vz(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tzVar};
+            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tz) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = null;
-        int i3 = this.b;
-        this.e = new byte[i3];
-        this.d = new byte[i3];
+        this.a = str;
+        this.b = z;
+        this.c = z2;
     }
 
-    @Override // com.baidu.tieba.xz
-    public void a(boolean z, String str, byte[] bArr, byte[] bArr2) {
+    public byte[] b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bArr, bArr2}) == null) {
-            if (bArr == null || bArr2 == null || bArr2.length != this.b) {
-                throw new InvalidKeyException("Internal error");
-            }
-            this.c = bArr2;
-            c();
-            this.a.e(z, str, bArr);
-        }
-    }
-
-    @Override // com.baidu.tieba.xz
-    public void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            int i4 = i2 + i;
-            while (i < i4) {
-                for (int i5 = 0; i5 < this.b; i5++) {
-                    this.e[i5] = (byte) (bArr[i5 + i] ^ this.d[i5]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            for (byte b : str.getBytes()) {
+                char c = (char) b;
+                if (!Character.isWhitespace(c)) {
+                    byteArrayOutputStream.write((byte) Character.toUpperCase(c));
                 }
-                this.a.f(this.e, 0, bArr2, i3);
-                System.arraycopy(bArr2, i3, this.d, 0, this.b);
-                int i6 = this.b;
-                i += i6;
-                i3 += i6;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.xz
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            System.arraycopy(this.c, 0, this.d, 0, this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.xz
-    public void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            int i5 = i2 + i;
-            byte[] bArr3 = (bArr != bArr2 || i < i3 || i - i3 >= this.b) ? null : (byte[]) bArr.clone();
-            while (i < i5) {
-                this.a.j(bArr, i, this.e, 0);
-                int i6 = 0;
-                while (true) {
-                    i4 = this.b;
-                    if (i6 >= i4) {
+            if (this.b) {
+                if (byteArrayOutputStream.size() % 8 != 0) {
+                    return null;
+                }
+            } else {
+                while (byteArrayOutputStream.size() % 8 != 0) {
+                    byteArrayOutputStream.write(61);
+                }
+            }
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.reset();
+            DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+            for (int i = 0; i < byteArray.length / 8; i++) {
+                short[] sArr = new short[8];
+                int[] iArr = new int[5];
+                int i2 = 8;
+                for (int i3 = 0; i3 < 8; i3++) {
+                    int i4 = (i * 8) + i3;
+                    if (((char) byteArray[i4]) == '=') {
                         break;
                     }
-                    bArr2[i6 + i3] = (byte) (this.e[i6] ^ this.d[i6]);
+                    sArr[i3] = (short) this.a.indexOf(byteArray[i4]);
+                    if (sArr[i3] < 0) {
+                        return null;
+                    }
+                    i2--;
+                }
+                int d = d(i2);
+                if (d < 0) {
+                    return null;
+                }
+                iArr[0] = (sArr[0] << 3) | (sArr[1] >> 2);
+                iArr[1] = ((sArr[1] & 3) << 6) | (sArr[2] << 1) | (sArr[3] >> 4);
+                iArr[2] = ((sArr[3] & 15) << 4) | ((sArr[4] >> 1) & 15);
+                iArr[3] = (sArr[4] << 7) | (sArr[5] << 2) | (sArr[6] >> 3);
+                iArr[4] = sArr[7] | ((sArr[6] & 7) << 5);
+                for (int i5 = 0; i5 < d; i5++) {
+                    try {
+                        dataOutputStream.writeByte((byte) (iArr[i5] & 255));
+                    } catch (IOException unused) {
+                    }
+                }
+            }
+            return byteArrayOutputStream.toByteArray();
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public String c(byte[] bArr) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
+                short[] sArr = new short[5];
+                int[] iArr = new int[8];
+                int i3 = 5;
+                for (int i4 = 0; i4 < 5; i4++) {
+                    int i5 = (i2 * 5) + i4;
+                    if (i5 < bArr.length) {
+                        sArr[i4] = (short) (bArr[i5] & 255);
+                    } else {
+                        sArr[i4] = 0;
+                        i3--;
+                    }
+                }
+                int a = a(i3);
+                iArr[0] = (byte) ((sArr[0] >> 3) & 31);
+                iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
+                iArr[2] = (byte) ((sArr[1] >> 1) & 31);
+                iArr[3] = (byte) (((sArr[1] & 1) << 4) | ((sArr[2] >> 4) & 15));
+                iArr[4] = (byte) (((sArr[2] & 15) << 1) | ((sArr[3] >> 7) & 1));
+                iArr[5] = (byte) ((sArr[3] >> 2) & 31);
+                iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
+                iArr[7] = (byte) (sArr[4] & 31);
+                int i6 = 0;
+                while (true) {
+                    i = 8 - a;
+                    if (i6 >= i) {
+                        break;
+                    }
+                    char charAt = this.a.charAt(iArr[i6]);
+                    if (this.c) {
+                        charAt = Character.toLowerCase(charAt);
+                    }
+                    byteArrayOutputStream.write(charAt);
                     i6++;
                 }
-                byte[] bArr4 = this.d;
-                if (bArr3 == null) {
-                    System.arraycopy(bArr, i, bArr4, 0, i4);
-                } else {
-                    System.arraycopy(bArr3, i, bArr4, 0, i4);
+                if (this.b) {
+                    while (i < 8) {
+                        byteArrayOutputStream.write(61);
+                        i++;
+                    }
                 }
-                int i7 = this.b;
-                i += i7;
-                i3 += i7;
             }
+            return new String(byteArrayOutputStream.toByteArray());
         }
-    }
-
-    @Override // com.baidu.tieba.xz
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f == null) {
-                this.f = new byte[this.b];
-            }
-            System.arraycopy(this.d, 0, this.f, 0, this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.xz
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            System.arraycopy(this.f, 0, this.d, 0, this.b);
-        }
+        return (String) invokeL.objValue;
     }
 }

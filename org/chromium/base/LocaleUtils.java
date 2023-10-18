@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.iw;
 import com.google.android.exoplayer2.extractor.mp4.MetadataUtil;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.util.ArrayList;
@@ -183,7 +182,7 @@ public class LocaleUtils {
                     c = 65535;
                 }
             } else {
-                if (str.equals(iw.a)) {
+                if (str.equals("iw")) {
                     c = 0;
                 }
                 c = 65535;

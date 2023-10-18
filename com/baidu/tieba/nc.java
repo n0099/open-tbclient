@@ -1,15 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface nc {
-    Object a(wd wdVar);
+    String a();
 
-    Object b(wd wdVar);
+    long b();
 
-    Object c(wd wdVar);
-
-    Object d(wd wdVar);
-
-    Object e(wd wdVar);
-
-    Object f(wd wdVar);
+    long c();
 }

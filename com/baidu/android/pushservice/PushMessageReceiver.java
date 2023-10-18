@@ -17,6 +17,7 @@ import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.w.m.l;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -749,7 +750,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
             intent.getAction();
             if (intExtra == l.j.a()) {
                 if (z) {
-                    Utility.c(context, intent.getStringExtra("message_id"), i);
+                    Utility.c(context, intent.getStringExtra(ForbidActivityConfig.CHAT_MSG_ID), i);
                 }
             } else if (!intent.getBooleanExtra("bdpush_deliver_NO_CALLBACK", false) && TextUtils.equals(context.getPackageName(), intent.getStringExtra("bd.cross.request.SOURCE_PACKAGE"))) {
                 intent.putExtra("bd.cross.request.COMMAND_TYPE", "bd.cross.command.MESSAGE_ACK");
@@ -852,7 +853,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     }
                     byte[] byteArrayExtra = intent.getByteArrayExtra("baidu_message_secur_info");
                     byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_body");
-                    String stringExtra2 = intent.getStringExtra("message_id");
+                    String stringExtra2 = intent.getStringExtra(ForbidActivityConfig.CHAT_MSG_ID);
                     int intExtra = intent.getIntExtra("baidu_message_type", -1);
                     String stringExtra3 = intent.getStringExtra("app_id");
                     int intExtra2 = intent.getIntExtra(Constants.EXTRA_NOTIFY_ID, 0);

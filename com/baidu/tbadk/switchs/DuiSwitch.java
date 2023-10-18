@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DuiSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic;
     public static DuiSwitch mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ve
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.t9
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class DuiSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ve
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.t9
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

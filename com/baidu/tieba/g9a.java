@@ -1,25 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public final class g9a implements cd7 {
+public final class g9a implements w95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.cd7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
-    }
 
     public g9a() {
         Interceptable interceptable = $ic;
@@ -35,16 +28,13 @@ public final class g9a implements cd7 {
         }
     }
 
-    @Override // com.baidu.tieba.cd7
-    public Map<String, String> a(m87 businessInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.w95
+    public void parseJson(JSONObject json) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("page_from", "recommend");
-            return linkedHashMap;
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            SharedPrefHelper.getInstance().putInt("key_sprite_show_text_len_limit", json.optInt("sprite_show_text_len"));
+            SharedPrefHelper.getInstance().putInt("key_sprite_show_line_num_limit", json.optInt("sprite_show_line_num"));
         }
-        return (Map) invokeL.objValue;
     }
 }

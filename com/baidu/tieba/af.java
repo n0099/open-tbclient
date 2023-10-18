@@ -1,12 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PointF;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+import com.baidu.adp.newwidget.ImageView.DrawerArgs;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.player.widget.BdThumbSeekBarView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,39 +22,99 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
-public class af {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String e = "_crashtime";
-    public static String f = "_crashtype";
+public abstract class af {
+    public static /* synthetic */ Interceptable $ic;
+    public static final Matrix.ScaleToFit[] q;
+    public static final PorterDuffColorFilter r;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public ze c;
-    public xe d;
+    public b a;
+    public ColorFilter b;
+    public Paint c;
+    public Paint d;
+    public Paint e;
+    public Matrix f;
+    public RectF g;
+    public RectF h;
+    public RectF i;
+    public RectF j;
+    public RectF k;
+    public DrawerArgs l;
+    public float[] m;
+    public PointF n;
+    public RectF o;
+    public boolean p;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        boolean a(Canvas canvas, Drawable drawable);
+    }
+
+    public abstract void a(df dfVar, ImageView imageView);
+
+    public abstract void f(Canvas canvas, ImageView imageView);
+
+    public abstract void h(Canvas canvas, df dfVar, ImageView imageView);
+
+    public abstract void i(Canvas canvas, ImageView imageView);
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(246454219, "Lcom/baidu/tieba/af$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(246454219, "Lcom/baidu/tieba/af$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[DrawerArgs.SkinType.values().length];
+            a = iArr;
+            try {
+                iArr[DrawerArgs.SkinType.NIGHT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[DrawerArgs.SkinType.DAY.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[DrawerArgs.SkinType.DARK.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448299560, "Lcom/baidu/tieba/af;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448299560, "Lcom/baidu/tieba/af;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448299560, "Lcom/baidu/tieba/af;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448299560, "Lcom/baidu/tieba/af;");
-        }
+        q = new Matrix.ScaleToFit[]{Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
+        r = new PorterDuffColorFilter(BdThumbSeekBarView.UI_TRACE_COLOR, PorterDuff.Mode.SRC_ATOP);
     }
 
-    public af(ze zeVar) {
+    public af() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zeVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,206 +124,272 @@ public class af {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        this.d = (xe) ServiceManager.getService(xe.a);
-        if (zeVar != null) {
-            this.c = zeVar;
-            if (zeVar.d() > 0 && this.c.c() != null) {
-                int e2 = e();
-                this.a = e2;
-                if (e2 == -1) {
-                    g();
-                }
-            }
-            if (!zeVar.h()) {
-                this.b = f();
-            }
-            this.c.a(this.b, true);
-            return;
-        }
-        throw new InvalidParameterException("SwitchHolder data is null");
+        this.c = new Paint(6);
+        this.d = new Paint();
+        this.e = new Paint();
+        this.f = new Matrix();
+        this.g = new RectF();
+        this.h = new RectF();
+        this.i = new RectF();
+        this.j = new RectF();
+        this.k = new RectF();
+        this.l = new DrawerArgs();
+        this.m = new float[9];
+        this.n = new PointF();
+        this.o = new RectF();
+        this.p = true;
+        this.d.setStyle(Paint.Style.STROKE);
+        this.d.setAntiAlias(true);
+        this.c.setAntiAlias(true);
+        this.e.setAntiAlias(true);
+        this.e.setStyle(Paint.Style.FILL);
     }
 
-    public final void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            xe xeVar = this.d;
-            if (xeVar == null || xeVar.isTypeSp() || this.d.isTypeDoubleKv() || this.d.isTypeDoubleSp()) {
-                SharedPreferences.Editor edit = BdBaseApplication.getInst().getSharedPreferences("adp_feature_switch2", 0).edit();
-                edit.putInt(this.c.e() + e, i);
-                edit.commit();
-            }
-            xe xeVar2 = this.d;
-            if (xeVar2 == null || xeVar2.isTypeDoubleSp() || this.d.isTypeDoubleKv()) {
-                SharedPreferences.Editor edit2 = KVStorageFactory.getSharedPreferences("adp_feature_switch2", 0).edit();
-                edit2.putInt(this.c.e() + e, i);
-                edit2.commit();
-            }
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            xe xeVar = this.d;
-            if (xeVar == null || xeVar.isTypeSp() || this.d.isTypeDoubleKv() || this.d.isTypeDoubleSp()) {
-                SharedPreferences.Editor edit = BdBaseApplication.getInst().getSharedPreferences("adp_feature_switch2", 0).edit();
-                edit.putInt(this.c.e() + f, i);
-                edit.commit();
-            }
-            xe xeVar2 = this.d;
-            if (xeVar2 == null || xeVar2.isTypeDoubleSp() || this.d.isTypeDoubleKv()) {
-                SharedPreferences.Editor edit2 = KVStorageFactory.getSharedPreferences("adp_feature_switch2", 0).edit();
-                edit2.putInt(this.c.e() + f, i);
-                edit2.commit();
-            }
-        }
-    }
-
-    public boolean a(String str) {
+    public static Matrix.ScaleToFit m(ImageView.ScaleType scaleType) {
         InterceptResult invokeL;
-        String[] g;
-        String[] c;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null && this.c.d() > 0) {
-                if (this.c.c() != null) {
-                    for (String str2 : this.c.c()) {
-                        if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                            int i = this.a + 1;
-                            this.a = i;
-                            j(i);
-                            if (this.a >= this.c.d()) {
-                                k(this.c.f());
-                                this.b = this.c.f();
-                                ze zeVar = this.c;
-                                zeVar.a(zeVar.f(), false);
-                            }
-                            return true;
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, scaleType)) == null) {
+            if (scaleType != ImageView.ScaleType.FIT_XY) {
+                if (scaleType == ImageView.ScaleType.FIT_START) {
+                    i = 2;
+                } else if (scaleType == ImageView.ScaleType.FIT_CENTER) {
+                    i = 3;
+                } else if (scaleType == ImageView.ScaleType.FIT_END) {
+                    i = 4;
                 }
-                if (this.c.g() != null) {
-                    for (String str3 : this.c.g()) {
-                        if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                            int i2 = this.a + 1;
-                            this.a = i2;
-                            j(i2);
-                            if (this.a >= this.c.d()) {
-                                k(this.c.f());
-                                this.b = this.c.f();
-                                ze zeVar2 = this.c;
-                                zeVar2.a(zeVar2.f(), false);
-                            }
-                            return true;
-                        }
+                return q[i - 1];
+            }
+            i = 1;
+            return q[i - 1];
+        }
+        return (Matrix.ScaleToFit) invokeL.objValue;
+    }
+
+    public PointF b(float f, float f2, Matrix matrix) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), matrix})) == null) {
+            matrix.getValues(this.m);
+            float[] fArr = this.m;
+            this.n.set((int) ((fArr[0] * f) + (fArr[1] * f2) + fArr[2]), (int) ((f * fArr[3]) + (f2 * fArr[4]) + fArr[5]));
+            return this.n;
+        }
+        return (PointF) invokeCommon.objValue;
+    }
+
+    public void c(df dfVar, ImageView imageView, ImageView.ScaleType scaleType) {
+        boolean z;
+        float min;
+        float f;
+        float f2;
+        float f3;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, dfVar, imageView, scaleType) == null) && imageView.getWidth() != 0 && imageView.getHeight() != 0) {
+            int b2 = dfVar.b();
+            int a2 = dfVar.a();
+            int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
+            int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
+            if (scaleType == ImageView.ScaleType.MATRIX) {
+                this.g.set(0.0f, 0.0f, b2, a2);
+                a(dfVar, imageView);
+                return;
+            }
+            if ((b2 > 0 && width != b2) || (a2 > 0 && height != a2)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.f.reset();
+            if (ImageView.ScaleType.FIT_XY != scaleType && !z) {
+                float f4 = b2;
+                float f5 = a2;
+                this.g.set(0.0f, 0.0f, f4, f5);
+                if (ImageView.ScaleType.CENTER == scaleType) {
+                    this.f.setTranslate((width - b2) * 0.5f, (height - a2) * 0.5f);
+                } else if (ImageView.ScaleType.CENTER_CROP == scaleType) {
+                    if (b2 * height > a2 * width) {
+                        f = height / f5;
+                        f3 = (width - (f4 * f)) * 0.5f;
+                        f2 = 0.0f;
+                    } else {
+                        f = width / f4;
+                        f2 = (height - (f5 * f)) * 0.5f;
+                        f3 = 0.0f;
                     }
+                    this.f.setScale(f, f);
+                    this.f.postTranslate(f3, f2);
+                } else if (ImageView.ScaleType.CENTER_INSIDE == scaleType) {
+                    if (b2 <= width && a2 <= height) {
+                        min = 1.0f;
+                    } else {
+                        min = Math.min(width / f4, height / f5);
+                    }
+                    this.f.setScale(min, min);
+                    this.f.postTranslate((width - (f4 * min)) * 0.5f, (height - (f5 * min)) * 0.5f);
+                } else {
+                    this.i.set(0.0f, 0.0f, f4, f5);
+                    this.j.set(0.0f, 0.0f, width, height);
+                    this.f.setRectToRect(this.i, this.j, m(scaleType));
+                }
+            } else {
+                this.g.set(0.0f, 0.0f, width, height);
+            }
+            int length = this.l.a.length;
+            for (int i = 0; i < length; i++) {
+                float[] fArr = this.l.a;
+                if (fArr[i] > 0.0f && fArr[i] < 1.0f) {
+                    fArr[i] = fArr[i] * this.g.height();
                 }
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public ze b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ze) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.b();
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.e();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = 0;
+            a(dfVar, imageView);
         }
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    public void g(Canvas canvas, df dfVar, ImageView imageView) {
+        Matrix matrix;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        SharedPreferences sharedPreferences;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            xe xeVar = this.d;
-            if (xeVar != null && !xeVar.isTypeSp() && !this.d.isTypeDoubleSp()) {
-                sharedPreferences = KVStorageFactory.getSharedPreferences("adp_feature_switch2", 0);
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, canvas, dfVar, imageView) == null) {
+            s();
+            int save = canvas.save();
+            int scrollX = imageView.getScrollX();
+            int scrollY = imageView.getScrollY();
+            int paddingLeft = imageView.getPaddingLeft();
+            int paddingRight = imageView.getPaddingRight();
+            int paddingTop = imageView.getPaddingTop();
+            int paddingBottom = imageView.getPaddingBottom();
+            canvas.clipRect(scrollX + paddingLeft, scrollY + paddingTop, ((scrollX + imageView.getRight()) - imageView.getLeft()) - paddingRight, ((scrollY + imageView.getBottom()) - imageView.getTop()) - paddingBottom);
+            canvas.translate(paddingLeft, paddingTop);
+            int save2 = canvas.save();
+            Matrix matrix2 = this.l.l;
+            if (matrix2 != null) {
+                canvas.concat(matrix2);
+            }
+            BdImage bdImage = dfVar.b;
+            if (bdImage != null && bdImage.isNinePatchBitmap()) {
+                if ((dfVar.b.getRawBitmap().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dfVar.b.getRawBitmap().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && (matrix = this.f) != null) {
+                    canvas.concat(matrix);
+                }
+                this.k.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+                dfVar.b.drawNinePatchImage(canvas, this.k);
             } else {
-                sharedPreferences = BdBaseApplication.getInst().getSharedPreferences("adp_feature_switch2", 0);
+                h(canvas, dfVar, imageView);
             }
-            return sharedPreferences.getInt(this.c.e() + e, -1);
+            if (save2 >= 1 && save2 <= canvas.getSaveCount()) {
+                canvas.restoreToCount(save2);
+            }
+            f(canvas, imageView);
+            if (save >= 1 && save <= canvas.getSaveCount()) {
+                canvas.restoreToCount(save);
+            }
         }
-        return invokeV.intValue;
     }
 
-    public final int f() {
+    public void d(Canvas canvas, ImageView imageView, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048579, this, canvas, imageView, drawable) == null) && drawable != null) {
+            int scrollX = imageView.getScrollX();
+            int scrollY = imageView.getScrollY();
+            drawable.setBounds(0, 0, imageView.getWidth(), imageView.getHeight());
+            if ((scrollX | scrollY) == 0) {
+                e(canvas, drawable);
+                return;
+            }
+            canvas.translate(scrollX, scrollY);
+            e(canvas, drawable);
+            canvas.translate(-scrollX, -scrollY);
+        }
+    }
+
+    public void e(Canvas canvas, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, canvas, drawable) == null) {
+            b bVar = this.a;
+            if (bVar != null && bVar.a(canvas, drawable)) {
+                return;
+            }
+            drawable.draw(canvas);
+        }
+    }
+
+    public Path l(RectF rectF, float[] fArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, rectF, fArr)) == null) {
+            Path path = new Path();
+            path.addRoundRect(rectF, fArr, Path.Direction.CCW);
+            return path;
+        }
+        return (Path) invokeLL.objValue;
+    }
+
+    public RectF j() {
         InterceptResult invokeV;
-        SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            xe xeVar = this.d;
-            if (xeVar != null && !xeVar.isTypeSp() && !this.d.isTypeDoubleSp()) {
-                sharedPreferences = KVStorageFactory.getSharedPreferences("adp_feature_switch2", 0);
-            } else {
-                sharedPreferences = BdBaseApplication.getInst().getSharedPreferences("adp_feature_switch2", 0);
-            }
-            return sharedPreferences.getInt(this.c.e() + f, this.c.b());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.g;
         }
-        return invokeV.intValue;
+        return (RectF) invokeV.objValue;
     }
 
-    public void h(int i) {
+    public Matrix k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public void n(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, colorFilter) == null) {
+            this.b = colorFilter;
         }
     }
 
-    public boolean i(int i) {
-        InterceptResult invokeI;
+    public void o(Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (this.c.d() >= 0 && this.a >= this.c.d() + 2) {
-                i = this.c.f();
-            }
-            if (i == this.b) {
-                return false;
-            }
-            this.b = i;
-            this.c.a(i, false);
-            k(i);
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048589, this, matrix) == null) {
+            this.f = matrix;
         }
-        return invokeI.booleanValue;
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.p = z;
+        }
+    }
+
+    public void q(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
+    public void r(DrawerArgs drawerArgs) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, drawerArgs) == null) {
+            this.l = drawerArgs;
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.c.setAlpha((int) (this.l.k * 255.0f));
+            ColorFilter colorFilter = this.b;
+            if (colorFilter != null) {
+                this.c.setColorFilter(colorFilter);
+            } else if (a.a[this.l.f.ordinal()] != 1) {
+                this.c.setColorFilter(null);
+            } else if (this.p) {
+                this.c.setColorFilter(r);
+            }
+            this.d.setColor(this.l.e);
+            this.d.setStrokeWidth(this.l.d);
+        }
     }
 }

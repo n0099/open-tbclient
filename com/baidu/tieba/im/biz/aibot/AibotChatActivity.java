@@ -7,11 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bx5;
 import com.baidu.tieba.im.base.core.slice.SliceActivity;
 import com.baidu.tieba.im.biz.aibot.data.AibotArgs;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.jg8;
+import com.baidu.tieba.jr5;
+import com.baidu.tieba.ta8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,7 +96,7 @@ public final class AibotChatActivity extends SliceActivity {
                 intent.putExtra(AiBotChatDispatcher.AI_SINGLE_IS_ANIMATION, str5);
                 intent.putExtra("botUk", botUk);
                 intent.putExtra("argsData", new AibotArgs(str, str2, str3, str4, str6, i));
-                jg8.a.a("navTo", paid, botUk, str, str2, str3, str4, str5, str6, Integer.valueOf(i));
+                ta8.a.a("navTo", paid, botUk, str, str2, str3, str4, str5, str6, Integer.valueOf(i));
                 context.startActivity(intent);
             }
         }
@@ -193,7 +193,7 @@ public final class AibotChatActivity extends SliceActivity {
                 this.d = getIntent().getStringExtra("botUk");
                 aibotChatFragment.setArguments(getIntent().getExtras());
             }
-            bx5.c(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c31, aibotChatFragment);
+            jr5.c(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c4e, aibotChatFragment);
         }
     }
 }

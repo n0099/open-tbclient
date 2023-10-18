@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.load.java.components;
 
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -23,7 +22,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.NonReportingOverrideStrategy;
 import kotlin.reflect.jvm.internal.impl.resolve.OverridingUtil;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ErrorReporter;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class DescriptorResolverUtils {
     public static /* synthetic */ void $$$reportNull$$$0(int i) {
         String str = i != 18 ? "Argument for @NotNull parameter '%s' of %s.%s must not be null" : "@NotNull method %s.%s must not return null";
@@ -164,7 +163,7 @@ public final class DescriptorResolverUtils {
             $$$reportNull$$$0(22);
         }
         String asString = javaMethod.getName().asString();
-        if (!asString.equals("toString") && !asString.equals(TTDownloadField.TT_HASHCODE)) {
+        if (!asString.equals("toString") && !asString.equals("hashCode")) {
             if (asString.equals("equals")) {
                 return isMethodWithOneObjectParameter(javaMethod);
             }

@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
+import android.content.Context;
+import android.graphics.Color;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,14 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class e80 {
+public class e80 extends z70 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile e80 c;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, d80> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,8 +30,7 @@ public class e80 {
                 return;
             }
         }
-        b = AppConfig.isDebug();
-        c = null;
+        b = new HashMap<>();
     }
 
     public e80() {
@@ -51,73 +46,65 @@ public class e80 {
                 return;
             }
         }
-        this.a = new HashMap(10);
+        b.put("color_1F1F1F", new String[]{"#141414", "#BFFFFFFF", "#E6FFFFFF", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "#141414", "#000000", ""});
+        b.put("color_white2", new String[]{"#F5F5F5", "#272729", "#141414", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "#D9FFFFFF", "#FFFFFF", ""});
+        b.put("color_F5F5F51", new String[]{"#F2F2F5", "#141414", "#000000", ""});
+        b.put("color_F5F5F52", new String[]{"#F7F7FA", "#1E1D1F", "#1AFFFFFF", ""});
+        b.put("color_F5F5F53", new String[]{"#0D000000", "#0DFFFFFF", "#1AFFFFFF", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "#D42A46", "#FF3355", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "#1AD42A46", "#1AFF3355", ""});
+        b.put("color_858585", new String[]{"#858585", "#59FFFFFF", "#80FFFFFF", ""});
+        b.put("color_525252", new String[]{"#525252", "#555555", "#99FFFFFF", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "#FF3333", "#FF3333", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "#768CAE", "#768CAE", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "#4E6EF2", "#4E6EF2", ""});
+        b.put("color_8585852", new String[]{"#858585", "#444444", "#80FFFFFF", ""});
+        b.put("color_5252522", new String[]{"#525252", "#555555", "#99FFFFFF", ""});
+        b.put("color_btn_stroke", new String[]{"#00000000", "#00000000", "#00000000", ""});
+        b.put("color_btn_fill", new String[]{"#F7F7FA", "#1E1D1F", "#000000", ""});
+        b.put("color_sub_tab_normal", new String[]{"#141414", "#BFFFFFFF", "#E6FFFFFF", ""});
+        b.put("color_main_bg", new String[]{"#FFFFFF", "#141414", "#000000", ""});
+        b.put("color_white4", new String[]{"#1F1F1F", "#666666", "", "#FFFFFF"});
+        b.put("color_gradient_1", new String[]{"#FFFFFF", "#141414", "#000000", ""});
+        b.put("color_gradient_2", new String[]{"#00FFFFFF", "#00141414", "#00000000", ""});
+        b.put("color_E0E0E0", new String[]{"#E0E0E0", "", "", ""});
+        b.put("color_EEEEEE", new String[]{"#eeeeee", "", "", ""});
     }
 
-    public static e80 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.z70
+    public int a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (e80.class) {
-                    if (c == null) {
-                        c = new e80();
-                    }
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            if (!b.containsKey(str2)) {
+                return -16777216;
             }
-            return c;
-        }
-        return (e80) invokeV.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            c(str, System.currentTimeMillis());
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            e(str, System.currentTimeMillis());
-        }
-    }
-
-    public void c(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            if (!b80.a()) {
-                if (b) {
-                    Log.e("PlainEventMonitor", "keyevent is disable!");
-                    return;
-                }
-                return;
+            String str3 = b.get(str2)[0];
+            if ("recommend".equals(str)) {
+                return d80.c().a(context, str, str2);
             }
-            d80 remove = this.a.remove(str);
-            if (remove != null) {
-                remove.d = j;
-                c80.c().d(remove);
-                return;
-            }
-            Log.e("PlainEventMonitor", "plain end event do not start:" + str);
-        }
-    }
-
-    public void e(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
-            if (!b80.a()) {
-                if (b) {
-                    Log.e("PlainEventMonitor", "keyevent is disable!");
-                }
-            } else if (!TextUtils.isEmpty(str) && j > 0) {
-                d80 d80Var = new d80(str);
-                d80Var.c = j;
-                this.a.put(str, d80Var);
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                str3 = b.get(str2)[3];
             } else {
-                Log.e("PlainEventMonitor", "name and timestamps error!");
+                String str4 = this.a;
+                if ("night" == str4) {
+                    str3 = b.get(str2)[1];
+                } else if ("dark" == str4) {
+                    str3 = b.get(str2)[2];
+                }
+            }
+            if (t70.a(str3)) {
+                return -16777216;
+            }
+            try {
+                return Color.parseColor(str3);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -16777216;
             }
         }
+        return invokeLLL.intValue;
     }
 }

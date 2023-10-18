@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nn3;
+import com.baidu.tieba.wh3;
 /* loaded from: classes4.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static final Interpolator k = new LinearInterpolator();
@@ -28,7 +28,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void g() {
-        this.g.setText(R.string.obfuscated_res_0x7f0f01df);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01e1);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -37,36 +37,36 @@ public class RotateLoadingLayout extends LoadingLayout {
         if (relativeLayout != null) {
             return relativeLayout.getHeight();
         }
-        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070168);
+        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070166);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void h() {
         o();
         this.f.startAnimation(this.j);
-        this.g.setText(R.string.obfuscated_res_0x7f0f01de);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01e0);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void i() {
         super.i();
-        this.g.setText(R.string.obfuscated_res_0x7f0f01dd);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01df);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void j() {
-        this.g.setText(R.string.obfuscated_res_0x7f0f01e0);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01e2);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void k() {
         o();
-        this.g.setText(R.string.obfuscated_res_0x7f0f01df);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01e1);
     }
 
     public final void o() {
         this.f.clearAnimation();
-        if (nn3.c()) {
+        if (wh3.c()) {
             this.f.setRotation(0.0f);
         }
     }
@@ -78,7 +78,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void d(float f) {
-        if (nn3.c()) {
+        if (wh3.c()) {
             this.f.setRotation(f * 180.0f);
         }
     }
@@ -108,15 +108,15 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00cf, viewGroup, false);
+        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00cc, viewGroup, false);
     }
 
     public final void n(Context context) {
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091dc1);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091dbf);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc2);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc5);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc7);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091de3);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de1);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091de4);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091de7);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091de9);
         this.f.setScaleType(ImageView.ScaleType.CENTER);
         this.f.setImageResource(R.drawable.obfuscated_res_0x7f08015d);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);

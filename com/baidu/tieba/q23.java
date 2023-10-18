@@ -1,123 +1,117 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Messenger;
+import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.http.callback.StatResponseCallback;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.apps.process.ipc.SwanProcessCallStub;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Deprecated
+import java.text.SimpleDateFormat;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class q23 extends i23 {
+public final class q23 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean i;
+    public static final long j;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LinkedHashMap<SwanAppProcessInfo, o23> a;
+    public final Deque<Long> b;
+    public final Handler c;
+    public final Messenger d;
+    public final SwanProcessCallStub e;
+    public long f;
+    public final Set<m23> g;
+    public final m23 h;
 
-    public void y(@NonNull JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-        }
+    /* loaded from: classes7.dex */
+    public interface c<FILTER> {
+        boolean a(FILTER filter, o23 o23Var);
     }
 
     /* loaded from: classes7.dex */
-    public class a implements StatResponseCallback {
+    public class a implements m23 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ HttpUrl b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ long e;
-        public final /* synthetic */ c f;
+        public final /* synthetic */ q23 a;
 
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-        public void onSuccess(Object obj, int i) {
+        @Override // com.baidu.tieba.m23
+        public void timeout() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
-        public a(q23 q23Var, String str, HttpUrl httpUrl, String str2, int i, long j, c cVar) {
+        /* renamed from: com.baidu.tieba.q23$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0448a implements ik3<m23> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ o23 b;
+
+            public C0448a(a aVar, String str, o23 o23Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, str, o23Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = str;
+                this.b = o23Var;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.ik3
+            /* renamed from: b */
+            public void a(m23 m23Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m23Var) == null) {
+                    m23Var.a(this.a, this.b);
+                }
+            }
+        }
+
+        public a(q23 q23Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q23Var, str, httpUrl, str2, Integer.valueOf(i), Long.valueOf(j), cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = httpUrl;
-            this.c = str2;
-            this.d = i;
-            this.e = j;
-            this.f = cVar;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.baidu.tieba.pk4.a
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                zh3.C(this.c, this.d, null, this.e, System.currentTimeMillis(), this.a);
-                if (exc instanceof IOException) {
-                    this.f.onFailure(null, (IOException) exc);
-                } else {
-                    this.f.onFailure(null, new IOException(exc));
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-        public Object parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i, networkStatRecord)) == null) {
-                qg2.k().C(this.a, this.b, networkStatRecord);
-                zh3.C(this.c, this.d, networkStatRecord, this.e, System.currentTimeMillis(), this.a);
-                this.f.onResponse(null, response);
-                return response;
-            }
-            return invokeLIL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements zp3<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-
-        public b(q23 q23Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q23Var, callbackHandler, str};
+                Object[] objArr = {q23Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -127,40 +121,36 @@ public class q23 extends i23 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = str;
+            this.a = q23Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zp3
-        /* renamed from: b */
-        public void a(String str) {
+        @Override // com.baidu.tieba.m23
+        public void a(String str, o23 o23Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, o23Var) == null) {
+                if (q23.i) {
+                    Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + o23Var.b);
+                }
+                synchronized (this.a.g) {
+                    hk3.a(o53.M(), new C0448a(this, str, o23Var), this.a.g);
+                }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements Callback {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public gb3 a;
-        public JSONObject b;
-        public String c;
-        public String d;
-        public CallbackHandler e;
-        public String f;
-        public long g;
-        public final /* synthetic */ q23 h;
+        public final /* synthetic */ m23 a;
+        public final /* synthetic */ q23 b;
 
-        public c(@NonNull q23 q23Var, @NonNull gb3 gb3Var, @NonNull JSONObject jSONObject, @NonNull String str, String str2, @NonNull CallbackHandler callbackHandler, String str3) {
+        public b(q23 q23Var, m23 m23Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q23Var, gb3Var, jSONObject, str, str2, callbackHandler, str3};
+                Object[] objArr = {q23Var, m23Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -170,177 +160,519 @@ public class q23 extends i23 {
                     return;
                 }
             }
-            this.h = q23Var;
-            this.a = gb3Var;
-            this.b = jSONObject;
-            this.c = str;
-            this.d = str2;
-            this.e = callbackHandler;
-            this.f = str3;
-            this.g = System.currentTimeMillis();
+            this.b = q23Var;
+            this.a = m23Var;
         }
 
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (dd3.b) {
-                    Log.d("RequestAction", "onFailure: " + iOException.getMessage());
-                }
-                int G = this.a.Y().G();
-                String l = zh3.l();
-                String e = ap3.n().e();
-                SwanAppNetworkUtils.a(ki4.g().getOkHttpClient(), this.d);
-                this.e.handleSchemeDispatchCallback(this.f, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
-                zh3.Q(0, this.c, G, iOException.getMessage(), l, e, this.g, System.currentTimeMillis(), this.d);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                if (!zh3.o(this.c)) {
-                    ck3.l().x(this.c, response.headers("Set-cookie"));
-                }
-                String J = u02.J(this.b);
-                String L = u02.L(this.b);
-                int G = this.a.Y().G();
-                long currentTimeMillis = System.currentTimeMillis();
-                String l = zh3.l();
-                String e = ap3.n().e();
-                String optString = this.b.optString("cb");
-                try {
-                    long K = u02.K(response);
-                    if (K <= Config.FULL_TRACE_LOG_LIMIT) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("statusCode", response.code());
-                        jSONObject.put("header", i23.s(response.headers()));
-                        u02.R(jSONObject, response.body(), J, L);
-                        this.h.y(jSONObject);
-                        this.e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-                    } else {
-                        u02.S(this.a, this.c, K, currentTimeMillis);
-                        this.e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, "response json length over limits").toString());
+            synchronized (this.b.g) {
+                if (this.b.g.contains(this.a)) {
+                    if (q23.i) {
+                        Log.i("SwanPuppetManager", "timeout: callback = " + this.a);
                     }
-                } catch (IOException | JSONException e2) {
-                    if (dd3.b) {
-                        Log.d("RequestAction", Log.getStackTraceString(e2));
-                    }
-                    this.e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
+                    this.b.h(this.a);
+                    this.a.timeout();
                 }
-                int code = response.code();
-                String message = response.message();
-                if (dd3.b) {
-                    Log.d("RequestAction", "onResponse: respCode: " + code + ", url=" + this.c + ", msg=" + message);
-                }
-                zh3.Q(code, this.c, G, message, l, e, this.g, System.currentTimeMillis(), this.d);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q23(dc3 dc3Var) {
-        super(dc3Var, "/swanAPI/request");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((dc3) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static q23 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-539420905, "Lcom/baidu/tieba/q23$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-539420905, "Lcom/baidu/tieba/q23$d;");
+                    return;
+                }
+            }
+            a = new q23(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948039895, "Lcom/baidu/tieba/q23;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948039895, "Lcom/baidu/tieba/q23;");
                 return;
             }
         }
+        i = am1.a;
+        j = TimeUnit.MINUTES.toMillis(5L);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q23(dc3 dc3Var, String str) {
-        super(dc3Var, str);
+    @SuppressLint({"BDThrowableCheck"})
+    public static q23 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (!i || ProcessUtils.isMainProcess()) {
+                return d.a;
+            }
+            throw new IllegalStateException("SwanAppClientObjManager should run in main process only");
+        }
+        return (q23) invokeV.objValue;
+    }
+
+    public m23 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.h;
+        }
+        return (m23) invokeV.objValue;
+    }
+
+    public synchronized LinkedHashSet<o23> q() {
+        InterceptResult invokeV;
+        LinkedHashSet<o23> linkedHashSet;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            synchronized (this) {
+                linkedHashSet = new LinkedHashSet<>(this.a.values());
+            }
+            return linkedHashSet;
+        }
+        return (LinkedHashSet) invokeV.objValue;
+    }
+
+    public q23() {
+        SwanAppProcessInfo[] indices;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dc3Var, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((dc3) objArr2[0], (String) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    public boolean A(@NonNull gb3 gb3Var, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, gb3Var, unitedSchemeEntity, callbackHandler, str)) == null) {
-            JSONObject a2 = dd3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                return false;
+        this.a = new LinkedHashMap<>();
+        this.b = new ArrayDeque();
+        this.c = new SwanAppMessengerService.a();
+        this.d = new Messenger(this.c);
+        this.e = new SwanProcessCallStub(this.c);
+        this.f = 0L;
+        this.g = new HashSet();
+        this.h = new a(this);
+        for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
+            if (swanAppProcessInfo != null && swanAppProcessInfo.isSwanAppProcess()) {
+                this.a.put(swanAppProcessInfo, new o23(swanAppProcessInfo));
             }
-            Pair<HttpRequest, Integer> C = u02.C(a2, str);
-            HttpRequest httpRequest = (HttpRequest) C.first;
-            if (httpRequest == null) {
-                unitedSchemeEntity.result = t(((Integer) C.second).intValue());
-                return false;
-            }
-            z(gb3Var, a2, httpRequest, str, callbackHandler);
-            return true;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
-        InterceptResult invokeLLLL;
+    @Nullable
+    public synchronized o23 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
-            if (dd3.b) {
-                Log.d("RequestApi", "request with scheme : " + unitedSchemeEntity.getParam("params"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                u("b4 computNextPreloadProcess");
+                o23 o23Var = null;
+                for (int i2 = 0; i2 <= 5; i2++) {
+                    o23 o23Var2 = this.a.get(SwanAppProcessInfo.indexOf(i2));
+                    if (o23Var2 != null && o23Var2.b.isSwanAppProcess() && !o23Var2.E()) {
+                        if (o23Var2.S()) {
+                            if (i) {
+                                Log.i("SwanPuppetManager", "computNextPreloadProcess: return null by found empty process=" + o23Var2);
+                            }
+                            return null;
+                        } else if (o23Var == null) {
+                            o23Var = o23Var2;
+                        }
+                    }
+                }
+                if (i) {
+                    Log.i("SwanPuppetManager", "computNextPreloadProcess: firstPreloadableClient=" + o23Var);
+                }
+                return o23Var;
             }
-            if (!k(gb3Var, unitedSchemeEntity)) {
-                return false;
-            }
-            String a2 = v02.a(gb3Var.b);
-            if (!A(gb3Var, unitedSchemeEntity, callbackHandler, a2)) {
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n(a2), 0));
-            return true;
         }
-        return invokeLLLL.booleanValue;
+        return (o23) invokeV.objValue;
     }
 
-    public final boolean x(@NonNull gb3 gb3Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, CallbackHandler callbackHandler, @NonNull String str3) {
-        InterceptResult invokeCommon;
+    public /* synthetic */ q23(a aVar) {
+        this();
+    }
+
+    public void b(m23 m23Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{gb3Var, jSONObject, str, str2, callbackHandler, str3})) == null) {
-            return nu2.e().i(gb3Var, jSONObject, str, str2, new c(this, gb3Var, jSONObject, str, str2, callbackHandler, str3), new b(this, callbackHandler, str3));
+        if (interceptable == null || interceptable.invokeL(1048576, this, m23Var) == null) {
+            c(m23Var, -1L);
         }
-        return invokeCommon.booleanValue;
     }
 
-    public final void z(@NonNull gb3 gb3Var, @NonNull JSONObject jSONObject, @NonNull HttpRequest httpRequest, @NonNull String str, @NonNull CallbackHandler callbackHandler) {
+    @Nullable
+    public synchronized o23 i(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, gb3Var, jSONObject, httpRequest, str, callbackHandler) == null) {
-            HttpUrl url = httpRequest.getOkRequest().url();
-            String httpUrl = url.toString();
-            String optString = jSONObject.optString("cb");
-            if (x(gb3Var, jSONObject, httpUrl, str, callbackHandler, optString)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            synchronized (this) {
+                List<o23> j2 = j(str);
+                if (j2.isEmpty()) {
+                    return null;
+                }
+                return j2.get(j2.size() - 1);
             }
-            httpRequest.executeStat(new a(this, str, url, httpUrl, gb3Var.Y().G(), System.currentTimeMillis(), new c(this, gb3Var, jSONObject, httpUrl, str, callbackHandler, optString)));
+        }
+        return (o23) invokeL.objValue;
+    }
+
+    public synchronized o23 l(@Nullable String str) {
+        InterceptResult invokeL;
+        o23 i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            synchronized (this) {
+                i2 = i(str);
+                if (i2 == null) {
+                    i2 = e();
+                }
+            }
+            return i2;
+        }
+        return (o23) invokeL.objValue;
+    }
+
+    public synchronized o23 n(int i2) {
+        InterceptResult invokeI;
+        o23 o;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
+            synchronized (this) {
+                o = o(SwanAppProcessInfo.indexOf(i2));
+            }
+            return o;
+        }
+        return (o23) invokeI.objValue;
+    }
+
+    public synchronized o23 o(SwanAppProcessInfo swanAppProcessInfo) {
+        InterceptResult invokeL;
+        o23 o23Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, swanAppProcessInfo)) == null) {
+            synchronized (this) {
+                o23Var = this.a.get(swanAppProcessInfo);
+            }
+            return o23Var;
+        }
+        return (o23) invokeL.objValue;
+    }
+
+    @NonNull
+    public synchronized o23 r(@Nullable String str) {
+        InterceptResult invokeL;
+        o23 l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            synchronized (this) {
+                l = l(str);
+                v(l.b);
+            }
+            return l;
+        }
+        return (o23) invokeL.objValue;
+    }
+
+    public void c(m23 m23Var, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m23Var, j2) == null) {
+            synchronized (this.g) {
+                this.g.add(m23Var);
+                if (i) {
+                    Log.i("SwanPuppetManager", "addCallback: after = " + this.g.size());
+                }
+            }
+            if (j2 > 0) {
+                o53.M().postDelayed(new b(this, m23Var), j2);
+            }
+        }
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.b) {
+                t("checkRescuable ===>");
+                boolean z = false;
+                if (this.f > System.currentTimeMillis()) {
+                    t(String.format(Locale.getDefault(), "disallowRescue by mRescueRefractoryUntil(%d)", Long.valueOf(this.f)));
+                    return false;
+                } else if (this.b.size() < 3) {
+                    t(String.format(Locale.getDefault(), "allowRescue by size(%d) < max(%d)", Integer.valueOf(this.b.size()), 3));
+                    return true;
+                } else {
+                    int size = this.b.size() - 3;
+                    t("after offer purgeCount=" + size);
+                    if (size > 0) {
+                        for (int i2 = 0; i2 < size; i2++) {
+                            t("purge: " + this.b.poll());
+                        }
+                    }
+                    t("after purge");
+                    Long peek = this.b.peek();
+                    if (peek == null) {
+                        t("allowRescue by null oldestRecord is should not happen");
+                        return true;
+                    }
+                    long currentTimeMillis = System.currentTimeMillis() - peek.longValue();
+                    if (currentTimeMillis > j) {
+                        z = true;
+                    }
+                    t("allowRescue:" + z + " oldestRecordDuration:" + currentTimeMillis);
+                    return z;
+                }
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized o23 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                u("b4 computNextAvailableProcess");
+                o23 o23Var = null;
+                o23 o23Var2 = null;
+                for (int i2 = 0; i2 <= 5; i2++) {
+                    o23 o23Var3 = this.a.get(SwanAppProcessInfo.indexOf(i2));
+                    if (o23Var3 != null && o23Var3.b.isSwanAppProcess() && !o23Var3.E()) {
+                        if (o23Var3.S()) {
+                            if (i) {
+                                Log.i("SwanPuppetManager", "computNextAvailableProcess: firstPreloadedClient=" + o23Var3);
+                            }
+                            return o23Var3;
+                        }
+                        if (o23Var == null && o23Var3.T()) {
+                            o23Var = o23Var3;
+                        }
+                        if (o23Var2 == null) {
+                            o23Var2 = o23Var3;
+                        }
+                    }
+                }
+                if (o23Var != null) {
+                    if (i) {
+                        Log.i("SwanPuppetManager", "computNextAvailableProcess: firstConnectedEmptyClient=" + o23Var);
+                    }
+                    return o23Var;
+                } else if (o23Var2 != null) {
+                    if (i) {
+                        Log.i("SwanPuppetManager", "computNextAvailableProcess: firstEmptyClient=" + o23Var2);
+                    }
+                    return o23Var2;
+                } else {
+                    for (o23 o23Var4 : this.a.values()) {
+                        if (o23Var4 != null) {
+                            if (i) {
+                                Log.i("SwanPuppetManager", "computNextAvailableProcess: lruClient=" + o23Var4);
+                            }
+                            return o23Var4;
+                        }
+                    }
+                    if (i) {
+                        Log.i("SwanPuppetManager", "computNextAvailableProcess: P0");
+                    }
+                    return o(SwanAppProcessInfo.P0);
+                }
+            }
+        }
+        return (o23) invokeV.objValue;
+    }
+
+    public synchronized void g(String str, o23 o23Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, o23Var) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                List<o23> j2 = k().j(str);
+                if (j2.isEmpty()) {
+                    return;
+                }
+                for (o23 o23Var2 : j2) {
+                    if (o23Var2 != o23Var && o23Var2 != null && o23Var2.E()) {
+                        if (i) {
+                            Log.i("SwanPuppetManager", "deduplicateClients: protectedClient=" + o23Var);
+                            Log.i("SwanPuppetManager", "deduplicateClients: exClient=" + o23Var2);
+                        }
+                        o23Var2.e0();
+                        o23Var2.d0();
+                        if (o23Var2.T()) {
+                            f23 e = f23.e();
+                            h23 h23Var = new h23(110, new Bundle());
+                            h23Var.b(o23Var2.b);
+                            e.h(h23Var);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void h(m23 m23Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, m23Var) == null) {
+            synchronized (this.g) {
+                this.g.remove(m23Var);
+                if (i) {
+                    Log.i("SwanPuppetManager", "delCallback: after = " + this.g.size());
+                }
+            }
+        }
+    }
+
+    public void s(Message message) {
+        o23 o;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, message) != null) || message == null) {
+            return;
+        }
+        SwanAppProcessInfo indexOf = SwanAppProcessInfo.indexOf(message.arg1);
+        if (!indexOf.isSwanAppProcess() || (o = o(indexOf)) == null) {
+            return;
+        }
+        Object obj = message.obj;
+        if (!(obj instanceof Bundle)) {
+            return;
+        }
+        Bundle bundle = (Bundle) obj;
+        bundle.setClassLoader(q23.class.getClassLoader());
+        o.p0(bundle.getLong("property_launch_cost", -1L));
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && i) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            Log.i("SwanPuppetManager", "\nlogStatus by " + str + ":\n" + toString());
+        }
+    }
+
+    public synchronized void v(SwanAppProcessInfo swanAppProcessInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, swanAppProcessInfo) == null) {
+            synchronized (this) {
+                o23 remove = this.a.remove(swanAppProcessInfo);
+                if (remove != null) {
+                    this.a.put(swanAppProcessInfo, remove);
+                }
+                if (i) {
+                    u("lru -> " + swanAppProcessInfo);
+                }
+            }
+        }
+    }
+
+    @NonNull
+    public synchronized List<o23> j(@Nullable String str) {
+        InterceptResult invokeL;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                if (!TextUtils.isEmpty(str)) {
+                    for (o23 o23Var : this.a.values()) {
+                        if (TextUtils.equals(o23Var.getAppId(), str)) {
+                            arrayList.add(o23Var);
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public synchronized <FILTER> o23 p(FILTER filter, c<FILTER> cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, filter, cVar)) == null) {
+            synchronized (this) {
+                for (o23 o23Var : this.a.values()) {
+                    if (cVar.a(filter, o23Var)) {
+                        return o23Var;
+                    }
+                }
+                return null;
+            }
+        }
+        return (o23) invokeLL.objValue;
+    }
+
+    public final void t(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && i) {
+            Log.i("SwanPuppetManager", "SwanRescue:: status => " + str);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault());
+            Iterator<Long> it = this.b.iterator();
+            while (it.hasNext()) {
+                Log.i("SwanPuppetManager", "SwanRescue::   >>>  record @ " + simpleDateFormat.format(new Date(it.next().longValue())));
+            }
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            LinkedHashSet<o23> q = q();
+            StringBuilder sb = new StringBuilder();
+            sb.append(super.toString());
+            sb.append(":");
+            sb.append("\n-> clients: ");
+            for (o23 o23Var : q) {
+                sb.append("\n--> ");
+                sb.append(o23Var.toString());
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            synchronized (this.b) {
+                if (d()) {
+                    this.b.offer(Long.valueOf(System.currentTimeMillis()));
+                    Bundle bundle = new Bundle();
+                    bundle.putString("bundle_key_preload_preload_scene", "1");
+                    n23.n(wo2.c(), bundle);
+                }
+            }
         }
     }
 }

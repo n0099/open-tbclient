@@ -16,12 +16,12 @@ import com.baidu.tbadk.core.atomData.AlaLiveTabMyConcernActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel;
-import com.baidu.tieba.ao5;
-import com.baidu.tieba.bn;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.lc6;
-import com.baidu.tieba.oc6;
-import com.baidu.tieba.qc6;
+import com.baidu.tieba.gi5;
+import com.baidu.tieba.u66;
+import com.baidu.tieba.x66;
+import com.baidu.tieba.yh;
+import com.baidu.tieba.z66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,15 +32,15 @@ import java.util.List;
 public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcernActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qc6 a;
+    public z66 a;
     public MyConcernTabModel b;
     public boolean c;
-    public ao5 d;
+    public gi5 d;
     public boolean e;
     public boolean f;
     public String g;
     public CustomMessageListener h;
-    public qc6.f i;
+    public z66.f i;
     public MyConcernTabModel.b j;
     public View.OnClickListener k;
 
@@ -76,13 +76,13 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.b1(lc6.class);
+                this.a.b1(u66.class);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements qc6.f {
+    public class b implements z66.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaLiveTabMyConcernActivity a;
@@ -105,7 +105,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             this.a = alaLiveTabMyConcernActivity;
         }
 
-        @Override // com.baidu.tieba.qc6.f
+        @Override // com.baidu.tieba.z66.f
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -120,12 +120,12 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             }
         }
 
-        @Override // com.baidu.tieba.qc6.f
+        @Override // com.baidu.tieba.z66.f
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && BdUtilHelper.isNetOk() && this.a.c && !this.a.e) {
                 this.a.e = true;
-                this.a.b.R();
+                this.a.b.S();
             }
         }
     }
@@ -168,7 +168,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.b
-        public void a(List<bn> list, boolean z, boolean z2) {
+        public void a(List<yh> list, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 this.a.e = false;
@@ -248,11 +248,11 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         if (interceptable == null || interceptable.invokeL(1048576, this, cls) == null) {
             MyConcernTabModel myConcernTabModel = this.b;
             if (myConcernTabModel != null) {
-                myConcernTabModel.U(cls);
+                myConcernTabModel.V(cls);
             }
-            qc6 qc6Var = this.a;
-            if (qc6Var != null) {
-                qc6Var.o(cls);
+            z66 z66Var = this.a;
+            if (z66Var != null) {
+                z66Var.o(cls);
             }
         }
     }
@@ -269,18 +269,18 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            qc6 qc6Var = this.a;
-            if (qc6Var != null) {
-                qc6Var.l(i);
+            z66 z66Var = this.a;
+            if (z66Var != null) {
+                z66Var.l(i);
             }
         }
     }
 
     public final void d1() {
-        ao5 ao5Var;
+        gi5 gi5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ao5Var = this.d) != null) {
-            ao5Var.dettachView(this.a.f());
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (gi5Var = this.d) != null) {
+            gi5Var.dettachView(this.a.f());
         }
     }
 
@@ -288,7 +288,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.e = true;
-            this.b.S();
+            this.b.T();
         }
     }
 
@@ -307,9 +307,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
             this.e = false;
-            qc6 qc6Var = this.a;
-            if (qc6Var != null) {
-                qc6Var.q(false);
+            z66 z66Var = this.a;
+            if (z66Var != null) {
+                z66Var.q(false);
             }
         }
     }
@@ -319,8 +319,8 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResume();
-            if (!this.f && oc6.a(getPageContext())) {
-                b1(lc6.class);
+            if (!this.f && x66.a(getPageContext())) {
+                b1(u66.class);
             }
         }
     }
@@ -329,9 +329,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i, str, onClickListener) == null) {
             if (this.d == null) {
-                ao5 ao5Var = new ao5(getPageContext().getPageActivity(), onClickListener);
-                this.d = ao5Var;
-                ao5Var.f(null);
+                gi5 gi5Var = new gi5(getPageContext().getPageActivity(), onClickListener);
+                this.d = gi5Var;
+                gi5Var.f(null);
                 this.d.o();
                 this.d.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
@@ -358,9 +358,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            qc6 qc6Var = new qc6(getPageContext(), this.g);
-            this.a = qc6Var;
-            qc6Var.r(this.i);
+            z66 z66Var = new z66(getPageContext(), this.g);
+            this.a = z66Var;
+            z66Var.r(this.i);
             setContentView(this.a.h());
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -375,13 +375,13 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             if (myConcernTabModel != null) {
                 myConcernTabModel.onDestroy();
             }
-            qc6 qc6Var = this.a;
-            if (qc6Var != null && qc6Var.g() != null) {
+            z66 z66Var = this.a;
+            if (z66Var != null && z66Var.g() != null) {
                 hideLoadingView(this.a.g());
             }
-            qc6 qc6Var2 = this.a;
-            if (qc6Var2 != null) {
-                qc6Var2.m();
+            z66 z66Var2 = this.a;
+            if (z66Var2 != null) {
+                z66Var2.m();
             }
         }
     }
@@ -399,14 +399,14 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
                 this.g = getIntent().getStringExtra(AlaLiveTabMyConcernActivityConfig.ALA_LIVE_SOURCE);
             }
             initView();
-            this.f = oc6.a(getPageContext());
+            this.f = x66.a(getPageContext());
             MyConcernTabModel myConcernTabModel = new MyConcernTabModel(getPageContext());
             this.b = myConcernTabModel;
-            myConcernTabModel.V(this.j);
+            myConcernTabModel.W(this.j);
             if (!BdUtilHelper.isNetOk()) {
                 f1(R.drawable.new_pic_emotion_08, getResources().getString(R.string.refresh_view_title_text), this.k);
             } else {
-                showLoadingView(this.a.g(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c7));
+                showLoadingView(this.a.g(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c3));
                 e1();
             }
             registerListener(this.h);

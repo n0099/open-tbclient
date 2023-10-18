@@ -1,36 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-@JvmName(name = "InteractiveABConfig")
-/* loaded from: classes7.dex */
-public final class ru0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.view.View;
+/* loaded from: classes8.dex */
+public interface ru0 extends ss0 {
+    View getContentView();
 
-    public static final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (su0.a() != 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void onContainerDetach();
 
-    public static final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (su0.a() != 0 && su0.a() != 2) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    void onLayerRelease();
 }

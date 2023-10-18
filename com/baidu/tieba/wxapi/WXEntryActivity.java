@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rh9;
+import com.baidu.tieba.ec9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -108,7 +108,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.sapi_login_navi);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0c23));
+            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0c30));
             try {
                 this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e) {
@@ -191,10 +191,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             }
             return;
         }
-        rh9 rh9Var = new rh9();
-        rh9Var.a = this;
-        rh9Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, rh9Var);
+        ec9 ec9Var = new ec9();
+        ec9Var.a = this;
+        ec9Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, ec9Var);
         closeActivity();
     }
 }

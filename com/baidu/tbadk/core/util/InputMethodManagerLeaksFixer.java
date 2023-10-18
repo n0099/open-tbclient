@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import com.baidu.tieba.xz4;
+import com.baidu.tieba.fu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,7 +47,7 @@ public class InputMethodManagerLeaksFixer {
             } catch (Exception unused) {
             }
         }
-        application.registerActivityLifecycleCallbacks(new xz4(fieldArr, inputMethodManager) { // from class: com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer.1
+        application.registerActivityLifecycleCallbacks(new fu4(fieldArr, inputMethodManager) { // from class: com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Field[] val$field;
@@ -72,7 +72,7 @@ public class InputMethodManagerLeaksFixer {
                 this.val$inputMethodManager = inputMethodManager;
             }
 
-            @Override // com.baidu.tieba.xz4, android.app.Application.ActivityLifecycleCallbacks
+            @Override // com.baidu.tieba.fu4, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {

@@ -1,21 +1,21 @@
 package com.baidu.tbadk.dispatcher;
 
 import android.content.Context;
-import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
-import com.baidu.tieba.mt4;
-import com.baidu.tieba.y9a;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.l4a;
+import com.baidu.tieba.un4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class OneKeySignDispatcher implements y9a {
+/* loaded from: classes5.dex */
+public class OneKeySignDispatcher implements l4a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFIX = "com.baidu.tieba://unidispatch/onekeysign";
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,18 +34,16 @@ public class OneKeySignDispatcher implements y9a {
         }
     }
 
-    @Override // com.baidu.tieba.y9a
+    @Override // com.baidu.tieba.l4a
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                SignAllForumActivityConfig signAllForumActivityConfig = new SignAllForumActivityConfig(context);
-                signAllForumActivityConfig.setUri(Uri.parse(PREFIX));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, signAllForumActivityConfig));
+                UrlManager.getInstance().dealOneLink(TbConfig.ONE_KEY_SIGN_PAGE_URL);
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(1)));
             }
-            mt4.w().M(true);
+            un4.w().M(true);
         }
     }
 }

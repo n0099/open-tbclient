@@ -58,7 +58,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
     }
 
     public FingerprintDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001a0);
+        super(context, R.style.obfuscated_res_0x7f10019a);
         this.g = context;
         setContentView(R.layout.layout_sapi_sdk_fingerprint_dialog);
         this.a = (LinearLayout) findViewById(R.id.bg_layout);
@@ -109,7 +109,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
 
     @Override // com.baidu.sapi2.touchid.FingerprintDialogInterface
     public FingerprintDialogInterface setIconInvisible() {
-        findViewById(R.id.obfuscated_res_0x7f090ff0).setVisibility(8);
+        findViewById(R.id.obfuscated_res_0x7f09100b).setVisibility(8);
         return this;
     }
 

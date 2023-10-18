@@ -43,8 +43,8 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092753);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910e5);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09274a);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910ff);
     }
 
     public void a(int i) {
@@ -53,17 +53,17 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             if (i != 0) {
                 if (i != 1) {
                     if (i == 2) {
-                        this.b.setText(R.string.obfuscated_res_0x7f0f0c06);
+                        this.b.setText(R.string.obfuscated_res_0x7f0f0c13);
                         this.c.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                this.b.setText(R.string.obfuscated_res_0x7f0f0c08);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0c15);
                 this.c.setVisibility(8);
                 return;
             }
-            this.b.setText(R.string.obfuscated_res_0x7f0f11eb);
+            this.b.setText(R.string.obfuscated_res_0x7f0f11fa);
             this.c.setVisibility(0);
         }
     }
@@ -83,7 +83,7 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             EMManager.from(this.b).setTextColor(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080c65, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080c67, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 }

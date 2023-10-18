@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.mobads.sdk.api.SplashAd;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.kwad.sdk.core.response.model.ABParams;
 import com.kwad.sdk.core.response.model.AdInfo;
@@ -105,7 +106,7 @@ public final class g implements com.kwad.sdk.core.d<AdInfo.AdBaseInfo> {
         adBaseInfo.adCacheStrategy = jSONObject.optInt("adCacheStrategy", new Integer("1").intValue());
         adBaseInfo.adCacheSize = jSONObject.optInt("adCacheSize", new Integer("1").intValue());
         adBaseInfo.skipSecond = jSONObject.optInt("skipSecond");
-        adBaseInfo.ecpm = jSONObject.optInt("ecpm");
+        adBaseInfo.ecpm = jSONObject.optInt(SplashAd.KEY_BIDFAIL_ECPM);
         adBaseInfo.videoPlayedNS = jSONObject.optString("videoPlayedNS");
         if (jSONObject.opt("videoPlayedNS") == JSONObject.NULL) {
             adBaseInfo.videoPlayedNS = "";
@@ -260,7 +261,7 @@ public final class g implements com.kwad.sdk.core.d<AdInfo.AdBaseInfo> {
         }
         int i7 = adBaseInfo.ecpm;
         if (i7 != 0) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "ecpm", i7);
+            com.kwad.sdk.utils.r.putValue(jSONObject, SplashAd.KEY_BIDFAIL_ECPM, i7);
         }
         String str18 = adBaseInfo.videoPlayedNS;
         if (str18 != null && !str18.equals("")) {

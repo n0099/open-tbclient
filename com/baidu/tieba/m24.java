@@ -1,85 +1,35 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.app.Activity;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class m24 extends m34 {
+public class m24 implements d34 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920762, "Lcom/baidu/tieba/m24;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947920762, "Lcom/baidu/tieba/m24;");
-                return;
-            }
-        }
-        c = qr1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m24() {
-        super("openApp");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.m34
-    public g32 a(@NonNull JSONObject jSONObject, @NonNull ko2 ko2Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.d34
+    public void a(@NonNull Activity activity, c24 c24Var, g34 g34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ko2Var)) == null) {
-            if (c) {
-                Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                ko2Var.onFail(31010, "package name is empty");
-                return null;
-            }
-            h34.a(optString, "openApp", null, null, null);
-            if (!v24.h(AppRuntime.getAppContext(), optString)) {
-                ko2Var.onFail(31011, "app is not installed");
-                h34.a(optString, "openApp", "fail", String.valueOf(31011), null);
-                return null;
-            }
-            if (v24.l(AppRuntime.getAppContext(), optString)) {
-                ko2Var.onSuccess(null);
-                h34.a(optString, "openApp", "success", null, null);
-            } else {
-                ko2Var.onFail(31019, "open app fail");
-                h34.a(optString, "openApp", "fail", String.valueOf(31019), null);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, c24Var, g34Var) == null) {
+            g34Var.a();
         }
-        return (g32) invokeLL.objValue;
     }
 }

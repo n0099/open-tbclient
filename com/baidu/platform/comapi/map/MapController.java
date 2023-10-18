@@ -23,7 +23,6 @@ import com.baidu.platform.comapi.map.MapStatus;
 import com.baidu.platform.comapi.util.SysOSUtil;
 import com.baidu.platform.comjni.engine.MessageProxy;
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,7 +92,7 @@ public class MapController {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1052T;
+    public boolean f1053T;
     public boolean U;
     public boolean V;
     public long X;
@@ -344,7 +343,7 @@ public class MapController {
                     return;
                 }
             }
-            DEFAULT = new MapControlMode(EngineName.DEFAULT_ENGINE, 0, 1);
+            DEFAULT = new MapControlMode("DEFAULT", 0, 1);
             INDOOR = new MapControlMode("INDOOR", 1, 2);
             STREET = new MapControlMode("STREET", 2, 3);
             MapControlMode mapControlMode = new MapControlMode("STREET_WAITING", 3, 4);
@@ -417,7 +416,7 @@ public class MapController {
                     return;
                 }
             }
-            DEFAULT = new MapLayerType(EngineName.DEFAULT_ENGINE, 0, 1);
+            DEFAULT = new MapLayerType("DEFAULT", 0, 1);
             SATELLITE = new MapLayerType("SATELLITE", 1, 2);
             INDOOR = new MapLayerType("INDOOR", 2, 3);
             MapLayerType mapLayerType = new MapLayerType("STREET", 3, 5);
@@ -491,7 +490,7 @@ public class MapController {
                     return;
                 }
             }
-            DEFAULT = new MapSceneMode(EngineName.DEFAULT_ENGINE, 0, 0);
+            DEFAULT = new MapSceneMode("DEFAULT", 0, 0);
             POI = new MapSceneMode("POI", 1, 1);
             ROUTE = new MapSceneMode("ROUTE", 2, 2);
             INTERNAL = new MapSceneMode("INTERNAL", 3, 3);
@@ -579,7 +578,7 @@ public class MapController {
                     return;
                 }
             }
-            DEFAULT = new MapStyleMode(EngineName.DEFAULT_ENGINE, 0, 1);
+            DEFAULT = new MapStyleMode("DEFAULT", 0, 1);
             SEARCH_POI = new MapStyleMode("SEARCH_POI", 1, 2);
             SEARCH_ROUTE = new MapStyleMode("SEARCH_ROUTE", 2, 3);
             NAV_DAY = new MapStyleMode("NAV_DAY", 3, 4);
@@ -1640,7 +1639,7 @@ public class MapController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
-            return this.f1052T;
+            return this.f1053T;
         }
         return invokeV.booleanValue;
     }
@@ -1788,7 +1787,7 @@ public class MapController {
         this.P = false;
         this.Q = false;
         this.S = true;
-        this.f1052T = true;
+        this.f1053T = true;
         this.U = true;
         this.V = true;
         this.mIsInertialAnimation = true;
@@ -2557,7 +2556,7 @@ public class MapController {
     public void setOverlookGestureEnable(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048721, this, z2) == null) {
-            this.f1052T = z2;
+            this.f1053T = z2;
         }
     }
 

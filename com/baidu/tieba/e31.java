@@ -1,104 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.rotation.NadSensorAbsHelper;
+import android.app.Activity;
+import android.os.Build;
+import android.view.Window;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class e31 extends NadSensorAbsHelper {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public float g;
-    public int h;
+public interface e31 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
+    public static final e31 b = new a();
 
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
+    void a(@NonNull Activity activity);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e31(Context context, c31 listener) {
-        super(context, listener);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, listener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (c31) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public class a implements e31 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(listener, "listener");
-        this.g = 1.0f;
-    }
 
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int c = c().c();
-            if (c >= 0 && 66 >= c) {
-                return 1;
+        @Override // com.baidu.tieba.e31
+        public void a(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && Build.VERSION.SDK_INT >= 21) {
+                Window window = activity.getWindow();
+                window.clearFlags(67108864);
+                window.addFlags(Integer.MIN_VALUE);
+                window.setStatusBarColor(activity.getResources().getColor(R.color.nad_white));
             }
-            if ((67 <= c && 199 >= c) || c < 200) {
-                return 2;
-            }
-            return 3;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public void i(SensorEvent sensorEvent) {
-        Sensor sensor;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
-            float[] fArr = sensorEvent.values;
-            float f = fArr[0];
-            if (Math.pow(f, 2.0d) + Math.pow(fArr[1], 2.0d) + Math.pow(fArr[2], 2.0d) < Math.pow(c().b(), 2.0d)) {
-                return;
-            }
-            if (this.g * f >= 0) {
-                this.g = f;
-                return;
-            }
-            this.g = f;
-            int i = this.h + 1;
-            this.h = i;
-            if (i >= c().a()) {
-                b().h();
-            }
-        }
-    }
-
-    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.o();
-            this.h = 0;
-            this.g = 1.0f;
         }
     }
 }

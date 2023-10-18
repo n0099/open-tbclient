@@ -7,18 +7,18 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.markers.KMappedMarker;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public interface Annotations extends Iterable<AnnotationDescriptor>, KMappedMarker {
     public static final Companion Companion = Companion.$$INSTANCE;
 
     /* renamed from: findAnnotation */
-    AnnotationDescriptor mo2102findAnnotation(FqName fqName);
+    AnnotationDescriptor mo2101findAnnotation(FqName fqName);
 
     boolean hasAnnotation(FqName fqName);
 
     boolean isEmpty();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE = new Companion();
         public static final Annotations EMPTY = new Annotations() { // from class: kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations$Companion$EMPTY$1
@@ -43,7 +43,7 @@ public interface Annotations extends Iterable<AnnotationDescriptor>, KMappedMark
 
             @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations
             /* renamed from: findAnnotation  reason: collision with other method in class */
-            public /* bridge */ /* synthetic */ AnnotationDescriptor mo2102findAnnotation(FqName fqName) {
+            public /* bridge */ /* synthetic */ AnnotationDescriptor mo2101findAnnotation(FqName fqName) {
                 return (AnnotationDescriptor) findAnnotation(fqName);
             }
 
@@ -65,7 +65,7 @@ public interface Annotations extends Iterable<AnnotationDescriptor>, KMappedMark
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class DefaultImpls {
         public static AnnotationDescriptor findAnnotation(Annotations annotations, FqName fqName) {
             AnnotationDescriptor annotationDescriptor;
@@ -85,7 +85,7 @@ public interface Annotations extends Iterable<AnnotationDescriptor>, KMappedMark
         }
 
         public static boolean hasAnnotation(Annotations annotations, FqName fqName) {
-            if (annotations.mo2102findAnnotation(fqName) != null) {
+            if (annotations.mo2101findAnnotation(fqName) != null) {
                 return true;
             }
             return false;

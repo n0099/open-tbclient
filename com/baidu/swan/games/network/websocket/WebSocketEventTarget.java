@@ -6,17 +6,17 @@ import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.searchbox.websocket.IWebSocketListener;
-import com.baidu.tieba.ha4;
-import com.baidu.tieba.ia4;
-import com.baidu.tieba.ka4;
-import com.baidu.tieba.la4;
-import com.baidu.tieba.qr1;
+import com.baidu.tieba.am1;
+import com.baidu.tieba.q44;
+import com.baidu.tieba.r44;
+import com.baidu.tieba.t44;
+import com.baidu.tieba.u44;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketListener {
-    public static final boolean b = qr1.a;
+    public static final boolean b = am1.a;
     public SocketTaskState a;
 
     /* loaded from: classes4.dex */
@@ -44,24 +44,24 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         } else {
             optString = jSONObject.optString("reason");
         }
-        w("close", new ha4(i, optString));
+        w("close", new q44(i, optString));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onMessage(String str) {
-        w("message", new ka4(str));
+        w("message", new t44(str));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onOpen(Map<String, String> map) {
         this.a = SocketTaskState.OPEN;
-        w("open", new la4(new JSONObject(map)));
+        w("open", new u44(new JSONObject(map)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
         if (this.a == SocketTaskState.IDLE) {
-            w("error", new ia4(th.getMessage()));
+            w("error", new r44(th.getMessage()));
         }
     }
 
@@ -77,6 +77,6 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         int remaining = byteBuffer.remaining();
         byte[] bArr = new byte[remaining];
         byteBuffer.get(bArr);
-        w("message", new ka4(new JsArrayBuffer(bArr, remaining)));
+        w("message", new t44(new JsArrayBuffer(bArr, remaining)));
     }
 }

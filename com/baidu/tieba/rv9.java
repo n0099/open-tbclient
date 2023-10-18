@@ -1,40 +1,136 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.app.Activity;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.Settings;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.personCenter.data.PersonVipCardData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ov9;
+import com.baidu.tieba.sv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
+import java.lang.ref.WeakReference;
+/* loaded from: classes8.dex */
 public class rv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jv9 a;
-    public gv9 b;
+    public WeakReference<Activity> a;
+    public SensorManager b;
     public ov9 c;
-    public pv9 d;
-    public kv9 e;
-    public nv9 f;
-    public iv9 g;
-    public lv9 h;
-    public mv9 i;
-    public BdTypeListView j;
-    public hv9 k;
-    public qv9 l;
-    public List<om> m;
+    public Sensor d;
+    public boolean e;
+    public boolean f;
+    public sv9 g;
+    public boolean h;
+    public boolean i;
+    public ov9.a j;
+    public sv9.a k;
 
-    public rv9(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    /* loaded from: classes8.dex */
+    public class a implements ov9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rv9 a;
+
+        public a(rv9 rv9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rv9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rv9Var;
+        }
+
+        @Override // com.baidu.tieba.ov9.a
+        public void a(int i) {
+            Activity activity;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.a == null || (activity = (Activity) this.a.a.get()) == null || !this.a.i) {
+                return;
+            }
+            int requestedOrientation = activity.getRequestedOrientation();
+            if (!this.a.h) {
+                if (i > 225 && i < 315) {
+                    if (requestedOrientation == 8) {
+                        activity.setRequestedOrientation(0);
+                    }
+                } else if (i > 45 && i < 135 && requestedOrientation == 0) {
+                    activity.setRequestedOrientation(8);
+                }
+            } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
+                if (!this.a.f) {
+                    if (i > 55 && i < 125) {
+                        if (requestedOrientation != 8) {
+                            activity.setRequestedOrientation(8);
+                        }
+                    } else if (requestedOrientation != 0) {
+                        activity.setRequestedOrientation(0);
+                    }
+                }
+                this.a.e = false;
+            } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
+                if (!this.a.e && requestedOrientation != 1) {
+                    activity.setRequestedOrientation(1);
+                }
+                this.a.f = false;
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements sv9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rv9 a;
+
+        public b(rv9 rv9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rv9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rv9Var;
+        }
+
+        @Override // com.baidu.tieba.sv9.a
+        public void onChange(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
+                return;
+            }
+            this.a.h = z;
+        }
+    }
+
+    public rv9(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView, tbPageContext, bdUniqueId};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,105 +140,78 @@ public class rv9 {
                 return;
             }
         }
-        this.m = new ArrayList();
-        this.j = bdTypeListView;
-        a(bdTypeListView, tbPageContext, bdUniqueId);
-    }
-
-    public final void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdTypeListView, tbPageContext, bdUniqueId) == null) {
-            this.a = new jv9(tbPageContext, fw9.b);
-            this.b = new gv9(tbPageContext, zv9.f);
-            this.c = new ov9(tbPageContext, lw9.b);
-            this.d = new pv9(tbPageContext, mw9.b);
-            this.e = new kv9(tbPageContext, bw9.b);
-            this.f = new nv9(tbPageContext, cw9.b);
-            this.k = new hv9(tbPageContext, dw9.b);
-            this.h = new lv9(tbPageContext, hw9.b);
-            this.i = new mv9(tbPageContext, iw9.b);
-            this.g = new iv9(tbPageContext, ew9.p);
-            this.l = new qv9(tbPageContext, PersonVipCardData.PERSON_VIP_CARD_DATA);
-            this.m.add(this.a);
-            this.m.add(this.l);
-            this.m.add(this.b);
-            this.m.add(this.e);
-            this.m.add(this.f);
-            this.m.add(this.c);
-            this.m.add(this.d);
-            this.m.add(this.h);
-            this.m.add(this.i);
-            this.m.add(this.g);
-            this.m.add(this.k);
-            bdTypeListView.addAdapters(this.m);
+        this.e = false;
+        this.f = false;
+        this.h = false;
+        this.i = false;
+        this.j = new a(this);
+        this.k = new b(this);
+        if (activity == null) {
+            return;
+        }
+        this.a = new WeakReference<>(activity);
+        this.b = (SensorManager) activity.getApplicationContext().getSystemService("sensor");
+        this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
+        this.c = new ov9(this.j);
+        if (activity.getClass().getName().contains("SwanAppActivity")) {
+            activity.setRequestedOrientation(1);
         }
     }
 
-    public void b() {
-        BdTypeListView bdTypeListView;
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.j) != null && (bdTypeListView.getAdapter2() instanceof sm)) {
-            this.j.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.i = z;
         }
     }
 
-    public void c() {
-        qv9 qv9Var;
+    public void j() {
+        Activity activity;
+        Sensor sensor;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (qv9Var = this.l) != null) {
-            qv9Var.onDestroy();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            qv9 qv9Var = this.l;
-            if (qv9Var != null) {
-                qv9Var.onPause();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SensorManager sensorManager = this.b;
+            if (sensorManager != null && (sensor = this.d) != null) {
+                sensorManager.registerListener(this.c, sensor, 2);
             }
-            ov9 ov9Var = this.c;
-            if (ov9Var != null) {
-                ov9Var.onPause();
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference != null && (activity = weakReference.get()) != null) {
+                sv9 sv9Var = new sv9(activity.getApplicationContext(), new Handler(Looper.getMainLooper()));
+                this.g = sv9Var;
+                sv9Var.b(this.k);
+                activity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), true, this.g);
             }
         }
     }
 
-    public void f() {
-        qv9 qv9Var;
+    public void k() {
+        Activity activity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (qv9Var = this.l) != null) {
-            qv9Var.onResume();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SensorManager sensorManager = this.b;
+            if (sensorManager != null) {
+                sensorManager.unregisterListener(this.c);
+            }
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference != null && this.g != null && (activity = weakReference.get()) != null) {
+                activity.getContentResolver().unregisterContentObserver(this.g);
+            }
         }
     }
 
-    public void g() {
-        lv9 lv9Var;
+    public void l() {
+        WeakReference<Activity> weakReference;
+        Activity activity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (lv9Var = this.h) != null) {
-            lv9Var.onScroll();
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (weakReference = this.a) == null || (activity = weakReference.get()) == null) {
+            return;
         }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            qv9 qv9Var = this.l;
-            if (qv9Var != null) {
-                qv9Var.u(z);
-            }
-            hv9 hv9Var = this.k;
-            if (hv9Var != null) {
-                hv9Var.u(z);
-            }
-            nv9 nv9Var = this.f;
-            if (nv9Var != null) {
-                nv9Var.u(z);
-            }
-            ov9 ov9Var = this.c;
-            if (ov9Var != null) {
-                ov9Var.u(z);
-            }
+        if (activity.getRequestedOrientation() == 1) {
+            activity.setRequestedOrientation(0);
+            this.e = true;
+            return;
         }
+        activity.setRequestedOrientation(1);
+        this.f = true;
     }
 }

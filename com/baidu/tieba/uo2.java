@@ -1,16 +1,111 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class uo2 {
+public class uo2 extends DataInputStream {
     public static /* synthetic */ Interceptable $ic;
+    public static final to2<String, byte[]> a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public static class a implements to2<String, byte[]> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.to2
+        @Nullable
+        /* renamed from: a */
+        public String call(@Nullable byte[] bArr) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+                if (bArr == null) {
+                    return null;
+                }
+                if (bArr.length == 0) {
+                    return "";
+                }
+                return new String(bArr);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements to2<Boolean, byte[]> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uo2 a;
+
+        public b(uo2 uo2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uo2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uo2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.to2
+        @Nullable
+        /* renamed from: a */
+        public Boolean call(@Nullable byte[] bArr) throws Exception {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+                if (bArr != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                return Boolean.valueOf(z);
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -25,29 +120,150 @@ public class uo2 {
                 return;
             }
         }
-        boolean z = qr1.a;
+        a = new a();
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public Map<String, Boolean> a() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] b = gn4.a().b();
-            g82.b("SwanHistoryQueryHelper", "no history app list: " + Arrays.toString(b));
-            if (b != null && b.length != 0 && (str == null || !str.equals("sync_state=?"))) {
-                if (str != null && str.trim().length() > 0) {
-                    str2 = String.format("(%s) AND ", str.trim());
-                } else {
-                    str2 = "";
-                }
-                String format = String.format("%s %s NOT IN ('%s')", str2, String.format("%s.%s", "ai_apps_history", "app_id"), TextUtils.join("','", b));
-                g82.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + format);
-                return format;
-            }
-            g82.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + str);
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f(new b(this));
         }
-        return (String) invokeL.objValue;
+        return (Map) invokeV.objValue;
+    }
+
+    public byte[] c() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int readInt = readInt();
+            if (readInt >= 0) {
+                byte[] bArr = new byte[readInt];
+                if (readInt == read(bArr)) {
+                    return bArr;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                return a.call(c());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<String> j() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return e(a);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public Map<String, String> o() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return f(a);
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uo2(InputStream inputStream) throws IOException {
+        super(inputStream);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((InputStream) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public <T> List<T> e(to2<T, byte[]> to2Var) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, to2Var)) == null) {
+            int readInt = readInt();
+            if (readInt < 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(readInt);
+            for (int i = 0; i < readInt; i++) {
+                try {
+                    arrayList.add(to2Var.call(c()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public <T> T d(@NonNull to2<T, byte[]> to2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, to2Var)) == null) {
+            try {
+                return to2Var.call(c());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public List<String> k(List<String> list) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
+            List<String> j = j();
+            if (j == null) {
+                return list;
+            }
+            return j;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public <T> Map<String, T> f(to2<T, byte[]> to2Var) throws IOException {
+        InterceptResult invokeL;
+        List<String> j;
+        List<T> e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, to2Var)) == null) {
+            if (readInt() < 0 || (j = j()) == null || (e = e(to2Var)) == null || j.size() != e.size()) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            for (int i = 0; i < j.size(); i++) {
+                hashMap.put(j.get(i), e.get(i));
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

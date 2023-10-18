@@ -1,73 +1,62 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.im.lib.socket.msg.TbAtUserInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class no8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<int[]> a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948009298, "Lcom/baidu/tieba/no8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948009298, "Lcom/baidu/tieba/no8;");
-                return;
-            }
+    public static void a(Activity activity, Boolean bool, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65536, null, activity, bool, str) != null) || activity == null) {
+            return;
         }
-        a = new ArrayList();
-        b = SkinManager.getColor(R.color.CAM_X0304);
+        View findViewById = activity.findViewById(16908290);
+        if (!(findViewById instanceof ViewGroup)) {
+            return;
+        }
+        new BdTopToast(activity, 3000).setIcon(bool.booleanValue()).setContent(str).show((ViewGroup) findViewById);
     }
 
-    public static SpannableStringBuilder a(SpannableStringBuilder spannableStringBuilder) {
-        InterceptResult invokeL;
+    public static void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, spannableStringBuilder)) == null) {
-            if (!TextUtils.isEmpty(spannableStringBuilder) && !ListUtils.isEmpty(a)) {
-                for (int[] iArr : a) {
-                    int i = iArr[0];
-                    int i2 = iArr[1];
-                    if (i < spannableStringBuilder.length() && i2 <= spannableStringBuilder.length() && i >= 0 && i2 >= 0) {
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(b), i, i2, 18);
-                    }
-                }
-            }
-            return spannableStringBuilder;
+        if ((interceptable != null && interceptable.invokeL(65537, null, activity) != null) || activity == null) {
+            return;
         }
-        return (SpannableStringBuilder) invokeL.objValue;
+        View findViewById = activity.findViewById(16908290);
+        if (!(findViewById instanceof ViewGroup)) {
+            return;
+        }
+        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.chat_msg_gone_top_excellent_tips)).show((ViewGroup) findViewById);
     }
 
-    public static void b(List<TbAtUserInfo> list) {
+    public static void c(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, list) == null) {
-            a.clear();
-            if (ListUtils.isEmpty(list)) {
-                return;
-            }
-            for (TbAtUserInfo tbAtUserInfo : list) {
-                if (tbAtUserInfo != null) {
-                    int atPosition = tbAtUserInfo.getAtPosition();
-                    a.add(new int[]{atPosition, tbAtUserInfo.getAtName().length() + atPosition + 1});
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
+            return;
         }
+        View findViewById = activity.findViewById(16908290);
+        if (!(findViewById instanceof ViewGroup)) {
+            return;
+        }
+        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.add_group_success_toast)).show((ViewGroup) findViewById);
+    }
+
+    public static void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, activity) != null) || activity == null) {
+            return;
+        }
+        View findViewById = activity.findViewById(16908290);
+        if (!(findViewById instanceof ViewGroup)) {
+            return;
+        }
+        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.delete_group_success_toast)).show((ViewGroup) findViewById);
     }
 }

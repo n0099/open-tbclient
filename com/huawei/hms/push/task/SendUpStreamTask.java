@@ -3,7 +3,8 @@ package com.huawei.hms.push.task;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p0c;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
+import com.baidu.tieba.mub;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +66,7 @@ public class SendUpStreamTask extends TaskApiCall<PushClient, BaseVoidTask> {
             Intent intent = new Intent("com.huawei.push.action.MESSAGING_EVENT");
             intent.setPackage(this.a);
             Bundle bundle = new Bundle();
-            bundle.putString("message_id", this.b);
+            bundle.putString(ForbidActivityConfig.CHAT_MSG_ID, this.b);
             bundle.putInt("error", responseErrorCode.getErrorCode());
             if (ErrorEnum.SUCCESS.getInternalCode() == responseErrorCode.getErrorCode()) {
                 bundle.putString("message_type", "sent_message");
@@ -84,19 +85,19 @@ public class SendUpStreamTask extends TaskApiCall<PushClient, BaseVoidTask> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
-    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, p0c<BaseVoidTask> p0cVar) {
+    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, mub<BaseVoidTask> mubVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushClient, responseErrorCode, str, p0cVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushClient, responseErrorCode, str, mubVar) == null) {
             if (responseErrorCode.getErrorCode() == 0) {
                 HMSLog.i("SendUpStreamTask", "send up stream task,Operate succeed");
-                p0cVar.setResult(null);
+                mubVar.d(null);
             } else {
                 HMSLog.e("SendUpStreamTask", "send up stream task,Operate failed with ret=" + responseErrorCode.getErrorCode());
                 ErrorEnum fromCode = ErrorEnum.fromCode(responseErrorCode.getErrorCode());
                 if (fromCode != ErrorEnum.ERROR_UNKNOWN) {
-                    p0cVar.c(fromCode.toApiException());
+                    mubVar.c(fromCode.toApiException());
                 } else {
-                    p0cVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+                    mubVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
                 }
             }
             a(pushClient, responseErrorCode);

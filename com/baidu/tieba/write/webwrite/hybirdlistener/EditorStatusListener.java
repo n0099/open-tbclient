@@ -12,17 +12,17 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.c4b;
-import com.baidu.tieba.h3b;
-import com.baidu.tieba.i3b;
-import com.baidu.tieba.l3b;
+import com.baidu.tieba.cya;
+import com.baidu.tieba.dya;
+import com.baidu.tieba.gl6;
+import com.baidu.tieba.gya;
+import com.baidu.tieba.hza;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.m4b;
-import com.baidu.tieba.nu6;
-import com.baidu.tieba.v3b;
+import com.baidu.tieba.qya;
+import com.baidu.tieba.wo6;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.xya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,33 +34,23 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
-@Metadata(d1 = {"\u0000g\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002*\u0001\u0011\u0018\u00002\u00020\u00012\u00020\u0002B1\u0012\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\u0006\u0010\t\u001a\u00020\n\u0012\u0006\u0010\u000b\u001a\u00020\f¢\u0006\u0002\u0010\rJ\u0015\u0010\u0015\u001a\n\u0012\u0004\u0012\u00020\u0017\u0018\u00010\u0016H\u0016¢\u0006\u0002\u0010\u0018J\u0013\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u001a0\u0016H\u0016¢\u0006\u0002\u0010\u001bJ\b\u0010\u001c\u001a\u00020\u001dH\u0016J\u0010\u0010\u001e\u001a\u00020\u001d2\u0006\u0010\u001f\u001a\u00020 H\u0002J\u0010\u0010!\u001a\u00020\u001d2\u0006\u0010\u001f\u001a\u00020 H\u0002J\u0015\u0010\"\u001a\n\u0012\u0004\u0012\u00020#\u0018\u00010\u0016H\u0016¢\u0006\u0002\u0010$R\u0011\u0010\u000b\u001a\u00020\f¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR\u0010\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0012R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006%"}, d2 = {"Lcom/baidu/tieba/write/webwrite/hybirdlistener/EditorStatusListener;", "Lcom/baidu/tieba/write/webwrite/data/BizBase;", "Lcom/baidu/tieba/write/webwrite/data/Clean;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "writePageState", "Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "editor", "Lcom/baidu/tbadk/editortools/EditorTools;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;Lcom/baidu/tbadk/coreExtra/data/WriteData;Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;Lcom/baidu/tbadk/editortools/EditorTools;)V", "getEditor", "()Lcom/baidu/tbadk/editortools/EditorTools;", "editorDeskListener", "com/baidu/tieba/write/webwrite/hybirdlistener/EditorStatusListener$editorDeskListener$1", "Lcom/baidu/tieba/write/webwrite/hybirdlistener/EditorStatusListener$editorDeskListener$1;", "hasCheckLink", "", "editorActionHandlers", "", "Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "keyListeners", "Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "()[Lcom/baidu/tieba/write/webwrite/data/WrapListener;", MissionEvent.MESSAGE_DESTROY, "", "onOpenEditor", "data", "", "refreshEditorToolStatus", "requestCodeHandlers", "Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000q\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\u0010\u0000\n\u0000*\u0001\u0011\u0018\u00002\u00020\u00012\u00020\u0002B1\u0012\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\u0006\u0010\t\u001a\u00020\n\u0012\u0006\u0010\u000b\u001a\u00020\f¢\u0006\u0002\u0010\rJ\u0013\u0010\u0015\u001a\b\u0012\u0004\u0012\u00020\u00170\u0016H\u0016¢\u0006\u0002\u0010\u0018J\u0013\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u001a0\u0016H\u0016¢\u0006\u0002\u0010\u001bJ\b\u0010\u001c\u001a\u00020\u001dH\u0016J\u0010\u0010\u001e\u001a\u00020\u001d2\u0006\u0010\u001f\u001a\u00020 H\u0002J\u0010\u0010!\u001a\u00020\u001d2\u0006\u0010\u001f\u001a\u00020 H\u0002J\u0015\u0010\"\u001a\n\u0012\u0004\u0012\u00020#\u0018\u00010\u0016H\u0016¢\u0006\u0002\u0010$J\u0018\u0010%\u001a\u00020\u001d2\u0006\u0010&\u001a\u00020'2\u0006\u0010\u001f\u001a\u00020(H\u0002R\u0011\u0010\u000b\u001a\u00020\f¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR\u0010\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0012R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006)"}, d2 = {"Lcom/baidu/tieba/write/webwrite/hybirdlistener/EditorStatusListener;", "Lcom/baidu/tieba/write/webwrite/data/BizBase;", "Lcom/baidu/tieba/write/webwrite/data/Clean;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "writePageState", "Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "editor", "Lcom/baidu/tbadk/editortools/EditorTools;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;Lcom/baidu/tbadk/coreExtra/data/WriteData;Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;Lcom/baidu/tbadk/editortools/EditorTools;)V", "getEditor", "()Lcom/baidu/tbadk/editortools/EditorTools;", "editorDeskListener", "com/baidu/tieba/write/webwrite/hybirdlistener/EditorStatusListener$editorDeskListener$1", "Lcom/baidu/tieba/write/webwrite/hybirdlistener/EditorStatusListener$editorDeskListener$1;", "hasCheckLink", "", "editorActionHandlers", "", "Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "keyListeners", "Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "()[Lcom/baidu/tieba/write/webwrite/data/WrapListener;", MissionEvent.MESSAGE_DESTROY, "", "onOpenEditor", "data", "", "refreshEditorToolStatus", "requestCodeHandlers", "Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "setAiWrite", "id", "", "", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class EditorStatusListener extends BizBase implements l3b {
+public final class EditorStatusListener extends BizBase implements gya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final EditorTools g;
     public final a h;
     public boolean i;
 
-    @Override // com.baidu.tieba.k3b
-    public h3b[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (h3b[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k3b
-    public i3b[] f() {
+    @Override // com.baidu.tieba.fya
+    public dya[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (i3b[]) invokeV.objValue;
+        return (dya[]) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
@@ -105,8 +95,8 @@ public final class EditorStatusListener extends BizBase implements l3b {
                     } else {
                         i = 0;
                     }
-                    xq6.a(jSONObject, "height", Integer.valueOf(i));
-                    xq6.a(jSONObject, "animationDuration", Float.valueOf(1.0f));
+                    gl6.a(jSONObject, "height", Integer.valueOf(i));
+                    gl6.a(jSONObject, "animationDuration", Float.valueOf(1.0f));
                     this.a.g().invoke("writePageNa.showEditorDesk", jSONObject);
                     return;
                 }
@@ -116,7 +106,7 @@ public final class EditorStatusListener extends BizBase implements l3b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EditorStatusListener(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, c4b writePageState, EditorTools editor) {
+    public EditorStatusListener(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, xya writePageState, EditorTools editor) {
         super(pageContext, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -128,7 +118,7 @@ public final class EditorStatusListener extends BizBase implements l3b {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (c4b) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (xya) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -144,7 +134,29 @@ public final class EditorStatusListener extends BizBase implements l3b {
         MessageManager.getInstance().registerListener(this.h);
     }
 
-    @Override // com.baidu.tieba.k3b
+    public final void w(int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, obj) == null) {
+            g().invoke("writePageNa.postOpenAiWrite", new JSONObject());
+        }
+    }
+
+    @Override // com.baidu.tieba.fya
+    public cya[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new cya[]{n(77, new EditorStatusListener$editorActionHandlers$1(this))} : (cya[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gya
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.fya
     public WrapListener[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -188,7 +200,7 @@ public final class EditorStatusListener extends BizBase implements l3b {
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
                     Intrinsics.checkNotNullParameter(data, "data");
                     this.this$0.l().A(true);
-                    nu6.b().b(new v3b());
+                    wo6.b().c(new qya());
                 }
             }
         }), h().invoke("writePage.refreshPostButtonStatus", new Function1<String, Unit>(this) { // from class: com.baidu.tieba.write.webwrite.hybirdlistener.EditorStatusListener$keyListeners$4
@@ -240,15 +252,7 @@ public final class EditorStatusListener extends BizBase implements l3b {
         })} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l3b
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.h);
-        }
-    }
-
-    public final void t(String str) {
+    public final void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             TbLog defaultLog = DefaultLog.getInstance();
@@ -300,7 +304,7 @@ public final class EditorStatusListener extends BizBase implements l3b {
         }
     }
 
-    public final void u(String str) {
+    public final void v(String str) {
         int i;
         String str2;
         String optString;
@@ -317,7 +321,7 @@ public final class EditorStatusListener extends BizBase implements l3b {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (optString = optJSONObject.optString("name")) != null) {
-                        i = m4b.b(optString);
+                        i = hza.b(optString);
                     } else {
                         i = -2;
                     }

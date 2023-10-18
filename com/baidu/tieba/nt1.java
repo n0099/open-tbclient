@@ -1,85 +1,62 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.IntentConstants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.sc3;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes7.dex */
-public class nt1 implements sv1 {
+public class nt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.sv1
-    public boolean a(Activity activity, String str, sc3.b bVar) {
-        InterceptResult invokeLLL;
+    public static ObjectAnimator a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, bVar)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, 0.0f);
+            ofFloat.setDuration(320L);
+            ofFloat.setInterpolator(new tb4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
         }
-        return invokeLLL.booleanValue;
+        return (ObjectAnimator) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.sv1
-    public boolean b(Context context, String str) {
-        InterceptResult invokeLL;
+    public static ObjectAnimator b(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
+            ofFloat.setDuration(240L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
         }
-        return invokeLL.booleanValue;
+        return (ObjectAnimator) invokeL.objValue;
     }
 
-    public nt1() {
+    public static ObjectAnimator c(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
+            ofFloat.setDuration(320L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
         }
+        return (ObjectAnimator) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.sv1
-    public boolean c(Activity activity, Uri uri, String str) {
-        InterceptResult invokeLLL;
+    public static ObjectAnimator d(View view2, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, uri, str)) == null) {
-            if (activity != null && uri != null && uri.getPath() != null && !TextUtils.isEmpty(str)) {
-                if (nn3.i()) {
-                    uri = dp3.a(activity, new File(uri.getPath()));
-                }
-                d(activity, uri, str);
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, i);
+            ofFloat.setDuration(240L);
+            ofFloat.setInterpolator(new tb4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void d(Activity activity, Uri uri, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, uri, str) == null) {
-            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
-            intent.addCategory("android.intent.category.DEFAULT");
-            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            intent.addFlags(1);
-            intent.setDataAndType(uri, str);
-            pn3.f(activity, intent);
-        }
+        return (ObjectAnimator) invokeLI.objValue;
     }
 }

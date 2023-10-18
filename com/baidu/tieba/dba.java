@@ -1,86 +1,67 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dba {
+public class dba extends taa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<fba> c;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public dba() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int lastIndexOf = str.lastIndexOf(File.separator);
-            if (lastIndexOf == -1) {
-                return "";
-            }
-            return str.substring(0, lastIndexOf);
         }
-        return (String) invokeL.objValue;
+        this.c = new ArrayList<>();
     }
 
-    public static String b() {
+    public ArrayList<fba> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                return Environment.getExternalStorageDirectory() + File.separator + "tieba/Logs/";
-            } catch (Exception e) {
-                BdLog.e(Log.getStackTraceString(e));
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.taa
+    public void d(JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String path = Environment.getExternalStorageDirectory().getPath();
-            int length = path.length() - 1;
-            if (length > 0 && !path.substring(length).equals(File.separator)) {
-                return path + File.separator;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            ArrayList<fba> arrayList = new ArrayList<>();
+            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    fba fbaVar = new fba();
+                    fbaVar.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(fbaVar);
+                }
             }
-            return path;
+            i(arrayList);
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public void i(ArrayList<fba> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d() + "tieba/Logs/";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            this.c = arrayList;
+            g(null);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            String a = a(str);
-            if (TextUtils.isEmpty(a)) {
-                return false;
-            }
-            File file = new File(a);
-            if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

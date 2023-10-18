@@ -1,21 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GoodsWin;
 /* loaded from: classes6.dex */
-public class ju7 extends g65 {
+public class ju7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Integer a;
+    public String b;
 
     public ju7() {
         Interceptable interceptable = $ic;
@@ -31,23 +28,23 @@ public class ju7 extends g65 {
         }
     }
 
-    @Override // com.baidu.tieba.g65
-    public void a(@NonNull Context context, @NonNull u55 u55Var) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, u55Var) == null) {
-            if (!(context instanceof FrsActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示吧主弹窗失败：当前Activity非FrsActivity");
-                YunDialogManager.unMarkShowingDialogName("frsGuide");
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.intValue() == 1) {
+                return true;
             }
-            FrsFragment r1 = ((FrsActivity) context).r1();
-            if (r1 == null) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示吧主弹窗失败：当前FrsFragment为空");
-                YunDialogManager.unMarkShowingDialogName("frsGuide");
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921476));
-            r1.o5(true);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(GoodsWin goodsWin) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, goodsWin) == null) {
+            this.a = goodsWin.show;
+            this.b = goodsWin.goods_url;
         }
     }
 }

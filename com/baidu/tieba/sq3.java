@@ -1,67 +1,103 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.view.menu.SwanContextMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class sq3 extends qa3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sq3 {
+    String a(Context context);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sq3(View view2) {
-        super(view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    String b(Context context);
+
+    String c(Context context);
+
+    String d(Context context);
+
+    String getDeviceId(Context context);
+
+    /* loaded from: classes8.dex */
+    public static class a implements sq3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final sq3 a;
+
+        @Override // com.baidu.tieba.sq3
+        public String a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.a(context);
             }
+            return (String) invokeL.objValue;
         }
-        s(xo3.f(view2.getContext(), 178.0f));
-        p(true);
-        q(true);
-    }
 
-    @Override // com.baidu.tieba.qa3
-    public void l(View view2, List<ra3> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
-            ((SwanContextMenuView) view2).c(list);
+        @Override // com.baidu.tieba.sq3
+        public String b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.b(context);
+            }
+            return (String) invokeL.objValue;
         }
-    }
 
-    @Override // com.baidu.tieba.qa3
-    public View m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new SwanContextMenuView(context);
+        @Override // com.baidu.tieba.sq3
+        public String c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.c(context);
+            }
+            return (String) invokeL.objValue;
         }
-        return (View) invokeL.objValue;
-    }
 
-    @Override // com.baidu.tieba.qa3
-    public void u(PopupWindow popupWindow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
-            popupWindow.showAtLocation(this.a, 17, 0, 0);
+        @Override // com.baidu.tieba.sq3
+        public String d(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.d(context);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.sq3
+        public String getDeviceId(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.getDeviceId(context);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public a(sq3 delegation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {delegation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(delegation, "delegation");
+            this.a = delegation;
         }
     }
 }

@@ -5,9 +5,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.ga8;
-import com.baidu.tieba.ia8;
+import com.baidu.tieba.r48;
+import com.baidu.tieba.t48;
+import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import tbclient.NewTopicList.NewTopicListResIdl;
 public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<bn> mTopicDataList;
+    public List<yh> mTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicListMessage() {
@@ -43,7 +43,7 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<bn> getTopicDataList() {
+    public List<yh> getTopicDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -68,16 +68,16 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
             int i2 = 1;
             for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
                 if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                    ga8 ga8Var = new ga8();
-                    ga8Var.R = i2;
-                    ga8Var.H(newTopicList);
-                    this.mTopicDataList.add(ga8Var);
-                    this.mTopicDataList.add(new ia8());
+                    r48 r48Var = new r48();
+                    r48Var.R = i2;
+                    r48Var.H(newTopicList);
+                    this.mTopicDataList.add(r48Var);
+                    this.mTopicDataList.add(new t48());
                     i2++;
                 }
             }
-            List<bn> list = this.mTopicDataList;
-            ((ia8) ListUtils.getItem(list, list.size() - 1)).a = 0;
+            List<yh> list = this.mTopicDataList;
+            ((t48) ListUtils.getItem(list, list.size() - 1)).a = 0;
         }
     }
 }

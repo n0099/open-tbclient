@@ -10,13 +10,13 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.view.Surface;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.a4c;
-import com.baidu.tieba.d4c;
-import com.baidu.tieba.g4c;
-import com.baidu.tieba.h4c;
-import com.baidu.tieba.j4c;
-import com.baidu.tieba.k4c;
-import com.baidu.tieba.z3c;
+import com.baidu.tieba.ayb;
+import com.baidu.tieba.dyb;
+import com.baidu.tieba.eyb;
+import com.baidu.tieba.gyb;
+import com.baidu.tieba.hyb;
+import com.baidu.tieba.wxb;
+import com.baidu.tieba.xxb;
 import com.vivo.push.PushClientConstants;
 import com.yy.render.IRemoteRender;
 import java.lang.Thread;
@@ -61,7 +61,7 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
         public final void run() {
             String str;
             String string;
-            h4c.b.h();
+            eyb.b.h();
             try {
                 Bundle extras = this.b.getExtras();
                 String str2 = null;
@@ -71,15 +71,15 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
                 if (extras != null && (string = extras.getString("cuid")) != null) {
                     str2 = string;
                 }
-                h4c.b.f("The soPath is " + str + ", cuid is " + str2);
-                g4c g4cVar = g4c.c;
+                eyb.b.f("The soPath is " + str + ", cuid is " + str2);
+                dyb dybVar = dyb.c;
                 Context applicationContext = RemoteRenderServices.this.getApplicationContext();
                 Intrinsics.checkExpressionValueIsNotNull(applicationContext, "this.applicationContext");
                 String packageName = RemoteRenderServices.this.getPackageName();
                 Intrinsics.checkExpressionValueIsNotNull(packageName, "this.packageName");
-                g4cVar.d(applicationContext, packageName, str, str2);
+                dybVar.d(applicationContext, packageName, str, str2);
             } catch (Throwable th) {
-                h4c.b.c(String.valueOf(th.getMessage()));
+                eyb.b.c(String.valueOf(th.getMessage()));
             }
         }
     }
@@ -104,24 +104,24 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
 
         @Override // java.lang.Runnable
         public final void run() {
-            if (!a4c.c.a().d(this.b)) {
-                j4c renderViewByReflect = RemoteRenderServices.this.getRenderViewByReflect(this.c, this.b);
+            if (!xxb.c.a().d(this.b)) {
+                gyb renderViewByReflect = RemoteRenderServices.this.getRenderViewByReflect(this.c, this.b);
                 if (renderViewByReflect == null) {
-                    h4c.a aVar = h4c.b;
+                    eyb.a aVar = eyb.b;
                     aVar.d("sub_process_view", "[RenderServices] getViewByReflect view is null, className=" + this.c);
                     return;
                 }
-                a4c.c.a().b(this.b, renderViewByReflect);
+                xxb.c.a().b(this.b, renderViewByReflect);
             }
-            j4c c = a4c.c.a().c(this.b);
-            if (c != null && (c instanceof k4c)) {
-                k4c k4cVar = (k4c) c;
+            gyb c = xxb.c.a().c(this.b);
+            if (c != null && (c instanceof hyb)) {
+                hyb hybVar = (hyb) c;
                 RemoteRenderServices remoteRenderServices = RemoteRenderServices.this;
                 Surface surface = this.d;
                 if (surface == null) {
                     Intrinsics.throwNpe();
                 }
-                k4cVar.e(remoteRenderServices, surface, this.e, this.f, this.g);
+                hybVar.e(remoteRenderServices, surface, this.e, this.f, this.g);
                 RemoteRenderServices.this.sendCacheMessage(c, this.b);
             }
         }
@@ -141,22 +141,22 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
 
         @Override // java.lang.Runnable
         public final void run() {
-            if (!a4c.c.a().d(this.b)) {
-                j4c renderViewByReflect = RemoteRenderServices.this.getRenderViewByReflect(this.c, this.b);
+            if (!xxb.c.a().d(this.b)) {
+                gyb renderViewByReflect = RemoteRenderServices.this.getRenderViewByReflect(this.c, this.b);
                 if (renderViewByReflect == null) {
-                    h4c.a aVar = h4c.b;
+                    eyb.a aVar = eyb.b;
                     aVar.d("sub_process_view", "[RenderServices] getViewByReflect view is null, className=" + this.c);
                     return;
                 }
-                a4c.c.a().b(this.b, renderViewByReflect);
+                xxb.c.a().b(this.b, renderViewByReflect);
             }
-            j4c c = a4c.c.a().c(this.b);
-            if (c != null && (c instanceof k4c)) {
-                h4c.a aVar2 = h4c.b;
+            gyb c = xxb.c.a().c(this.b);
+            if (c != null && (c instanceof hyb)) {
+                eyb.a aVar2 = eyb.b;
                 aVar2.d("sub_process_view", "[RenderServices] surface-->" + this.d);
                 Surface surface = this.d;
                 if (surface != null) {
-                    ((k4c) c).f(RemoteRenderServices.this, surface);
+                    ((hyb) c).f(RemoteRenderServices.this, surface);
                 }
                 RemoteRenderServices.this.sendCacheMessage(c, this.b);
             }
@@ -173,11 +173,11 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
 
         @Override // java.lang.Runnable
         public final void run() {
-            j4c c;
-            h4c.b.g("sub_process_view", "[RenderServices] surface server_surfaceDestroyed!");
-            if (a4c.c.a().d(this.a) && (c = a4c.c.a().c(this.a)) != null && (c instanceof k4c)) {
-                h4c.b.g("sub_process_view", "[RenderServices] invoke surfaceDestroyed");
-                ((k4c) c).g();
+            gyb c;
+            eyb.b.g("sub_process_view", "[RenderServices] surface server_surfaceDestroyed!");
+            if (xxb.c.a().d(this.a) && (c = xxb.c.a().c(this.a)) != null && (c instanceof hyb)) {
+                eyb.b.g("sub_process_view", "[RenderServices] invoke surfaceDestroyed");
+                ((hyb) c).g();
             }
         }
     }
@@ -185,7 +185,7 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        h4c.b.g("sub_process_view", "[RenderServices] onCreate!");
+        eyb.b.g("sub_process_view", "[RenderServices] onCreate!");
         this.mContext = this;
         this.defaultHandler = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler(this);
@@ -194,8 +194,8 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        h4c.b.g("sub_process_view", "[RenderService](onDestroy)");
-        h4c.b.e(true);
+        eyb.b.g("sub_process_view", "[RenderService](onDestroy)");
+        eyb.b.e(true);
         System.exit(0);
         throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
     }
@@ -218,23 +218,23 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
                 @Override // java.lang.Runnable
                 public final void run() {
                     Context context;
-                    if (a4c.c.a().d(this.b)) {
+                    if (xxb.c.a().d(this.b)) {
                         return;
                     }
-                    j4c renderViewByReflect = RemoteRenderServices.this.getRenderViewByReflect(this.c, this.b);
+                    gyb renderViewByReflect = RemoteRenderServices.this.getRenderViewByReflect(this.c, this.b);
                     if (renderViewByReflect == null) {
-                        h4c.a aVar = h4c.b;
+                        eyb.a aVar = eyb.b;
                         aVar.d("sub_process_view", "[RenderServices] getViewByReflect view is null, className=" + this.c);
                         return;
                     }
-                    a4c.c.a().b(this.b, renderViewByReflect);
-                    if (renderViewByReflect instanceof k4c) {
-                        k4c k4cVar = (k4c) renderViewByReflect;
+                    xxb.c.a().b(this.b, renderViewByReflect);
+                    if (renderViewByReflect instanceof hyb) {
+                        hyb hybVar = (hyb) renderViewByReflect;
                         context = RemoteRenderServices.this.mContext;
                         if (context == null) {
                             Intrinsics.throwNpe();
                         }
-                        k4cVar.d(context);
+                        hybVar.d(context);
                         RemoteRenderServices.this.sendCacheMessage(renderViewByReflect, this.b);
                     }
                 }
@@ -250,9 +250,9 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
 
                 @Override // java.lang.Runnable
                 public final void run() {
-                    h4c.a aVar = h4c.b;
+                    eyb.a aVar = eyb.b;
                     aVar.g("sub_process_view", "[RenderServices] removeContentView " + this.a);
-                    a4c.c.a().e(this.a);
+                    xxb.c.a().e(this.a);
                 }
             }
 
@@ -265,15 +265,15 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
 
             @Override // com.yy.render.IRemoteRender
             public void setListener(IRemoteListener iRemoteListener) {
-                h4c.b.g("sub_process_view", "[RenderServices] invokeClient");
+                eyb.b.g("sub_process_view", "[RenderServices] invokeClient");
                 if (iRemoteListener == null) {
-                    h4c.b.g("sub_process_view", "[RenderServices] IRemoteListener is null");
+                    eyb.b.g("sub_process_view", "[RenderServices] IRemoteListener is null");
                 } else {
-                    h4c.b.g("sub_process_view", "[RenderServices] IRemoteListener is normal");
+                    eyb.b.g("sub_process_view", "[RenderServices] IRemoteListener is normal");
                 }
                 synchronized (this) {
                     if (iRemoteListener != null) {
-                        z3c.c.a().d(iRemoteListener);
+                        wxb.c.a().d(iRemoteListener);
                     }
                     Unit unit = Unit.INSTANCE;
                 }
@@ -282,7 +282,7 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
             @Override // com.yy.render.IRemoteRender
             public void addContentView(String str, String str2) {
                 Handler handler;
-                h4c.a aVar = h4c.b;
+                eyb.a aVar = eyb.b;
                 aVar.g("sub_process_view", "[RenderServices](addContentView) " + str);
                 handler = RemoteRenderServices.this.mainHandler;
                 handler.post(new a(str, str2));
@@ -290,32 +290,32 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
 
             @Override // com.yy.render.IRemoteRender
             public void sendBundle(String str, Bundle bundle) {
-                d4c.f.a().c(str, bundle);
+                ayb.f.a().c(str, bundle);
             }
 
             @Override // com.yy.render.IRemoteRender
             public boolean sendBundleForBoolean(String str, Bundle bundle) {
-                return d4c.f.a().d(str, bundle);
+                return ayb.f.a().d(str, bundle);
             }
 
             @Override // com.yy.render.IRemoteRender
             public String sendBundleForStr(String str, Bundle bundle) {
-                return d4c.f.a().e(str, bundle);
+                return ayb.f.a().e(str, bundle);
             }
 
             @Override // com.yy.render.IRemoteRender
             public void sendData(String str, String str2) {
-                d4c.f.a().f(str, str2);
+                ayb.f.a().f(str, str2);
             }
 
             @Override // com.yy.render.IRemoteRender
             public boolean sendDataForBoolean(String str, String str2) {
-                return d4c.f.a().g(str, str2);
+                return ayb.f.a().g(str, str2);
             }
 
             @Override // com.yy.render.IRemoteRender
             public String sendDataForStr(String str, String str2) {
-                return d4c.f.a().h(str, str2);
+                return ayb.f.a().h(str, str2);
             }
 
             @Override // com.yy.render.IRemoteRender
@@ -325,7 +325,7 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
 
             @Override // com.yy.render.IRemoteRender
             public boolean unRegisterDataListener(String str, ITransDataListener iTransDataListener) {
-                return d4c.f.a().k(str, iTransDataListener);
+                return ayb.f.a().k(str, iTransDataListener);
             }
 
             @Override // com.yy.render.IRemoteRender
@@ -337,7 +337,7 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
             @Override // com.yy.render.IRemoteRender
             public boolean registerDataListener(String str, String str2, ITransDataListener iTransDataListener) {
                 Context context;
-                d4c a2 = d4c.f.a();
+                ayb a2 = ayb.f.a();
                 context = RemoteRenderServices.this.mContext;
                 return a2.i(context, str, str2, iTransDataListener);
             }
@@ -355,14 +355,14 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
                 LinkedHashMap linkedHashMap3;
                 LinkedHashMap linkedHashMap4;
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                    h4c.a aVar = h4c.b;
+                    eyb.a aVar = eyb.b;
                     aVar.d("sub_process_view", "[RenderServices] get data channelId: " + str + ", data: " + str2);
                     try {
-                        a4c a2 = a4c.c.a();
+                        xxb a2 = xxb.c.a();
                         if (str == null) {
                             Intrinsics.throwNpe();
                         }
-                        j4c c2 = a2.c(str);
+                        gyb c2 = a2.c(str);
                         if (c2 == null) {
                             cls = RemoteRenderServices.this.lock;
                             synchronized (cls) {
@@ -392,7 +392,7 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
                         c2.a(str2);
                     } catch (Exception e2) {
                         e2.printStackTrace();
-                        h4c.a aVar2 = h4c.b;
+                        eyb.a aVar2 = eyb.b;
                         aVar2.c("[RenderServices] sendData2Channel ex: " + e2.getMessage());
                     }
                 }
@@ -411,11 +411,11 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final j4c getRenderViewByReflect(String str, String str2) {
+    public final gyb getRenderViewByReflect(String str, String str2) {
         try {
             Object newInstance = Class.forName(str).getConstructor(String.class).newInstance(str2);
             if (newInstance != null) {
-                return (j4c) newInstance;
+                return (gyb) newInstance;
             }
             throw new TypeCastException("null cannot be cast to non-null type com.yy.render.view.RenderView");
         } catch (Exception e2) {
@@ -430,21 +430,21 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
-        h4c.b.e(true);
-        h4c.b.d("sub_process_view", "[RenderService] (uncaughtException)");
-        z3c.c.a().e("service uncaughtException");
+        eyb.b.e(true);
+        eyb.b.d("sub_process_view", "[RenderService] (uncaughtException)");
+        wxb.c.a().e("service uncaughtException");
         Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.defaultHandler;
         if (uncaughtExceptionHandler != null) {
             uncaughtExceptionHandler.uncaughtException(thread, th);
         }
     }
 
-    public final void sendCacheMessage(j4c j4cVar, String str) {
+    public final void sendCacheMessage(gyb gybVar, String str) {
         synchronized (this.lock) {
             LinkedList<String> linkedList = this.message.get(str);
             if (linkedList != null && linkedList.size() != 0) {
                 for (String str2 : linkedList) {
-                    j4cVar.a(str2);
+                    gybVar.a(str2);
                 }
                 linkedList.clear();
                 this.message.put(str, linkedList);
@@ -453,7 +453,7 @@ public final class RemoteRenderServices extends Service implements Thread.Uncaug
     }
 
     public final void serverSurfaceChanged(String str, Surface surface, String str2, int i, int i2, int i3) {
-        h4c.a aVar = h4c.b;
+        eyb.a aVar = eyb.b;
         aVar.g("sub_process_view", "[RenderServices] server_surfaceChanged " + str + ", className: " + str2);
         this.surface = surface;
         new Handler(Looper.getMainLooper()).post(new c(str, str2, surface, i, i2, i3));

@@ -1,107 +1,171 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.io.File;
+import java.util.Calendar;
+import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class uy1 {
+public class uy1 extends ny1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static final uy1 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948227228, "Lcom/baidu/tieba/uy1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s02 a;
+        public final /* synthetic */ CanvasView b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ p53 e;
+        public final /* synthetic */ CallbackHandler f;
+
+        public a(uy1 uy1Var, s02 s02Var, CanvasView canvasView, String str, UnitedSchemeEntity unitedSchemeEntity, p53 p53Var, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uy1Var, s02Var, canvasView, str, unitedSchemeEntity, p53Var, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948227228, "Lcom/baidu/tieba/uy1;");
-                return;
+            this.a = s02Var;
+            this.b = canvasView;
+            this.c = str;
+            this.d = unitedSchemeEntity;
+            this.e = p53Var;
+            this.f = callbackHandler;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean i2 = this.a.i(this.b, this.c);
+                HashMap<String, String> params = this.d.getParams();
+                if (params != null && !params.isEmpty()) {
+                    String str = params.get("params");
+                    String str2 = null;
+                    JSONObject jSONObject = new JSONObject();
+                    if (str != null) {
+                        try {
+                            str2 = new JSONObject(str).optString("cb");
+                            jSONObject.putOpt("tempFilePath", xc3.J(this.c, this.e.b));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (!TextUtils.isEmpty(str2)) {
+                        if (i2) {
+                            i = 0;
+                        } else {
+                            i = 1001;
+                        }
+                        this.f.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, i).toString());
+                    }
+                }
             }
         }
-        b = new uy1();
     }
 
-    public uy1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uy1(m63 m63Var) {
+        super(m63Var, "/swanAPI/canvas/toTempFilePath");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {m63Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((m63) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public final String a() {
-        InterceptResult invokeV;
-        boolean z;
+    @Override // com.baidu.tieba.m73
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
+        InterceptResult invokeLLLL;
+        String str;
+        x42 J;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = a;
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
+            s02 m = m(unitedSchemeEntity);
+            if (m == null) {
+                p22.c("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
+                unitedSchemeEntity.result = l(201);
+                return false;
+            }
+            String x = xc3.x(p53Var.b);
+            if (TextUtils.isEmpty(x)) {
+                p22.c("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
+                unitedSchemeEntity.result = l(201);
+                return false;
+            }
+            String str2 = x + File.separator + Calendar.getInstance().getTimeInMillis();
+            if (m.h()) {
+                str = str2 + ".jpg";
             } else {
-                z = true;
+                str = str2 + ".png";
             }
-            if (z) {
-                a = b();
+            String str3 = str;
+            if (TextUtils.isEmpty(m.c) && (J = cr2.V().J()) != null) {
+                m.c = J.A3();
             }
-            return a;
+            if (!TextUtils.isEmpty(m.c) && !TextUtils.isEmpty(m.b)) {
+                CanvasView a2 = q12.a(m);
+                if (a2 == null) {
+                    p22.c("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
+                    unitedSchemeEntity.result = l(201);
+                    return false;
+                }
+                ji3.k(new a(this, m, a2, str3, unitedSchemeEntity, p53Var, callbackHandler), "tempFilePath");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+            p22.c("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.c + " ; canvas id = " + m.b);
+            unitedSchemeEntity.result = l(201);
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public s02 m(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            oj3 a2 = uj3.a();
-            if (a2 == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
+            String str = unitedSchemeEntity.getParams().get("params");
+            if (!TextUtils.isEmpty(str)) {
+                return new s02(str);
             }
-            return a2.getString("alliance_login_uk", null);
+            return null;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            uj3.a().putString("alliance_login_uk", "");
-            a = null;
-        }
-    }
-
-    public final void c(int i, JSONObject jsonObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, jsonObject) == null) {
-            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
-            if (i == 0) {
-                e(jsonObject);
-            }
-        }
-    }
-
-    public final void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            uj3.a().putString("alliance_login_uk", jSONObject.optString("uk"));
-        }
+        return (s02) invokeL.objValue;
     }
 }

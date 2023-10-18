@@ -13,10 +13,10 @@ import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.pl;
-import com.baidu.tieba.ql;
-import com.baidu.tieba.uh;
-import com.baidu.tieba.vl;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.ng;
+import com.baidu.tieba.rc;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -128,7 +128,7 @@ public class SoLoadUtils {
                         }
                     }
                 };
-                vl vlVar = new vl(str3) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.2
+                sg sgVar = new sg(str3) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$soName;
@@ -151,7 +151,7 @@ public class SoLoadUtils {
                         this.val$soName = str3;
                     }
 
-                    @Override // com.baidu.tieba.vl
+                    @Override // com.baidu.tieba.sg
                     public void onSoFileLoaded(String str4) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, str4) == null) {
@@ -161,9 +161,9 @@ public class SoLoadUtils {
                     }
                 };
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(ql.a);
+                requestParams.setRunType(ng.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new pl(str2, defaultDownloadCallback, vlVar));
+                requestParams.addChannel(new mg(str2, defaultDownloadCallback, sgVar));
                 PmsManager.getInstance().execute(requestParams);
                 return;
             }
@@ -179,7 +179,7 @@ public class SoLoadUtils {
         String[] list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (uh.a()) {
+            if (rc.a()) {
                 str = "so_64_cache";
             } else {
                 str = "so_cache";

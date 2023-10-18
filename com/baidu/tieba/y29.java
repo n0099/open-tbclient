@@ -1,98 +1,72 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.j55;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import com.baidu.searchbox.live.nps.util.PluginUtils;
+import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class y29 {
+public class y29 implements AbConfigService {
     public static /* synthetic */ Interceptable $ic;
-    public static final y29 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948278409, "Lcom/baidu/tieba/y29;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948278409, "Lcom/baidu/tieba/y29;");
-                return;
-            }
+    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
+    public Object getSwitch(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return null;
         }
-        a = new y29();
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
+    public String getSwitch(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 
     public y29() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static final void b(Function1 switchVoiceMode, h55 builder, j55 j55Var, int i, View view2) {
+    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
+    public boolean getSwitch(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{switchVoiceMode, builder, j55Var, Integer.valueOf(i), view2}) == null) {
-            Intrinsics.checkNotNullParameter(switchVoiceMode, "$switchVoiceMode");
-            Intrinsics.checkNotNullParameter(builder, "$builder");
-            switchVoiceMode.invoke(Integer.valueOf(i));
-            builder.dismiss();
-        }
-    }
-
-    public final void a(TbPageContext<?> context, final Function1<? super Integer, Unit> switchVoiceMode) {
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, switchVoiceMode) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(switchVoiceMode, "switchVoiceMode");
-            ArrayList arrayList = new ArrayList();
-            if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-                string = TbadkCoreApplication.getInst().getString(R.string.group_close_receiver);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
+            if ("android_live_enable_nps_multi_plugin_online".equals(str)) {
+                return true;
+            }
+            if ("android_live_enable_nps_multi_plugin".equals(str)) {
+                if (PluginUtils.isLivenpsMatchMultiNps()) {
+                    return true;
+                }
+                return false;
+            } else if (!MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH.equals(str) && !"android_live_media_pre_inflate_queue".equals(str) && !"live_android_mixview_pager".equals(str)) {
+                return true;
             } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.group_open_receiver);
+                return false;
             }
-            arrayList.add(string);
-            final h55 h55Var = new h55(context);
-            Object[] array = arrayList.toArray(new String[0]);
-            if (array != null) {
-                h55Var.i(null, (String[]) array, new j55.f() { // from class: com.baidu.tieba.v29
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.j55.f
-                    public final void G0(j55 j55Var, int i, View view2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, j55Var, i, view2) == null) {
-                            y29.b(Function1.this, h55Var, j55Var, i, view2);
-                        }
-                    }
-                });
-                h55Var.l();
-                return;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>");
         }
+        return invokeLZ.booleanValue;
     }
 }

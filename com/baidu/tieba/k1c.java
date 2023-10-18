@@ -1,210 +1,356 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.media.MediaFormat;
+import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.b0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.X509TrustManager;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class k1c extends SSLSocketFactory {
+public abstract class k1c extends t1c implements b0c.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public SSLContext a;
-    public SSLSocket b;
-    public Context c;
-    public String[] d;
-    public String[] e;
-    public String[] f;
-    public String[] g;
+    public int o;
+    public MediaFormat p;
+    public MediaInfo q;
+    public e1c r;
+    public WeakReference<t0c> s;
+    public long t;
+    public long u;
+    public long v;
+    public boolean w;
+    public long x;
+    public long y;
+    public AtomicBoolean z;
 
-    public void b(X509TrustManager x509TrustManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509TrustManager) == null) {
-        }
-    }
+    public abstract void B();
 
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getDefaultCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
-    }
+    public abstract void C();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947861676, "Lcom/baidu/tieba/k1c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947861676, "Lcom/baidu/tieba/k1c;");
-                return;
-            }
-        }
-        h = k1c.class.getSimpleName();
-    }
+    public abstract int D(MediaSample mediaSample);
 
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (Context) invokeV.objValue;
-    }
+    public abstract void z(MediaFormat mediaFormat, int i);
 
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getSupportedCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String[] strArr = this.d;
-            if (strArr != null) {
-                return strArr;
-            }
-            return new String[0];
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public k1c(X509TrustManager x509TrustManager) throws NoSuchAlgorithmException, KeyManagementException, IllegalArgumentException {
+    public k1c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x509TrustManager};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = i1c.f();
-        b(x509TrustManager);
-        this.a.init(null, new X509TrustManager[]{x509TrustManager}, null);
+        this.o = 0;
+        this.p = null;
+        this.q = MediaInfo.a();
+        this.r = new e1c();
+        this.s = new WeakReference<>(null);
+        this.t = 0L;
+        this.u = 0L;
+        this.v = 0L;
+        this.w = true;
+        this.x = 0L;
+        this.y = 0L;
+        this.z = new AtomicBoolean(false);
     }
 
-    public final void a(Socket socket) {
-        boolean z;
+    public void A() {
+        p0c p0cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, socket) == null) {
-            boolean z2 = true;
-            if (!r1c.a(this.g)) {
-                v1c.e(h, "set protocols");
-                i1c.e((SSLSocket) socket, this.g);
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            x();
+            TLog.g(this, "MediaCodec decoderError");
+            WeakReference<p0c> weakReference = this.g;
+            if (weakReference != null && (p0cVar = weakReference.get()) != null) {
+                Message obtain = Message.obtain();
+                obtain.what = 53;
+                p0cVar.a(obtain, this.a);
             }
-            if (r1c.a(this.f) && r1c.a(this.e)) {
-                z2 = false;
-            } else {
-                v1c.e(h, "set white cipher or black cipher");
-                SSLSocket sSLSocket = (SSLSocket) socket;
-                i1c.d(sSLSocket);
-                if (!r1c.a(this.f)) {
-                    i1c.h(sSLSocket, this.f);
-                } else {
-                    i1c.b(sSLSocket, this.e);
+        }
+    }
+
+    @Override // com.baidu.tieba.n1c
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            TLog.g(this, "CodecFilter.setop enter.");
+            this.z.set(true);
+            this.l.g(1002);
+            this.l.f(1002);
+        }
+    }
+
+    public void E(MediaSample mediaSample, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, mediaSample, j) == null) {
+            long j2 = this.y;
+            if (j2 > 0) {
+                long j3 = mediaSample.v;
+                if (j3 < j2) {
+                    j += j2 - Math.max(j3, this.x);
+                }
+                this.x = 0L;
+                this.y = 0L;
+                if (j > 0) {
+                    x0c.d(mediaSample, 11, j);
+                }
+            } else if (j > 0) {
+                x0c.d(mediaSample, 11, j);
+            }
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (!this.f.isEmpty()) {
+                int i = 0;
+                while (true) {
+                    MediaSample poll = this.f.poll();
+                    if (poll == null) {
+                        break;
+                    }
+                    i++;
+                    v(poll, 5, "player is stopped");
+                    e0c.f().e(poll);
+                }
+                TLog.g(this, String.format("CodecFilter there are still %d entries in queue that not decoded.", Integer.valueOf(i)));
+            }
+            if (!this.r.b()) {
+                int i2 = 0;
+                while (true) {
+                    MediaSample c = this.r.c();
+                    if (c != null) {
+                        i2++;
+                        v(c, 6, "player is stopped");
+                        e0c.f().e(c);
+                    } else {
+                        TLog.g(this, String.format("CodecFilter there are still %d entries in queue that not presented.", Integer.valueOf(i2)));
+                        return;
+                    }
                 }
             }
-            if (!z) {
-                v1c.e(h, "set default protocols");
-                i1c.d((SSLSocket) socket);
+        }
+    }
+
+    @Override // com.baidu.tieba.t1c, com.baidu.tieba.l1c
+    public void a() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            TLog.g(this, "CodecFilter.setup enter. type:" + f1c.a[this.q.a]);
+            b0c b0cVar = this.l;
+            Object[] objArr = new Object[1];
+            if (this.c == 0) {
+                str = "video";
+            } else {
+                str = "audio";
             }
-            if (!z2) {
-                v1c.e(h, "set default cipher suites");
-                i1c.c((SSLSocket) socket);
+            objArr[0] = str;
+            b0cVar.setName(String.format("VOD %s decode", objArr));
+            this.t = 0L;
+            this.u = 0L;
+            this.z.set(false);
+            super.a();
+            TLog.g(this, "CodecFilter.setup leave. type:" + f1c.a[this.q.a]);
+        }
+    }
+
+    @Override // com.baidu.tieba.t1c, com.baidu.tieba.n1c
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            TLog.g(this, "CodecFilter.release enter. type:" + f1c.a[this.q.a]);
+            super.p();
+            this.p = null;
+            F();
+            TLog.g(this, String.format("inputCount:%d, outputCount:%d", Long.valueOf(this.t), Long.valueOf(this.u)));
+            TLog.g(this, "CodecFilter.release leave. type:" + f1c.a[this.q.a]);
+        }
+    }
+
+    @Override // com.baidu.tieba.t1c
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            if (this.w) {
+                I();
+            } else {
+                H();
+            }
+            MediaSample peek = this.f.peek();
+            if (peek == null) {
+                this.l.g(2102);
+                return;
+            }
+            synchronized (this.k) {
+                if (this.d != null) {
+                    this.d.e(peek.E);
+                }
+            }
+            x0c.c(peek, 5);
+            int D = D(peek);
+            if (D != -2) {
+                if (D != -1) {
+                    if (D == 1) {
+                        this.f.poll();
+                    }
+                } else {
+                    this.f.poll();
+                    v(peek, 6, "exception occurs");
+                    e0c.f().e(peek);
+                }
+                if (!this.f.isEmpty() && !this.z.get()) {
+                    this.l.f(2102);
+                    return;
+                }
+                return;
+            }
+            m1c m1cVar = this.e;
+            if (m1cVar != null) {
+                m1cVar.j(D);
             }
         }
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i) throws IOException {
-        InterceptResult invokeLI;
+    public void G() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            v1c.e(h, "createSocket: host , port");
-            Socket createSocket = this.a.getSocketFactory().createSocket(str, i);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.r.b()) {
+            int i = 0;
+            while (true) {
+                MediaSample c = this.r.c();
+                if (c != null) {
+                    i++;
+                    e0c.f().e(c);
+                } else {
+                    TLog.g(this, String.format("there are still %d entries in queue that not presented.", Integer.valueOf(i)));
+                    return;
+                }
             }
-            return createSocket;
         }
-        return (Socket) invokeLI.objValue;
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
-        InterceptResult invokeCommon;
+    public final void H() {
+        MediaSample poll;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
-            return createSocket(str, i);
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, inetAddress, i)) == null) {
-            return createSocket(inetAddress.getHostAddress(), i);
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
-            return createSocket(inetAddress.getHostAddress(), i);
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            v1c.e(h, "createSocket s host port autoClose");
-            Socket createSocket = this.a.getSocketFactory().createSocket(socket, str, i, z);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f.size() >= 15 && (poll = this.f.poll()) != null) {
+            MediaInfo mediaInfo = poll.i;
+            if (mediaInfo.k != null) {
+                mediaInfo.k = null;
             }
-            return createSocket;
+            e0c.f().e(poll);
         }
-        return (Socket) invokeCommon.objValue;
+    }
+
+    public final void I() {
+        int size;
+        MediaSample peek;
+        MediaSample poll;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (size = this.f.size()) >= 15 && (peek = this.f.peek()) != null && peek.d) {
+            Iterator<MediaSample> it = this.f.iterator();
+            int i = -1;
+            boolean z = false;
+            int i2 = -1;
+            int i3 = -1;
+            while (it.hasNext()) {
+                MediaSample next = it.next();
+                i2++;
+                if (i2 != 0 && next.d && i3 == -1) {
+                    i3 = i2;
+                    z = true;
+                }
+            }
+            if (z) {
+                TLog.g(this, "first frame index 0second frame index " + i3 + "inputSize " + size);
+                Iterator<MediaSample> it2 = this.f.iterator();
+                while (it2.hasNext()) {
+                    it2.next();
+                    i++;
+                    if (i >= 0 && i < i3 && (poll = this.f.poll()) != null) {
+                        MediaInfo mediaInfo = poll.i;
+                        if (mediaInfo.k != null) {
+                            mediaInfo.k = null;
+                        }
+                        e0c.f().e(poll);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.n1c, com.baidu.tieba.l1c
+    public void d(String str, Object obj, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.t = 0L;
+            this.u = 0L;
+            if (str.compareTo("setFormat") == 0 && (obj instanceof MediaFormat)) {
+                Message obtain = Message.obtain();
+                obtain.what = 2001;
+                obtain.obj = obj;
+                obtain.arg1 = i;
+                this.l.g(2001);
+                this.l.sendMessage(obtain);
+                TLog.g(this, "CodecFilter sendEmptyMessage(CODEC_FILTER_CREATE_DECODER)");
+            }
+            super.d(str, obj, i, z);
+        }
+    }
+
+    @Override // com.baidu.tieba.n1c, com.baidu.tieba.l1c
+    public final void f(MediaSample mediaSample) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, mediaSample) == null) {
+            if (this.z.get()) {
+                TLog.c(this, "CodecFilter codec is stop");
+                e0c.f().e(mediaSample);
+            } else if (mediaSample.f) {
+                e0c.f().e(mediaSample);
+                TLog.c(this, "CodecFilter.processMediaSample bForVideoCodecConfigfOnly is true!!");
+            } else {
+                this.t++;
+                mediaSample.s = this.o;
+                x0c.c(mediaSample, 4);
+                this.f.add(mediaSample);
+                m1c m1cVar = this.e;
+                if (m1cVar != null && this.i && m1cVar.g() == 6) {
+                    this.l.f(2102);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.t1c, com.baidu.tieba.b0c.a
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, message) == null) {
+            switch (message.what) {
+                case 2001:
+                    z((MediaFormat) message.obj, message.arg1);
+                    return;
+                case 2002:
+                    B();
+                    return;
+                case 2003:
+                    C();
+                    return;
+                default:
+                    super.handleMessage(message);
+                    return;
+            }
+        }
     }
 }

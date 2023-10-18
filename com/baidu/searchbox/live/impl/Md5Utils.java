@@ -1,7 +1,7 @@
 package com.baidu.searchbox.live.impl;
 
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Md5Utils {
     public static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();

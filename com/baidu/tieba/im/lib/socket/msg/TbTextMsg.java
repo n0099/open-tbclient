@@ -5,12 +5,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fk8;
+import com.baidu.tieba.hf8;
+import com.baidu.tieba.hr5;
+import com.baidu.tieba.if8;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.m47;
-import com.baidu.tieba.xk8;
-import com.baidu.tieba.yk8;
-import com.baidu.tieba.zw5;
+import com.baidu.tieba.pe8;
+import com.baidu.tieba.vy6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,13 +34,13 @@ public class TbTextMsg extends TbNormalMsg {
     public static final a Companion;
     public static final int MSG_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    @xk8
     @SerializedName("robot_params")
+    @hf8
     public Map<String, ? extends Object> robotParams;
-    @xk8
-    @yk8
+    @hf8
+    @if8
     public String text;
-    @zw5(serialize = false)
+    @hr5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     static {
@@ -91,12 +91,12 @@ public class TbTextMsg extends TbNormalMsg {
 
         /* renamed from: com.baidu.tieba.im.lib.socket.msg.TbTextMsg$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0336a implements m47.i {
+        public static final class C0337a implements vy6.i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpannableStringBuilder a;
 
-            public C0336a(SpannableStringBuilder spannableStringBuilder) {
+            public C0337a(SpannableStringBuilder spannableStringBuilder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class TbTextMsg extends TbNormalMsg {
                 this.a = spannableStringBuilder;
             }
 
-            @Override // com.baidu.tieba.m47.i
+            @Override // com.baidu.tieba.vy6.i
             public void a(SpannableStringBuilder spannableStringBuilder) {
                 boolean z;
                 Interceptable interceptable = $ic;
@@ -199,7 +199,7 @@ public class TbTextMsg extends TbNormalMsg {
                     return spannableStringBuilder;
                 }
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
-                m47.e(fk8.a.getContext(), str, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new C0336a(spannableStringBuilder2));
+                vy6.e(pe8.a.e(), str, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new C0337a(spannableStringBuilder2));
                 if (spannableStringBuilder2.length() == 0) {
                     z2 = true;
                 }

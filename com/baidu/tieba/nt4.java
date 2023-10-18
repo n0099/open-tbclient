@@ -1,134 +1,193 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.GetTokenHttpResponsedMessage;
-import com.baidu.tbadk.BdToken.GetTokenRequestMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.view.View;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.cyberplayer.sdk.task.UpgradeInfo;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@JvmName(name = "H5ShowDialogHelper")
 /* loaded from: classes7.dex */
-public class nt4 {
+public final class nt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public b b;
-    public NetMessageListener c;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z, fu4 fu4Var);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nt4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(nt4 nt4Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nt4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nt4Var;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.a = false;
-                if (responsedMessage != null && responsedMessage.getError() == 0) {
-                    if (!(responsedMessage instanceof GetTokenHttpResponsedMessage)) {
-                        return;
+    public static final TBAlertConfig.OperateBtnStyle a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            switch (str.hashCode()) {
+                case -817598092:
+                    if (str.equals("secondary")) {
+                        return TBAlertConfig.OperateBtnStyle.SECONDARY;
                     }
-                    this.a.d(true, ((GetTokenHttpResponsedMessage) responsedMessage).getData());
-                    return;
+                    break;
+                case 3343801:
+                    if (str.equals("main")) {
+                        return TBAlertConfig.OperateBtnStyle.MAIN;
+                    }
+                    break;
+                case 92899676:
+                    if (str.equals("alert")) {
+                        return TBAlertConfig.OperateBtnStyle.ALERT;
+                    }
+                    break;
+                case 97618667:
+                    if (str.equals(UpgradeInfo.KEY_INT_FORCE_UPGRADE)) {
+                        return TBAlertConfig.OperateBtnStyle.FORCE;
+                    }
+                    break;
+            }
+            return TBAlertConfig.OperateBtnStyle.SECONDARY;
+        }
+        return (TBAlertConfig.OperateBtnStyle) invokeL.objValue;
+    }
+
+    public static final TBAlertConfig.OperateBtnConfig b(final String str, String str2, String str3, final String str4, final WebView webView) {
+        InterceptResult invokeLLLLL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, webView)) == null) {
+            boolean z3 = true;
+            if (str.length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                if (str2.length() == 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
                 }
-                this.a.d(false, null);
+                if (!z2) {
+                    if (str3.length() != 0) {
+                        z3 = false;
+                    }
+                    if (!z3) {
+                        return new TBAlertConfig.OperateBtnConfig(str2, a(str3), new View.OnClickListener() { // from class: com.baidu.tieba.kt4
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            @Override // android.view.View.OnClickListener
+                            public final void onClick(View view2) {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                                    nt4.c(str4, str, webView, view2);
+                                }
+                            }
+                        });
+                    }
+                    return null;
+                }
+                return null;
             }
+            return null;
         }
+        return (TBAlertConfig.OperateBtnConfig) invokeLLLLL.objValue;
     }
 
-    public nt4() {
+    public static final void c(String str, String id, WebView webView, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, str, id, webView, view2) == null) {
+            Intrinsics.checkNotNullParameter(id, "$id");
+            Intrinsics.checkNotNullParameter(webView, "$webView");
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("resultCode", 1);
+            if (str == null) {
+                str = "";
             }
-        }
-        this.a = false;
-        this.c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
-        f();
-        e();
-    }
-
-    public final void d(boolean z, fu4 fu4Var) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, fu4Var) == null) && (bVar = this.b) != null) {
-            bVar.a(z, fu4Var);
+            hashMap.put("dialogId", str);
+            hashMap.put("btnId", id);
+            hh6.a().d(webView, "showDialog", hashMap);
         }
     }
 
-    public void c(String str) {
+    public static final boolean d(Activity activity, final WebView webView, int i, String str, final String str2) {
+        InterceptResult invokeCommon;
+        JSONObject a;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{activity, webView, Integer.valueOf(i), str, str2})) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            if (i == 1 && (a = fl6.a.a(str)) != null) {
+                String optString = a.optString("title");
+                String optString2 = a.optString("desc");
+                JSONArray optJSONArray = a.optJSONArray("btn");
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        Object opt = optJSONArray.opt(i2);
+                        if (opt instanceof JSONObject) {
+                            JSONObject jSONObject = (JSONObject) opt;
+                            String id = jSONObject.optString("id");
+                            String text = jSONObject.optString("text");
+                            String style = jSONObject.optString("style");
+                            Intrinsics.checkNotNullExpressionValue(id, "id");
+                            Intrinsics.checkNotNullExpressionValue(text, "text");
+                            Intrinsics.checkNotNullExpressionValue(style, "style");
+                            TBAlertConfig.OperateBtnConfig b = b(id, text, style, str2, webView);
+                            if (b != null) {
+                                arrayList.add(b);
+                            }
+                        }
+                    }
+                }
+                int size = arrayList.size();
+                if (size < 1) {
+                    return false;
+                }
+                if (size > 3) {
+                    size = 3;
+                }
+                TBAlertConfig.OperateBtnConfig[] operateBtnConfigArr = new TBAlertConfig.OperateBtnConfig[size];
+                for (int i3 = 0; i3 < size; i3++) {
+                    operateBtnConfigArr[i3] = (TBAlertConfig.OperateBtnConfig) arrayList.get(i3);
+                }
+                new TBAlertBuilder(activity).setTitleStr(optString).setDescStr(optString2).setCancelable(true).setAutoClose().setOperateBtn((TBAlertConfig.OperateBtnConfig[]) Arrays.copyOf(operateBtnConfigArr, size)).show().setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.jt4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.content.DialogInterface.OnCancelListener
+                    public final void onCancel(DialogInterface dialogInterface) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            nt4.e(str2, webView, dialogInterface);
+                        }
+                    }
+                });
+                return true;
+            }
+            return false;
         }
-        this.a = true;
-        GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
-        getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
-        getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
-        MessageManager.getInstance().sendMessage(getTokenRequestMessage);
+        return invokeCommon.booleanValue;
     }
 
-    public final void e() {
+    public static final void e(String str, WebView webView, DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            hja.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
-        }
-    }
-
-    public void g(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, webView, dialogInterface) == null) {
+            Intrinsics.checkNotNullParameter(webView, "$webView");
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("resultCode", 2);
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put("dialogId", str);
+            hh6.a().d(webView, "showDialog", hashMap);
         }
     }
 }

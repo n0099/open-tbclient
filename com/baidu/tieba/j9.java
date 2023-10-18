@@ -1,42 +1,68 @@
 package com.baidu.tieba;
 
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Paint;
-import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.TbadkCore;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j9 {
+public class j9 extends n4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2) {
+    @Override // com.baidu.tieba.n4
+    public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, view2) != null) || view2 == null) {
-            return;
-        }
-        try {
-            view2.setLayerType(2, null);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
         }
     }
 
-    public static void b(View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j9(Context context, String str) {
+        super(context, str, 1);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, view2) != null) || view2 == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        try {
-            Paint paint = new Paint();
-            ColorMatrix colorMatrix = new ColorMatrix();
-            colorMatrix.setSaturation(0.0f);
-            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-            view2.setLayerType(2, paint);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
+    }
+
+    public void a(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS cache_meta_info(nameSpace VARCHAR(128) PRIMARY KEY, tableName varchar(64), maxSize int(11) default 0, cacheType varchar(32) not null, cacheVersion int(11) default 0, lastActiveTime bigint(21) default 0)");
+        }
+    }
+
+    @Override // com.baidu.tieba.n4
+    public void createAllTables(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            a(sQLiteDatabase);
+            ((TbadkCore) ServiceManager.getService(TbadkCore.SERVICE_REFERENCE)).createAllTablesMessage(sQLiteDatabase);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.tieba.l4
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) && i < 1) {
+            a(sQLiteDatabase);
         }
     }
 }

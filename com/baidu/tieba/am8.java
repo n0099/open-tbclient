@@ -1,21 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.Bigvip.BigvipResIdl;
-import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes5.dex */
-public class am8 implements CustomMessageTask.CustomRunnable<Object> {
+public class am8 implements vl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RelativeLayout a;
+    public TextView b;
+    public ImageView c;
+    public RecyclerView d;
+    public am8 e;
 
     public am8() {
         Interceptable interceptable = $ic;
@@ -31,32 +37,70 @@ public class am8 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    @Override // com.baidu.tieba.vl8
+    public RelativeLayout a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e.a;
+        }
+        return (RelativeLayout) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vl8
+    public RecyclerView c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e.d;
+        }
+        return (RecyclerView) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vl8
+    public ImageView d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e.c;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vl8
+    public TextView e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e.b;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public static am8 f(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            UserInfoBigVip userInfoBigVip = null;
-            if (customMessage != null && (customMessage.getData() instanceof Long)) {
-                long longValue = ((Long) customMessage.getData()).longValue();
-                y45.k();
-                oe<byte[]> i = y45.i("tb.im_recommend_detail");
-                if (i == null) {
-                    return new CustomResponsedMessage<>(2001306, null);
-                }
-                byte[] bArr = i.get(longValue + "");
-                if (bArr == null) {
-                    return new CustomResponsedMessage<>(2001306, null);
-                }
-                try {
-                    userInfoBigVip = ((BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class)).data.user_info;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-                return new CustomResponsedMessage<>(2001306, userInfoBigVip);
-            }
-            return new CustomResponsedMessage<>(2001306, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            am8 am8Var = new am8();
+            am8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09180e);
+            am8Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09180d);
+            am8Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091814);
+            am8Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091826);
+            am8Var.e = am8Var;
+            return am8Var;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (am8) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vl8
+    public void b(int i, @NonNull mm8 mm8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, mm8Var) == null) {
+            if (!mm8Var.e()) {
+                EMManager.from(this.e.b).setTextSize(R.dimen.T_X12).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
+            }
+            EMManager.from(this.e.d).setBackGroundColor(R.color.CAM_X0201);
+            EMManager.from(this.e.a).setBackGroundColor(R.color.CAM_X0201);
+        }
     }
 }

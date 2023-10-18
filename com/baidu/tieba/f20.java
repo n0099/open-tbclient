@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.abtest.AbTestManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.tieba.o10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.IOException;
+import java.net.URISyntaxException;
 /* loaded from: classes5.dex */
-public class f20 {
+public class f20 implements o10 {
     public static /* synthetic */ Interceptable $ic;
-    public static f20 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public u8 a;
 
     public f20() {
         Interceptable interceptable = $ic;
@@ -25,32 +25,28 @@ public class f20 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = u8.n(AppRuntime.getAppContext());
     }
 
-    public static f20 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.o10
+    public Response a(o10.a aVar) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (AbTestManager.class) {
-                    if (b == null) {
-                        b = new f20();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            Request request = aVar.request();
+            try {
+                return aVar.a(request);
+            } catch (RuntimeException e) {
+                if (e.getCause() != null && (e.getCause() instanceof URISyntaxException)) {
+                    throw new IOException(e);
                 }
+                if ((e instanceof IllegalStateException) && e.getMessage().contains("Unexpected readData call. Buffer is null")) {
+                    throw new IOException(e);
+                }
+                throw new RuntimeException(e.getMessage() + " request url == " + request.url(), e);
             }
-            return b;
         }
-        return (f20) invokeV.objValue;
-    }
-
-    public void b(List<c9> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) {
-            this.a.G(list, z);
-        }
+        return (Response) invokeL.objValue;
     }
 }

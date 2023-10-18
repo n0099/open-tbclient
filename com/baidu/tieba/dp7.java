@@ -1,153 +1,172 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.safe.UiUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.FrsSpriteNewUserGuide;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
-public class dp7 extends fp7 {
+public final class dp7 implements e15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LabelDataList c;
-    public Context d;
-    public int e;
-    public final int f;
 
-    @Override // com.baidu.tieba.fp7
-    public long e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    public dp7(Context context) {
+    public dp7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = 0;
-        this.d = context;
-        this.f = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070258);
     }
 
-    @Override // com.baidu.tieba.fp7
-    public int b() {
-        InterceptResult invokeV;
+    public static final void d(String resultBgUrl) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ListUtils.getCount(this.c);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.fp7
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.fp7
-    public Object c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return ListUtils.getItem(this.c, i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.fp7
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.e = i;
-            this.c.setSelectedIndex(i);
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(65537, null, resultBgUrl) == null) {
+            Intrinsics.checkNotNullParameter(resultBgUrl, "$resultBgUrl");
+            BdResourceLoader.getInstance().loadResource(resultBgUrl, 59, null, null);
         }
     }
 
-    public void n(LabelDataList labelDataList) {
+    public final void c(ThemeColorInfo themeColorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, labelDataList) == null) {
-            this.c = labelDataList;
-            notifyDataSetChanged();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeColorInfo) != null) || themeColorInfo == null) {
+            return;
+        }
+        final String g = boa.g(themeColorInfo);
+        if (!StringUtils.isNotNull(g)) {
+            UiUtils.post(new Runnable() { // from class: com.baidu.tieba.jo7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        dp7.d(g);
+                    }
+                }
+            });
         }
     }
 
-    @Override // com.baidu.tieba.fp7
-    public View g(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        TextView m;
+    @Override // com.baidu.tieba.e15
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap(strategyData);
+            hashMap.put("dialogName", "frsNewUserGuide");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.e15
+    public boolean b(Map<String, Object> map) {
+        InterceptResult invokeL;
         boolean z;
+        boolean z2;
+        FrsViewData s1;
+        FrsSpriteNewUserGuide frsSpriteNewUserGuide;
+        long j;
+        FrsViewData s12;
+        ForumData forum;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            if (view2 instanceof TextView) {
-                m = (TextView) view2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!(currentActivity instanceof FrsActivity)) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "新用户弹窗策略校验失败：当前Activity非FrsActivity");
+                return false;
+            }
+            ThemeColorInfo themeColorInfo = null;
+            if (!mi5.g(false, 1, null)) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "新用户弹窗策略校验失败：动画资源未就绪");
+                return false;
+            } else if (!pj5.a.a().b()) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "新用户弹窗策略校验失败：非新用户");
+                return false;
             } else {
-                m = m();
+                FrsActivity frsActivity = (FrsActivity) currentActivity;
+                pk7 w1 = frsActivity.w1();
+                if (w1 != null && w1.p0()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "新用户弹窗策略校验失败：用户已关注本吧");
+                    return false;
+                }
+                pk7 w12 = frsActivity.w1();
+                if (w12 != null && w12.U()) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (z2) {
+                    YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "新用户弹窗策略校验失败：底部直播动画弹窗存在互斥");
+                    return false;
+                }
+                FrsFragment r1 = frsActivity.r1();
+                if (r1 == null || (s1 = r1.s1()) == null || (frsSpriteNewUserGuide = s1.frsSpriteNewUserGuide) == null) {
+                    return false;
+                }
+                if (!frsSpriteNewUserGuide.isValid()) {
+                    YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "新用户弹窗策略校验失败：该吧未下发新用户引导配置");
+                    return false;
+                }
+                FrsFragment r12 = frsActivity.r1();
+                if (r12 != null && (s12 = r12.s1()) != null && (forum = s12.getForum()) != null) {
+                    forum.getId();
+                }
+                long millis = TimeUnit.SECONDS.toMillis(frsSpriteNewUserGuide.bubblePeriod);
+                FrsFragment r13 = frsActivity.r1();
+                if (r13 != null) {
+                    j = r13.j4();
+                } else {
+                    j = -1;
+                }
+                if (j > 0 && System.currentTimeMillis() - j < millis) {
+                    return false;
+                }
+                FrsSpriteNewUserGuide.BubbleText bubbleText = frsSpriteNewUserGuide.bubbleText;
+                if (bubbleText != null) {
+                    themeColorInfo = bubbleText.bgUrlTheme;
+                }
+                c(themeColorInfo);
+                return true;
             }
-            uo7 uo7Var = (uo7) ListUtils.getItem(this.c, i);
-            if (uo7Var != null) {
-                m.setText(uo7Var.b);
-            }
-            if (this.e == i) {
-                z = true;
-            } else {
-                z = false;
-            }
-            l(m, z);
-            return m;
         }
-        return (View) invokeILL.objValue;
-    }
-
-    public void l(TextView textView, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, textView, z) == null) {
-            if (z) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
-                SkinManager.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_s);
-                return;
-            }
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
-            SkinManager.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_n);
-        }
-    }
-
-    public final TextView m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            TextView textView = new TextView(this.d);
-            textView.setTextSize(0, this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07045d));
-            textView.setGravity(17);
-            textView.setHeight(d());
-            return textView;
-        }
-        return (TextView) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

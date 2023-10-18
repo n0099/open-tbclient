@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat$foldCloseView$2;
-import com.baidu.tieba.h07;
-import com.baidu.tieba.nya;
-import com.baidu.tieba.oya;
-import com.baidu.tieba.pya;
+import com.baidu.tieba.fta;
+import com.baidu.tieba.gta;
+import com.baidu.tieba.hta;
+import com.baidu.tieba.qu6;
 import com.baidu.tieba.view.foldclose.FoldCloseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +50,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
     }
 
     /* loaded from: classes5.dex */
-    public static final class a implements oya {
+    public static final class a implements gta {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCloseEdgeFloat a;
@@ -73,7 +73,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
             this.a = foldCloseEdgeFloat;
         }
 
-        @Override // com.baidu.tieba.oya
+        @Override // com.baidu.tieba.gta
         public void a(int i, int i2) {
             EdgeFloat c;
             EdgeFloat c2;
@@ -93,7 +93,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements pya {
+    public static final class b implements hta {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCloseEdgeFloat a;
@@ -116,9 +116,9 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
             this.a = foldCloseEdgeFloat;
         }
 
-        @Override // com.baidu.tieba.pya
+        @Override // com.baidu.tieba.hta
         public void a(boolean z) {
-            pya f;
+            hta f;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (f = this.a.f()) != null) {
                 f.a(z);
@@ -127,7 +127,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
     }
 
     /* renamed from: invoke$lambda-2$lambda-0  reason: not valid java name */
-    public static final void m132invoke$lambda2$lambda0(FoldCloseView this_apply, FoldCloseEdgeFloat this$0, View view2) {
+    public static final void m133invoke$lambda2$lambda0(FoldCloseView this_apply, FoldCloseEdgeFloat this$0, View view2) {
         EdgeFloat c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, this_apply, this$0, view2) == null) {
@@ -145,7 +145,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
     }
 
     /* renamed from: invoke$lambda-2$lambda-1  reason: not valid java name */
-    public static final void m133invoke$lambda2$lambda1(FoldCloseEdgeFloat this$0, View view2) {
+    public static final void m134invoke$lambda2$lambda1(FoldCloseEdgeFloat this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -167,12 +167,12 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
             Intrinsics.checkNotNullExpressionValue(context, "getInst().context");
             final FoldCloseView foldCloseView = new FoldCloseView(context);
             final FoldCloseEdgeFloat foldCloseEdgeFloat = this.this$0;
-            nya nyaVar = new nya();
-            nyaVar.e(h07.a.b());
-            nyaVar.g(h07.a.d());
-            nyaVar.f(h07.a.c());
-            foldCloseView.setData(nyaVar);
-            foldCloseView.setOnCloseClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.g07
+            fta ftaVar = new fta();
+            ftaVar.e(qu6.a.b());
+            ftaVar.g(qu6.a.d());
+            ftaVar.f(qu6.a.c());
+            foldCloseView.setData(ftaVar);
+            foldCloseView.setOnCloseClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pu6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -180,12 +180,12 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        FoldCloseEdgeFloat$foldCloseView$2.m132invoke$lambda2$lambda0(FoldCloseView.this, foldCloseEdgeFloat, view2);
+                        FoldCloseEdgeFloat$foldCloseView$2.m133invoke$lambda2$lambda0(FoldCloseView.this, foldCloseEdgeFloat, view2);
                     }
                 }
             });
             foldCloseView.setOnFoldCloseWidthChangeListener(new a(foldCloseEdgeFloat));
-            foldCloseView.setOnOtherClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f07
+            foldCloseView.setOnOtherClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ou6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -193,7 +193,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        FoldCloseEdgeFloat$foldCloseView$2.m133invoke$lambda2$lambda1(FoldCloseEdgeFloat.this, view2);
+                        FoldCloseEdgeFloat$foldCloseView$2.m134invoke$lambda2$lambda1(FoldCloseEdgeFloat.this, view2);
                     }
                 }
             });

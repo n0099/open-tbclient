@@ -1,18 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArraySet;
-import com.baidu.tieba.cu2;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hk2 implements fk2 {
+public class hk2 extends jj2<zl2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String[] a;
+
+    @Override // com.baidu.tieba.jj2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onFocus" : (String) invokeV.objValue;
+    }
 
     public hk2() {
         Interceptable interceptable = $ic;
@@ -24,27 +32,23 @@ public class hk2 implements fk2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new String[]{cu2.i(), cu2.l(), cu2.r(), cu2.b.f(), z82.f(), z82.d(), k82.c(), cu2.f.f(), cu2.f.d(), yo2.d};
     }
 
-    @Override // com.baidu.tieba.fk2
-    public ArraySet<String> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jj2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull zl2 zl2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String K = kr4.K(str);
-                if (!TextUtils.isEmpty(K)) {
-                    arraySet.add(K);
-                }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, zl2Var) == null) {
+            String str = command.what;
+            d(zl2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                zl2Var.s(jSONObject.optInt("focusWidth"), jSONObject.optInt("focusHeight"), jSONObject.optInt("focusX"), jSONObject.optInt("focusY"));
             }
-            g82.k("SwanSandboxFileCollector", "recovery renameAllFiles:" + arraySet.toString());
-            return arraySet;
         }
-        return (ArraySet) invokeV.objValue;
     }
 }

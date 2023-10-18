@@ -1,36 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mvc.data.IResponseData;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class gv8 extends ev8 implements pr5, IResponseData {
+public final class gv8 implements w95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.qr5
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pr5
-    public byte[] toCacheByteArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
-    }
 
     public gv8() {
         Interceptable interceptable = $ic;
@@ -46,19 +30,22 @@ public class gv8 extends ev8 implements pr5, IResponseData {
         }
     }
 
-    @Override // com.baidu.tieba.pr5
-    public boolean initByByteArray(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.w95
+    public void parseJson(JSONObject json) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
             try {
-                initByProtobuf((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
-                return true;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
+                JSONArray jSONArray = new JSONObject(json.optString("funny_sprite_config")).getJSONArray("funny_sprite_waiting_content");
+                hv8.a().clear();
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    hv8.a().add(jSONArray.getString(i));
+                }
+            } catch (Exception e) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.e("sendSpriteMsg", "情感词数据解析失败" + e.getMessage());
             }
         }
-        return invokeL.booleanValue;
     }
 }

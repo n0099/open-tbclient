@@ -1,11 +1,5 @@
 package com.baidu.tieba;
-
-import java.net.MalformedURLException;
 /* loaded from: classes7.dex */
 public interface ns1 {
-    String a();
-
-    boolean b();
-
-    String c(String str) throws MalformedURLException;
+    void onScrollChanged(int i, int i2, int i3, int i4);
 }

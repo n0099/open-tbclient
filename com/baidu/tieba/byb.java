@@ -1,43 +1,51 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public final class byb<TResult> implements czb<TResult> {
+public abstract class byb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dzb<TResult> a;
-    public Executor b;
-    public final Object c;
+    public String a;
 
-    public byb(Executor executor, dzb<TResult> dzbVar) {
+    public abstract void f(Bundle bundle);
+
+    public abstract boolean g(Bundle bundle);
+
+    public abstract String h(Bundle bundle);
+
+    public abstract void i(String str);
+
+    public abstract boolean j(String str);
+
+    public abstract String k(String str);
+
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor, dzbVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
-        this.c = new Object();
-        this.a = dzbVar;
-        this.b = executor;
     }
 
-    @Override // com.baidu.tieba.czb
-    public final void a(oyb<TResult> oybVar) {
+    public final cyb<String> m(String str) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, oybVar) == null) {
-            this.b.execute(new zxb(this, oybVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                if (str.length() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    return ayb.f.a().j(this.a, str);
+                }
+            }
+            return new cyb<>(false, "sendData2MainProcessForStr null");
         }
+        return (cyb) invokeL.objValue;
     }
 }

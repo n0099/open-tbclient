@@ -1,47 +1,91 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class i6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
-    public i6a() {
+    public static boolean a(@NonNull String str, @NonNull ShareItem shareItem) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, shareItem)) == null) {
+            Boolean checkOutsideForbidShare = shareItem.checkOutsideForbidShare(str);
+            if (checkOutsideForbidShare.booleanValue()) {
+                b(shareItem);
+            }
+            return checkOutsideForbidShare.booleanValue();
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean d(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
+            try {
+                if (!(context instanceof Activity) && intent != null) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void b(@NonNull ShareItem shareItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, shareItem) == null) {
+            String forbidShareTplText = shareItem.getForbidShareTplText();
+            String forbidShareToast = shareItem.getForbidShareToast();
+            String shareToken = shareItem.getShareToken();
+            if (!TextUtils.isEmpty(shareToken) && !TextUtils.isEmpty(forbidShareTplText)) {
+                if (forbidShareTplText.contains("{{token}}")) {
+                    forbidShareTplText = forbidShareTplText.replace("{{token}}", shareToken);
+                }
+                UtilHelper.copyToClipBoard(forbidShareTplText);
+                if (!TextUtils.isEmpty(forbidShareToast)) {
+                    BdToast.makeText(TbadkApplication.getInst().getContext(), forbidShareToast).show();
+                }
             }
         }
     }
 
-    @Nullable
-    public static i6a a(@Nullable JSONObject jSONObject) {
+    public static synchronized String c(Context context) {
         InterceptResult invokeL;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (i6a.class) {
+                try {
+                    string = context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
-            i6a i6aVar = new i6a();
-            i6aVar.a = jSONObject.optString("text");
-            i6aVar.b = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-            return i6aVar;
+            return string;
         }
-        return (i6a) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

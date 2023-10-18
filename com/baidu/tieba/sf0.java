@@ -1,8 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.connect.NetWorkUtils;
+import com.baidu.nadcore.download.basic.AdAppStateManager;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,22 +16,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes8.dex */
-public class sf0 {
+public class sf0 implements ah0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public File g;
-    public File h;
+    public final eg0 a;
+    public int b;
 
-    public sf0() {
+    public sf0(@NonNull eg0 eg0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eg0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,192 +37,153 @@ public class sf0 {
                 return;
             }
         }
-        this.a = "5.1_v2";
-        this.g = null;
+        this.b = 0;
+        this.a = eg0Var;
     }
 
-    public File c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ah0
+    public void a(int i, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return k();
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) != null) || j < 0 || j2 <= 0 || j > j2) {
+            return;
         }
-        return (File) invokeV.objValue;
+        this.a.i = (float) wx0.a(j, j2);
+        this.a.c = AdDownloadStatus.DOWNLOADING;
+        rf0.c().g(AdDownloadAction.PROGRESS_UPDATE, this.a);
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ah0
+    public void b(long j, File file) {
+        AdDownloadAction adDownloadAction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a + "-" + this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public File k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.g == null && !TextUtils.isEmpty(this.a)) {
-                this.g = new File(b(), e());
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, file) == null) {
+            if (this.a.c == AdDownloadStatus.PAUSE) {
+                adDownloadAction = AdDownloadAction.RESUME;
+            } else {
+                adDownloadAction = AdDownloadAction.START;
             }
-            return this.g;
+            this.a.l = System.currentTimeMillis();
+            eg0 eg0Var = this.a;
+            eg0Var.c = AdDownloadStatus.DOWNLOADING;
+            eg0Var.h = file;
+            fg0 fg0Var = eg0Var.q;
+            fg0Var.e = j;
+            fg0Var.v = true;
+            rf0.c().g(adDownloadAction, this.a);
+            vf0.b().g(this.a);
+            vf0.b().f(this.a);
         }
-        return (File) invokeV.objValue;
     }
 
-    public static sf0 f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ah0
+    public void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            sf0 sf0Var = new sf0();
-            sf0Var.d = "source";
-            sf0Var.a = "5.1_v2";
-            sf0Var.f = "resource_capture";
-            String a = sf0Var.a("resource_capture");
-            sf0Var.b = a;
-            sf0Var.c = vf0.b(a);
-            sf0Var.g = sf0Var.k();
-            sf0Var.h = sf0Var.d();
-            return sf0Var;
-        }
-        return (sf0) invokeV.objValue;
-    }
-
-    public static sf0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            sf0 sf0Var = new sf0();
-            sf0Var.d = "source";
-            sf0Var.a = "5.1_v2";
-            sf0Var.f = "resource_live";
-            String a = sf0Var.a("resource_live");
-            sf0Var.b = a;
-            sf0Var.c = vf0.b(a);
-            sf0Var.g = sf0Var.k();
-            sf0Var.h = sf0Var.d();
-            return sf0Var;
-        }
-        return (sf0) invokeV.objValue;
-    }
-
-    public static sf0 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            sf0 sf0Var = new sf0();
-            sf0Var.d = "so";
-            sf0Var.e = "so1";
-            sf0Var.a = "5.1_v2";
-            String j = sf0Var.j("so1");
-            sf0Var.b = j;
-            sf0Var.c = vf0.b(j);
-            sf0Var.g = sf0Var.k();
-            if (if0.m()) {
-                lg0.a("DuAr_", "so1 local file path = " + sf0Var.g.getAbsolutePath());
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c = AdDownloadStatus.PAUSE;
+            rf0.c().g(AdDownloadAction.PAUSE, this.a);
+            if (this.a.q.w) {
+                ng0.f().i(this.a, "notify_type_pause");
             }
-            sf0Var.h = sf0Var.d();
-            return sf0Var;
+            vf0.b().f(this.a);
         }
-        return (sf0) invokeV.objValue;
     }
 
-    public static sf0 i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ah0
+    public void d(@Nullable mg0 mg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            sf0 sf0Var = new sf0();
-            sf0Var.d = "so";
-            sf0Var.e = "so2";
-            sf0Var.a = "5.1_v2";
-            String j = sf0Var.j("so2");
-            sf0Var.b = j;
-            sf0Var.c = vf0.b(j);
-            sf0Var.g = sf0Var.k();
-            if (if0.m()) {
-                lg0.a("DuAr_", "So2 local file path = " + sf0Var.g.getAbsolutePath());
-            }
-            sf0Var.h = sf0Var.d();
-            return sf0Var;
-        }
-        return (sf0) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            boolean a = mg0.a(if0.getContext());
-            if (TextUtils.equals(this.d, "so")) {
-                if (TextUtils.equals(this.e, "so2")) {
-                    return tf0.f().getAbsolutePath();
-                }
-                return tf0.b(a).getAbsolutePath();
-            }
-            return tf0.d().g().getAbsolutePath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public File d() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.h == null) {
-                File c = c();
-                if (c != null) {
-                    str = c.getAbsolutePath();
+        if (interceptable == null || interceptable.invokeL(1048579, this, mg0Var) == null) {
+            if (e(mg0Var)) {
+                eg0 eg0Var = this.a;
+                if (eg0Var.c == AdDownloadStatus.PAUSE) {
+                    rf0.c().m(this.a, this);
                 } else {
-                    str = null;
+                    eg0Var.i = 0.0f;
+                    eg0Var.j = 0.0f;
+                    rf0.c().o(this.a, this);
                 }
-                if (str == null) {
-                    return null;
+                this.b++;
+            } else {
+                eg0 eg0Var2 = this.a;
+                eg0Var2.c = AdDownloadStatus.FAILED;
+                eg0Var2.i = 0.0f;
+                eg0Var2.j = 0.0f;
+                rf0.c().h(AdDownloadAction.FAIL, this.a, mg0Var);
+                if (this.a.q.w) {
+                    ng0.f().i(this.a, "notify_type_stop");
                 }
-                if (!str.endsWith(".zip")) {
-                    str = str + ".zip";
-                }
-                if (!str.endsWith(".loading")) {
-                    str = str + ".loading";
-                }
-                this.h = new File(str);
             }
-            return this.h;
+            vf0.b().f(this.a);
         }
-        return (File) invokeV.objValue;
     }
 
-    public final String a(String str) {
+    public final boolean e(@Nullable mg0 mg0Var) {
         InterceptResult invokeL;
-        String str2;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.equals("resource_live", str)) {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-source-live-";
-            } else {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-source-";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mg0Var)) == null) {
+            if (mg0Var == null || !mg0Var.c) {
+                return false;
             }
-            return str2 + "5.1_v2.zip";
+            if (qi0.b().a().a("nad_failed_retry_switch", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return false;
+            }
+            if (this.b >= qi0.b().a().a("nad_failed_retry_count", 0)) {
+                return false;
+            }
+            if (qi0.b().a().a("nad_failed_retry_without_wifi", 0) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z2 && !NetWorkUtils.c(pe0.b())) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final String j(String str) {
-        InterceptResult invokeL;
-        String str2;
+    @Override // com.baidu.tieba.ah0
+    public void onSuccess(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.equals("so2", str)) {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
-            } else {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-";
-                if (mg0.a(if0.getContext())) {
-                    str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-64bit-";
-                }
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a.m = System.currentTimeMillis();
+            if (TextUtils.isEmpty(this.a.d)) {
+                eg0 eg0Var = this.a;
+                eg0Var.d = oh0.b(eg0Var.h);
             }
-            return str2 + "5.1_v2.zip";
+            if (oh0.g(this.a.h)) {
+                PackageInfo packageArchiveInfo = pe0.b().getPackageManager().getPackageArchiveInfo(this.a.h.getAbsolutePath(), 128);
+                if (packageArchiveInfo != null) {
+                    eg0 eg0Var2 = this.a;
+                    eg0Var2.o = packageArchiveInfo.versionName;
+                    eg0Var2.n = packageArchiveInfo.versionCode;
+                }
+                AdAppStateManager.instance().register(this.a);
+                eg0 eg0Var3 = this.a;
+                eg0Var3.c = AdDownloadStatus.COMPLETED;
+                eg0Var3.i = 1.0f;
+                eg0Var3.j = 1.0f;
+                rf0.c().g(AdDownloadAction.COMPLETE, this.a);
+                gh0.f().k(this.a);
+                ng0.f().k(this.a);
+                vf0.b().f(this.a);
+                eg0 eg0Var4 = this.a;
+                oh0.e(eg0Var4.h, eg0Var4.a());
+                return;
+            }
+            eg0 eg0Var5 = this.a;
+            eg0Var5.c = AdDownloadStatus.FAILED;
+            eg0Var5.i = 0.0f;
+            eg0Var5.j = 0.0f;
+            rf0.c().g(AdDownloadAction.FAIL, this.a);
+            vf0.b().f(this.a);
         }
-        return (String) invokeL.objValue;
     }
 }

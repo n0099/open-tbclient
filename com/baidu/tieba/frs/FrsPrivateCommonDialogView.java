@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wl5;
-import com.baidu.tieba.wu6;
+import com.baidu.tieba.cg5;
+import com.baidu.tieba.fp6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.util.StringUtils;
 import com.bumptech.glide.Glide;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FrsPrivateCommonDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int j;
@@ -105,7 +105,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, privateForumPopInfoData, z)) == null) {
-            if (privateForumPopInfoData == null || StringUtils.isEmpty(privateForumPopInfoData.P()) || d(privateForumPopInfoData, z)) {
+            if (privateForumPopInfoData == null || StringUtils.isEmpty(privateForumPopInfoData.Q()) || d(privateForumPopInfoData, z)) {
                 return false;
             }
             return true;
@@ -136,7 +136,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, privateForumPopInfoData, z)) == null) {
-            String str = privateForumPopInfoData.P() + "_" + privateForumPopInfoData.O() + "_" + privateForumPopInfoData.M();
+            String str = privateForumPopInfoData.Q() + "_" + privateForumPopInfoData.P() + "_" + privateForumPopInfoData.N();
             if (z) {
                 return str + "_" + TbadkCoreApplication.getCurrentAccount();
             }
@@ -175,19 +175,19 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             if (!b(privateForumPopInfoData, z)) {
                 return false;
             }
-            a(g(privateForumPopInfoData.P()));
-            if (privateForumPopInfoData.P().equals("left_time")) {
+            a(g(privateForumPopInfoData.Q()));
+            if (privateForumPopInfoData.Q().equals("left_time")) {
                 this.f.setText(R.string.frs_private_create_button);
                 SkinManager.setImageResource(this.a, R.drawable.pic_frs_private_target_remind);
-            } else if (!privateForumPopInfoData.P().equals("clear_forum") && !privateForumPopInfoData.P().equals("task_fail")) {
-                if (privateForumPopInfoData.P().equals("task_complete")) {
+            } else if (!privateForumPopInfoData.Q().equals("clear_forum") && !privateForumPopInfoData.Q().equals("task_fail")) {
+                if (privateForumPopInfoData.Q().equals("task_complete")) {
                     this.f.setText(R.string.frs_private_create_button);
                     SkinManager.setImageResource(this.a, R.drawable.pic_frs_private_target_success);
                 } else {
                     this.f.setText(R.string.frs_private_create_button);
                     h();
                     SkinManager.setImageResource(this.c, R.drawable.pic_frs_private_create_success);
-                    Glide.with(this.a).load(wu6.b("pic_frs_private_create_success_bg.webp", "pic_frs_private_create_success_bg")).into(this.a);
+                    Glide.with(this.a).load(fp6.b("pic_frs_private_create_success_bg.webp", "pic_frs_private_create_success_bg")).into(this.a);
                 }
             } else {
                 this.f.setText(R.string.frs_private_fail_button);
@@ -196,7 +196,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.f.setTag(R.id.is_forum_owner_check, Boolean.valueOf(z));
             this.f.setTag(R.id.private_pop_info, privateForumPopInfoData);
             this.d.setText(privateForumPopInfoData.getTitle());
-            this.e.setText(privateForumPopInfoData.N());
+            this.e.setText(privateForumPopInfoData.O());
             return true;
         }
         return invokeLZ.booleanValue;
@@ -233,7 +233,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setVisibility(0);
             this.c.setVisibility(0);
-            String avater = wl5.d().e().getAvater();
+            String avater = cg5.d().e().getAvater();
             if (avater.startsWith("http")) {
                 this.b.startLoad(avater, 10, false);
             } else {

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FrsHeaderBannerView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -134,12 +134,12 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d036f, (ViewGroup) this, true);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090cc5);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090cba);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cc4);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cc6);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090cd1);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d036e, (ViewGroup) this, true);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090ce2);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090cd7);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ce1);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ce3);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090cee);
             this.a.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
@@ -147,7 +147,7 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
             this.a.setRadius(BdUtilHelper.getDimens(getContext(), R.dimen.tbds20));
             this.a.setConrers(15);
             this.a.setPlaceHolder(2);
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f083b));
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0841));
             this.g = getTbPageContext();
         }
     }

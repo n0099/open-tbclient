@@ -1,9 +1,9 @@
 package com.baidu.tieba.tracker;
 
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.nra;
-import com.baidu.tieba.ora;
-import com.baidu.tieba.xra;
+import com.baidu.tieba.dma;
+import com.baidu.tieba.ema;
+import com.baidu.tieba.pma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/tracker/core/TraceHolder;", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/tracker/interfaces/ITraceable;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class Monitor$get$monitor$2 extends Lambda implements Function1<xra, ora> {
+public final class Monitor$get$monitor$2 extends Lambda implements Function1<pma, ema> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $pid;
@@ -44,13 +44,13 @@ public final class Monitor$get$monitor$2 extends Lambda implements Function1<xra
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final ora invoke(xra it) {
+    public final ema invoke(pma it) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, it)) == null) {
             Intrinsics.checkNotNullParameter(it, "it");
-            return nra.a.b(this.$pid);
+            return dma.a.b(this.$pid);
         }
-        return (ora) invokeL.objValue;
+        return (ema) invokeL.objValue;
     }
 }

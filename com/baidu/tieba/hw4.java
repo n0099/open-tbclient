@@ -1,228 +1,76 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.iw4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes6.dex */
 public class hw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static iw4 a;
-    public static hw4 b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838116, "Lcom/baidu/tieba/hw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947838116, "Lcom/baidu/tieba/hw4;");
-                return;
-            }
-        }
-        new ArrayList(5);
-    }
+    public ArrayList<String> a;
+    public int b;
 
     public hw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    public final void b() {
+    public ArrayList<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public void c() {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b();
-            iw4 iw4Var = a;
-            if (iw4Var != null) {
-                iw4Var.d();
-                c = false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b();
-            iw4 iw4Var = a;
-            if (iw4Var != null) {
-                iw4Var.c();
-                c = false;
-            }
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b();
-            iw4 iw4Var = a;
-            if (iw4Var != null) {
-                iw4Var.h();
-            }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            b();
-            i();
-            m();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            b();
-            iw4 iw4Var = a;
-            if (iw4Var != null) {
-                iw4Var.m();
-                c = true;
-            }
-        }
-    }
-
-    public static hw4 a(BaseFragmentActivity baseFragmentActivity) {
+    public boolean c(ColorEgg colorEgg) {
         InterceptResult invokeL;
-        iw4 iw4Var;
+        List<String> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            if (b == null) {
-                synchronized (hw4.class) {
-                    if (b == null) {
-                        b = new hw4();
-                        a = iw4.a(baseFragmentActivity);
-                    }
-                }
-            } else {
-                iw4 iw4Var2 = a;
-                if (iw4Var2 != null) {
-                    iw4Var2.j(baseFragmentActivity.getPageContext());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorEgg)) == null) {
+            this.b = 0;
+            if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
+                return false;
+            }
+            for (String str : colorEgg.holiday_words) {
+                if (!StringUtils.isNull(str)) {
+                    this.a.add(str);
                 }
             }
-            if (c && (iw4Var = a) != null) {
-                iw4Var.d();
-                a.c();
-                c = false;
+            if (this.a.size() <= 0) {
+                return false;
             }
-            return b;
+            this.b = colorEgg.style_flag.intValue();
+            return true;
         }
-        return (hw4) invokeL.objValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                if (a != null) {
-                    if (b != null) {
-                        b.j();
-                    }
-                    a.e();
-                    a.i();
-                    a = null;
-                }
-                if (b != null) {
-                    b = null;
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
-
-    public void e(boolean z, boolean z2, boolean z3, iw4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
-            b();
-            if (z) {
-                c();
-            }
-            if (z2) {
-                d();
-            }
-            l(z3);
-            k(aVar);
-        }
-    }
-
-    public void f(iw4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            b();
-            iw4 iw4Var = a;
-            if (iw4Var != null) {
-                if (iw4Var.b()) {
-                    a.k(aVar);
-                }
-                a.f();
-            }
-        }
-    }
-
-    public void k(iw4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            b();
-            iw4 iw4Var = a;
-            if (iw4Var != null) {
-                iw4Var.k(aVar);
-            }
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            b();
-            iw4 iw4Var = a;
-            if (iw4Var != null) {
-                iw4Var.l(z);
-            }
-        }
-    }
-
-    public void g(int i, iw4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
-            b();
-            iw4 iw4Var = a;
-            if (iw4Var != null) {
-                if (iw4Var.b()) {
-                    a.k(aVar);
-                }
-                a.g(i);
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

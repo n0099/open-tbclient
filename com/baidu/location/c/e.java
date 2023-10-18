@@ -75,7 +75,7 @@ public class e {
     public b S;
 
     /* renamed from: T  reason: collision with root package name */
-    public ArrayList<ArrayList<Float>> f1046T;
+    public ArrayList<ArrayList<Float>> f1045T;
     public ArrayList<ArrayList<Float>> U;
     public ArrayList<ArrayList<Float>> V;
     public ArrayList<ArrayList<Float>> W;
@@ -274,9 +274,9 @@ public class e {
             arrayList3.addAll(this.a.Z);
             this.a.b(arrayList3);
             e eVar = this.a;
-            eVar.f1046T = eVar.a(true, false, false, false, true, -1.0f);
+            eVar.f1045T = eVar.a(true, false, false, false, true, -1.0f);
             e eVar2 = this.a;
-            e.b = eVar2.a(eVar2.f1046T);
+            e.b = eVar2.a(eVar2.f1045T);
             e eVar3 = this.a;
             eVar3.U = eVar3.a(true, true, true, true, true, -1.0f);
             e eVar4 = this.a;
@@ -416,8 +416,8 @@ public class e {
                     arrayList3.addAll(this.a.Y);
                     arrayList3.addAll(this.a.Z);
                     this.a.b(arrayList3);
-                    this.a.f1046T = this.a.a(true, false, false, false, true, -1.0f);
-                    e.b = this.a.a(this.a.f1046T);
+                    this.a.f1045T = this.a.a(true, false, false, false, true, -1.0f);
+                    e.b = this.a.a(this.a.f1045T);
                     this.a.U = this.a.a(true, true, true, true, true, -1.0f);
                     this.a.V = this.a.a(true, true, true, true, false, -1.0f);
                     e.c = this.a.a(this.a.V);
@@ -751,7 +751,7 @@ public class e {
         this.P = 0L;
         this.R = null;
         this.S = null;
-        this.f1046T = new ArrayList<>();
+        this.f1045T = new ArrayList<>();
         this.U = new ArrayList<>();
         this.V = new ArrayList<>();
         this.W = new ArrayList<>();

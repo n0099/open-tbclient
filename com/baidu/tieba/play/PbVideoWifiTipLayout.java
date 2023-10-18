@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.internal.cj;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -193,7 +194,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
                 this.d.setVisibility(8);
             }
             if (i2 > 0) {
-                this.b.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
+                this.b.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat(cj.d).format(i2 / 1048576.0f)));
             } else {
                 this.b.setVisibility(8);
                 this.d.setVisibility(8);

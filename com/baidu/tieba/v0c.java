@@ -1,95 +1,199 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.yy.transvod.player.common.AVStream;
+import com.yy.transvod.player.common.AVframe;
+import com.yy.transvod.player.common.AlphaChannelData;
+import com.yy.transvod.player.common.AudioSendStamp;
+import com.yy.transvod.player.common.MixAudioExtraInfo;
+import com.yy.transvod.player.common.MixVideoExtraInfo;
+import com.yy.transvod.player.common.NetRequestStatusInfo;
+import com.yy.transvod.player.common.VideoExtraInfo;
+import com.yy.transvod.player.common.effectmp4.EffectFrame;
+import com.yy.transvod.player.common.effectmp4.EffectInfo;
+import com.yy.transvod.player.common.effectmp4.EffectObject;
+import com.yy.transvod.player.common.effectmp4.EffectSource;
+import com.yy.transvod.player.core.TransVodProxy;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import com.yy.transvod.player.mediacodec.NativeIttiam;
+import java.util.UUID;
 /* loaded from: classes8.dex */
-public final class v0c<TResult> implements k0c<TResult> {
+public class v0c {
     public static /* synthetic */ Interceptable $ic;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public n0c<TResult> a;
-    public Executor b;
-    public final Object c;
+    public TransVodProxy a;
+    public s0c b;
+    public Context c;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o0c a;
-        public final /* synthetic */ v0c b;
-
-        public a(v0c v0cVar, o0c o0cVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948188416, "Lcom/baidu/tieba/v0c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v0cVar, o0cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948188416, "Lcom/baidu/tieba/v0c;");
+                return;
+            }
+        }
+        wyb.b();
+        d = null;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return wyb.a();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.l();
+                    this.a = null;
                 }
             }
-            this.b = v0cVar;
-            this.a = o0cVar;
+            s0c s0cVar = this.b;
+            if (s0cVar != null) {
+                s0cVar.f();
+                this.b = null;
+            }
         }
+    }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.n0c */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onSuccess(this.a.e());
-                    }
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.v(true);
                 }
             }
         }
     }
 
-    public v0c(Executor executor, n0c<TResult> n0cVar) {
+    public v0c(Context context, xzb xzbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, n0cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, xzbVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
-        this.a = n0cVar;
-        this.b = executor;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        wyb.c(context);
+        c();
+        this.c = context;
+        String a = a(context);
+        TLog.h("TransVodManager", "generated uid " + a);
     }
 
-    @Override // com.baidu.tieba.k0c
-    public final void cancel() {
+    public static synchronized String a(Context context) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (v0c.class) {
+                if (d == null) {
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("transvod-uid-pref", 0);
+                    String string = sharedPreferences.getString("transvod-uid-pref", null);
+                    d = string;
+                    if (string == null) {
+                        d = UUID.randomUUID().toString();
+                        SharedPreferences.Editor edit = sharedPreferences.edit();
+                        edit.putString("transvod-uid-pref", d);
+                        edit.commit();
+                    }
+                }
+                str = d;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
+            if (!wyb.a()) {
+                TLog.h("TransVodManager", "init failed, library not load success");
+                return;
             }
+            Log.i("TransVodManager", "TLog.setLevel()");
+            TLog.i(4);
+            TransVodProxy.nativeClassInit();
+            AVframe.nativeClassInit();
+            AVStream.nativeClassInit();
+            NativeFfmpeg.nativeClassInit();
+            NativeIttiam.nativeClassInit();
+            VideoExtraInfo.nativeClassInit();
+            AlphaChannelData.nativeClassInit();
+            MixVideoExtraInfo.nativeClassInit();
+            MixAudioExtraInfo.nativeClassInit();
+            NetRequestStatusInfo.nativeClassInit();
+            AudioSendStamp.nativeClassInit();
+            EffectInfo.nativeClassInit();
+            EffectSource.nativeClassInit();
+            EffectObject.nativeClassInit();
+            EffectFrame.nativeClassInit();
         }
     }
 
-    @Override // com.baidu.tieba.k0c
-    public final void onComplete(o0c<TResult> o0cVar) {
+    public TransVodProxy d(int i, xzb xzbVar) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o0cVar) == null) && o0cVar.h() && !o0cVar.f()) {
-            this.b.execute(new a(this, o0cVar));
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, xzbVar)) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new TransVodProxy(null, i, xzbVar);
+                }
+            }
+            if (this.b == null) {
+                s0c s0cVar = new s0c(this.c, this);
+                this.b = s0cVar;
+                s0cVar.i();
+            }
+            return this.a;
+        }
+        return (TransVodProxy) invokeIL.objValue;
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.f(i);
+                }
+            }
         }
     }
 }

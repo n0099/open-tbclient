@@ -1,182 +1,240 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.oa1;
+import android.content.pm.Signature;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.lang.ref.WeakReference;
+import java.security.cert.Certificate;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 /* loaded from: classes5.dex */
-public final class ba1 extends aa1 {
+public class ba1 {
     public static /* synthetic */ Interceptable $ic;
+    public static Object a;
+    public static WeakReference<byte[]> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public Handler b;
-    public final ea1 c;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ba1 a;
-        public final /* synthetic */ oa1.b b;
-
-        public a(ba1 ba1Var, oa1.b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947638135, "Lcom/baidu/tieba/ba1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ba1Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ba1Var;
-            this.b = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.q(this.b.a());
-        }
-    }
-
-    public ba1(ea1 container) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {container};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947638135, "Lcom/baidu/tieba/ba1;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(container, "container");
-        this.c = container;
+        a = new Object();
     }
 
-    public final void o(oa1.b bVar) {
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0085, code lost:
+        r11 = com.baidu.tieba.ba1.a;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0087, code lost:
+        monitor-enter(r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0088, code lost:
+        com.baidu.tieba.ba1.b = r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x008a, code lost:
+        monitor-exit(r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x008b, code lost:
+        if (r4 == null) goto L90;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x008e, code lost:
+        if (r4.length <= 0) goto L90;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0090, code lost:
+        r11 = r4.length;
+        r1 = new android.content.pm.Signature[r4.length];
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x0094, code lost:
+        if (r6 >= r11) goto L85;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x0096, code lost:
+        r1[r6] = new android.content.pm.Signature(r4[r6].getEncoded());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x00a3, code lost:
+        r6 = r6 + 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x00a6, code lost:
+        r0.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x00aa, code lost:
+        r0.close();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Signature[] a(String str) {
+        InterceptResult invokeL;
+        JarFile jarFile;
+        byte[] bArr;
+        JarFile jarFile2;
+        Signature[] signatureArr;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && !this.a && bVar != null && bVar.d()) {
-            if (this.b == null) {
-                this.b = new Handler();
-            }
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.postDelayed(new a(this, bVar), (long) (bVar.b() * 1000));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.aa1
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.b();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.aa1
-    public void c() {
-        oa1.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            oa1.d l = this.c.l();
-            if (l != null) {
-                bVar = l.d();
-            } else {
-                bVar = null;
-            }
-            o(bVar);
-            super.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.aa1
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-            }
-            this.b = null;
-            this.a = false;
-            super.d();
-        }
-    }
-
-    @Override // com.baidu.tieba.aa1
-    public void e(Intent intent) {
-        oa1.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            oa1.d l = this.c.l();
-            if (l != null) {
-                bVar = l.d();
-            } else {
-                bVar = null;
-            }
-            o(bVar);
-            super.e(intent);
-        }
-    }
-
-    public final void p(oa1.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) && !this.a && bVar != null && bVar.e()) {
-            q(bVar.a());
-        }
-    }
-
-    public final void q(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || this.a || TextUtils.isEmpty(str)) {
-            return;
-        }
-        x31.b(str);
-        this.a = true;
-    }
-
-    @Override // com.baidu.tieba.aa1
-    public void g(AbsNadBrowserView webView, String str) {
-        oa1.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            AbsNadBrowserView m = this.c.m();
-            if (m != null && !m.w() && !this.a) {
-                oa1.d l = this.c.l();
-                if (l != null) {
-                    bVar = l.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            synchronized (a) {
+                WeakReference<byte[]> weakReference = b;
+                jarFile = null;
+                if (weakReference != null) {
+                    b = null;
+                    bArr = weakReference.get();
                 } else {
-                    bVar = null;
+                    bArr = null;
                 }
-                p(bVar);
+                if (bArr == null) {
+                    bArr = new byte[8192];
+                    weakReference = new WeakReference<>(bArr);
+                }
             }
-            super.g(webView, str);
+            try {
+                jarFile2 = new JarFile(str);
+                try {
+                    Enumeration<JarEntry> entries = jarFile2.entries();
+                    Certificate[] certificateArr = null;
+                    while (true) {
+                        int i = 0;
+                        if (!entries.hasMoreElements()) {
+                            break;
+                        }
+                        JarEntry nextElement = entries.nextElement();
+                        if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
+                            Certificate[] b2 = b(jarFile2, nextElement, bArr);
+                            if (b2 == null) {
+                                try {
+                                    jarFile2.close();
+                                } catch (IOException unused) {
+                                }
+                                return null;
+                            } else if (certificateArr == null) {
+                                certificateArr = b2;
+                            } else {
+                                for (int i2 = 0; i2 < certificateArr.length; i2++) {
+                                    int i3 = 0;
+                                    while (true) {
+                                        if (i3 < b2.length) {
+                                            if (certificateArr[i2] != null && certificateArr[i2].equals(b2[i3])) {
+                                                z = true;
+                                                break;
+                                            }
+                                            i3++;
+                                        } else {
+                                            z = false;
+                                            break;
+                                        }
+                                    }
+                                    if (!z || certificateArr.length != b2.length) {
+                                        try {
+                                            jarFile2.close();
+                                        } catch (IOException unused2) {
+                                        }
+                                        return null;
+                                    }
+                                }
+                                continue;
+                            }
+                        }
+                    }
+                } catch (Exception unused3) {
+                    if (jarFile2 != null) {
+                        try {
+                            jarFile2.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    jarFile = jarFile2;
+                    if (jarFile != null) {
+                        try {
+                            jarFile.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception unused6) {
+                jarFile2 = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (Signature[]) invokeL.objValue;
+        }
+        return signatureArr;
+        return null;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0031, code lost:
+        if (r1 == null) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0033, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0038, code lost:
+        if (r1 == null) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x003b, code lost:
+        return null;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Certificate[] b(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
+        InterceptResult invokeLLL;
+        BufferedInputStream bufferedInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jarFile, jarEntry, bArr)) == null) {
+            BufferedInputStream bufferedInputStream2 = null;
+            Certificate[] certificateArr = null;
+            try {
+                bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
+                while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
+                    try {
+                    } catch (IOException unused) {
+                    } catch (RuntimeException unused2) {
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedInputStream2 = bufferedInputStream;
+                        if (bufferedInputStream2 != null) {
+                            try {
+                                bufferedInputStream2.close();
+                            } catch (IOException unused3) {
+                            }
+                        }
+                        throw th;
+                    }
+                }
+                if (jarEntry != null) {
+                    certificateArr = jarEntry.getCertificates();
+                }
+                try {
+                    bufferedInputStream.close();
+                } catch (IOException unused4) {
+                }
+                return certificateArr;
+            } catch (IOException unused5) {
+                bufferedInputStream = null;
+            } catch (RuntimeException unused6) {
+                bufferedInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (Certificate[]) invokeLLL.objValue;
         }
     }
 }

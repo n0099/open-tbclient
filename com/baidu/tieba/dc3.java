@@ -1,193 +1,216 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.downloads.DownloadConstants;
+import com.baidu.tieba.mq2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class dc3 extends UnitedSchemeBaseDispatcher {
+public class dc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static volatile boolean b;
+    public static volatile boolean c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, dd3> a;
 
-    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
-    public String getDispatcherName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "swanAPI" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
-    public Class<? extends UnitedSchemeAbsDispatcher> getSubDispatcher(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return null;
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    public dc3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947699701, "Lcom/baidu/tieba/dc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947699701, "Lcom/baidu/tieba/dc3;");
                 return;
             }
         }
-        this.a = new HashMap();
-        a();
+        a = am1.a;
+        b = false;
+        c = false;
+        wo2.g0().getSwitch("swan_app_use_route_statistic", false);
+        d = false;
     }
 
-    public void a() {
-        List<dd3> c;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-            b(new xc3(this));
-            b(new q23(this));
-            b(new gd3(this));
-            b(new jc3(this));
-            b(new j23(this));
-            b(new sc3(this));
-            b(new cj3(this));
-            b(new dj3(this));
-            b(new wi3(this));
-            b(new xi3(this));
-            b(new ej3(this));
-            b(new fj3(this));
-            b(new zi3(this));
-            b(new aj3(this));
-            b(new ri3(this));
-            b(new si3(this));
-            b(new xf3(this));
-            b(new wf3(this));
-            b(new uf3(this));
-            b(new sf3(this));
-            b(new rf3(this));
-            b(new qf3(this));
-            b(new tf3(this));
-            b(new ag3(this));
-            b(new mc3(this));
-            b(new bd3(this));
-            b(new ci2(this));
-            b(new fd3(this));
-            b(new uc3(this));
-            b(new tc3(this));
-            b(new gl3(this));
-            b(new hl3(this));
-            b(new tk3(this));
-            b(new uk3(this));
-            b(new tz2(this));
-            b(new wc3(this));
-            b(new b03(this));
-            b(new v23(this));
-            b(new nc3(this));
-            b(new de3(this));
-            b(new ae3(this));
-            b(new l32(this));
-            b(new ad3(this));
-            b(new SwanAppDownloadAction(this));
-            b(new ed3(this));
-            b(new be3(this));
-            b(new yd3(this));
-            b(new xd3(this));
-            b(new pl3(this));
-            b(new ql3(this));
-            b(new cl3(this));
-            b(new al3(this));
-            b(new vk3(this));
-            b(new sl3(this));
-            b(new wk3(this));
-            b(new xk3(this));
-            b(new rl3(this));
-            b(new xy1(this));
-            b(new yf3(this));
-            b(new zr2(this));
-            b(new yy1(this));
-            b(new p83(this));
-            b(new n83(this));
-            b(new q83(this));
-            b(new o83(this));
-            ls1 d = ou2.d();
-            if (d != null && (c = d.c(this)) != null && !c.isEmpty()) {
-                for (dd3 dd3Var : c) {
-                    b(dd3Var);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "mIsStartByApi = " + c);
+            }
+            boolean z = c;
+            k(false);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "mIsStartFirstPage = " + b);
+            }
+            boolean z = b;
+            l(false);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void d(pv2 pv2Var, String str, hs1 hs1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pv2Var, str, hs1Var) == null) {
+            e(pv2Var, str, hs1Var, null);
+        }
+    }
+
+    public static void e(pv2 pv2Var, String str, hs1 hs1Var, String str2) {
+        p53 c0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65541, null, pv2Var, str, hs1Var, str2) != null) || !d || (c0 = p53.c0()) == null) {
+            return;
+        }
+        mq2.a X = c0.X();
+        sc3 sc3Var = new sc3();
+        sc3Var.a = ic3.n(X.H());
+        sc3Var.f = X.I();
+        if (g32.d()) {
+            sc3Var.c = "remote-debug";
+        } else if (o13.D()) {
+            sc3Var.c = "local-debug";
+        } else {
+            sc3Var.c = X.U();
+        }
+        sc3Var.b = "pageshow";
+        if (!TextUtils.isEmpty(str)) {
+            sc3Var.e = str;
+        }
+        if (pv2Var != null) {
+            sc3Var.a("path", pv2Var.a);
+            sc3Var.a("routeType", pv2Var.e);
+            sc3Var.a("routeid", pv2Var.f);
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            sc3Var.a(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, str2);
+        }
+        if (hs1Var != null && hs1Var.c > 0) {
+            sc3Var.a("valuetype", hs1Var.g);
+        }
+        Bundle Q = X.Q();
+        if (Q != null) {
+            sc3Var.d(Q.getString("ubc"));
+        }
+        sc3Var.b(ic3.k(X.X()));
+        if (a) {
+            Log.d("SwanAppRouteUbc", "onRouteEvent - " + sc3Var.f());
+        }
+        ic3.onEvent(sc3Var);
+    }
+
+    public static pv2 f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
+            y42 W = cr2.V().W();
+            pv2 pv2Var = null;
+            if (W == null) {
+                return null;
+            }
+            v42 j = W.j((W.k() - i) - 1);
+            if (j instanceof x42) {
+                pv2Var = ((x42) j).t3();
+                pv2Var.e = "1";
+                pv2Var.f = str;
+            }
+            g(pv2Var);
+            return pv2Var;
+        }
+        return (pv2) invokeLI.objValue;
+    }
+
+    public static void g(pv2 pv2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, pv2Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteAllByApi");
+            }
+            if (!c()) {
+                k(true);
+                d(pv2Var, null, null);
             }
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public void b(dd3 dd3Var) {
+    public static void h(pv2 pv2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dd3Var) == null) {
-            this.a.put(dd3Var.a, dd3Var);
+        if (interceptable == null || interceptable.invokeL(65544, null, pv2Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteAllByResume");
+            }
+            d(pv2Var, null, null);
         }
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
-    public boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
+    public static void i(pv2 pv2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, unitedSchemeEntity, callbackHandler)) == null) {
-            Uri uri = unitedSchemeEntity.getUri();
-            if (uri == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty url");
-                return false;
-            } else if (uri.getPathSegments() != null && !uri.getPathSegments().isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add("swanAPI");
-                arrayList.addAll(uri.getPathSegments());
-                String str = "/swanAPI" + uri.getPath();
-                if (!TextUtils.isEmpty(str) && str.startsWith("/")) {
-                    for (int size = arrayList.size(); size > 0; size--) {
-                        String str2 = "/" + ((String) arrayList.get(size - 1));
-                        if (!str.isEmpty() && str.length() >= str2.length()) {
-                            dd3 dd3Var = this.a.get(str);
-                            if (dd3Var != null) {
-                                if (unitedSchemeEntity.isOnlyVerify()) {
-                                    return true;
-                                }
-                                return dd3Var.h(context, unitedSchemeEntity, callbackHandler, "/swanAPI" + uri.getPath());
-                            }
-                            str = str.substring(0, str.length() - str2.length());
-                        } else {
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str + " @ " + str2);
-                            return false;
-                        }
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "not support such action ：" + uri.getPath());
-                    return false;
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str);
-                return false;
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty Segment");
-                return false;
+        if (interceptable == null || interceptable.invokeL(65545, null, pv2Var) == null) {
+            j(pv2Var, null);
+        }
+    }
+
+    public static synchronized void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
+            synchronized (dc3.class) {
+                c = z;
             }
         }
-        return invokeLLL.booleanValue;
+    }
+
+    public static synchronized void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
+            synchronized (dc3.class) {
+                b = z;
+            }
+        }
+    }
+
+    public static void j(pv2 pv2Var, ih3 ih3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, pv2Var, ih3Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteFailByApi - pageParam=" + pv2Var + " errCode=" + ih3Var);
+            }
+            if (c) {
+                if (ih3Var == null) {
+                    ih3Var = new ih3();
+                    ih3Var.k(5L);
+                    ih3Var.i(58L);
+                    ih3Var.d("route check fail");
+                }
+                e(pv2Var, "fail", null, String.valueOf(ih3Var.a()));
+            }
+        }
     }
 }

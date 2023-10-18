@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij8;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
+import com.baidu.tieba.sd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,7 +98,7 @@ public class MessageCenterActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
             super.onNewIntent(intent);
-            ij8.l().c();
+            sd8.l().c();
         }
     }
 
@@ -111,11 +111,11 @@ public class MessageCenterActivity extends BaseFragmentActivity {
                 finish();
                 return;
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0632);
+            setContentView(R.layout.obfuscated_res_0x7f0d0624);
             TbSingleton.getInstance().setNeedJoinChatRoom(true);
             this.b = new MsgCenterContainerFragment();
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f090b3b, this.b);
+            beginTransaction.add(R.id.obfuscated_res_0x7f090b56, this.b);
             beginTransaction.commitAllowingStateLoss();
             adjustResizeBottomVirtualBar();
         }

@@ -6,7 +6,7 @@ import java.util.Set;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.SetsKt___SetsKt;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class JvmAnnotationNamesKt {
     public static final List<FqName> NULLABLE_ANNOTATIONS = CollectionsKt__CollectionsKt.listOf((Object[]) new FqName[]{JvmAnnotationNames.JETBRAINS_NULLABLE_ANNOTATION, new FqName("androidx.annotation.Nullable"), new FqName("androidx.annotation.Nullable"), new FqName("android.annotation.Nullable"), new FqName("com.android.annotations.Nullable"), new FqName("org.eclipse.jdt.annotation.Nullable"), new FqName("org.checkerframework.checker.nullness.qual.Nullable"), new FqName("javax.annotation.Nullable"), new FqName("javax.annotation.CheckForNull"), new FqName("edu.umd.cs.findbugs.annotations.CheckForNull"), new FqName("edu.umd.cs.findbugs.annotations.Nullable"), new FqName("edu.umd.cs.findbugs.annotations.PossiblyNull"), new FqName("io.reactivex.annotations.Nullable")});
     public static final FqName JAVAX_NONNULL_ANNOTATION = new FqName("javax.annotation.Nonnull");

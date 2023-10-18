@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberVersion;
 import com.baidu.cyberplayer.sdk.Utils;
+import com.baidu.mobads.sdk.internal.cj;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -38,7 +39,7 @@ public class DpInitKernelSession {
         Context applicationContext = CyberPlayerManager.getApplicationContext();
         PackageManager packageManager = applicationContext.getPackageManager();
         String packageName = applicationContext.getPackageName();
-        String str = "0.0";
+        String str = cj.d;
         if (packageManager != null) {
             try {
                 str = packageManager.getPackageInfo(packageName, 0).versionName;

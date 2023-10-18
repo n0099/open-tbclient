@@ -2,6 +2,7 @@ package kotlin.reflect.jvm.internal.impl.resolve.jvm;
 
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.mobads.sdk.api.IAdInterListener;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.vivo.push.PushClientConstants;
 import java.util.EnumMap;
@@ -17,7 +18,7 @@ public enum JvmPrimitiveType {
     CHAR(PrimitiveType.CHAR, "char", "C", "java.lang.Character"),
     BYTE(PrimitiveType.BYTE, "byte", "B", "java.lang.Byte"),
     SHORT(PrimitiveType.SHORT, "short", ExifInterface.LATITUDE_SOUTH, "java.lang.Short"),
-    INT(PrimitiveType.INT, "int", "I", "java.lang.Integer"),
+    INT(PrimitiveType.INT, IAdInterListener.AdProdType.PRODUCT_INTERSTITIAL, "I", "java.lang.Integer"),
     FLOAT(PrimitiveType.FLOAT, ShaderParams.VALUE_TYPE_FLOAT, "F", "java.lang.Float"),
     LONG(PrimitiveType.LONG, "long", "J", "java.lang.Long"),
     DOUBLE(PrimitiveType.DOUBLE, "double", "D", "java.lang.Double");

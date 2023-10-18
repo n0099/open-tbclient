@@ -1,60 +1,123 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class fr2 extends ap2<rr2> {
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class fr2 {
     public static /* synthetic */ Interceptable $ic;
+    public static List<WeakReference<er2>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ap2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteAudioPlayState" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947773667, "Lcom/baidu/tieba/fr2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947773667, "Lcom/baidu/tieba/fr2;");
+                return;
+            }
+        }
+        a = new ArrayList();
     }
 
-    public fr2() {
+    public static void a(yr1 yr1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, yr1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                er2 er2Var = a.get(size).get();
+                if (er2Var == null) {
+                    a.remove(size);
+                } else {
+                    er2Var.d(yr1Var);
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ap2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rr2 rr2Var) {
+    public static void b(yr1 yr1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rr2Var) == null) {
-            String str = command.what;
-            d(rr2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                if (jSONObject.has("status") && jSONObject.has("userId")) {
-                    long optLong = jSONObject.optLong("userId", -1L);
-                    boolean optBoolean = jSONObject.optBoolean("status");
-                    if (pr2.a(optLong)) {
-                        rr2Var.p(optLong, optBoolean);
-                    }
+        if (interceptable == null || interceptable.invokeL(65538, null, yr1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                er2 er2Var = a.get(size).get();
+                if (er2Var == null) {
+                    a.remove(size);
+                } else {
+                    er2Var.b(yr1Var);
                 }
             }
+        }
+    }
+
+    public static void c(yr1 yr1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, yr1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                er2 er2Var = a.get(size).get();
+                if (er2Var == null) {
+                    a.remove(size);
+                } else {
+                    er2Var.c(yr1Var);
+                }
+            }
+        }
+    }
+
+    public static void d(yr1 yr1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, yr1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                er2 er2Var = a.get(size).get();
+                if (er2Var == null) {
+                    a.remove(size);
+                } else {
+                    er2Var.a(yr1Var);
+                }
+            }
+        }
+    }
+
+    public static void f(er2 er2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, er2Var) != null) || er2Var == null) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            er2 er2Var2 = a.get(size).get();
+            if (er2Var2 == null || er2Var == er2Var2) {
+                a.remove(size);
+            }
+        }
+    }
+
+    public static void e(er2 er2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, er2Var) != null) || er2Var == null) {
+            return;
+        }
+        boolean z = false;
+        for (int size = a.size() - 1; size >= 0; size--) {
+            er2 er2Var2 = a.get(size).get();
+            if (er2Var2 == null) {
+                a.remove(size);
+            } else if (er2Var2 == er2Var) {
+                z = true;
+            } else {
+                z = false;
+            }
+        }
+        if (!z) {
+            a.add(new WeakReference<>(er2Var));
         }
     }
 }

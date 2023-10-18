@@ -1,198 +1,139 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Build;
-import android.provider.Settings;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.util.Pair;
-import android.view.Display;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 /* loaded from: classes7.dex */
 public class qo3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948098516, "Lcom/baidu/tieba/qo3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static void a(String str) {
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (lo3.a) {
+                Log.d("BDTLS", "bdtls success");
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948098516, "Lcom/baidu/tieba/qo3;");
+            ap3 m = ro3.l().m();
+            if (m == null) {
+                if (lo3.a) {
+                    Log.d("BDTLS", "bdtls ubc data is null");
+                    return;
+                }
                 return;
             }
-        }
-        a = op3.b;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (f(appContext)) {
-                return false;
-            }
-            return a(appContext);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @SuppressLint({"PrivateApi", "ObsoleteSdkInt"})
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        boolean z;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Resources resources = context.getResources();
-            int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
-            boolean z2 = false;
-            if (identifier > 0) {
-                z = resources.getBoolean(identifier);
-            } else {
-                z = false;
-            }
             try {
-                if (Build.VERSION.SDK_INT < 21) {
-                    i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                int i4 = -1;
+                if (m.d() != null) {
+                    i = m.d().intValue();
                 } else {
-                    i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                    i = -1;
                 }
-                if (i != 0) {
-                    return false;
+                if (m.f() != null) {
+                    i2 = m.f().intValue();
+                } else {
+                    i2 = -1;
                 }
-                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                String str = (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "qemu.hw.mainkeys");
-                if (!"1".equals(str)) {
-                    if ("0".equals(str)) {
-                        z2 = true;
-                    } else {
-                        z2 = z;
-                    }
+                if (m.e() != null) {
+                    i3 = m.e().intValue();
+                } else {
+                    i3 = -1;
                 }
-                return z2;
-            } catch (Exception unused) {
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static Pair<Integer, Integer> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Pair<Integer, Integer> d = d();
-            return new Pair<>(Integer.valueOf(((Integer) d.first).intValue()), Integer.valueOf(((Integer) d.second).intValue() - c()));
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!e()) {
-                return 0;
-            }
-            Resources resources = AppRuntime.getAppContext().getResources();
-            if (xo3.L()) {
-                str = "navigation_bar_height";
-            } else {
-                str = "navigation_bar_height_landscape";
-            }
-            return xo3.r(resources, str);
-        }
-        return invokeV.intValue;
-    }
-
-    public static Pair<Integer, Integer> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            WindowManager windowManager = (WindowManager) appContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-            if (windowManager == null) {
-                return new Pair<>(Integer.valueOf(xo3.o(appContext)), Integer.valueOf(xo3.n(appContext)));
-            }
-            Display defaultDisplay = windowManager.getDefaultDisplay();
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            defaultDisplay.getRealMetrics(displayMetrics);
-            return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            String str = Build.BRAND;
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
-                        return false;
-                    }
-                    return true;
+                if (m.g() != null) {
+                    i4 = m.g().intValue();
                 }
-                if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
-                    if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
-                        if (Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase("VIVO")) {
-                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase(a)) {
-                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase("SAMSUNG")) {
-                        if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                        return false;
-                    } else {
-                        return true;
-                    }
+                if (lo3.a) {
+                    Log.d("BDTLS", "bdtls ubc get data");
                 }
-                if (Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
-                    return false;
+                sc3 sc3Var = new sc3();
+                sc3Var.b = str;
+                sc3Var.a("dh_group_id", Integer.valueOf(i));
+                sc3Var.a("dh_secret", Integer.valueOf(i2));
+                sc3Var.a("dh_pub_c", Integer.valueOf(i3));
+                sc3Var.a("dh_pub_s", Integer.valueOf(i4));
+                if (lo3.a) {
+                    Log.d("BDTLS", "bdtls ubc create event");
                 }
-                return true;
+                ic3.d(sc3Var);
             } catch (Exception e) {
-                if (qr1.a) {
+                if (lo3.a) {
+                    Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
                     e.printStackTrace();
                 }
-                return false;
             }
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void b(ap3 ap3Var, Bdtls$Alert bdtls$Alert) {
+        String str;
+        int i;
+        int i2;
+        int i3;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, ap3Var, bdtls$Alert) == null) {
+            if (lo3.a) {
+                Log.d("BDTLS", "bdtls ubc");
+            }
+            if (ap3Var != null && bdtls$Alert != null) {
+                try {
+                    if (bdtls$Alert.getLevel() == 1) {
+                        str = "warning";
+                    } else {
+                        str = "fatal_error";
+                    }
+                    int i4 = -1;
+                    if (ap3Var.d() != null) {
+                        i = ap3Var.d().intValue();
+                    } else {
+                        i = -1;
+                    }
+                    if (ap3Var.f() != null) {
+                        i2 = ap3Var.f().intValue();
+                    } else {
+                        i2 = -1;
+                    }
+                    if (ap3Var.e() != null) {
+                        i3 = ap3Var.e().intValue();
+                    } else {
+                        i3 = -1;
+                    }
+                    if (ap3Var.g() != null) {
+                        i4 = ap3Var.g().intValue();
+                    }
+                    if (bdtls$Alert.getDescription() != null) {
+                        str2 = new String(bdtls$Alert.getDescription().toByteArray());
+                    } else {
+                        str2 = "";
+                    }
+                    if (lo3.a) {
+                        Log.d("BDTLS", "bdtls ubc get data");
+                    }
+                    sc3 sc3Var = new sc3();
+                    sc3Var.b = "alert";
+                    sc3Var.e = str;
+                    sc3Var.a("dh_group_id", Integer.valueOf(i));
+                    sc3Var.a("dh_secret", Integer.valueOf(i2));
+                    sc3Var.a("dh_pub_c", Integer.valueOf(i3));
+                    sc3Var.a("dh_pub_s", Integer.valueOf(i4));
+                    sc3Var.a("alert_msg", str2);
+                    if (lo3.a) {
+                        Log.d("BDTLS", "bdtls ubc create event");
+                    }
+                    ic3.d(sc3Var);
+                } catch (Exception e) {
+                    if (lo3.a) {
+                        Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                        e.printStackTrace();
+                    }
+                }
+            } else if (lo3.a) {
+                Log.d("BDTLS", "bdtls ubc data is null");
+            }
+        }
     }
 }

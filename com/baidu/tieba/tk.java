@@ -1,19 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IPackageDownloadCallback;
-import com.baidu.nps.interfa.IPackageGetCallback;
-import com.baidu.nps.interfa.IPackageGetter;
-import com.baidu.nps.pm.IBundleInfo;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.bdtask.component.dialog.TaskDialogViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-@Service
 /* loaded from: classes8.dex */
-public class tk implements IPackageGetter {
+public final class tk extends pn<TaskDialogViewData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,22 +21,6 @@ public class tk implements IPackageGetter {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IPackageGetter
-    public void downloadBundle(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, iBundleInfo, str, i, iPackageDownloadCallback) == null) {
-            sk.f().g().i(iBundleInfo, str, i, iPackageDownloadCallback);
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IPackageGetter
-    public void getBundleInfo(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, iPackageGetCallback) == null) {
-            sk.f().g().k(list, iPackageGetCallback);
         }
     }
 }

@@ -1,27 +1,40 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class lca {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public abstract class lca {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile kca a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<jca> a;
 
-    public static synchronized kca a() {
-        InterceptResult invokeV;
-        kca kcaVar;
+    public lca() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (lca.class) {
-                if (a == null) {
-                    a = new kca();
-                }
-                kcaVar = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return kcaVar;
         }
-        return (kca) invokeV.objValue;
+        this.a = new ArrayList();
+    }
+
+    public final List<jca> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
     }
 }

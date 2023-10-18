@@ -1,120 +1,119 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.cm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes6.dex */
-public class km5 extends rm5 {
+public abstract class km5<D, S extends cm5> implements nda {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<byte[]> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public D a;
+    public S b;
+    public final View c;
+    public TbPageContext<?> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917910, "Lcom/baidu/tieba/km5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947917910, "Lcom/baidu/tieba/km5;");
-                return;
-            }
-        }
-        b = new ThreadLocal<>();
-    }
-
-    public static byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            byte[] bArr = b.get();
-            if (bArr == null) {
-                byte[] bArr2 = new byte[4];
-                b.set(bArr2);
-                return bArr2;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public short f() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 2);
-            return (short) (((b2[0] & 255) << 8) | (b2[1] & 255));
-        }
-        return invokeV.shortValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public km5(sm5 sm5Var) {
-        super(sm5Var);
+    public km5(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sm5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, view2, viewEventCenter};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((sm5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = tbPageContext;
+        this.c = view2;
     }
 
-    public boolean c(String str) throws IOException {
-        InterceptResult invokeL;
+    public Context b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.length() != 4) {
-                return false;
-            }
-            int d = d();
-            for (int i = 0; i < 4; i++) {
-                if (((d >> (i * 8)) & 255) != str.charAt(i)) {
-                    return false;
-                }
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d.getContext();
         }
-        return invokeL.booleanValue;
+        return (Context) invokeV.objValue;
     }
 
-    public int d() throws IOException {
+    public TbPageContext<?> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 4);
-            return ((b2[3] & 255) << 24) | (b2[0] & 255) | ((b2[1] & 255) << 8) | ((b2[2] & 255) << 16);
+            return this.d;
         }
-        return invokeV.intValue;
+        return (TbPageContext) invokeV.objValue;
     }
 
-    public int e() throws IOException {
+    public Resources d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 4);
-            return ((b2[0] & 255) << 24) | (b2[3] & 255) | ((b2[2] & 255) << 8) | ((b2[1] & 255) << 16);
+            return this.d.getResources();
         }
-        return invokeV.intValue;
+        return (Resources) invokeV.objValue;
+    }
+
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public S f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (S) invokeV.objValue;
+    }
+
+    public String g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return d().getString(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void h(D d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, d) == null) {
+            this.a = d;
+        }
+    }
+
+    public void j(S s) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, s) == null) {
+            this.b = s;
+        }
+    }
+
+    public void i(D d, S s) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, d, s) == null) {
+            h(d);
+            j(s);
+        }
     }
 }

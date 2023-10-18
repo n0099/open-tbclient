@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.BarVoteModel;
-import com.baidu.tieba.hi6;
-import com.baidu.tieba.ni6;
+import com.baidu.tieba.qc6;
+import com.baidu.tieba.wc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class BarVoteActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public BarVoteModel b;
-    public hi6 c;
+    public qc6 c;
     public long d;
     public int e;
     public BarVoteModel.c f;
@@ -56,30 +56,30 @@ public class BarVoteActivity extends BaseActivity {
         }
 
         @Override // com.baidu.tieba.barselect.BarVoteModel.c
-        public void a(int i, String str, ni6 ni6Var) {
+        public void a(int i, String str, wc6 wc6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, ni6Var) == null) && this.a.c != null && this.a.c.w() != null) {
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, wc6Var) == null) && this.a.c != null && this.a.c.w() != null) {
                 BarVoteActivity barVoteActivity = this.a;
                 barVoteActivity.hideLoadingView(barVoteActivity.c.w());
                 if (i == 0) {
-                    if (ni6Var != null && ni6Var.a() != null && ni6Var.a().h() >= 1 && ni6Var.a().h() <= 2) {
+                    if (wc6Var != null && wc6Var.a() != null && wc6Var.a().h() >= 1 && wc6Var.a().h() <= 2) {
                         if (this.a.c.u() != null) {
                             this.a.c.u().setVisibility(0);
                         }
                         long j = this.a.d;
                         if (j != 0) {
-                            ni6Var.i(j);
+                            wc6Var.i(j);
                         }
-                        if (ni6Var.g() == null) {
-                            ni6Var.l(this.a.a);
+                        if (wc6Var.g() == null) {
+                            wc6Var.l(this.a.a);
                         }
-                        this.a.c.C(ni6Var);
+                        this.a.c.C(wc6Var);
                     } else if (this.a.b != null && this.a.b.mPn == 0) {
                         if (this.a.c.u() != null) {
                             this.a.c.u().setVisibility(8);
                         }
-                        if (ni6Var != null && ni6Var.a() != null) {
-                            if (ni6Var.a().h() < 1 || ni6Var.a().h() > 2) {
+                        if (wc6Var != null && wc6Var.a() != null) {
+                            if (wc6Var.a().h() < 1 || wc6Var.a().h() > 2) {
                                 this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.error_status));
                                 return;
                             }
@@ -164,14 +164,14 @@ public class BarVoteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            hi6 hi6Var = this.c;
-            if (hi6Var != null) {
-                hi6Var.z(i);
+            qc6 qc6Var = this.c;
+            if (qc6Var != null) {
+                qc6Var.z(i);
             }
         }
     }
 
-    public void O0() {
+    public void Q0() {
         BarVoteModel barVoteModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (barVoteModel = this.b) != null) {
@@ -198,9 +198,9 @@ public class BarVoteActivity extends BaseActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            hi6 hi6Var = this.c;
-            if (hi6Var != null) {
-                hi6Var.y();
+            qc6 qc6Var = this.c;
+            if (qc6Var != null) {
+                qc6Var.y();
             }
             BarVoteModel barVoteModel = this.b;
             if (barVoteModel != null) {
@@ -214,7 +214,7 @@ public class BarVoteActivity extends BaseActivity {
         BarVoteModel barVoteModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (barVoteModel = this.b) != null) {
-            barVoteModel.S();
+            barVoteModel.T();
         }
     }
 
@@ -225,11 +225,11 @@ public class BarVoteActivity extends BaseActivity {
             if (view2.getId() == R.id.right_textview) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"https://tiebac.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
             } else if (view2.getId() == R.id.pb_more) {
-                hi6 hi6Var = this.c;
-                if (hi6Var != null && hi6Var.v() != null) {
+                qc6 qc6Var = this.c;
+                if (qc6Var != null && qc6Var.v() != null) {
                     this.c.v().R();
                 }
-                O0();
+                Q0();
             }
         }
     }
@@ -239,12 +239,12 @@ public class BarVoteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            this.c = new hi6(this);
+            this.c = new qc6(this);
             this.d = getIntent().getLongExtra("fid", 0L);
             this.e = getIntent().getIntExtra("source", 0);
             BarVoteModel barVoteModel = new BarVoteModel(this);
             this.b = barVoteModel;
-            barVoteModel.R(this.f);
+            barVoteModel.S(this.f);
             this.c.D(new b(this));
             new StatisticItem(TbadkCoreStatisticKey.KEY_VOTE_PAGE).param("obj_source", this.e).eventStat();
         }

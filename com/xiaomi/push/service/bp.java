@@ -74,7 +74,7 @@ public class bp {
             if (this.f947a[1] != 0) {
                 sb.append("   S[1]!=0");
             }
-            com.xiaomi.channel.commonutils.logger.b.m183a(sb.toString());
+            com.xiaomi.channel.commonutils.logger.b.m182a(sb.toString());
         }
     }
 
@@ -89,21 +89,21 @@ public class bp {
     }
 
     public static byte[] a(String str, String str2) {
-        byte[] m299a = com.xiaomi.push.bl.m299a(str);
+        byte[] m298a = com.xiaomi.push.bl.m298a(str);
         byte[] bytes = str2.getBytes();
-        byte[] bArr = new byte[m299a.length + 1 + bytes.length];
-        for (int i = 0; i < m299a.length; i++) {
-            bArr[i] = m299a[i];
+        byte[] bArr = new byte[m298a.length + 1 + bytes.length];
+        for (int i = 0; i < m298a.length; i++) {
+            bArr[i] = m298a[i];
         }
-        bArr[m299a.length] = QCodec.UNDERSCORE;
+        bArr[m298a.length] = QCodec.UNDERSCORE;
         for (int i2 = 0; i2 < bytes.length; i2++) {
-            bArr[m299a.length + 1 + i2] = bytes[i2];
+            bArr[m298a.length + 1 + i2] = bytes[i2];
         }
         return bArr;
     }
 
     public static byte[] a(byte[] bArr, String str) {
-        return a(bArr, com.xiaomi.push.bl.m299a(str));
+        return a(bArr, com.xiaomi.push.bl.m298a(str));
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2) {
@@ -112,7 +112,7 @@ public class bp {
         bpVar.a(bArr);
         bpVar.a();
         for (int i = 0; i < bArr2.length; i++) {
-            bArr3[i] = (byte) (bArr2[i] ^ bpVar.m805a());
+            bArr3[i] = (byte) (bArr2[i] ^ bpVar.m804a());
         }
         return bArr3;
     }
@@ -134,13 +134,13 @@ public class bp {
         bpVar.a(bArr);
         bpVar.a();
         for (int i4 = 0; i4 < i2; i4++) {
-            bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ bpVar.m805a());
+            bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ bpVar.m804a());
         }
         return bArr3;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte m805a() {
+    public byte m804a() {
         int i = (this.b + 1) % 256;
         this.b = i;
         int a2 = (this.c + a(this.f947a[i])) % 256;

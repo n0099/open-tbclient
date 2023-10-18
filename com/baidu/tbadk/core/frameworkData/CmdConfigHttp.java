@@ -206,12 +206,15 @@ public class CmdConfigHttp {
     public static final int CMD_HOT_USER_RANK = 1003455;
     public static final int CMD_HTTP_AIBOT_CHAT_DETAIL = 1003573;
     public static final int CMD_HTTP_APPLY_INNTERNAL = 1003576;
+    public static final int CMD_HTTP_APPLY_MATCH_GUESS = 1003580;
     public static final int CMD_HTTP_CHAT_GROUP_ROOM_LIST = 1003552;
     public static final int CMD_HTTP_CHAT_ROOM_DETAIL = 1003550;
     public static final int CMD_HTTP_DECRYPT_CODE = 1003421;
     public static final int CMD_HTTP_DEL_TOKEN_INFO = 1003558;
     public static final int CMD_HTTP_ET_VIDEO = 1003519;
     public static final int CMD_HTTP_EXCEPTION_REPORT = 1003574;
+    public static final int CMD_HTTP_FORBID_SHARE_UTL_TO_TOKEN = 1003578;
+    public static final int CMD_HTTP_FORUM_QUIZ_CARD_RESULT = 1003579;
     public static final int CMD_HTTP_FORUM_SIGN_IN_RESULT = 1003577;
     public static final int CMD_HTTP_FRS_TAB_AD = 1003411;
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;

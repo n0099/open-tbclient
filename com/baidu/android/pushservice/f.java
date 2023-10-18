@@ -20,6 +20,7 @@ import com.baidu.searchbox.dns.stratege.DnsStrategy;
 import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -385,7 +386,7 @@ public class f {
                 return true;
             }
             int intExtra = intent.getIntExtra("bd.cross.request.RESULT_CODE", 0);
-            String stringExtra = intent.getStringExtra("message_id");
+            String stringExtra = intent.getStringExtra(ForbidActivityConfig.CHAT_MSG_ID);
             String stringExtra2 = intent.getStringExtra("bd.cross.request.RESULT_DATA");
             this.c.a(intExtra, stringExtra, TextUtils.isEmpty(stringExtra2) ? null : stringExtra2.getBytes());
             return true;

@@ -3,7 +3,6 @@ package com.baidu.android.pushservice.p;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -63,7 +62,7 @@ public class m extends c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.b(hashMap);
             hashMap.put("method", "settags");
-            hashMap.put(TaskProcess.keyTags, this.f);
+            hashMap.put("tags", this.f);
         }
     }
 }

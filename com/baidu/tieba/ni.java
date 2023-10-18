@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.view.animation.Interpolator;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,19 +9,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ni {
+public abstract class ni {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static oi b;
-    public static String c;
-    public static pi d;
-    public static Handler e;
+    public static final Interpolator a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements Handler.Callback {
+    public class a implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.animation.TimeInterpolator
+        public float getInterpolation(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                float f2 = f - 1.0f;
+                return (f2 * f2 * f2 * f2 * f2) + 1.0f;
+            }
+            return invokeF.floatValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -36,37 +42,6 @@ public class ni {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i = message.what;
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i != 6) {
-                            if (ni.d != null) {
-                                ni.d.error(message.what, ui.a(R.string.obfuscated_res_0x7f0f1877));
-                            }
-                        } else {
-                            if (ni.d != null) {
-                                ni.d.d(message.arg1);
-                            }
-                            return true;
-                        }
-                    } else if (ni.d != null) {
-                        ni.d.error(message.what, ui.a(R.string.obfuscated_res_0x7f0f1875));
-                    }
-                } else if (ni.d != null) {
-                    ni.d.c(ni.c, message.arg1);
-                }
-                int unused = ni.a = 0;
-                pi unused2 = ni.d = null;
-                return false;
-            }
-            return invokeL.booleanValue;
         }
     }
 
@@ -83,41 +58,21 @@ public class ni {
                 return;
             }
         }
-        e = new Handler(new a());
+        a = new a();
     }
 
-    public static void f() {
+    public static int a(float f, float f2, boolean z) {
+        InterceptResult invokeCommon;
+        float interpolation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            oi oiVar = b;
-            if (oiVar != null) {
-                oiVar.l();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                interpolation = f - (a.getInterpolation(f2 / (f2 - f)) * f);
             } else {
-                a = 0;
+                interpolation = f * a.getInterpolation(f2 / f);
             }
+            return (int) interpolation;
         }
-    }
-
-    public static boolean e(String str, pi piVar, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, str, piVar, i)) == null) {
-            if (a == 0) {
-                oi oiVar = b;
-                if (oiVar == null) {
-                    b = new oi(e, i);
-                } else {
-                    oiVar.k(i);
-                }
-                c = str;
-                d = piVar;
-                b.j(str);
-                a = 2;
-                bv6.a(b, "AmrAudioPlayer", 2);
-                return true;
-            }
-            return false;
-        }
-        return invokeLLI.booleanValue;
+        return invokeCommon.intValue;
     }
 }

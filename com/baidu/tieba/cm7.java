@@ -1,93 +1,101 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
+import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
-public class cm7 implements qn7 {
+public class cm7 extends jv4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ItemInfo> a;
 
-    @Override // com.baidu.tieba.qn7
-    public boolean e(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.jv4
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-        return invokeI.booleanValue;
+        return (NegativeFeedBackData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jv4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947679644, "Lcom/baidu/tieba/cm7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947679644, "Lcom/baidu/tieba/cm7;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
     }
 
     public cm7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.qn7
-    public void a(hx7 hx7Var, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, hx7Var, frsViewData) == null) && hx7Var != null && frsViewData != null) {
-            ArrayList<bn> threadList = frsViewData.getThreadList();
-            if (ListUtils.isEmpty(threadList)) {
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            ArrayList arrayList = new ArrayList();
-            Iterator<bn> it = threadList.iterator();
-            while (it.hasNext()) {
-                bn next = it.next();
-                if (next.getType() == ThreadData.TYPE_TOP) {
-                    arrayList.add(next);
-                }
-            }
-            frsViewData.setTopThreadList(arrayList);
         }
+        setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    @Override // com.baidu.tieba.qn7
-    public void b(View view2) {
+    public List<ItemInfo> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            view2.setVisibility(8);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qn7
-    public void c(hx7 hx7Var, vi7 vi7Var, FrsViewData frsViewData) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, hx7Var, vi7Var, frsViewData) == null) && hx7Var != null && vi7Var != null && frsViewData != null) {
-            hx7Var.I();
-            if (frsViewData != null && frsViewData.getForum() != null) {
-                vi7Var.h1(frsViewData.getForum().getFrsBannerData());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return b;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qn7
-    public int d(int i, FrsRequestData frsRequestData) {
-        InterceptResult invokeIL;
+    public void d(List<ItemInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, frsRequestData)) == null) {
-            return uw7.e(i, frsRequestData);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
         }
-        return invokeIL.intValue;
     }
 }

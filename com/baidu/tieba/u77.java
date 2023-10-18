@@ -1,62 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.CardForumEnterView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class u77 extends f87 {
+public class u77 extends q67<CardForumEnterView, s17> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SpannableStringBuilder f;
-    public final boolean g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u77(SpannableStringBuilder titleBuilder, boolean z) {
-        super(null, null, 3, null);
+    public u77(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {titleBuilder, Boolean.valueOf(z)};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
-        this.f = titleBuilder;
-        this.g = z;
     }
 
-    public final SpannableStringBuilder h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.q67, com.baidu.tieba.g77
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            v87.n(a, null, null, null, -2);
+            return a;
         }
-        return (SpannableStringBuilder) invokeV.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public final boolean i() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.g77
+    /* renamed from: e */
+    public void b(@NonNull CardForumEnterView cardForumEnterView, @NonNull s17 s17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardForumEnterView, s17Var) == null) {
+            cardForumEnterView.e(s17Var);
         }
-        return invokeV.booleanValue;
     }
 }

@@ -2,8 +2,9 @@ package com.baidu.swan.apps.swancore.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.mobads.sdk.internal.cl;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.vo3;
+import com.baidu.tieba.ej3;
 /* loaded from: classes4.dex */
 public class SwanCoreVersion extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanCoreVersion> CREATOR = new a();
@@ -16,7 +17,7 @@ public class SwanCoreVersion extends SwanAppIPCData {
     public String swanCoreVersionName;
 
     public static String getTypeString(int i) {
-        return i != 0 ? i != 1 ? i != 2 ? "" : "debug" : "remote" : "preset";
+        return i != 0 ? i != 1 ? i != 2 ? "" : "debug" : cl.b : "preset";
     }
 
     @Override // android.os.Parcelable
@@ -28,7 +29,7 @@ public class SwanCoreVersion extends SwanAppIPCData {
     }
 
     public boolean isAvailable() {
-        return vo3.e(this.swanCorePath);
+        return ej3.e(this.swanCorePath);
     }
 
     /* loaded from: classes4.dex */

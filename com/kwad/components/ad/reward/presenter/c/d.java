@@ -83,7 +83,7 @@ public final class d extends a implements f {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912fa);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091313);
         this.fl = frameLayout;
         frameLayout.setVisibility(0);
     }

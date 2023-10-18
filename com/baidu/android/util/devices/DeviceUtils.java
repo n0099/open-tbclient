@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.IDevices;
+import com.baidu.mobads.sdk.internal.cj;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
@@ -401,7 +402,7 @@ public class DeviceUtils implements IDevices {
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
                 String str = Build.VERSION.RELEASE;
                 if (TextUtils.isEmpty(str)) {
-                    return "0.0";
+                    return cj.d;
                 }
                 return str.replace("_", "-");
             }

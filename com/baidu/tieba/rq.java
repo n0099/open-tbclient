@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.model.response.TaskResponseData;
-/* loaded from: classes7.dex */
-public interface rq {
-    void a(TaskResponseData taskResponseData);
-
-    void onError(int i, String str);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
+public class rq {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

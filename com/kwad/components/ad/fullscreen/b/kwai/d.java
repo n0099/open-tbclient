@@ -80,15 +80,15 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         int i;
         View view2;
         super.onCreate();
-        this.eI = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913fc);
-        this.eJ = (TextView) findViewById(R.id.obfuscated_res_0x7f091422);
+        this.eI = (ImageView) findViewById(R.id.obfuscated_res_0x7f091415);
+        this.eJ = (TextView) findViewById(R.id.obfuscated_res_0x7f09143b);
         if (TextUtils.isEmpty(com.kwad.components.ad.fullscreen.kwai.b.bD())) {
             if (com.kwad.components.ad.fullscreen.kwai.b.bC() == 0) {
                 imageView = this.eI;
-                i = R.drawable.obfuscated_res_0x7f080e93;
+                i = R.drawable.obfuscated_res_0x7f080e92;
             } else {
                 imageView = this.eI;
-                i = R.drawable.obfuscated_res_0x7f080eef;
+                i = R.drawable.obfuscated_res_0x7f080eee;
             }
             imageView.setImageResource(i);
             this.eJ.setVisibility(8);

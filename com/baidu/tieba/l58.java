@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import tbclient.Personalized.DataRes;
-/* loaded from: classes6.dex */
-public interface l58 {
-    void a(DataRes.Builder builder);
+import android.annotation.TargetApi;
+import android.view.ActionMode;
+@TargetApi(11)
+/* loaded from: classes7.dex */
+public interface l58 extends ActionMode.Callback {
+    void a(ActionMode actionMode, int i, long j, boolean z);
 }

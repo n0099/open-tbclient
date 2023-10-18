@@ -1,57 +1,157 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.aw2;
-import com.baidu.tieba.ei2;
-import com.baidu.tieba.fp3;
-import com.baidu.tieba.g92;
-import com.baidu.tieba.gf2;
-import com.baidu.tieba.j22;
-import com.baidu.tieba.lk3;
-import com.baidu.tieba.me3;
-import com.baidu.tieba.ol2;
-import com.baidu.tieba.qj2;
-import com.baidu.tieba.tg2;
-import com.baidu.tieba.zs1;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fz1 {
+public class fz1 extends wy1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap a;
+    public String b;
+    public Matrix c;
 
-    public static HashMap<Class, Object> a() {
+    @Override // com.baidu.tieba.wy1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947781324, "Lcom/baidu/tieba/fz1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947781324, "Lcom/baidu/tieba/fz1;");
+                return;
+            }
+        }
+        d = am1.a;
+    }
+
+    public fz1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = str;
+    }
+
+    @Override // com.baidu.tieba.wy1
+    public void a(xy1 xy1Var, Canvas canvas) {
+        Bitmap bitmap;
+        Matrix matrix;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, xy1Var, canvas) == null) && (bitmap = this.a) != null && (matrix = this.c) != null) {
+            canvas.drawBitmap(bitmap, matrix, xy1Var.d);
+        }
+    }
+
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            HashMap<Class, Object> hashMap = new HashMap<>();
-            hashMap.put(me3.b.class, new me3.b());
-            hashMap.put(ei2.f.class, new ei2.f());
-            hashMap.put(ei2.g.class, new ei2.g());
-            hashMap.put(gf2.a.class, new gf2.a());
-            hashMap.put(tg2.a.class, new tg2.a());
-            hashMap.put(fp3.c.class, new fp3.c());
-            hashMap.put(lk3.b.class, new lk3.b());
-            hashMap.put(aw2.c.class, new aw2.c());
-            hashMap.put(t23.class, new t23());
-            hashMap.put(py1.class, new py1());
-            hashMap.put(qy1.class, new qy1());
-            hashMap.put(sj3.class, new sj3());
-            hashMap.put(rj3.class, new rj3());
-            hashMap.put(vj3.class, new vj3());
-            hashMap.put(kk2.class, new kk2());
-            hashMap.put(qj2.c.class, new qj2.c());
-            hashMap.put(d13.class, new d13());
-            hashMap.put(j22.b.class, new j22.b());
-            hashMap.put(zs1.a.class, new zs1.a());
-            hashMap.put(q92.class, new q92());
-            hashMap.put(ol2.a.class, new ol2.a());
-            hashMap.put(ol2.b.class, new ol2.b());
-            hashMap.put(g43.class, new g43());
-            hashMap.put(g92.b.class, new g92.b());
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(this.b);
+                int g = gj3.g((float) jSONObject.optDouble("x"));
+                int g2 = gj3.g((float) jSONObject.optDouble("y"));
+                int optInt = jSONObject.optInt("width");
+                int optInt2 = jSONObject.optInt("height");
+                if (optInt > 0 && optInt2 > 0) {
+                    float g3 = gj3.g(optInt);
+                    float g4 = gj3.g(optInt2);
+                    String optString = jSONObject.optString("data");
+                    if (TextUtils.isEmpty(optString)) {
+                        return 2001;
+                    }
+                    try {
+                        byte[] decode = Base64.decode(optString, 2);
+                        int i = optInt * optInt2 * 4;
+                        if (decode != null && decode.length == i) {
+                            this.a = e(d(decode, optInt, optInt2), g3, g4);
+                            Matrix matrix = new Matrix();
+                            this.c = matrix;
+                            matrix.postTranslate(g, g2);
+                            return 0;
+                        }
+                        return 2001;
+                    } catch (Exception e) {
+                        if (d) {
+                            e.printStackTrace();
+                        }
+                        p22.c("canvasPutImageData", "canvasGetImageData meets exception in decoding bitmap");
+                        return 1001;
+                    }
+                }
+                return 2002;
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+                return 1001;
+            }
         }
-        return (HashMap) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    @NonNull
+    public final Bitmap d(@NonNull byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            int i3 = i * i2;
+            int[] iArr = new int[i3];
+            for (int i4 = 0; i4 < i3; i4++) {
+                int i5 = i4 * 4;
+                iArr[i4] = Color.argb(bArr[i5 + 3] & 255, bArr[i5] & 255, bArr[i5 + 1] & 255, bArr[i5 + 2] & 255);
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_4444);
+            createBitmap.setPixels(iArr, 0, i, 0, 0, i, i2);
+            return createBitmap;
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    @NonNull
+    public final Bitmap e(@NonNull Bitmap bitmap, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{bitmap, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.postScale(f / bitmap.getWidth(), f2 / bitmap.getHeight());
+            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

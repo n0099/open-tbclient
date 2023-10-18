@@ -1,29 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.api.IBasicCPUData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.validation.utils.ValidationLog;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes8.dex */
-public class ulb {
+public class ulb implements IBasicCPUData.CpuNativeStatusCB {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final List<String> b;
+    public final /* synthetic */ IBasicCPUData a;
+    public final /* synthetic */ tlb b;
 
-    public ulb() {
+    public ulb(tlb tlbVar, IBasicCPUData iBasicCPUData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tlbVar, iBasicCPUData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,47 +29,62 @@ public class ulb {
                 return;
             }
         }
-        this.b = new ArrayList();
+        this.b = tlbVar;
+        this.a = iBasicCPUData;
     }
 
-    public static ulb a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onAdDownloadWindowShow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                ulb ulbVar = new ulb();
-                JSONObject optJSONObject = jSONObject.optJSONObject("action");
-                if (optJSONObject != null) {
-                    ulbVar.a = optJSONObject.optString("name");
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            ulbVar.b.add(optJSONArray.optString(i));
-                        }
-                    }
-                }
-                return ulbVar;
-            } catch (JSONException e) {
-                ValidationLog.e(e);
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onAdStatusChanged(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onPermissionClose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onPermissionShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onPrivacyClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onPrivacyLpClose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.mobads.sdk.api.IBasicCPUData.CpuNativeStatusCB
+    public void onNotifyPerformance(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            LogPrinter.d();
+            if ("CLICK".equals(str)) {
+                this.b.e.onAdClick(this.a);
+            } else if ("IMPRESSION".equals(str)) {
+                this.b.e.onAdShow(this.a);
             }
         }
-        return (ulb) invokeL.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public List<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 }

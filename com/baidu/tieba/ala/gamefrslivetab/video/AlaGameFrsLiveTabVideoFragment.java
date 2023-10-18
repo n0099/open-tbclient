@@ -15,14 +15,14 @@ import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.yj7;
+import com.baidu.tieba.he7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements yj7 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements he7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -86,10 +86,10 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements yj7 
                 }
                 if ("FrsGameLive".equals(split[0]) && 8 == JavaTypesHelper.toInt(split[1], 0)) {
                     if (this.a.d != null) {
-                        this.a.d.h();
+                        this.a.d.i();
                     }
                 } else if ("FrsGameLiveLive".equals(split[0]) && 3 == JavaTypesHelper.toInt(split[1], 0) && this.a.d != null) {
-                    this.a.d.h();
+                    this.a.d.i();
                 }
             }
         }
@@ -173,7 +173,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements yj7 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.d.t(this);
+            this.d.u(this);
             registerListener(this.f);
         }
     }
@@ -284,12 +284,12 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements yj7 
         }
     }
 
-    @Override // com.baidu.tieba.yj7
-    public NavigationBar q() {
+    @Override // com.baidu.tieba.he7
+    public NavigationBar r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.d.q();
+            return this.d.r();
         }
         return (NavigationBar) invokeV.objValue;
     }

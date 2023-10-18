@@ -1,25 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.opengl.GLSurfaceView;
-import android.os.Build;
-import android.os.Process;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.DisplayCutout;
-import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Graphics;
-import com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20;
-import com.badlogic.gdx.graphics.Cubemap;
-import com.badlogic.gdx.graphics.Mesh;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.glutils.GLVersion;
+import com.badlogic.gdx.utils.BufferUtils;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.h2;
+import com.baidu.tieba.r2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,675 +14,374 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import javax.microedition.khronos.egl.EGL10;
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.egl.EGLContext;
-import javax.microedition.khronos.egl.EGLDisplay;
-import javax.microedition.khronos.opengles.GL10;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.IntBuffer;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class k2 extends t0 implements GLSurfaceView.Renderer {
+public abstract class k2<T extends h2> implements v2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile boolean w;
+    public static final Map<Application, r2<k2>> i;
+    public static int j;
+    public static boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public final GLSurfaceView20 a;
+    public r2<T> a;
     public int b;
     public int c;
-    public a2 d;
-    public g3 e;
-    public h3 f;
-    public GLVersion g;
-    public String h;
-    public long i;
-    public float j;
-    public long k;
-    public long l;
-    public int m;
-    public volatile boolean n;
-    public volatile boolean o;
-    public volatile boolean p;
-    public volatile boolean q;
-    public volatile boolean r;
-    public final b2 s;
-    public boolean t;
-    public int[] u;
-    public Object v;
+    public int d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public c<? extends k2<T>> h;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+    }
+
+    /* loaded from: classes6.dex */
+    public static abstract class c<U extends k2<? extends h2>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public r2<b> c;
+        public a d;
+        public a e;
+        public a f;
+        public boolean g;
+        public boolean h;
+        public boolean i;
+    }
+
+    public abstract void c(T t);
+
+    public abstract T g(b bVar);
+
+    public abstract void h(T t);
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public boolean c;
+
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!this.b && !this.c) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448307558, "Lcom/baidu/tieba/k2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448307558, "Lcom/baidu/tieba/k2;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k2 a;
-
-        public a(k2 k2Var) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307558, "Lcom/baidu/tieba/k2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = k2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.p) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448307558, "Lcom/baidu/tieba/k2;");
                 return;
             }
-            this.a.onDrawFrame(null);
         }
+        i = new HashMap();
+        k = false;
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends Graphics.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(k2 k2Var, int i, int i2, int i3, int i4) {
-            super(i, i2, i3, i4);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k2Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public k2(a2 a2Var, b2 b2Var, c3 c3Var) {
-        this(a2Var, b2Var, c3Var, true);
+    public k2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a2Var, b2Var, c3Var};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((a2) objArr2[0], (b2) objArr2[1], (c3) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new r2<>();
     }
 
-    public k2(a2 a2Var, b2 b2Var, c3 c3Var, boolean z) {
+    public static String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a2Var, b2Var, c3Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            j(sb);
+            return sb.toString();
         }
-        this.i = System.nanoTime();
-        this.j = 0.0f;
-        this.k = System.nanoTime();
-        this.l = -1L;
-        this.m = 0;
-        this.n = false;
-        this.o = false;
-        this.p = false;
-        this.q = false;
-        this.r = false;
-        this.t = true;
-        this.u = new int[1];
-        this.v = new Object();
-        this.s = b2Var;
-        this.d = a2Var;
-        this.a = i(a2Var, c3Var);
-        s();
-        if (z) {
-            this.a.setFocusable(true);
-            this.a.setFocusableInTouchMode(true);
+        return (String) invokeV.objValue;
+    }
+
+    public static void b(Application application, k2 k2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, application, k2Var) == null) {
+            r2<k2> r2Var = i.get(application);
+            if (r2Var == null) {
+                r2Var = new r2<>();
+            }
+            r2Var.a(k2Var);
+            i.put(application, r2Var);
         }
     }
 
-    @Override // com.badlogic.gdx.Graphics
-    public boolean a(String str) {
+    public static void f(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, application) == null) {
+            i.remove(application);
+        }
+    }
+
+    public static StringBuilder j(StringBuilder sb) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.h == null) {
-                this.h = y0.e.o(7939);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sb)) == null) {
+            sb.append("Managed buffers/app: { ");
+            for (Application application : i.keySet()) {
+                sb.append(i.get(application).b);
+                sb.append(" ");
             }
-            return this.h.contains(str);
+            sb.append("}");
+            return sb;
         }
-        return invokeL.booleanValue;
+        return (StringBuilder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r5v1 */
-    /* JADX WARN: Type inference failed for: r5v2, types: [boolean, int] */
-    /* JADX WARN: Type inference failed for: r5v3 */
-    public void u(boolean z) {
-        ?? r5;
+    public static void k(Application application) {
+        r2<k2> r2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048600, this, z) == null) && this.a != null) {
-            if (!w && !z) {
-                r5 = 0;
-            } else {
-                r5 = 1;
-            }
-            this.t = r5;
-            this.a.setRenderMode(r5);
+        if ((interceptable != null && interceptable.invokeL(65542, null, application) != null) || y0.d == null || (r2Var = i.get(application)) == null) {
+            return;
+        }
+        for (int i2 = 0; i2 < r2Var.b; i2++) {
+            r2Var.get(i2).d();
         }
     }
 
-    @Override // com.badlogic.gdx.Graphics
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.badlogic.gdx.Graphics
-    public void c() {
-        GLSurfaceView20 gLSurfaceView20;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (gLSurfaceView20 = this.a) != null) {
-            gLSurfaceView20.requestRender();
-        }
-    }
-
-    @Override // com.badlogic.gdx.Graphics
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.t;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.badlogic.gdx.Graphics
-    public float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.j;
-        }
-        return invokeV.floatValue;
-    }
-
-    @Override // com.baidu.tieba.t0
-    public Graphics.GraphicsType getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return Graphics.GraphicsType.AndroidGL;
-        }
-        return (Graphics.GraphicsType) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Mesh.g(this.d);
-            Texture.t(this.d);
-            Cubemap.t(this.d);
-            k3.s(this.d);
-            r5.g(this.d);
-            l5.i(this.d);
-            o();
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this.v) {
-                this.o = false;
-                this.r = true;
-                while (this.r) {
-                    try {
-                        this.v.wait();
-                    } catch (InterruptedException unused) {
-                        y0.a.log("AndroidGraphics", "waiting for destroy synchronization failed!");
-                    }
-                }
-            }
-        }
-    }
-
-    public GLSurfaceView.EGLConfigChooser l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            b2 b2Var = this.s;
-            return new b3(b2Var.a, b2Var.b, b2Var.c, b2Var.d, b2Var.e, b2Var.f, b2Var.g);
-        }
-        return (GLSurfaceView.EGLConfigChooser) invokeV.objValue;
-    }
-
-    public View m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void p() {
-        GLSurfaceView20 gLSurfaceView20;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (gLSurfaceView20 = this.a) != null) {
-            gLSurfaceView20.onPause();
-        }
-    }
-
-    public void q() {
-        GLSurfaceView20 gLSurfaceView20;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (gLSurfaceView20 = this.a) != null) {
-            gLSurfaceView20.onResume();
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.a.setPreserveEGLContextOnPause(true);
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            synchronized (this.v) {
-                this.o = true;
-                this.q = true;
-            }
-        }
-    }
-
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            this.d.getWindowManager().getDefaultDisplay().getMetrics(new DisplayMetrics());
-        }
-    }
-
-    @Override // com.badlogic.gdx.Graphics
-    public Graphics.a f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            this.d.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            return new b(this, displayMetrics.widthPixels, displayMetrics.heightPixels, 0, 0);
-        }
-        return (Graphics.a) invokeV.objValue;
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            y0.a.log("AndroidGraphics", Mesh.k());
-            y0.a.log("AndroidGraphics", Texture.v());
-            y0.a.log("AndroidGraphics", Cubemap.v());
-            y0.a.log("AndroidGraphics", r5.m());
-            y0.a.log("AndroidGraphics", l5.l());
-        }
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && Build.VERSION.SDK_INT >= 28) {
-            try {
-                DisplayCutout displayCutout = this.d.getApplicationWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
-                if (displayCutout != null) {
-                    displayCutout.getSafeInsetRight();
-                    displayCutout.getSafeInsetBottom();
-                    displayCutout.getSafeInsetTop();
-                    displayCutout.getSafeInsetLeft();
-                }
-            } catch (UnsupportedOperationException unused) {
-                y0.a.log("AndroidGraphics", "Unable to get safe area insets");
-            }
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            EGL10 egl10 = (EGL10) EGLContext.getEGL();
-            EGLDisplay eglGetDisplay = egl10.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-            egl10.eglInitialize(eglGetDisplay, new int[2]);
-            int[] iArr = new int[1];
-            egl10.eglChooseConfig(eglGetDisplay, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 4, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 4, 12322, 4, 12352, 4, 12344}, new EGLConfig[10], 10, iArr);
-            egl10.eglTerminate(eglGetDisplay);
-            if (iArr[0] > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            synchronized (this.v) {
-                if (!this.o) {
-                    return;
-                }
-                this.o = false;
-                this.p = true;
-                this.a.queueEvent(new a(this));
-                while (this.p) {
-                    try {
-                        this.v.wait(4000L);
-                        if (this.p) {
-                            y0.a.error("AndroidGraphics", "waiting for pause synchronization took too long; assuming deadlock and killing");
-                            Process.killProcess(Process.myPid());
-                        }
-                    } catch (InterruptedException unused) {
-                        y0.a.log("AndroidGraphics", "waiting for pause synchronization failed!");
-                    }
-                }
-            }
-        }
-    }
-
-    public GLSurfaceView20 i(a2 a2Var, c3 c3Var) {
-        InterceptResult invokeLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, a2Var, c3Var)) == null) {
-            if (g()) {
-                GLSurfaceView.EGLConfigChooser l = l();
-                Context context = a2Var.getContext();
-                if (this.s.t) {
-                    i = 3;
-                } else {
-                    i = 2;
-                }
-                GLSurfaceView20 gLSurfaceView20 = new GLSurfaceView20(context, c3Var, i);
-                if (l != null) {
-                    gLSurfaceView20.setEGLConfigChooser(l);
-                } else {
-                    b2 b2Var = this.s;
-                    gLSurfaceView20.setEGLConfigChooser(b2Var.a, b2Var.b, b2Var.c, b2Var.d, b2Var.e, b2Var.f);
-                }
-                gLSurfaceView20.setRenderer(this);
-                return gLSurfaceView20;
-            }
-            throw new GdxRuntimeException("Libgdx requires OpenGL ES 2.0");
-        }
-        return (GLSurfaceView20) invokeLL.objValue;
-    }
-
-    public final int k(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, this.u)) {
-                return this.u[0];
-            }
-            return i2;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public void n(EGLConfig eGLConfig) {
+    public void d() {
         boolean z;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, eGLConfig) == null) {
-            EGL10 egl10 = (EGL10) EGLContext.getEGL();
-            EGLDisplay eglGetDisplay = egl10.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-            int k = k(egl10, eglGetDisplay, eGLConfig, MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
-            int k2 = k(egl10, eglGetDisplay, eGLConfig, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 0);
-            int k3 = k(egl10, eglGetDisplay, eGLConfig, 12322, 0);
-            int k4 = k(egl10, eglGetDisplay, eGLConfig, 12321, 0);
-            int k5 = k(egl10, eglGetDisplay, eGLConfig, 12325, 0);
-            int k6 = k(egl10, eglGetDisplay, eGLConfig, 12326, 0);
-            int max = Math.max(k(egl10, eglGetDisplay, eGLConfig, 12337, 0), k(egl10, eglGetDisplay, eGLConfig, 12513, 0));
-            if (k(egl10, eglGetDisplay, eGLConfig, 12513, 0) != 0) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            f2 f2Var = y0.d;
+            e();
+            if (!k) {
+                k = true;
+                if (y0.a.getType() == Application.ApplicationType.iOS) {
+                    IntBuffer asIntBuffer = ByteBuffer.allocateDirect(64).order(ByteOrder.nativeOrder()).asIntBuffer();
+                    f2Var.w(36006, asIntBuffer);
+                    j = asIntBuffer.get(0);
+                } else {
+                    j = 0;
+                }
+            }
+            int I = f2Var.I();
+            this.b = I;
+            f2Var.f(36160, I);
+            c<? extends k2<T>> cVar = this.h;
+            int i3 = cVar.a;
+            int i4 = cVar.b;
+            if (cVar.h) {
+                int H = f2Var.H();
+                this.c = H;
+                f2Var.l(36161, H);
+                f2Var.e(36161, this.h.e.a, i3, i4);
+            }
+            if (this.h.g) {
+                int H2 = f2Var.H();
+                this.d = H2;
+                f2Var.l(36161, H2);
+                f2Var.e(36161, this.h.d.a, i3, i4);
+            }
+            if (this.h.i) {
+                int H3 = f2Var.H();
+                this.e = H3;
+                f2Var.l(36161, H3);
+                f2Var.e(36161, this.h.f.a, i3, i4);
+            }
+            if (this.h.c.b > 1) {
                 z = true;
             } else {
                 z = false;
             }
-            Application application = y0.a;
-            application.log("AndroidGraphics", "framebuffer: (" + k + StringUtil.ARRAY_ELEMENT_SEPARATOR + k2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + k3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + k4 + SmallTailInfo.EMOTION_SUFFIX);
-            Application application2 = y0.a;
-            StringBuilder sb = new StringBuilder();
-            sb.append("depthbuffer: (");
-            sb.append(k5);
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            application2.log("AndroidGraphics", sb.toString());
-            Application application3 = y0.a;
-            application3.log("AndroidGraphics", "stencilbuffer: (" + k6 + SmallTailInfo.EMOTION_SUFFIX);
-            Application application4 = y0.a;
-            application4.log("AndroidGraphics", "samples: (" + max + SmallTailInfo.EMOTION_SUFFIX);
-            Application application5 = y0.a;
-            application5.log("AndroidGraphics", "coverage sampling: (" + z + SmallTailInfo.EMOTION_SUFFIX);
+            this.g = z;
+            if (z) {
+                r2.b<b> it = this.h.c.iterator();
+                int i5 = 0;
+                while (it.hasNext()) {
+                    b next = it.next();
+                    T g = g(next);
+                    this.a.a(g);
+                    if (next.a()) {
+                        f2Var.v(36160, i5 + 36064, 3553, g.e(), 0);
+                        i5++;
+                    } else if (next.b) {
+                        f2Var.v(36160, 36096, 3553, g.e(), 0);
+                    } else if (next.c) {
+                        f2Var.v(36160, 36128, 3553, g.e(), 0);
+                    }
+                }
+                i2 = i5;
+            } else {
+                T g2 = g(this.h.c.first());
+                this.a.a(g2);
+                f2Var.F(g2.a, g2.e());
+                i2 = 0;
+            }
+            if (this.g) {
+                IntBuffer b2 = BufferUtils.b(i2);
+                for (int i6 = 0; i6 < i2; i6++) {
+                    b2.put(i6 + 36064);
+                }
+                b2.position(0);
+                y0.e.c(i2, b2);
+            } else {
+                c(this.a.first());
+            }
+            if (this.h.h) {
+                f2Var.j(36160, 36096, 36161, this.c);
+            }
+            if (this.h.g) {
+                f2Var.j(36160, 36128, 36161, this.d);
+            }
+            if (this.h.i) {
+                f2Var.j(36160, 33306, 36161, this.e);
+            }
+            f2Var.l(36161, 0);
+            r2.b<T> it2 = this.a.iterator();
+            while (it2.hasNext()) {
+                f2Var.F(it2.next().a, 0);
+            }
+            int r = f2Var.r(36160);
+            if (r == 36061) {
+                c<? extends k2<T>> cVar2 = this.h;
+                if (cVar2.h && cVar2.g && (y0.b.a("GL_OES_packed_depth_stencil") || y0.b.a("GL_EXT_packed_depth_stencil"))) {
+                    if (this.h.h) {
+                        f2Var.n(this.c);
+                        this.c = 0;
+                    }
+                    if (this.h.g) {
+                        f2Var.n(this.d);
+                        this.d = 0;
+                    }
+                    if (this.h.i) {
+                        f2Var.n(this.e);
+                        this.e = 0;
+                    }
+                    int H4 = f2Var.H();
+                    this.e = H4;
+                    this.f = true;
+                    f2Var.l(36161, H4);
+                    f2Var.e(36161, 35056, i3, i4);
+                    f2Var.l(36161, 0);
+                    f2Var.j(36160, 36096, 36161, this.e);
+                    f2Var.j(36160, 36128, 36161, this.e);
+                    r = f2Var.r(36160);
+                }
+            }
+            f2Var.f(36160, j);
+            if (r != 36053) {
+                r2.b<T> it3 = this.a.iterator();
+                while (it3.hasNext()) {
+                    h(it3.next());
+                }
+                if (this.f) {
+                    f2Var.b(this.e);
+                } else {
+                    if (this.h.h) {
+                        f2Var.n(this.c);
+                    }
+                    if (this.h.g) {
+                        f2Var.n(this.d);
+                    }
+                }
+                f2Var.p(this.b);
+                if (r != 36054) {
+                    if (r != 36057) {
+                        if (r != 36055) {
+                            if (r == 36061) {
+                                throw new IllegalStateException("Frame buffer couldn't be constructed: unsupported combination of formats");
+                            }
+                            throw new IllegalStateException("Frame buffer couldn't be constructed: unknown error " + r);
+                        }
+                        throw new IllegalStateException("Frame buffer couldn't be constructed: missing attachment");
+                    }
+                    throw new IllegalStateException("Frame buffer couldn't be constructed: incomplete dimensions");
+                }
+                throw new IllegalStateException("Frame buffer couldn't be constructed: incomplete attachment");
+            }
+            b(y0.a, this);
         }
     }
 
-    public void v(GL10 gl10) {
+    @Override // com.baidu.tieba.v2
+    public void dispose() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, gl10) == null) {
-            GLVersion gLVersion = new GLVersion(Application.ApplicationType.Android, gl10.glGetString(7938), gl10.glGetString(7936), gl10.glGetString(7937));
-            this.g = gLVersion;
-            if (this.s.t && gLVersion.b() > 2) {
-                if (this.f != null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            f2 f2Var = y0.d;
+            r2.b<T> it = this.a.iterator();
+            while (it.hasNext()) {
+                h(it.next());
+            }
+            if (this.f) {
+                f2Var.n(this.e);
+            } else {
+                if (this.h.h) {
+                    f2Var.n(this.c);
+                }
+                if (this.h.g) {
+                    f2Var.n(this.d);
+                }
+            }
+            f2Var.p(this.b);
+            if (i.get(y0.a) != null) {
+                i.get(y0.a).g(this, true);
+            }
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !y0.b.b()) {
+            c<? extends k2<T>> cVar = this.h;
+            if (!cVar.i) {
+                r2<b> r2Var = cVar.c;
+                if (r2Var.b <= 1) {
+                    r2.b<b> it = r2Var.iterator();
+                    while (it.hasNext()) {
+                        b next = it.next();
+                        if (!next.b) {
+                            if (!next.c) {
+                                if (next.a && !y0.b.a("OES_texture_float")) {
+                                    throw new GdxRuntimeException("Float texture FrameBuffer Attachment not available on GLES 2.0");
+                                }
+                            } else {
+                                throw new GdxRuntimeException("Stencil texture FrameBuffer Attachment not available on GLES 2.0");
+                            }
+                        } else {
+                            throw new GdxRuntimeException("Depth texture FrameBuffer Attachment not available on GLES 2.0");
+                        }
+                    }
                     return;
                 }
-                j2 j2Var = new j2();
-                this.f = j2Var;
-                this.e = j2Var;
-                y0.e = j2Var;
-                y0.f = j2Var;
-                y0.g = j2Var;
-            } else if (this.e != null) {
-                return;
-            } else {
-                i2 i2Var = new i2();
-                this.e = i2Var;
-                y0.e = i2Var;
-                y0.f = i2Var;
+                throw new GdxRuntimeException("Multiple render targets not available on GLES 2.0");
             }
-            Application application = y0.a;
-            application.log("AndroidGraphics", "OGL renderer: " + gl10.glGetString(7937));
-            Application application2 = y0.a;
-            application2.log("AndroidGraphics", "OGL vendor: " + gl10.glGetString(7936));
-            Application application3 = y0.a;
-            application3.log("AndroidGraphics", "OGL version: " + gl10.glGetString(7938));
-            Application application4 = y0.a;
-            application4.log("AndroidGraphics", "OGL extensions: " + gl10.glGetString(7939));
-        }
-    }
-
-    @Override // android.opengl.GLSurfaceView.Renderer
-    public void onDrawFrame(GL10 gl10) {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, gl10) == null) {
-            long nanoTime = System.nanoTime();
-            if (!this.q) {
-                this.j = ((float) (nanoTime - this.i)) / 1.0E9f;
-            } else {
-                this.j = 0.0f;
-            }
-            this.i = nanoTime;
-            synchronized (this.v) {
-                z = this.o;
-                z2 = this.p;
-                z3 = this.r;
-                z4 = this.q;
-                if (this.q) {
-                    this.q = false;
-                }
-                if (this.p) {
-                    this.p = false;
-                    this.v.notifyAll();
-                }
-                if (this.r) {
-                    this.r = false;
-                    this.v.notifyAll();
-                }
-            }
-            if (z4) {
-                a8<a1> lifecycleListeners = this.d.getLifecycleListeners();
-                synchronized (lifecycleListeners) {
-                    a1[] o = lifecycleListeners.o();
-                    int i = lifecycleListeners.b;
-                    for (int i2 = 0; i2 < i; i2++) {
-                        o[i2].resume();
-                    }
-                    lifecycleListeners.p();
-                }
-                this.d.getApplicationListener().resume();
-                y0.a.log("AndroidGraphics", "resumed");
-            }
-            if (z) {
-                synchronized (this.d.getRunnables()) {
-                    this.d.getExecutedRunnables().clear();
-                    this.d.getExecutedRunnables().b(this.d.getRunnables());
-                    this.d.getRunnables().clear();
-                }
-                for (int i3 = 0; i3 < this.d.getExecutedRunnables().b; i3++) {
-                    try {
-                        this.d.getExecutedRunnables().get(i3).run();
-                    } catch (Throwable th) {
-                        th.printStackTrace();
-                    }
-                }
-                this.d.mo6getInput().v1();
-                this.l++;
-                this.d.getApplicationListener().render();
-            }
-            if (z2) {
-                a8<a1> lifecycleListeners2 = this.d.getLifecycleListeners();
-                synchronized (lifecycleListeners2) {
-                    a1[] o2 = lifecycleListeners2.o();
-                    int i4 = lifecycleListeners2.b;
-                    for (int i5 = 0; i5 < i4; i5++) {
-                        o2[i5].pause();
-                    }
-                }
-                this.d.getApplicationListener().pause();
-                y0.a.log("AndroidGraphics", "paused");
-            }
-            if (z3) {
-                a8<a1> lifecycleListeners3 = this.d.getLifecycleListeners();
-                synchronized (lifecycleListeners3) {
-                    a1[] o3 = lifecycleListeners3.o();
-                    int i6 = lifecycleListeners3.b;
-                    for (int i7 = 0; i7 < i6; i7++) {
-                        o3[i7].dispose();
-                    }
-                }
-                this.d.getApplicationListener().dispose();
-                y0.a.log("AndroidGraphics", "destroyed");
-            }
-            if (nanoTime - this.k > 1000000000) {
-                this.m = 0;
-                this.k = nanoTime;
-            }
-            this.m++;
-        }
-    }
-
-    @Override // android.opengl.GLSurfaceView.Renderer
-    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048593, this, gl10, i, i2) == null) {
-            this.b = i;
-            this.c = i2;
-            w();
-            x();
-            gl10.glViewport(0, 0, this.b, this.c);
-            if (!this.n) {
-                this.d.getApplicationListener().create();
-                this.n = true;
-                synchronized (this) {
-                    this.o = true;
-                }
-            }
-            this.d.getApplicationListener().a(i, i2);
-        }
-    }
-
-    @Override // android.opengl.GLSurfaceView.Renderer
-    public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, gl10, eGLConfig) == null) {
-            ((EGL10) EGLContext.getEGL()).eglGetCurrentContext();
-            v(gl10);
-            n(eGLConfig);
-            w();
-            x();
-            Mesh.n(this.d);
-            Texture.y(this.d);
-            Cubemap.w(this.d);
-            k3.t(this.d);
-            r5.n(this.d);
-            l5.n(this.d);
-            o();
-            Display defaultDisplay = this.d.getWindowManager().getDefaultDisplay();
-            this.b = defaultDisplay.getWidth();
-            this.c = defaultDisplay.getHeight();
-            this.i = System.nanoTime();
-            gl10.glViewport(0, 0, this.b, this.c);
+            throw new GdxRuntimeException("Packed Stencil/Render render buffers are not available on GLES 2.0");
         }
     }
 }

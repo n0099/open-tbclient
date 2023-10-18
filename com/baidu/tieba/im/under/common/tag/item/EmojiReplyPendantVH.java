@@ -11,13 +11,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ea8;
+import com.baidu.tieba.gi8;
 import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
-import com.baidu.tieba.kf8;
-import com.baidu.tieba.oo8;
-import com.baidu.tieba.tf8;
-import com.baidu.tieba.wn8;
+import com.baidu.tieba.v98;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,9 +29,9 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public final tf8 c;
+    public final ea8 c;
     @Nullable
-    public wn8 d;
+    public gi8 d;
     public final TbImageView e;
     public final TextView f;
     public final View.OnClickListener g;
@@ -65,7 +65,7 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null && this.a.c != null) {
-                oo8.f(this.a.c, this.a.d.d(), this.a.d.b(), 2);
+                yi8.f(this.a.c, this.a.d.d(), this.a.d.b(), 2);
             }
         }
     }
@@ -112,13 +112,13 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmojiReplyPendantVH(@NonNull View view2, @Nullable tf8 tf8Var) {
+    public EmojiReplyPendantVH(@NonNull View view2, @Nullable ea8 ea8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tf8Var};
+            Object[] objArr = {view2, ea8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -131,21 +131,21 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
         }
         this.g = new a(this);
         this.h = new b(this);
-        this.c = tf8Var;
+        this.c = ea8Var;
         view2.setOnClickListener(this.g);
         view2.setOnLongClickListener(this.h);
-        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090996);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090997);
+        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909b1);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909b2);
         h(TbadkApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder
-    public void f(kf8 kf8Var, Context context, int i) {
+    public void f(v98 v98Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, kf8Var, context, i) == null) && (kf8Var instanceof wn8)) {
-            wn8 wn8Var = (wn8) kf8Var;
-            this.d = wn8Var;
-            wn8Var.e(i);
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, v98Var, context, i) == null) && (v98Var instanceof gi8)) {
+            gi8 gi8Var = (gi8) v98Var;
+            this.d = gi8Var;
+            gi8Var.e(i);
             EmojiData d = this.d.d();
             this.e.startLoad(d.getContent());
             this.f.setText(String.valueOf(d.getAllNum()));
@@ -158,8 +158,8 @@ public class EmojiReplyPendantVH extends BaseTagItemViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.h(i);
-            wn8 wn8Var = this.d;
-            if (wn8Var != null && wn8Var.d().hasReplied()) {
+            gi8 gi8Var = this.d;
+            if (gi8Var != null && gi8Var.d().hasReplied()) {
                 EMManager.from(this.f).setTextColor(R.color.CAM_X0304);
                 EMManager.from(this.itemView).setCorner(R.string.J_X01).setAlpha(R.string.A_X11).setBackGroundColor(R.color.CAM_X0302);
                 return;

@@ -1,102 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s50;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class u50 {
+public final class u50 {
     public static /* synthetic */ Interceptable $ic;
+    public static final u50 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Class[] a;
-        public final /* synthetic */ s50.a b;
-        public final /* synthetic */ Context c;
-
-        public a(Class[] clsArr, s50.a aVar, Context context) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161849, "Lcom/baidu/tieba/u50;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {clsArr, aVar, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = clsArr;
-            this.b = aVar;
-            this.c = context;
-        }
-
-        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, INVOKE] complete} */
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948161849, "Lcom/baidu/tieba/u50;");
                 return;
             }
-            try {
-                try {
-                    Object invoke = this.a[0].getMethod("asInterface", IBinder.class).invoke(null, iBinder);
-                    this.b.a(true, (String) invoke.getClass().getMethod("getOAID", new Class[0]).invoke(invoke, new Object[0]));
-                } finally {
-                    try {
-                        this.c.unbindService(this);
-                    } catch (Throwable unused) {
-                    }
-                }
-            } catch (Throwable unused2) {
-                this.b.a(false, null);
-            }
         }
+        a = new u50();
+    }
 
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+    public u50() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void a(Context context, s50.a aVar) {
+    public final Drawable a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
-                return;
-            }
-            Intent intent = new Intent();
-            intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            Class[] clsArr = new Class[1];
-            try {
-                clsArr[0] = Class.forName("com.samsung.android.deviceidservice.IDeviceIdService$Stub");
-            } catch (Throwable unused) {
-            }
-            if (clsArr[0] == null) {
-                aVar.a(false, null);
-                return;
-            }
-            try {
-                context.bindService(intent, new a(clsArr, aVar, context), 1);
-            } catch (Throwable unused2) {
-                aVar.a(false, null);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColors(new int[]{f80.f().a(context, str, "color_gradient_1"), f80.f().a(context, str, "color_gradient_2")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            return gradientDrawable;
         }
+        return (Drawable) invokeLLL.objValue;
+    }
+
+    public final Drawable d(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, str2)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColors(new int[]{f80.f().a(context, str, "color_gradient_2"), f80.f().a(context, str, "color_gradient_1")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeLLL.objValue;
+    }
+
+    public final Drawable b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = o50.b(context, 7.0f);
+            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
+            gradientDrawable.setColors(new int[]{f80.f().a(context, str, "color_F5F5F53"), f80.f().a(context, str, "color_F5F5F53")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public final Drawable c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = o50.b(context, 18.0f);
+            gradientDrawable.setCornerRadii(new float[]{0.0f, 0.0f, 0.0f, 0.0f, b, b, b, b});
+            gradientDrawable.setColors(new int[]{f80.f().a(context, str, "color_main_bg"), f80.f().a(context, str, "color_main_bg")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public final Drawable e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = o50.b(context, 7.0f);
+            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
+            gradientDrawable.setColors(new int[]{f80.f().a(context, str, "color_FF33552"), f80.f().a(context, str, "color_FF33552")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeLL.objValue;
     }
 }

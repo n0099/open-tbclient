@@ -1,17 +1,9 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
+import android.content.SharedPreferences;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.res.ui.FloatButton;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,19 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public class wd3 {
+public class wd3 extends xd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile wd3 g;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public FloatButton b;
-    public String c;
-    public JSONObject d;
-    public String e;
+    public final Set<String> f;
 
     static {
         InterceptResult invokeClinit;
@@ -46,155 +33,239 @@ public class wd3 {
                 return;
             }
         }
-        f = qr1.a;
+        g = am1.a;
     }
 
-    public wd3() {
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g) {
+            IllegalAccessException illegalAccessException = new IllegalAccessException("read only allowed");
+            Log.i("IpcReadOnlySP", illegalAccessException.toString());
+            illegalAccessException.printStackTrace();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wd3(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = "";
+        this.f = new HashSet();
     }
 
-    public static wd3 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xd3, com.baidu.tieba.ce3, android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (wd3.class) {
-                    if (g == null) {
-                        g = new wd3();
-                    }
-                }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (j(str)) {
+                return super.getBoolean(str, z);
             }
-            return g;
+            return c(str, z);
         }
-        return (wd3) invokeV.objValue;
+        return invokeLZ.booleanValue;
     }
 
-    public static void h() {
+    @Override // com.baidu.tieba.xd3, com.baidu.tieba.ce3, android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || g == null) {
-            return;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f)) == null) {
+            if (j(str)) {
+                return super.getFloat(str, f);
+            }
+            return d(str, f);
         }
-        g = null;
+        return invokeLF.floatValue;
     }
 
-    public FloatButton c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xd3, com.baidu.tieba.ce3, android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            if (j(str)) {
+                return super.getInt(str, i);
+            }
+            return e(str, i);
         }
-        return (FloatButton) invokeV.objValue;
+        return invokeLI.intValue;
     }
 
-    public final FloatButton a(Context context, ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.xd3, com.baidu.tieba.ce3, android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+            if (j(str)) {
+                return super.getLong(str, j);
+            }
+            return f(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // com.baidu.tieba.xd3, com.baidu.tieba.ce3, android.content.SharedPreferences
+    public String getString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, viewGroup)) == null) {
-            if (context != null && viewGroup != null) {
-                FloatButton e = e(context);
-                viewGroup.addView(e);
-                return e;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (j(str)) {
+                return super.getString(str, str2);
             }
-            return null;
+            return h(str, str2);
         }
-        return (FloatButton) invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public void b(Intent intent) {
+    @Override // com.baidu.tieba.xd3, com.baidu.tieba.ce3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) && intent != null && this.b != null) {
-            String dataString = intent.getDataString();
-            if (TextUtils.isEmpty(dataString)) {
-                return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putBoolean(str, z);
             }
-            String substring = dataString.substring(8);
-            if (!TextUtils.isEmpty(substring) && substring.equals(this.e)) {
-                if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-                    this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0210);
-                } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
-                    this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14ce);
-                }
-                this.b.setFloatButtonText(this.c);
-            }
+            return this;
         }
+        return (SharedPreferences.Editor) invokeLZ.objValue;
     }
 
-    public final FloatButton e(Context context) {
+    @Override // com.baidu.tieba.xd3, com.baidu.tieba.ce3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putFloat(str, f);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLF.objValue;
+    }
+
+    @Override // com.baidu.tieba.xd3, com.baidu.tieba.ce3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putInt(str, i);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.xd3, com.baidu.tieba.ce3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putLong(str, j);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLJ.objValue;
+    }
+
+    @Override // com.baidu.tieba.xd3, com.baidu.tieba.ce3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putString(str, str2);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ce3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.putStringSet(str, set);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLL.objValue;
+    }
+
+    public boolean j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            return (FloatButton) LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d0926, (ViewGroup) null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return this.f.contains(str);
         }
-        return (FloatButton) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void i(String str) {
+    @Override // com.baidu.tieba.ce3, com.baidu.tieba.ql4, android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void j(FloatButton floatButton) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, floatButton) == null) {
-            this.b = floatButton;
-        }
-    }
-
-    public FloatButton f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Activity activity = this.a;
-            if (!(activity instanceof SwanAppActivity)) {
-                return null;
-            }
-            if (this.b == null) {
-                this.b = a(activity, (ViewGroup) activity.findViewById(16908290));
-            }
-            this.b.setFloatButtonText(this.c);
-            this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081439));
-            this.b.setFloatButtonDefaultPosition();
-            this.b.setFloatButtonStyle(this.d);
-            this.b.setVisibility(0);
-            return this.b;
-        }
-        return (FloatButton) invokeV.objValue;
-    }
-
-    public void g(Activity activity, JSONObject jSONObject) {
-        String string;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, activity, jSONObject) == null) && jSONObject != null) {
-            if (f) {
-                Log.i("FloatButtonGuideManager", jSONObject.toString());
-            }
-            this.a = activity;
-            String optString = jSONObject.optString("name");
-            this.e = optString;
-            if (ap3.F(activity, optString)) {
-                string = activity.getString(R.string.obfuscated_res_0x7f0f0210);
+        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
+            if (i()) {
+                super.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
             } else {
-                string = activity.getString(R.string.obfuscated_res_0x7f0f14ce);
+                k();
             }
-            this.c = string;
-            this.d = jSONObject.optJSONObject("style");
+        }
+    }
+
+    @Override // com.baidu.tieba.xd3, com.baidu.tieba.ce3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor remove(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            if (!i() && !j(str)) {
+                k();
+            } else {
+                super.remove(str);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ce3, com.baidu.tieba.ql4, android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, onSharedPreferenceChangeListener) == null) {
+            if (i()) {
+                super.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+            } else {
+                k();
+            }
         }
     }
 }

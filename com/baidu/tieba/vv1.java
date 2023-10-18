@@ -1,26 +1,242 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.oo2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
+import com.baidu.tieba.tt1;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.FormBody;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public interface vv1 {
-    boolean a(@Nullable Activity activity);
+public class vv1 extends tv1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull Context context);
+    @Override // com.baidu.tieba.tt1
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "SubscribeServiceApi" : (String) invokeV.objValue;
+    }
 
-    void c(@NonNull String str);
+    /* loaded from: classes8.dex */
+    public class a implements tt1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vv1 a;
 
-    void d(CallbackHandler callbackHandler);
+        public a(vv1 vv1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vv1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vv1Var;
+        }
 
-    void e(gb3 gb3Var);
+        @Override // com.baidu.tieba.tt1.a
+        public qx1 a(p53 p53Var, JSONObject jSONObject, String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, p53Var, jSONObject, str)) == null) {
+                return this.a.F(p53Var, jSONObject, str);
+            }
+            return (qx1) invokeLLL.objValue;
+        }
+    }
 
-    String f(@NonNull Context context);
+    /* loaded from: classes8.dex */
+    public class b extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ vv1 b;
 
-    void g(gb3 gb3Var);
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
 
-    void h(@NonNull Activity activity, String str, String str2, no2 no2Var, oo2.b bVar);
+        public b(vv1 vv1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vv1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = vv1Var;
+            this.a = str;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            String message;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                vv1 vv1Var = this.b;
+                String str = this.a;
+                if (exc == null) {
+                    message = "";
+                } else {
+                    message = exc.getMessage();
+                }
+                vv1Var.C(str, message);
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.b.d(this.a, this.b.E(response));
+                return response;
+            }
+            return invokeLI.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vv1(@NonNull rt1 rt1Var) {
+        super(rt1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rt1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((rt1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public qx1 G(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            r("#subscribe params=" + str, false);
+            return m(str, true, new a(this));
+        }
+        return (qx1) invokeL.objValue;
+    }
+
+    public final Pair<Request, Integer> A(@NonNull p53 p53Var, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, p53Var, jSONObject)) == null) {
+            RequestBody D = D(p53Var, jSONObject);
+            if (D == null) {
+                return new Pair<>(null, 202);
+            }
+            return new Pair<>(new Request.Builder().url(wo2.W().a()).post(D).build(), 0);
+        }
+        return (Pair) invokeLL.objValue;
+    }
+
+    public final RequestBody D(@NonNull p53 p53Var, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, p53Var, jSONObject)) == null) {
+            String optString = jSONObject.optString("subscribeId");
+            String P = p53Var.P();
+            String optString2 = jSONObject.optString("templateId");
+            if (!TextUtils.isEmpty(P) && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                return new FormBody.Builder().add("appkey", P).add("uniq_id", optString).add("type", jSONObject.optString("type", "query")).add("template_id", optString2).build();
+            }
+            return null;
+        }
+        return (RequestBody) invokeLL.objValue;
+    }
+
+    public final void B(@NonNull Request request, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, str) == null) {
+            sc4 sc4Var = new sc4(request.url().toString(), request.body(), new b(this, str));
+            sc4Var.i = request.tag();
+            sc4Var.f = true;
+            sc4Var.g = true;
+            sc4Var.h = true;
+            tc4.g().e(sc4Var);
+        }
+    }
+
+    public final void C(@NonNull String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            d(str, new qx1(500106, str2));
+        }
+    }
+
+    public qx1 E(Response response) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, response)) == null) {
+            if (response != null && response.body() != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(response.body().string());
+                    String optString = jSONObject.optString("errno");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (TextUtils.equals("0", optString) && optJSONObject != null) {
+                        return new qx1(0, optJSONObject, false);
+                    }
+                    return new qx1(500106, "subscribe fail");
+                } catch (Exception e) {
+                    return new qx1(500106, Log.getStackTraceString(e));
+                }
+            }
+            return new qx1(500106, "response body is null");
+        }
+        return (qx1) invokeL.objValue;
+    }
+
+    public final qx1 F(@NonNull p53 p53Var, @NonNull JSONObject jSONObject, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, p53Var, jSONObject, str)) == null) {
+            Pair<Request, Integer> A = A(p53Var, jSONObject);
+            Request request = (Request) A.first;
+            if (request == null) {
+                return new qx1(((Integer) A.second).intValue(), IActiveUploadListener.PARAM_ERR_MSG);
+            }
+            B(request, str);
+            return new qx1(0, "success");
+        }
+        return (qx1) invokeLLL.objValue;
+    }
 }

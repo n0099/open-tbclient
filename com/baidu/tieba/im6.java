@@ -1,92 +1,91 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.view.MultiLinkCardView;
+import com.baidu.tieba.s07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class im6 {
+public class im6 implements s07.l {
     public static /* synthetic */ Interceptable $ic;
-    public static final im6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, hm6> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947858359, "Lcom/baidu/tieba/im6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947858359, "Lcom/baidu/tieba/im6;");
-                return;
-            }
-        }
-        b = new im6();
-    }
 
     public im6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new ConcurrentHashMap();
     }
 
-    public static im6 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.s07.s
+    public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (im6) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof MultiLinkCardView)) {
+            ((MultiLinkCardView) viewGroup).b();
         }
     }
 
-    public Map<String, hm6> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public void a(String str, hm6 hm6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, hm6Var) == null) {
-            this.a.put(str, hm6Var);
-        }
-    }
-
-    public hm6 d(String str) {
+    @Override // com.baidu.tieba.s07.l
+    @NonNull
+    public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.a.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new MultiLinkCardView(context);
         }
-        return (hm6) invokeL.objValue;
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s07.l
+    public void i(@NonNull ViewGroup viewGroup, @NonNull w17 w17Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, w17Var) == null) && (viewGroup instanceof MultiLinkCardView)) {
+            List<z37> d = w17Var.d();
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            for (z37 z37Var : d) {
+                if (z37Var.i() == 6) {
+                    PbGoodsData pbGoodsData = new PbGoodsData();
+                    pbGoodsData.title = z37Var.h();
+                    pbGoodsData.picUrl = z37Var.f();
+                    pbGoodsData.price = z37Var.c();
+                    pbGoodsData.linkUrl = z37Var.e();
+                    pbGoodsData.sort = z37Var.g();
+                    pbGoodsData.linkFrom = z37Var.d();
+                    pbGoodsData.goodsUrlH5 = z37Var.a();
+                    arrayList2.add(pbGoodsData);
+                } else {
+                    PbLinkData pbLinkData = new PbLinkData();
+                    pbLinkData.title = z37Var.h();
+                    pbLinkData.linkUrl = z37Var.e();
+                    pbLinkData.picUrl = z37Var.f();
+                    pbLinkData.linkFrom = z37Var.d();
+                    pbLinkData.extTxt = z37Var.c();
+                    pbLinkData.sort = z37Var.g();
+                    pbLinkData.urlType = z37Var.i();
+                    pbLinkData.content1 = z37Var.a();
+                    pbLinkData.content2 = z37Var.b();
+                    arrayList.add(pbLinkData);
+                }
+            }
+            ((MultiLinkCardView) viewGroup).a(arrayList, arrayList2);
+        }
     }
 }

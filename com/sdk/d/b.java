@@ -1,6 +1,5 @@
 package com.sdk.d;
 
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +37,7 @@ public final class b {
         a = new b("UI_TOP", 0);
         b = new b("UI_NORMAL", 1);
         c = new b("UI_LOW", 2);
-        d = new b(EngineName.DEFAULT_ENGINE, 3);
+        d = new b("DEFAULT", 3);
         e = new b("BG_TOP", 4);
         f = new b("BG_NORMAL", 5);
         b bVar = new b("BG_LOW", 6);

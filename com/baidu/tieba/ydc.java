@@ -1,219 +1,133 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kcc;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.agc;
+import com.baidu.tieba.yfc;
+import com.baidu.tieba.zfc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
-public class ydc<T> implements kcc.b<T, T> {
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.impl.YYPayAmountView;
+import tv.athena.revenue.payui.view.impl.YYPayCampaignView;
+import tv.athena.revenue.payui.view.impl.YYPayConfirmView;
+import tv.athena.revenue.payui.view.impl.YYPayGiftView;
+import tv.athena.revenue.payui.view.impl.YYPayResultView;
+import tv.athena.revenue.payui.view.impl.YYPaySignView;
+import tv.athena.revenue.payui.view.impl.YYPaySplitOrderView;
+import tv.athena.revenue.payui.view.impl.YYPayWayView;
+/* loaded from: classes9.dex */
+public class ydc implements scc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ycc<? super T> a;
+    public int a;
+    public int b;
+    public PayUIKitConfig c;
 
-    /* loaded from: classes8.dex */
-    public class a implements mcc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicLong a;
-
-        public a(ydc ydcVar, AtomicLong atomicLong) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ydcVar, atomicLong};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = atomicLong;
-        }
-
-        @Override // com.baidu.tieba.mcc
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                hdc.b(this.a, j);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends qcc<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean e;
-        public final /* synthetic */ qcc f;
-        public final /* synthetic */ AtomicLong g;
-        public final /* synthetic */ ydc h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ydc ydcVar, qcc qccVar, qcc qccVar2, AtomicLong atomicLong) {
-            super(qccVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ydcVar, qccVar, qccVar2, atomicLong};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((qcc) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = ydcVar;
-            this.f = qccVar2;
-            this.g = atomicLong;
-        }
-
-        @Override // com.baidu.tieba.qcc
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e(Long.MAX_VALUE);
-            }
-        }
-
-        @Override // com.baidu.tieba.lcc
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.e) {
-                this.e = true;
-                this.f.onCompleted();
-            }
-        }
-
-        @Override // com.baidu.tieba.lcc
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                if (!this.e) {
-                    this.e = true;
-                    this.f.onError(th);
-                    return;
-                }
-                ygc.j(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.lcc
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.e) {
-                return;
-            }
-            if (this.g.get() > 0) {
-                this.f.onNext(t);
-                this.g.decrementAndGet();
-                return;
-            }
-            ycc<? super T> yccVar = this.h.a;
-            if (yccVar != null) {
-                try {
-                    yccVar.call(t);
-                } catch (Throwable th) {
-                    wcc.g(th, this, t);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ydc<Object> a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-262781710, "Lcom/baidu/tieba/ydc$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-262781710, "Lcom/baidu/tieba/ydc$c;");
-                    return;
-                }
-            }
-            a = new ydc<>();
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ydc() {
-        this(null);
+    public ydc(int i, int i2, PayUIKitConfig payUIKitConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((ycc) newInitContext.callArgs[0]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        RLog.info("PayFlowViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = payUIKitConfig;
     }
 
-    public static <T> ydc<T> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.scc
+    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, pcc pccVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return (ydc<T>) c.a;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, pccVar)) == null) {
+            return new YYPayAmountView(activity, this.a, this.b, this.c, viewParams, pccVar);
         }
-        return (ydc) invokeV.objValue;
+        return (IYYPayAmountView) invokeLLL.objValue;
     }
 
-    public ydc(ycc<? super T> yccVar) {
+    @Override // com.baidu.tieba.scc
+    public IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, pcc pccVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yccVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, cVar, pccVar)) == null) {
+            return new YYPayResultView(activity, this.c, this.a, this.b, cVar, pccVar);
         }
-        this.a = yccVar;
+        return (IYYPayResultView) invokeLLL.objValue;
     }
 
-    public qcc<? super T> call(qcc<? super T> qccVar) {
+    @Override // com.baidu.tieba.scc
+    public yfc f(Activity activity, yfc.b bVar, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, bVar, payUIKitConfig)) == null) {
+            return new YYPaySignView(activity, bVar, payUIKitConfig, this.a, this.b);
+        }
+        return (yfc) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.scc
+    public agc g(Activity activity, agc.b bVar, ucc uccVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, activity, bVar, uccVar)) == null) {
+            return new YYPayWayView(activity, this.a, this.b, bVar, this.c, uccVar);
+        }
+        return (agc) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.scc
+    public wfc b(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qccVar)) == null) {
-            AtomicLong atomicLong = new AtomicLong();
-            qccVar.f(new a(this, atomicLong));
-            return new b(this, qccVar, qccVar, atomicLong);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            return new YYPayConfirmView(activity, this.a, this.b, this.c);
         }
-        return (qcc) invokeL.objValue;
+        return (wfc) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.kcc.b, com.baidu.tieba.ddc
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((qcc) ((qcc) obj));
+    @Override // com.baidu.tieba.scc
+    public vfc c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            return new YYPayCampaignView(activity, this.a, this.b, this.c);
+        }
+        return (vfc) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.scc
+    public xfc d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
+            return new YYPayGiftView(activity, this.a, this.b, this.c);
+        }
+        return (xfc) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.scc
+    public zfc h(Activity activity, PayUIKitConfig payUIKitConfig, zfc.b bVar, ucc uccVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, payUIKitConfig, bVar, uccVar)) == null) {
+            return new YYPaySplitOrderView(activity, payUIKitConfig, this.a, this.b, bVar, uccVar);
+        }
+        return (zfc) invokeLLLL.objValue;
     }
 }

@@ -19,15 +19,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tbadk.core.view.PushPermissionDialogViewV2;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lg5;
-import com.baidu.tieba.n3a;
-import com.baidu.tieba.o3a;
-import com.baidu.tieba.sz4;
+import com.baidu.tieba.au4;
+import com.baidu.tieba.ay9;
+import com.baidu.tieba.by9;
+import com.baidu.tieba.f85;
+import com.baidu.tieba.f95;
+import com.baidu.tieba.g85;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.sa5;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.xd5;
-import com.baidu.tieba.xe5;
-import com.baidu.tieba.yd5;
-import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PushOpenUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PUSH_PERMISSION_DIALOG_AGREE_MESSAGE_BAR = 7;
@@ -94,18 +94,18 @@ public class PushOpenUtil {
         return invokeI.intValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lg5 a;
+        public final /* synthetic */ sa5 a;
 
-        public a(lg5 lg5Var) {
+        public a(sa5 sa5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lg5Var};
+                Object[] objArr = {sa5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -115,7 +115,7 @@ public class PushOpenUtil {
                     return;
                 }
             }
-            this.a = lg5Var;
+            this.a = sa5Var;
         }
 
         @Override // java.lang.Runnable
@@ -127,20 +127,20 @@ public class PushOpenUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sz4 a;
+        public final /* synthetic */ au4 a;
         public final /* synthetic */ int b;
-        public final /* synthetic */ z45 c;
+        public final /* synthetic */ hz4 c;
 
-        public b(sz4 sz4Var, int i, z45 z45Var) {
+        public b(au4 au4Var, int i, hz4 hz4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sz4Var, Integer.valueOf(i), z45Var};
+                Object[] objArr = {au4Var, Integer.valueOf(i), hz4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -150,18 +150,18 @@ public class PushOpenUtil {
                     return;
                 }
             }
-            this.a = sz4Var;
+            this.a = au4Var;
             this.b = i;
-            this.c = z45Var;
+            this.c = hz4Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sz4 sz4Var = this.a;
-                if (sz4Var != null) {
-                    sz4Var.a();
+                au4 au4Var = this.a;
+                if (au4Var != null) {
+                    au4Var.a();
                 }
                 PushOpenUtil.logClick(this.b, true);
                 this.c.dismiss();
@@ -169,20 +169,20 @@ public class PushOpenUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sz4 a;
+        public final /* synthetic */ au4 a;
         public final /* synthetic */ int b;
-        public final /* synthetic */ z45 c;
+        public final /* synthetic */ hz4 c;
 
-        public c(sz4 sz4Var, int i, z45 z45Var) {
+        public c(au4 au4Var, int i, hz4 hz4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sz4Var, Integer.valueOf(i), z45Var};
+                Object[] objArr = {au4Var, Integer.valueOf(i), hz4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -192,18 +192,18 @@ public class PushOpenUtil {
                     return;
                 }
             }
-            this.a = sz4Var;
+            this.a = au4Var;
             this.b = i;
-            this.c = z45Var;
+            this.c = hz4Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sz4 sz4Var = this.a;
-                if (sz4Var != null) {
-                    sz4Var.onCancelClick();
+                au4 au4Var = this.a;
+                if (au4Var != null) {
+                    au4Var.onCancelClick();
                 }
                 PushOpenUtil.logClick(this.b, false);
                 this.c.dismiss();
@@ -313,9 +313,9 @@ public class PushOpenUtil {
             } else {
                 string = TbadkCoreApplication.getInst().getString(R.string.push_tip_default_desc_bar_attention);
             }
-            xd5 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
+            f85 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
             if (pushStrategyConfig.d()) {
-                yd5 c3 = pushStrategyConfig.c(str);
+                g85 c3 = pushStrategyConfig.c(str);
                 if (c3 != null && !TextUtils.isEmpty(c3.c())) {
                     string2 = c3.c();
                 }
@@ -323,7 +323,7 @@ public class PushOpenUtil {
                     string = c3.b();
                 }
             } else {
-                n3a g = o3a.e().g(str);
+                ay9 g = by9.e().g(str);
                 if (g != null && !TextUtils.isEmpty(g.f())) {
                     string2 = g.f();
                 }
@@ -366,7 +366,7 @@ public class PushOpenUtil {
         boolean z7;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i)) == null) {
-            xd5 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
+            f85 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
             if (pushStrategyConfig != null && pushStrategyConfig.d()) {
                 i2 = pushStrategyConfig.b();
             } else {
@@ -506,41 +506,41 @@ public class PushOpenUtil {
         return invokeLI.booleanValue;
     }
 
-    public static lg5 showPushOpenFloatView(TbPageContext<?> tbPageContext, Map<String, String> map, long j) {
+    public static sa5 showPushOpenFloatView(TbPageContext<?> tbPageContext, Map<String, String> map, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{tbPageContext, map, Long.valueOf(j)})) == null) {
             if (tbPageContext != null && map != null) {
-                lg5 lg5Var = new lg5(tbPageContext, map);
+                sa5 sa5Var = new sa5(tbPageContext, map);
                 if (j <= 0) {
-                    lg5Var.x();
+                    sa5Var.x();
                 } else {
-                    SafeHandler.getInst().postDelayed(new a(lg5Var), j);
+                    SafeHandler.getInst().postDelayed(new a(sa5Var), j);
                 }
-                return lg5Var;
+                return sa5Var;
             }
             return null;
         }
-        return (lg5) invokeCommon.objValue;
+        return (sa5) invokeCommon.objValue;
     }
 
-    public static lg5 showPushOpenView(TbPageContext<?> tbPageContext, String str, long j) {
+    public static sa5 showPushOpenView(TbPageContext<?> tbPageContext, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{tbPageContext, str, Long.valueOf(j)})) == null) {
             return showPushOpenView(tbPageContext, str, j, null);
         }
-        return (lg5) invokeCommon.objValue;
+        return (sa5) invokeCommon.objValue;
     }
 
-    public static void showPushPermissionDialogV2(TbPageContext<?> tbPageContext, int i, sz4 sz4Var) {
+    public static void showPushPermissionDialogV2(TbPageContext<?> tbPageContext, int i, au4 au4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65547, null, tbPageContext, i, sz4Var) == null) {
-            showPushPermissionDialogV2(tbPageContext, tbPageContext.getPageActivity(), i, sz4Var);
+        if (interceptable == null || interceptable.invokeLIL(65547, null, tbPageContext, i, au4Var) == null) {
+            showPushPermissionDialogV2(tbPageContext, tbPageContext.getPageActivity(), i, au4Var);
         }
     }
 
-    public static lg5 showPushOpenView(TbPageContext<?> tbPageContext, String str, long j, Map<String, String> map) {
+    public static sa5 showPushOpenView(TbPageContext<?> tbPageContext, String str, long j, Map<String, String> map) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{tbPageContext, str, Long.valueOf(j), map})) == null) {
@@ -601,8 +601,8 @@ public class PushOpenUtil {
             }
             switch (c2) {
                 case 0:
-                    boolean A = xe5.d().A();
-                    if (areNotificationsEnabled && A) {
+                    boolean B = f95.e().B();
+                    if (areNotificationsEnabled && B) {
                         return null;
                     }
                     return showPushOpenFloatView(tbPageContext, readConfig, j);
@@ -622,29 +622,29 @@ public class PushOpenUtil {
                     throw new IllegalStateException("Unexpected value: " + str);
             }
         }
-        return (lg5) invokeCommon.objValue;
+        return (sa5) invokeCommon.objValue;
     }
 
-    public static void showPushPermissionDialogV2(TbPageContext<?> tbPageContext, Activity activity, int i, sz4 sz4Var) {
+    public static void showPushPermissionDialogV2(TbPageContext<?> tbPageContext, Activity activity, int i, au4 au4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLIL(65548, null, tbPageContext, activity, i, sz4Var) == null) && activity != null && tbPageContext != null) {
-            z45 z45Var = new z45(activity);
-            z45Var.setCancelable(false);
-            z45Var.setPositiveButton((String) null, (z45.e) null);
-            z45Var.setNegativeButton((String) null, (z45.e) null);
-            z45Var.setContentViewSize(7);
+        if ((interceptable == null || interceptable.invokeLLIL(65548, null, tbPageContext, activity, i, au4Var) == null) && activity != null && tbPageContext != null) {
+            hz4 hz4Var = new hz4(activity);
+            hz4Var.setCancelable(false);
+            hz4Var.setPositiveButton((String) null, (hz4.e) null);
+            hz4Var.setNegativeButton((String) null, (hz4.e) null);
+            hz4Var.setContentViewSize(7);
             PushPermissionDialogViewV2 pushPermissionDialogViewV2 = new PushPermissionDialogViewV2(activity);
             Map<String, String> readConfig = readConfig(getSourceFromType(i));
             pushPermissionDialogViewV2.setTitle(readConfig.get(VIEW_PARAMS_KEY_TITLE));
             pushPermissionDialogViewV2.setDescription(readConfig.get(VIEW_PARAMS_KEY_DESC));
-            z45Var.setContentView(pushPermissionDialogViewV2);
+            hz4Var.setContentView(pushPermissionDialogViewV2);
             if (pushPermissionDialogViewV2.getConfirmButton() != null) {
-                pushPermissionDialogViewV2.getConfirmButton().setOnClickListener(new b(sz4Var, i, z45Var));
+                pushPermissionDialogViewV2.getConfirmButton().setOnClickListener(new b(au4Var, i, hz4Var));
             }
             if (pushPermissionDialogViewV2.getCancelButton() != null) {
-                pushPermissionDialogViewV2.getCancelButton().setOnClickListener(new c(sz4Var, i, z45Var));
+                pushPermissionDialogViewV2.getCancelButton().setOnClickListener(new c(au4Var, i, hz4Var));
             }
-            z45Var.create(tbPageContext).show();
+            hz4Var.create(tbPageContext).show();
             logShow(i);
         }
     }

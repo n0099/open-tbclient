@@ -597,7 +597,7 @@ public final class OrderedRangeList<T> {
         }
     }
 
-    public final void update(int i, int i2) {
+    public final void l(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             this.a = i;

@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.rwb;
+import com.baidu.tieba.oqb;
 /* loaded from: classes9.dex */
-public class TrackableBase implements rwb {
+public class TrackableBase implements oqb {
     public final long a;
     public final Session b;
 

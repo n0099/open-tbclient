@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class hf6 extends pm {
+public class hf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context b;
-    public View c;
-    public ImageView d;
-    public TextView e;
-    public View f;
-    public View g;
-    public View.OnClickListener h;
+    public final StatisticItem a;
 
-    public hf6(Context context) {
+    public hf6(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,66 +31,64 @@ public class hf6 extends pm {
                 return;
             }
         }
-        this.b = context;
+        this.a = StatisticItem.make(str);
     }
 
-    public void f(View.OnClickListener onClickListener) {
+    public static hf6 a(HybridStatisticKey hybridStatisticKey) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.h = onClickListener;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridStatisticKey)) == null) {
+            return new hf6(hybridStatisticKey.getValue());
         }
+        return (hf6) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pm
-    public View a() {
-        InterceptResult invokeV;
+    public static String b(StatisticItem statisticItem) {
+        InterceptResult invokeL;
+        int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0101, (ViewGroup) null);
-            this.c = inflate;
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901f3);
-            this.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0901f2);
-            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f0901f4);
-            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0901f1);
-            e(TbadkCoreApplication.getInst().getSkinType());
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, statisticItem)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (statisticItem == null) {
+                return "";
+            }
+            sb.append("RD_STAT_LOG: ");
+            sb.append("key=");
+            sb.append(statisticItem.getKey());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            List<Object> params = statisticItem.getParams();
+            if (params != null && (size = params.size()) > 0) {
+                for (int i = 0; i < size; i++) {
+                    sb.append(params.get(i));
+                    if (i % 2 == 0) {
+                        sb.append("=");
+                    } else if (i != size - 1) {
+                        sb.append(",");
+                    }
+                }
+            }
+            return sb.toString();
         }
-        return (View) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pm
+    public hf6 c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            this.a.param(str, str2);
+            return this;
+        }
+        return (hf6) invokeLL.objValue;
+    }
+
     public void d() {
-        View.OnClickListener onClickListener;
-        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (onClickListener = this.h) != null && (view2 = this.c) != null) {
-            onClickListener.onClick(view2);
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            View view2 = this.c;
-            if (view2 != null) {
-                SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (wg6.a()) {
+                th6.a("newHybrid", b(this.a));
             }
-            TextView textView = this.e;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0304);
-            }
-            ImageView imageView = this.d;
-            if (imageView != null) {
-                SkinManager.setImageResource(imageView, R.drawable.icon_inf_arrowblue_n);
-            }
-            View view3 = this.f;
-            if (view3 != null) {
-                SkinManager.setBackgroundResource(view3, R.color.CAM_X0204);
-            }
-            View view4 = this.g;
-            if (view4 != null) {
-                SkinManager.setBackgroundResource(view4, R.color.CAM_X0204);
-            }
+            this.a.eventStat();
         }
     }
 }

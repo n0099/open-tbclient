@@ -165,8 +165,8 @@ public class CoolPraiseView extends LinearLayout {
     }
 
     private void initPraiseDefaultIcon() {
-        this.mUnPraisedResDrawable = AppRuntime.getAppContext().getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050c);
-        this.mPraisedResDrawable = AppRuntime.getAppContext().getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050b);
+        this.mUnPraisedResDrawable = AppRuntime.getAppContext().getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050a);
+        this.mPraisedResDrawable = AppRuntime.getAppContext().getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080509);
     }
 
     private void initPraiseManager() {
@@ -456,8 +456,8 @@ public class CoolPraiseView extends LinearLayout {
         this.mPraiseEnabled = true;
         this.mIsPraised = false;
         this.mPraiseCount = 0;
-        this.mUnPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050c;
-        this.mPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050b;
+        this.mUnPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050a;
+        this.mPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f080509;
         this.mDisableAnimation = false;
         this.mPraiseIdPrefix = "";
         this.mLocation = new int[4];
@@ -488,8 +488,8 @@ public class CoolPraiseView extends LinearLayout {
         this.mPraiseEnabled = true;
         this.mIsPraised = false;
         this.mPraiseCount = 0;
-        this.mUnPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050c;
-        this.mPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050b;
+        this.mUnPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050a;
+        this.mPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f080509;
         this.mDisableAnimation = false;
         this.mPraiseIdPrefix = "";
         this.mLocation = new int[4];
@@ -520,8 +520,8 @@ public class CoolPraiseView extends LinearLayout {
         this.mPraiseEnabled = true;
         this.mIsPraised = false;
         this.mPraiseCount = 0;
-        this.mUnPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050c;
-        this.mPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050b;
+        this.mUnPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050a;
+        this.mPraisedRes = com.baidu.tieba.R.drawable.obfuscated_res_0x7f080509;
         this.mDisableAnimation = false;
         this.mPraiseIdPrefix = "";
         this.mLocation = new int[4];
@@ -837,11 +837,11 @@ public class CoolPraiseView extends LinearLayout {
             return i + "";
         }
         if (j < BILLION) {
-            string = AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1147);
+            string = AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1154);
             d = i;
             d2 = 10000.0d;
         } else {
-            string = AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1142);
+            string = AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f114f);
             d = i;
             d2 = 1.0E8d;
         }
@@ -956,9 +956,9 @@ public class CoolPraiseView extends LinearLayout {
         boolean z2;
         int i2;
         LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0232, (ViewGroup) this, true);
-        this.mPraiseIcon = (PressedAlphaImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928dd);
-        this.mPraiseCntsView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928de);
-        this.mWrapperLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928dc);
+        this.mPraiseIcon = (PressedAlphaImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928d2);
+        this.mPraiseCntsView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928d3);
+        this.mWrapperLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928d1);
         if (attributeSet != null) {
             typedArray = context.obtainStyledAttributes(attributeSet, com.baidu.android.common.widget.praise.R.styleable.coolPraiseView);
         } else {
@@ -1131,7 +1131,7 @@ public class CoolPraiseView extends LinearLayout {
         if (i <= 0) {
             this.mPraiseCount = 0;
             if (this.mPraiseCntsDefaultTextShow) {
-                this.mPraiseCntsView.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1148));
+                this.mPraiseCntsView.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1155));
                 setPraiseCntsLeftMargin(this.mPraiseCntsMarginLeft, false);
             } else {
                 this.mPraiseCntsView.setText("");
@@ -1141,7 +1141,7 @@ public class CoolPraiseView extends LinearLayout {
                 if (DEBUG) {
                     Log.d(TAG, "isFirstPraiseAnimSupported return true");
                 }
-                this.mPraiseCntsView.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1143));
+                this.mPraiseCntsView.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1150));
             }
         } else {
             setPraiseCntsLeftMargin(this.mPraiseCntsMarginLeft, false);

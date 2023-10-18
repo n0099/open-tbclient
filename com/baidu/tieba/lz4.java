@@ -1,319 +1,121 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.url.UrlUtils;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public final class lz4 {
+public class lz4 extends kz4 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public int k;
-    public Bundle l;
-    public HashMap<String, Serializable> m;
+    public TextView l;
+    public TextView m;
+    public View.OnClickListener n;
+    public int o;
+    public int p;
 
-    public lz4 i(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.baidu.tieba.kz4
+    public void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? this : (lz4) invokeZ.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
     }
 
-    public lz4(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lz4(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = "";
-        this.d = true;
-        this.e = true;
-        this.f = true;
-        this.g = true;
-        this.h = false;
-        this.i = false;
-        this.j = false;
-        this.l = null;
-        this.m = null;
-        this.a = context;
-        this.b = str;
+        this.o = R.color.CAM_X0304;
+        this.p = R.color.CAM_X0107;
+        this.l = (TextView) e().findViewById(R.id.title_ok);
+        this.m = (TextView) e().findViewById(R.id.title_cancel);
+        i(true);
     }
 
-    public static lz4 j(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.kz4
+    public void b(BdPageContext<?> bdPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            return new lz4(context, str);
-        }
-        return (lz4) invokeLL.objValue;
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
-            return;
-        }
-        new PvThread("open_webview", true).start();
-    }
-
-    public TbWebViewActivityConfig b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return e(this.a);
-        }
-        return (TbWebViewActivityConfig) invokeV.objValue;
-    }
-
-    public void p() {
-        TbWebViewActivityConfig e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (e = e(this.a)) != null) {
-            e.start();
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdPageContext) == null) {
+            super.b(bdPageContext);
+            o();
         }
     }
 
-    public void q() {
+    @Override // com.baidu.tieba.kz4
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (!TbadkCoreApplication.getInst().isDebugMode() && !GlobalBuildConfig.isTiebaDebugTool()) {
-                throw new RuntimeException("can't open debug page in release");
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            j(i);
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            EMManager.from(this.l).setTextSelectorColor(this.o);
+            EMManager.from(this.m).setTextSelectorColor(this.p);
+        }
+    }
+
+    public lz4 p(int i, View.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, onClickListener)) == null) {
+            this.m.setText(i);
+            this.m.setOnClickListener(onClickListener);
+            this.m.setVisibility(0);
+            return this;
+        }
+        return (lz4) invokeIL.objValue;
+    }
+
+    public lz4 q(int i, View.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, onClickListener)) == null) {
+            this.l.setText(i);
+            this.l.setOnClickListener(onClickListener);
+            this.l.setVisibility(0);
+            this.n = onClickListener;
+            return this;
+        }
+        return (lz4) invokeIL.objValue;
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z) {
+                this.o = R.color.CAM_X0304;
+                this.l.setEnabled(true);
+                this.l.setOnClickListener(this.n);
+            } else {
+                this.o = R.color.CAM_X0110;
+                this.l.setEnabled(false);
+                this.l.setOnClickListener(null);
             }
-            this.b = "http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/na-h5-tool";
-            p();
+            o();
         }
-    }
-
-    public lz4 a(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            this.l = bundle;
-            if (bundle != null) {
-                String string = bundle.getString(BdUniDispatchSchemeController.PARAM_INIT_DATA, "");
-                if (!TextUtils.isEmpty(string)) {
-                    if (this.m == null) {
-                        this.m = new HashMap<>();
-                    }
-                    this.m.put(BdUniDispatchSchemeController.PARAM_INIT_DATA, string);
-                }
-            }
-            return this;
-        }
-        return (lz4) invokeL.objValue;
-    }
-
-    public lz4 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.f = z;
-            return this;
-        }
-        return (lz4) invokeZ.objValue;
-    }
-
-    public lz4 d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.i = z;
-            return this;
-        }
-        return (lz4) invokeZ.objValue;
-    }
-
-    public lz4 f(HashMap<String, Serializable> hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hashMap)) == null) {
-            this.m = hashMap;
-            return this;
-        }
-        return (lz4) invokeL.objValue;
-    }
-
-    public lz4 g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.g = z;
-            return this;
-        }
-        return (lz4) invokeZ.objValue;
-    }
-
-    public lz4 h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.j = z;
-            return this;
-        }
-        return (lz4) invokeZ.objValue;
-    }
-
-    public lz4 k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            this.e = z;
-            return this;
-        }
-        return (lz4) invokeZ.objValue;
-    }
-
-    public lz4 l(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            this.h = z;
-            return this;
-        }
-        return (lz4) invokeZ.objValue;
-    }
-
-    public lz4 m(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (lz4) invokeZ.objValue;
-    }
-
-    public lz4 o(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.k = i;
-            return this;
-        }
-        return (lz4) invokeI.objValue;
-    }
-
-    public lz4 r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (lz4) invokeL.objValue;
-    }
-
-    public final TbWebViewActivityConfig e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            n();
-            try {
-                if (StringUtils.isNull(this.b)) {
-                    return null;
-                }
-                boolean z = this.g;
-                if (!UrlUtils.isBaiduDomain(this.b)) {
-                    z = false;
-                }
-                if (this.l != null && !this.l.getBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, true)) {
-                    z = false;
-                }
-                if (z) {
-                    String appendCuidParam = BrowserHelper.appendCuidParam(this.b);
-                    this.b = appendCuidParam;
-                    String appendVersionCode = BrowserHelper.appendVersionCode(appendCuidParam);
-                    this.b = appendVersionCode;
-                    this.b = BrowserHelper.appendClientType(appendVersionCode);
-                }
-                TbWebViewActivityConfig activityConfig = BrowserHelper.getActivityConfig(context, this.c, this.b, this.d, this.e, this.f, !qn6.b(this.m));
-                activityConfig.setNeedImmerSiveSticky(this.h);
-                activityConfig.setFixTitle(this.i);
-                activityConfig.setAutoPlay(this.j);
-                if (this.k > 0) {
-                    activityConfig.setRequestCode(this.k);
-                    activityConfig.setIntentAction(IntentAction.ActivityForResult);
-                }
-                activityConfig.setBundle(this.l);
-                if (!qn6.b(this.m)) {
-                    activityConfig.setPageData(this.m);
-                }
-                if (this.l != null) {
-                    if (this.l.getBoolean(WebViewActivityConfig.TAG_TEXT_AUTO_SIZE, false)) {
-                        activityConfig.setTextAutoSize(true);
-                    }
-                    String string = this.l.getString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, "");
-                    if (!TextUtils.isEmpty(string)) {
-                        activityConfig.setPageTranslucent(string);
-                    }
-                    if (this.l.getBoolean(WebViewActivityConfig.TAG_TRANSLUCENT_AUTO_CLOSE, false)) {
-                        activityConfig.setTranslucentAutoClose(true);
-                    }
-                    String string2 = this.l.getString(WebViewActivityConfig.TAG_WEB_DIALOG_NAME, "");
-                    if (!TextUtils.isEmpty(string2)) {
-                        activityConfig.setWebDialogName(string2);
-                    }
-                    if ("1".equals(this.l.getString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE))) {
-                        activityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-                        activityConfig.setLoadingSwitch(1);
-                        activityConfig.setLoadingStyle(1);
-                    } else if ("2".equals(this.l.getString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE))) {
-                        activityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-                    }
-                }
-                if (n) {
-                    activityConfig.setUseCustomHistoryStack(true);
-                    n = false;
-                }
-                if (this.l != null && this.l.getBoolean(WebViewActivityConfig.FROM_SCHEMA)) {
-                    activityConfig.setIsFromSchema(true);
-                }
-                return activityConfig;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (TbWebViewActivityConfig) invokeL.objValue;
     }
 }

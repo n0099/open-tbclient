@@ -1,164 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.card.view.MutiImgTextLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tieba.vt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.WeakHashMap;
 /* loaded from: classes9.dex */
-public class zs<K, V> implements Iterable<Map.Entry<K, V>> {
+public class zs extends wr<jv4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c<K, V> a;
-    public c<K, V> b;
-    public WeakHashMap<Object<K, V>, Boolean> c;
-    public int d;
+    public MutiImgTextLayout f;
+    public jv4 g;
+    public int h;
+    public String i;
 
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
+    public class a implements vt.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ zs a;
 
-    /* loaded from: classes9.dex */
-    public static class b<K, V> extends e<K, V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(c<K, V> cVar, c<K, V> cVar2) {
-            super(cVar, cVar2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, cVar2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((c) objArr2[0], (c) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zs.e
-        public c<K, V> a(c<K, V> cVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-                return cVar.c;
-            }
-            return (c) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class c<K, V> implements Map.Entry<K, V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final K a;
-        public final V b;
-        public c<K, V> c;
-
-        public c(K k, V v) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k, v};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k;
-            this.b = v;
-        }
-
-        @Override // java.util.Map.Entry
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (obj == this) {
-                    return true;
-                }
-                if (!(obj instanceof c)) {
-                    return false;
-                }
-                c cVar = (c) obj;
-                if (this.a.equals(cVar.a) && this.b.equals(cVar.b)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // java.util.Map.Entry
-        public K getKey() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (K) invokeV.objValue;
-        }
-
-        @Override // java.util.Map.Entry
-        public V getValue() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.b;
-            }
-            return (V) invokeV.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a + "=" + this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // java.util.Map.Entry
-        public V setValue(V v) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, v)) == null) {
-                throw new UnsupportedOperationException("An entry modification is not supported");
-            }
-            return (V) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d implements Object<K, V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public c<K, V> a;
-        public boolean b;
-        public final /* synthetic */ zs c;
-
-        public d(zs zsVar) {
+        public a(zs zsVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,268 +45,120 @@ public class zs<K, V> implements Iterable<Map.Entry<K, V>> {
                     return;
                 }
             }
-            this.c = zsVar;
-            this.b = true;
+            this.a = zsVar;
         }
 
-        public /* synthetic */ d(zs zsVar, a aVar) {
-            this(zsVar);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* renamed from: a */
-        public Map.Entry<K, V> next() {
-            InterceptResult invokeV;
-            c<K, V> cVar;
+        @Override // com.baidu.tieba.vt.b
+        public boolean a(vt.a aVar) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.b) {
-                    this.b = false;
-                    this.a = this.c.a;
-                } else {
-                    c<K, V> cVar2 = this.a;
-                    if (cVar2 != null) {
-                        cVar = cVar2.c;
-                    } else {
-                        cVar = null;
-                    }
-                    this.a = cVar;
-                }
-                return this.a;
-            }
-            return (Map.Entry) invokeV.objValue;
-        }
-
-        public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.b) {
-                    if (this.c.a != null) {
-                        return true;
-                    }
-                    return false;
-                }
-                c<K, V> cVar = this.a;
-                if (cVar != null && cVar.c != null) {
-                    return true;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                if (this.a.g != null && this.a.g.getThreadData() != null) {
+                    mj6.a(this.a.g.getThreadData().getId());
+                    mj6.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    mj6.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
-            return invokeV.booleanValue;
+            return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static abstract class e<K, V> implements Object<K, V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public c<K, V> a;
-        public c<K, V> b;
-
-        public abstract c<K, V> a(c<K, V> cVar);
-
-        public e(c<K, V> cVar, c<K, V> cVar2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, cVar2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar2;
-            this.b = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* renamed from: b */
-        public Map.Entry<K, V> next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                c<K, V> cVar = this.b;
-                this.b = c();
-                return cVar;
-            }
-            return (Map.Entry) invokeV.objValue;
-        }
-
-        public final c<K, V> c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                c<K, V> cVar = this.b;
-                c<K, V> cVar2 = this.a;
-                if (cVar != cVar2 && cVar2 != null) {
-                    return a(cVar);
-                }
-                return null;
-            }
-            return (c) invokeV.objValue;
-        }
-
-        public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.b != null) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    public zs() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zs(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new WeakHashMap<>();
-        this.d = 0;
+        this.h = 3;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().g instanceof MutiImgTextLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().g.getParent() == null) {
+            MutiImgTextLayout mutiImgTextLayout = (MutiImgTextLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().g;
+            this.f = mutiImgTextLayout;
+            if (context instanceof VoiceManager.j) {
+                mutiImgTextLayout.setVoiceManager(((VoiceManager.j) context).O0());
+            }
+        } else {
+            this.f = new MutiImgTextLayout(context);
+        }
+        this.f.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
     }
 
-    public int a() {
+    @Override // com.baidu.tieba.wr
+    public void p(bk6<jv4> bk6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bk6Var) == null) {
+            this.f.setSubClickListener(bk6Var);
+        }
+    }
+
+    public void setFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qs
+    /* renamed from: x */
+    public void onBindDataToView(jv4 jv4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jv4Var) == null) {
+            this.g = jv4Var;
+            this.f.setFrom(this.i);
+            this.f.onBindDataToView(jv4Var);
+        }
+    }
+
+    public void y(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f.setFromCDN(z);
+        }
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f.setNeedFrsTabName(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.wr
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            return this.f;
         }
-        return invokeV.intValue;
+        return (View) invokeV.objValue;
     }
 
-    public zs<K, V>.d f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wr
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            zs<K, V>.d dVar = new d(this, null);
-            this.c.put(dVar, Boolean.FALSE);
-            return dVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            m(1, new a(this));
         }
-        return (d) invokeV.objValue;
     }
 
-    @Override // java.lang.Iterable
-    public Iterator<Map.Entry<K, V>> iterator() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rs
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            b bVar = new b(this.a, this.b);
-            this.c.put(bVar, Boolean.FALSE);
-            return bVar;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.h = i;
         }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public c<K, V> c(K k) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
-            c<K, V> cVar = this.a;
-            while (cVar != null && !cVar.a.equals(k)) {
-                cVar = cVar.c;
-            }
-            return cVar;
-        }
-        return (c) invokeL.objValue;
-    }
-
-    public V d(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
-            c<K, V> c2 = c(k);
-            if (c2 != null) {
-                return c2.b;
-            }
-            e(k, v);
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public c<K, V> e(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
-            c<K, V> cVar = new c<>(k, v);
-            this.d++;
-            c<K, V> cVar2 = this.b;
-            if (cVar2 == null) {
-                this.a = cVar;
-                this.b = cVar;
-                return cVar;
-            }
-            cVar2.c = cVar;
-            this.b = cVar;
-            return cVar;
-        }
-        return (c) invokeLL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof zs)) {
-                return false;
-            }
-            zs zsVar = (zs) obj;
-            if (a() != zsVar.a()) {
-                return false;
-            }
-            Iterator<Map.Entry<K, V>> it = iterator();
-            Iterator<Map.Entry<K, V>> it2 = zsVar.iterator();
-            while (it.hasNext() && it2.hasNext()) {
-                Map.Entry<K, V> next = it.next();
-                Map.Entry<K, V> next2 = it2.next();
-                if ((next == null && next2 != null) || (next != null && !next.equals(next2))) {
-                    return false;
-                }
-            }
-            if (!it.hasNext() && !it2.hasNext()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(PreferencesUtil.LEFT_MOUNT);
-            Iterator<Map.Entry<K, V>> it = iterator();
-            while (it.hasNext()) {
-                sb.append(it.next().toString());
-                if (it.hasNext()) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                }
-            }
-            sb.append(PreferencesUtil.RIGHT_MOUNT);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

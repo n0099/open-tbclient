@@ -1,10 +1,10 @@
 package com.baidu.tbadk.mvc.data;
 
-import com.baidu.tieba.or5;
+import com.baidu.tieba.ul5;
 import com.squareup.wire.Message;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public interface IResponseData extends or5 {
+/* loaded from: classes5.dex */
+public interface IResponseData extends ul5 {
     void initByJson(JSONObject jSONObject);
 
     void initByProtobuf(Message message);

@@ -236,7 +236,7 @@ public class ToastUtils {
         if ((interceptable != null && interceptable.invokeL(65554, null, drawable) != null) || drawable == null) {
             return;
         }
-        drawable.setColorFilter(AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f060b9a), PorterDuff.Mode.SRC_ATOP);
+        drawable.setColorFilter(AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f060b91), PorterDuff.Mode.SRC_ATOP);
     }
 
     public static boolean shouldShowMeizuToast(Context context) {

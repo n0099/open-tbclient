@@ -1,61 +1,77 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.opengl.GLSurfaceView;
+import android.util.Log;
+import android.view.SurfaceHolder;
+import com.badlogic.gdx.backends.android.AndroidLiveWallpaperService;
+import com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20;
+import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes7.dex */
-public class o1 extends i1<y1, a> {
+public final class o1 extends n1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y1 b;
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.h1
-    /* renamed from: f */
-    public u6<c1> a(String str, d3 d3Var, a aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, d3Var, aVar)) == null) {
-            return null;
-        }
-        return (u6) invokeLLL.objValue;
-    }
 
     /* loaded from: classes7.dex */
-    public static class a extends e1<y1> {
+    public class a extends GLSurfaceView20 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o1 e;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(o1 o1Var, Context context, c2 c2Var) {
+            super(context, c2Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o1Var, context, c2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (c2) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.e = o1Var;
+        }
+
+        @Override // android.view.SurfaceView
+        public SurfaceHolder getHolder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.e.x();
+            }
+            return (SurfaceHolder) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o1(l1 l1Var) {
-        super(l1Var);
+    public o1(q1 q1Var, f1 f1Var, c2 c2Var) {
+        super(q1Var, f1Var, c2Var, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l1Var};
+            Object[] objArr = {q1Var, f1Var, c2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((e1) objArr2[0], (f1) objArr2[1], (c2) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,27 +79,143 @@ public class o1 extends i1<y1, a> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i1
-    /* renamed from: g */
-    public void c(g1 g1Var, String str, d3 d3Var, a aVar) {
+    @Override // com.baidu.tieba.n1
+    public GLSurfaceView20 h(e1 e1Var, c2 c2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, g1Var, str, d3Var, aVar) == null) {
-            this.b = y0.c.f(d3Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, e1Var, c2Var)) == null) {
+            if (f()) {
+                GLSurfaceView.EGLConfigChooser k = k();
+                a aVar = new a(this, e1Var.getContext(), c2Var);
+                if (k != null) {
+                    aVar.setEGLConfigChooser(k);
+                } else {
+                    f1 f1Var = this.r;
+                    aVar.setEGLConfigChooser(f1Var.a, f1Var.b, f1Var.c, f1Var.d, f1Var.e, f1Var.f);
+                }
+                aVar.setRenderer(this);
+                return aVar;
+            }
+            throw new GdxRuntimeException("Libgdx requires OpenGL ES 2.0");
+        }
+        return (GLSurfaceView20) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.n1
+    public void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && AndroidLiveWallpaperService.DEBUG) {
+            super.n();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i1
-    /* renamed from: h */
-    public y1 d(g1 g1Var, String str, d3 d3Var, a aVar) {
-        InterceptResult invokeLLLL;
+    public SurfaceHolder x() {
+        InterceptResult invokeV;
+        SurfaceHolder surfaceHolder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, g1Var, str, d3Var, aVar)) == null) {
-            y1 y1Var = this.b;
-            this.b = null;
-            return y1Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (((q1) this.d).a.sync) {
+                surfaceHolder = ((q1) this.d).a.getSurfaceHolder();
+            }
+            return surfaceHolder;
         }
-        return (y1) invokeLLLL.objValue;
+        return (SurfaceHolder) invokeV.objValue;
+    }
+
+    public void y() {
+        GLSurfaceView20 gLSurfaceView20;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (gLSurfaceView20 = this.a) != null) {
+            try {
+                gLSurfaceView20.onDetachedFromWindow();
+                if (AndroidLiveWallpaperService.DEBUG) {
+                    Log.d(AndroidLiveWallpaperService.TAG, " > AndroidLiveWallpaper - onDestroy() stopped GLThread managed by GLSurfaceView");
+                }
+            } catch (Throwable th) {
+                Log.e(AndroidLiveWallpaperService.TAG, "failed to destroy GLSurfaceView's thread! GLSurfaceView.onDetachedFromWindow impl changed since API lvl 16!");
+                th.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.n1, android.opengl.GLSurfaceView.Renderer
+    public void onDrawFrame(GL10 gl10) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gl10) == null) {
+            long nanoTime = System.nanoTime();
+            boolean z5 = this.p;
+            this.i = nanoTime;
+            synchronized (this.u) {
+                z = this.n;
+                z2 = this.o;
+                z3 = this.q;
+                z4 = this.p;
+                if (this.p) {
+                    this.p = false;
+                    this.u.notifyAll();
+                }
+                if (this.o) {
+                    this.o = false;
+                    this.u.notifyAll();
+                }
+                if (this.q) {
+                    this.q = false;
+                    this.u.notifyAll();
+                }
+            }
+            if (z4) {
+                this.d.getApplicationListener().resume();
+                y0.a.log("AndroidGraphics", "resumed");
+            }
+            if (z) {
+                synchronized (this.d.getRunnables()) {
+                    this.d.getExecutedRunnables().clear();
+                    this.d.getExecutedRunnables().b(this.d.getRunnables());
+                    this.d.getRunnables().clear();
+                    for (int i = 0; i < this.d.getExecutedRunnables().b; i++) {
+                        this.d.getExecutedRunnables().get(i).run();
+                    }
+                }
+                this.d.mo6getInput().u1();
+                this.k++;
+                this.d.getApplicationListener().render();
+            }
+            if (z2) {
+                this.d.getApplicationListener().pause();
+                y0.a.log("AndroidGraphics", "paused");
+            }
+            if (z3) {
+                this.d.getApplicationListener().dispose();
+                y0.a.log("AndroidGraphics", "destroyed");
+            }
+            if (nanoTime - this.j > 1000000000) {
+                this.l = 0;
+                this.j = nanoTime;
+            }
+            this.l++;
+        }
+    }
+
+    @Override // com.baidu.tieba.n1
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this.u) {
+                this.n = true;
+                this.p = true;
+                while (this.p) {
+                    try {
+                        c();
+                        this.u.wait();
+                    } catch (InterruptedException unused) {
+                        y0.a.log("AndroidGraphics", "waiting for resume synchronization failed!");
+                    }
+                }
+            }
+        }
     }
 }

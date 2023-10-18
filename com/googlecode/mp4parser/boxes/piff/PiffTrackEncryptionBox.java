@@ -1,6 +1,7 @@
 package com.googlecode.mp4parser.boxes.piff;
 
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.mobads.sdk.api.IAdInterListener;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.boxes.AbstractTrackEncryptionBox;
 import org.aspectj.lang.JoinPoint;
@@ -19,7 +20,7 @@ public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
 
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("PiffTrackEncryptionBox.java", PiffTrackEncryptionBox.class);
-        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getFlags", "com.googlecode.mp4parser.boxes.piff.PiffTrackEncryptionBox", "", "", "", "int"), 29);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getFlags", "com.googlecode.mp4parser.boxes.piff.PiffTrackEncryptionBox", "", "", "", IAdInterListener.AdProdType.PRODUCT_INTERSTITIAL), 29);
     }
 
     @Override // com.googlecode.mp4parser.AbstractFullBox, com.coremedia.iso.boxes.FullBox

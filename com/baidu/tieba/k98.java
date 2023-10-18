@@ -1,128 +1,155 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ny;
-import com.baidu.tieba.yy;
+import com.baidu.tieba.im.base.core.repo.MsgProcessor;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.BubbleInfo;
+import com.baidu.tieba.im.lib.socket.msg.data.EnableDegradeUserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.Pair;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.random.Random;
 /* loaded from: classes6.dex */
-public class k98 extends om<h45, ThreadCardViewHolder<ThreadData>> {
+public abstract class k98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public hn c;
+    public final MsgProcessor a;
 
-    /* loaded from: classes6.dex */
-    public class a implements ln {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(k98 k98Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k98Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ln
-        public void b(View view2, bn bnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, bnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (bnVar instanceof b15) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardUtils.jumpToPB((b15) bnVar, view2.getContext(), 0, false);
-                ((ThreadCardViewHolder) view2.getTag()).a().p(new yy.a(1));
-            }
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k98(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public abstract BubbleInfo g();
+
+    public abstract List<EnableDegradeUserData> j();
+
+    public abstract TbBaseMsg.c k();
+
+    public abstract List<EnableDegradeUserData> n();
+
+    public abstract long o();
+
+    public abstract int q();
+
+    @JvmOverloads
+    public final <T extends TbBaseMsg> void v(T tbMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, tbMsg) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            B(this, tbMsg, null, 2, null);
+        }
+    }
+
+    public k98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.a = bdUniqueId2;
+        this.a = new MsgProcessor();
     }
 
-    public void u(hn hnVar) {
+    public final MsgProcessor b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, hnVar) == null) {
-            this.c = hnVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return (MsgProcessor) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: s */
-    public ThreadCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ny.b bVar = new ny.b(this.b.getPageActivity(), false);
-            bVar.h(new dy(this.b.getPageActivity()));
-            ny k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
-            k.s(2);
-            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.i(this.a);
-            setOnAdapterItemClickListener(new a(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h45 h45Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h45Var, threadCardViewHolder})) == null) {
-            if (h45Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = h45Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.e(h45Var.t);
-                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-                return threadCardViewHolder.getView();
+    public static /* synthetic */ void B(k98 k98Var, TbBaseMsg tbBaseMsg, MsgProcessor.d dVar, int i, Object obj) {
+        if (obj == null) {
+            if ((i & 2) != 0) {
+                dVar = MsgProcessor.d.a.d(MsgProcessor.d.g, false, 0, 3, null);
             }
-            return null;
+            k98Var.w(tbBaseMsg, dVar);
+            return;
         }
-        return (View) invokeCommon.objValue;
+        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: sendMsg");
+    }
+
+    public final void C(MsgProcessor.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.a.K(bVar);
+        }
+    }
+
+    public final void D(MsgProcessor.e<? extends TbSysMsg> eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
+            this.a.L(eVar);
+        }
+    }
+
+    public final void s(Pair<? extends Object, ? extends Class<? extends BaseItem<? extends TbBaseMsg>>> pair) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, pair) == null) {
+            Intrinsics.checkNotNullParameter(pair, "pair");
+            this.a.G(pair);
+        }
+    }
+
+    public final String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return pf8.b(of8.a()) + TbBaseMsg.Companion.a() + Random.Default.nextLong();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public final <T extends TbBaseMsg> void w(T tbMsg, MsgProcessor.d source) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, tbMsg, source) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            Intrinsics.checkNotNullParameter(source, "source");
+            tbMsg.setSessionId(o());
+            tbMsg.setMsgId(TbBaseMsg.Companion.a());
+            tbMsg.setMsgKey(l());
+            if (tbMsg.isMockSender()) {
+                this.a.C(tbMsg, source);
+                return;
+            }
+            wu4 t = wu4.t();
+            tbMsg.setUserId(t.j());
+            String m = t.m();
+            Intrinsics.checkNotNullExpressionValue(m, "am.currentAccountNameShow");
+            tbMsg.setUserName(m);
+            String r = t.r();
+            Intrinsics.checkNotNullExpressionValue(r, "am.currentPortrait");
+            tbMsg.setPortrait(r);
+            tbMsg.setRole(q());
+            tbMsg.setSendClient("android");
+            tbMsg.setForumExt(k());
+            BubbleInfo g = g();
+            if (g != null && !g.isExpired()) {
+                tbMsg.setBubbleInfo(g);
+            }
+            tbMsg.setEnableDegradeUserDataList(j());
+            tbMsg.setSecondDegradeUserDataList(n());
+            tbMsg.setLocalMsgId(true);
+            c();
+            this.a.C(tbMsg, source);
+        }
     }
 }

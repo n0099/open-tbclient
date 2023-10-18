@@ -1,35 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.h2b;
-import com.baidu.tieba.zt6;
+import com.baidu.tieba.write.view.ForumTabSelectedView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.FrsTabInfo;
-import tbclient.SimpleForum;
 /* loaded from: classes8.dex */
-public class v0b implements zt6 {
+public class v0b extends h1b<w1b> implements j1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h2b a;
-    public ArrayList<TransmitForumData> b;
-    public List<SimpleForum> c;
-    public zt6.a d;
-    public boolean e;
-    public int f;
-    public h2b.b g;
+    @Nullable
+    public ForumTabSelectedView g;
+    @Nullable
+    public View h;
+    public String i;
+    public final ForumTabSelectedView.d j;
+
+    @Override // com.baidu.tieba.m1b
+    public void c(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.m1b
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
+        }
+    }
 
     /* loaded from: classes8.dex */
-    public class a implements h2b.b {
+    public class a implements ForumTabSelectedView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v0b a;
@@ -52,103 +70,165 @@ public class v0b implements zt6 {
             this.a = v0bVar;
         }
 
-        @Override // com.baidu.tieba.h2b.b
-        public void a(List<SimpleForum> list, int i) {
+        @Override // com.baidu.tieba.write.view.ForumTabSelectedView.d
+        public void a(FrsTabItemData frsTabItemData) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLI(1048576, this, list, i) != null) {
-                return;
-            }
-            this.a.c = list;
-            this.a.f = i;
-            this.a.h();
-        }
-
-        @Override // com.baidu.tieba.h2b.b
-        public void onError() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.g();
+            if (interceptable == null || interceptable.invokeL(1048576, this, frsTabItemData) == null) {
+                ((w1b) this.a.d).b = frsTabItemData;
+                v0b v0bVar = this.a;
+                v0bVar.y(v0bVar.d);
             }
         }
     }
 
-    public v0b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v0b(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, w1b.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList<>();
-        this.g = new a(this);
-        BdUniqueId gen = BdUniqueId.gen();
-        h2b h2bVar = new h2b(gen);
-        this.a = h2bVar;
-        h2bVar.i(this.g);
-        this.a.j(gen);
+        this.j = new a(this);
+        this.i = this.a.getString(R.string.obfuscated_res_0x7f0f07ef);
     }
 
-    @Override // com.baidu.tieba.zt6
-    public void a(zt6.a aVar) {
+    public final void C(FrsTabInfoData frsTabInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.d = aVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.zt6
-    public void b() {
-        h2b h2bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d != null && (h2bVar = this.a) != null) {
-            this.e = false;
-            h2bVar.l(null);
-            this.a.k(null);
-            this.a.h();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e) {
-            return;
-        }
-        zt6.a aVar = this.d;
-        if (aVar != null) {
-            aVar.callback(null, false, 2, 0);
-        }
-        this.e = true;
-    }
-
-    public final void h() {
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.clear();
-            if (ListUtils.getCount(this.c) > 0) {
-                for (SimpleForum simpleForum : this.c) {
-                    if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
-                        TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
-                        transmitForumData.tabItemDatas = new ArrayList<>();
-                        for (FrsTabInfo frsTabInfo : simpleForum.tab_info) {
-                            if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                                transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
-                            }
-                        }
-                        this.b.add(transmitForumData);
-                    }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, frsTabInfoData) == null) && frsTabInfoData != null && !ListUtils.isEmpty(frsTabInfoData.tabList)) {
+            ArrayList arrayList = new ArrayList();
+            for (FrsTabItemData frsTabItemData : frsTabInfoData.tabList) {
+                String str = this.i;
+                if ((str != null && frsTabItemData != null && str.equals(frsTabItemData.name)) || frsTabItemData.isNoShowInPublisher) {
+                    arrayList.add(frsTabItemData);
                 }
             }
-            zt6.a aVar = this.d;
-            if (aVar != null) {
-                aVar.callback(this.b, true, 2, this.f);
+            frsTabInfoData.tabList.removeAll(arrayList);
+        }
+    }
+
+    @Override // com.baidu.tieba.m1b
+    public void a(WriteData writeData) {
+        ForumTabSelectedView forumTabSelectedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) != null) || (forumTabSelectedView = this.g) == null || forumTabSelectedView.getVisibility() != 0 || writeData == null) {
+            return;
+        }
+        D d = this.d;
+        if (((w1b) d).a != null) {
+            writeData.setIsForumBusinessAccount(((w1b) d).a.isForumBusinessAccount);
+        }
+        FrsTabItemData selectedTabItemData = this.g.getSelectedTabItemData();
+        if (selectedTabItemData == null) {
+            return;
+        }
+        writeData.setTabId(selectedTabItemData.tabId);
+        writeData.setTabName(selectedTabItemData.name);
+        writeData.setIsGeneralTab(selectedTabItemData.isGeneralTab);
+    }
+
+    @Override // com.baidu.tieba.m1b
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            ForumTabSelectedView forumTabSelectedView = this.g;
+            if (forumTabSelectedView != null) {
+                forumTabSelectedView.o(i);
+            }
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0210);
+        }
+    }
+
+    @Override // com.baidu.tieba.h1b, com.baidu.tieba.m1b
+    public void q(@NonNull List<m1b<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            super.q(list);
+            for (m1b<?> m1bVar : list) {
+                if (m1bVar instanceof q0b) {
+                    w((q0b) m1bVar);
+                }
             }
         }
+    }
+
+    @Override // com.baidu.tieba.j1b
+    public void onUpdate(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || !(obj instanceof SelectForumData) || this.c == null) {
+            return;
+        }
+        SelectForumData selectForumData = (SelectForumData) obj;
+        if (!ListUtils.isEmpty(selectForumData.tabInfoList)) {
+            FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
+            frsTabInfoData.selectedTabId = -1;
+            List<FrsTabItemData> list = selectForumData.tabInfoList;
+            frsTabInfoData.tabList = list;
+            if (selectForumData.isForumBusinessAccount && list != null) {
+                FrsTabItemData frsTabItemData = new FrsTabItemData();
+                frsTabItemData.tabId = 505;
+                frsTabItemData.name = "官方";
+                frsTabInfoData.tabList.add(0, frsTabItemData);
+            }
+            frsTabInfoData.isForumBusinessAccount = selectForumData.isForumBusinessAccount;
+            if (this.g != null) {
+                C(frsTabInfoData);
+                this.g.setData(frsTabInfoData);
+                if (this.g.getVisibility() == 0) {
+                    this.c.setVisibility(0);
+                } else {
+                    this.c.setVisibility(8);
+                }
+            }
+            ((w1b) this.d).a = frsTabInfoData;
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                writeData.setFrsTabInfoData(frsTabInfoData);
+                return;
+            }
+            return;
+        }
+        this.c.setVisibility(8);
+    }
+
+    @Override // com.baidu.tieba.m1b
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d052a, viewGroup, false);
+            this.c = inflate;
+            this.g = (ForumTabSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f090d95);
+            this.h = this.c.findViewById(R.id.obfuscated_res_0x7f090d92);
+            ForumTabSelectedView forumTabSelectedView = this.g;
+            if (forumTabSelectedView != null) {
+                forumTabSelectedView.setBgColor(R.color.CAM_X0205);
+                WriteData writeData = this.e;
+                if (writeData != null) {
+                    C(writeData.getFrsTabInfoData());
+                    this.g.setData(this.e.getFrsTabInfoData());
+                    if (this.g.getVisibility() == 0) {
+                        this.c.setVisibility(0);
+                    } else {
+                        this.c.setVisibility(8);
+                    }
+                }
+                this.g.setActivity(this.a);
+                this.g.setTabSelectedListener(this.j);
+            }
+            return this.c;
+        }
+        return (View) invokeL.objValue;
     }
 }

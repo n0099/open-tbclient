@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e26;
-import com.baidu.tieba.fia;
-import com.baidu.tieba.m26;
-import com.baidu.tieba.op5;
-import com.baidu.tieba.zja;
+import com.baidu.tieba.nw5;
+import com.baidu.tieba.pea;
+import com.baidu.tieba.uj5;
+import com.baidu.tieba.vca;
+import com.baidu.tieba.vw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class TbRichText extends OrmObject {
     public boolean hasAppendTime;
     public boolean isChanged;
 
-    public void U(int i) {
+    public void V(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
         }
@@ -69,7 +69,7 @@ public class TbRichText extends OrmObject {
         this.h = "";
         this.isChanged = false;
         this.c = arrayList;
-        R();
+        S();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -85,7 +85,7 @@ public class TbRichText extends OrmObject {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], (String) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), (zja) objArr2[3], (ThreadData) objArr2[4], ((Integer) objArr2[5]).intValue());
+                this((List) objArr2[0], (String) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), (pea) objArr2[3], (ThreadData) objArr2[4], ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -93,12 +93,12 @@ public class TbRichText extends OrmObject {
         }
     }
 
-    public TbRichText(List<PbContent> list, String str, boolean z, @Nullable zja zjaVar, @Nullable ThreadData threadData, int i) {
+    public TbRichText(List<PbContent> list, String str, boolean z, @Nullable pea peaVar, @Nullable ThreadData threadData, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, Boolean.valueOf(z), zjaVar, threadData, Integer.valueOf(i)};
+            Object[] objArr = {list, str, Boolean.valueOf(z), peaVar, threadData, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -113,7 +113,7 @@ public class TbRichText extends OrmObject {
         this.c = null;
         this.h = "";
         this.isChanged = false;
-        M(list, -1, z, str, zjaVar, threadData, i);
+        N(list, -1, z, str, peaVar, threadData, i);
     }
 
     public TbRichText(JSONArray jSONArray, int i) {
@@ -136,7 +136,7 @@ public class TbRichText extends OrmObject {
         this.c = null;
         this.h = "";
         this.isChanged = false;
-        N(jSONArray, i, false);
+        O(jSONArray, i, false);
     }
 
     public TbRichText(JSONArray jSONArray, boolean z) {
@@ -159,12 +159,12 @@ public class TbRichText extends OrmObject {
         this.c = null;
         this.h = "";
         this.isChanged = false;
-        N(jSONArray, -1, z);
+        O(jSONArray, -1, z);
     }
 
-    public final void M(List<PbContent> list, int i, boolean z, String str, @Nullable zja zjaVar, @Nullable ThreadData threadData, int i2) {
+    public final void N(List<PbContent> list, int i, boolean z, String str, @Nullable pea peaVar, @Nullable ThreadData threadData, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{list, Integer.valueOf(i), Boolean.valueOf(z), str, zjaVar, threadData, Integer.valueOf(i2)}) != null) || list == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{list, Integer.valueOf(i), Boolean.valueOf(z), str, peaVar, threadData, Integer.valueOf(i2)}) != null) || list == null) {
             return;
         }
         this.b = new ArrayList<>();
@@ -173,20 +173,20 @@ public class TbRichText extends OrmObject {
             PbContent pbContent = list.get(i3);
             if (pbContent != null) {
                 TbRichTextItem tbRichTextItem = new TbRichTextItem();
-                if (zjaVar != null) {
-                    tbRichTextItem.q0(zjaVar.L());
+                if (peaVar != null) {
+                    tbRichTextItem.s0(peaVar.L());
                 }
-                tbRichTextItem.o0(pbContent);
+                tbRichTextItem.q0(pbContent);
                 if ((tbRichTextItem.getType() & i) != 0) {
                     this.b.add(tbRichTextItem);
                 }
             }
         }
-        T(z, str, zjaVar, threadData, i2);
-        R();
+        U(z, str, peaVar, threadData, i2);
+        S();
     }
 
-    public final void N(JSONArray jSONArray, int i, boolean z) {
+    public final void O(JSONArray jSONArray, int i, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jSONArray, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || jSONArray == null) {
             return;
@@ -200,11 +200,11 @@ public class TbRichText extends OrmObject {
                 this.b.add(tbRichTextItem);
             }
         }
-        S(z, null);
-        R();
+        T(z, null);
+        S();
     }
 
-    public ArrayList<TbRichTextData> O() {
+    public ArrayList<TbRichTextData> P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -213,7 +213,7 @@ public class TbRichText extends OrmObject {
         return (ArrayList) invokeV.objValue;
     }
 
-    public int P() {
+    public int Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -226,7 +226,7 @@ public class TbRichText extends OrmObject {
         return invokeV.intValue;
     }
 
-    public ArrayList<TbRichTextImageInfo> Q() {
+    public ArrayList<TbRichTextImageInfo> R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -253,7 +253,7 @@ public class TbRichText extends OrmObject {
         return invokeV.longValue;
     }
 
-    public final void R() {
+    public final void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.pic_str);
@@ -262,20 +262,20 @@ public class TbRichText extends OrmObject {
         }
     }
 
-    public final void S(boolean z, String str) {
+    public final void T(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) {
-            T(z, str, null, null, -1);
+            U(z, str, null, null, -1);
         }
     }
 
-    public final void T(boolean z, String str, @Nullable zja zjaVar, @Nullable ThreadData threadData, int i) {
+    public final void U(boolean z, String str, @Nullable pea peaVar, @Nullable ThreadData threadData, int i) {
         TbRichTextData tbRichTextData;
         CharSequence charSequence;
-        TbRichTextCommInfo S;
-        Pair<CharSequence, m26> r;
+        TbRichTextCommInfo T2;
+        Pair<CharSequence, vw5> r;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, zjaVar, threadData, Integer.valueOf(i)}) != null) || this.b == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, peaVar, threadData, Integer.valueOf(i)}) != null) || this.b == null) {
             return;
         }
         this.c = new ArrayList<>();
@@ -297,17 +297,17 @@ public class TbRichText extends OrmObject {
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData2 = new TbRichTextData(8);
-                        tbRichTextData2.n0(next.V());
+                        tbRichTextData2.o0(next.W());
                         this.c.add(tbRichTextData2);
-                        this.d.add(next.V());
+                        this.d.add(next.W());
                     } else if (next.getType() == 37) {
                         if (tbRichTextData != null) {
                             this.c.add(tbRichTextData);
                             tbRichTextData = null;
                         }
-                        if (next.W() != null) {
+                        if (next.X() != null) {
                             TbRichTextData tbRichTextData3 = new TbRichTextData(37);
-                            tbRichTextData3.o0(next.W());
+                            tbRichTextData3.p0(next.X());
                             this.c.add(tbRichTextData3);
                         }
                     } else if (z && next.getType() == 32) {
@@ -316,12 +316,12 @@ public class TbRichText extends OrmObject {
                         }
                         TbRichTextData tbRichTextData4 = new TbRichTextData(32);
                         tbRichTextData4.setVideoUrl(next.getVideoUrl());
-                        tbRichTextData4.u0(next.j0());
+                        tbRichTextData4.v0(next.l0());
                         this.c.add(tbRichTextData4);
                         tbRichTextData = new TbRichTextData(1);
-                        CharSequence d0 = next.d0(tbRichTextData.O(), str);
-                        if (d0 != null) {
-                            tbRichTextData.N(d0);
+                        CharSequence e0 = next.e0(tbRichTextData.P(), str);
+                        if (e0 != null) {
+                            tbRichTextData.O(e0);
                         }
                     } else if (next.getType() == 512) {
                         if (tbRichTextData != null) {
@@ -329,7 +329,7 @@ public class TbRichText extends OrmObject {
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData5 = new TbRichTextData(512);
-                        tbRichTextData5.v0(next.m0());
+                        tbRichTextData5.w0(next.o0());
                         this.c.add(tbRichTextData5);
                     } else if (next.getType() == 17) {
                         if (tbRichTextData != null) {
@@ -337,7 +337,7 @@ public class TbRichText extends OrmObject {
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData6 = new TbRichTextData(17);
-                        tbRichTextData6.g0(next.T());
+                        tbRichTextData6.h0(next.U());
                         this.c.add(tbRichTextData6);
                     } else if (next.getType() == 20) {
                         if (tbRichTextData != null) {
@@ -345,7 +345,7 @@ public class TbRichText extends OrmObject {
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData7 = new TbRichTextData(20);
-                        tbRichTextData7.r0(next.b0());
+                        tbRichTextData7.s0(next.c0());
                         this.c.add(tbRichTextData7);
                     } else if (next.getType() == 1280) {
                         if (tbRichTextData != null) {
@@ -353,16 +353,16 @@ public class TbRichText extends OrmObject {
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData8 = new TbRichTextData(1280);
-                        tbRichTextData8.q0(next.Z());
+                        tbRichTextData8.r0(next.a0());
                         this.c.add(tbRichTextData8);
                     } else if (next.getType() == 36) {
-                        if (TiePlusHelper.r(next.h0())) {
+                        if (TiePlusHelper.r(next.j0())) {
                             if (tbRichTextData != null) {
                                 this.c.add(tbRichTextData);
                                 tbRichTextData = null;
                             }
                             TbRichTextData tbRichTextData9 = new TbRichTextData(next.getType());
-                            tbRichTextData9.t0(next.h0(), threadData);
+                            tbRichTextData9.u0(next.j0(), threadData);
                             this.c.add(tbRichTextData9);
                         }
                     } else {
@@ -372,36 +372,36 @@ public class TbRichText extends OrmObject {
                         }
                         if (type == 1024) {
                             TbRichTextData tbRichTextData10 = new TbRichTextData(1024);
-                            tbRichTextData10.p0(next.X());
+                            tbRichTextData10.q0(next.Y());
                             this.c.add(tbRichTextData10);
                         }
                         if (type == 18 || type == 2 || type == 39 || type == 1282) {
-                            tbRichTextData.m0(true);
+                            tbRichTextData.n0(true);
                         }
-                        if (type == 35 && TiePlusHelper.r(next.h0()) && (r = e26.r(type, threadData, next.i0())) != null) {
+                        if (type == 35 && TiePlusHelper.r(next.j0()) && (r = nw5.r(type, threadData, next.k0())) != null) {
                             charSequence = r.first;
-                            m26 m26Var = r.second;
-                            m26Var.a(zjaVar);
-                            m26Var.b(i);
-                            tbRichTextData.m0(true);
-                            tbRichTextData.M(m26Var);
+                            vw5 vw5Var = r.second;
+                            vw5Var.a(peaVar);
+                            vw5Var.b(i);
+                            tbRichTextData.n0(true);
+                            tbRichTextData.N(vw5Var);
                         } else {
                             charSequence = null;
                         }
-                        if (charSequence == null && type == 18 && (S = next.S()) != null) {
-                            op5 h = op5.h(S.getText(), S.getLink());
-                            h.d(fia.d(TbadkCoreApplication.getInst(), S.Q()));
+                        if (charSequence == null && type == 18 && (T2 = next.T()) != null) {
+                            uj5 h = uj5.h(T2.getText(), T2.getLink());
+                            h.d(vca.d(TbadkCoreApplication.getInst(), T2.R()));
                             h.e(threadData);
-                            h.c(zjaVar);
-                            h.f(S.U());
+                            h.c(peaVar);
+                            h.f(T2.W());
                             h.b(HotTopicStat.Locate.VIDEO_MIDDLE_COMMENT);
-                            charSequence = e26.q(h);
+                            charSequence = nw5.q(h);
                         }
                         if (charSequence == null && tbRichTextData != null) {
-                            charSequence = next.d0(tbRichTextData.O(), str);
+                            charSequence = next.e0(tbRichTextData.P(), str);
                         }
                         if (charSequence != null && tbRichTextData != null) {
-                            tbRichTextData.N(charSequence);
+                            tbRichTextData.O(charSequence);
                         }
                     }
                 }
@@ -410,17 +410,17 @@ public class TbRichText extends OrmObject {
         if (tbRichTextData != null) {
             this.c.add(tbRichTextData);
         }
-        if (zjaVar != null && zjaVar.G() != null) {
+        if (peaVar != null && peaVar.G() != null) {
             TbRichTextData tbRichTextData11 = new TbRichTextData(1282);
-            tbRichTextData11.k0(zjaVar.G());
-            tbRichTextData11.l0(zjaVar.H());
+            tbRichTextData11.l0(peaVar.G());
+            tbRichTextData11.m0(peaVar.H());
             this.c.add(tbRichTextData11);
         }
         this.b.clear();
         this.b = null;
     }
 
-    public void V(long j) {
+    public void W(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
             this.a = j;
@@ -446,8 +446,8 @@ public class TbRichText extends OrmObject {
             for (int i = 0; i < size; i++) {
                 TbRichTextData tbRichTextData = this.c.get(i);
                 String tbRichTextData2 = tbRichTextData.toString();
-                if (tbRichTextData.getType() == 1 && tbRichTextData.Z() > 0) {
-                    tbRichTextData2 = tbRichTextData2.substring(tbRichTextData.Z());
+                if (tbRichTextData.getType() == 1 && tbRichTextData.a0() > 0) {
+                    tbRichTextData2 = tbRichTextData2.substring(tbRichTextData.a0());
                 }
                 if (i == size - 1 && tbRichTextData.getType() == 1 && this.hasAppendTime) {
                     sb.append(tbRichTextData2.substring(0, tbRichTextData2.length() - this.appendLength));
@@ -455,12 +455,12 @@ public class TbRichText extends OrmObject {
                     sb.append(this.e);
                 } else if (tbRichTextData.getType() == 512) {
                     sb.append(this.f);
-                } else if (tbRichTextData.getType() == 32 && tbRichTextData.d0() != null) {
-                    if (StringUtils.isNull(tbRichTextData.d0().a())) {
+                } else if (tbRichTextData.getType() == 32 && tbRichTextData.e0() != null) {
+                    if (StringUtils.isNull(tbRichTextData.e0().a())) {
                         sb.append(tbRichTextData2);
                     } else {
                         sb.append(this.g);
-                        sb.append(tbRichTextData.d0().a());
+                        sb.append(tbRichTextData.e0().a());
                     }
                 } else {
                     sb.append(tbRichTextData2);

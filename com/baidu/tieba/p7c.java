@@ -1,249 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.h6c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.core.TransVodProxy;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
+import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes7.dex */
-public class p7c {
+public final class p7c<T> implements h6c.b<Boolean, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a7c a;
-    public z6c b;
-    public List<q7c> c;
-    public List<q7c> d;
-    public AtomicInteger e;
-    public WeakReference<TransVodProxy> f;
-    public AtomicBoolean g;
-    public AtomicBoolean h;
-    public long i;
+    public final a7c<? super T, Boolean> a;
+    public final boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948016397, "Lcom/baidu/tieba/p7c;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a extends n6c<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean e;
+        public boolean f;
+        public final /* synthetic */ SingleDelayedProducer g;
+        public final /* synthetic */ n6c h;
+        public final /* synthetic */ p7c i;
+
+        public a(p7c p7cVar, SingleDelayedProducer singleDelayedProducer, n6c n6cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p7cVar, singleDelayedProducer, n6cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = p7cVar;
+            this.g = singleDelayedProducer;
+            this.h = n6cVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        @Override // com.baidu.tieba.i6c
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f) {
+                this.f = true;
+                if (this.e) {
+                    this.g.setValue(Boolean.FALSE);
+                } else {
+                    this.g.setValue(Boolean.valueOf(this.i.b));
+                }
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948016397, "Lcom/baidu/tieba/p7c;");
+
+        @Override // com.baidu.tieba.i6c
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (!this.f) {
+                    this.f = true;
+                    this.h.onError(th);
+                    return;
+                }
+                xac.j(th);
+            }
+        }
+
+        @Override // com.baidu.tieba.i6c
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.f) {
+                return;
+            }
+            this.e = true;
+            try {
+                if (this.i.a.call(t).booleanValue()) {
+                    this.f = true;
+                    this.g.setValue(Boolean.valueOf(true ^ this.i.b));
+                    unsubscribe();
+                }
+            } catch (Throwable th) {
+                t6c.g(th, this, t);
+            }
         }
     }
 
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-        }
-    }
-
-    public p7c() {
+    public p7c(a7c<? super T, Boolean> a7cVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {a7cVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = new z6c();
-        this.c = new LinkedList();
-        this.d = new LinkedList();
-        this.e = new AtomicInteger(4);
-        this.f = null;
-        this.g = new AtomicBoolean(false);
-        this.h = new AtomicBoolean(false);
-        this.i = 0L;
+        this.a = a7cVar;
+        this.b = z;
     }
 
-    public void c() {
-        q7c q7cVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.a7c
+    /* renamed from: a */
+    public n6c<? super T> call(n6c<? super Boolean> n6cVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Iterator<q7c> it = this.c.iterator();
-            q7c q7cVar2 = null;
-            if (it.hasNext()) {
-                q7cVar = it.next();
-            } else {
-                q7cVar = null;
-            }
-            while (it.hasNext()) {
-                q7c next = it.next();
-                q7cVar.k(next);
-                q7cVar = next;
-            }
-            Iterator<q7c> it2 = this.d.iterator();
-            if (it2.hasNext()) {
-                q7cVar2 = it2.next();
-            }
-            while (it2.hasNext()) {
-                q7c next2 = it2.next();
-                q7cVar2.k(next2);
-                q7cVar2 = next2;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n6cVar)) == null) {
+            SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(n6cVar);
+            a aVar = new a(this, singleDelayedProducer, n6cVar);
+            n6cVar.b(aVar);
+            n6cVar.f(singleDelayedProducer);
+            return aVar;
         }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e.set(6);
-            for (q7c q7cVar : this.c) {
-                q7cVar.a();
-            }
-            for (q7c q7cVar2 : this.d) {
-                q7cVar2.a();
-            }
-            this.g.set(true);
-            this.h.set(true);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.e.set(1);
-            for (q7c q7cVar : this.c) {
-                q7cVar.x();
-            }
-            for (q7c q7cVar2 : this.d) {
-                q7cVar2.x();
-            }
-            this.g.set(false);
-            this.h.set(false);
-            a7c a7cVar = this.a;
-            if (a7cVar != null) {
-                a7cVar.f();
-            }
-            z6c z6cVar = this.b;
-            if (z6cVar != null) {
-                z6cVar.h();
-            }
-        }
-    }
-
-    public p7c a(int i, q7c q7cVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, q7cVar)) == null) {
-            q7cVar.t(i);
-            q7cVar.q(this);
-            if (i == 0) {
-                this.c.add(q7cVar);
-            } else if (i == 1) {
-                this.d.add(q7cVar);
-            }
-            return this;
-        }
-        return (p7c) invokeIL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.clear();
-            this.d.clear();
-        }
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.longValue;
-    }
-
-    public final a7c f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (a7c) invokeV.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e.get();
-        }
-        return invokeV.intValue;
-    }
-
-    public final z6c h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (z6c) invokeV.objValue;
-    }
-
-    public final TransVodProxy i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f.get();
-        }
-        return (TransVodProxy) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (q7c q7cVar : this.c) {
-                q7cVar.l();
-            }
-            for (q7c q7cVar2 : this.d) {
-                q7cVar2.l();
-            }
-        }
-    }
-
-    public void k(Handler handler, TransVodProxy transVodProxy, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, handler, transVodProxy, context) == null) {
-            if (handler != null) {
-                if (transVodProxy != null) {
-                    this.f = new WeakReference<>(transVodProxy);
-                    this.a = new a7c(this.f.get(), context);
-                    this.b.b(this.f.get());
-                    return;
-                }
-                throw new RuntimeException("proxy MUST not be null.");
-            }
-            throw new RuntimeException("handler MUST not be null.");
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.i = j;
-        }
+        return (n6c) invokeL.objValue;
     }
 }

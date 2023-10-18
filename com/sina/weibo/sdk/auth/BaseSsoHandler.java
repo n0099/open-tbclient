@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -318,7 +317,7 @@ public class BaseSsoHandler {
             weiboParameters.put("key_hash", authInfo.getKeyHash());
             String str2 = OAUTH2_BASE_URL + weiboParameters.encodeUrl();
             if (!NetworkHelper.hasInternetPermission(this.mAuthActivity)) {
-                UIUtils.showAlert(this.mAuthActivity, V8ExceptionInfo.V8_EXCEPTION_ERROR, "Application requires permission to access the Internet");
+                UIUtils.showAlert(this.mAuthActivity, "Error", "Application requires permission to access the Internet");
                 return;
             }
             if (this.authListener != null) {

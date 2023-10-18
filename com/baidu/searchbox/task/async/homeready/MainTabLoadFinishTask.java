@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.InitWriteWebDelaySwitch;
-import com.baidu.tieba.az5;
-import com.baidu.tieba.ck;
+import com.baidu.tieba.a05;
+import com.baidu.tieba.it5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.s55;
+import com.baidu.tieba.vz;
 import com.baidu.tieba.write.WriteWebViewCacheManager;
-import com.baidu.tieba.y40;
+import com.baidu.tieba.ze;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
@@ -53,7 +53,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
             return "";
         }
         String str2 = split[1];
-        if (StringUtils.isNull(str2) || (b = new y40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+        if (StringUtils.isNull(str2) || (b = new vz("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
             return "";
         }
         try {
@@ -73,7 +73,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 try {
                     Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                     if (currentActivity != null) {
-                        YunDialogManager.onShow(currentActivity, s55.r);
+                        YunDialogManager.onShow(currentActivity, a05.r);
                     }
                     if (Build.VERSION.SDK_INT >= 17) {
                         SharedPrefHelper.getInstance().putString("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
@@ -88,6 +88,8 @@ public class MainTabLoadFinishTask extends LaunchTask {
                     e.printStackTrace();
                 }
                 boolean z = SharedPrefHelper.getInstance().getBoolean("key_splash_shake_ad_open", true);
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i(LaunchTask.TAG, "冷启动，开屏广告摇一摇开关状态" + z);
                 StatisticItem statisticItem = new StatisticItem("c15178");
                 if (z) {
                     str = "0";
@@ -95,10 +97,10 @@ public class MainTabLoadFinishTask extends LaunchTask {
                     str = "1";
                 }
                 TiebaStatic.log(statisticItem.param("obj_param1", str));
-                TbLog a = ck.a();
+                TbLog a = ze.a();
                 a.i(Config.DEVICE_PART, "Device Info: cuid: " + TbadkCoreApplication.getInst().getCuid() + " from: " + TbadkCoreApplication.getFrom() + " client_version: " + TbConfig.getVersion() + " os_version: " + DeviceInfoHelper.getOsVersion());
                 if (InitWriteWebDelaySwitch.isOn()) {
-                    WriteWebViewCacheManager.f().i();
+                    WriteWebViewCacheManager.g().j();
                     return false;
                 }
                 return false;
@@ -110,7 +112,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 JSONArray jSONArray = new JSONArray(string);
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.i("WebPreheat", "冷启动预热H5:" + jSONArray);
-                az5.e(jSONArray);
+                it5.e(jSONArray);
             }
         } catch (Throwable th) {
             TbLog defaultLog2 = DefaultLog.getInstance();

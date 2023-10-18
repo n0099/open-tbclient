@@ -1,13 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,18 +19,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class a10 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean d;
-    public static a10 e;
+    public static final byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public SharedPreferences c;
+    public long a;
+    public boolean b;
+    public Set<String> c;
+    public String d;
+    public Context e;
+    public int f;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +51,7 @@ public class a10 {
                 return;
             }
         }
-        d = AppConfig.isDebug();
+        g = new byte[]{77, 73, 78, 71};
     }
 
     public a10() {
@@ -54,254 +64,208 @@ public class a10 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static boolean e(String str, Context context, JSONObject jSONObject, Set<String> set) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, context, jSONObject, set)) == null) {
+            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
+            int length = jSONArray.length();
+            String[] strArr = new String[length];
+            for (int i = 0; i < length; i++) {
+                strArr[i] = jSONArray.getString(i);
+            }
+            String[] h = h(context.getPackageManager().getPackageInfo(str, 64).signatures);
+            if (h != null && h.length > 0) {
+                Collections.addAll(set, h);
+            }
+            return g(strArr, h);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public static boolean g(String[] strArr, String[] strArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strArr, strArr2)) == null) {
+            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
+                return false;
+            }
+            HashSet hashSet = new HashSet();
+            for (String str : strArr) {
+                hashSet.add(str);
+            }
+            HashSet hashSet2 = new HashSet();
+            for (String str2 : strArr2) {
+                hashSet2.add(str2);
+            }
+            return hashSet.equals(hashSet2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static String[] h(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, signatureArr)) == null) {
+            int length = signatureArr.length;
+            String[] strArr = new String[length];
+            for (int i = 0; i < length; i++) {
+                strArr[i] = zz.c(signatureArr[i].toByteArray());
+            }
+            return strArr;
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public final void a(Bundle bundle, tz tzVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, tzVar) == null) {
+            try {
+                if (tzVar == null) {
+                    this.f |= 16;
+                    return;
+                }
+                String string = bundle.getString("helios_data");
+                if (TextUtils.isEmpty(string)) {
+                    this.f |= 1;
+                    return;
+                }
+                String string2 = bundle.getString("helios_sf");
+                if (TextUtils.isEmpty(string2)) {
+                    this.f |= 2;
+                    return;
+                }
+                byte[] decode = Base64.decode(string.getBytes("utf-8"), 1);
+                for (int i = 0; i < decode.length; i++) {
+                    decode[i] = (byte) (decode[i] ^ g[i % g.length]);
+                }
+                JSONObject jSONObject = new JSONObject(new String(decode));
+                if (f(jSONObject)) {
+                    HashSet hashSet = new HashSet();
+                    this.c = hashSet;
+                    if (!e(this.d, this.e, jSONObject, hashSet)) {
+                        this.f |= 4;
+                    } else if (!Arrays.equals(a00.a(Base64.decode(string2, 0), tzVar), zz.b(decode))) {
+                        this.f |= 8;
+                    } else {
+                        this.a = jSONObject.getLong("priority");
+                        this.b = true;
+                    }
+                }
+            } catch (Exception e) {
+                this.f |= 256;
+                Log.getStackTraceString(e);
+            }
+        }
+    }
+
+    public void b(tz tzVar, boolean z) {
+        PackageInfo packageInfo;
+        ActivityInfo[] activityInfoArr;
+        ActivityInfo activityInfo;
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tzVar, z) == null) {
+            PackageManager packageManager = this.e.getPackageManager();
+            try {
+                packageInfo = packageManager.getPackageInfo(this.d, 2);
+            } catch (PackageManager.NameNotFoundException unused) {
+                packageInfo = null;
+            }
+            if (packageInfo == null || (activityInfoArr = packageInfo.receivers) == null || activityInfoArr.length <= 0) {
                 return;
             }
-        }
-        d();
-    }
-
-    public static a10 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (a10.class) {
-                    if (e == null) {
-                        e = new a10();
-                    }
-                }
-            }
-            return e;
-        }
-        return (a10) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
-            f();
-            e();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String g = g();
-            this.b = g;
-            if (TextUtils.isEmpty(g) && !TextUtils.isEmpty(this.a)) {
-                this.b = this.a;
-                j();
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String i = i();
-            this.a = i;
-            if (TextUtils.isEmpty(i)) {
-                this.a = h();
-            }
-        }
-    }
-
-    public final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c.getString("channel", null);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.c.edit().putString("channel", this.b).apply();
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x003a, code lost:
-        if (com.baidu.tieba.a10.d == false) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x003c, code lost:
-        android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromAssets", r2);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0070, code lost:
-        if (com.baidu.tieba.a10.d == false) goto L21;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final String h() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        Throwable th;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String str = null;
-            try {
-                inputStream = AppRuntime.getAppContext().getAssets().open("channel");
-            } catch (Exception e2) {
-                e = e2;
-                inputStream = null;
-                bufferedReader = null;
-            } catch (Throwable th2) {
-                bufferedReader = null;
-                th = th2;
-                inputStream = null;
-            }
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                try {
+            for (ActivityInfo activityInfo2 : activityInfoArr) {
+                if ("com.baidu.helios.DummyProvider".equals(activityInfo2.name)) {
                     try {
-                        str = bufferedReader.readLine();
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Exception e3) {
-                                if (d) {
-                                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e3);
-                                }
-                            }
-                        }
-                        try {
-                            bufferedReader.close();
-                        } catch (Exception e4) {
-                            e = e4;
-                        }
-                    } catch (Exception e5) {
-                        e = e5;
-                        if (d) {
-                            Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e);
-                        }
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Exception e6) {
-                                if (d) {
-                                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e6);
-                                }
-                            }
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (Exception e7) {
-                                e = e7;
-                            }
-                        }
-                        return str;
+                        activityInfo = packageManager.getReceiverInfo(new ComponentName(activityInfo2.packageName, activityInfo2.name), 128);
+                    } catch (PackageManager.NameNotFoundException unused2) {
+                        activityInfo = null;
                     }
-                } catch (Throwable th3) {
-                    th = th3;
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e8) {
-                            if (d) {
-                                Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e8);
-                            }
-                        }
+                    if (activityInfo != null && (bundle = activityInfo.metaData) != null && bundle.containsKey("helios") && z) {
+                        a(bundle, tzVar);
                     }
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (Exception e9) {
-                            if (d) {
-                                Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e9);
-                            }
-                        }
-                    }
-                    throw th;
                 }
-            } catch (Exception e10) {
-                e = e10;
-                bufferedReader = null;
-            } catch (Throwable th4) {
-                bufferedReader = null;
-                th = th4;
-                if (inputStream != null) {
-                }
-                if (bufferedReader != null) {
-                }
-                throw th;
             }
-            return str;
         }
-        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0030, code lost:
-        if (com.baidu.tieba.a10.d == false) goto L10;
+    public void c(String str, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, context) == null) {
+            this.d = str;
+            this.e = context;
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0041, code lost:
+        if (r10.equals(r9.d) == false) goto L15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x0032, code lost:
-        android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r3);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x004a, code lost:
-        if (com.baidu.tieba.a10.d == false) goto L10;
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0056, code lost:
+        if (r0.startsWith(r10) != false) goto L16;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final String i() {
-        InterceptResult invokeV;
+    public final boolean f(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = null;
-            try {
-                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(R.raw.obfuscated_res_0x7f110074);
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
-                try {
-                    str = bufferedReader.readLine();
-                    try {
-                        openRawResource.close();
-                        bufferedReader.close();
-                    } catch (Exception e2) {
-                        e = e2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            yz yzVar = new yz();
+            yzVar.b(jSONObject.optLong("flags"));
+            String optString = jSONObject.optString("package", "");
+            long a = yzVar.a(7L);
+            if (!optString.equals("") || a == 4) {
+                if (a != 0) {
+                    if (a == 1) {
+                        String str = this.d;
+                        if (str != null) {
+                        }
+                        i = this.f | 32;
+                        this.f = i;
+                        return false;
+                    } else if (a == 2) {
+                        try {
+                            if (!Pattern.compile(optString).matcher(this.d).matches()) {
+                                this.f |= 32;
+                                return false;
+                            }
+                        } catch (Exception unused) {
+                            i = this.f | 128;
+                        }
+                    } else if (a == 4) {
+                        return true;
                     }
-                } catch (Exception e3) {
-                    if (d) {
-                        Log.e(ChannelManager.TAG, "readLastChannelFromRaw", e3);
-                    }
-                    try {
-                        openRawResource.close();
-                        bufferedReader.close();
-                    } catch (Exception e4) {
-                        e = e4;
-                    }
-                }
-            } catch (Exception e5) {
-                if (d) {
-                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e5);
+                    return true;
                 }
             }
-            return str;
+            i = this.f | 64;
+            this.f = i;
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public Set<String> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (Set) invokeV.objValue;
     }
 }

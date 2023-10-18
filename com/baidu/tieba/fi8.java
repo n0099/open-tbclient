@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface fi8 {
-    void onComplete();
+    void onFinish(String str);
 }

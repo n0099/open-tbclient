@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ks0;
-import com.baidu.tieba.l31;
-import com.baidu.tieba.l61;
-import com.baidu.tieba.n71;
+import com.baidu.tieba.a21;
+import com.baidu.tieba.hn0;
+import com.baidu.tieba.y01;
+import com.baidu.tieba.yx0;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import com.yy.gslbsdk.db.DelayTB;
 import kotlin.Metadata;
@@ -38,7 +38,7 @@ public final class NadLabelSlidingTagView extends NadSlidingTagBaseView {
     }
 
     @Override // com.baidu.nadcore.slidingtag.NadSlidingTagBaseView
-    public void setActionListener(l31 l31Var) {
+    public void setActionListener(yx0 yx0Var) {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,26 +55,26 @@ public final class NadLabelSlidingTagView extends NadSlidingTagBaseView {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    private final void setTextViewList(ks0 ks0Var) {
-        for (ks0.c cVar : ks0Var.a) {
-            TextView w = w(getContext(), cVar);
-            if (w != null) {
-                w.setTextSize(0, getTextSizePx());
-                w.setLayoutParams(q());
-                w.setPadding(0, 0, 0, 0);
-                w.setMaxLines(1);
-                w.setSingleLine();
-                w.setEllipsize(TextUtils.TruncateAt.END);
-                w.setGravity(17);
+    private final void setTextViewList(hn0 hn0Var) {
+        for (hn0.c cVar : hn0Var.a) {
+            TextView x = x(getContext(), cVar);
+            if (x != null) {
+                x.setTextSize(0, getTextSizePx());
+                x.setLayoutParams(r());
+                x.setPadding(0, 0, 0, 0);
+                x.setMaxLines(1);
+                x.setSingleLine();
+                x.setEllipsize(TextUtils.TruncateAt.END);
+                x.setGravity(17);
                 int i = this.q;
                 if (i > 0) {
-                    w.setMaxWidth(i);
+                    x.setMaxWidth(i);
                 }
-                w.setVisibility(0);
-                if (w != null) {
-                    n71.f(w);
-                    this.r = Math.max(this.r, w.getMeasuredWidth());
-                    getTvList().add(w);
+                x.setVisibility(0);
+                if (x != null) {
+                    a21.f(x);
+                    this.r = Math.max(this.r, x.getMeasuredWidth());
+                    getTvList().add(x);
                 }
             }
         }
@@ -88,15 +88,15 @@ public final class NadLabelSlidingTagView extends NadSlidingTagBaseView {
             return 0;
         }
         if (textView.getLayoutParams() == null) {
-            textView.setLayoutParams(q());
+            textView.setLayoutParams(r());
         }
-        int o = o(textView);
+        int p = p(textView);
         int i = this.q;
         if (i > 0) {
-            o = RangesKt___RangesKt.coerceAtMost(o, i);
+            p = RangesKt___RangesKt.coerceAtMost(p, i);
         }
-        getWidthMap().put(Integer.valueOf(getCurrentIdx()), Integer.valueOf(o));
-        return o;
+        getWidthMap().put(Integer.valueOf(getCurrentIdx()), Integer.valueOf(p));
+        return p;
     }
 
     @Override // com.baidu.nadcore.slidingtag.NadSlidingTagBaseView
@@ -108,15 +108,15 @@ public final class NadLabelSlidingTagView extends NadSlidingTagBaseView {
             return 0;
         }
         if (textView.getLayoutParams() == null) {
-            textView.setLayoutParams(q());
+            textView.setLayoutParams(r());
         }
-        int o = o(textView);
+        int p = p(textView);
         int i = this.q;
         if (i > 0) {
-            o = RangesKt___RangesKt.coerceAtMost(o, i);
+            p = RangesKt___RangesKt.coerceAtMost(p, i);
         }
-        getWidthMap().put(Integer.valueOf(nextIndex), Integer.valueOf(o));
-        return o;
+        getWidthMap().put(Integer.valueOf(nextIndex), Integer.valueOf(p));
+        return p;
     }
 
     @Override // com.baidu.nadcore.slidingtag.NadSlidingTagBaseView
@@ -134,9 +134,9 @@ public final class NadLabelSlidingTagView extends NadSlidingTagBaseView {
         setTextHeight(f);
     }
 
-    public final TextView w(Context context, ks0.c cVar) {
+    public final TextView x(Context context, hn0.c cVar) {
         if (cVar != null && !StringsKt__StringsJVMKt.isBlank(cVar.a)) {
-            int a = l61.a(cVar.c, R.color.nad_sliding_tag_text_color_default);
+            int a = y01.a(cVar.c, R.color.nad_sliding_tag_text_color_default);
             TextView textView = new TextView(context);
             textView.setText(cVar.a);
             textView.setTextColor(a);

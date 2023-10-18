@@ -11,6 +11,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.sdk.internal.cl;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -179,7 +180,7 @@ public class NetStateManager {
                 cursor = null;
             }
             if (cursor != null && cursor.moveToFirst()) {
-                String string = cursor.getString(cursor.getColumnIndex("proxy"));
+                String string = cursor.getString(cursor.getColumnIndex(cl.c));
                 if (string != null && string.trim().length() > 0) {
                     pair = new Pair<>(string, 80);
                 }

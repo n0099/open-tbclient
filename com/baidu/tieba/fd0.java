@@ -1,96 +1,69 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Color;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes5.dex */
-public class fd0 extends cd0 {
+public class fd0 extends zd0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947760151, "Lcom/baidu/tieba/fd0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947760151, "Lcom/baidu/tieba/fd0;");
-                return;
-            }
-        }
-        b = new HashMap<>();
+    @Override // com.baidu.tieba.zd0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
     }
 
     public fd0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "", ""});
-        b.put("color_white1", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_white2", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_white3", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_F5F5F51", new String[]{"#F5F5F5", "", "", ""});
-        b.put("color_F5F5F52", new String[]{"#F5F5F5", "", "", ""});
-        b.put("color_F5F5F53", new String[]{"#F5F5F5", "", "", ""});
-        b.put("color_FF33551", new String[]{"#FF3355", "", "", ""});
-        b.put("color_FF33552", new String[]{"#1AFF3355", "", "", ""});
-        b.put("color_858585", new String[]{"#858585", "", "", ""});
-        b.put("color_525252", new String[]{"#525252", "", "", ""});
-        b.put("color_FF3333", new String[]{"#FF3333", "", "", ""});
-        b.put("color_768CAE", new String[]{"#768CAE", "", "", ""});
-        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "", ""});
-        b.put("color_8585852", new String[]{"#858585", "", "", ""});
-        b.put("color_5252522", new String[]{"#525252", "", "", ""});
-        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "", ""});
-        b.put("color_btn_fill", new String[]{"#00000000", "", "", ""});
     }
 
-    @Override // com.baidu.tieba.cd0
-    public int a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.zd0
+    public boolean b(@NonNull Context context, @NonNull de0 de0Var, @Nullable Map<String, Object> map, @Nullable he0 he0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
-            if (!b.containsKey(str2)) {
-                return -16777216;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, de0Var, map, he0Var)) == null) {
+            super.b(context, de0Var, map, he0Var);
+            HashMap<String, String> d = de0Var.d();
+            String str = d.get("key");
+            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
+            String str3 = d.get("ext");
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                String b = gd0.a().b(str);
+                JSONObject jSONObject = new JSONObject();
+                ux0.f(jSONObject, "key", str);
+                ux0.f(jSONObject, "message", b);
+                ux0.f(jSONObject, "ext", str3);
+                d(he0Var, de0Var, jSONObject.toString(), 0, true);
+                return true;
             }
-            String str3 = b.get(str2)[0];
-            if ("recommend".equals(str)) {
-                return gd0.c().a(context, str, str2);
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                str3 = b.get(str2)[3];
-            }
-            if (wc0.a(str3)) {
-                return -16777216;
-            }
-            try {
-                return Color.parseColor(str3);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -16777216;
-            }
+            c(he0Var, de0Var, 202, false);
+            return true;
         }
-        return invokeLLL.intValue;
+        return invokeLLLL.booleanValue;
     }
 }

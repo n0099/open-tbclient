@@ -53,6 +53,8 @@ public class CommonStatisticKey {
     public static final String KEY_COLLECT_COVER_CLICK = "c15203";
     public static final String KEY_COLLECT_COVER_SHOW = "c15202";
     public static final String KEY_COMMUNITY_CONVENTION_CLICK = "c14687";
+    public static final String KEY_COMPETE_CARD_CLICK = "c15540";
+    public static final String KEY_COMPETE_CARD_SHOW = "c15539";
     public static final String KEY_CONCERN_YY_LIVE_AVATER_CLICK = "c14279";
     public static final String KEY_CONCERN_YY_LIVE_AVATER_SHOW = "c14280";
     public static final String KEY_CREATE_BA_CLICK = "c14676";

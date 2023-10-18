@@ -1,13 +1,10 @@
 package com.baidu.tieba;
+
+import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyDetailListener;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface ej5 extends xi5 {
-    void I0();
+public interface ej5 {
+    void a(int i, List<? extends IMEmojiReplyDetailListener.IMEmojiReplyReactionDetail> list);
 
-    void display();
-
-    int getToolId();
-
-    void hide();
-
-    void onChangeSkinType(int i);
+    void onFailure(int i, String str);
 }

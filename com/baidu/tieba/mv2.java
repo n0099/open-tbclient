@@ -1,94 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface mv2 {
+public class mv2 extends ProviderDelegation {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void b(mv2 mv2Var);
+    public mv2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        boolean f(mv2 mv2Var, int i, int i2);
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putInt("font_size_level", wo2.w().b(wo2.c()));
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        void c(mv2 mv2Var);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void e(mv2 mv2Var);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface e {
-        void a(mv2 mv2Var);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface f {
-        void d(mv2 mv2Var);
-    }
-
-    void a(FrameLayout frameLayout);
-
-    void b();
-
-    void c();
-
-    void d(boolean z);
-
-    mv2 e(Context context, @NonNull a03 a03Var);
-
-    void f();
-
-    void g(a aVar);
-
-    int getCurrentPosition();
-
-    int getDuration();
-
-    void h(a03 a03Var, boolean z);
-
-    void i(String str);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void j(e eVar);
-
-    void k(f fVar);
-
-    void l(boolean z, int i);
-
-    void m(d dVar);
-
-    void mute(boolean z);
-
-    void n(a03 a03Var);
-
-    void o(a03 a03Var);
-
-    boolean onBackPressed();
-
-    void p(b bVar);
-
-    void pause();
-
-    int q(String str);
-
-    void r(c cVar);
-
-    void resume();
-
-    void seekTo(int i);
-
-    void stop();
 }

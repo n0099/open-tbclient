@@ -50,7 +50,7 @@ public /* synthetic */ class EditorStatusListener$keyListeners$1 extends Functio
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p0) == null) {
             Intrinsics.checkNotNullParameter(p0, "p0");
-            ((EditorStatusListener) this.receiver).t(p0);
+            ((EditorStatusListener) this.receiver).u(p0);
         }
     }
 }

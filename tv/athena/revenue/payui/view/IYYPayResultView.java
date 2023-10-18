@@ -1,9 +1,9 @@
 package tv.athena.revenue.payui.view;
 
-import com.baidu.tieba.bmc;
-import com.baidu.tieba.kkc;
-import com.baidu.tieba.okc;
-import com.baidu.tieba.vlc;
+import com.baidu.tieba.agc;
+import com.baidu.tieba.jec;
+import com.baidu.tieba.nec;
+import com.baidu.tieba.ufc;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitRecordItem;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes2.dex */
-public interface IYYPayResultView extends vlc {
+public interface IYYPayResultView extends ufc {
 
     /* loaded from: classes2.dex */
     public enum Result {
@@ -22,7 +22,7 @@ public interface IYYPayResultView extends vlc {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a(kkc kkcVar);
+        void a(jec jecVar);
 
         void b();
 
@@ -60,12 +60,12 @@ public interface IYYPayResultView extends vlc {
         public AbsViewEventHandler b;
         public WindowParams c;
         public List<SplitRecordItem> d;
-        public kkc e;
+        public jec e;
         public PayFlowType f;
-        public okc g;
+        public nec g;
         public IPayCallback<CurrencyChargeMessage> h;
         public boolean i;
-        public bmc.b j;
+        public agc.b j;
         public String k;
         public PayCallBackBean l;
 

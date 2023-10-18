@@ -1,29 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.searchbox.permission.DangerousPermissionConstants;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class rz2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
 
     static {
         InterceptResult invokeClinit;
@@ -38,180 +27,46 @@ public class rz2 {
                 return;
             }
         }
-        boolean z = qr1.a;
-    }
-
-    public rz2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        a = am1.a;
+        b = c("swan_perf_stat_rectify", 0);
+        c = c("swan_perf_stat_overlay_rectify", 0);
+        if (a) {
+            Log.d("SwanRectifyAbSwitcher", "670 data rectify on - " + b);
+            Log.d("SwanRectifyAbSwitcher", "670 data overlay rectify on - " + c);
         }
-        this.a = 60000;
-        this.b = "aac";
-        this.c = 1;
-        this.d = 8000;
-        this.e = 16000;
-        this.f = 1;
     }
 
-    public static rz2 a(JSONObject jSONObject, rz2 rz2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, rz2Var)) == null) {
-            if (jSONObject != null && jSONObject.length() > 0) {
-                rz2Var = new rz2();
-                rz2Var.a = jSONObject.optInt("duration", 60000);
-                String optString = jSONObject.optString("format");
-                rz2Var.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    rz2Var.b = "aac";
-                }
-                rz2Var.c = jSONObject.optInt("numberOfChannels", 1);
-                rz2Var.d = jSONObject.optInt("sampleRate", 8000);
-                int optInt = jSONObject.optInt("encodeBitRate");
-                rz2Var.e = optInt;
-                if (optInt == 0) {
-                    int i = rz2Var.d;
-                    if (i != 8000) {
-                        if (i != 16000) {
-                            if (i == 44100) {
-                                rz2Var.e = 64000;
-                            }
-                        } else {
-                            rz2Var.e = 24000;
-                        }
-                    } else {
-                        rz2Var.e = 16000;
-                    }
-                }
-                rz2Var.f = b(jSONObject.optString("audioSource", "auto"));
-                rz2Var.g = jSONObject.optString("cb");
-            }
-            return rz2Var;
-        }
-        return (rz2) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static int b(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -401509030:
-                    if (str.equals(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMCORDER)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 108103:
-                    if (str.equals(DangerousPermissionConstants.DANGEROUS_PERMISSION_MIC)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3005871:
-                    if (str.equals("auto")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1059882026:
-                    if (str.equals("voice_recognition")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1611170697:
-                    if (str.equals("voice_communication")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0 && c != 1) {
-                if (c != 2) {
-                    if (c != 3) {
-                        if (c != 4) {
-                            return -1;
-                        }
-                        return 6;
-                    }
-                    return 7;
-                }
-                return 5;
-            }
-            return 1;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x0086, code lost:
-        r2 = false;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0089  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public JSONObject c() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.a;
-            if (i <= 600000 && i >= 0) {
-                int i2 = this.c;
-                boolean z = true;
-                if (i2 != 1 && i2 != 2) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
-                }
-                if (!TextUtils.equals(this.b, "aac") && !TextUtils.equals(this.b, "pcm")) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
-                }
-                int i3 = this.d;
-                if (i3 != 8000 && i3 != 16000 && i3 != 44100) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
-                }
-                if (!TextUtils.equals(this.b, "pcm")) {
-                    if ((r3 = this.d) != 8000) {
-                        if (z) {
-                            return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
-                        }
-                    } else if (z) {
-                    }
-                }
-                if (this.f < 0) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
-                }
-                return null;
-            }
-            return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String toString() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "recordTime : " + this.a + "; channel : " + this.c + "; audioFormat : " + this.b + "; sampleRate : " + this.d + "; bitRate : " + this.e + "; callbacks : " + this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            wo2.g0().getSwitch(str, i);
+            if (a) {
+                Log.d("SwanRectifyAbSwitcher", str + " - " + i);
+            }
+            if (i == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 }

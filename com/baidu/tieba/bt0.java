@@ -1,38 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class bt0 {
     public static /* synthetic */ Interceptable $ic;
-    public static ft0 a;
+    public static volatile at0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947656363, "Lcom/baidu/tieba/bt0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947656363, "Lcom/baidu/tieba/bt0;");
-                return;
-            }
-        }
-        a = ft0.a;
-    }
-
-    public static ft0 a() {
+    public static synchronized at0 a() {
         InterceptResult invokeV;
+        at0 at0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (bt0.class) {
+                if (a == null) {
+                    a = new at0();
+                }
+                at0Var = a;
+            }
+            return at0Var;
         }
-        return (ft0) invokeV.objValue;
+        return (at0) invokeV.objValue;
     }
 }

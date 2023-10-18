@@ -136,10 +136,10 @@ public class PersonCreatorCenterFunView extends LinearLayout implements View.OnC
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07ee, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07e1, (ViewGroup) this, true);
             inflate.setOnClickListener(this);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090dc3);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090dc4);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090de0);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090de1);
         }
     }
 
@@ -164,12 +164,12 @@ public class PersonCreatorCenterFunView extends LinearLayout implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
             PersonCreatorCenterFunView personCreatorCenterFunView = (PersonCreatorCenterFunView) view2;
-            if (view2.getId() == R.id.obfuscated_res_0x7f090dc2) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090ddf) {
                 c();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090dbf) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090ddc) {
                 e("2", "2", "");
                 d(d);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090dc0) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090ddd) {
                 if (getContext().getString(R.string.tieba_string_god_guide).equals(personCreatorCenterFunView.b.getText().toString())) {
                     e("1", "2", "");
                     d(TbConfig.URL_GOD_AUTH + SkinManager.getCurrentSkinTypeString());

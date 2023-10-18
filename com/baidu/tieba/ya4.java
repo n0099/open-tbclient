@@ -1,14 +1,18 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.animation.ValueAnimator;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapViewLayoutParams;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.tieba.js2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,35 +20,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-import rx.schedulers.Schedulers;
 /* loaded from: classes8.dex */
-public class ya4 extends g73 implements d83 {
+public class ya4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static final Set<String> h;
-    public static long i;
+    public static final Boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
+    public js2 a;
+    public Marker b;
+    public Marker c;
+    public View d;
+    public ViewGroup e;
+    public Marker f;
+    public ValueAnimator g;
 
     /* loaded from: classes8.dex */
-    public class a implements ycc<String> {
+    public interface b {
+        void onAnimationEnd();
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ Bundle b;
-        public final /* synthetic */ ya4 c;
+        public boolean a;
+        public final /* synthetic */ za4 b;
+        public final /* synthetic */ b c;
+        public final /* synthetic */ ya4 d;
 
-        public a(ya4 ya4Var, boolean z, Bundle bundle) {
+        public a(ya4 ya4Var, za4 za4Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ya4Var, Boolean.valueOf(z), bundle};
+                Object[] objArr = {ya4Var, za4Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,34 +62,24 @@ public class ya4 extends g73 implements d83 {
                     return;
                 }
             }
-            this.c = ya4Var;
-            this.a = z;
-            this.b = bundle;
+            this.d = ya4Var;
+            this.b = za4Var;
+            this.c = bVar;
+            this.a = false;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ycc
-        public void call(String str) {
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.a) {
-                    if (ya4.g) {
-                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + ya4.i);
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                float animatedFraction = valueAnimator.getAnimatedFraction();
+                this.d.a(this.b, (LatLng) valueAnimator.getAnimatedValue());
+                if (!this.a && animatedFraction > 0.99d) {
+                    this.a = true;
+                    b bVar = this.c;
+                    if (bVar != null) {
+                        bVar.onAnimationEnd();
                     }
-                    h83.k().c(this.c, ya4.i);
-                }
-                qj2 d = sj2.c().d();
-                if (d != null) {
-                    List<String> singletonList = Collections.singletonList(this.b.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                    bl2 l = bl2.l();
-                    l.i(6);
-                    d.h(singletonList, true, l.k());
-                }
-                if (ya4.g) {
-                    Log.i("SwanGameReloadDelegate", "execCall: addCallback purge finish = " + d);
-                }
-                if (!this.a) {
-                    this.c.h();
                 }
             }
         }
@@ -100,22 +98,7 @@ public class ya4 extends g73 implements d83 {
                 return;
             }
         }
-        g = qr1.a;
-        h = Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline");
-        i = TimeUnit.SECONDS.toMillis(10L);
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String string = this.a.getString("scheme");
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "invoke: scheme = " + string);
-            }
-            if (!TextUtils.isEmpty(string)) {
-                SchemeRouter.invoke(AppRuntime.getAppContext(), string);
-            }
-        }
+        h = Boolean.TRUE;
     }
 
     public ya4() {
@@ -123,52 +106,108 @@ public class ya4 extends g73 implements d83 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public void a(za4 za4Var, LatLng latLng) {
+        Marker marker;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, za4Var, latLng) != null) || (marker = this.b) == null) {
+            return;
+        }
+        marker.setPosition(latLng);
+        is2 is2Var = this.a.b;
+        is2Var.a = latLng.latitude;
+        is2Var.b = latLng.longitude;
+        Marker marker2 = this.f;
+        if (marker2 != null) {
+            marker2.setPosition(latLng);
+        }
+        if (!h.booleanValue()) {
+            return;
+        }
+        Marker marker3 = this.c;
+        if (marker3 != null) {
+            marker3.setPosition(latLng);
+        }
+        ViewGroup viewGroup = this.e;
+        if (viewGroup != null) {
+            za4Var.l.removeView(viewGroup);
+            MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+            builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
+            builder.position(latLng);
+            za4Var.l.addView(this.e, builder.build());
+            this.e.setAlpha(0.0f);
+        }
+    }
+
+    public void b(za4 za4Var) {
+        js2 js2Var;
+        js2.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, za4Var) == null) && (js2Var = this.a) != null && (bVar = js2Var.i) != null && bVar.isValid()) {
+            js2 js2Var2 = this.a;
+            if (js2Var2.k != null && this.d == null && !TextUtils.equals(js2Var2.i.g, "ALWAYS")) {
+                za4Var.l.removeView(this.e);
+                this.e.removeView(this.d);
+                View a2 = na4.a(za4Var, this.a);
+                this.d = a2;
+                this.e.addView(a2, 0);
+                this.e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+                MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+                builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
+                builder.position(this.b.getPosition());
+                Bitmap bitmap = this.b.getIcon().getBitmap();
+                builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.a.k.b)) + 0.0d));
+                za4Var.l.addView(this.e, builder.build());
+                this.e.setAlpha(0.0f);
+                Marker marker = this.f;
+                if (marker != null) {
+                    marker.remove();
+                }
+                BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.e);
+                if (fromView == null) {
+                    return;
+                }
+                Bitmap bitmap2 = fromView.getBitmap();
+                if (bitmap2.getHeight() > 0 && bitmap2.getWidth() > 0) {
+                    float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.a.k.a * bitmap.getWidth()))) / bitmap2.getWidth();
+                    float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.a.k.b * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    is2 is2Var = this.a.b;
+                    this.f = (Marker) za4Var.l.getMap().addOverlay(markerOptions.position(new LatLng(is2Var.a, is2Var.b)).icon(fromView).zIndex(66).anchor(width, height));
+                }
+            }
+        }
+    }
+
+    public void c(za4 za4Var, LatLng latLng, es2 es2Var, b bVar) {
+        Marker marker;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, za4Var, latLng, es2Var, bVar) == null) {
+            ValueAnimator valueAnimator = this.g;
+            if ((valueAnimator != null && valueAnimator.isRunning()) || (marker = this.b) == null) {
                 return;
             }
-        }
-        this.f = SwanAppProcessInfo.UNKNOWN.index;
-    }
-
-    @Override // com.baidu.tieba.d83
-    public void timeout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "timeout");
+            float f = 360.0f - ((float) es2Var.B);
+            if (f >= 0.0f && f <= 360.0f) {
+                marker.setRotate(f);
             }
-            h();
-        }
-    }
-
-    @Override // com.baidu.tieba.d83
-    public void a(String str, f83 f83Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, f83Var) == null) && f83Var.b.index == this.f && h.contains(str)) {
-            h83.k().h(this);
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "onEvent: event = " + str);
+            int i = es2Var.C;
+            if (i < 0) {
+                i = -i;
             }
-            h();
-        }
-    }
-
-    @Override // com.baidu.tieba.g73
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            int i2 = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
-            this.f = i2;
-            boolean checkProcessId = SwanAppProcessInfo.checkProcessId(i2);
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
-                Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
-            }
-            kcc.n("").s(Schedulers.io()).H(new a(this, checkProcessId, bundle));
+            ValueAnimator ofObject = ValueAnimator.ofObject(new ma4(), this.b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
+            this.g = ofObject;
+            ofObject.setDuration(i);
+            this.g.addUpdateListener(new a(this, za4Var, bVar));
+            this.g.start();
         }
     }
 }

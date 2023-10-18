@@ -2,7 +2,6 @@ package com.baidu.crius;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.crius.annotations.DoNotStrip;
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +33,7 @@ public final class CriusNodeType {
                 return;
             }
         }
-        DEFAULT = new CriusNodeType(EngineName.DEFAULT_ENGINE, 0, 0);
+        DEFAULT = new CriusNodeType("DEFAULT", 0, 0);
         CriusNodeType criusNodeType = new CriusNodeType("TEXT", 1, 1);
         TEXT = criusNodeType;
         $VALUES = new CriusNodeType[]{DEFAULT, criusNodeType};

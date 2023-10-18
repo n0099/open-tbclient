@@ -1,15 +1,9 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes8.dex */
 public interface xe {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("UniKVTest", "UniKVTest");
+    void a(int i);
 
-    boolean isTypeDoubleKv();
+    void b();
 
-    boolean isTypeDoubleSp();
-
-    boolean isTypeSp();
+    void c();
 }

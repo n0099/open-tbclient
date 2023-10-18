@@ -11,7 +11,7 @@ import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.id0;
+import com.baidu.tieba.f80;
 /* loaded from: classes3.dex */
 public class LiveLoadMoreView extends LiveBaseItemView {
     public ViewGroup h;
@@ -127,34 +127,34 @@ public class LiveLoadMoreView extends LiveBaseItemView {
 
     public final void e() {
         boolean equals = "recommend".equals(this.c);
-        int i = R.layout.obfuscated_res_0x7f0d05de;
+        int i = R.layout.obfuscated_res_0x7f0d05d0;
         if (!equals && !"baidu".equals(LiveFeedPageSdk.getInstance().getHost())) {
             if (LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                i = R.layout.obfuscated_res_0x7f0d05df;
+                i = R.layout.obfuscated_res_0x7f0d05d1;
             } else if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                i = R.layout.obfuscated_res_0x7f0d05e0;
+                i = R.layout.obfuscated_res_0x7f0d05d2;
             } else if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                i = R.layout.obfuscated_res_0x7f0d05e1;
+                i = R.layout.obfuscated_res_0x7f0d05d3;
             }
         }
         LayoutInflater.from(getContext()).inflate(i, this);
-        this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091f9f);
-        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091633);
+        this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091faa);
+        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09164d);
         this.i = lottieAnimationView;
         lottieAnimationView.loop(true);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091634);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09164e);
     }
 
     public void g(String str) {
-        String g = id0.f().g(str);
+        String g = f80.f().g(str);
         if (TextUtils.isEmpty(g)) {
-            int h = id0.f().h(str);
+            int h = f80.f().h(str);
             if (h != 0) {
                 this.i.setAnimation(h);
             }
         } else {
             this.i.setAnimation(g);
         }
-        this.j.setTextColor(id0.f().a(getContext(), str, "color_1F1F1F"));
+        this.j.setTextColor(f80.f().a(getContext(), str, "color_1F1F1F"));
     }
 }

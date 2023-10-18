@@ -1,50 +1,46 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Arrays;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+@JvmName(name = "TbBaseMsgExt")
 /* loaded from: classes5.dex */
-public class aj8 {
+public final class aj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<MetaData> a;
 
-    public aj8() {
+    public static final long a(TbBaseMsg tbBaseMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbBaseMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbBaseMsg, "<this>");
+            TbBaseMsg.c forumExt = tbBaseMsg.getForumExt();
+            if (forumExt != null) {
+                return forumExt.a();
             }
+            return 0L;
         }
-        this.a = new ArrayList<>();
+        return invokeL.longValue;
     }
 
-    @NonNull
-    public ArrayList<MetaData> b() {
-        InterceptResult invokeV;
+    public static final CharSequence b(TbBaseMsg tbBaseMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbBaseMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbBaseMsg, "<this>");
+            String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0422);
+            Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.st…_reply_msg_prefix_format)");
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String format = String.format(string, Arrays.copyOf(new Object[]{tbBaseMsg.getUserName()}, 1));
+            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
+            return format;
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void a(MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, metaData) == null) {
-            this.a.add(metaData);
-        }
+        return (CharSequence) invokeL.objValue;
     }
 }

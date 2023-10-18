@@ -153,7 +153,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     }
 
     public static boolean isTaskCancelled(u<?> uVar) {
-        if (!uVar.n() && (!uVar.p() || !(uVar.k() instanceof CancellationException))) {
+        if (!uVar.p() && (!uVar.r() || !(uVar.m() instanceof CancellationException))) {
             return false;
         }
         return true;
@@ -185,32 +185,32 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
                 if (PartialDiskCacheProducer.isTaskCancelled(uVar)) {
                     producerListener.onProducerFinishWithCancellation(producerContext, PartialDiskCacheProducer.PRODUCER_NAME, null);
                     consumer.onCancellation();
-                } else if (uVar.p()) {
-                    producerListener.onProducerFinishWithFailure(producerContext, PartialDiskCacheProducer.PRODUCER_NAME, uVar.k(), null);
+                } else if (uVar.r()) {
+                    producerListener.onProducerFinishWithFailure(producerContext, PartialDiskCacheProducer.PRODUCER_NAME, uVar.m(), null);
                     PartialDiskCacheProducer.this.startInputProducer(consumer, producerContext, cacheKey, null);
                 } else {
-                    EncodedImage l = uVar.l();
-                    if (l != null) {
+                    EncodedImage n = uVar.n();
+                    if (n != null) {
                         ProducerListener2 producerListener2 = producerListener;
                         ProducerContext producerContext2 = producerContext;
-                        producerListener2.onProducerFinishWithSuccess(producerContext2, PartialDiskCacheProducer.PRODUCER_NAME, PartialDiskCacheProducer.getExtraMap(producerListener2, producerContext2, true, l.getSize()));
-                        BytesRange max = BytesRange.toMax(l.getSize() - 1);
-                        l.setBytesRange(max);
-                        int size = l.getSize();
+                        producerListener2.onProducerFinishWithSuccess(producerContext2, PartialDiskCacheProducer.PRODUCER_NAME, PartialDiskCacheProducer.getExtraMap(producerListener2, producerContext2, true, n.getSize()));
+                        BytesRange max = BytesRange.toMax(n.getSize() - 1);
+                        n.setBytesRange(max);
+                        int size = n.getSize();
                         ImageRequest imageRequest = producerContext.getImageRequest();
                         if (max.contains(imageRequest.getBytesRange())) {
                             producerContext.putOriginExtra("disk", "partial");
                             producerListener.onUltimateProducerReached(producerContext, PartialDiskCacheProducer.PRODUCER_NAME, true);
-                            consumer.onNewResult(l, 9);
+                            consumer.onNewResult(n, 9);
                         } else {
-                            consumer.onNewResult(l, 8);
-                            PartialDiskCacheProducer.this.startInputProducer(consumer, new SettableProducerContext(ImageRequestBuilder.fromRequest(imageRequest).setBytesRange(BytesRange.from(size - 1)).build(), producerContext), cacheKey, l);
+                            consumer.onNewResult(n, 8);
+                            PartialDiskCacheProducer.this.startInputProducer(consumer, new SettableProducerContext(ImageRequestBuilder.fromRequest(imageRequest).setBytesRange(BytesRange.from(size - 1)).build(), producerContext), cacheKey, n);
                         }
                     } else {
                         ProducerListener2 producerListener22 = producerListener;
                         ProducerContext producerContext3 = producerContext;
                         producerListener22.onProducerFinishWithSuccess(producerContext3, PartialDiskCacheProducer.PRODUCER_NAME, PartialDiskCacheProducer.getExtraMap(producerListener22, producerContext3, false, 0));
-                        PartialDiskCacheProducer.this.startInputProducer(consumer, producerContext, cacheKey, l);
+                        PartialDiskCacheProducer.this.startInputProducer(consumer, producerContext, cacheKey, n);
                     }
                 }
                 return null;
@@ -237,7 +237,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
         producerContext.getProducerListener().onProducerStart(producerContext, PRODUCER_NAME);
         CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, createUriForPartialCacheKey(imageRequest), producerContext.getCallerContext());
         AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-        this.mDefaultBufferedDiskCache.get(encodedCacheKey, atomicBoolean).e(onFinishDiskReads(consumer, producerContext, encodedCacheKey));
+        this.mDefaultBufferedDiskCache.get(encodedCacheKey, atomicBoolean).g(onFinishDiskReads(consumer, producerContext, encodedCacheKey));
         subscribeTaskForRequestCancellation(atomicBoolean, producerContext);
     }
 }

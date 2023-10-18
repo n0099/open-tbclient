@@ -1,19 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.lh2;
-import com.baidu.tieba.pa2;
-import com.baidu.tieba.ve3;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,36 +12,110 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-@Deprecated
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class te3 extends dd3 {
+public class te3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context c;
+
+    public static String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 1 ? "aigames_core_ver_list_key" : "aiapps_core_ver_list_key" : (String) invokeI.objValue;
+    }
+
+    public static String d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == 1 ? "installed_game_swan_js_md5" : "installed_swan_js_md5" : (String) invokeI.objValue;
+    }
 
     /* loaded from: classes8.dex */
-    public class a implements ve3.e {
+    public static class a implements Comparator<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ gb3 b;
-        public final /* synthetic */ tw2 c;
-        public final /* synthetic */ g13 d;
-        public final /* synthetic */ pa2 e;
-        public final /* synthetic */ UnitedSchemeEntity f;
-        public final /* synthetic */ CallbackHandler g;
-        public final /* synthetic */ String h;
-        public final /* synthetic */ Context i;
-        public final /* synthetic */ te3 j;
 
-        public a(te3 te3Var, String str, gb3 gb3Var, tw2 tw2Var, g13 g13Var, pa2 pa2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str2, Context context) {
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(c cVar, c cVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) {
+                if (cVar == null) {
+                    return -1;
+                }
+                if (cVar2 == null) {
+                    return 1;
+                }
+                return String.valueOf(cVar.a).compareTo(String.valueOf(cVar2.a));
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final te3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-406433943, "Lcom/baidu/tieba/te3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-406433943, "Lcom/baidu/tieba/te3$b;");
+                    return;
+                }
+            }
+            a = new te3(null);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public long b;
+
+        public c(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {te3Var, str, gb3Var, tw2Var, g13Var, pa2Var, unitedSchemeEntity, callbackHandler, str2, context};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,251 +125,194 @@ public class te3 extends dd3 {
                     return;
                 }
             }
-            this.j = te3Var;
-            this.a = str;
-            this.b = gb3Var;
-            this.c = tw2Var;
-            this.d = g13Var;
-            this.e = pa2Var;
-            this.f = unitedSchemeEntity;
-            this.g = callbackHandler;
-            this.h = str2;
-            this.i = context;
+            this.a = j;
+            this.b = j2;
         }
 
-        @Override // com.baidu.tieba.ve3.e
-        public void a(String str) {
+        public String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                m43.d(this.a);
-                g82.i("navigateTo", "check pages success");
-                zh3.F(true, this.b.Y().T());
-                this.c.o();
-                lh2.e f = lh2.f(this.c.getActivity(), qh2.c(this.d.a));
-                pe3.l(this.f, this.g, this.b, f.a.a(), this.d.a, pe3.g(this.e), this.h);
-                this.j.p(f, this.d, this.e, this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.ve3.e
-        public void b(int i, zm3 zm3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, zm3Var) == null) {
-                g82.c("navigateTo", "check pages failed");
-                zh3.F(false, this.b.Y().T());
-                this.c.o();
-                if (dd3.b) {
-                    Context context = this.i;
-                    ya3.g(context, this.i.getString(R.string.obfuscated_res_0x7f0f01d5) + i).G();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("time", this.a);
+                    jSONObject.put("version", this.b);
+                    return jSONObject.toString();
+                } catch (JSONException e) {
+                    if (am1.a) {
+                        e.printStackTrace();
+                    }
+                    return null;
                 }
-                pe3.j(this.f, this.g, this.h);
-                uh3.j(this.d, zm3Var);
             }
+            return (String) invokeV.objValue;
+        }
+
+        @NonNull
+        public String toString() {
+            String str;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                try {
+                    str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.a));
+                } catch (Exception e) {
+                    if (am1.a) {
+                        e.printStackTrace();
+                    }
+                    str = null;
+                }
+                return str + " ---> " + this.b;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements lh2.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lh2.e a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ g13 c;
-        public final /* synthetic */ pa2 d;
-        public final /* synthetic */ te3 e;
-
-        public b(te3 te3Var, lh2.e eVar, String str, g13 g13Var, pa2 pa2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {te3Var, eVar, str, g13Var, pa2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = te3Var;
-            this.a = eVar;
-            this.b = str;
-            this.c = g13Var;
-            this.d = pa2Var;
-        }
-
-        @Override // com.baidu.tieba.lh2.f
-        public void onReady() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (dd3.b) {
-                    Log.d("NavigateToAction", "tryToExecutePageRoute onReady start.");
-                }
-                m43.e(this.a, this.b);
-                this.e.o(this.a.a, this.c, this.d, this.b);
-                if (dd3.b) {
-                    Log.d("NavigateToAction", "tryToExecutePageRoute onReady end.");
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948178279, "Lcom/baidu/tieba/te3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948178279, "Lcom/baidu/tieba/te3;");
-                return;
-            }
-        }
-        d = nu2.g0().q();
-        if (dd3.b) {
-            Log.d("NavigateToAction", "NavigateToAction max count: " + d);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public te3(dc3 dc3Var) {
-        super(dc3Var, "/swanAPI/navigateTo");
+    public te3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dc3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.dd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
-        InterceptResult invokeLLLL;
+    public static te3 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
-            if (dd3.b) {
-                Log.d("NavigateToAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            this.c = context;
-            String uuid = UUID.randomUUID().toString();
-            m43.b(uuid);
-            String o = pe3.o(unitedSchemeEntity, "params");
-            if (TextUtils.isEmpty(o)) {
-                g82.c("navigateTo", "url is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            tw2 T2 = tw2.T();
-            pa2 U = T2.U();
-            if (U == null) {
-                g82.c("navigateTo", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            g13 d2 = g13.d(o, T2.z());
-            d2.e = "0";
-            d2.f = uuid;
-            uh3.g(d2);
-            if (!ap3.b(T2.s(), d2, false)) {
-                g82.c("navigateTo", "page params error : path=" + d2.a + " ; routePath=" + d2.d);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                uh3.i(d2);
-                return false;
-            }
-            String n = pe3.n(unitedSchemeEntity, "params", "initData");
-            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(d2.d) && gb3.M() != null) {
-                gb3.M().L0(n, d2.d);
-            }
-            String n2 = pe3.n(unitedSchemeEntity, "params", "startTime");
-            if (!TextUtils.isEmpty(n2)) {
-                HybridUbcFlow q = l43.q("route", uuid);
-                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
-                ubcFlowEvent.h(Long.valueOf(n2).longValue());
-                q.F(ubcFlowEvent);
-            }
-            if (dd3.b) {
-                Log.d("NavigateToAction", "PreloadSlaveManager start.");
-            }
-            String optString = go3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                g82.c("navigateTo", "cb is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                uh3.i(d2);
-                return false;
-            } else if (td3.b().a(d2)) {
-                td3.b().i("navigateTo", d2);
-                g82.c("NavigateToAction", "access to this page is prohibited");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "access to this page is prohibited"));
-                return false;
-            } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                T2.a();
-                ve3.g(gb3Var, d2, "", new a(this, uuid, gb3Var, T2, d2, U, unitedSchemeEntity, callbackHandler, optString, context), uuid);
-                return true;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        return invokeLLLL.booleanValue;
+        return (te3) invokeV.objValue;
     }
 
-    public final void o(mx1 mx1Var, g13 g13Var, pa2 pa2Var, String str) {
-        SwanAppActivity activity;
+    public /* synthetic */ te3(a aVar) {
+        this();
+    }
+
+    public static void h(List<c> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mx1Var, g13Var, pa2Var, str) == null) && (activity = tw2.T().getActivity()) != null && !activity.isFinishing()) {
-            pe3.e(mx1Var, g13Var, str);
-            m43.c(0, str);
-            if (pa2Var.k() < d) {
-                oa2.U3(ap3.n());
-                pa2.b i = pa2Var.i("navigateTo");
-                i.n(pa2.g, pa2.i);
-                i.k("normal", g13Var).b();
-                qn3.c(pa2Var, this.c);
-                l43.q("route", str).F(new UbcFlowEvent("na_push_page_end"));
-                m43.a(str, g13Var);
-                return;
-            }
-            a12.A(pa2Var, g13Var, str, true);
+        if (interceptable == null || interceptable.invokeL(65541, null, list) == null) {
+            Collections.sort(list, new a());
         }
     }
 
-    public final void p(lh2.e eVar, g13 g13Var, pa2 pa2Var, String str) {
-        boolean z;
-        String str2;
+    public void a(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, g13Var, pa2Var, str) == null) {
-            if (eVar != null && eVar.b) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            List<c> f = f(i);
+            boolean z = false;
+            if (f.size() >= 10) {
+                f.remove(0);
             }
-            HybridUbcFlow q = l43.q("route", str);
-            q.F(new UbcFlowEvent("na_pre_load_slave_check"));
+            Iterator<c> it = f.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                c next = it.next();
+                if (next != null && next.b == j) {
+                    z = true;
+                    break;
+                }
+            }
             if (z) {
-                str2 = "1";
+                return;
+            }
+            f.add(new c(Calendar.getInstance().getTimeInMillis(), j));
+            HashSet hashSet = new HashSet();
+            for (c cVar : f) {
+                if (cVar != null) {
+                    hashSet.add(cVar.a());
+                }
+            }
+            de3.a().putStringSet(b(i), hashSet);
+        }
+    }
+
+    public String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            String string = de3.a().getString(d(i), "");
+            if (!TextUtils.isEmpty(string)) {
+                sb.append("md5: ");
+                sb.append(string);
+                sb.append("\n");
+                sb.append("\n");
+            }
+            List<c> f = f(i);
+            int size = f.size();
+            boolean z = false;
+            for (int i2 = 0; i2 < size; i2++) {
+                c cVar = f.get(i2);
+                if (cVar != null) {
+                    sb.append(cVar.toString());
+                    if (i2 < size - 1) {
+                        sb.append("\n");
+                    }
+                    z = true;
+                }
+            }
+            if (!z) {
+                sb.append(new c(System.currentTimeMillis(), xe3.f(i)).toString());
             } else {
-                str2 = "0";
+                SwanCoreVersion coreVersion = cr2.V().getCoreVersion();
+                c cVar2 = f.get(size - 1);
+                if (cVar2 != null && coreVersion != null && coreVersion.swanCoreVersionCode > cVar2.b) {
+                    sb.append("\n");
+                    sb.append(new c(System.currentTimeMillis(), coreVersion.swanCoreVersionCode).toString());
+                }
             }
-            q.D("preload", str2);
-            if (dd3.b) {
-                Log.d("NavigateToAction", "tryToExecutePageRoute start. isReady : " + z);
+            return sb.toString();
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final List<c> f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Set<String> stringSet = de3.a().getStringSet(b(i), null);
+            if (stringSet != null && stringSet.size() != 0) {
+                for (String str : stringSet) {
+                    c g = g(str);
+                    if (g != null) {
+                        arrayList.add(g);
+                    }
+                }
+                h(arrayList);
             }
-            lh2.q(eVar, new b(this, eVar, str, g13Var, pa2Var));
-            if (dd3.b) {
-                Log.d("NavigateToAction", "tryToExecutePageRoute end.");
+            return arrayList;
+        }
+        return (List) invokeI.objValue;
+    }
+
+    public final c g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new c(jSONObject.optLong("time"), jSONObject.optLong("version"));
+            } catch (JSONException e) {
+                if (!am1.a) {
+                    return null;
+                }
+                e.printStackTrace();
+                return null;
             }
         }
+        return (c) invokeL.objValue;
     }
 }

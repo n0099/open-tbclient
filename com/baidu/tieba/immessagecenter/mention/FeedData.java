@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tieba.di;
-import com.baidu.tieba.or5;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.ul5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
 /* loaded from: classes6.dex */
-public class FeedData implements Serializable, or5 {
+public class FeedData implements Serializable, ul5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
@@ -447,7 +447,7 @@ public class FeedData implements Serializable, or5 {
                 this.mOriginalThreadInfo = originalThreadInfo;
                 originalThreadInfo.r(jSONObject.optJSONObject("origin_thread_info"));
             }
-            if (((!di.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
+            if (((!ad.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                 this.mPraiseNum = optJSONObject.optInt("num");
                 if (optJSONObject.optInt("consent_type") == 2) {
                     z6 = true;
@@ -489,6 +489,7 @@ public class FeedData implements Serializable, or5 {
                     builder2.type = Integer.valueOf(jSONArray.getJSONObject(i3).optInt("type"));
                     builder2.link = jSONArray.getJSONObject(i3).optString("link");
                     builder2.uid = Long.valueOf(jSONArray.getJSONObject(i3).optLong("uid"));
+                    builder2.target_scheme = jSONArray.getJSONObject(i3).optString("target_scheme");
                     builder.content.add(builder2.build(true));
                 }
                 builder.is_floor = Integer.valueOf(jSONObject2.getInt("is_floor"));
@@ -543,7 +544,7 @@ public class FeedData implements Serializable, or5 {
         this.mPraiseItemType = replyList.item_type;
         this.hideForumName = replyList.hide_fname.intValue();
         this.fromForumId = replyList.v_forum_id.longValue();
-        if (((!di.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
+        if (((!ad.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
             this.mPraiseNum = zan.num.intValue();
             if (zan.consent_type.intValue() == 2) {
                 z5 = true;

@@ -1,76 +1,50 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tx3 implements uq4 {
+public class tx3 extends vx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948196538, "Lcom/baidu/tieba/tx3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948196538, "Lcom/baidu/tieba/tx3;");
-                return;
-            }
-        }
-        a = qr1.a;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public tx3() {
+        super("echo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.uq4
-    public boolean a(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vx3
+    public qx1 a(@NonNull JSONObject jSONObject, @NonNull ti2 ti2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
-            if (a) {
-                Log.d("OpenBehaviorUploader", "upload stat data -> " + jSONArray.toString());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ti2Var)) == null) {
+            int optInt = jSONObject.optInt("status", 0);
+            String optString = jSONObject.optString("message");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optInt == 0) {
+                ti2Var.onSuccess(optJSONObject);
+                return null;
             }
-            yx3 yx3Var = new yx3();
-            HashMap hashMap = new HashMap(2);
-            hashMap.put("cuid", mq4.g().getDeviceId(AppRuntime.getApplication()));
-            hashMap.put("uuid", mq4.g().o(AppRuntime.getApplication()));
-            xx3.d().g(hashMap, jSONArray.toString().getBytes(), null, yx3Var);
-            if (a) {
-                Log.d("OpenBehaviorUploader", "errorCode : " + yx3Var.a);
-                Log.d("OpenBehaviorUploader", "errorMsg : " + yx3Var.b);
-            }
-            int i = yx3Var.a;
-            if (i != 1 && i != 2 && i != 4) {
-                return true;
-            }
-            fr4.a();
-            return false;
+            ti2Var.onFail(optInt, optString);
+            return null;
         }
-        return invokeL.booleanValue;
+        return (qx1) invokeLL.objValue;
     }
 }

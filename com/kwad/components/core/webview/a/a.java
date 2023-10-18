@@ -27,7 +27,7 @@ public final class a {
     @KsJson
     /* renamed from: com.kwad.components.core.webview.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C0648a extends com.kwad.sdk.core.response.kwai.a {
+    public static final class C0631a extends com.kwad.sdk.core.response.kwai.a {
         public String packageName;
         public String url;
     }
@@ -48,19 +48,19 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void aD(String str) {
         try {
-            C0648a c0648a = new C0648a();
-            c0648a.parseJson(new JSONObject(str));
-            if (k(c0648a.url, c0648a.packageName)) {
+            C0631a c0631a = new C0631a();
+            c0631a.parseJson(new JSONObject(str));
+            if (k(c0631a.url, c0631a.packageName)) {
                 return;
             }
             if (this.DV == null) {
-                j(c0648a.url, c0648a.packageName);
+                j(c0631a.url, c0631a.packageName);
             }
             if (this.DV.mR()) {
                 return;
             }
             this.DV.d(this.KW);
-            this.DV.m(new a.C0636a(this.mJsBridgeContext.Fv.getContext()).aj(true).ak(false).L(this.mAdTemplate).am(false));
+            this.DV.m(new a.C0619a(this.mJsBridgeContext.Fv.getContext()).aj(true).ak(false).L(this.mAdTemplate).am(false));
         } catch (JSONException e) {
             com.kwad.sdk.core.e.b.printStackTrace(e);
         }

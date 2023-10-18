@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.mobads.sdk.api.SplashAd;
 import com.kwad.components.ad.adbit.AdBid;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -10,7 +11,7 @@ public final class h implements com.kwad.sdk.core.d<AdBid> {
             return;
         }
         adBid.creativeId = jSONObject.optLong("creativeId");
-        adBid.ecpm = jSONObject.optLong("ecpm");
+        adBid.ecpm = jSONObject.optLong(SplashAd.KEY_BIDFAIL_ECPM);
         adBid.bidEcpm = jSONObject.optInt("bidEcpm");
         adBid.winNoticeUrl = jSONObject.optString("winNoticeUrl");
         if (jSONObject.opt("winNoticeUrl") == JSONObject.NULL) {
@@ -33,7 +34,7 @@ public final class h implements com.kwad.sdk.core.d<AdBid> {
         }
         long j2 = adBid.ecpm;
         if (j2 != 0) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "ecpm", j2);
+            com.kwad.sdk.utils.r.putValue(jSONObject, SplashAd.KEY_BIDFAIL_ECPM, j2);
         }
         int i = adBid.bidEcpm;
         if (i != 0) {

@@ -6,6 +6,7 @@ import android.text.style.ForegroundColorSpan;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.sdk.internal.cj;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
@@ -681,7 +682,7 @@ public final class a {
         int i = adInfo.advertiserInfo.fansCount;
         if (i < 200 || i >= 10000) {
             if (i >= 10000) {
-                DecimalFormat decimalFormat = new DecimalFormat("0.0");
+                DecimalFormat decimalFormat = new DecimalFormat(cj.d);
                 return decimalFormat.format(i / 10000.0d) + "w";
             }
             return null;

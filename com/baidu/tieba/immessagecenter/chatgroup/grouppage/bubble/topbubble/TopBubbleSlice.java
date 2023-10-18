@@ -29,18 +29,18 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.du8;
-import com.baidu.tieba.h55;
+import com.baidu.tieba.en8;
+import com.baidu.tieba.fn8;
+import com.baidu.tieba.i9b;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.lib.socket.msg.data.TopBubbleData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.adapter.PinnedOverlayAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
-import com.baidu.tieba.j55;
-import com.baidu.tieba.neb;
-import com.baidu.tieba.us8;
-import com.baidu.tieba.vs8;
+import com.baidu.tieba.no8;
+import com.baidu.tieba.pz4;
+import com.baidu.tieba.rz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class TopBubbleSlice extends Slice implements us8 {
+public class TopBubbleSlice extends Slice implements en8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -109,7 +109,7 @@ public class TopBubbleSlice extends Slice implements us8 {
                 }
                 this.a.a.u = false;
                 this.a.a.t.s(true);
-                this.a.a.v0(true);
+                this.a.a.w0(true);
             }
         }
 
@@ -136,7 +136,7 @@ public class TopBubbleSlice extends Slice implements us8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SafeHandler.getInst().postDelayed(new a(this), 100L);
-                this.a.v0(false);
+                this.a.w0(false);
             }
         }
     }
@@ -169,13 +169,13 @@ public class TopBubbleSlice extends Slice implements us8 {
         public void a(View view2) {
             TopBubbleData topBubbleData;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null || (topBubbleData = (TopBubbleData) view2.getTag(R.id.obfuscated_res_0x7f0906cd)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null || (topBubbleData = (TopBubbleData) view2.getTag(R.id.obfuscated_res_0x7f0906ea)) == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f0919b3) {
-                this.a.w0();
+            if (view2.getId() != R.id.obfuscated_res_0x7f0919dc) {
+                this.a.x0();
             } else if (topBubbleData.isExcellent() || this.a.t.p()) {
-                this.a.w0();
+                this.a.x0();
             }
         }
 
@@ -183,24 +183,24 @@ public class TopBubbleSlice extends Slice implements us8 {
         public void b(View view2) {
             TopBubbleData topBubbleData;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null || (topBubbleData = (TopBubbleData) view2.getTag(R.id.obfuscated_res_0x7f0906cd)) == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null || (topBubbleData = (TopBubbleData) view2.getTag(R.id.obfuscated_res_0x7f0906ea)) == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f0919b3) {
-                this.a.q0(topBubbleData);
+            if (view2.getId() != R.id.obfuscated_res_0x7f0919dc) {
+                this.a.r0(topBubbleData);
                 this.a.r.dismiss();
                 this.a.t.s(true);
             } else if (this.a.u) {
-                this.a.q0(topBubbleData);
+                this.a.r0(topBubbleData);
                 this.a.r.dismiss();
                 this.a.u = false;
                 this.a.t.s(true);
             } else if (!this.a.v) {
-                this.a.q0(topBubbleData);
+                this.a.r0(topBubbleData);
                 this.a.t.s(false);
             } else {
                 this.a.t.s(false);
-                this.a.y0();
+                this.a.z0();
             }
         }
     }
@@ -235,24 +235,24 @@ public class TopBubbleSlice extends Slice implements us8 {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.v0(true);
+            this.a.w0(true);
             this.a.r.dismiss();
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements j55.f {
+    public class d implements rz4.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h55 a;
+        public final /* synthetic */ pz4 a;
         public final /* synthetic */ TopBubbleSlice b;
 
-        public d(TopBubbleSlice topBubbleSlice, h55 h55Var) {
+        public d(TopBubbleSlice topBubbleSlice, pz4 pz4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {topBubbleSlice, h55Var};
+                Object[] objArr = {topBubbleSlice, pz4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -263,20 +263,20 @@ public class TopBubbleSlice extends Slice implements us8 {
                 }
             }
             this.b = topBubbleSlice;
-            this.a = h55Var;
+            this.a = pz4Var;
         }
 
-        @Override // com.baidu.tieba.j55.f
-        public void G0(j55 j55Var, int i, View view2) {
+        @Override // com.baidu.tieba.rz4.f
+        public void G0(rz4 rz4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, j55Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, rz4Var, i, view2) == null) {
                 if (i != 0) {
                     if (i == 1) {
-                        this.b.x0();
+                        this.b.y0();
                         this.a.dismiss();
                     }
                 } else if (!StringUtils.isNull(this.b.n) && !StringUtils.isNull(this.b.q)) {
-                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{vs8.d(neb.a(neb.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.q), "forumId", this.b.n))});
+                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{fn8.d(i9b.a(i9b.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.q), "forumId", this.b.n))});
                     this.a.dismiss();
                 }
             }
@@ -312,7 +312,7 @@ public class TopBubbleSlice extends Slice implements us8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.t.n();
-                du8.b(this.a.j.getPageActivity());
+                no8.b(this.a.j.getPageActivity());
             }
         }
     }
@@ -345,8 +345,8 @@ public class TopBubbleSlice extends Slice implements us8 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 f fVar = new f();
                 fVar.a = view2;
-                fVar.b = (TopBubbleView) view2.findViewById(R.id.obfuscated_res_0x7f0919b3);
-                fVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092326);
+                fVar.b = (TopBubbleView) view2.findViewById(R.id.obfuscated_res_0x7f0919dc);
+                fVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092330);
                 return fVar;
             }
             return (f) invokeL.objValue;
@@ -385,13 +385,13 @@ public class TopBubbleSlice extends Slice implements us8 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 g gVar = new g();
                 gVar.a = view2;
-                gVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091cf7);
-                RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090a81);
+                gVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d1f);
+                RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090a9c);
                 gVar.c = recyclerView;
                 recyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
-                gVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a82);
-                gVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a83);
-                gVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a47);
+                gVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a9d);
+                gVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a9e);
+                gVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a70);
                 gVar.b();
                 return gVar;
             }
@@ -437,14 +437,14 @@ public class TopBubbleSlice extends Slice implements us8 {
         this.t = new PinnedModel(this, valueOf);
     }
 
-    public void s0(@NonNull List<TopBubbleData> list) {
+    public void t0(@NonNull List<TopBubbleData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             this.t.o(list);
         }
     }
 
-    public void u0(long j) {
+    public void v0(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
             this.n = String.valueOf(j);
@@ -452,34 +452,34 @@ public class TopBubbleSlice extends Slice implements us8 {
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
-    public void Z(@Nullable View view2, @Nullable Bundle bundle) {
+    public void a0(@Nullable View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.Z(view2, bundle);
+            super.a0(view2, bundle);
             if (view2 != null) {
                 this.m = f.a(view2);
             }
             this.m.b.setEventCallback(this.w);
-            r0();
+            s0();
         }
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
-    public View T(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View U(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09b1, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09a3, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.us8
+    @Override // com.baidu.tieba.en8
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.k.T2().setVisibility(8);
-            t0();
+            u0();
         }
     }
 
@@ -492,7 +492,7 @@ public class TopBubbleSlice extends Slice implements us8 {
         }
     }
 
-    public boolean p0() {
+    public boolean q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -501,7 +501,7 @@ public class TopBubbleSlice extends Slice implements us8 {
         return invokeV.booleanValue;
     }
 
-    public void t0() {
+    public void u0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.u = false;
@@ -536,19 +536,19 @@ public class TopBubbleSlice extends Slice implements us8 {
         }
     }
 
-    @Override // com.baidu.tieba.us8
-    public void r(@NonNull List<TopBubbleData> list) {
+    @Override // com.baidu.tieba.en8
+    public void s(@NonNull List<TopBubbleData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.k.T2().setVisibility(0);
             TopBubbleData topBubbleData = list.get(0);
-            this.m.b.setTag(R.id.obfuscated_res_0x7f0906cd, topBubbleData);
+            this.m.b.setTag(R.id.obfuscated_res_0x7f0906ea, topBubbleData);
             this.m.b.c(topBubbleData);
             int size = list.size();
             if (size > 1) {
                 this.v = true;
                 if (!this.u) {
-                    v0(true);
+                    w0(true);
                 }
                 PinnedOverlayAdapter pinnedOverlayAdapter = this.s;
                 if (pinnedOverlayAdapter != null) {
@@ -558,11 +558,11 @@ public class TopBubbleSlice extends Slice implements us8 {
                 return;
             }
             this.v = false;
-            v0(false);
+            w0(false);
         }
     }
 
-    public final void q0(@NonNull TopBubbleData topBubbleData) {
+    public final void r0(@NonNull TopBubbleData topBubbleData) {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, topBubbleData) == null) {
@@ -589,8 +589,8 @@ public class TopBubbleSlice extends Slice implements us8 {
             if (c2 != 0) {
                 if (c2 != 1) {
                     if (c2 == 2) {
-                        vs8.f(topBubbleData.getVersionKey(), true);
-                        this.l.h1(topBubbleData.getMsgId(), topBubbleData.getMsgKey());
+                        fn8.f(topBubbleData.getVersionKey(), true);
+                        this.l.i1(topBubbleData.getMsgId(), topBubbleData.getMsgKey());
                         return;
                     }
                     return;
@@ -604,13 +604,13 @@ public class TopBubbleSlice extends Slice implements us8 {
         }
     }
 
-    public final void r0() {
+    public final void s0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             PinnedOverlayAdapter pinnedOverlayAdapter = new PinnedOverlayAdapter();
             this.s = pinnedOverlayAdapter;
             pinnedOverlayAdapter.n(this.w);
-            g a2 = g.a(LayoutInflater.from(this.j.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0129, (ViewGroup) null));
+            g a2 = g.a(LayoutInflater.from(this.j.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0126, (ViewGroup) null));
             this.p = a2;
             a2.e.setOnClickListener(this.x);
             this.p.c.setAdapter(this.s);
@@ -622,26 +622,26 @@ public class TopBubbleSlice extends Slice implements us8 {
             this.r.setFocusable(false);
             this.r.setOutsideTouchable(true);
             this.r.setOnDismissListener(this.y);
-            this.r.setAnimationStyle(R.style.obfuscated_res_0x7f100405);
+            this.r.setAnimationStyle(R.style.obfuscated_res_0x7f100400);
         }
     }
 
-    public final void x0() {
+    public final void y0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.j.getPageActivity());
             this.o = tBAlertBuilder;
-            tBAlertBuilder.setTitle(R.string.obfuscated_res_0x7f0f09c8);
-            this.o.setDescStr(this.j.getString(R.string.obfuscated_res_0x7f0f09cc));
+            tBAlertBuilder.setTitle(R.string.obfuscated_res_0x7f0f09cf);
+            this.o.setDescStr(this.j.getString(R.string.obfuscated_res_0x7f0f09d5));
             this.o.setDescLightStyle(true);
-            this.o.setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f09ca, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f09cb, TBAlertConfig.OperateBtnStyle.MAIN, new e(this)));
+            this.o.setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f09d3, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f09d4, TBAlertConfig.OperateBtnStyle.MAIN, new e(this)));
             this.o.setAutoClose();
             this.o.setCancelable(false);
             this.o.show();
         }
     }
 
-    public final void v0(boolean z) {
+    public final void w0(boolean z) {
         int i;
         int dimenPixelSize;
         Interceptable interceptable = $ic;
@@ -664,17 +664,17 @@ public class TopBubbleSlice extends Slice implements us8 {
         }
     }
 
-    public final void w0() {
+    public final void x0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            String[] strArr = {this.j.getString(R.string.obfuscated_res_0x7f0f0423), this.j.getString(R.string.obfuscated_res_0x7f0f09c8)};
-            h55 h55Var = new h55(this.j);
-            h55Var.i(null, strArr, new d(this, h55Var));
-            h55Var.l();
+            String[] strArr = {this.j.getString(R.string.obfuscated_res_0x7f0f0425), this.j.getString(R.string.obfuscated_res_0x7f0f09cf)};
+            pz4 pz4Var = new pz4(this.j);
+            pz4Var.i(null, strArr, new d(this, pz4Var));
+            pz4Var.l();
         }
     }
 
-    public final void y0() {
+    public final void z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.m.b.measure(0, 0);
@@ -685,7 +685,7 @@ public class TopBubbleSlice extends Slice implements us8 {
             int i = iArr[1] + measuredHeight;
             this.r.showAtLocation(this.m.b, 0, (iArr[0] + (measuredWidth / 2)) - (this.r.getWidth() / 2), i);
             this.u = true;
-            v0(false);
+            w0(false);
         }
     }
 }

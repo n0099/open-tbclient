@@ -1,7 +1,6 @@
 package com.baidu.mobstat;
 
 import com.baidu.android.util.devices.RomUtils;
-import com.ss.android.download.api.constant.BaseConstants;
 /* loaded from: classes3.dex */
 public class MtjConfig {
     public static final String BAIDU_MTJ_PUSH_CALL = "Baidu_mtj_push_call";
@@ -21,7 +20,7 @@ public class MtjConfig {
         GETUI("getui", 2),
         HUAWEI(RomUtils.MANUFACTURER_HUAWEI, 3),
         XIAOMI(RomUtils.MANUFACTURER_XIAOMI, 4),
-        UMENG(BaseConstants.CATEGORY_UMENG, 5),
+        UMENG("umeng", 5),
         XINGE("xinge", 6),
         ALIYUN("aliyun", 7),
         OPPO("oppo", 8),

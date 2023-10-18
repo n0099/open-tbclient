@@ -1,73 +1,79 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.m9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-import tbclient.FeedKV;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class ua7 {
+public class ua7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public m9<byte[]> a;
 
-    public static final String a(List<FeedKV> list, String key) {
-        InterceptResult invokeLL;
+    public ua7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            for (FeedKV feedKV : list) {
-                if (Intrinsics.areEqual(feedKV.key, key)) {
-                    return feedKV.value;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
+        b();
     }
 
-    public static final List<ea7> b(List<FeedKV> list) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            ArrayList arrayList = new ArrayList();
-            for (FeedKV feedKV : list) {
-                String str = feedKV.key;
-                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
-                ea7 ea7Var = new ea7(str, null, null, null, null, 30, null);
-                Map<String, String> d = ea7Var.d();
-                try {
-                    JSONObject jSONObject = new JSONObject(feedKV.value);
-                    if (d instanceof HashMap) {
-                        Iterator<String> keys = jSONObject.keys();
-                        Intrinsics.checkNotNullExpressionValue(keys, "jsonObject.keys()");
-                        while (keys.hasNext()) {
-                            String key = keys.next();
-                            if (!Intrinsics.areEqual(key, "position_name")) {
-                                Intrinsics.checkNotNullExpressionValue(key, "key");
-                                String optString = jSONObject.optString(key);
-                                Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(key)");
-                                d.put(key, optString);
-                            }
-                        }
-                    }
-                    String optString2 = jSONObject.optString("position_name");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObject.optString(\"position_name\")");
-                    ea7Var.g(optString2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                arrayList.add(ea7Var);
-            }
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            gz4.k();
+            this.a = gz4.i("tb.forum_member_info");
         }
-        return (List) invokeL.objValue;
+    }
+
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        m9.b<byte[]> bVar;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
+            m9<byte[]> m9Var = this.a;
+            if (m9Var != null) {
+                bVar = m9Var.h(str2);
+            } else {
+                bVar = null;
+            }
+            if (bVar == null || (bArr = bVar.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(str)) {
+                return;
+            }
+            b();
+            m9<byte[]> m9Var = this.a;
+            m9Var.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
+        }
     }
 }

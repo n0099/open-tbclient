@@ -1,24 +1,34 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import com.baidu.tieba.wp4;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class xp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(LayoutInflater layoutInflater, yp4 yp4Var) {
-        wp4.a aVar;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String queryParameter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, yp4Var) == null) {
-            if (yp4Var != null) {
-                aVar = new wp4.a(yp4Var);
-            } else {
-                aVar = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            layoutInflater.setFactory2(aVar);
+            Uri parse = Uri.parse(str);
+            if (parse.isOpaque()) {
+                queryParameter = "";
+            } else {
+                queryParameter = parse.getQueryParameter("key");
+            }
+            if (queryParameter == null) {
+                return "";
+            }
+            return queryParameter;
         }
+        return (String) invokeL.objValue;
     }
 }

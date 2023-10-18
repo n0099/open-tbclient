@@ -2,12 +2,12 @@ package com.baidu.searchbox.pms;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.il;
+import com.baidu.tieba.fg;
 @Autowired
 /* loaded from: classes4.dex */
 public class PmsRuntime {
     @Inject(force = false)
     public static IPmsContext getPmsContext() {
-        return il.a();
+        return fg.a();
     }
 }

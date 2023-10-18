@@ -13,6 +13,7 @@ import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
+import com.baidu.mobads.sdk.internal.bj;
 import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -179,7 +180,7 @@ public class e extends d {
             } else {
                 hashMap.put("connect_version", "2");
             }
-            hashMap.put("sdk_int", Build.VERSION.SDK_INT + "");
+            hashMap.put(bj.f, Build.VERSION.SDK_INT + "");
             String str = this.d.c;
             if (!TextUtils.isEmpty(str) && str.length() <= 128) {
                 hashMap.put("package_name", str);

@@ -1,33 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ddb;
-import com.baidu.tieba.odb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.sina.weibo.sdk.utils.FileUtils;
+import java.io.IOException;
 import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
+@TargetApi(18)
 /* loaded from: classes5.dex */
 public class edb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fdb a;
+    public List<String> a;
+    public String b;
+    public MediaMuxer c;
+    public int d;
+    public int e;
+    public MediaFormat f;
+    public MediaFormat g;
+    public udb h;
 
-    public edb(Context context) {
+    public edb(List<String> list, String str, udb udbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {list, str, udbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,266 +42,204 @@ public class edb {
                 return;
             }
         }
-        this.a = fdb.Q(context);
+        veb.e("VideoComposer", list.size() + " composer to " + str);
+        this.a = list;
+        this.b = str;
+        this.h = udbVar;
     }
 
-    public void A(List<tcb> list) {
+    public final long a(long j, String str) throws IOException {
+        InterceptResult invokeJL;
+        boolean z;
+        int i;
+        int i2;
+        ddb ddbVar;
+        int i3;
+        ddb ddbVar2;
+        int i4;
+        ddb ddbVar3;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.a.Z(list);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
+            String str3 = "VideoComposer";
+            veb.e("VideoComposer", j + " compose " + str);
+            ddb ddbVar4 = new ddb();
+            ddbVar4.m(str, FileUtils.VIDEO_FILE_START);
+            int d = ddbVar4.d();
+            ddb ddbVar5 = null;
+            if (d < 0) {
+                ddbVar4.j();
+                ddbVar4 = null;
+            } else {
+                ddbVar4.l(this.e);
+            }
+            ddb ddbVar6 = new ddb();
+            ddbVar6.m(str, "audio/");
+            int d2 = ddbVar6.d();
+            if (d2 < 0) {
+                ddbVar6.j();
+            } else {
+                ddbVar6.l(this.d);
+                ddbVar5 = ddbVar6;
+            }
+            boolean z2 = false;
+            if (ddbVar4 == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (ddbVar5 == null) {
+                z2 = true;
+            }
+            long j2 = 0;
+            long j3 = 0;
+            while (true) {
+                if (z && z2) {
+                    break;
+                }
+                if (!z2 && (z || ddbVar5.e() - ddbVar4.e() <= 50000)) {
+                    i = this.d;
+                    i3 = d2;
+                    i2 = i3;
+                    ddbVar = ddbVar5;
+                } else {
+                    i = this.e;
+                    i2 = d2;
+                    ddbVar = ddbVar4;
+                    i3 = d;
+                }
+                MediaCodec.BufferInfo h = ddbVar.h();
+                if (h == null) {
+                    i4 = d;
+                    ddb ddbVar7 = ddbVar;
+                    if (ddbVar7 == ddbVar4) {
+                        j2 = ddbVar4.e();
+                        d2 = i2;
+                        d = i4;
+                        z = true;
+                    } else if (ddbVar7 == ddbVar5) {
+                        j3 = ddbVar5.e();
+                        d2 = i2;
+                        d = i4;
+                        z2 = true;
+                    } else {
+                        ddbVar2 = ddbVar4;
+                        ddbVar3 = ddbVar5;
+                        str2 = str3;
+                    }
+                } else {
+                    ddbVar2 = ddbVar4;
+                    i4 = d;
+                    ddb ddbVar8 = ddbVar;
+                    if (ddbVar8.f() != i3) {
+                        StringBuilder sb = new StringBuilder();
+                        ddbVar3 = ddbVar5;
+                        sb.append("WEIRD: got sample from track ");
+                        sb.append(ddbVar8.f());
+                        sb.append(", expected ");
+                        sb.append(i3);
+                        veb.e(str3, sb.toString());
+                    } else {
+                        ddbVar3 = ddbVar5;
+                    }
+                    str2 = str3;
+                    h.presentationTimeUs += j;
+                    this.c.writeSampleData(i, ddbVar8.c(), h);
+                    ddbVar8.a();
+                }
+                str3 = str2;
+                d2 = i2;
+                d = i4;
+                ddbVar4 = ddbVar2;
+                ddbVar5 = ddbVar3;
+            }
+            long max = j + Math.max(j2, j3) + 10000;
+            udb udbVar = this.h;
+            if (udbVar != null) {
+                udbVar.c(max);
+            }
+            veb.e(str3, "finish one file, ptsOffset " + max);
+            if (ddbVar4 != null) {
+                ddbVar4.j();
+            }
+            if (ddbVar5 != null) {
+                ddbVar5.j();
+            }
+            return max;
         }
+        return invokeJL.longValue;
     }
 
-    public void B(vcb vcbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vcbVar) == null) {
-            this.a.a0(vcbVar);
-        }
-    }
-
-    public boolean D(List<pcb> list) {
+    public boolean b(StringBuilder sb) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            return this.a.c0(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb)) == null) {
+            boolean z = false;
+            boolean z2 = false;
+            for (String str : this.a) {
+                try {
+                    ddb ddbVar = new ddb();
+                    try {
+                        ddbVar.m(str, FileUtils.VIDEO_FILE_START);
+                        if (!z) {
+                            MediaFormat mediaFormat = ddbVar.g().a;
+                            this.g = mediaFormat;
+                            if (mediaFormat == null) {
+                                veb.e("VideoComposer", "No video track found in " + str);
+                            } else {
+                                z = true;
+                            }
+                        }
+                        if (!z2) {
+                            MediaFormat mediaFormat2 = ddbVar.b().a;
+                            this.f = mediaFormat2;
+                            if (mediaFormat2 == null) {
+                                veb.e("VideoComposer", "No audio track found in " + str);
+                            } else {
+                                z2 = true;
+                            }
+                        }
+                    } catch (Exception e) {
+                        veb.e("VideoComposer", e.getMessage());
+                        e.printStackTrace();
+                    }
+                    ddbVar.j();
+                    if (z && z2) {
+                        break;
+                    }
+                } catch (Exception e2) {
+                    if (sb != null) {
+                        sb.append("VideoSplicer codec 录制视频拼接过程中发生异常:" + e2.getMessage());
+                    }
+                    e2.printStackTrace();
+                    return false;
+                }
+            }
+            MediaMuxer mediaMuxer = new MediaMuxer(this.b, 0);
+            this.c = mediaMuxer;
+            if (z) {
+                this.e = mediaMuxer.addTrack(this.g);
+            }
+            if (z2) {
+                this.d = this.c.addTrack(this.f);
+            }
+            this.c.start();
+            long j = 0;
+            for (String str2 : this.a) {
+                j = a(j, str2);
+            }
+            if (this.c != null) {
+                try {
+                    this.c.stop();
+                    this.c.release();
+                } catch (Exception unused) {
+                    veb.e("VideoComposer", "Muxer close error. No data was written");
+                }
+                this.c = null;
+            }
+            veb.j("VideoComposer", "video join finished");
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public void F(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.e0(str);
-        }
-    }
-
-    public void a(rdb rdbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, rdbVar) == null) {
-            this.a.a(rdbVar);
-        }
-    }
-
-    public void b(rdb rdbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rdbVar) == null) {
-            this.a.b(rdbVar);
-        }
-    }
-
-    public boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            return this.a.x(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.a.z(str);
-        }
-    }
-
-    public HashMap<String, String> o(ArrayList<String> arrayList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
-            return this.a.H(arrayList);
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public pcb p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            return this.a.I(str);
-        }
-        return (pcb) invokeL.objValue;
-    }
-
-    public int u(rdb rdbVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, rdbVar)) == null) {
-            return this.a.S(rdbVar);
-        }
-        return invokeL.intValue;
-    }
-
-    public Map<String, ddb.a> v(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
-            return this.a.T(i);
-        }
-        return (Map) invokeI.objValue;
-    }
-
-    public ucb w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
-            return this.a.U(str);
-        }
-        return (ucb) invokeL.objValue;
-    }
-
-    public void x(SparseArray<ArrayList> sparseArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, sparseArray) == null) {
-            this.a.V(sparseArray);
-        }
-    }
-
-    public void y(lcb lcbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, lcbVar) == null) {
-            this.a.W(lcbVar);
-        }
-    }
-
-    public void z(tcb tcbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, tcbVar) == null) {
-            this.a.Y(tcbVar);
-        }
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.b0();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.n();
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.a.o();
-        }
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.a.v();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.a.w();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.a.y();
-        }
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.a.J();
-        }
-        return invokeV.intValue;
-    }
-
-    public odb.d s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.a.R();
-        }
-        return (odb.d) invokeV.objValue;
-    }
-
-    public void E(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
-            this.a.d0(str, i, str2);
-        }
-    }
-
-    public int r(ArrayList<String> arrayList, boolean z, rdb rdbVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{arrayList, Boolean.valueOf(z), rdbVar})) == null) {
-            rdbVar.M(10485760);
-            return this.a.K(arrayList, z, rdbVar);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public int t(ArrayList<String> arrayList, boolean z, rdb rdbVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{arrayList, Boolean.valueOf(z), rdbVar})) == null) {
-            return this.a.K(arrayList, z, rdbVar);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public void G(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            this.a.f0(str, str2);
-        }
-    }
-
-    public void c(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) {
-            this.a.h(str, z);
-        }
-    }
-
-    public void d(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) {
-            this.a.k(str, i);
-        }
-    }
-
-    public boolean g(rdb rdbVar, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, rdbVar, str)) == null) {
-            return this.a.p(rdbVar, str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public int n(rdb rdbVar, rdb rdbVar2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, rdbVar, rdbVar2)) == null) {
-            return this.a.E(rdbVar, rdbVar2);
-        }
-        return invokeLL.intValue;
-    }
-
-    public void m(String str, int i, long j, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), jSONArray}) == null) {
-            this.a.B(str, i, j, jSONArray);
-        }
     }
 }

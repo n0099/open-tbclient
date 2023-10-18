@@ -1,163 +1,91 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ib4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.Overlay;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class mb4 {
+public abstract class mb4 implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ib4> a;
-    public String b;
-    public String c;
-    public int d;
+    public BaiduMap a;
+    public List<OverlayOptions> b;
+    public List<Overlay> c;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kb4 a;
-        public final /* synthetic */ mb4 b;
+    public abstract List<OverlayOptions> b();
 
-        public a(mb4 mb4Var, kb4 kb4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mb4Var, kb4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mb4Var;
-            this.a = kb4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ArrayList<long[]> e = this.b.e();
-                lb4 lb4Var = new lb4();
-                lb4Var.a = this.b.b;
-                lb4Var.b = e;
-                lb4Var.c = this.b.c;
-                x74.i().b(lb4Var, this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947966890, "Lcom/baidu/tieba/mb4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947966890, "Lcom/baidu/tieba/mb4;");
-                return;
-            }
-        }
-        e = qr1.a;
-    }
-
-    public mb4(ArrayList<jb4> arrayList, String str, String str2) {
+    public mb4(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList, str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {baiduMap};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (e) {
-            Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.a = baiduMap;
+        if (0 == 0) {
+            this.b = new ArrayList();
         }
-        ArrayList<ib4> d = d(arrayList);
-        this.a = d;
-        this.b = str;
-        this.c = str2;
-        this.d = d.size();
+        if (this.c == null) {
+            this.c = new ArrayList();
+        }
     }
 
-    public void c(kb4 kb4Var) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, kb4Var) != null) || kb4Var == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
             return;
         }
-        ao3.l(new a(this, kb4Var), "clipVideo");
+        c();
+        if (b() != null) {
+            this.b.addAll(b());
+        }
+        for (OverlayOptions overlayOptions : this.b) {
+            this.c.add(this.a.addOverlay(overlayOptions));
+        }
     }
 
-    public final ArrayList<ib4> d(ArrayList<jb4> arrayList) {
-        InterceptResult invokeL;
-        ib4 a2;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
-            ArrayList<ib4> arrayList2 = new ArrayList<>();
-            if (arrayList != null && arrayList.size() != 0) {
-                Iterator<jb4> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    jb4 next = it.next();
-                    if (next != null && (a2 = next.a()) != null) {
-                        arrayList2.add(a2);
-                    }
-                }
-            }
-            return arrayList2;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
+            return;
         }
-        return (ArrayList) invokeL.objValue;
+        for (Overlay overlay : this.c) {
+            overlay.remove();
+        }
+        this.b.clear();
+        this.c.clear();
     }
 
-    public ArrayList<long[]> e() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<long[]> arrayList = new ArrayList<>();
-            if (this.d == 0) {
-                return arrayList;
-            }
-            if (e) {
-                Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.a);
-            }
-            Collections.sort(this.a, new ib4.a());
-            ib4 ib4Var = this.a.get(0);
-            for (int i = 1; i < this.d; i++) {
-                ib4 ib4Var2 = this.a.get(i);
-                if (!ib4Var.b(ib4Var2)) {
-                    arrayList.add(ib4.a(ib4Var));
-                    ib4Var = ib4Var2;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a != null && this.c.size() > 0) {
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            for (Overlay overlay : this.c) {
+                if (overlay instanceof Marker) {
+                    builder.include(((Marker) overlay).getPosition());
                 }
             }
-            arrayList.add(ib4.a(ib4Var));
-            if (e) {
-                Log.d("ClipVideoTask", "mergeRange mergeList = " + arrayList);
-            }
-            return arrayList;
+            this.a.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
-        return (ArrayList) invokeV.objValue;
     }
 }

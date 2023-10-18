@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.ev5;
-import com.baidu.tieba.fv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class xv5<Q extends ev5, P extends fv5> extends wv5 implements aw5<P> {
+public abstract class xv5 implements wv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public aw5 a;
+    public pv5 b;
 
-    public abstract void d();
+    @Override // com.baidu.tieba.wv5
+    public abstract void dismiss();
 
     public abstract void e();
 
@@ -20,9 +20,7 @@ public abstract class xv5<Q extends ev5, P extends fv5> extends wv5 implements a
 
     public abstract void g();
 
-    public abstract void h(BdUniqueId bdUniqueId);
-
-    public abstract void i(eu5 eu5Var);
+    public abstract void h(uv5 uv5Var);
 
     public xv5() {
         Interceptable interceptable = $ic;
@@ -35,6 +33,13 @@ public abstract class xv5<Q extends ev5, P extends fv5> extends wv5 implements a
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public void d(aw5 aw5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aw5Var) == null) {
+            this.a = aw5Var;
         }
     }
 }

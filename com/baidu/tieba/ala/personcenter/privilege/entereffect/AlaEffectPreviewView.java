@@ -27,8 +27,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.uh6;
-import com.baidu.tieba.xh;
+import com.baidu.tieba.dc6;
+import com.baidu.tieba.uc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class AlaEffectPreviewView extends LinearLayout {
     public View c;
     public ImageView d;
     public TextView e;
-    public uh6.c f;
+    public dc6.c f;
     public ObjectAnimator g;
     public LinearLayout h;
     public ImageView i;
@@ -105,7 +105,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                     return;
                 }
                 try {
-                    Bitmap f = xh.d().f(rawBitmap, BdUtilHelper.getEquipmentWidth(this.a.getContext()), this.a.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                    Bitmap f = uc.d().f(rawBitmap, BdUtilHelper.getEquipmentWidth(this.a.getContext()), this.a.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
                     if (f != rawBitmap) {
                         rawBitmap.recycle();
                     }
@@ -324,7 +324,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         e();
     }
 
-    public void setAnimCompleteCallback(uh6.c cVar) {
+    public void setAnimCompleteCallback(dc6.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.f = cVar;
@@ -334,11 +334,11 @@ public class AlaEffectPreviewView extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00fa, this);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901f8);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901f7);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901de);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901f9);
+            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00f7, this);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901fb);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901fa);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901e1);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901fc);
         }
     }
 
@@ -386,7 +386,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         if (StringUtils.isNull(str) && StringUtils.isNull(str2)) {
             spannableStringBuilder.append((CharSequence) currentAccountNameShow);
-            spannableStringBuilder.append((CharSequence) SpannableString.valueOf(getResources().getString(R.string.obfuscated_res_0x7f0f0236)));
+            spannableStringBuilder.append((CharSequence) SpannableString.valueOf(getResources().getString(R.string.obfuscated_res_0x7f0f0238)));
         } else {
             if (!StringUtils.isNull(str)) {
                 spannableStringBuilder.append((CharSequence) SpannableString.valueOf(str + " "));

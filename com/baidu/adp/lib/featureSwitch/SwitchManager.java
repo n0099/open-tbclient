@@ -6,9 +6,9 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.KVStorageFactory;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.af;
-import com.baidu.tieba.xe;
-import com.baidu.tieba.ze;
+import com.baidu.tieba.v9;
+import com.baidu.tieba.x9;
+import com.baidu.tieba.y9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,8 +26,8 @@ public class SwitchManager {
     public static SwitchManager sSwitchManager;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Integer> mBaseSwitchs;
-    public ConcurrentHashMap<String, af> mSwitchs;
-    public xe service;
+    public ConcurrentHashMap<String, y9> mSwitchs;
+    public v9 service;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class SwitchManager {
         }
         this.mSwitchs = null;
         this.mBaseSwitchs = null;
-        this.service = (xe) ServiceManager.getService(xe.a);
+        this.service = (v9) ServiceManager.getService(v9.a);
         this.mSwitchs = new ConcurrentHashMap<>();
     }
 
@@ -69,11 +69,11 @@ public class SwitchManager {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
-        for (af afVar : this.mSwitchs.values()) {
-            if (afVar != null) {
-                afVar.h(0);
-                edit.putInt(afVar.d() + af.e, 0);
-                edit.putInt(afVar.d() + af.f, afVar.c());
+        for (y9 y9Var : this.mSwitchs.values()) {
+            if (y9Var != null) {
+                y9Var.i(0);
+                edit.putInt(y9Var.d() + y9.e, 0);
+                edit.putInt(y9Var.d() + y9.f, y9Var.c());
             }
         }
         edit.commit();
@@ -104,18 +104,18 @@ public class SwitchManager {
         return (HashMap) invokeV.objValue;
     }
 
-    public void addSwitchData(ze zeVar) {
+    public void addSwitchData(x9 x9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, zeVar) != null) || zeVar == null || this.mSwitchs.containsKey(zeVar.e())) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, x9Var) != null) || x9Var == null || this.mSwitchs.containsKey(x9Var.e())) {
             return;
         }
-        this.mSwitchs.put(zeVar.e(), new af(zeVar));
+        this.mSwitchs.put(x9Var.e(), new y9(x9Var));
     }
 
     public void crash(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Iterator<af> it = this.mSwitchs.values().iterator();
+            Iterator<y9> it = this.mSwitchs.values().iterator();
             while (it.hasNext() && !it.next().a(str)) {
             }
         }
@@ -125,9 +125,9 @@ public class SwitchManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            af afVar = this.mSwitchs.get(str);
-            if (afVar != null) {
-                return afVar.getType();
+            y9 y9Var = this.mSwitchs.get(str);
+            if (y9Var != null) {
+                return y9Var.e();
             }
             return -1;
         }
@@ -147,28 +147,28 @@ public class SwitchManager {
         }
     }
 
-    public ze removeSwitchData(String str) {
+    public x9 removeSwitchData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            af remove = this.mSwitchs.remove(str);
+            y9 remove = this.mSwitchs.remove(str);
             if (remove != null) {
                 return remove.b();
             }
             return null;
         }
-        return (ze) invokeL.objValue;
+        return (x9) invokeL.objValue;
     }
 
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            xe xeVar = this.service;
-            if (xeVar == null || xeVar.isTypeSp() || this.service.isTypeDoubleKv() || this.service.isTypeDoubleSp()) {
+            v9 v9Var = this.service;
+            if (v9Var == null || v9Var.isTypeSp() || this.service.isTypeDoubleKv() || this.service.isTypeDoubleSp()) {
                 clearInternal(BdBaseApplication.getInst().getSharedPreferences("adp_feature_switch2", 0));
             }
-            xe xeVar2 = this.service;
-            if (xeVar2 == null || xeVar2.isTypeDoubleSp() || this.service.isTypeDoubleKv()) {
+            v9 v9Var2 = this.service;
+            if (v9Var2 == null || v9Var2.isTypeDoubleSp() || this.service.isTypeDoubleKv()) {
                 clearInternal(KVStorageFactory.getSharedPreferences("adp_feature_switch2", 0));
             }
         }
@@ -188,13 +188,13 @@ public class SwitchManager {
 
     public boolean turn(String str, int i) {
         InterceptResult invokeLI;
-        af afVar;
+        y9 y9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
-            if (i < 0 || (afVar = this.mSwitchs.get(str)) == null) {
+            if (i < 0 || (y9Var = this.mSwitchs.get(str)) == null) {
                 return false;
             }
-            return afVar.i(i);
+            return y9Var.j(i);
         }
         return invokeLI.booleanValue;
     }

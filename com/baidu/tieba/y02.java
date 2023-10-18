@@ -1,87 +1,95 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.pa2;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.z02;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-import org.json.JSONObject;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
+import com.facebook.drawee.controller.AbstractDraweeController;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class y02 extends x02 {
+public abstract class y02<V extends SimpleDraweeView, M extends z02> extends d12<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigateBackApi" : (String) invokeV.objValue;
-    }
+    public abstract void W(@NonNull V v, @NonNull M m);
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ ma2 b;
-        public final /* synthetic */ pa2 c;
-        public final /* synthetic */ pa2.b d;
-        public final /* synthetic */ y02 e;
 
-        public a(y02 y02Var, int i, ma2 ma2Var, pa2 pa2Var, pa2.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y02Var, Integer.valueOf(i), ma2Var, pa2Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-312264623, "Lcom/baidu/tieba/y02$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-312264623, "Lcom/baidu/tieba/y02$a;");
                     return;
                 }
             }
-            this.e = y02Var;
-            this.a = i;
-            this.b = ma2Var;
-            this.c = pa2Var;
-            this.d = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a > 1 && !this.b.E0) {
-                    qn3.b(this.c, this.e.getContext(), 1);
-                }
-                this.d.a();
+            int[] iArr = new int[PathType.values().length];
+            a = iArr;
+            try {
+                iArr[PathType.BD_FILE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[PathType.RELATIVE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[PathType.NETWORK.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[PathType.ERROR.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y02(@NonNull hz1 hz1Var) {
-        super(hz1Var);
+    public y02(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hz1Var};
+            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((hz1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (e12) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -89,98 +97,113 @@ public class y02 extends x02 {
         }
     }
 
-    public static void y() {
-        gb3 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (b0 = gb3.b0()) != null) {
-            b0.B().I(b0.getAppId());
-        }
-    }
-
-    public g32 A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q("#hideModalPage", false);
-            y();
-            return z(1, "hideModalPage", 10);
-        }
-        return (g32) invokeV.objValue;
-    }
-
-    public g32 B(String str) {
+    public static Uri Y(@NonNull String str) {
         InterceptResult invokeL;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#navigateBack params=" + str, false);
-            y();
-            Pair<g32, JSONObject> s = s(str);
-            g32 g32Var = (g32) s.first;
-            if (!g32Var.isSuccess()) {
-                return g32Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            PathType s = xc3.s(str);
+            p53 M = p53.M();
+            if (M != null) {
+                str2 = M.b;
+                str3 = M.l0();
+            } else {
+                str2 = null;
+                str3 = null;
             }
-            return z(((JSONObject) s.second).optInt("delta", 1), "navigateBack", 1);
+            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            int i = a.a[s.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return Uri.parse(str);
+                }
+                File file = new File(str);
+                if (file.exists()) {
+                    return Uri.fromFile(file);
+                }
+                String L = xc3.L(str, M, str3);
+                if (TextUtils.isEmpty(L)) {
+                    return null;
+                }
+                return Uri.fromFile(new File(L));
+            }
+            String M2 = xc3.M(str, str2);
+            if (TextUtils.isEmpty(M2)) {
+                return null;
+            }
+            return Uri.fromFile(new File(M2));
         }
-        return (g32) invokeL.objValue;
+        return (Uri) invokeL.objValue;
     }
 
-    public final g32 z(int i, String str, int i2) {
-        InterceptResult invokeCommon;
-        g13 o3;
-        String str2;
+    @NonNull
+    public h22 U(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
-            String uuid = UUID.randomUUID().toString();
-            m43.b(uuid);
-            pa2 U = tw2.T().U();
-            if (U == null) {
-                g82.c("NavigateBackApi", "manager is null");
-                return new g32(1001, "manager is null");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, m, m2)) == null) {
+            h22 k = super.k(m, m2);
+            if (!TextUtils.equals(m.t, m2.t)) {
+                k.b(9);
             }
-            int k = U.k();
-            if (k == 1) {
-                g82.c("NavigateBackApi", "navigateBack api can only work when slave's count greater than 1");
-                return new g32(1001, "navigateBack api can only work when slave's count greater than 1");
-            }
-            if (i >= k) {
-                i = k - 1;
-            }
-            g13 f = uh3.f(uuid, i);
-            ma2 m = U.m();
-            if (m == null) {
-                g82.c("NavigateBackApi", "slave container is null");
-                return new g32(1001, "slave container is null");
-            } else if (TextUtils.equals("hideModalPage", str) && !m.E0) {
-                g82.c("NavigateBackApi", "hideModalPage api can only work after showModalPage");
-                return new g32(1001, "hideModalPage api can only work after showModalPage");
-            } else {
-                m43.c(i2, uuid);
-                pa2.b i3 = U.i(str);
-                i3.n(pa2.i, pa2.h);
-                i3.h(i);
-                ap3.a0(new a(this, k, m, U, i3));
-                oa2 o = U.o();
-                if (o == null) {
-                    o3 = null;
-                } else {
-                    o3 = o.o3();
-                }
-                l43.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
-                m43.a(uuid, o3);
-                if (!(U.m() instanceof oa2)) {
-                    g82.c("NavigateBackApi", "top fragment error");
-                    uh3.i(f);
-                    return new g32(1001, "top fragment error");
-                }
-                oa2 oa2Var = (oa2) U.m();
-                if (oa2Var != null) {
-                    str2 = oa2Var.v3();
-                } else {
-                    str2 = "";
-                }
-                return new g32(0, pe3.c(str2));
+            return k;
+        }
+        return (h22) invokeLL.objValue;
+    }
+
+    public void V(@NonNull V v, @NonNull M m, @NonNull h22 h22Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v, m, h22Var) == null) {
+            super.D(v, m, h22Var);
+            if (h22Var.a(9)) {
+                W(v, m);
             }
         }
-        return (g32) invokeCommon.objValue;
+    }
+
+    public final void X(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
+        Uri Y;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048579, this, v, m, baseControllerListener) != null) || m.j == null) {
+            return;
+        }
+        if (f12.h) {
+            Log.d("Component-SimpleDrawee", "renderImageStyle");
+        }
+        String str = m.t;
+        if (TextUtils.isEmpty(str) || (Y = Y(str)) == null) {
+            return;
+        }
+        p22.i("Component-SimpleDrawee", "Image Uri:" + Y);
+        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
+        if (baseControllerListener != null) {
+            oldController.setControllerListener(baseControllerListener);
+        }
+        HashMap hashMap = new HashMap();
+        String h0 = jc2.V().h0();
+        if (!TextUtils.isEmpty(h0)) {
+            hashMap.put("User-Agent", h0);
+        }
+        String b = wi3.b();
+        if (!TextUtils.isEmpty(b) && wi3.c(Y.toString())) {
+            hashMap.put("Referer", b);
+        }
+        kq1 C = wo2.C();
+        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Y);
+        C.e(newBuilderWithSource, hashMap);
+        oldController.setImageRequest(newBuilderWithSource.build());
+        AbstractDraweeController build = oldController.build();
+        RoundingParams roundingParams = new RoundingParams();
+        roundingParams.setCornersRadius(m.n);
+        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
+        build2.setRoundingParams(roundingParams);
+        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
+        v.setHierarchy(build2);
+        v.setController(build);
     }
 }

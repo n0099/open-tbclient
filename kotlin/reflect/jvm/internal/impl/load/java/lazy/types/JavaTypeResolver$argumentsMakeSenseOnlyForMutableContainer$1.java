@@ -4,7 +4,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaType;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaWildcardType;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class JavaTypeResolver$argumentsMakeSenseOnlyForMutableContainer$1 extends Lambda implements Function1<JavaType, Boolean> {
     public static final JavaTypeResolver$argumentsMakeSenseOnlyForMutableContainer$1 INSTANCE = new JavaTypeResolver$argumentsMakeSenseOnlyForMutableContainer$1();
 

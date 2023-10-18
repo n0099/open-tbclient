@@ -18,16 +18,16 @@ import com.baidu.tbadk.core.util.ThirdStatisticHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bka;
 import com.baidu.tieba.easteregg.EasterEggAdController;
 import com.baidu.tieba.easteregg.data.EasterEggAdData;
 import com.baidu.tieba.easteregg.view.CountDownView;
 import com.baidu.tieba.easteregg.view.EasterEggAdEdgeFloat;
 import com.baidu.tieba.easteregg.view.EasterEggAdView;
 import com.baidu.tieba.edgefloat.EdgeFloat;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.lpa;
-import com.baidu.tieba.nu6;
-import com.baidu.tieba.xz6;
+import com.baidu.tieba.ew5;
+import com.baidu.tieba.gu6;
+import com.baidu.tieba.wo6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import kotlin.Metadata;
 import kotlin.collections.CollectionsKt__CollectionsJVMKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000O\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\b\u0003\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0005*\u0001\u0010\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0018\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u001a\u001a\u00020\u0017H\u0002J \u0010\u001b\u001a\u00020\u00192\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001a\u001a\u00020\u0017H\u0002J\u0006\u0010\u001e\u001a\u00020\u0019J\u000e\u0010\u001f\u001a\u00020\u00192\u0006\u0010\u0005\u001a\u00020\u0006J\u0010\u0010 \u001a\u00020\u00192\u0006\u0010\u0005\u001a\u00020\u0006H\u0002J\u0018\u0010!\u001a\u00020\u00192\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u001dH\u0002R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\t\u001a\u00020\n8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\u000e\u001a\u0004\b\u000b\u0010\fR\u0010\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0011R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\""}, d2 = {"Lcom/baidu/tieba/easteregg/EasterEggAdController;", "", "activity", "Landroid/app/Activity;", "(Landroid/app/Activity;)V", "easterEggAdData", "Lcom/baidu/tieba/easteregg/data/EasterEggAdData;", "easterEggAdEdgeFloat", "Lcom/baidu/tieba/easteregg/view/EasterEggAdEdgeFloat;", "easterEggAdView", "Lcom/baidu/tieba/easteregg/view/EasterEggAdView;", "getEasterEggAdView", "()Lcom/baidu/tieba/easteregg/view/EasterEggAdView;", "easterEggAdView$delegate", "Lkotlin/Lazy;", "onScreenSizeChangedCallback", "com/baidu/tieba/easteregg/EasterEggAdController$onScreenSizeChangedCallback$1", "Lcom/baidu/tieba/easteregg/EasterEggAdController$onScreenSizeChangedCallback$1;", "showStartTime", "", "url", "", "viewHeight", "", "clickCheckReq", "", "objLocate", "clickStat", "isSuccess", "", "hideAd", "showAd", "showCheckReq", "showStat", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000O\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\b\u0003\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0006*\u0001\u0010\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\"\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u001a\u001a\u00020\u00172\b\u0010\u001b\u001a\u0004\u0018\u00010\u0015H\u0002J4\u0010\u001c\u001a\u00020\u00192\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u001d\u001a\u00020\u001e2\u0006\u0010\u001a\u001a\u00020\u00172\b\u0010\u001f\u001a\u0004\u0018\u00010\u00152\b\u0010\u001b\u001a\u0004\u0018\u00010\u0015H\u0002J\u0006\u0010 \u001a\u00020\u0019J\u000e\u0010!\u001a\u00020\u00192\u0006\u0010\u0005\u001a\u00020\u0006J\u0010\u0010\"\u001a\u00020\u00192\u0006\u0010\u0005\u001a\u00020\u0006H\u0002J\"\u0010#\u001a\u00020\u00192\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u001d\u001a\u00020\u001e2\b\u0010\u001f\u001a\u0004\u0018\u00010\u0015H\u0002R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\t\u001a\u00020\n8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\u000e\u001a\u0004\b\u000b\u0010\fR\u0010\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0011R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006$"}, d2 = {"Lcom/baidu/tieba/easteregg/EasterEggAdController;", "", "activity", "Landroid/app/Activity;", "(Landroid/app/Activity;)V", "easterEggAdData", "Lcom/baidu/tieba/easteregg/data/EasterEggAdData;", "easterEggAdEdgeFloat", "Lcom/baidu/tieba/easteregg/view/EasterEggAdEdgeFloat;", "easterEggAdView", "Lcom/baidu/tieba/easteregg/view/EasterEggAdView;", "getEasterEggAdView", "()Lcom/baidu/tieba/easteregg/view/EasterEggAdView;", "easterEggAdView$delegate", "Lkotlin/Lazy;", "onScreenSizeChangedCallback", "com/baidu/tieba/easteregg/EasterEggAdController$onScreenSizeChangedCallback$1", "Lcom/baidu/tieba/easteregg/EasterEggAdController$onScreenSizeChangedCallback$1;", "showStartTime", "", "url", "", "viewHeight", "", "clickCheckReq", "", "objLocate", "jumpLink", "clickStat", "isSuccess", "", "monitorUrl", "hideAd", "showAd", "showCheckReq", "showStat", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
 public final class EasterEggAdController {
     public static /* synthetic */ Interceptable $ic;
@@ -61,13 +61,14 @@ public final class EasterEggAdController {
         public final /* synthetic */ EasterEggAdController a;
         public final /* synthetic */ EasterEggAdData b;
         public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
 
-        public a(EasterEggAdController easterEggAdController, EasterEggAdData easterEggAdData, int i) {
+        public a(EasterEggAdController easterEggAdController, EasterEggAdData easterEggAdData, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {easterEggAdController, easterEggAdData, Integer.valueOf(i)};
+                Object[] objArr = {easterEggAdController, easterEggAdData, Integer.valueOf(i), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -80,6 +81,7 @@ public final class EasterEggAdController {
             this.a = easterEggAdController;
             this.b = easterEggAdData;
             this.c = i;
+            this.d = str;
         }
 
         @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
@@ -88,7 +90,7 @@ public final class EasterEggAdController {
             if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
                 return;
             }
-            this.a.k(this.b, false, this.c);
+            this.a.k(this.b, false, this.c, str, this.d);
         }
 
         @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
@@ -97,7 +99,7 @@ public final class EasterEggAdController {
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
                 return;
             }
-            this.a.k(this.b, true, this.c);
+            this.a.k(this.b, true, this.c, str, this.d);
         }
     }
 
@@ -154,8 +156,8 @@ public final class EasterEggAdController {
                 this.a.l().b();
                 this.a.h.e();
                 YunDialogManager.unMarkShowingDialogName("easterEgg");
-                lpa.i.a().l(false);
-                nu6.b().b(new xz6());
+                bka.i.a().l(false);
+                wo6.b().c(new gu6());
             }
         }
     }
@@ -281,7 +283,7 @@ public final class EasterEggAdController {
         public void onFailed(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.r(this.b, false);
+                this.a.r(this.b, false, str);
             }
         }
 
@@ -289,7 +291,7 @@ public final class EasterEggAdController {
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.r(this.b, true);
+                this.a.r(this.b, true, str);
             }
         }
     }
@@ -383,10 +385,9 @@ public final class EasterEggAdController {
                                 Intrinsics.throwUninitializedPropertyAccessException("easterEggAdData");
                                 easterEggAdData = null;
                             }
-                            easterEggAdController.j(easterEggAdData, 4);
+                            easterEggAdController.j(easterEggAdData, 4, null);
                         }
-                        TbLog defaultLog = DefaultLog.getInstance();
-                        defaultLog.i("easterEgg", "彩蛋广告关闭，关闭类型：" + closeType.name());
+                        DefaultLog.getInstance().i("easterEgg", "彩蛋广告关闭，关闭类型：" + closeType.name());
                         this.a.m();
                     }
                 }
@@ -417,10 +418,10 @@ public final class EasterEggAdController {
                 }
 
                 @Override // com.baidu.tieba.easteregg.view.EasterEggAdView.a
-                public void a() {
+                public void a(String str) {
                     EasterEggAdData easterEggAdData;
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                         DefaultLog.getInstance().i("easterEgg", "彩蛋广告内容点击");
                         EasterEggAdController easterEggAdController = this.a;
                         easterEggAdData = easterEggAdController.e;
@@ -428,7 +429,7 @@ public final class EasterEggAdController {
                             Intrinsics.throwUninitializedPropertyAccessException("easterEggAdData");
                             easterEggAdData = null;
                         }
-                        easterEggAdController.j(easterEggAdData, 1);
+                        easterEggAdController.j(easterEggAdData, 1, str);
                         this.a.m();
                     }
                 }
@@ -463,7 +464,7 @@ public final class EasterEggAdController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, easterEggAdData) == null) {
             Intrinsics.checkNotNullParameter(easterEggAdData, "easterEggAdData");
-            lpa.i.a().l(true);
+            bka.i.a().l(true);
             DefaultLog.getInstance().i("easterEgg", "彩蛋广告开始展示");
             this.e = easterEggAdData;
             l().g(easterEggAdData);
@@ -471,7 +472,7 @@ public final class EasterEggAdController {
             this.h.g();
             ValueAnimator valueAnimator = ValueAnimator.ofFloat(this.b, 0.0f);
             valueAnimator.setInterpolator(new DecelerateInterpolator());
-            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.qz6
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.zt6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -521,40 +522,49 @@ public final class EasterEggAdController {
         }
     }
 
-    public final void j(EasterEggAdData easterEggAdData, int i) {
+    public final void j(EasterEggAdData easterEggAdData, int i, String str) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, easterEggAdData, i) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, easterEggAdData, i, str) == null) {
             List<String> clickStatisticsUrls = easterEggAdData.getClickStatisticsUrls();
             if (clickStatisticsUrls != null && !clickStatisticsUrls.isEmpty()) {
                 z = false;
             } else {
                 z = true;
             }
-            if (z) {
-                k(easterEggAdData, false, i);
+            if (!z && i != 4) {
+                List<String> clickStatisticsUrls2 = easterEggAdData.getClickStatisticsUrls();
+                if (clickStatisticsUrls2 != null) {
+                    for (String str2 : clickStatisticsUrls2) {
+                        ThirdStatisticHelper.sendReq(str2, new a(this, easterEggAdData, i, str));
+                    }
+                    return;
+                }
                 return;
             }
-            List<String> clickStatisticsUrls2 = easterEggAdData.getClickStatisticsUrls();
-            if (clickStatisticsUrls2 != null) {
-                for (String str : clickStatisticsUrls2) {
-                    ThirdStatisticHelper.sendReq(str, new a(this, easterEggAdData, i));
-                }
-            }
+            k(easterEggAdData, false, i, null, str);
         }
     }
 
-    public final void r(EasterEggAdData easterEggAdData, boolean z) {
+    public final void r(EasterEggAdData easterEggAdData, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, easterEggAdData, z) == null) {
-            TiebaStatic.log(new StatisticItem("c15274").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", easterEggAdData.getResType()).param("obj_param1", !z ? 1 : 0));
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{easterEggAdData, Boolean.valueOf(z), str}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15274").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", easterEggAdData.getResType()).param("obj_param1", !z ? 1 : 0);
+            ew5.a aVar = ew5.a;
+            Intrinsics.checkNotNullExpressionValue(statisticItem, "statisticItem");
+            aVar.b(statisticItem, easterEggAdData.getActivityId(), easterEggAdData.getMDisplayAdIcon(), str);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public final void k(EasterEggAdData easterEggAdData, boolean z, int i) {
+    public final void k(EasterEggAdData easterEggAdData, boolean z, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{easterEggAdData, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            TiebaStatic.log(new StatisticItem("c15275").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i).param("obj_type", easterEggAdData.getResType()).param("obj_param1", !z ? 1 : 0).param(TiebaStatic.Params.OBJ_DURATION, (System.currentTimeMillis() / 1000) - this.d));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{easterEggAdData, Boolean.valueOf(z), Integer.valueOf(i), str, str2}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15275").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i).param("obj_type", easterEggAdData.getResType()).param("obj_param1", !z ? 1 : 0).param(TiebaStatic.Params.OBJ_DURATION, (System.currentTimeMillis() / 1000) - this.d);
+            ew5.a aVar = ew5.a;
+            Intrinsics.checkNotNullExpressionValue(statisticItem, "statisticItem");
+            aVar.a(statisticItem, easterEggAdData.getActivityId(), easterEggAdData.getMDisplayAdIcon(), str, str2);
+            TiebaStatic.log(statisticItem);
         }
     }
 
@@ -573,7 +583,7 @@ public final class EasterEggAdController {
             DefaultLog.getInstance().i("easterEgg", "彩蛋广告开始隐藏");
             int i = 0;
             ValueAnimator valueAnimator = ValueAnimator.ofFloat(0.0f, this.b);
-            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pz6
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yt6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -595,11 +605,11 @@ public final class EasterEggAdController {
             if (currentAccount == null) {
                 currentAccount = StringUtil.NULL_STRING;
             }
-            Integer num = lpa.i.a().c().get(currentAccount);
+            Integer num = bka.i.a().c().get(currentAccount);
             if (num != null) {
                 i = num.intValue();
             }
-            lpa.i.a().c().put(currentAccount, Integer.valueOf(i + 1));
+            bka.i.a().c().put(currentAccount, Integer.valueOf(i + 1));
         }
     }
 
@@ -615,7 +625,7 @@ public final class EasterEggAdController {
                 z = true;
             }
             if (z) {
-                r(easterEggAdData, false);
+                r(easterEggAdData, false, null);
                 return;
             }
             List<String> showStatisticsUrls2 = easterEggAdData.getShowStatisticsUrls();

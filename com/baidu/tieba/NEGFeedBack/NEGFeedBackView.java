@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.s46;
+import com.baidu.tieba.bz5;
+import com.baidu.tieba.k4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,7 +43,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int mPaddingLeft;
     public int mPaddingRight;
     public int mPaddingTop;
-    public s46 mViewController;
+    public bz5 mViewController;
     public int mWebPColorId;
     public int mWebPResId;
 
@@ -95,7 +95,7 @@ public class NEGFeedBackView extends AppCompatImageView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(m9.a(this.a.getContext()))) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(k4.a(this.a.getContext()))) {
                 return;
             }
             this.a.dismissPopupWindow();
@@ -163,7 +163,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     private void init(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, tbPageContext) == null) {
-            this.mViewController = new s46(tbPageContext, this);
+            this.mViewController = new bz5(tbPageContext, this);
             setOnClickListener(this.mOnPopupWindowClickListener);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             onChangeSkinType();

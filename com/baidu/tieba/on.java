@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface on {
-    void onOver();
+    void a();
+
+    void b();
 }

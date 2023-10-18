@@ -26,13 +26,13 @@ public final class ae extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo758a() {
+    public String mo757a() {
         return "send wrong message ack for message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo475a() {
+    public void mo474a() {
         try {
             id a = y.a((Context) this.f883a, this.a);
             a.f632a.a("error", this.f884a);

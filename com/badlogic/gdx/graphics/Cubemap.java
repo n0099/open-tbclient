@@ -1,16 +1,13 @@
 package com.badlogic.gdx.graphics;
 
-import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e1;
-import com.baidu.tieba.f3;
-import com.baidu.tieba.g1;
-import com.baidu.tieba.i3;
-import com.baidu.tieba.k1;
-import com.baidu.tieba.u6;
+import com.baidu.tieba.c1;
+import com.baidu.tieba.e2;
+import com.baidu.tieba.h2;
+import com.baidu.tieba.r2;
 import com.baidu.tieba.y0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,12 +19,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class Cubemap extends i3 {
+public class Cubemap extends h2 {
     public static /* synthetic */ Interceptable $ic;
-    public static g1 j;
-    public static final Map<Application, u6<Cubemap>> k;
+    public static c1 j;
+    public static final Map<Application, r2<Cubemap>> k;
     public transient /* synthetic */ FieldHolder $fh;
-    public f3 i;
+    public e2 i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -139,39 +136,6 @@ public class Cubemap extends i3 {
         }
     }
 
-    /* loaded from: classes.dex */
-    public static class a implements e1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-
-        public a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-        }
-
-        @Override // com.baidu.tieba.e1.a
-        public void a(g1 g1Var, String str, Class cls) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, g1Var, str, cls) == null) {
-                g1Var.A(str, this.a);
-            }
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -188,84 +152,38 @@ public class Cubemap extends i3 {
         k = new HashMap();
     }
 
-    public f3 u() {
+    public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
-        }
-        return (f3) invokeV.objValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.i.a();
         }
         return invokeV.booleanValue;
     }
 
-    public void z() {
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (x()) {
-                this.b = y0.e.a();
-                y(this.i);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (p()) {
+                this.b = y0.c.a();
+                q(this.i);
                 return;
             }
             throw new GdxRuntimeException("Tried to reload an unmanaged Cubemap");
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Cubemap(f3 f3Var) {
-        super(34067);
+    public static void m(Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.i = f3Var;
-        y(f3Var);
-        if (f3Var.a()) {
-            s(y0.a, this);
-        }
-    }
-
-    public static void s(Application application, Cubemap cubemap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, application, cubemap) == null) {
-            u6<Cubemap> u6Var = k.get(application);
-            if (u6Var == null) {
-                u6Var = new u6<>();
-            }
-            u6Var.a(cubemap);
-            k.put(application, u6Var);
-        }
-    }
-
-    public static void t(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, application) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
             k.remove(application);
         }
     }
 
-    public static String v() {
+    public static String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed cubemap/app: { ");
             for (Application application : k.keySet()) {
@@ -278,72 +196,55 @@ public class Cubemap extends i3 {
         return (String) invokeV.objValue;
     }
 
-    public static void w(Application application) {
-        u6<Cubemap> u6Var;
+    public static void o(Application application) {
+        r2<Cubemap> r2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, application) != null) || (u6Var = k.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, application) != null) || (r2Var = k.get(application)) == null) {
             return;
         }
-        g1 g1Var = j;
-        if (g1Var == null) {
-            for (int i = 0; i < u6Var.b; i++) {
-                u6Var.get(i).z();
+        c1 c1Var = j;
+        if (c1Var == null) {
+            for (int i = 0; i < r2Var.b; i++) {
+                r2Var.get(i).r();
             }
             return;
         }
-        g1Var.h();
-        u6<? extends Cubemap> u6Var2 = new u6<>(u6Var);
-        u6.b<? extends Cubemap> it = u6Var2.iterator();
-        while (it.hasNext()) {
-            Cubemap next = it.next();
-            String m = j.m(next);
-            if (m == null) {
-                next.z();
-            } else {
-                int q = j.q(m);
-                j.A(m, 0);
-                next.b = 0;
-                k1.b bVar = new k1.b();
-                bVar.d = next.u();
-                bVar.e = next.h();
-                bVar.f = next.f();
-                bVar.g = next.j();
-                bVar.h = next.k();
-                bVar.c = next;
-                bVar.a = new a(q);
-                j.C(m);
-                next.b = y0.e.a();
-                j.w(m, Cubemap.class, bVar);
-            }
+        c1Var.b();
+        r2<? extends Cubemap> r2Var2 = new r2<>(r2Var);
+        r2.b<? extends Cubemap> it = r2Var2.iterator();
+        if (!it.hasNext()) {
+            r2Var.clear();
+            r2Var.b(r2Var2);
+            return;
         }
-        u6Var.clear();
-        u6Var.b(u6Var2);
+        j.c(it.next());
+        throw null;
     }
 
-    @Override // com.baidu.tieba.i3, com.baidu.tieba.b7
+    @Override // com.baidu.tieba.h2, com.baidu.tieba.v2
     public void dispose() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b == 0) {
             return;
         }
-        delete();
+        c();
         if (this.i.a() && k.get(y0.a) != null) {
-            k.get(y0.a).i(this, true);
+            k.get(y0.a).g(this, true);
         }
     }
 
-    public void y(f3 f3Var) {
+    public void q(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, f3Var) == null) {
-            if (!f3Var.isPrepared()) {
-                f3Var.prepare();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var) == null) {
+            if (!e2Var.isPrepared()) {
+                e2Var.prepare();
             }
-            a();
-            o(this.c, this.d, true);
-            p(this.e, this.f, true);
-            n(this.g, true);
-            f3Var.e();
-            y0.e.N(this.a, 0);
+            b();
+            i(this.c, this.d, true);
+            j(this.e, this.f, true);
+            h(this.g, true);
+            e2Var.b();
+            y0.c.F(this.a, 0);
         }
     }
 }

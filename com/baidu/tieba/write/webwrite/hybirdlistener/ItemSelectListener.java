@@ -9,7 +9,6 @@ import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.RelevanceItemSearchActivityConfig;
 import com.baidu.tbadk.core.data.ItemData;
@@ -19,14 +18,14 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.c4b;
-import com.baidu.tieba.h3b;
-import com.baidu.tieba.i3b;
-import com.baidu.tieba.l3b;
-import com.baidu.tieba.p3b;
-import com.baidu.tieba.wi5;
+import com.baidu.tieba.cd5;
+import com.baidu.tieba.cya;
+import com.baidu.tieba.dya;
+import com.baidu.tieba.gya;
+import com.baidu.tieba.kya;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
+import com.baidu.tieba.xya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,13 +41,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000o\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000*\u0001\r\u0018\u00002\u00020\u00012\u00020\u0002B)\u0012\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\u0006\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\u0016\u0010\u000f\u001a\u0010\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u0012\u0018\u00010\u0010H\u0016J\u0010\u0010\u0013\u001a\u00020\u00122\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\u0013\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00180\u0017H\u0016¢\u0006\u0002\u0010\u0019J\u0013\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u001b0\u0017H\u0016¢\u0006\u0002\u0010\u001cJ\b\u0010\u001d\u001a\u00020\u0012H\u0016J\u0010\u0010\u001e\u001a\u00020\u00122\u0006\u0010\u001f\u001a\u00020 H\u0002J\b\u0010!\u001a\u00020\u0012H\u0002J\u0015\u0010\"\u001a\n\u0012\u0004\u0012\u00020#\u0018\u00010\u0017H\u0016¢\u0006\u0002\u0010$J\u000e\u0010%\u001a\u00020\u00122\u0006\u0010&\u001a\u00020'R\u0012\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u000e¨\u0006("}, d2 = {"Lcom/baidu/tieba/write/webwrite/hybirdlistener/ItemSelectListener;", "Lcom/baidu/tieba/write/webwrite/data/BizBase;", "Lcom/baidu/tieba/write/webwrite/data/Clean;", "context", "Lcom/baidu/tbadk/TbPageContext;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "writePageState", "Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;Lcom/baidu/tbadk/coreExtra/data/WriteData;Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;)V", "mItemSelectedListener", "com/baidu/tieba/write/webwrite/hybirdlistener/ItemSelectListener$mItemSelectedListener$1", "Lcom/baidu/tieba/write/webwrite/hybirdlistener/ItemSelectListener$mItemSelectedListener$1;", "addDraftData", "Lkotlin/Function1;", "Lorg/json/JSONObject;", "", "deleteItem", "data", "", "editorActionHandlers", "", "Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "keyListeners", "Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "()[Lcom/baidu/tieba/write/webwrite/data/WrapListener;", MissionEvent.MESSAGE_DESTROY, "onEditorAction", "action", "Lcom/baidu/tbadk/editortools/Action;", "openItemSelectPage", "requestCodeHandlers", "Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "sendItemDataToH5", "msg", "Lcom/baidu/tbadk/core/message/EvaluateRelevanceItemSelectedMessage;", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class ItemSelectListener extends BizBase implements l3b {
+public final class ItemSelectListener extends BizBase implements gya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> g;
     public final a h;
 
-    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.k3b
+    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.fya
     public Function1<JSONObject, Unit> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,14 +57,14 @@ public final class ItemSelectListener extends BizBase implements l3b {
         return (Function1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.k3b
-    public i3b[] f() {
+    @Override // com.baidu.tieba.fya
+    public dya[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
-        return (i3b[]) invokeV.objValue;
+        return (dya[]) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
@@ -109,7 +108,7 @@ public final class ItemSelectListener extends BizBase implements l3b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ItemSelectListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, c4b writePageState) {
+    public ItemSelectListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, xya writePageState) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -121,7 +120,7 @@ public final class ItemSelectListener extends BizBase implements l3b {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (c4b) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (xya) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -136,21 +135,21 @@ public final class ItemSelectListener extends BizBase implements l3b {
         MessageManager.getInstance().registerListener(this.h);
     }
 
-    @Override // com.baidu.tieba.k3b
-    public h3b[] d() {
+    @Override // com.baidu.tieba.fya
+    public cya[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new h3b[]{new p3b(new Integer[]{61}, new ItemSelectListener$editorActionHandlers$1(this))} : (h3b[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new cya[]{new kya(new Integer[]{61}, new ItemSelectListener$editorActionHandlers$1(this))} : (cya[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.k3b
+    @Override // com.baidu.tieba.fya
     public WrapListener[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new WrapListener[]{h().invoke("writePage.deleteItemData", new ItemSelectListener$keyListeners$1(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l3b
+    @Override // com.baidu.tieba.gya
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -183,14 +182,14 @@ public final class ItemSelectListener extends BizBase implements l3b {
         }
     }
 
-    public final void u(wi5 wi5Var) {
+    public final void u(cd5 cd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, wi5Var) == null) {
-            if (wi5Var.a == 61) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, cd5Var) == null) {
+            if (cd5Var.a == 61) {
                 v();
                 return;
             }
-            throw new IllegalStateException("ItemSelectListener有没处理的action code:" + wi5Var.a);
+            throw new IllegalStateException("ItemSelectListener有没处理的action code:" + cd5Var.a);
         }
     }
 
@@ -199,7 +198,7 @@ public final class ItemSelectListener extends BizBase implements l3b {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             DefaultLog.getInstance().i("write", "收到H5通知，打开关联item选择页");
             if (!k().canAddItem()) {
-                BdUtilHelper.showToast(this.g.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1911);
+                BdUtilHelper.showToast(this.g.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f18ed);
                 return;
             }
             RelevanceItemSearchActivityConfig relevanceItemSearchActivityConfig = new RelevanceItemSearchActivityConfig(this.g.getPageActivity(), 0);
@@ -219,7 +218,7 @@ public final class ItemSelectListener extends BizBase implements l3b {
             jSONObject.put("score", msg.score);
             jSONObject.put("icon_size", msg.icon_size);
             jSONObject.put("star", msg.star);
-            jSONObject.put(TaskProcess.keyTags, new JSONArray((Collection) msg.tags));
+            jSONObject.put("tags", new JSONArray((Collection) msg.tags));
             g().invoke("writePageNa.addItemResult", jSONObject);
             ItemData itemData = new ItemData();
             itemData.itemId = JavaTypesHelper.toLong(msg.item_id, 0L);

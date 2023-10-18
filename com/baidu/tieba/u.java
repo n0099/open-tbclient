@@ -88,12 +88,12 @@ public class u<TResult> {
                         this.a.b.b();
                         return null;
                     }
-                    if (uVar.n()) {
+                    if (uVar.p()) {
                         this.a.b.b();
-                    } else if (uVar.p()) {
-                        this.a.b.c(uVar.k());
+                    } else if (uVar.r()) {
+                        this.a.b.c(uVar.m());
                     } else {
-                        this.a.b.setResult(uVar.l());
+                        this.a.b.d(uVar.n());
                     }
                     return null;
                 }
@@ -134,9 +134,9 @@ public class u<TResult> {
                 try {
                     u uVar = (u) this.c.then(this.d);
                     if (uVar == null) {
-                        this.b.setResult(null);
+                        this.b.d(null);
                     } else {
-                        uVar.e(new a(this));
+                        uVar.g(new a(this));
                     }
                 } catch (CancellationException unused) {
                     this.b.b();
@@ -186,7 +186,7 @@ public class u<TResult> {
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, uVar)) != null) {
                 return (Void) invokeL.objValue;
             }
-            u.d(this.a, this.b, uVar, this.c, this.d);
+            u.f(this.a, this.b, uVar, this.c, this.d);
             return null;
         }
     }
@@ -230,7 +230,7 @@ public class u<TResult> {
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, uVar)) != null) {
                 return (Void) invokeL.objValue;
             }
-            u.c(this.a, this.b, uVar, this.c, this.d);
+            u.e(this.a, this.b, uVar, this.c, this.d);
             return null;
         }
     }
@@ -277,7 +277,7 @@ public class u<TResult> {
                     return;
                 }
                 try {
-                    this.b.setResult(this.c.then(this.d));
+                    this.b.d(this.c.then(this.d));
                 } catch (CancellationException unused) {
                     this.b.b();
                 } catch (Exception e) {
@@ -327,7 +327,7 @@ public class u<TResult> {
                     return;
                 }
                 try {
-                    this.b.setResult(this.c.call());
+                    this.b.d(this.c.call());
                 } catch (CancellationException unused) {
                     this.b.b();
                 } catch (Exception e) {
@@ -376,16 +376,16 @@ public class u<TResult> {
         this.h = new ArrayList();
     }
 
-    public static f m() {
+    public static f o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             return l;
         }
         return (f) invokeV.objValue;
     }
 
-    public Exception k() {
+    public Exception m() {
         InterceptResult invokeV;
         Exception exc;
         Interceptable interceptable = $ic;
@@ -405,7 +405,7 @@ public class u<TResult> {
         return (Exception) invokeV.objValue;
     }
 
-    public TResult l() {
+    public TResult n() {
         InterceptResult invokeV;
         TResult tresult;
         Interceptable interceptable = $ic;
@@ -418,7 +418,7 @@ public class u<TResult> {
         return (TResult) invokeV.objValue;
     }
 
-    public boolean n() {
+    public boolean p() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
@@ -431,7 +431,7 @@ public class u<TResult> {
         return invokeV.booleanValue;
     }
 
-    public boolean o() {
+    public boolean q() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
@@ -444,13 +444,13 @@ public class u<TResult> {
         return invokeV.booleanValue;
     }
 
-    public boolean p() {
+    public boolean r() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this.a) {
-                if (k() != null) {
+                if (m() != null) {
                     z = true;
                 } else {
                     z = false;
@@ -461,7 +461,7 @@ public class u<TResult> {
         return invokeV.booleanValue;
     }
 
-    public boolean r() {
+    public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -472,7 +472,7 @@ public class u<TResult> {
                 this.b = true;
                 this.c = true;
                 this.a.notifyAll();
-                q();
+                s();
                 return true;
             }
         }
@@ -496,13 +496,13 @@ public class u<TResult> {
         }
         this.a = new Object();
         this.h = new ArrayList();
-        t(tresult);
+        v(tresult);
     }
 
-    public static <TResult> u<TResult> j(TResult tresult) {
+    public static <TResult> u<TResult> l(TResult tresult) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, tresult)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, tresult)) == null) {
             if (tresult == null) {
                 return (u<TResult>) m;
             }
@@ -513,13 +513,13 @@ public class u<TResult> {
                 return (u<TResult>) o;
             }
             v vVar = new v();
-            vVar.setResult(tresult);
+            vVar.d(tresult);
             return vVar.a();
         }
         return (u) invokeL.objValue;
     }
 
-    public boolean s(Exception exc) {
+    public boolean u(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, exc)) == null) {
@@ -531,8 +531,8 @@ public class u<TResult> {
                 this.e = exc;
                 this.f = false;
                 this.a.notifyAll();
-                q();
-                if (!this.f && m() != null) {
+                s();
+                if (!this.f && o() != null) {
                     this.g = new w(this);
                 }
                 return true;
@@ -559,15 +559,15 @@ public class u<TResult> {
         this.a = new Object();
         this.h = new ArrayList();
         if (z) {
-            r();
+            t();
         } else {
-            t(null);
+            v(null);
         }
     }
 
-    public static <TContinuationResult, TResult> void c(v<TContinuationResult> vVar, t<TResult, u<TContinuationResult>> tVar, u<TResult> uVar, Executor executor, s sVar) {
+    public static <TContinuationResult, TResult> void e(v<TContinuationResult> vVar, t<TResult, u<TContinuationResult>> tVar, u<TResult> uVar, Executor executor, s sVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65542, null, vVar, tVar, uVar, executor, sVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65544, null, vVar, tVar, uVar, executor, sVar) == null) {
             try {
                 executor.execute(new d(sVar, vVar, tVar, uVar));
             } catch (Exception e2) {
@@ -576,9 +576,9 @@ public class u<TResult> {
         }
     }
 
-    public static <TContinuationResult, TResult> void d(v<TContinuationResult> vVar, t<TResult, TContinuationResult> tVar, u<TResult> uVar, Executor executor, s sVar) {
+    public static <TContinuationResult, TResult> void f(v<TContinuationResult> vVar, t<TResult, TContinuationResult> tVar, u<TResult> uVar, Executor executor, s sVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65547, null, vVar, tVar, uVar, executor, sVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65545, null, vVar, tVar, uVar, executor, sVar) == null) {
             try {
                 executor.execute(new c(sVar, vVar, tVar, uVar));
             } catch (Exception e2) {
@@ -587,84 +587,19 @@ public class u<TResult> {
         }
     }
 
-    public static <TResult> u<TResult> call(Callable<TResult> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, callable)) == null) {
-            return call(callable, j, null);
-        }
-        return (u) invokeL.objValue;
-    }
-
-    public static <TResult> u<TResult> i(Exception exc) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, exc)) == null) {
-            v vVar = new v();
-            vVar.c(exc);
-            return vVar.a();
-        }
-        return (u) invokeL.objValue;
-    }
-
-    public <TContinuationResult> u<TContinuationResult> e(t<TResult, TContinuationResult> tVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tVar)) == null) {
-            return f(tVar, j, null);
-        }
-        return (u) invokeL.objValue;
-    }
-
-    public <TContinuationResult> u<TContinuationResult> g(t<TResult, u<TContinuationResult>> tVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tVar)) == null) {
-            return h(tVar, j, null);
-        }
-        return (u) invokeL.objValue;
-    }
-
-    public boolean t(TResult tresult) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tresult)) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    return false;
-                }
-                this.b = true;
-                this.d = tresult;
-                this.a.notifyAll();
-                q();
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <TResult> u<TResult> call(Callable<TResult> callable, s sVar) {
+    public static <TResult> u<TResult> c(Callable<TResult> callable, Executor executor) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, callable, sVar)) == null) {
-            return call(callable, j, sVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, callable, executor)) == null) {
+            return d(callable, executor, null);
         }
         return (u) invokeLL.objValue;
     }
 
-    public static <TResult> u<TResult> call(Callable<TResult> callable, Executor executor) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, callable, executor)) == null) {
-            return call(callable, executor, null);
-        }
-        return (u) invokeLL.objValue;
-    }
-
-    public static <TResult> u<TResult> call(Callable<TResult> callable, Executor executor, s sVar) {
+    public static <TResult> u<TResult> d(Callable<TResult> callable, Executor executor, s sVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, callable, executor, sVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, callable, executor, sVar)) == null) {
             v vVar = new v();
             try {
                 executor.execute(new e(sVar, vVar, callable));
@@ -676,47 +611,94 @@ public class u<TResult> {
         return (u) invokeLLL.objValue;
     }
 
-    public <TContinuationResult> u<TContinuationResult> f(t<TResult, TContinuationResult> tVar, Executor executor, s sVar) {
+    public static <TResult> u<TResult> k(Exception exc) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, exc)) == null) {
+            v vVar = new v();
+            vVar.c(exc);
+            return vVar.a();
+        }
+        return (u) invokeL.objValue;
+    }
+
+    public <TContinuationResult> u<TContinuationResult> g(t<TResult, TContinuationResult> tVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tVar)) == null) {
+            return h(tVar, j, null);
+        }
+        return (u) invokeL.objValue;
+    }
+
+    public <TContinuationResult> u<TContinuationResult> i(t<TResult, u<TContinuationResult>> tVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tVar)) == null) {
+            return j(tVar, j, null);
+        }
+        return (u) invokeL.objValue;
+    }
+
+    public boolean v(TResult tresult) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tresult)) == null) {
+            synchronized (this.a) {
+                if (this.b) {
+                    return false;
+                }
+                this.b = true;
+                this.d = tresult;
+                this.a.notifyAll();
+                s();
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public <TContinuationResult> u<TContinuationResult> h(t<TResult, TContinuationResult> tVar, Executor executor, s sVar) {
         InterceptResult invokeLLL;
-        boolean o2;
+        boolean q;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tVar, executor, sVar)) == null) {
             v vVar = new v();
             synchronized (this.a) {
-                o2 = o();
-                if (!o2) {
+                q = q();
+                if (!q) {
                     this.h.add(new a(this, vVar, tVar, executor, sVar));
                 }
             }
-            if (o2) {
-                d(vVar, tVar, this, executor, sVar);
+            if (q) {
+                f(vVar, tVar, this, executor, sVar);
             }
             return vVar.a();
         }
         return (u) invokeLLL.objValue;
     }
 
-    public <TContinuationResult> u<TContinuationResult> h(t<TResult, u<TContinuationResult>> tVar, Executor executor, s sVar) {
+    public <TContinuationResult> u<TContinuationResult> j(t<TResult, u<TContinuationResult>> tVar, Executor executor, s sVar) {
         InterceptResult invokeLLL;
-        boolean o2;
+        boolean q;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tVar, executor, sVar)) == null) {
             v vVar = new v();
             synchronized (this.a) {
-                o2 = o();
-                if (!o2) {
+                q = q();
+                if (!q) {
                     this.h.add(new b(this, vVar, tVar, executor, sVar));
                 }
             }
-            if (o2) {
-                c(vVar, tVar, this, executor, sVar);
+            if (q) {
+                e(vVar, tVar, this, executor, sVar);
             }
             return vVar.a();
         }
         return (u) invokeLLL.objValue;
     }
 
-    public final void q() {
+    public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             synchronized (this.a) {

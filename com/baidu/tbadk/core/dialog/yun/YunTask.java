@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.dialog.yun;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tieba.t55;
+import com.baidu.tieba.b05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,24 +20,24 @@ public abstract class YunTask {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public Type b;
-    public t55 c;
+    public b05 c;
     public Status d;
 
-    public void g() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    public abstract void h();
+    public abstract void i();
 
-    public void i() {
+    public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
-    public final void j(String str) {
+    public final void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
         }
@@ -246,7 +246,7 @@ public abstract class YunTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.d = Status.EXECUTING;
-            h();
+            i();
         }
     }
 
@@ -254,10 +254,10 @@ public abstract class YunTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.d = Status.FINISHED;
-            i();
-            t55 t55Var = this.c;
-            if (t55Var != null) {
-                t55Var.e(this);
+            j();
+            b05 b05Var = this.c;
+            if (b05Var != null) {
+                b05Var.e(this);
             }
         }
     }
@@ -280,16 +280,16 @@ public abstract class YunTask {
         return (Status) invokeV.objValue;
     }
 
-    public final Type getType() {
+    public final Type g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.b;
         }
         return (Type) invokeV.objValue;
     }
 
-    public final void b(t55 queue) {
+    public final void b(b05 queue) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, queue) == null) {
             Intrinsics.checkNotNullParameter(queue, "queue");
@@ -297,14 +297,14 @@ public abstract class YunTask {
         }
     }
 
-    public final void k(int i) {
+    public final void l(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.a = i;
         }
     }
 
-    public final void l(Type type) {
+    public final void m(Type type) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, type) == null) {
             Intrinsics.checkNotNullParameter(type, "<set-?>");

@@ -73,7 +73,7 @@ public class b {
 
         private String a() {
             Context context = this.f74a;
-            return com.xiaomi.push.g.m518a(context, context.getPackageName());
+            return com.xiaomi.push.g.m517a(context, context.getPackageName());
         }
 
         public static String a(a aVar) {
@@ -97,7 +97,7 @@ public class b {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public void m240a() {
+        public void m239a() {
             b.a(this.f74a).edit().clear().commit();
             this.f75a = null;
             this.b = null;
@@ -139,12 +139,12 @@ public class b {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m241a() {
-            return m242a(this.f75a, this.b);
+        public boolean m240a() {
+            return m241a(this.f75a, this.b);
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m242a(String str, String str2) {
+        public boolean m241a(String str, String str2) {
             boolean equals = TextUtils.equals(this.f75a, str);
             boolean equals2 = TextUtils.equals(this.b, str2);
             boolean z = !TextUtils.isEmpty(this.c);
@@ -196,7 +196,7 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static b m227a(Context context) {
+    public static b m226a(Context context) {
         if (a == null) {
             synchronized (b.class) {
                 if (a == null) {
@@ -247,13 +247,13 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m228a() {
+    public String m227a() {
         return this.f71a.f75a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m229a() {
-        this.f71a.m240a();
+    public void m228a() {
+        this.f71a.m239a();
     }
 
     public void a(int i) {
@@ -262,7 +262,7 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m230a(String str) {
+    public void m229a(String str) {
         SharedPreferences.Editor edit = a(this.f70a).edit();
         edit.putString("vName", str);
         edit.commit();
@@ -285,17 +285,17 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m231a() {
+    public boolean m230a() {
         Context context = this.f70a;
-        return !TextUtils.equals(com.xiaomi.push.g.m518a(context, context.getPackageName()), this.f71a.e);
+        return !TextUtils.equals(com.xiaomi.push.g.m517a(context, context.getPackageName()), this.f71a.e);
     }
 
     public boolean a(String str, String str2) {
-        return this.f71a.m242a(str, str2);
+        return this.f71a.m241a(str, str2);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m232a(String str, String str2, String str3) {
+    public boolean m231a(String str, String str2, String str3) {
         a a2 = a(str3);
         return a2 != null && TextUtils.equals(str, a2.f75a) && TextUtils.equals(str2, a2.b);
     }
@@ -305,7 +305,7 @@ public class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m233b() {
+    public void m232b() {
         this.f71a.b();
     }
 
@@ -319,22 +319,22 @@ public class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m234b() {
-        if (this.f71a.m241a()) {
+    public boolean m233b() {
+        if (this.f71a.m240a()) {
             return true;
         }
-        com.xiaomi.channel.commonutils.logger.b.m183a("Don't send message before initialization succeeded!");
+        com.xiaomi.channel.commonutils.logger.b.m182a("Don't send message before initialization succeeded!");
         return false;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public String m235c() {
+    public String m234c() {
         return this.f71a.c;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m236c() {
-        return this.f71a.m241a();
+    public boolean m235c() {
+        return this.f71a.m240a();
     }
 
     public String d() {
@@ -342,7 +342,7 @@ public class b {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public boolean m237d() {
+    public boolean m236d() {
         return (TextUtils.isEmpty(this.f71a.f75a) || TextUtils.isEmpty(this.f71a.b) || TextUtils.isEmpty(this.f71a.c) || TextUtils.isEmpty(this.f71a.d)) ? false : true;
     }
 
@@ -351,7 +351,7 @@ public class b {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public boolean m238e() {
+    public boolean m237e() {
         return this.f71a.f77b;
     }
 
@@ -360,7 +360,7 @@ public class b {
     }
 
     /* renamed from: f  reason: collision with other method in class */
-    public boolean m239f() {
+    public boolean m238f() {
         return !this.f71a.f76a;
     }
 }

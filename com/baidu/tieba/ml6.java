@@ -1,24 +1,17 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.xml.sax.Attributes;
 /* loaded from: classes7.dex */
-public class ml6 extends jl6 {
+public class ml6 {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.jl6
-    public void a(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-        }
-    }
 
     public ml6() {
         Interceptable interceptable = $ic;
@@ -34,24 +27,29 @@ public class ml6 extends jl6 {
         }
     }
 
-    @Override // com.baidu.tieba.jl6
-    public void b(boolean z, String str, Attributes attributes) {
+    public static Handler a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
-            String value = attributes.getValue("", "src");
-            if (!TextUtils.isEmpty(value)) {
-                String str2 = "http";
-                if (!value.startsWith("http")) {
-                    StringBuilder sb = new StringBuilder();
-                    if (z) {
-                        str2 = "https";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (ml6.class) {
+                    if (a == null) {
+                        a = new Handler(Looper.getMainLooper());
                     }
-                    sb.append(str2);
-                    sb.append(":");
-                    sb.append(value);
-                    value = sb.toString();
                 }
-                nl6.g().b(value, value, new HashMap());
+            }
+            return a;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a().post(runnable);
+            } else {
+                runnable.run();
             }
         }
     }

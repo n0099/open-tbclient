@@ -5,7 +5,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.i85;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             GrowthFunnelHelper.logRecall();
             GrowthFunnelHelper.updateAppStartInfo(null, true);
-            i85.a().j(true);
+            q25.a().j(true);
         }
     }
 
@@ -66,7 +66,7 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
             GrowthFunnelHelper.updateAppStartInfo(null, true);
             b = System.currentTimeMillis();
             GrowthFunnelHelper.hotSplash = false;
-            i85.a().j(false);
+            q25.a().j(false);
         }
     }
 

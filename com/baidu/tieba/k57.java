@@ -1,79 +1,44 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.faceshop.CollectEmotionData;
-import com.baidu.tieba.i57;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.view.View;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.o67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import kotlin.Unit;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import kotlin.text.StringsKt__StringsKt;
+import tbclient.FeedContentResource;
 /* loaded from: classes6.dex */
-public class k57 {
+public final class k57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i57 a;
-    public Handler b;
 
     /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public static final class a extends u57 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ k57 c;
+        public final /* synthetic */ o27 b;
+        public final /* synthetic */ k47 c;
+        public final /* synthetic */ k37 d;
 
-        /* loaded from: classes6.dex */
-        public class a implements i57.l {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // com.baidu.tieba.i57.l
-            public void onResult(int i, int i2, int i3) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-                    b bVar = this.a;
-                    bVar.c.g(bVar.b);
-                }
-            }
-        }
-
-        public b(k57 k57Var, List list, List list2) {
+        public a(o27 o27Var, k47 k47Var, k37 k37Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k57Var, list, list2};
+                Object[] objArr = {o27Var, k47Var, k37Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -83,204 +48,112 @@ public class k57 {
                     return;
                 }
             }
-            this.c = k57Var;
-            this.a = list;
-            this.b = list2;
+            this.b = o27Var;
+            this.c = k47Var;
+            this.d = k37Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.u57, android.text.style.ClickableSpan
+        public void onClick(View widget) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.a.i(this.a, false, new a(this));
+            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
+                Intrinsics.checkNotNullParameter(widget, "widget");
+                Function2<Context, String, Unit> e = this.b.e();
+                Context context = widget.getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "widget.context");
+                String b = p67.b(this.c.d(), this.d.d());
+                Intrinsics.checkNotNullExpressionValue(b, "appendParams(richTextDat…xtraData.schemaLocalInfo)");
+                e.invoke(context, b);
+                n47 e2 = this.c.e();
+                if (e2 != null) {
+                    this.b.f().invoke(e2);
+                }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements i57.l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ Map b;
-        public final /* synthetic */ k57 c;
-
-        public a(k57 k57Var, List list, Map map) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k57Var, list, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = k57Var;
-            this.a = list;
-            this.b = map;
-        }
-
-        @Override // com.baidu.tieba.i57.l
-        public void onResult(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-                this.c.d(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements i57.l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(k57 k57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.i57.l
-        public void onResult(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-                if (i2 > 0) {
-                    BdLog.e("NewFaceSyncUtil setCollectUpdateTime reSortLocalFace Called:" + System.currentTimeMillis());
-                    vf9.u(System.currentTimeMillis());
-                }
-                vf9.o().x(false);
-            }
-        }
-    }
-
-    public k57() {
+    /* JADX WARN: Removed duplicated region for block: B:22:0x008e A[Catch: Exception -> 0x00f4, TryCatch #0 {Exception -> 0x00f4, blocks: (B:11:0x0031, B:13:0x0059, B:14:0x0064, B:16:0x0082, B:22:0x008e, B:24:0x009f, B:30:0x00d6, B:25:0x00b3, B:27:0x00bd, B:29:0x00c5, B:31:0x00dd), top: B:41:0x0031 }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00fa A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0025 A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final void a(List<FeedContentResource> list, SpannableStringBuilder stringBuilder, k37 feedExtraData, final o27 uiState) {
+        t57 t57Var;
+        k47 c;
+        String c2;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, list, stringBuilder, feedExtraData, uiState) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(stringBuilder, "stringBuilder");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            Intrinsics.checkNotNullParameter(uiState, "uiState");
+            if (ListUtils.isEmpty(list)) {
                 return;
             }
-        }
-        this.a = i57.t();
-        this.b = new Handler(Looper.getMainLooper());
-    }
+            SpannableString spannableString = null;
+            for (FeedContentResource feedContentResource : list) {
+                try {
+                    HashMap<String, Class> a2 = w57.a();
+                    o67.a aVar = o67.a;
+                    Integer num = feedContentResource.type;
+                    Intrinsics.checkNotNullExpressionValue(num, "content.type");
+                    Class cls = a2.get(aVar.a(num.intValue()));
+                    Intrinsics.checkNotNull(cls);
+                    t57Var = (t57) cls.newInstance();
+                    if (t57Var instanceof a67) {
+                        ((a67) t57Var).a(new d67() { // from class: com.baidu.tieba.w47
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
 
-    public final void g(List<CollectEmotionData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            sf9.a("【表情云同步】：5 - 收藏表情：根据云端数据进行排序");
-            this.a.u(list, false, new c(this));
-        }
-    }
-
-    public final void d(List<CollectEmotionData> list, Map<String, CollectEmotionData> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, list, map) == null) {
-            ArrayList<CollectEmotionData> arrayList = new ArrayList();
-            for (CollectEmotionData collectEmotionData : list) {
-                if (collectEmotionData != null && !map.containsKey(collectEmotionData.pid) && !TextUtils.isEmpty(collectEmotionData.picUrl)) {
-                    arrayList.add(collectEmotionData);
+                            @Override // com.baidu.tieba.d67
+                            public final void onUpdate() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    k57.b(o27.this);
+                                }
+                            }
+                        });
+                    }
+                    c = o67.a.c(feedContentResource, feedExtraData.a(), feedExtraData.c(), feedExtraData.e());
+                    c2 = c.f().c();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            }
-            if (!arrayList.isEmpty()) {
-                sf9.a("【表情云同步】：4 - 收藏表情：下载本地没有的表情");
-                ArrayList arrayList2 = new ArrayList();
-                for (CollectEmotionData collectEmotionData2 : arrayList) {
-                    fn5 fn5Var = new fn5();
-                    fn5Var.f = collectEmotionData2.pkgId;
-                    fn5Var.a = collectEmotionData2.pid;
-                    fn5Var.d = collectEmotionData2.picUrl;
-                    fn5Var.b = collectEmotionData2.width;
-                    fn5Var.c = collectEmotionData2.height;
-                    fn5Var.e = collectEmotionData2.thumbnail;
-                    arrayList2.add(fn5Var);
-                }
-                this.b.post(new b(this, arrayList2, list));
-                return;
-            }
-            g(list);
-        }
-    }
-
-    public final void e(List<CollectEmotionData> list, List<CollectEmotionData> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
-            ArrayList arrayList = new ArrayList();
-            Map<String, CollectEmotionData> h = h(list2);
-            Map<String, CollectEmotionData> h2 = h(list);
-            for (Map.Entry<String, CollectEmotionData> entry : h.entrySet()) {
-                if (!h2.containsKey(entry.getKey())) {
-                    arrayList.add(entry.getValue());
-                }
-            }
-            if (!arrayList.isEmpty()) {
-                sf9.a("【表情云同步】：4 - 收藏表情：删除云端没有的表情");
-                this.a.x(arrayList, false, new a(this, list, h));
-                return;
-            }
-            d(list, h);
-        }
-    }
-
-    public void f(List<CollectEmotionData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            i57.t().l(true);
-            List<CollectEmotionData> q = y47.o().q(TbadkCoreApplication.getCurrentAccountForEmotion());
-            for (CollectEmotionData collectEmotionData : q) {
-                String p = i57.p(collectEmotionData.pid, false);
-                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                imageFileInfo.setFilePath(p);
-                collectEmotionData.imageFileInfo = imageFileInfo;
-            }
-            BdLog.e("NewFaceSyncUtil MergeCollectFace Called CloudList:");
-            Iterator<CollectEmotionData> it = list.iterator();
-            while (it.hasNext()) {
-                BdLog.e("NewFaceSyncUtil Cloud data:" + it.next().pkgId);
-            }
-            BdLog.e("NewFaceSyncUtil MergeCollectFace Called localList:");
-            Iterator<CollectEmotionData> it2 = q.iterator();
-            while (it2.hasNext()) {
-                BdLog.e("NewFaceSyncUtil Local data:" + it2.next().pkgId);
-            }
-            e(list, q);
-        }
-    }
-
-    public final Map<String, CollectEmotionData> h(List<CollectEmotionData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            HashMap hashMap = new HashMap();
-            if (list != null) {
-                for (CollectEmotionData collectEmotionData : list) {
-                    if (collectEmotionData != null && !TextUtils.isEmpty(collectEmotionData.pid)) {
-                        hashMap.put(collectEmotionData.pid, collectEmotionData);
+                if (c2 != null && c2.length() != 0) {
+                    z = false;
+                    if (!z) {
+                        String c3 = c.f().c();
+                        if (StringsKt__StringsJVMKt.endsWith$default(c3, "\n", false, 2, null)) {
+                            c3 = StringsKt__StringsKt.replaceRange((CharSequence) c3, c3.length() - 1, c3.length(), (CharSequence) " \n").toString();
+                        } else if (Intrinsics.areEqual(feedContentResource, CollectionsKt___CollectionsKt.last((List<? extends Object>) list)) && !StringsKt__StringsJVMKt.endsWith$default(c3, " ", false, 2, null)) {
+                            c3 = c3 + WebvttCueParser.CHAR_SPACE;
+                        }
+                        c.f().d(c3);
+                    }
+                    spannableString = t57Var.b(q07.a, c, new a(uiState, c, feedExtraData));
+                    uiState.g().add(c.a());
+                    if (spannableString == null) {
+                        stringBuilder.append((CharSequence) spannableString);
                     }
                 }
+                z = true;
+                if (!z) {
+                }
+                spannableString = t57Var.b(q07.a, c, new a(uiState, c, feedExtraData));
+                uiState.g().add(c.a());
+                if (spannableString == null) {
+                }
             }
-            return hashMap;
         }
-        return (Map) invokeL.objValue;
+    }
+
+    public static final void b(o27 uiState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, uiState) == null) {
+            Intrinsics.checkNotNullParameter(uiState, "$uiState");
+            uiState.b();
+        }
     }
 }

@@ -1,162 +1,134 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class mo8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mo8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull String str, long j, long j2, long j3) {
+    public mo8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, j);
-            statisticItem.param("fid", j2);
-            statisticItem.param("room_id", j3);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void i(@NonNull String str, int i, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_id", i);
-            statisticItem.param("obj_locate", j);
-            statisticItem.param("obj_type", !z ? 1 : 0);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void k(@NonNull String str, String str2, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_id", str2);
-            statisticItem.param("obj_source", j);
-            statisticItem.param("obj_type", !z ? 1 : 0);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static String b(AbilityItem abilityItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, abilityItem)) == null) {
-            if (abilityItem != null && abilityItem.getStyleConf() != null) {
-                return abilityItem.getStyleConf().getContent();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15264");
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void c(@NonNull String str, String str2, long j, long j2, int i) {
+    public static mo8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", str2);
-            statisticItem.param("fid", j);
-            statisticItem.param("room_id", j2);
-            statisticItem.param("obj_locate", i);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (mo8.class) {
+                    if (a == null) {
+                        a = new mo8();
+                    }
+                }
+            }
+            return a;
+        }
+        return (mo8) invokeV.objValue;
+    }
+
+    public void b(long j, String str, String str2, String str3, String str4, long j2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2, str3, str4, Long.valueOf(j2)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
+            qd8.j().r(TbadkCoreApplication.getCurrentAccount(), str, str2, str3, str4, j, 0L, j2, true);
         }
     }
 
-    public static void d(@NonNull String str, int i, long j, long j2, String str2) {
+    public void c(@Nullable List<ChatRoomInfo> list, @Nullable List<ChatRoomInfo> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str2}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", i);
-            statisticItem.param("fid", j);
-            statisticItem.param("room_id", j2);
-            statisticItem.param("uid", str2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void e(@NonNull String str, String str2, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", str2);
-            statisticItem.param("fid", j);
-            statisticItem.param("room_id", j2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void f(@NonNull String str, int i, @Nullable AbilityItem abilityItem, String str2, String str3, long j, long j2, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), abilityItem, str2, str3, Long.valueOf(j), Long.valueOf(j2), str4, str5}) == null) {
-            TiebaStatic.log(new StatisticItem(str).param("obj_type", i).param("obj_id", str2).param("obj_name", str3).param("fid", j).param("obj_param1", j2).param(TiebaStatic.Params.OBJ_PARAM2, str4).param(TiebaStatic.Params.OBJ_PARAM3, str5));
-        }
-    }
-
-    public static void g(@NonNull String str, int i, @Nullable AbilityItem abilityItem, @Nullable TbBaseMsg tbBaseMsg, String str2, String str3, long j, long j2) {
-        String str4;
-        long j3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Integer.valueOf(i), abilityItem, tbBaseMsg, str2, str3, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            String str5 = "";
-            if (abilityItem == null || abilityItem.getStyleConf() == null) {
-                str4 = "";
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
+            HashMap hashMap = new HashMap();
+            HashMap hashMap2 = new HashMap();
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            if (list2 == null) {
+                list2 = new ArrayList<>();
+            }
+            for (ChatRoomInfo chatRoomInfo : list) {
+                if (chatRoomInfo != null) {
+                    hashMap.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
+                }
+            }
+            for (ChatRoomInfo chatRoomInfo2 : list2) {
+                if (chatRoomInfo2 != null) {
+                    hashMap2.put(Long.valueOf(chatRoomInfo2.getRoomId()), chatRoomInfo2);
+                }
+            }
+            if (vx0.c(hashMap)) {
+                if (vx0.c(hashMap2)) {
+                    return;
+                }
+                for (ChatRoomInfo chatRoomInfo3 : list2) {
+                    if (chatRoomInfo3 != null) {
+                        b(chatRoomInfo3.getRoomId(), chatRoomInfo3.getName(), chatRoomInfo3.getAvatar(), chatRoomInfo3.getForumId(), chatRoomInfo3.getForumName(), chatRoomInfo3.getTimestamp());
+                    }
+                }
+            } else if (vx0.c(hashMap2)) {
+                if (vx0.c(hashMap)) {
+                    return;
+                }
+                for (ChatRoomInfo chatRoomInfo4 : list) {
+                    if (chatRoomInfo4 != null) {
+                        d(chatRoomInfo4.getRoomId(), chatRoomInfo4.getName(), chatRoomInfo4.getAvatar(), false);
+                    }
+                }
             } else {
-                str4 = abilityItem.getStyleConf().getContent();
+                if (!vx0.c(hashMap2) && hashMap2.entrySet() != null && hashMap2.entrySet().iterator() != null) {
+                    for (Map.Entry entry : hashMap2.entrySet()) {
+                        if (entry != null && entry.getValue() != null) {
+                            if (hashMap.containsKey(entry.getKey())) {
+                                if (!((ChatRoomInfo) hashMap.get(entry.getKey())).isSubscribe()) {
+                                    d(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), true);
+                                }
+                            } else {
+                                b(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), ((ChatRoomInfo) entry.getValue()).getForumId(), ((ChatRoomInfo) entry.getValue()).getForumName(), ((ChatRoomInfo) entry.getValue()).getTimestamp());
+                            }
+                        }
+                    }
+                }
+                if (!vx0.c(hashMap) && hashMap.entrySet() != null && hashMap.entrySet().iterator() != null) {
+                    for (Map.Entry entry2 : hashMap.entrySet()) {
+                        if (entry2 != null && entry2.getValue() != null) {
+                            if (!hashMap2.containsKey(entry2.getKey())) {
+                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
+                            } else if (((ChatRoomInfo) hashMap2.get(entry2.getKey())).getIsShow() == 0 && TextUtils.isEmpty(((ChatRoomInfo) hashMap2.get(entry2.getKey())).getName())) {
+                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
+                            }
+                        }
+                    }
+                }
             }
-            StatisticItem param = new StatisticItem(str).param("obj_type", i).param("obj_name", str4);
-            if (abilityItem != null) {
-                str5 = abilityItem.getType();
-            }
-            StatisticItem param2 = param.param("obj_source", str5).param("fid", j2);
-            long j4 = 0;
-            if (tbBaseMsg != null) {
-                j3 = tbBaseMsg.getSessionId();
-            } else {
-                j3 = 0;
-            }
-            StatisticItem param3 = param2.param("room_id", j3);
-            if (tbBaseMsg != null) {
-                j4 = tbBaseMsg.getMsgId();
-            }
-            TiebaStatic.log(param3.param("obj_id", j4).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_param1", str2).param(TiebaStatic.Params.OBJ_PARAM2, str3).param(TiebaStatic.Params.OBJ_PARAM3, j));
         }
     }
 
-    public static void j(@NonNull String str, String str2, long j, String str3, String str4, long j2, String str5) {
+    public final void d(long j, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, Long.valueOf(j), str3, str4, Long.valueOf(j2), str5}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_source", str2);
-            statisticItem.param("obj_locate", j);
-            statisticItem.param("obj_id", str3);
-            statisticItem.param("obj_name", str4);
-            statisticItem.param("fid", j2);
-            statisticItem.param("obj_param1", str5);
-            TiebaStatic.log(statisticItem);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            qd8.j().x(TbadkCoreApplication.getCurrentAccount(), j, str, str2, z);
         }
     }
 }

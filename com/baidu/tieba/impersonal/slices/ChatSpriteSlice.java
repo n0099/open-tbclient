@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ep6;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalSpriteBinding;
-import com.baidu.tieba.mp5;
-import com.baidu.tieba.vu6;
+import com.baidu.tieba.sj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public final class ChatSpriteSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
-    public View T(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View U(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
@@ -53,11 +53,11 @@ public final class ChatSpriteSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
-    public void Z(View view2, Bundle bundle) {
+    public void a0(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.Z(view2, bundle);
-            vu6 a = mp5.a.a().a();
+            super.a0(view2, bundle);
+            ep6 a = sj5.a.a().a();
             if (a != null) {
                 SlicePersonalSpriteBinding slicePersonalSpriteBinding = this.j;
                 if (slicePersonalSpriteBinding == null) {

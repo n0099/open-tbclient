@@ -1,334 +1,363 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.app.Activity;
+import android.content.Context;
+import android.media.AudioManager;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.videoplayer.SwanVideoView;
+import com.baidu.tieba.hf3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class in4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String c = "PageTipsManager";
-    public static boolean d;
+public class in4 implements View.OnClickListener, View.OnTouchListener, SeekBar.OnSeekBarChangeListener {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public Map<String, String> b;
+    public final Context a;
+    public SwanVideoView b;
+    public FrameLayout c;
+    public LinearLayout d;
+    public LinearLayout e;
+    public SeekBar f;
+    public SeekBar g;
+    public AudioManager h;
+    public int i;
+    public boolean j;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947859258, "Lcom/baidu/tieba/in4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947859258, "Lcom/baidu/tieba/in4;");
+    @Override // android.widget.SeekBar.OnSeekBarChangeListener
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, seekBar) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final in4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-713013124, "Lcom/baidu/tieba/in4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-713013124, "Lcom/baidu/tieba/in4$b;");
-                    return;
-                }
-            }
-            a = new in4(null);
+    @Override // android.widget.SeekBar.OnSeekBarChangeListener
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, seekBar) == null) {
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c extends qr4 {
+    public class a implements hf3.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ in4 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
-            super("updatecore_node_page_tips");
+        public a(in4 in4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {in4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = in4Var;
+        }
+
+        @Override // com.baidu.tieba.hf3.b
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.g.setProgress(i);
+            }
         }
     }
 
-    public in4() {
+    public in4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new c();
+        this.a = context;
+        f();
     }
 
-    public static in4 f() {
-        InterceptResult invokeV;
+    public void b(SwanVideoView swanVideoView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return b.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, swanVideoView) == null) {
+            this.b = swanVideoView;
         }
-        return (in4) invokeV.objValue;
     }
 
-    public final void e() {
-        Map<String, String> map;
+    public void k(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (map = this.b) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeF(1048585, this, f) == null) && (this.a instanceof Activity)) {
+            nf3.c().e((Activity) this.a, f / 100.0f);
         }
-        map.clear();
-        this.b = null;
     }
 
-    public Map<String, String> g() {
+    public FrameLayout c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, String> map = this.b;
-            if (map == null || map.size() < 1) {
-                p();
+            return this.c;
+        }
+        return (FrameLayout) invokeV.objValue;
+    }
+
+    public void d() {
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (linearLayout = this.d) != null) {
+            linearLayout.setVisibility(8);
+        }
+    }
+
+    public void e() {
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (linearLayout = this.e) != null) {
+            linearLayout.setVisibility(8);
+        }
+    }
+
+    public void l() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            SwanVideoView swanVideoView = this.b;
+            if (swanVideoView != null) {
+                z = swanVideoView.x();
+            } else {
+                z = false;
             }
-            return this.b;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getString("version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public synchronized void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                JSONObject j = j(this.a.getString("page_error_tips", ""));
-                e();
-                i(j);
-            }
-        }
-    }
-
-    public /* synthetic */ in4(a aVar) {
-        this();
-    }
-
-    public static String a(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return str + "_btn_cmd";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return str + "_btn_text";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return str + "_btn_cmd_btn_url";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return str + "_tips";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONObject();
-            }
-            try {
-                return new JSONObject(str);
-            } catch (JSONException e) {
-                if (d) {
-                    Log.w(c, "JSONObject parsed error!!", e);
+            if (this.d != null) {
+                if (z != this.j) {
+                    this.j = z;
+                    h();
                 }
-                return new JSONObject();
+                this.d.setVisibility(0);
             }
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public void k(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.e != null) {
+            n();
+            this.e.setVisibility(0);
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-            return;
-        }
-        e();
-        i(optJSONObject);
-        q(optJSONObject.toString(), optString);
     }
 
-    public static String l(@NonNull Map<String, String> map, String str) {
-        InterceptResult invokeLL;
+    public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, map, str)) == null) {
-            if (map == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            b(null);
+            hf3.e().j("#com.baidu.swan.videoplayer&MediaSettingViewLayer");
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0940, (ViewGroup) null);
+            this.c = frameLayout;
+            frameLayout.setOnTouchListener(this);
+            LinearLayout linearLayout = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092358);
+            this.d = linearLayout;
+            linearLayout.setVisibility(8);
+            this.d.findViewById(R.id.obfuscated_res_0x7f092360).setOnClickListener(this);
+            this.d.findViewById(R.id.obfuscated_res_0x7f092361).setOnClickListener(this);
+            this.d.findViewById(R.id.obfuscated_res_0x7f092362).setOnClickListener(this);
+            this.d.findViewById(R.id.obfuscated_res_0x7f092363).setOnClickListener(this);
+            this.d.findViewById(R.id.obfuscated_res_0x7f092364).setOnClickListener(this);
+            this.i = R.id.obfuscated_res_0x7f092361;
+            j(R.id.obfuscated_res_0x7f092361, -13399809);
+            h();
+            LinearLayout linearLayout2 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092359);
+            this.e = linearLayout2;
+            linearLayout2.setVisibility(8);
+            this.e.setOnTouchListener(this);
+            this.f = (SeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f092368);
+            this.g = (SeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f092369);
+            this.f.setOnSeekBarChangeListener(this);
+            this.g.setOnSeekBarChangeListener(this);
+            this.f.setMax(100);
+            AudioManager audioManager = (AudioManager) this.a.getSystemService("audio");
+            this.h = audioManager;
+            this.g.setMax(audioManager.getStreamMaxVolume(3));
+            n();
+            hf3.e().d("#com.baidu.swan.videoplayer&MediaSettingViewLayer", new a(this));
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            j(this.i, -1);
+            if (TextUtils.equals("0.75", str)) {
+                this.i = R.id.obfuscated_res_0x7f092360;
+            } else if (TextUtils.equals("1.0", str)) {
+                this.i = R.id.obfuscated_res_0x7f092361;
+            } else if (TextUtils.equals("1.25", str)) {
+                this.i = R.id.obfuscated_res_0x7f092362;
+            } else if (TextUtils.equals("1.5", str)) {
+                this.i = R.id.obfuscated_res_0x7f092363;
+            } else if (TextUtils.equals("2.0", str)) {
+                this.i = R.id.obfuscated_res_0x7f092364;
+            } else {
+                this.i = 0;
             }
-            return map.get(a(str));
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String m(@NonNull Map<String, String> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, map, str)) == null) {
-            if (map == null) {
-                return "";
+            j(this.i, -13399809);
+            SwanVideoView swanVideoView = this.b;
+            if (swanVideoView != null) {
+                swanVideoView.Q(str);
             }
-            return map.get(b(str));
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String n(@NonNull Map<String, String> map, String str) {
-        InterceptResult invokeLL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, map, str)) == null) {
-            if (map == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
+            d();
+            if (this.b == null) {
+                return;
             }
-            return map.get(c(str));
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String o(@NonNull Map<String, String> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, map, str)) == null) {
-            if (map == null) {
-                return "";
+            int id = view2.getId();
+            int i = this.i;
+            if (id == i) {
+                return;
             }
-            return map.get(d(str));
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.b = new HashMap();
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            JSONObject optJSONObject = jSONObject.optJSONObject(next);
-            if (optJSONObject != null) {
-                this.b.put(d(next), optJSONObject.optString("tips"));
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject(NativeConstants.ID_BUTTON);
-                if (optJSONObject2 != null) {
-                    String optString = optJSONObject2.optString("cmd");
-                    if (!TextUtils.isEmpty(optString)) {
-                        this.b.put(a(next), optString);
-                    }
-                    String optString2 = optJSONObject2.optString("text");
-                    if (!TextUtils.isEmpty(optString2)) {
-                        this.b.put(b(next), optString2);
-                    }
-                    String optString3 = optJSONObject2.optString("url");
-                    if (!TextUtils.isEmpty(optString3)) {
-                        this.b.put(c(next), optString3);
-                    }
+            j(i, -1);
+            int id2 = view2.getId();
+            this.i = id2;
+            j(id2, -13399809);
+            int i2 = this.i;
+            if (i2 == R.id.obfuscated_res_0x7f092360) {
+                str = "0.75";
+            } else if (i2 == R.id.obfuscated_res_0x7f092361) {
+                str = "1.0";
+            } else if (i2 == R.id.obfuscated_res_0x7f092362) {
+                str = "1.25";
+            } else if (i2 == R.id.obfuscated_res_0x7f092363) {
+                str = "1.5";
+            } else if (i2 == R.id.obfuscated_res_0x7f092364) {
+                str = "2.0";
+            } else {
+                str = "";
+            }
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    this.b.J(Float.parseFloat(str));
+                    this.b.Q(str);
+                } catch (NumberFormatException unused) {
                 }
             }
         }
     }
 
-    public void q(String str, String str2) {
+    public void h() {
+        float dimension;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && str != null && !str.isEmpty() && !TextUtils.isEmpty(str2)) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.clear();
-            edit.putString("version", str2);
-            edit.putString("page_error_tips", str);
-            edit.apply();
-            if (d) {
-                Log.d(c, "write success");
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.d == null) {
+            return;
+        }
+        if (this.j) {
+            dimension = this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f07088c);
+        } else {
+            dimension = this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f07088b);
+        }
+        ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
+        layoutParams.width = (int) dimension;
+        this.d.setLayoutParams(layoutParams);
+    }
+
+    public void i(int i) {
+        SwanVideoView swanVideoView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (swanVideoView = this.b) != null && !swanVideoView.A()) {
+            AudioManager audioManager = this.h;
+            if (audioManager != null) {
+                audioManager.setStreamVolume(3, i, 0);
             }
+            if (i == 0) {
+                this.b.setMuted(true);
+            } else if (this.b.y()) {
+                this.b.setMuted(false);
+            }
+        }
+    }
+
+    public final void j(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) != null) || i == 0) {
+            return;
+        }
+        ((TextView) this.c.findViewById(i)).setTextColor(i2);
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, view2, motionEvent)) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092359) {
+                return true;
+            }
+            e();
+            d();
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            if (this.a instanceof Activity) {
+                this.f.setProgress((int) (nf3.c().a((Activity) this.a) * 100.0f));
+            }
+            SwanVideoView swanVideoView = this.b;
+            if (swanVideoView != null && swanVideoView.y()) {
+                this.g.setProgress(0);
+            } else {
+                this.g.setProgress(this.h.getStreamVolume(3));
+            }
+        }
+    }
+
+    @Override // android.widget.SeekBar.OnSeekBarChangeListener
+    public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048590, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || !z) {
+            return;
+        }
+        if (seekBar.getId() == R.id.obfuscated_res_0x7f092369) {
+            i(i);
+        } else if (seekBar.getId() == R.id.obfuscated_res_0x7f092368) {
+            k(i);
         }
     }
 }

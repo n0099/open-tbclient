@@ -7,8 +7,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.be;
-import com.baidu.tieba.ce;
+import com.baidu.tieba.a9;
+import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,11 +30,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MESSAGE_POST_PROGRESS = 2;
     public static final int MESSAGE_POST_RESULT = 1;
-    public static final be sDefaultExecutor;
+    public static final z8 sDefaultExecutor;
     public static final e sHandler;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isSelfExecute;
-    public final ce<Result> mFuture;
+    public final a9<Result> mFuture;
     public boolean mIsTimeout;
     public String mKey;
     public BdAsyncTaskParallel mParallel;
@@ -188,7 +188,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* loaded from: classes.dex */
-    public class b extends ce<Result> {
+    public class b extends a9<Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdAsyncTask b;
@@ -215,7 +215,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             this.b = bdAsyncTask;
         }
 
-        @Override // com.baidu.tieba.ce
+        @Override // com.baidu.tieba.a9
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -384,7 +384,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 return;
             }
         }
-        sDefaultExecutor = be.e();
+        sDefaultExecutor = z8.e();
         sHandler = new e(Looper.getMainLooper());
     }
 

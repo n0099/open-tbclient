@@ -1,93 +1,60 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
 /* loaded from: classes6.dex */
-public class ib4 {
+public class ib4 extends jb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Comparator<ib4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ib4 ib4Var, ib4 ib4Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ib4Var, ib4Var2)) == null) {
-                return (int) (ib4Var.a - ib4Var2.a);
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public ib4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ib4(@NonNull Context context) {
+        super("GaodeMap", context.getString(R.string.obfuscated_res_0x7f0f0f24), "com.autonavi.minimap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static long[] a(ib4 ib4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jb4
+    public void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ib4Var)) == null) {
-            if (ib4Var == null) {
-                return null;
-            }
-            return new long[]{ib4Var.a, ib4Var.b};
+        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, context, latLng, latLng2, str, str2) == null) && latLng != null && latLng2 != null) {
+            Uri.Builder buildUpon = Uri.parse("androidamap://route?").buildUpon();
+            buildUpon.appendQueryParameter("sourceApplication", context.getPackageName());
+            buildUpon.appendQueryParameter("slat", String.valueOf(latLng.latitude));
+            buildUpon.appendQueryParameter("slon", String.valueOf(latLng.longitude));
+            buildUpon.appendQueryParameter(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, str);
+            buildUpon.appendQueryParameter("dlat", String.valueOf(latLng2.latitude));
+            buildUpon.appendQueryParameter("dlon", String.valueOf(latLng2.longitude));
+            buildUpon.appendQueryParameter("dname", str2);
+            buildUpon.appendQueryParameter(BdZeusUtil.URL_KEY_MACHINE, "0");
+            buildUpon.appendQueryParameter("t", "0");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, buildUpon.build());
+            intent.setPackage("com.autonavi.minimap");
+            context.startActivity(intent);
         }
-        return (long[]) invokeL.objValue;
-    }
-
-    public boolean b(ib4 ib4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ib4Var)) == null) {
-            long j = this.a;
-            if (j <= ib4Var.b) {
-                long j2 = this.b;
-                long j3 = ib4Var.a;
-                if (j2 >= j3) {
-                    this.a = Math.min(j, j3);
-                    this.b = Math.max(this.b, ib4Var.b);
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

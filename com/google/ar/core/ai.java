@@ -1,6 +1,6 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.rwb;
+import com.baidu.tieba.oqb;
 import com.google.ar.core.Session;
 /* loaded from: classes9.dex */
 public enum ai extends Session.c {
@@ -9,7 +9,7 @@ public enum ai extends Session.c {
     }
 
     @Override // com.google.ar.core.Session.c
-    public final rwb a(long j, Session session) {
-        return session.c.a(j, session);
+    public final oqb a(long j, Session session) {
+        return session.b.a(j, session);
     }
 }

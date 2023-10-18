@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.ara;
-import com.baidu.tieba.mqa;
-import com.baidu.tieba.oqa;
-import com.baidu.tieba.pqa;
+import com.baidu.tieba.cla;
+import com.baidu.tieba.ela;
+import com.baidu.tieba.fla;
+import com.baidu.tieba.qla;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,8 +20,8 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupModel a;
-    public pqa b;
-    public mqa c;
+    public fla b;
+    public cla c;
     public BubbleGroupModel.c d;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
@@ -56,9 +56,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
-        public void a(int i, String str, ara araVar, List<oqa> list) {
+        public void a(int i, String str, qla qlaVar, List<ela> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, araVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, qlaVar, list}) == null) {
                 BubbleGroupActivity bubbleGroupActivity = this.a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.b.d());
                 this.a.b.i();
@@ -67,7 +67,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
                     this.a.b.j();
                     return;
                 }
-                this.a.b.k(araVar, list, this.a.a.T());
+                this.a.b.k(qlaVar, list, this.a.a.U());
             }
         }
     }
@@ -112,10 +112,10 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        pqa pqaVar;
+        fla flaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (pqaVar = this.b) != null) {
-            showLoadingView(pqaVar.d());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (flaVar = this.b) != null) {
+            showLoadingView(flaVar.d());
             this.a.loadData();
         }
     }
@@ -125,9 +125,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            pqa pqaVar = this.b;
-            if (pqaVar != null) {
-                pqaVar.f();
+            fla flaVar = this.b;
+            if (flaVar != null) {
+                flaVar.f();
             }
         }
     }
@@ -139,12 +139,12 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             super.onCreate(bundle);
             BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
             this.a = bubbleGroupModel;
-            bubbleGroupModel.W(this.d);
-            mqa mqaVar = new mqa(getPageContext());
-            this.c = mqaVar;
-            pqa pqaVar = new pqa(this, mqaVar);
-            this.b = pqaVar;
-            pqaVar.e();
+            bubbleGroupModel.X(this.d);
+            cla claVar = new cla(getPageContext());
+            this.c = claVar;
+            fla flaVar = new fla(this, claVar);
+            this.b = flaVar;
+            flaVar.e();
             showLoadingView(this.b.d());
             this.a.loadData();
         }

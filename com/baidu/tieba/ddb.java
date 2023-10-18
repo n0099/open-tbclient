@@ -1,35 +1,48 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.media.MediaCodec;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
 import android.util.Log;
-import androidx.core.net.MailTo;
+import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.sina.weibo.sdk.utils.FileUtils;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+@RequiresApi(api = 16)
 /* loaded from: classes5.dex */
 public class ddb {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile ddb c;
     public transient /* synthetic */ FieldHolder $fh;
-    public edb a;
+    public String a;
+    public MediaExtractor b;
+    public ByteBuffer c;
+    public int d;
+    public a e;
+    public a f;
+    public a g;
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public Map<String, JSONObject> b;
+        public MediaFormat a;
+        public int b;
+        public long c;
+        public MediaCodec.BufferInfo d;
+        public long e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -44,174 +57,219 @@ public class ddb {
                     return;
                 }
             }
-            this.a = 0;
-            this.b = new HashMap();
+            this.a = null;
+            this.b = -1;
+            this.c = 0L;
+            this.d = new MediaCodec.BufferInfo();
+            this.e = 0L;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947702119, "Lcom/baidu/tieba/ddb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947702119, "Lcom/baidu/tieba/ddb;");
-                return;
-            }
-        }
-        b = hdb.m();
     }
 
     public ddb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = 512000;
+        this.e = new a();
+        this.f = new a();
+        this.g = new a();
     }
 
-    public static ddb f() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (ddb.class) {
-                    if (c == null) {
-                        c = new ddb();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b.advance();
         }
-        return (ddb) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final boolean b() {
+    public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            mcb o = mcb.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
+            return this.e;
         }
-        return invokeV.booleanValue;
+        return (a) invokeV.objValue;
     }
 
-    public final boolean c() {
+    public ByteBuffer c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            mcb o = mcb.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (ByteBuffer) invokeV.objValue;
     }
 
-    public void a(String str, boolean z) {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048576, this, str, z) != null) || TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str) || !b()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b.getSampleTrackIndex();
         }
-        this.a.c(str, z);
+        return invokeV.intValue;
     }
 
-    public boolean d(rdb rdbVar) {
-        InterceptResult invokeL;
+    public long e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rdbVar)) == null) {
-            if (rdbVar == null || rdbVar.w() || !c()) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b.getSampleTrackIndex();
+        }
+        return invokeV.intValue;
+    }
+
+    public a g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public MediaCodec.BufferInfo h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return i(this.c, 0);
+        }
+        return (MediaCodec.BufferInfo) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            ByteBuffer byteBuffer = this.c;
+            if (byteBuffer != null) {
+                byteBuffer.clear();
+                this.c = null;
             }
-            this.a.f();
-            Map<String, a> v = this.a.v(7);
-            if (v != null && v.size() != 0) {
+            this.b.release();
+        }
+    }
+
+    public MediaCodec.BufferInfo i(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer, i)) == null) {
+            int readSampleData = this.b.readSampleData(byteBuffer, i);
+            if (readSampleData < 0) {
+                return null;
+            }
+            a aVar = this.g;
+            aVar.d.size = readSampleData;
+            if (aVar == this.f) {
+                aVar.c += aVar.e;
+            } else {
+                aVar.c = this.b.getSampleTime();
+            }
+            a aVar2 = this.g;
+            MediaCodec.BufferInfo bufferInfo = aVar2.d;
+            bufferInfo.presentationTimeUs = aVar2.c;
+            bufferInfo.offset = 0;
+            bufferInfo.flags = this.b.getSampleFlags();
+            return this.g.d;
+        }
+        return (MediaCodec.BufferInfo) invokeLI.objValue;
+    }
+
+    public void k(a aVar) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            a aVar2 = this.g;
+            if (aVar2 != null && (i2 = aVar2.b) >= 0) {
+                this.b.unselectTrack(i2);
+            }
+            this.g = aVar;
+            if (aVar != null && (i = aVar.b) >= 0) {
+                this.b.selectTrack(i);
+                a aVar3 = this.g;
+                aVar3.a = this.b.getTrackFormat(aVar3.b);
                 try {
-                    JSONObject jSONObject = new JSONObject();
-                    boolean z = false;
-                    for (String str : v.keySet()) {
-                        a aVar = v.get(str);
-                        if (aVar != null && !TextUtils.isEmpty(str)) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            JSONArray jSONArray = new JSONArray();
-                            for (JSONObject jSONObject3 : aVar.b.values()) {
-                                jSONArray.put(jSONObject3);
-                            }
-                            jSONObject2.put("total", aVar.a);
-                            jSONObject2.put("data", jSONArray);
-                            jSONObject.put(str.replace("-", ""), jSONObject2);
-                            z = true;
-                        }
-                    }
-                    if (z) {
-                        tcb tcbVar = new tcb("2980");
-                        tcbVar.y(jSONObject);
-                        tcbVar.B(System.currentTimeMillis());
-                        rdbVar.c(tcbVar, tcbVar.g());
-                        rdbVar.a(v.keySet());
-                        return true;
-                    }
-                } catch (JSONException e) {
+                    this.g.a.getLong("durationUs");
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || map == null) {
-            return;
-        }
-        if (map.containsKey(str)) {
-            aVar = map.get(str);
-        } else {
-            a aVar2 = new a();
-            map.put(str, aVar2);
-            aVar = aVar2;
-        }
-        Map<String, JSONObject> map2 = aVar.b;
-        if (map2.containsKey(str2) && b) {
-            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", str2);
-            jSONObject.put("c", i);
-            jSONObject.put(MailTo.CC, i2);
-            aVar.a += i;
-            map2.put(str2, jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 
-    public void g(edb edbVar) {
+    public void m(String str, String str2) throws IOException {
+        int integer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, edbVar) == null) {
-            this.a = edbVar;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
+            this.a = str;
+            FileUtils.VIDEO_FILE_START.equals(str2);
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            this.b = mediaExtractor;
+            mediaExtractor.setDataSource(this.a);
+            int trackCount = this.b.getTrackCount();
+            for (int i = 0; i < trackCount; i++) {
+                MediaFormat trackFormat = this.b.getTrackFormat(i);
+                String string = trackFormat.getString("mime");
+                if (string.startsWith(FileUtils.VIDEO_FILE_START)) {
+                    a aVar = this.f;
+                    aVar.a = trackFormat;
+                    aVar.b = i;
+                    if (trackFormat.containsKey("max-input-size") && (integer = this.f.a.getInteger("max-input-size")) > 0) {
+                        this.d = integer;
+                    }
+                } else if (string.startsWith("audio/")) {
+                    a aVar2 = this.e;
+                    aVar2.a = trackFormat;
+                    aVar2.b = i;
+                }
+            }
+            if (this.c == null) {
+                this.c = ByteBuffer.allocateDirect(this.d);
+            }
+            MediaFormat mediaFormat = this.f.a;
+            if (mediaFormat != null) {
+                try {
+                    this.f.e = 1000000 / mediaFormat.getInteger("frame-rate");
+                } catch (Exception e) {
+                    Log.e("VideoExtractor", "frameRate:" + e.getMessage());
+                    e.printStackTrace();
+                }
+                if (this.f.e <= 0) {
+                    k(g());
+                    this.b.readSampleData(this.c, 0);
+                    if (this.b.getSampleFlags() == 1) {
+                        this.b.advance();
+                    }
+                    this.b.readSampleData(this.c, 0);
+                    long sampleTime = this.b.getSampleTime();
+                    this.b.advance();
+                    this.f.e = Math.abs(this.b.getSampleTime() - sampleTime);
+                }
+            }
+            if (FileUtils.VIDEO_FILE_START.equals(str2)) {
+                k(g());
+            } else if ("audio/".equals(str2)) {
+                k(b());
+            }
         }
     }
 }

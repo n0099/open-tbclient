@@ -58,7 +58,7 @@ public class an {
             }
             jSONObject.put("ps", j2);
             jSONObject.put("at", 1);
-            DecimalFormat decimalFormat = new DecimalFormat("0.0");
+            DecimalFormat decimalFormat = new DecimalFormat(com.baidu.mobads.sdk.internal.cj.d);
             DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
             decimalFormatSymbols.setDecimalSeparator(IStringUtil.EXTENSION_SEPARATOR);
             decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);

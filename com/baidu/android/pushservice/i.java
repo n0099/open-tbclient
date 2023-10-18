@@ -10,6 +10,7 @@ import com.baidu.android.pushservice.httpapi.TokenBindListener;
 import com.baidu.android.pushservice.pull.ClientEventInfo;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobads.sdk.internal.bj;
 import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -185,7 +186,7 @@ public class i {
                 jSONObject2.put("timestamp", currentTimeMillis + "");
                 jSONObject2.put("cid", com.baidu.android.pushservice.a0.i.c(h, "cid"));
                 jSONObject2.put(HttpConstants.DEVICE_TYPE, "3");
-                jSONObject2.put("sdk_int", Build.VERSION.SDK_INT + "");
+                jSONObject2.put(bj.f, Build.VERSION.SDK_INT + "");
                 jSONObject2.put("push_sdk_version", ((int) com.baidu.android.pushservice.a.a()) + "");
                 String r = Utility.r(h);
                 if (!TextUtils.isEmpty(r)) {

@@ -7,18 +7,18 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import com.baidu.tieba.m39;
+import com.baidu.tieba.xx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TiebaLcUpdateService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m39 mLcUpdateAsyncTask;
+    public xx8 mLcUpdateAsyncTask;
 
     @Override // android.app.Service
     @Nullable
@@ -57,9 +57,9 @@ public class TiebaLcUpdateService extends BdBaseService {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            m39 m39Var = this.mLcUpdateAsyncTask;
-            if (m39Var != null) {
-                m39Var.cancel();
+            xx8 xx8Var = this.mLcUpdateAsyncTask;
+            if (xx8Var != null) {
+                xx8Var.cancel();
                 this.mLcUpdateAsyncTask = null;
             }
             super.onDestroy();
@@ -71,14 +71,14 @@ public class TiebaLcUpdateService extends BdBaseService {
         if ((interceptable != null && interceptable.invokeL(65537, this, clientUpdateInfo) != null) || clientUpdateInfo == null) {
             return;
         }
-        m39 m39Var = this.mLcUpdateAsyncTask;
-        if (m39Var != null) {
-            m39Var.cancel();
+        xx8 xx8Var = this.mLcUpdateAsyncTask;
+        if (xx8Var != null) {
+            xx8Var.cancel();
             this.mLcUpdateAsyncTask = null;
         }
-        m39 m39Var2 = new m39(clientUpdateInfo);
-        this.mLcUpdateAsyncTask = m39Var2;
-        m39Var2.execute(new String[0]);
+        xx8 xx8Var2 = new xx8(clientUpdateInfo);
+        this.mLcUpdateAsyncTask = xx8Var2;
+        xx8Var2.execute(new String[0]);
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service

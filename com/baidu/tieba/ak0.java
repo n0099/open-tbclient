@@ -1,4 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.nadcore.stats.request.ClogBuilder;
 /* loaded from: classes5.dex */
-public interface ak0 extends zj0, ck0, dk0 {
+public interface ak0 {
+    boolean a(String str, ClogBuilder.LogType logType, String str2);
 }

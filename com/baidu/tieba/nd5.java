@@ -1,68 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class nd5 {
+public class nd5 extends od5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<od5> a;
 
-    public nd5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nd5(Context context) {
+        super((String) null, 23, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a(JSONArray jSONArray) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-            this.a = new ArrayList();
-            try {
-                if (jSONArray == null) {
-                    SharedPrefHelper.getInstance().putString("key_index_tab_info_list", "[]");
-                    return;
-                }
-                JSONArray jSONArray2 = new JSONArray(SharedPrefHelper.getInstance().getString("key_index_tab_info_list", "[]"));
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    od5 od5Var = new od5();
-                    od5 od5Var2 = new od5();
-                    od5Var.i(jSONArray.getJSONObject(i));
-                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        od5Var2.i(jSONArray2.getJSONObject(i2));
-                        if (od5Var.c != null && od5Var.c.equals(od5Var2.c)) {
-                            if (!TextUtils.isEmpty(od5Var2.e) && od5Var2.e.equals(od5Var.e)) {
-                                z = false;
-                                od5Var.f = z;
-                            }
-                            z = true;
-                            od5Var.f = z;
-                        }
-                    }
-                    if (!od5Var.f()) {
-                        this.a.add(od5Var);
-                    }
-                }
-                SharedPrefHelper.getInstance().putString("key_index_tab_info_list", jSONArray.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        this.d = R.drawable.icon_pure_post_more24_svg;
+        this.e = R.drawable.icon_mask_post_more24_selection_svg;
+        this.i = true;
+        this.p = new int[]{32};
     }
 }

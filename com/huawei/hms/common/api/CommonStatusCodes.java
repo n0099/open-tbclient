@@ -1,5 +1,6 @@
 package com.huawei.hms.common.api;
 
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,7 +68,7 @@ public class CommonStatusCodes {
                                 default:
                                     switch (i) {
                                         case 13:
-                                            return "ERROR";
+                                            return bx.l;
                                         case 14:
                                             return "INTERRUPTED";
                                         case 15:

@@ -1,51 +1,32 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jx3 {
+public class jx3 extends kx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jx3(int i, String str) {
+        super("onFail", i, str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (!SwanAppInitHelper.entranceOK()) {
-                Log.w("SwanAppLaunchHelper", "entrance not open");
-                ya3.g(AppRuntime.getAppContext(), "not support for this android version").G();
-            } else if (TextUtils.isEmpty(str)) {
-                ya3.g(AppRuntime.getAppContext(), ExceptionMessage.URL_EMPTY).G();
-            } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
-                b(str);
-            } else if (str.startsWith("bdswan")) {
-                b(str.replace("bdswan", SchemeConfig.getSchemeHead()));
-            } else if (!str.startsWith("https") && !str.startsWith("http")) {
-                ya3.g(AppRuntime.getAppContext(), "not support this uri").G();
-            } else {
-                c(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
-        }
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            ix3.e(str);
         }
     }
 }

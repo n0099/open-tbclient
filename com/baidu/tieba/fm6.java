@@ -1,221 +1,147 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tbadk.TbConfig;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.ItemClickJumpUtil;
+import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tieba.s07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ApkDetail;
 /* loaded from: classes5.dex */
-public class fm6 {
+public class fm6 implements s07.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static cm6 a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            File m = wl6.n().m();
-            File file = new File(m, str + "/" + str2);
-            if (!file.exists() || TextUtils.isEmpty(str2)) {
-                return null;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r17 a;
+        public final /* synthetic */ ItemData b;
+
+        public a(fm6 fm6Var, r17 r17Var, ItemData itemData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fm6Var, r17Var, itemData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            Map<String, hm6> b = b(file);
-            if (!f(file, b)) {
-                return null;
-            }
-            return new cm6(file, str2, b);
+            this.a = r17Var;
+            this.b = itemData;
         }
-        return (cm6) invokeLL.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                int i = 2;
+                int i2 = 0;
+                if (ImageViewerConfig.FROM_CONCERN.equals(this.a.c().b)) {
+                    i2 = 2;
+                } else {
+                    i = 0;
+                }
+                ItemData itemData = this.b;
+                ItemClickJumpUtil.itemClickJump(itemData.forumName, String.valueOf(itemData.itemId), i, Integer.valueOf(i2));
+            }
+        }
     }
 
-    public static Map<String, hm6> b(File file) {
+    public fm6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.s07.s
+    public void b(@NonNull ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof ItemCardView)) {
+            ((ItemCardView) viewGroup).M();
+        }
+    }
+
+    @Override // com.baidu.tieba.s07.i
+    @NonNull
+    public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            File file2 = new File(file, "router.json");
-            if (!file2.exists()) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(sn6.d(file2));
-                Map<String, hm6> d = d(jSONObject.optJSONObject("config"));
-                Map<String, hm6> d2 = d(jSONObject.optJSONObject("proxyConfig"));
-                if (!qn6.b(d2)) {
-                    d.putAll(d2);
-                }
-                return d;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new ItemCardView(context);
         }
-        return (Map) invokeL.objValue;
+        return (ViewGroup) invokeL.objValue;
     }
 
-    public static Set<String> c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.s07.i
+    public void e(@NonNull ViewGroup viewGroup, @NonNull r17 r17Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            HashSet hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, r17Var) == null) && viewGroup != null && r17Var != null && r17Var.a() != null) {
+            t27 a2 = r17Var.a();
+            ItemData itemData = new ItemData();
+            itemData.itemId = a2.a;
+            itemData.buttonName = a2.h;
+            itemData.buttonLink = a2.r;
+            itemData.buttonLinkType = 1;
+            itemData.pkgName = a2.n;
+            itemData.appId = a2.l;
+            itemData.mIconUrl = a2.b;
+            itemData.mTitle = a2.m;
+            itemData.mTags = a2.g;
+            itemData.mScore = a2.f;
+            itemData.mStar = a2.e;
+            itemData.mIconSize = a2.c;
+            itemData.forumName = a2.k;
+            ApkDetail.Builder builder = new ApkDetail.Builder();
+            builder.developer = a2.s;
+            builder.publisher = a2.t;
+            builder.version = a2.o;
+            builder.version_code = Integer.valueOf(a2.p);
+            builder.size = String.valueOf(a2.q);
+            builder.authority_url = a2.u;
+            builder.privacy_url = a2.v;
+            builder.pkg_source = Integer.valueOf(a2.w);
+            itemData.apkDetail = builder.build(false);
+            int i = a2.j;
+            if (i != 0) {
+                ((ItemCardView) viewGroup).setBackGroundColor(i);
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("data_urls");
-            if (!qn6.c(optJSONArray)) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    hashSet.add(optJSONArray.optString(i, ""));
-                }
+            if (r17Var.c() != null) {
+                str = r17Var.c().a;
+            } else {
+                str = "";
             }
-            return hashSet;
+            ((ItemCardView) viewGroup).setData(itemData, 13, str);
+            if (r17Var.b()) {
+                viewGroup.setOnClickListener(new a(this, r17Var, itemData));
+            } else {
+                viewGroup.setClickable(false);
+            }
         }
-        return (Set) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0048 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r10v0, types: [int] */
-    /* JADX WARN: Type inference failed for: r10v1 */
-    /* JADX WARN: Type inference failed for: r10v4, types: [boolean] */
-    public static Map<String, hm6> d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        boolean z;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            HashMap hashMap = new HashMap();
-            if (jSONObject == null) {
-                return hashMap;
-            }
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next) && !hashMap.containsKey(next)) {
-                    try {
-                        JSONObject jSONObject2 = jSONObject.getJSONObject(next);
-                        String optString = jSONObject2.optString("module", "");
-                        String optString2 = jSONObject2.optString("path", "");
-                        ?? optInt = jSONObject2.optInt("proxyMode", 0);
-                        if (jSONObject2.has("proxySwitch") && (optJSONObject = jSONObject2.optJSONObject("proxySwitch")) != null) {
-                            optInt = xn6.a(optJSONObject.optString("android", ""), TbConfig.getVersion());
-                        }
-                        hm6 hm6Var = new hm6();
-                        if (jSONObject2.optInt("proxyMode", 0) == 1) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        hm6Var.i = z;
-                        if (optInt == 1) {
-                            hm6Var.h = true;
-                            hm6Var.a = rm6.a(jSONObject2);
-                        } else {
-                            hm6Var.h = false;
-                            hm6Var.b = c(jSONObject2);
-                        }
-                        hm6Var.c = optString;
-                        hm6Var.d = optString2;
-                        hm6Var.f = e(next, jSONObject2);
-                        hashMap.put(next, hm6Var);
-                        f4a.a().j(next, next);
-                        f4a.a().k(next, optString2);
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public static Set<String> e(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
-            HashSet<String> hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("source");
-            if (!qn6.c(optJSONArray)) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    hashSet.add(optJSONArray.optString(i, ""));
-                }
-            }
-            String optString = jSONObject.optString("staticPrePath", "");
-            for (String str2 : hashSet) {
-                if (!TextUtils.isEmpty(str2)) {
-                    f4a a = f4a.a();
-                    a.j(optString + "/" + str2, str);
-                    f4a a2 = f4a.a();
-                    a2.k(optString + "/" + str2, str2);
-                }
-            }
-            return hashSet;
-        }
-        return (Set) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0094 A[Catch: Exception -> 0x00e0, TryCatch #0 {Exception -> 0x00e0, blocks: (B:12:0x0023, B:15:0x002e, B:18:0x003c, B:21:0x0045, B:22:0x0052, B:24:0x0058, B:25:0x008e, B:27:0x0094, B:29:0x00a2, B:30:0x00ae, B:32:0x00ba, B:34:0x00c0), top: B:44:0x0023 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean f(File file, Map<String, hm6> map) {
-        InterceptResult invokeLL;
-        String d;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, map)) == null) {
-            File file2 = new File(file, "staticSources.json");
-            if (qn6.b(map) || !file2.exists() || !file2.isFile()) {
-                return false;
-            }
-            try {
-                d = sn6.d(file2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (TextUtils.isEmpty(d)) {
-                return false;
-            }
-            JSONObject optJSONObject2 = new JSONObject(d).optJSONObject("sources");
-            if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject(SmsLoginView.f.j)) == null) {
-                return true;
-            }
-            HashMap hashMap = new HashMap();
-            for (Map.Entry<String, hm6> entry : map.entrySet()) {
-                hm6 value = entry.getValue();
-                HashSet<String> hashSet = new HashSet(value.f);
-                hashSet.add(value.d);
-                Log.e("newHybrid", "-------------------------：" + entry.getKey());
-                for (String str : hashSet) {
-                    String str2 = (String) hashMap.get(str);
-                    if (str2 == null) {
-                        str2 = rn6.b(new File(file, str));
-                        hashMap.put(str, str2);
-                    }
-                    String optString = optJSONObject.optString(str, "");
-                    if (TextUtils.isEmpty(optString) || !optString.equalsIgnoreCase(str2)) {
-                        Log.e("newHybrid", str + "," + optString + "_" + str2);
-                        return false;
-                    }
-                    while (r5.hasNext()) {
-                    }
-                }
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
     }
 }

@@ -1,43 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.swan.videoplayer.SwanVideoView;
 /* loaded from: classes7.dex */
-public abstract class om4 implements rm4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface om4 {
+    void a();
 
-    @Override // com.baidu.tieba.rm4
-    public void a(JSONArray jSONArray, bj4 bj4Var, @Nullable bj4 bj4Var2, @Nullable bj4 bj4Var3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, bj4Var, bj4Var2, bj4Var3) == null) {
-        }
-    }
+    void b(boolean z);
 
-    @Override // com.baidu.tieba.rm4
-    public void b(JSONObject jSONObject, bj4 bj4Var, @Nullable bj4 bj4Var2, @Nullable bj4 bj4Var3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, bj4Var, bj4Var2, bj4Var3) == null) {
-        }
-    }
+    void c(SwanVideoView swanVideoView);
 
-    public om4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void d(boolean z);
+
+    void onBufferingUpdate(int i);
+
+    void onError(int i, int i2, String str);
+
+    void onPause();
+
+    void onPrepared();
+
+    void onResume();
+
+    void onSeekEnd();
+
+    void onStart();
+
+    void onVideoSizeChanged(int i, int i2);
 }

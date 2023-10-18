@@ -38,7 +38,7 @@ public class CriusUIFactory {
                 }
                 break;
             case 102340:
-                if (str.equals(NativeConstants.TYPE_GIF)) {
+                if (str.equals("gif")) {
                     c = 7;
                     break;
                 }

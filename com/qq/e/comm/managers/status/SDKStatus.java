@@ -35,7 +35,7 @@ public class SDKStatus {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return 1390;
+            return 1402;
         }
         return invokeV.intValue;
     }
@@ -44,7 +44,7 @@ public class SDKStatus {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return "4.520." + getBuildInPluginVersion();
+            return "4.532." + getBuildInPluginVersion();
         }
         return (String) invokeV.objValue;
     }
@@ -64,6 +64,6 @@ public class SDKStatus {
     public static final String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "4.520" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "4.532" : (String) invokeV.objValue;
     }
 }

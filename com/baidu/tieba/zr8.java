@@ -1,145 +1,169 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.impl.ResponsesPanelControllerImpl;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AgreeMeActivityConfig;
+import com.baidu.tbadk.core.atomData.AtMeActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.atomData.ReplyMeActivityConfig;
+import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
+import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
 public final class zr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ResponsesPanelControllerImpl a;
-    public List<Reaction> b;
 
     /* loaded from: classes9.dex */
-    public static final class a implements bp5 {
+    public /* synthetic */ class a {
+        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zr8 a;
-        public final /* synthetic */ int b;
 
-        public a(zr8 zr8Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zr8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-222504340, "Lcom/baidu/tieba/zr8$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-222504340, "Lcom/baidu/tieba/zr8$a;");
                     return;
                 }
             }
-            this.a = zr8Var;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.bp5
-        public void a(List<String> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                ArrayList arrayList = new ArrayList();
-                if (ListUtils.isEmpty(list)) {
-                    if (!ListUtils.isEmpty(this.a.a())) {
-                        List<Reaction> a = this.a.a();
-                        Intrinsics.checkNotNull(a);
-                        int size = a.size();
-                        if (size > this.b) {
-                            List<Reaction> a2 = this.a.a();
-                            Intrinsics.checkNotNull(a2);
-                            arrayList.addAll(a2.subList(0, this.b));
-                        } else {
-                            List<Reaction> a3 = this.a.a();
-                            Intrinsics.checkNotNull(a3);
-                            arrayList.addAll(a3.subList(0, size));
-                        }
-                        this.a.b().g(arrayList);
-                    }
-                } else {
-                    Intrinsics.checkNotNull(list);
-                    for (String str : list) {
-                        arrayList.add(new Reaction("", str));
-                    }
-                }
-                this.a.b().g(arrayList);
-            }
+            int[] iArr = new int[NotifyType.values().length];
+            iArr[NotifyType.AT_ME.ordinal()] = 1;
+            iArr[NotifyType.AGREE_ME.ordinal()] = 2;
+            iArr[NotifyType.REPLY_ME.ordinal()] = 3;
+            iArr[NotifyType.FANS.ordinal()] = 4;
+            $EnumSwitchMapping$0 = iArr;
         }
     }
 
-    public zr8(ResponsesPanelControllerImpl controller) {
+    public zr8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {controller};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(controller, "controller");
-        this.a = controller;
     }
 
-    public final List<Reaction> a() {
-        InterceptResult invokeV;
+    public final void a(sq8 sq8Var) {
+        NotifyType notifyType;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sq8Var) == null) {
+            if (sq8Var != null) {
+                notifyType = sq8Var.c();
+            } else {
+                notifyType = null;
+            }
+            if (notifyType == null) {
+                i = -1;
+            } else {
+                i = a.$EnumSwitchMapping$0[notifyType.ordinal()];
+            }
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            pd8.b().g(4, 0);
+                            PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
+                            d95.p0().l();
+                            d95.p0().j0(0);
+                            return;
+                        }
+                        return;
+                    }
+                    pd8.b().g(2, 0);
+                    d95.p0().o();
+                    d95.p0().m0(0);
+                    return;
+                }
+                pd8.b().g(1, 0);
+                d95.p0().h();
+                d95.p0().f0(0);
+                return;
+            }
+            pd8.b().g(3, 0);
+            d95.p0().j();
+            d95.p0().g0(0);
         }
-        return (List) invokeV.objValue;
     }
 
-    public final ResponsesPanelControllerImpl b() {
-        InterceptResult invokeV;
+    public final void b(BaseFragment frag, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ResponsesPanelControllerImpl) invokeV.objValue;
-    }
-
-    public final void c(tf8 process, Reaction reaction, BaseItem<? extends TbBaseMsg> msg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, process, reaction, msg) == null) {
-            Intrinsics.checkNotNullParameter(process, "process");
-            Intrinsics.checkNotNullParameter(reaction, "reaction");
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            oo8.g(process, reaction, msg, 1);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frag, i) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            AgreeMeActivityConfig agreeMeActivityConfig = new AgreeMeActivityConfig(frag.getContext());
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                agreeMeActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            agreeMeActivityConfig.setAgreeNumber(i);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, agreeMeActivityConfig));
         }
     }
 
-    public final void d(Context context) {
+    public final void c(BaseFragment frag, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            int abs = Math.abs(1 - oo8.a());
-            lo5.b().e(context, true, -abs, new a(this, abs));
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, frag, i) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            AtMeActivityConfig atMeActivityConfig = new AtMeActivityConfig(frag.getContext());
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                atMeActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            atMeActivityConfig.setAtNumber(i);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atMeActivityConfig));
         }
     }
 
-    public final void e(List<Reaction> list) {
+    public final void d(BaseFragment frag) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.b = list;
+        if (interceptable == null || interceptable.invokeL(1048579, this, frag) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            PersonListActivityConfig personListActivityConfig = new PersonListActivityConfig(frag.getContext(), false, TbadkCoreApplication.getCurrentAccount(), 0);
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                personListActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            personListActivityConfig.setFansNumber(d95.p0().y());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personListActivityConfig));
+        }
+    }
+
+    public final void e(BaseFragment frag) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, frag) == null) {
+            Intrinsics.checkNotNullParameter(frag, "frag");
+            ReplyMeActivityConfig replyMeActivityConfig = new ReplyMeActivityConfig(frag.getContext());
+            replyMeActivityConfig.setFrom(1);
+            BdUniqueId uniqueId = frag.getUniqueId();
+            if (uniqueId != null) {
+                replyMeActivityConfig.setLastUniqueId(uniqueId.getId());
+            }
+            replyMeActivityConfig.setReplyNumber(d95.p0().B());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, replyMeActivityConfig));
         }
     }
 }

@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tieba.p61;
+import com.baidu.tieba.c11;
 import com.sina.weibo.sdk.constant.WBConstants;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -22,22 +22,6 @@ public final class LineLoadingView extends View {
     public String g;
     public Paint h;
     public boolean i;
-    public final a j;
-
-    /* loaded from: classes3.dex */
-    public static final class a implements Runnable {
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (!LineLoadingView.this.i) {
-                LineLoadingView.this.invalidate();
-                LineLoadingView.this.post(this);
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LineLoadingView(Context context, AttributeSet attributeSet) {
@@ -46,17 +30,23 @@ public final class LineLoadingView extends View {
         this.g = "#D3D3D3";
         this.h = new Paint();
         this.i = true;
-        this.j = new a();
-        this.a = p61.c.e(context);
-        this.b = p61.c.a(context, 1.5f);
-        int a2 = p61.c.a(context, 100.0f);
-        this.f = a2;
-        this.e = a2;
+        this.a = c11.c.e(context);
+        this.b = c11.c.a(context, 1.5f);
+        int a = c11.c.a(context, 100.0f);
+        this.f = a;
+        this.e = a;
         this.h.setStyle(Paint.Style.FILL_AND_STROKE);
         this.h.setAntiAlias(true);
     }
 
-    public final int b(String str) {
+    public static /* synthetic */ int c(LineLoadingView lineLoadingView, int i, boolean z, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            z = true;
+        }
+        return lineLoadingView.b(i, z);
+    }
+
+    public final int a(String str) {
         boolean z;
         int parseColor = Color.parseColor(this.g);
         if (str != null && str.length() != 0) {
@@ -74,18 +64,11 @@ public final class LineLoadingView extends View {
         }
     }
 
-    public final float e(int i) {
+    public final float d(int i) {
         return i / 2;
     }
 
-    public static /* synthetic */ int d(LineLoadingView lineLoadingView, int i, boolean z, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            z = true;
-        }
-        return lineLoadingView.c(i, z);
-    }
-
-    public final int c(int i, boolean z) {
+    public final int b(int i, boolean z) {
         int i2;
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);
@@ -115,19 +98,7 @@ public final class LineLoadingView extends View {
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        setMeasuredDimension(d(this, i, false, 2, null), c(i2, false));
-    }
-
-    public final void f() {
-        this.i = false;
-        post(this.j);
-        setVisibility(0);
-    }
-
-    public final void g() {
-        this.i = true;
-        removeCallbacks(this.j);
-        setVisibility(4);
+        setMeasuredDimension(c(this, i, false, 2, null), b(i2, false));
     }
 
     @Override // android.view.View
@@ -155,9 +126,9 @@ public final class LineLoadingView extends View {
         if (str != null) {
             String substring = str.substring(1, length);
             Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-            this.h.setColor(b('#' + hexString + substring));
+            this.h.setColor(a('#' + hexString + substring));
             if (canvas != null) {
-                canvas.drawLine(e(this.c) - e(this.e), e(this.b), e(this.c) + e(this.e), e(this.b), this.h);
+                canvas.drawLine(d(this.c) - d(this.e), d(this.b), d(this.c) + d(this.e), d(this.b), this.h);
                 return;
             }
             return;

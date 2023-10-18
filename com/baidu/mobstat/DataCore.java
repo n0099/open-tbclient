@@ -448,7 +448,7 @@ public class DataCore {
         } catch (Exception unused2) {
         }
         try {
-            jSONObject2.put(Config.TRACE_CIRCLE, ad.c());
+            jSONObject2.put("circle", ad.c());
         } catch (Exception unused3) {
         }
         try {

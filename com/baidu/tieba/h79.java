@@ -1,104 +1,59 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.memberCenter.tail.tool.TailToolController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SearchSug.DataRes;
 /* loaded from: classes6.dex */
-public class h79 {
+public class h79 extends od5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public final List<om> b;
-    public j79 c;
-    public m79 d;
-    public k79 e;
-    public l79 f;
-    public n79 g;
 
-    public h79(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h79(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title), 16, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdTypeRecyclerView};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        a(context, bdTypeRecyclerView);
+        this.d = R.drawable.icon_mask_post_keyboard24_selection;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.h = R.drawable.icon_pure_post_more_tail64;
+        this.r = R.drawable.icon_pure_pic_vip64;
+        this.i = false;
+        this.j = true;
+        this.m = new TailToolController(context);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1};
     }
 
-    public final void a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+    @Override // com.baidu.tieba.od5
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bdTypeRecyclerView) == null) {
-            this.c = new j79(context, o79.c);
-            this.d = new m79(context, r79.l);
-            this.e = new k79(context, p79.i);
-            this.f = new l79(context, q79.g);
-            this.g = new n79(context, s79.e);
-            this.b.add(this.c);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.b.add(this.f);
-            this.b.add(this.g);
-            this.a = bdTypeRecyclerView;
-            bdTypeRecyclerView.addAdapters(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            TiebaStatic.log(new StatisticItem("c15166").param("uid", TbadkCoreApplication.getCurrentAccount()));
+            return super.a();
         }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            j79 j79Var = this.c;
-            if (j79Var != null) {
-                j79Var.notifyDataSetChanged();
-            }
-            m79 m79Var = this.d;
-            if (m79Var != null) {
-                m79Var.notifyDataSetChanged();
-            }
-            k79 k79Var = this.e;
-            if (k79Var != null) {
-                k79Var.notifyDataSetChanged();
-            }
-            l79 l79Var = this.f;
-            if (l79Var != null) {
-                l79Var.notifyDataSetChanged();
-            }
-            n79 n79Var = this.g;
-            if (n79Var != null) {
-                n79Var.notifyDataSetChanged();
-            }
-        }
-    }
-
-    public void c(DataRes dataRes, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dataRes, str) != null) || this.a == null) {
-            return;
-        }
-        List<bn> a = t79.a(dataRes, str);
-        if (!ListUtils.isEmpty(a)) {
-            this.a.setData(a);
-        }
+        return invokeV.booleanValue;
     }
 }

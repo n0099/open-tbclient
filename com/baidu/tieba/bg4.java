@@ -1,102 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ye4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bg4 extends sf4<ux2> {
+public class bg4 extends yf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947643994, "Lcom/baidu/tieba/bg4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947643994, "Lcom/baidu/tieba/bg4;");
-                return;
-            }
-        }
-        boolean z = qr1.a;
-    }
 
     public bg4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static bg4 e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ye4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, ye4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new bg4();
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            ag4.b(str, map, map2, jSONObject, new ze4(aVar));
         }
-        return (bg4) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sf4
-    /* renamed from: d */
-    public boolean b(Context context, ux2 ux2Var, px2 px2Var, gb3 gb3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.ye4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, ye4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ux2Var, px2Var, gb3Var, jSONObject)) == null) {
-            return g(context, ux2Var, px2Var, gb3Var);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            ag4.a(str, map, map2, new ze4(aVar));
         }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final Bundle f(ux2 ux2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ux2Var)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("slaveId", ux2Var.c);
-            bundle.putDouble("latitude", ux2Var.j.a);
-            bundle.putDouble("longitude", ux2Var.j.b);
-            bundle.putDouble("scale", ux2Var.k);
-            bundle.putString("name", ux2Var.z);
-            bundle.putString("address", ux2Var.A);
-            bundle.putStringArrayList("ignoredApps", ux2Var.B);
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public final boolean g(Context context, ux2 ux2Var, px2 px2Var, gb3 gb3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, ux2Var, px2Var, gb3Var)) == null) {
-            g82.i("map", "OpenLocationAction start");
-            if (!ux2Var.isValid()) {
-                g82.c("map", "model is invalid");
-                return false;
-            }
-            ng4.t3(f(ux2Var)).x3();
-            g82.i("map", "OpenLocationAction end");
-            return true;
-        }
-        return invokeLLLL.booleanValue;
     }
 }

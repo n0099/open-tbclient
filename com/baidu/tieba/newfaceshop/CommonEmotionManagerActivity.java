@@ -81,7 +81,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d0217);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907a0);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907bc);
             if (isUseStyleImmersiveSticky()) {
                 ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = BdUtilHelper.getStatusBarHeight(getPageContext().getPageActivity());
             }
@@ -94,7 +94,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.c);
             this.b.setArguments(bundle2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0907a0, this.b).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0907bc, this.b).commit();
         }
     }
 }

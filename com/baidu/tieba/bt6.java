@@ -1,26 +1,26 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.searchbox.download.callback.IDownloadListener;
+import com.baidu.searchbox.download.unified.DownloadInfoData;
+import com.baidu.searchbox.download.unified.DownloadParams;
+import com.baidu.searchbox.download.unified.DownloadUnifiedManager;
+import com.baidu.searchbox.download.unified.EventCallback;
+import com.baidu.searchbox.download.unified.EventControlInfoForResume;
+import com.baidu.searchbox.download.unified.EventControlInfoForStart;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class bt6 implements cd7 {
+public class bt6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile bt6 a;
+    public static volatile DownloadUnifiedManager b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.cd7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c12351" : (String) invokeV.objValue;
-    }
 
     public bt6() {
         Interceptable interceptable = $ic;
@@ -32,33 +32,62 @@ public final class bt6 implements cd7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        b = DownloadUnifiedManager.getInstance();
+    }
+
+    public static bt6 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (bt6.class) {
+                    if (a == null) {
+                        a = new bt6();
+                    }
+                }
+            }
+            return a;
+        }
+        return (bt6) invokeV.objValue;
+    }
+
+    public void a(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, uri) == null) {
+            b.deleteDownload(uri);
         }
     }
 
-    @Override // com.baidu.tieba.cd7
-    public Map<String, String> a(m87 businessInfo) {
+    public void c(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) {
+            b.pauseDownload(uri);
+        }
+    }
+
+    public DownloadInfoData d(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_type", gt6.a.a(businessInfo));
-            String str = a.get("user_id");
-            String str2 = "";
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("obj_id", str);
-            hashMap.put("obj_param1", "1");
-            String str3 = a.get("live_type");
-            if (str3 != null) {
-                str2 = str3;
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str2);
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
+            return b.queryDownloadInfoData(uri);
         }
-        return (Map) invokeL.objValue;
+        return (DownloadInfoData) invokeL.objValue;
+    }
+
+    public void e(Context context, String str, Uri uri, IDownloadListener iDownloadListener, EventControlInfoForResume eventControlInfoForResume, EventCallback eventCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback}) == null) {
+            b.resumeDownload(context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback);
+        }
+    }
+
+    public void f(Context context, String str, DownloadParams downloadParams, IDownloadListener iDownloadListener, EventControlInfoForStart eventControlInfoForStart, EventCallback eventCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback}) == null) {
+            b.startDownload(context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback);
+        }
     }
 }

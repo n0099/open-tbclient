@@ -39,13 +39,13 @@ public class w {
     }
 
     public void finalize() throws Throwable {
-        u.f m;
+        u.f o;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 u<?> uVar = this.a;
-                if (uVar != null && (m = u.m()) != null) {
-                    m.a(uVar, new UnobservedTaskException(uVar.k()));
+                if (uVar != null && (o = u.o()) != null) {
+                    o.a(uVar, new UnobservedTaskException(uVar.m()));
                 }
             } finally {
                 super.finalize();

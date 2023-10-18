@@ -1,184 +1,135 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class yy0 implements CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnVideoSizeChangedListener, CyberPlayerManager.OnMediaSourceChangedListener {
+import java.util.ArrayList;
+/* loaded from: classes9.dex */
+public class yy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dz0 a;
 
-    public final int b(int i) {
-        InterceptResult invokeI;
+    public static ArrayList<String> a(bz0 bz0Var) {
+        InterceptResult invokeL;
+        ty0[][] e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i != 701) {
-                if (i != 702) {
-                    if (i != 904) {
-                        if (i != 910) {
-                            if (i != 924) {
-                                if (i != 946) {
-                                    if (i != 5000) {
-                                        if (i != 10009) {
-                                            if (i != 10103) {
-                                                if (i != 936) {
-                                                    if (i != 937) {
-                                                        if (i != 955) {
-                                                            if (i != 956) {
-                                                                if (i != 11004) {
-                                                                    if (i != 11005) {
-                                                                        if (i != 12005) {
-                                                                            if (i != 12006) {
-                                                                                return i;
-                                                                            }
-                                                                            return 12006;
-                                                                        }
-                                                                        return 12005;
-                                                                    }
-                                                                    return 11005;
-                                                                }
-                                                                return 11004;
-                                                            }
-                                                            return 956;
-                                                        }
-                                                        return 955;
-                                                    }
-                                                    return 937;
-                                                }
-                                                return 936;
-                                            }
-                                            return 10103;
-                                        }
-                                        return 10009;
-                                    }
-                                    return 5000;
-                                }
-                                return 946;
-                            }
-                            return 924;
-                        }
-                        return 910;
-                    }
-                    return 904;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bz0Var)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>(2);
+            for (ty0[] ty0VarArr : bz0Var.e()) {
+                String[] strArr = new String[ty0VarArr.length];
+                for (int i = 0; i < ty0VarArr.length; i++) {
+                    strArr[i] = ty0VarArr[i].b;
                 }
-                return 702;
+                arrayList.add("CREATE INDEX IF NOT EXISTS i_" + bz0Var.g() + "_" + TextUtils.join("_", strArr) + " ON " + bz0Var.g() + " (" + TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, strArr) + SmallTailInfo.EMOTION_SUFFIX);
             }
-            return 701;
+            return arrayList;
         }
-        return invokeI.intValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    public yy0() {
+    public static String b(bz0 bz0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bz0Var)) == null) {
+            return "CREATE TABLE IF NOT EXISTS " + bz0Var.g() + " (" + g(bz0Var.d()) + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(ty0 ty0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ty0Var)) == null) {
+            int i = ty0Var.a;
+            if (i == 1 || i == 2 || i == 3) {
+                return " INTEGER";
             }
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
-        dz0 dz0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (dz0Var = this.a) != null) {
-            dz0Var.onCompletion();
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
-    public void onPrepared() {
-        dz0 dz0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (dz0Var = this.a) != null) {
-            dz0Var.onPrepared();
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
-    public void onSeekComplete() {
-        dz0 dz0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (dz0Var = this.a) != null) {
-            dz0Var.onSeekComplete();
-        }
-    }
-
-    public void a(@Nullable dz0 dz0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dz0Var) == null) {
-            this.a = dz0Var;
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
-    public void onBufferingUpdate(int i) {
-        dz0 dz0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (dz0Var = this.a) != null) {
-            dz0Var.onBufferingUpdate(i);
-        }
-    }
-
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
-    public boolean onError(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, obj)) == null) {
-            dz0 dz0Var = this.a;
-            if (dz0Var != null) {
-                return dz0Var.onError(i, i2, obj);
+            if (i == 4) {
+                return " TEXT";
             }
-            return false;
+            throw new IllegalArgumentException("Unsupported field type " + ty0Var.a);
         }
-        return invokeIIL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
-    public boolean onInfo(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
+    public static String g(ty0[] ty0VarArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i, i2, obj)) == null) {
-            if (this.a != null) {
-                return this.a.onInfo(b(i), i2, obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, ty0VarArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int length = ty0VarArr.length;
+            String str = "";
+            int i = 0;
+            while (i < length) {
+                ty0 ty0Var = ty0VarArr[i];
+                sb.append(str);
+                sb.append(ty0Var.b);
+                sb.append(d(ty0Var));
+                sb.append(c(ty0Var));
+                i++;
+                str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
             }
-            return false;
+            return sb.toString();
         }
-        return invokeIIL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnMediaSourceChangedListener
-    public boolean onMediaSourceChanged(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
+    public static String c(ty0 ty0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i, i2, obj)) == null) {
-            dz0 dz0Var = this.a;
-            if (dz0Var != null) {
-                return dz0Var.onMediaSourceChanged(i, i2, obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ty0Var)) == null) {
+            int i = ty0Var.d;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            return " PRIMARY KEY AUTOINCREMENT";
+                        }
+                        throw new IllegalArgumentException("Unsupported field attribute " + ty0Var.d);
+                    }
+                    return " PRIMARY KEY";
+                }
+                return " DEFAULT 0";
             }
-            return false;
+            return "";
         }
-        return invokeIIL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
-        dz0 dz0Var;
+    public static String e(ty0... ty0VarArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) && (dz0Var = this.a) != null) {
-            dz0Var.onVideoSizeChanged(i, i2, i3, i4);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ty0VarArr)) == null) {
+            return f(ty0VarArr, null);
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(ty0[] ty0VarArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, ty0VarArr, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int length = ty0VarArr.length;
+            String str2 = "";
+            int i = 0;
+            while (i < length) {
+                ty0 ty0Var = ty0VarArr[i];
+                sb.append(str2);
+                if (str != null && str.length() != 0) {
+                    sb.append(str);
+                    sb.append(".");
+                }
+                sb.append(ty0Var.b);
+                i++;
+                str2 = StringUtil.ARRAY_ELEMENT_SEPARATOR;
+            }
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.tbadk.data.VideoCategoryClassData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ad;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
 import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishStatData;
@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WriteData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALL_FROM_HOME = "8";
@@ -267,7 +267,7 @@ public class WriteData extends OrmObject implements Serializable {
         List<Object> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
-            if ((!this.isRichTextEditorMode && !di.isEmpty(this.mContent)) || !di.isEmpty(this.mTitle)) {
+            if ((!this.isRichTextEditorMode && !ad.isEmpty(this.mContent)) || !ad.isEmpty(this.mTitle)) {
                 return true;
             }
             WriteImagesInfo writeImagesInfo = this.writeImagesInfo;
@@ -331,12 +331,12 @@ public class WriteData extends OrmObject implements Serializable {
         if ((interceptable != null && interceptable.invokeL(1048709, this, spanGroupManager) != null) || spanGroupManager == null) {
             return;
         }
-        if (ListUtils.isEmpty(spanGroupManager.x())) {
+        if (ListUtils.isEmpty(spanGroupManager.z())) {
             this.mAtUidListString = "";
         } else {
             StringBuilder sb = new StringBuilder();
             boolean z = true;
-            for (String str : spanGroupManager.x()) {
+            for (String str : spanGroupManager.z()) {
                 if (!z) {
                     sb.append(",");
                 }
@@ -344,7 +344,7 @@ public class WriteData extends OrmObject implements Serializable {
                 z = false;
             }
         }
-        this.mToServerContent = spanGroupManager.F();
+        this.mToServerContent = spanGroupManager.H();
     }
 
     public static WriteData fromDraftString(String str) {
@@ -352,7 +352,7 @@ public class WriteData extends OrmObject implements Serializable {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (di.isEmpty(str)) {
+            if (ad.isEmpty(str)) {
                 return null;
             }
             try {
@@ -1647,7 +1647,7 @@ public class WriteData extends OrmObject implements Serializable {
                     int i = 0;
                     while (i < chosedFiles.size()) {
                         ImageFileInfo imageFileInfo = chosedFiles.get(i);
-                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !di.isEmpty(imageFileInfo.getFilePath())) {
+                        if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !ad.isEmpty(imageFileInfo.getFilePath())) {
                             File file = new File(imageFileInfo.getFilePath());
                             if (file.exists()) {
                                 file.delete();
@@ -1707,7 +1707,7 @@ public class WriteData extends OrmObject implements Serializable {
         if ((interceptable != null && interceptable.invokeL(1048710, this, spanGroupManager) != null) || spanGroupManager == null) {
             return;
         }
-        this.mPlainTextContent = spanGroupManager.z();
+        this.mPlainTextContent = spanGroupManager.B();
     }
 
     public void removeItemData(ItemData itemData) {

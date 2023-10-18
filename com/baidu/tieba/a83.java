@@ -1,82 +1,84 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.t53;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a83 {
+public class a83 extends z73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947569005, "Lcom/baidu/tieba/a83;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947569005, "Lcom/baidu/tieba/a83;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a83(s53 s53Var) {
+        super(s53Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((s53) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qr1.a;
     }
 
-    public static void a(@Nullable Bundle bundle, @NonNull Class<? extends g73> cls) {
+    @Override // com.baidu.tieba.z73
+    public void I(String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, bundle, cls) == null) {
-            Iterator<f83> it = h83.k().q().iterator();
-            while (it.hasNext()) {
-                f83 next = it.next();
-                if (next != null && next.T()) {
-                    b(next.b, bundle, cls, null);
-                }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && M() && (str2 = this.d) != null && str2.equals(str)) {
+            o53 K = o53.K();
+            if (!K.E()) {
+                return;
             }
+            if (K.q().o0()) {
+                K.n("flag_finish_activity", "flag_remove_task");
+                return;
+            }
+            ih3 ih3Var = new ih3();
+            ih3Var.k(10L);
+            ih3Var.i(2107L);
+            ih3Var.d("app forbidden");
+            v53.z0(md4.i().u(str), wo2.c(), K.q().X(), false, null, ih3Var);
         }
     }
 
-    public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends g73> cls, @Nullable n73 n73Var) {
+    public boolean M() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, swanAppProcessInfo, bundle, cls, n73Var) == null) {
-            if (a) {
-                Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (p53.c0() != null && this.b != 0) {
+                return true;
             }
-            Message obtain = Message.obtain((Handler) null, 125);
-            obtain.replyTo = h83.k().d;
-            Bundle bundle2 = new Bundle();
-            bundle2.putString("ai_apps_delegation_name", cls.getName());
-            if (n73Var != null) {
-                bundle2.putString("ai_apps_observer_id", n73Var.b());
-                k73.b().e(n73Var);
-            }
-            if (bundle != null) {
-                bundle2.putBundle("ai_apps_data", bundle);
-            }
-            obtain.obj = bundle2;
-            w73 e = w73.e();
-            y73 y73Var = new y73(obtain);
-            y73Var.b(swanAppProcessInfo);
-            e.h(y73Var);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void c(@Nullable Bundle bundle, @NonNull Class<? extends g73> cls, @Nullable n73 n73Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ik3
+    /* renamed from: N */
+    public void a(t53.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, bundle, cls, n73Var) == null) {
-            b83.Q().X(bundle, cls, n73Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            if (b23.J(aVar.D(), "swan_forbidden_kill_on_client")) {
+                this.b = aVar.i("ipc_forbidden_flag", 1);
+                this.d = aVar.o("mAppId", o53.K().getAppId());
+            }
+            if (b23.J(aVar.D(), "swan_kill_to_client")) {
+                o53.K().n("flag_finish_activity", "flag_remove_task");
+            }
         }
     }
 }

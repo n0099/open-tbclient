@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ad;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -69,13 +69,13 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091110);
-            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cb3);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091cb5);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c3);
-            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0924ce);
-            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910f9);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f0910e7);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09112a);
+            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cdb);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091cdd);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0924cd);
+            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0924d8);
+            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091113);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f091101);
             this.b.setRadiusById(R.string.J_X05);
             this.b.setConrers(3);
             EMManager.from(this.h).setMaskBackGround(R.array.Mask_X003);
@@ -178,7 +178,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d09e0, viewGroup, false);
+            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d09cc, viewGroup, false);
             return new ForumViewHolder(this.c);
         }
         return (ForumViewHolder) invokeLI.objValue;
@@ -233,9 +233,9 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
     public final void t(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048585, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
-            if (!di.isEmpty(videoItemData.title)) {
+            if (!ad.isEmpty(videoItemData.title)) {
                 forumViewHolder.f.setText(videoItemData.title);
-            } else if (!di.isEmpty(videoItemData.abstext)) {
+            } else if (!ad.isEmpty(videoItemData.abstext)) {
                 forumViewHolder.f.setText(videoItemData.abstext);
             } else {
                 forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.original_recommend_video_attention_txt));

@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-@Singleton
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class j20 extends i20 {
+public class j20 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile j20 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public Context c;
+    public boolean d;
 
     public j20() {
         Interceptable interceptable = $ic;
@@ -26,55 +29,75 @@ public class j20 extends i20 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = "";
     }
 
-    public g20 d() {
+    public static j20 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new h20();
-        }
-        return (g20) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i20
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String c = c();
-            if (!new File(c).exists()) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (j20.class) {
+                    if (e == null) {
+                        e = new j20();
+                    }
+                }
             }
-            return d().a(c + File.separator + str);
+            return e;
         }
-        return (String) invokeL.objValue;
+        return (j20) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i20
-    public void b(String str, String str2) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            String c = c();
-            File file = new File(c);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            d().b(c + File.separator + str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public String c() {
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (AppConfig.isDebug() && a9.b() && a9.c()) {
-                return a9.a().getAbsolutePath();
-            }
-            return AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + "abjson";
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public void e(Context context, String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.b = str;
+            if (context != null) {
+                this.c = context.getApplicationContext();
+            }
+            this.a = i;
+            this.d = z;
+        }
+    }
+
+    public void f(JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            if (!TextUtils.isEmpty(this.b) && this.c != null && jSONArray != null && jSONArray.length() != 0) {
+                p20.b(this.c, jSONArray, z, z2, z3);
+            } else {
+                t20.a("IMLiteUBC", "cuid is empty or context null or upload json is null");
+            }
+        }
     }
 }

@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b36;
-import com.baidu.tieba.u26;
-import com.baidu.tieba.yt5;
+import com.baidu.tieba.dx5;
+import com.baidu.tieba.eo5;
+import com.baidu.tieba.kx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,24 +21,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class SelectClassDialogView extends ViewGroup implements yt5 {
+public class SelectClassDialogView extends ViewGroup implements eo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
-    public b36<String> b;
+    public kx5<String> b;
 
-    @Override // com.baidu.tieba.yt5
-    public Intent getResultIntent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yt5
-    public boolean h1() {
+    @Override // com.baidu.tieba.eo5
+    public boolean g1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -47,10 +37,20 @@ public class SelectClassDialogView extends ViewGroup implements yt5 {
         return invokeV.booleanValue;
     }
 
+    @Override // com.baidu.tieba.eo5
+    public Intent getResultIntent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
     }
 
@@ -76,11 +76,22 @@ public class SelectClassDialogView extends ViewGroup implements yt5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.yt5
+    @Override // com.baidu.tieba.eo5
+    public void A(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b.q(SkinManager.getColor(R.color.CAM_X0203));
+            this.b.B(SkinManager.getColor(R.color.CAM_X0105));
+            this.b.z(SkinManager.getColor(R.color.CAM_X0105));
+            this.b.j();
+        }
+    }
+
+    @Override // com.baidu.tieba.eo5
     public boolean M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.b.i() != null && this.b.i().length >= 2 && this.b.i()[0] >= 0) {
                 return false;
             }
@@ -91,11 +102,11 @@ public class SelectClassDialogView extends ViewGroup implements yt5 {
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d020c, this.a, true);
-            b36<String> b36Var = new b36<>(this.a, true);
-            this.b = b36Var;
-            b36Var.t(9);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d020b, this.a, true);
+            kx5<String> kx5Var = new kx5<>(this.a, true);
+            this.b = kx5Var;
+            kx5Var.t(9);
             this.b.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
             this.b.q(SkinManager.getColor(R.color.CAM_X0203));
             this.b.s(WheelView.DividerType.FILL);
@@ -110,34 +121,23 @@ public class SelectClassDialogView extends ViewGroup implements yt5 {
 
     public void setCurrentItems(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
             this.b.n(i, i2, 0);
         }
     }
 
     public void setPicker(List<String> list, List<List<String>> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, list, list2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, list2) == null) {
             this.b.x(list, list2, null);
         }
     }
 
-    public void setOnOptionsSelectChangeListener(u26 u26Var) {
-        b36<String> b36Var;
+    public void setOnOptionsSelectChangeListener(dx5 dx5Var) {
+        kx5<String> kx5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, u26Var) == null) && (b36Var = this.b) != null) {
-            b36Var.w(u26Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.yt5
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b.q(SkinManager.getColor(R.color.CAM_X0203));
-            this.b.B(SkinManager.getColor(R.color.CAM_X0105));
-            this.b.z(SkinManager.getColor(R.color.CAM_X0105));
-            this.b.j();
+        if ((interceptable == null || interceptable.invokeL(1048583, this, dx5Var) == null) && (kx5Var = this.b) != null) {
+            kx5Var.w(dx5Var);
         }
     }
 }

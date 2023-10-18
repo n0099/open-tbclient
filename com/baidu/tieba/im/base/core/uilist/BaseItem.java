@@ -5,12 +5,12 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.DiffUtil;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.el8;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityEffectItem;
 import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
-import com.baidu.tieba.yf8;
+import com.baidu.tieba.ja8;
+import com.baidu.tieba.of8;
+import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
@@ -28,9 +27,9 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0010\u0000\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\b&\u0018\u0000 .*\b\b\u0000\u0010\u0001*\u00020\u00022\u00020\u00032\u00020\u00042\u0010\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\u00020\u00000\u0005:\u0001.B\u0005¢\u0006\u0002\u0010\u0006J\u0013\u0010\u001e\u001a\u00020\b2\b\u0010\u001f\u001a\u0004\u0018\u00010 H\u0096\u0002J\u001a\u0010!\u001a\u0004\u0018\u00010 2\u000e\u0010\"\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00020\u0000H\u0017J\u000b\u0010#\u001a\u00028\u0000¢\u0006\u0002\u0010$J\b\u0010%\u001a\u00020\u0016H\u0016J\u000e\u0010&\u001a\u00020'2\u0006\u0010\u001c\u001a\u00020\u0002J\u0018\u0010(\u001a\u00020\b2\u000e\u0010)\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00020\u0000H\u0017J\b\u0010*\u001a\u00020\bH\u0016J\n\u0010+\u001a\u0004\u0018\u00010,H\u0016J\u0012\u0010-\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u0002\u0018\u00010\u0000H\u0016R\u001b\u0010\u0007\u001a\u00020\b8FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\n\u0010\u000b\u001a\u0004\b\u0007\u0010\tR\u001a\u0010\f\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\t\"\u0004\b\r\u0010\u000eR,\u0010\u000f\u001a\u0014\u0012\u000e\b\u0001\u0012\n\u0012\u0006\b\u0001\u0012\u00020\u00020\u0000\u0018\u00010\u0010X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014R \u0010\u0015\u001a\u00020\u0016X\u0086\u000e¢\u0006\u0014\n\u0000\u0012\u0004\b\u0017\u0010\u0006\u001a\u0004\b\u0018\u0010\u0019\"\u0004\b\u001a\u0010\u001bR\u0010\u0010\u001c\u001a\u00028\u0000X\u0082.¢\u0006\u0004\n\u0002\u0010\u001d¨\u0006/"}, d2 = {"Lcom/baidu/tieba/im/base/core/uilist/BaseItem;", "TbMsg", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "Lcom/baidu/adp/widget/ListView/IAdapterData;", "Ljava/io/Serializable;", "Lcom/baidu/tieba/im/lib/socket/listener/ShallowClone;", "()V", "isLeft", "", "()Z", "isLeft$delegate", "Lkotlin/Lazy;", "isShowLocatedColor", "setShowLocatedColor", "(Z)V", "itemEventCallback", "Lcom/baidu/tieba/im/base/core/uilist/ItemEventCallback;", "getItemEventCallback", "()Lcom/baidu/tieba/im/base/core/uilist/ItemEventCallback;", "setItemEventCallback", "(Lcom/baidu/tieba/im/base/core/uilist/ItemEventCallback;)V", "sendStatus", "", "getSendStatus$annotations", "getSendStatus", "()I", "setSendStatus", "(I)V", "tbMsg", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "equals", "other", "", "getChangePayload", "newMsg", "getTbMsg", "()Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", TTDownloadField.TT_HASHCODE, "injectTbMsg", "", "isContentChanged", "newItem", "needBubbleInfo", "provideAction", "Lcom/baidu/tieba/im/base/core/uilist/Action;", "shallowClone", "Companion", "im-base-core_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0010\u0000\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\b&\u0018\u0000 .*\b\b\u0000\u0010\u0001*\u00020\u00022\u00020\u00032\u00020\u00042\u0010\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\u00020\u00000\u0005:\u0001.B\u0005¢\u0006\u0002\u0010\u0006J\u0013\u0010\u001e\u001a\u00020\b2\b\u0010\u001f\u001a\u0004\u0018\u00010 H\u0096\u0002J\u001a\u0010!\u001a\u0004\u0018\u00010 2\u000e\u0010\"\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00020\u0000H\u0017J\u000b\u0010#\u001a\u00028\u0000¢\u0006\u0002\u0010$J\b\u0010%\u001a\u00020\u0016H\u0016J\u000e\u0010&\u001a\u00020'2\u0006\u0010\u001c\u001a\u00020\u0002J\u0018\u0010(\u001a\u00020\b2\u000e\u0010)\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00020\u0000H\u0017J\b\u0010*\u001a\u00020\bH\u0016J\n\u0010+\u001a\u0004\u0018\u00010,H\u0016J\u0012\u0010-\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u0002\u0018\u00010\u0000H\u0016R\u001b\u0010\u0007\u001a\u00020\b8FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\n\u0010\u000b\u001a\u0004\b\u0007\u0010\tR\u001a\u0010\f\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\t\"\u0004\b\r\u0010\u000eR,\u0010\u000f\u001a\u0014\u0012\u000e\b\u0001\u0012\n\u0012\u0006\b\u0001\u0012\u00020\u00020\u0000\u0018\u00010\u0010X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014R \u0010\u0015\u001a\u00020\u0016X\u0086\u000e¢\u0006\u0014\n\u0000\u0012\u0004\b\u0017\u0010\u0006\u001a\u0004\b\u0018\u0010\u0019\"\u0004\b\u001a\u0010\u001bR\u0010\u0010\u001c\u001a\u00028\u0000X\u0082.¢\u0006\u0004\n\u0002\u0010\u001d¨\u0006/"}, d2 = {"Lcom/baidu/tieba/im/base/core/uilist/BaseItem;", "TbMsg", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "Lcom/baidu/adp/widget/ListView/IAdapterData;", "Ljava/io/Serializable;", "Lcom/baidu/tieba/im/lib/socket/listener/ShallowClone;", "()V", "isLeft", "", "()Z", "isLeft$delegate", "Lkotlin/Lazy;", "isShowLocatedColor", "setShowLocatedColor", "(Z)V", "itemEventCallback", "Lcom/baidu/tieba/im/base/core/uilist/ItemEventCallback;", "getItemEventCallback", "()Lcom/baidu/tieba/im/base/core/uilist/ItemEventCallback;", "setItemEventCallback", "(Lcom/baidu/tieba/im/base/core/uilist/ItemEventCallback;)V", "sendStatus", "", "getSendStatus$annotations", "getSendStatus", "()I", "setSendStatus", "(I)V", "tbMsg", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "equals", "other", "", "getChangePayload", "newMsg", "getTbMsg", "()Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "hashCode", "injectTbMsg", "", "isContentChanged", "newItem", "needBubbleInfo", "provideAction", "Lcom/baidu/tieba/im/base/core/uilist/Action;", "shallowClone", "Companion", "im-base-core_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public abstract class BaseItem<TbMsg extends TbBaseMsg> implements bn, Serializable, Object<BaseItem<? extends TbBaseMsg>> {
+public abstract class BaseItem<TbMsg extends TbBaseMsg> implements yh, Serializable, Object<BaseItem<? extends TbBaseMsg>> {
     public static /* synthetic */ Interceptable $ic;
     public static final Comparator<BaseItem<?>> COMPARATOR;
     public static final Companion Companion;
@@ -39,7 +38,7 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements bn, Serializa
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy isLeft$delegate;
     public boolean isShowLocatedColor;
-    public yf8<? extends BaseItem<? extends TbBaseMsg>> itemEventCallback;
+    public ja8<? extends BaseItem<? extends TbBaseMsg>> itemEventCallback;
     public int sendStatus;
     public TbMsg tbMsg;
 
@@ -52,7 +51,7 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements bn, Serializa
     public static /* synthetic */ void getSendStatus$annotations() {
     }
 
-    @Override // com.baidu.tieba.bn
+    @Override // com.baidu.tieba.yh
     public abstract /* synthetic */ BdUniqueId getType();
 
     public boolean needBubbleInfo() {
@@ -186,7 +185,7 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements bn, Serializa
                         return invokeV.objValue;
                     }
 
-                    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.bn
+                    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.yh
                     public BdUniqueId getType() {
                         InterceptResult invokeV;
                         BdUniqueId bdUniqueId;
@@ -428,7 +427,7 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements bn, Serializa
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return Boolean.valueOf(!el8.c(this.this$0.getTbMsg().getUserId()));
+                    return Boolean.valueOf(!of8.c(this.this$0.getTbMsg().getUserId()));
                 }
                 return (Boolean) invokeV.objValue;
             }
@@ -445,13 +444,13 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements bn, Serializa
         return invokeV.objValue;
     }
 
-    public final yf8<? extends BaseItem<? extends TbBaseMsg>> getItemEventCallback() {
+    public final ja8<? extends BaseItem<? extends TbBaseMsg>> getItemEventCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.itemEventCallback;
         }
-        return (yf8) invokeV.objValue;
+        return (ja8) invokeV.objValue;
     }
 
     public final int getSendStatus() {
@@ -506,10 +505,10 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements bn, Serializa
         }
     }
 
-    public final void setItemEventCallback(yf8<? extends BaseItem<? extends TbBaseMsg>> yf8Var) {
+    public final void setItemEventCallback(ja8<? extends BaseItem<? extends TbBaseMsg>> ja8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, yf8Var) == null) {
-            this.itemEventCallback = yf8Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, ja8Var) == null) {
+            this.itemEventCallback = ja8Var;
         }
     }
 

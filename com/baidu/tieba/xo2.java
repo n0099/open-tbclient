@@ -1,311 +1,164 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+@Autowired
 /* loaded from: classes8.dex */
-public class xo2 {
+public final class xo2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
+    @Inject(force = false)
+    public static ar2 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new o34();
         }
-        return invokeL.booleanValue;
+        return (ar2) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final xo2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-282711920, "Lcom/baidu/tieba/xo2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-282711920, "Lcom/baidu/tieba/xo2$b;");
-                    return;
-                }
-            }
-            a = new xo2(null);
-        }
-    }
-
-    public xo2() {
+    @Inject(force = false)
+    public static fd2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new y04();
         }
+        return (fd2) invokeV.objValue;
     }
 
-    public static xo2 c() {
+    @Inject(force = false)
+    public static um1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+            return a84.a();
         }
-        return (xo2) invokeV.objValue;
+        return (um1) invokeV.objValue;
     }
 
-    public /* synthetic */ xo2(a aVar) {
-        this();
-    }
-
-    public final boolean a(File file, File file2) {
-        InterceptResult invokeLL;
+    @Inject(force = false)
+    public static vm1 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-            if (file != null && file.exists() && file2 != null) {
-                if (!file2.exists()) {
-                    kr4.l(file2);
-                }
-                String[] list = file.list();
-                if (list != null && list.length != 0) {
-                    for (String str : list) {
-                        if (!TextUtils.isEmpty(str)) {
-                            File file3 = new File(file, str);
-                            if (file3.exists()) {
-                                boolean isFile = file3.isFile();
-                                File file4 = new File(file2, str);
-                                if (file4.exists()) {
-                                    kr4.j(file4);
-                                }
-                                if (isFile) {
-                                    kr4.h(file4);
-                                    kr4.f(file3, file4);
-                                } else if (file3.isDirectory()) {
-                                    kr4.e(file3, file4);
-                                }
-                            }
-                        }
-                    }
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return q24.a();
         }
-        return invokeLL.booleanValue;
+        return (vm1) invokeV.objValue;
     }
 
-    public final boolean b(@NonNull File file) {
-        InterceptResult invokeL;
+    @Inject(force = false)
+    public static wm1 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
-            if (file.exists() && file.isDirectory()) {
-                File file2 = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-                File file3 = new File(xj3.c());
-                File[] listFiles = file.listFiles();
-                if (listFiles != null && listFiles.length != 0) {
-                    kr4.l(file2);
-                    kr4.l(file3);
-                    File file4 = null;
-                    for (File file5 : listFiles) {
-                        String name = file5.getName();
-                        if (!TextUtils.isEmpty(name)) {
-                            if (name.endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION)) {
-                                file4 = new File(file2, name);
-                            } else if (name.endsWith(SwanKV.PREFS_SUFFIX)) {
-                                file4 = new File(file3, name);
-                            }
-                            if (file4 != null) {
-                                if (file4.exists()) {
-                                    kr4.L(file4);
-                                }
-                                if (file5.isFile()) {
-                                    kr4.h(file4);
-                                    kr4.f(file5, file4);
-                                } else {
-                                    kr4.e(file5, file4);
-                                }
-                            }
-                        }
-                    }
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new r24();
         }
-        return invokeL.booleanValue;
+        return (wm1) invokeV.objValue;
     }
 
-    public boolean e(String str, File file) {
-        InterceptResult invokeLL;
+    @Inject(force = false)
+    public static xm1 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
-            if (file != null && file.exists()) {
-                return a(new File(file, yo2.h), yo2.a);
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return new s24();
         }
-        return invokeLL.booleanValue;
+        return (xm1) invokeV.objValue;
     }
 
-    public boolean g(String str, File file) {
-        InterceptResult invokeLL;
+    @Inject(force = false)
+    public static ym1 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, file)) == null) {
-            if (file != null && file.exists()) {
-                return a(new File(file, yo2.i), AppRuntime.getAppContext().getFilesDir());
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return new t24();
         }
-        return invokeLL.booleanValue;
+        return (ym1) invokeV.objValue;
     }
 
-    public boolean h(String str, File file) {
-        InterceptResult invokeLL;
+    @Inject(force = false)
+    public static zm1 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, file)) == null) {
-            if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
-                return b(new File(file, yo2.j));
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new j04();
         }
-        return invokeLL.booleanValue;
+        return (zm1) invokeV.objValue;
     }
 
-    public boolean j(String str, File file) {
-        InterceptResult invokeLL;
+    @Inject(force = false)
+    public static an1 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, file)) == null) {
-            if (file != null && file.exists()) {
-                return a(new File(file, yo2.g), yo2.a);
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return o14.a();
         }
-        return invokeLL.booleanValue;
+        return (an1) invokeV.objValue;
     }
 
-    public boolean f(String str, File file) {
-        InterceptResult invokeLL;
+    @Inject(force = false)
+    public static bn1 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, file)) == null) {
-            if (file != null && file.exists()) {
-                boolean a2 = a(new File(file, yo2.k), new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "databases"));
-                SwanAppDbControl.f(AppRuntime.getAppContext()).p();
-                wj4.a().e();
-                nu2.g0().E();
-                return a2;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return i64.a();
         }
-        return invokeLL.booleanValue;
+        return (bn1) invokeV.objValue;
     }
 
-    public boolean i(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        String str2;
-        String str3;
+    @Inject(force = false)
+    public static cn1 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            vo2.n().p("installSwanApp start, appKey = " + str);
-            File a2 = yo2.a();
-            if (a2 != null && a2.exists()) {
-                File file = new File(a2, yo2.m);
-                if (!file.exists()) {
-                    vo2.n().p("installSwanApp clone_zipFiles file not exists");
-                    return false;
-                }
-                File a3 = wo2.a(kr4.G(file), a2);
-                if (a3 != null && a3.exists()) {
-                    File file2 = new File(yo2.d);
-                    if (file2.exists()) {
-                        kr4.L(file2);
-                    }
-                    if (!kr4.l(file2)) {
-                        vo2.n().p("installSwanApp root cache dir create fail");
-                        return false;
-                    }
-                    if (kr4.W(a3.getAbsolutePath(), yo2.d) != null) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (z) {
-                        kr4.j(file);
-                        kr4.j(a3);
-                    }
-                    vo2.n().p("unzip file status = " + z);
-                    File file3 = new File(yo2.d);
-                    String[] list = file3.list();
-                    if (list != null && list.length != 0) {
-                        int length = list.length;
-                        int i = 0;
-                        while (true) {
-                            str2 = null;
-                            if (i < length) {
-                                String str4 = list[i];
-                                if (!TextUtils.isEmpty(str4) && str4.startsWith(yo2.e)) {
-                                    str2 = str4.substring(yo2.e.length());
-                                    str3 = str4;
-                                    break;
-                                }
-                                i++;
-                            } else {
-                                str3 = null;
-                                break;
-                            }
-                        }
-                        if (TextUtils.equals(str, str2) && !TextUtils.isEmpty(str3)) {
-                            File file4 = new File(yo2.d, str3);
-                            boolean j = j(str, file4);
-                            boolean e = e(str, file4);
-                            boolean h = h(str, file4);
-                            boolean f = f(str, file4);
-                            boolean d = d(str);
-                            boolean g = g(str, file4);
-                            vo2.n().p("installSwanPkg = " + j + " ; installCore = " + e + " ; installSp = " + h + " ; installDb = " + f + " ; installAbTest = " + d + " ; installDynamicLib = " + g);
-                            return kr4.j(file3);
-                        }
-                        vo2.n().p("installSwanApp install appKey not match zip file appKey");
-                        return false;
-                    }
-                    vo2.n().p("installSwanApp unzip file length invalid");
-                    return false;
-                }
-                vo2.n().p("installSwanApp cloneZip.zip file not exists");
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return new i84();
         }
-        return invokeL.booleanValue;
+        return (cn1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static dn1 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return v24.a();
+        }
+        return (dn1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static fn1 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return u64.a();
+        }
+        return (fn1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static gn1 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return l64.a();
+        }
+        return (gn1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static in1 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return s74.a();
+        }
+        return (in1) invokeV.objValue;
     }
 }

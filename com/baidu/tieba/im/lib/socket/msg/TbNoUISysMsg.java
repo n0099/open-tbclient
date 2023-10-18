@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.cl8;
 import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
+import com.baidu.tieba.mf8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class TbNoUISysMsg extends TbSysMsg {
     public TbSysMsg.ChatRoomInfo chatroomInfo;
     @Nullable
     @SerializedName("mask_info")
-    public cl8 maskInfo;
+    public mf8 maskInfo;
     @Nullable
     @SerializedName("user_to")
     public TbSysMsg.User userTo;
@@ -84,13 +84,13 @@ public class TbNoUISysMsg extends TbSysMsg {
     }
 
     @Nullable
-    public cl8 getMaskInfo() {
+    public mf8 getMaskInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.maskInfo;
         }
-        return (cl8) invokeV.objValue;
+        return (mf8) invokeV.objValue;
     }
 
     @Nullable

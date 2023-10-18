@@ -12,12 +12,12 @@ public class jl extends jn {
 
     @Override // com.xiaomi.push.jn
     public int a(byte[] bArr, int i, int i2) {
-        byte[] m695a = this.f818a.m695a();
+        byte[] m694a = this.f818a.m694a();
         if (i2 > this.f818a.a() - this.a) {
             i2 = this.f818a.a() - this.a;
         }
         if (i2 > 0) {
-            System.arraycopy(m695a, this.a, bArr, i, i2);
+            System.arraycopy(m694a, this.a, bArr, i, i2);
             this.a += i2;
         }
         return i2;
@@ -25,7 +25,7 @@ public class jl extends jn {
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a */
-    public void mo721a(byte[] bArr, int i, int i2) {
+    public void mo720a(byte[] bArr, int i, int i2) {
         this.f818a.write(bArr, i, i2);
     }
 

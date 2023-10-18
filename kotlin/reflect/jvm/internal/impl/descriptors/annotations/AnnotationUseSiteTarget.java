@@ -4,7 +4,7 @@ import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import kotlin.TypeCastException;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public enum AnnotationUseSiteTarget {
     FIELD(null, 1, null),
     FILE(null, 1, null),

@@ -1,12 +1,12 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.qcc;
+import com.baidu.tieba.n6c;
 /* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter$NoneEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static final long serialVersionUID = 3776720187248809713L;
 
-    public OnSubscribeFromEmitter$NoneEmitter(qcc<? super T> qccVar) {
-        super(qccVar);
+    public OnSubscribeFromEmitter$NoneEmitter(n6c<? super T> n6cVar) {
+        super(n6cVar);
     }
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter

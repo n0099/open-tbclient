@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b15;
+import com.baidu.tieba.hy4;
+import com.baidu.tieba.jv4;
 import com.baidu.tieba.tbadkcore.databinding.LayoutHeadlinesFrameCardBinding;
 import com.baidu.tieba.view.SimpleCountDownView;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.z35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -251,25 +251,25 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void h(b15 b15Var) {
+    public final void h(jv4 jv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jv4Var) == null) {
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(this);
-            constraintSet.setDimensionRatio(R.id.background_card, b15Var.getThreadData().getTaskInfoData().a());
+            constraintSet.setDimensionRatio(R.id.background_card, jv4Var.getThreadData().getTaskInfoData().a());
             constraintSet.applyTo(this);
             TbImage tbImage = this.a.b;
-            String m = b15Var.getThreadData().getTaskInfoData().m();
+            String m = jv4Var.getThreadData().getTaskInfoData().m();
             Intrinsics.checkNotNullExpressionValue(m, "data.threadData.taskInfoData.threadImgUrl");
             tbImage.l(m);
         }
     }
 
-    public final void i(z35 z35Var) {
+    public final void i(hy4 hy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, z35Var) == null) {
-            this.a.g.setText(z35Var.c());
-            long j = JavaTypesHelper.toLong(z35Var.d(), 0L) * 1000;
+        if (interceptable == null || interceptable.invokeL(1048579, this, hy4Var) == null) {
+            this.a.g.setText(hy4Var.c());
+            long j = JavaTypesHelper.toLong(hy4Var.d(), 0L) * 1000;
             if (j <= System.currentTimeMillis()) {
                 this.a.g.setVisibility(0);
                 this.a.f.setVisibility(8);
@@ -279,28 +279,28 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void j(z35 z35Var) {
+    public final void j(hy4 hy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, z35Var) == null) {
-            if (ListUtils.isEmpty(z35Var.e())) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, hy4Var) == null) {
+            if (ListUtils.isEmpty(hy4Var.e())) {
                 f(8);
                 return;
             }
             this.e.clear();
-            this.e.addAll(z35Var.e());
+            this.e.addAll(hy4Var.e());
             f(0);
             this.a.c.q();
-            if (!TextUtils.isEmpty(z35Var.m())) {
-                this.a.e.setText(z35Var.m());
+            if (!TextUtils.isEmpty(hy4Var.m())) {
+                this.a.e.setText(hy4Var.m());
             }
         }
     }
 
-    public final void setData(b15 b15Var) {
+    public final void setData(jv4 jv4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, b15Var) == null) && b15Var != null && b15Var.getThreadData() != null && b15Var.getThreadData().getTaskInfoData() != null && b15Var.getThreadData().getTaskInfoData().f() != null) {
-            z35 rewardCardData = b15Var.getThreadData().getTaskInfoData().f();
-            h(b15Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, jv4Var) == null) && jv4Var != null && jv4Var.getThreadData() != null && jv4Var.getThreadData().getTaskInfoData() != null && jv4Var.getThreadData().getTaskInfoData().f() != null) {
+            hy4 rewardCardData = jv4Var.getThreadData().getTaskInfoData().f();
+            h(jv4Var);
             Intrinsics.checkNotNullExpressionValue(rewardCardData, "rewardCardData");
             j(rewardCardData);
             i(rewardCardData);

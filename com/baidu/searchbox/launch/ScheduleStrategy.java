@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ScheduleStrategy {
     public static final String BUSINESS_PRIVATE_STICKINESS = "{\"bdwindow\": {\"high_device_stickiness\": 0.0001,\"mid_device_stickiness\": 0.005,\"low_device_stickiness\": 0.01},\"swan\": {\"high_device_stickiness\": 0.0005,\"mid_device_stickiness\": 0.025,\"low_device_stickiness\": 0.05}}";
     public static final double DEFAULT_DYNAMIC_SCORE_WEIGHT = 0.0d;
@@ -46,7 +46,7 @@ public class ScheduleStrategy {
     public static double midDeviceStickinessThreshold = 0.05d;
     public static double lowDeviceStickinessThreshold = 0.1d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum DeviceType {
         LOW,
         MID,
@@ -54,7 +54,7 @@ public class ScheduleStrategy {
     }
 
     /* renamed from: com.baidu.searchbox.launch.ScheduleStrategy$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$launch$ScheduleStrategy$DeviceType;
 

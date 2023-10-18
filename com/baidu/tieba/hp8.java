@@ -1,24 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hp8<T> {
+public class hp8 extends op8 implements yl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public T b;
+
+    @Override // com.baidu.tieba.wl5
+    public String getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yl5
+    public String toCacheString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
 
     public hp8() {
         Interceptable interceptable = $ic;
@@ -34,90 +43,19 @@ public class hp8<T> {
         }
     }
 
-    public T a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yl5
+    public boolean initByString(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r1v8, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
-    /* JADX WARN: Type inference failed for: r1v9, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    /* JADX WARN: Type inference failed for: r4v2, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (str == null) {
-                return -1;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() == 3) {
-                    jSONArray.optString(0);
-                    this.a = jSONArray.optInt(1);
-                    JSONObject optJSONObject = jSONArray.optJSONObject(2);
-                    if (1 == this.a) {
-                        String optString = optJSONObject.optString(NativeConstants.ID_BUTTON);
-                        String optString2 = optJSONObject.optString("shareSourceIcon");
-                        String optString3 = optJSONObject.optString("shareSource");
-                        String optString4 = optJSONObject.optString("shareUrl");
-                        String optString5 = optJSONObject.optString("shareSourceUrl");
-                        if (TextUtils.isEmpty(optString4)) {
-                            ?? r4 = (T) new ShareFromPBMsgData();
-                            r4.setContent(optJSONObject.optString("themeContent"));
-                            r4.setForumName(optJSONObject.optString("forumName"));
-                            r4.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                            r4.setPostId(optJSONObject.optString("postID"));
-                            r4.setThreadId(optJSONObject.optString("themeID"));
-                            r4.setTitle(optJSONObject.optString("themeTitle"));
-                            r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
-                            r4.setThreadType(optJSONObject.optInt("threadType"));
-                            this.b = r4;
-                            return 0;
-                        }
-                        ?? r1 = (T) new ShareFromGameCenterMsgData();
-                        r1.setContent(optJSONObject.optString("themeContent"));
-                        r1.setForumName(optJSONObject.optString("forumName"));
-                        r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                        r1.setPostId(optJSONObject.optString("postID"));
-                        r1.setThreadId(optJSONObject.optString("themeID"));
-                        r1.setTitle(optJSONObject.optString("themeTitle"));
-                        r1.setButton(optString);
-                        r1.setShareSource(optString3);
-                        r1.setShareSourceIcon(optString2);
-                        r1.setShareSourceUrl(optString5);
-                        r1.setShareUrl(optString4);
-                        this.b = r1;
-                        return 1;
-                    } else if (4 == this.a) {
-                        ?? r12 = (T) new ShareFromFrsMsgData();
-                        r12.setName(optJSONObject.optString("forumName"));
-                        r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                        r12.setMemberNum(optJSONObject.optInt("memberNum"));
-                        r12.setPostNum(optJSONObject.optInt("postNum"));
-                        this.b = r12;
-                        return 2;
-                    } else {
-                        return -1;
-                    }
-                }
-                return -1;
-            } catch (Exception unused) {
-                return -1;
+                initByJson(new JSONObject(str));
+                return true;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
             }
         }
-        return invokeLL.intValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,69 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.tieba.pk4;
+import android.content.pm.PackageInfo;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import com.heytap.mcssdk.PushService;
 import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class sw3 implements ql4 {
+public class sw3 extends vx3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948165786, "Lcom/baidu/tieba/sw3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948165786, "Lcom/baidu/tieba/sw3;");
+                return;
+            }
+        }
+        c = am1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sw3() {
+        super("checkAppInstalled");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.pk4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, pk4.a aVar) {
+    @Override // com.baidu.tieba.vx3
+    public qx1 a(@NonNull JSONObject jSONObject, @NonNull ti2 ti2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            if (PMSConstants.a(ri4.b())) {
-                jk4.b(str, map, map2, jSONObject, new ju3(aVar));
-            } else {
-                jk4.b(str, map, map2, jSONObject, new qk4(aVar));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ti2Var)) == null) {
+            if (c) {
+                Log.d("checkAppInstalled", "handle: " + jSONObject);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ql4
-    public cl4 c(String str, int i) throws Exception {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            return al4.a(str, i);
-        }
-        return (cl4) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.pk4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, pk4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
-            if (PMSConstants.a(ri4.b())) {
-                jk4.a(str, map, map2, new ju3(aVar));
-            } else {
-                jk4.a(str, map, map2, new qk4(aVar));
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                ti2Var.onFail(31010, "package name is empty");
+                return null;
             }
+            try {
+                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
+                if (c) {
+                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
+                }
+                if (packageInfo != null) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put(PushService.APP_VERSION_NAME, packageInfo.versionName);
+                    jSONObject3.put(PushService.APP_VERSION_CODE, packageInfo.versionCode);
+                    jSONObject2.put("data", jSONObject3);
+                    ti2Var.onSuccess(jSONObject2);
+                } else {
+                    ti2Var.onFail(31016, "no package info");
+                }
+            } catch (Exception unused) {
+                ti2Var.onFail(31011, "app is not installed");
+            }
+            return null;
         }
+        return (qx1) invokeLL.objValue;
     }
 }

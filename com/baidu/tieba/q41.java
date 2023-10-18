@@ -1,27 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.b31;
+import com.baidu.tieba.b51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
-public class q41 {
+public final class q41 extends n41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final ArrayList<String> b;
-    public final StringBuilder c;
+    public final he0 a;
+    public final r41 b;
 
-    public q41() {
+    /* loaded from: classes7.dex */
+    public static final class a implements he0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q41 a;
+
+        public a(q41 q41Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q41Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q41Var;
+        }
+
+        @Override // com.baidu.tieba.he0
+        public final void a(boolean z, Map<String, String> map) {
+            AbsNadBrowserView m;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, map) == null) {
+                String p = me0.p(map);
+                if (!TextUtils.isEmpty(p) && (m = this.a.b.m()) != null) {
+                    AbsNadBrowserView.C(m, p, null, 2, null);
+                }
+            }
+        }
+    }
+
+    public q41(r41 container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {container};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,171 +73,71 @@ public class q41 {
                 return;
             }
         }
-        this.a = false;
-        this.b = new ArrayList<>();
-        this.c = new StringBuilder();
+        Intrinsics.checkNotNullParameter(container, "container");
+        this.b = container;
+        this.a = new a(this);
     }
 
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append((CharSequence) this.c);
-            if (this.a) {
-                sb.insert(0, "(");
-                sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            }
-            sb.insert(0, " WHERE ");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static q41 g(Column column) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, column)) == null) {
-            return i(column.field, column.stringValue());
-        }
-        return (q41) invokeL.objValue;
-    }
-
-    public static q41 h(g41 g41Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, g41Var)) == null) {
-            q41 q41Var = new q41();
-            q41Var.f(null, g41Var, " = ?");
-            return q41Var;
-        }
-        return (q41) invokeL.objValue;
-    }
-
-    public static q41 k(Column... columnArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, columnArr)) == null) {
-            q41 g = g(columnArr[0]);
-            for (int i = 1; i < columnArr.length; i++) {
-                g.b(columnArr[i].field, columnArr[i].stringValue());
-            }
-            return g;
-        }
-        return (q41) invokeL.objValue;
-    }
-
-    public q41 d(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, objArr)) == null) {
-            for (Object obj : objArr) {
-                this.b.add(String.valueOf(obj));
-            }
-            return this;
-        }
-        return (q41) invokeL.objValue;
-    }
-
-    public static q41 i(g41 g41Var, Object obj) {
+    @Override // com.baidu.tieba.n41
+    public boolean f(AbsNadBrowserView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, g41Var, obj)) == null) {
-            q41 h = h(g41Var);
-            h.d(obj);
-            return h;
-        }
-        return (q41) invokeLL.objValue;
-    }
-
-    public q41 b(g41 g41Var, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g41Var, obj)) == null) {
-            c(null, g41Var, obj);
-            return this;
-        }
-        return (q41) invokeLL.objValue;
-    }
-
-    public static q41 j(String str, g41 g41Var, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, g41Var, str2)) == null) {
-            q41 q41Var = new q41();
-            q41Var.f(str, g41Var, str2);
-            return q41Var;
-        }
-        return (q41) invokeLLL.objValue;
-    }
-
-    public q41 a(String str, g41 g41Var, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, g41Var, str2)) == null) {
-            this.a = true;
-            this.c.append(" AND ");
-            f(str, g41Var, str2);
-            return this;
-        }
-        return (q41) invokeLLL.objValue;
-    }
-
-    public q41 c(String str, g41 g41Var, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, g41Var, obj)) == null) {
-            a(str, g41Var, " = ?");
-            d(obj);
-            return this;
-        }
-        return (q41) invokeLLL.objValue;
-    }
-
-    public String[] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String[] strArr = new String[this.b.size()];
-            for (int i = 0; i < this.b.size(); i++) {
-                strArr[i] = this.b.get(i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            String e = y11.e(str);
+            Intrinsics.checkNotNullExpressionValue(e, "UrlUtil.handleAbnormalUrlIfNeeded(url)");
+            if (!TextUtils.isEmpty(e) && (StringsKt__StringsJVMKt.startsWith$default(e, "http://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "https://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "ftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "sftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "ftps://", false, 2, null))) {
+                return false;
             }
-            return strArr;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append((CharSequence) this.c);
-            if (this.a) {
-                sb.insert(0, "(");
-                sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            if (str != null && this.b.a(str)) {
+                return true;
             }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void f(String str, g41 g41Var, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, g41Var, str2) == null) {
-            if (g41Var != null) {
-                if (str != null) {
-                    this.c.append(str);
-                    this.c.append(".");
+            o(webView, str);
+            if (this.b.l() != null) {
+                b51.d l = this.b.l();
+                Intrinsics.checkNotNull(l);
+                if (!l.a()) {
+                    return true;
                 }
-                this.c.append(g41Var.b);
-                if (str2.charAt(0) != ' ') {
-                    this.c.append(" ");
-                }
-            } else if (str != null) {
-                throw new IllegalArgumentException("prefix should be null when field is null");
             }
-            this.c.append(str2);
+            if (!ke0.a(this.b.b(), str) || wd0.b(this.b.b(), str, false) || b31.b.a().a(this.b.b(), str, webView.getUrl(), this.a) || yd0.c(str, this.b.b())) {
+                return true;
+            }
+            if (n51.b() && ge0.b.a(this.b.b(), str, null, this.a)) {
+                return true;
+            }
+            AbsNadBrowserView m = this.b.m();
+            if (m != null) {
+                m.U();
+            }
+            return super.f(webView, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void o(AbsNadBrowserView absNadBrowserView, String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absNadBrowserView, str) == null) && str != null) {
+            String str3 = null;
+            if (StringsKt__StringsJVMKt.startsWith$default(str, "tel:", false, 2, null) && this.b.b() != null) {
+                b51.d l = this.b.l();
+                if (l != null) {
+                    str2 = l.f();
+                } else {
+                    str2 = null;
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    j81 j81Var = new j81();
+                    Activity b = this.b.b();
+                    Intrinsics.checkNotNull(b);
+                    b51.d l2 = this.b.l();
+                    if (l2 != null) {
+                        str3 = l2.f();
+                    }
+                    j81Var.p(b, str3, "tel");
+                }
+            }
         }
     }
 }

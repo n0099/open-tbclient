@@ -1,139 +1,43 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes6.dex */
 public class hu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
-        int i;
-        int i2;
-        int i3;
+    @Inject(force = false)
+    public static iu3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (cu3.a) {
-                Log.d("BDTLS", "bdtls success");
-            }
-            ru3 m = iu3.l().m();
-            if (m == null) {
-                if (cu3.a) {
-                    Log.d("BDTLS", "bdtls ubc data is null");
-                    return;
-                }
-                return;
-            }
-            try {
-                int i4 = -1;
-                if (m.d() != null) {
-                    i = m.d().intValue();
-                } else {
-                    i = -1;
-                }
-                if (m.f() != null) {
-                    i2 = m.f().intValue();
-                } else {
-                    i2 = -1;
-                }
-                if (m.e() != null) {
-                    i3 = m.e().intValue();
-                } else {
-                    i3 = -1;
-                }
-                if (m.g() != null) {
-                    i4 = m.g().intValue();
-                }
-                if (cu3.a) {
-                    Log.d("BDTLS", "bdtls ubc get data");
-                }
-                ji3 ji3Var = new ji3();
-                ji3Var.b = str;
-                ji3Var.a("dh_group_id", Integer.valueOf(i));
-                ji3Var.a("dh_secret", Integer.valueOf(i2));
-                ji3Var.a("dh_pub_c", Integer.valueOf(i3));
-                ji3Var.a("dh_pub_s", Integer.valueOf(i4));
-                if (cu3.a) {
-                    Log.d("BDTLS", "bdtls ubc create event");
-                }
-                zh3.d(ji3Var);
-            } catch (Exception e) {
-                if (cu3.a) {
-                    Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return i24.a();
         }
+        return (iu3) invokeV.objValue;
     }
 
-    public static void b(ru3 ru3Var, Bdtls$Alert bdtls$Alert) {
-        String str;
-        int i;
-        int i2;
-        int i3;
-        String str2;
+    @Inject
+    public static ju3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, ru3Var, bdtls$Alert) == null) {
-            if (cu3.a) {
-                Log.d("BDTLS", "bdtls ubc");
-            }
-            if (ru3Var != null && bdtls$Alert != null) {
-                try {
-                    if (bdtls$Alert.getLevel() == 1) {
-                        str = "warning";
-                    } else {
-                        str = "fatal_error";
-                    }
-                    int i4 = -1;
-                    if (ru3Var.d() != null) {
-                        i = ru3Var.d().intValue();
-                    } else {
-                        i = -1;
-                    }
-                    if (ru3Var.f() != null) {
-                        i2 = ru3Var.f().intValue();
-                    } else {
-                        i2 = -1;
-                    }
-                    if (ru3Var.e() != null) {
-                        i3 = ru3Var.e().intValue();
-                    } else {
-                        i3 = -1;
-                    }
-                    if (ru3Var.g() != null) {
-                        i4 = ru3Var.g().intValue();
-                    }
-                    if (bdtls$Alert.getDescription() != null) {
-                        str2 = new String(bdtls$Alert.getDescription().toByteArray());
-                    } else {
-                        str2 = "";
-                    }
-                    if (cu3.a) {
-                        Log.d("BDTLS", "bdtls ubc get data");
-                    }
-                    ji3 ji3Var = new ji3();
-                    ji3Var.b = "alert";
-                    ji3Var.e = str;
-                    ji3Var.a("dh_group_id", Integer.valueOf(i));
-                    ji3Var.a("dh_secret", Integer.valueOf(i2));
-                    ji3Var.a("dh_pub_c", Integer.valueOf(i3));
-                    ji3Var.a("dh_pub_s", Integer.valueOf(i4));
-                    ji3Var.a("alert_msg", str2);
-                    if (cu3.a) {
-                        Log.d("BDTLS", "bdtls ubc create event");
-                    }
-                    zh3.d(ji3Var);
-                } catch (Exception e) {
-                    if (cu3.a) {
-                        Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
-                        e.printStackTrace();
-                    }
-                }
-            } else if (cu3.a) {
-                Log.d("BDTLS", "bdtls ubc data is null");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return bp2.a();
         }
+        return (ju3) invokeV.objValue;
+    }
+
+    @Inject
+    public static ku3 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new cp2();
+        }
+        return (ku3) invokeV.objValue;
     }
 }

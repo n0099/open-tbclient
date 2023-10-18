@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
+import com.baidu.tieba.write.write.sticker.view.StickerView;
 /* loaded from: classes7.dex */
 public interface m3b {
-    void a(Bundle bundle, Intent intent);
+    void a(StickerView stickerView);
 
-    void onNewIntent(Intent intent);
+    void b(StickerView stickerView, boolean z);
 
-    void onSaveInstanceState(Bundle bundle);
+    void c(StickerView stickerView);
+
+    void onDelete();
 }

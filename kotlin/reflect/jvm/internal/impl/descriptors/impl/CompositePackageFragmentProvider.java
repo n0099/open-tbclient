@@ -10,7 +10,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.PackageFragmentDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.PackageFragmentProvider;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class CompositePackageFragmentProvider implements PackageFragmentProvider {
     public final List<PackageFragmentProvider> providers;
 

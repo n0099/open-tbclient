@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetRemindLiveRooms.YyLiveInfoSimple;
 import tbclient.YyExt;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LiveRemindFloatViewData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

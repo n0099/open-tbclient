@@ -1,27 +1,15 @@
 package com.baidu.tieba;
 
-import android.opengl.Matrix;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ae0 implements Cloneable {
+public class ae0 implements ue1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float[] a;
-    public float[] b;
-    public boolean c;
-    public boolean d;
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-        }
-    }
 
     public ae0() {
         Interceptable interceptable = $ic;
@@ -33,88 +21,35 @@ public class ae0 implements Cloneable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        float[] fArr = new float[16];
-        this.a = fArr;
-        Matrix.setIdentityM(fArr, 0);
-        float[] fArr2 = new float[16];
-        this.b = fArr2;
-        Matrix.setIdentityM(fArr2, 0);
-        this.c = false;
-        this.d = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public ae0 clone() {
-        ae0 ae0Var;
+    @Override // com.baidu.tieba.ue1
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                ae0Var = (ae0) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                ae0Var = null;
-            }
-            if (ae0Var != null) {
-                ae0Var.f((float[]) this.a.clone());
-                ae0Var.g((float[]) this.b.clone());
-            }
-            return ae0Var;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new dc0());
+            arrayList.add(new ec0());
+            arrayList.add(new fc0());
+            arrayList.add(new gc0());
+            arrayList.add(new hc0());
+            arrayList.add(new ic0());
+            arrayList.add(new kc0());
+            arrayList.add(new fd0());
+            arrayList.add(new nh0());
+            arrayList.add(new kk0());
+            arrayList.add(new lk0());
+            arrayList.add(new nk0());
+            arrayList.add(new vk0());
+            arrayList.add(new d01());
+            arrayList.add(new r31());
+            arrayList.add(new t51());
+            arrayList.add(new l06());
+            return arrayList;
         }
-        return (ae0) invokeV.objValue;
-    }
-
-    public float[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (float[]) invokeV.objValue;
-    }
-
-    public float[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (float[]) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fArr) == null) {
-            this.a = fArr;
-        }
-    }
-
-    public void g(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fArr) == null) {
-            this.b = fArr;
-        }
+        return invokeV.objValue;
     }
 }

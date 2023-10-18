@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import tbclient.GetBigday.BigdayInfo;
 /* loaded from: classes5.dex */
-public class cv4 extends vu4 {
+public class cv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.uu4
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "u" : (String) invokeV.objValue;
-    }
+    public String a;
+    public String b;
+    public int c;
+    public long d;
+    public int e;
+    public long f;
+    public long g;
 
     public cv4() {
         Interceptable interceptable = $ic;
@@ -33,21 +35,58 @@ public class cv4 extends vu4 {
         }
     }
 
-    @Override // com.baidu.tieba.uu4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                String substring = strArr[0].substring(1);
-                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/usercenter");
-                sb.append("?portrait=");
-                sb.append(substring);
-                c(strArr, sb, map, 1);
-                return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!StringUtils.isNULL(this.a) && this.d > 0) {
+                int i = this.e;
+                if (i == 1 || i == 3) {
+                    long j = this.f;
+                    if (j > 0) {
+                        long j2 = this.g;
+                        if (j2 > 0 && j2 > j) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return false;
+                }
+                return false;
             }
-            return null;
+            return false;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void b(BigdayInfo bigdayInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigdayInfo) == null) && bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
+            if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
+                this.a = bigdayInfo.img_url;
+                this.b = bigdayInfo.jump_url;
+                this.c = bigdayInfo.img_colour.intValue();
+                this.d = bigdayInfo.id.longValue();
+                this.e = bigdayInfo.position.intValue();
+                this.f = bigdayInfo.start_time.longValue();
+                this.g = bigdayInfo.end_time.longValue();
+            }
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (!(obj instanceof cv4)) {
+                return false;
+            }
+            cv4 cv4Var = (cv4) obj;
+            if (!cv4Var.a() || !a() || this.d != cv4Var.d || !StringHelper.equals(this.a, cv4Var.a) || (((this.b != null || cv4Var.b != null) && !StringHelper.equals(this.b, cv4Var.b)) || this.c != cv4Var.c || this.e != cv4Var.e || this.f != cv4Var.f || this.g != cv4Var.g)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

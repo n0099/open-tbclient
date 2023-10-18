@@ -3,7 +3,8 @@ package com.baidu.tieba.funAd.strategy;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r15;
+import com.baidu.cyberplayer.sdk.task.UpgradeInfo;
+import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class FunAdSidConfigData extends r15 implements Serializable {
+public class FunAdSidConfigData extends zv4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> mBearSidList;
@@ -96,7 +97,7 @@ public class FunAdSidConfigData extends r15 implements Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.r15
+    @Override // com.baidu.tieba.zv4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
@@ -114,7 +115,7 @@ public class FunAdSidConfigData extends r15 implements Serializable {
             this.mExpiryTime = jSONObject.optLong("expiry_time", 0L);
             this.mRecordNum = jSONObject.optInt("record_num", 0);
             this.mSpace = jSONObject.optLong("space", 0L);
-            this.mForce = jSONObject.optInt("force", 0);
+            this.mForce = jSONObject.optInt(UpgradeInfo.KEY_INT_FORCE_UPGRADE, 0);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
@@ -149,7 +150,7 @@ public class FunAdSidConfigData extends r15 implements Serializable {
                 jSONObject.put("expiry_time", this.mExpiryTime);
                 jSONObject.put("record_num", this.mRecordNum);
                 jSONObject.put("space", this.mSpace);
-                jSONObject.put("force", this.mForce);
+                jSONObject.put(UpgradeInfo.KEY_INT_FORCE_UPGRADE, this.mForce);
             } catch (JSONException e) {
                 BdLog.detailException(e);
             }

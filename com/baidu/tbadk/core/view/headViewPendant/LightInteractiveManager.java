@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.wa5;
-import com.baidu.tieba.xa5;
+import com.baidu.tieba.e55;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.hb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -141,7 +141,7 @@ public class LightInteractiveManager {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements xa5 {
+    public class c implements f55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Dialog a;
@@ -164,7 +164,7 @@ public class LightInteractiveManager {
             this.a = dialog;
         }
 
-        @Override // com.baidu.tieba.xa5
+        @Override // com.baidu.tieba.f55
         public void onClose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -224,7 +224,7 @@ public class LightInteractiveManager {
             return;
         }
         MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_QINGHUDONG_EMOTION, TbConfig.SERVER_ADDRESS + "c/c/agree/agreeVirtualImage"));
-        Dialog dialog = new Dialog(context, R.style.obfuscated_res_0x7f1003d9);
+        Dialog dialog = new Dialog(context, R.style.obfuscated_res_0x7f1003d4);
         dialog.setCancelable(true);
         WeakReference weakReference = new WeakReference(dialog.getWindow());
         if (weakReference.get() != null) {
@@ -260,11 +260,11 @@ public class LightInteractiveManager {
             ((LightInteractiveLayout) weakReference2.get()).setOnDismissListener(new c(dialog));
         }
         dialog.setOnShowListener(new d());
-        if ((context instanceof Activity) && jg.e((Activity) context)) {
+        if ((context instanceof Activity) && hb.e((Activity) context)) {
             dialog.show();
         }
         if (metaData != null) {
-            wa5.b(i4, metaData.getUserId());
+            e55.b(i4, metaData.getUserId());
         }
         MessageManager.getInstance().registerListener(aVar);
     }

@@ -1,42 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dd2 {
+public final class dd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dd2() {
+    public static xc2 a(ed2 ed2Var, ud2 ud2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, ed2Var, ud2Var, v8ThreadDelegatePolicy)) == null) {
+            fd2 a = wo2.B0().a(ed2Var);
+            xc2 a2 = a.a(ed2Var.a(), ud2Var, v8ThreadDelegatePolicy);
+            a2.G0(a.getUserAgent());
+            return a2;
         }
+        return (xc2) invokeLLL.objValue;
     }
 
-    public cd2 a(Context context, int i) {
-        InterceptResult invokeLI;
+    public static xc2 b(ed2 ed2Var, ud2 ud2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return new ed2(context);
-                }
-                return new gd2(context);
-            }
-            return new ed2(context);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, ed2Var, ud2Var, v8ThreadDelegatePolicy)) == null) {
+            xc2 a = a(ed2Var, ud2Var, v8ThreadDelegatePolicy);
+            a.o0();
+            return a;
         }
-        return (cd2) invokeLI.objValue;
+        return (xc2) invokeLLL.objValue;
     }
 }

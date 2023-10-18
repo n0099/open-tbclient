@@ -1,127 +1,217 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.config.ABTestConfig;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import android.webkit.WebSettings;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
 public class k20 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile k20 c = null;
+    public static int d = 1;
     public transient /* synthetic */ FieldHolder $fh;
+    public final OkHttpClient a;
+    public Context b;
 
-    public static boolean a(Object obj, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
-            if (obj instanceof Boolean) {
-                return ((Boolean) obj).booleanValue();
-            }
-            return z;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947861056, "Lcom/baidu/tieba/k20;")) == null) {
+            return;
         }
-        return invokeLZ.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947861056, "Lcom/baidu/tieba/k20;");
+        }
     }
 
-    public static String f(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
-            if (obj != null) {
-                return String.valueOf(obj);
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l20 a;
+        public final /* synthetic */ byte[] b;
+        public final /* synthetic */ m20 c;
+        public final /* synthetic */ k20 d;
 
-    public static double b(Object obj, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{obj, Double.valueOf(d)})) == null) {
-            if (obj != null) {
-                try {
-                    if (obj instanceof Double) {
-                        return ((Double) obj).doubleValue();
-                    }
-                    if (obj instanceof Number) {
-                        return ((Number) obj).doubleValue();
-                    }
-                    if (obj instanceof String) {
-                        return Double.valueOf((String) obj).doubleValue();
-                    }
-                } catch (NumberFormatException e) {
-                    if (ABTestConfig.isDebug()) {
-                        throw new ClassCastException("getDoubleSwitch exception " + e);
-                    }
+        public a(k20 k20Var, l20 l20Var, byte[] bArr, m20 m20Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k20Var, l20Var, bArr, m20Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return d;
+            this.d = k20Var;
+            this.a = l20Var;
+            this.b = bArr;
+            this.c = m20Var;
         }
-        return invokeCommon.doubleValue;
-    }
 
-    public static int c(Object obj, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, obj, i)) == null) {
-            if (obj != null) {
-                try {
-                    if (obj instanceof Integer) {
-                        return ((Integer) obj).intValue();
-                    }
-                    if (obj instanceof Number) {
-                        return ((Number) obj).intValue();
-                    }
-                    if (obj instanceof String) {
-                        return Integer.parseInt((String) obj);
-                    }
-                } catch (NumberFormatException e) {
-                    if (ABTestConfig.isDebug()) {
-                        throw new ClassCastException("getIntSwitch exception " + e);
-                    }
-                }
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.c(this.a.getMethod(), this.a.getHost(), this.a.getRequestParameter(), this.b, this.a.getHeaders(), this.a.getContentType(), this.c);
             }
-            return i;
         }
-        return invokeLI.intValue;
     }
 
-    public static long e(Object obj, long j) {
-        InterceptResult invokeLJ;
+    public k20(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, j)) == null) {
-            if (obj != null) {
-                try {
-                    if (obj instanceof Long) {
-                        return ((Long) obj).longValue();
-                    }
-                    if (obj instanceof Number) {
-                        return ((Number) obj).longValue();
-                    }
-                    if (obj instanceof String) {
-                        return (long) Double.parseDouble((String) obj);
-                    }
-                } catch (NumberFormatException e) {
-                    if (ABTestConfig.isDebug()) {
-                        throw new ClassCastException("getLongSwitch exception " + e);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return j;
         }
-        return invokeLJ.longValue;
+        this.a = new OkHttpClient.Builder().connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).build();
+        this.b = context;
     }
 
-    public static int d(String str) {
+    public final Headers d(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
             try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return 0;
+                Headers.Builder builder = new Headers.Builder();
+                if (map != null && map.size() > 0) {
+                    for (String str : map.keySet()) {
+                        String str2 = str.toString();
+                        builder.add(str2, map.get(str2));
+                    }
+                }
+                return builder.build();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        return invokeL.intValue;
+        return (Headers) invokeL.objValue;
+    }
+
+    public static k20 e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (c == null) {
+                synchronized (k20.class) {
+                    if (c == null) {
+                        c = new k20(context);
+                    }
+                }
+            }
+            return c;
+        }
+        return (k20) invokeL.objValue;
+    }
+
+    public void b(Context context, l20 l20Var, m20 m20Var, byte[] bArr, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{context, l20Var, m20Var, bArr, Boolean.valueOf(z)}) != null) || m20Var == null) {
+            return;
+        }
+        if (context != null && l20Var != null && !TextUtils.isEmpty(l20Var.getHost())) {
+            if (z) {
+                o20.a().b(new a(this, l20Var, bArr, m20Var));
+                return;
+            } else {
+                c(l20Var.getMethod(), l20Var.getHost(), l20Var.getRequestParameter(), bArr, l20Var.getHeaders(), l20Var.getContentType(), m20Var);
+                return;
+            }
+        }
+        m20Var.a(d, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes());
+    }
+
+    public final void c(String str, String str2, byte[] bArr, byte[] bArr2, Map<String, String> map, String str3, m20 m20Var) {
+        Request build;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, bArr, bArr2, map, str3, m20Var}) == null) {
+            try {
+                if ("POST".equals(str)) {
+                    if (TextUtils.isEmpty(str3)) {
+                        str3 = "application/x-www-form-urlencoded";
+                    }
+                    build = new Request.Builder().url(str2).headers(d(map)).removeHeader("User-Agent").addHeader("User-Agent", f()).post(RequestBody.create(MediaType.parse(str3), bArr2)).build();
+                } else {
+                    if (bArr != null && bArr.length > 0) {
+                        str2 = str2 + "?" + new String(bArr);
+                    }
+                    build = new Request.Builder().url(str2).headers(d(map)).removeHeader("User-Agent").addHeader("User-Agent", f()).build();
+                }
+                Response execute = this.a.newCall(build).execute();
+                byte[] bytes = execute.body().bytes();
+                t20.c("HttpExecutor", "requestUrl:" + str2 + "\nrequest method: " + str + "\nrequest contentType: " + str3 + "\nresponse : " + new String(bytes));
+                m20Var.onSuccess(execute.code(), bytes);
+            } catch (Exception e) {
+                e.printStackTrace();
+                if (m20Var != null) {
+                    m20Var.a(d, "Http Unknown exception".getBytes());
+                }
+            }
+        }
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        String property;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                try {
+                    property = WebSettings.getDefaultUserAgent(this.b);
+                } catch (Exception unused) {
+                    property = System.getProperty("http.agent");
+                }
+            } else {
+                property = System.getProperty("http.agent");
+            }
+            StringBuffer stringBuffer = new StringBuffer();
+            int length = property.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = property.charAt(i);
+                if (charAt > 31 && charAt < 127) {
+                    stringBuffer.append(charAt);
+                } else {
+                    stringBuffer.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                }
+            }
+            t20.a("HttpExecutor", "getUserAgent:" + stringBuffer.toString());
+            return stringBuffer.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

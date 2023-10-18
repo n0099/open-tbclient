@@ -1,82 +1,254 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.games.view.button.userinfo.UserInfoButton;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.UriMatcher;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.downloads.DownloadConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes6.dex */
-public class ge4 extends de4 {
+public class ge4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ri4 b;
+    public static final String c;
+    public static final Uri d;
+    public static final Uri e;
+    public static final Uri f;
+    public static final Uri g;
+    public static final Uri h;
+    public static final Uri i;
+    public static final Uri j;
+    public static UriMatcher k;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ge4 a;
-
-        public a(ge4 ge4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ge4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ge4Var;
+    @Nullable
+    public String d(@NonNull Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
+            return null;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || ae4.b() == null) {
-                return;
-            }
-            this.a.a = new UserInfoButton(ae4.b(), this.a);
-            this.a.a.setType(this.a.type);
-            this.a.a.setButtonText(this.a.text);
-            this.a.a.setImageUrl(this.a.image);
-            this.a.a.setApiButtonStyle(this.a.style);
-            this.a.x();
-            this.a.I();
-        }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ge4(JsObject jsObject, qi2 qi2Var) {
-        super(jsObject, qi2Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947791027, "Lcom/baidu/tieba/ge4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947791027, "Lcom/baidu/tieba/ge4;");
+                return;
+            }
+        }
+        b = ri4.c();
+        c = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+        d = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + c + "/framework");
+        e = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + c + "/swan_app");
+        f = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + c + "/pkg_main");
+        g = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + c + "/pkg_sub");
+        h = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + c + "/" + ETAG.KEY_EXTENSION);
+        i = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + c + "/swan_plugin");
+        j = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + c + "/so_lib");
+        UriMatcher uriMatcher = new UriMatcher(-1);
+        k = uriMatcher;
+        uriMatcher.addURI(c, "framework", 2);
+        k.addURI(c, "pkg_main", 0);
+        k.addURI(c, "pkg_sub", 1);
+        k.addURI(c, ETAG.KEY_EXTENSION, 3);
+        k.addURI(c, "swan_app", 4);
+        k.addURI(c, "swan_plugin", 5);
+        k.addURI(c, "so_lib", 7);
+    }
+
+    public ge4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject, qi2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((JsObject) objArr2[0], (qi2) objArr2[1]);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        ap3.e0(new a(this));
+        this.a = context;
     }
 
-    public final void I() {
+    public int a(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !dc4.d()) {
-            ac4.l("Button shows early.");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
+            String c2 = c(uri);
+            if (!TextUtils.isEmpty(c2)) {
+                ri4 ri4Var = b;
+                ri4Var.i("PMSDBProvider", "#delete tableName=" + c2 + " selection=" + str);
+                try {
+                    int delete = b().getWritableDatabase().delete(c2, str, strArr);
+                    if (delete > 0) {
+                        this.a.getContentResolver().notifyChange(uri, null);
+                    }
+                    return delete;
+                } catch (SQLException e2) {
+                    b.g("PMSDBProvider", "#delete error", e2);
+                    return 0;
+                }
+            }
+            return 0;
         }
+        return invokeLLL.intValue;
+    }
+
+    public SQLiteOpenHelper b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return fe4.a();
+        }
+        return (SQLiteOpenHelper) invokeV.objValue;
+    }
+
+    public final String c(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
+            int match = k.match(uri);
+            if (match != 0) {
+                if (match != 1) {
+                    if (match != 2) {
+                        if (match != 3) {
+                            if (match != 4) {
+                                if (match != 5) {
+                                    if (match != 7) {
+                                        return null;
+                                    }
+                                    return "so_lib";
+                                }
+                                return "swan_plugin";
+                            }
+                            return "swan_app";
+                        }
+                        return ETAG.KEY_EXTENSION;
+                    }
+                    return "framework";
+                }
+                return "pkg_sub";
+            }
+            return "pkg_main";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public Uri e(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, uri, contentValues)) == null) {
+            String c2 = c(uri);
+            if (!TextUtils.isEmpty(c2) && contentValues != null) {
+                ri4 ri4Var = b;
+                ri4Var.i("PMSDBProvider", "#insert values=" + contentValues);
+                try {
+                    long insertWithOnConflict = b().getWritableDatabase().insertWithOnConflict(c2, null, contentValues, 5);
+                    if (insertWithOnConflict > 0) {
+                        Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
+                        this.a.getContentResolver().notifyChange(withAppendedId, null);
+                        return withAppendedId;
+                    }
+                    return uri;
+                } catch (SQLException e2) {
+                    b.g("PMSDBProvider", "#insert error", e2);
+                }
+            }
+            return null;
+        }
+        return (Uri) invokeLL.objValue;
+    }
+
+    @Nullable
+    public Cursor f(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, uri, strArr, str, strArr2, str2)) == null) {
+            if (uri.getQueryParameter("rawQuery") != null) {
+                return g(uri, str);
+            }
+            String c2 = c(uri);
+            if (!TextUtils.isEmpty(c2)) {
+                try {
+                    return b().getReadableDatabase().query(c2, strArr, str, strArr2, null, null, str2, null);
+                } catch (SQLException e2) {
+                    b.g("PMSDBProvider", "#query error", e2);
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (Cursor) invokeLLLLL.objValue;
+    }
+
+    @Nullable
+    public Cursor g(@NonNull Uri uri, @Nullable String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, uri, str)) == null) {
+            if (!TextUtils.isEmpty(c(uri))) {
+                try {
+                    return b().getReadableDatabase().rawQuery(str, null);
+                } catch (SQLException e2) {
+                    b.g("PMSDBProvider", "#rawQuery error", e2);
+                }
+            }
+            return null;
+        }
+        return (Cursor) invokeLL.objValue;
+    }
+
+    public int h(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {
+            String c2 = c(uri);
+            if (!TextUtils.isEmpty(c2)) {
+                ri4 ri4Var = b;
+                ri4Var.i("PMSDBProvider", "#update tableName=" + c2 + " selection=" + str);
+                try {
+                    int update = b().getWritableDatabase().update(c2, contentValues, str, strArr);
+                    if (update > 0) {
+                        this.a.getContentResolver().notifyChange(uri, null);
+                    }
+                    return update;
+                } catch (SQLException e2) {
+                    b.g("PMSDBProvider", "#update error", e2);
+                    return 0;
+                }
+            }
+            return 0;
+        }
+        return invokeLLLL.intValue;
     }
 }

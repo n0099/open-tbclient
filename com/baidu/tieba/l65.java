@@ -1,23 +1,73 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
-import com.baidu.tieba.qe5;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.httpNet.WebClient;
+import com.baidu.tbadk.core.util.resourceLoaderProc.DiskCancelWorker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class l65 extends g65 {
+/* loaded from: classes7.dex */
+public class l65 implements cb<j65> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cb
+    /* renamed from: b */
+    public j65 getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
+            return null;
+        }
+        return (j65) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.cb
+    public BdAsyncTaskParallel getAsyncTaskParallel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (BdAsyncTaskParallel) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cb
+    public int getAsyncTaskPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.cb
+    public boolean isNeedLoad() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.cb
+    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {
+        }
+    }
 
     public l65() {
         Interceptable interceptable = $ic;
@@ -33,59 +83,113 @@ public final class l65 extends g65 {
         }
     }
 
-    public static final void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cb
+    /* renamed from: a */
+    public j65 getFromLocal(String str, String str2, int i, int i2, bb bbVar, Object... objArr) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bbVar, objArr})) == null) {
+            if (str.contains("https://")) {
+                str = Uri.parse(str).getLastPathSegment();
+            }
+            DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
+            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            diskFileOperate.setSubFolder(false);
+            diskFileOperate.setIsFormatData(false);
+            if (bbVar != null) {
+                DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                diskCancelWorker.setOperate(diskFileOperate);
+                bbVar.a = diskCancelWorker;
+            }
+            diskFileOperate.call();
+            if (!diskFileOperate.isSuccess()) {
+                return null;
+            }
+            String desPath = diskFileOperate.getDesPath();
+            j65 j65Var = new j65();
+            j65Var.h(str);
+            j65Var.i(desPath);
+            return j65Var;
         }
+        return (j65) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.g65
-    public void a(Context context, u55 data) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cb
+    /* renamed from: c */
+    public j65 getFromRemote(String str, String str2, int i, int i2, bb bbVar, Object... objArr) {
+        InterceptResult invokeCommon;
+        String str3;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
-                int i = 0;
-                LiveRemindRecommendData c = e95.a().c(0);
-                HashMap hashMap = new HashMap();
-                if (c.getRemindType() == 1) {
-                    i = 3;
-                } else if (c.getRemindType() == 2) {
-                    i = 4;
-                } else if (c.getRemindType() == 3) {
-                    i = 2;
-                }
-                hashMap.put("view_top_params_key_image_url", c.getLiveIconSrc());
-                hashMap.put("view_top_params_key_schema", c.getLiveIconScheme());
-                hashMap.put("view_top_params_user_name", c.getUserName());
-                hashMap.put("view_top_params_key_desc", c.getDesc());
-                hashMap.put("view_top_params_room_id", c.getRoomId());
-                hashMap.put("view_top_params_btn_text", c.getBtnText());
-                hashMap.put("view_top_params_key_title", c.getTitle());
-                hashMap.put("view_top_params_key_nid", c.getFeedId());
-                hashMap.put("view_top_params_key_yyext", c.getYyExtData());
-                hashMap.put("view_top_params_key_type", Integer.valueOf(i));
-                hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-                re5.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new qe5.h() { // from class: com.baidu.tieba.a65
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.qe5.h
-                    public final void dismiss() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            l65.b();
-                        }
-                    }
-                });
-                f95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
-                YunDialogManager.markShowingDialogName("homeLiveRemind");
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bbVar, objArr})) == null) {
+            int i3 = 1;
+            String str5 = null;
+            if (objArr.length == 1) {
+                str3 = String.valueOf(objArr[0]);
+            } else {
+                str3 = null;
             }
-            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
+            j65 j65Var = new j65();
+            WebClient webClient = new WebClient();
+            if (bbVar != null) {
+                bbVar.a = webClient;
+            }
+            if (str.contains("https://")) {
+                str4 = Uri.parse(str).getLastPathSegment();
+            } else {
+                String str6 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
+                if (!TextUtils.isEmpty(str3)) {
+                    str4 = str;
+                    str = str6 + "&play_from=" + str3;
+                } else {
+                    str4 = str;
+                    str = str6;
+                }
+            }
+            byte[] downloadCommonBytes = webClient.downloadCommonBytes(str);
+            if (!webClient.IsRequestSuccess()) {
+                j65Var.f(3);
+                j65Var.g(rd.a(R.string.obfuscated_res_0x7f0f0e4f));
+                return j65Var;
+            } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
+                if (str4 == null) {
+                    i3 = 5;
+                } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
+                    DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str4, DiskFileOperate.Action.WRITE);
+                    diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                    diskFileOperate.setSubFolder(false);
+                    diskFileOperate.setData(downloadCommonBytes);
+                    if (bbVar != null) {
+                        DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                        diskCancelWorker.setOperate(diskFileOperate);
+                        bbVar.a = diskCancelWorker;
+                    }
+                    diskFileOperate.call();
+                    if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
+                        str5 = diskFileOperate.getFileInfo().getAbsolutePath();
+                        i3 = 0;
+                    } else if (FileHelper.getAvailableSize() < downloadCommonBytes.length) {
+                        i3 = 2;
+                    }
+                } else {
+                    i3 = 6;
+                }
+                if (i3 == 0) {
+                    j65Var.i(str5);
+                    j65Var.h(str4);
+                } else {
+                    j65Var.f(i3);
+                    j65Var.g(j65.a(i3));
+                }
+                return j65Var;
+            } else {
+                j65Var.f(4);
+                j65Var.g(rd.a(R.string.voice_cache_error_no_file));
+                return j65Var;
+            }
         }
+        return (j65) invokeCommon.objValue;
     }
 }

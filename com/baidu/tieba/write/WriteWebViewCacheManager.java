@@ -6,6 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
@@ -15,11 +16,11 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.e1b;
+import com.baidu.tieba.hh6;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
 import com.baidu.tieba.write.WriteWebViewCacheManager$skinChangeListener$2;
-import com.baidu.tieba.ym6;
+import com.baidu.tieba.zva;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +38,7 @@ import kotlin.jvm.JvmStatic;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\u0018\u0000 \u00192\u00020\u0001:\u0002\u0019\u001aB\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0018\u0010\u0010\u001a\u0004\u0018\u00010\u00062\u0006\u0010\u0011\u001a\u00020\u00052\u0006\u0010\u0012\u001a\u00020\u0013J\u0010\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0011\u001a\u00020\u0005H\u0002J\u0006\u0010\u0016\u001a\u00020\u0015J\u000e\u0010\u0017\u001a\u00020\u00152\u0006\u0010\u0018\u001a\u00020\u0005R-\u0010\u0003\u001a\u001e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00060\u0004j\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u0006`\u0007¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR\u001b\u0010\n\u001a\u00020\u000b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000e\u0010\u000f\u001a\u0004\b\f\u0010\r¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/write/WriteWebViewCacheManager;", "", "()V", "cache", "Ljava/util/HashMap;", "", "Lcom/baidu/tieba/browser/TbWebView;", "Lkotlin/collections/HashMap;", "getCache", "()Ljava/util/HashMap;", "skinChangeListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "getSkinChangeListener", "()Lcom/baidu/adp/framework/listener/CustomMessageListener;", "skinChangeListener$delegate", "Lkotlin/Lazy;", CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, "url", "context", "Landroid/content/Context;", "initWebView", "", "preInitWebView", "tryInitLastWebView", "lastTab", "Companion", "Holder", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 \u001a2\u00020\u0001:\u0002\u001a\u001bB\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0006\u0010\u0010\u001a\u00020\u0011J\u0018\u0010\u0012\u001a\u0004\u0018\u00010\u00062\u0006\u0010\u0013\u001a\u00020\u00052\u0006\u0010\u0014\u001a\u00020\u0015J\u0010\u0010\u0016\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u0005H\u0002J\u0006\u0010\u0017\u001a\u00020\u0011J\u000e\u0010\u0018\u001a\u00020\u00112\u0006\u0010\u0019\u001a\u00020\u0005R-\u0010\u0003\u001a\u001e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00060\u0004j\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u0006`\u0007¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR\u001b\u0010\n\u001a\u00020\u000b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000e\u0010\u000f\u001a\u0004\b\f\u0010\r¨\u0006\u001c"}, d2 = {"Lcom/baidu/tieba/write/WriteWebViewCacheManager;", "", "()V", "cache", "Ljava/util/HashMap;", "", "Lcom/baidu/tieba/browser/TbWebView;", "Lkotlin/collections/HashMap;", "getCache", "()Ljava/util/HashMap;", "skinChangeListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "getSkinChangeListener", "()Lcom/baidu/adp/framework/listener/CustomMessageListener;", "skinChangeListener$delegate", "Lkotlin/Lazy;", DownloadStatisticConstants.UBC_VALUE_CLEAR, "", CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, "url", "context", "Landroid/content/Context;", "initWebView", "preInitWebView", "tryInitLastWebView", "lastTab", "Companion", "Holder", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
 public final class WriteWebViewCacheManager {
     public static /* synthetic */ Interceptable $ic;
@@ -54,7 +55,7 @@ public final class WriteWebViewCacheManager {
     }
 
     @JvmStatic
-    public static final WriteWebViewCacheManager f() {
+    public static final WriteWebViewCacheManager g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? c.b() : (WriteWebViewCacheManager) invokeV.objValue;
@@ -260,12 +261,12 @@ public final class WriteWebViewCacheManager {
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     Interceptable interceptable = $ic;
                     if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
-                        for (Map.Entry<String, TbWebView> entry : this.a.e().entrySet()) {
+                        for (Map.Entry<String, TbWebView> entry : this.a.f().entrySet()) {
                             LinkedHashMap linkedHashMap = new LinkedHashMap();
                             String currentSkinTypeString = SkinManager.getCurrentSkinTypeString();
                             Intrinsics.checkNotNullExpressionValue(currentSkinTypeString, "getCurrentSkinTypeString()");
                             linkedHashMap.put("skin", currentSkinTypeString);
-                            ym6.a().d(entry.getValue(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+                            hh6.a().d(entry.getValue(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
                         }
                     }
                 }
@@ -283,40 +284,50 @@ public final class WriteWebViewCacheManager {
                 return (a) invokeV.objValue;
             }
         });
-        MessageManager.getInstance().registerListener(g());
+        MessageManager.getInstance().registerListener(h());
     }
 
-    public final HashMap<String, TbWebView> e() {
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (Map.Entry<String, TbWebView> entry : this.a.entrySet()) {
+                entry.getValue().onDestroy();
+            }
+            this.a.clear();
+        }
+    }
+
+    public final HashMap<String, TbWebView> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
         return (HashMap) invokeV.objValue;
     }
 
-    public final CustomMessageListener g() {
+    public final CustomMessageListener h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return (CustomMessageListener) this.b.getValue();
         }
         return (CustomMessageListener) invokeV.objValue;
     }
 
-    public final void i() {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && UbsABTestHelper.isNewWrite()) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && UbsABTestHelper.isNewWrite()) {
             String lastTab = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("key_last_select_write_tab"), "");
             Intrinsics.checkNotNullExpressionValue(lastTab, "lastTab");
-            j(lastTab);
+            k(lastTab);
         }
     }
 
-    public final TbWebView d(String url, Context context) {
+    public final TbWebView e(String url, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, url, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url, context)) == null) {
             Intrinsics.checkNotNullParameter(url, "url");
             Intrinsics.checkNotNullParameter(context, "context");
             TbWebView tbWebView = this.a.get(url);
@@ -326,17 +337,17 @@ public final class WriteWebViewCacheManager {
             this.a.remove(url);
             Context context2 = tbWebView.getContext();
             if (context2 instanceof MutableContextWrapper) {
-                ((MutableContextWrapper) context2).setBaseContext(e1b.a.b(context));
+                ((MutableContextWrapper) context2).setBaseContext(zva.a.b(context));
             }
             return tbWebView;
         }
         return (TbWebView) invokeLL.objValue;
     }
 
-    public final void h(String str) {
+    public final void i(String str) {
         MutableContextWrapper mutableContextWrapper;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.a.containsKey(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || this.a.containsKey(str)) {
             return;
         }
         if (TbadkCoreApplication.getInst().getMainActivity() != null) {
@@ -344,16 +355,16 @@ public final class WriteWebViewCacheManager {
         } else {
             mutableContextWrapper = new MutableContextWrapper(TbadkCoreApplication.getInst());
         }
-        TbWebView a2 = e1b.a.a(mutableContextWrapper);
+        TbWebView a2 = zva.a.a(mutableContextWrapper);
         a2.loadUrl(str + "&page_lifecycle_type=preheat_enabled");
         a2.getPerfData().i = true;
         this.a.put(str, a2);
     }
 
-    public final void j(String lastTab) {
+    public final void k(String lastTab) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, lastTab) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, lastTab) == null) {
             Intrinsics.checkNotNullParameter(lastTab, "lastTab");
             if (WriteMsgHolder.isH5PageShowing) {
                 HybridLog.getInstance().i("preload", "发布器H5不进行预渲染 isH5PageShowing");
@@ -368,7 +379,7 @@ public final class WriteWebViewCacheManager {
             } else {
                 str = d;
             }
-            h(str);
+            i(str);
         }
     }
 }

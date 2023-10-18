@@ -8,7 +8,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.log.OldBdLog;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.logsystem.exceptionhandler.api.ExceptionHandler;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ed;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class BdLog {
     public static String LogFilter_classNameStartsWith;
     public static boolean enableExceptionLog;
     public static ArrayList<String> logPackage;
-    public static hi permissionUtil;
+    public static ed permissionUtil;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -174,10 +174,10 @@ public class BdLog {
         }
     }
 
-    public static void setPermissionUtil(hi hiVar) {
+    public static void setPermissionUtil(ed edVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, null, hiVar) == null) {
-            permissionUtil = hiVar;
+        if (interceptable == null || interceptable.invokeL(65561, null, edVar) == null) {
+            permissionUtil = edVar;
         }
     }
 

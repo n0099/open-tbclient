@@ -1,172 +1,315 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.im.data.GroupInfoData;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.GraffitiInfo;
-import tbclient.MemeInfo;
-import tbclient.NativeApp;
-import tbclient.PbContent;
-import tbclient.PluginUser;
-import tbclient.TiebaPlusInfo;
-import tbclient.TogetherHi;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 /* loaded from: classes5.dex */
 public class f35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ArrayList<PbContent> a(JSONArray jSONArray) throws JSONException {
-        InterceptResult invokeL;
+    public static boolean a(File file, String str) {
+        InterceptResult invokeLL;
+        ZipFile zipFile;
+        FileOutputStream fileOutputStream;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONArray)) == null) {
-            if (jSONArray != null) {
-                ArrayList<PbContent> arrayList = new ArrayList<>();
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    PbContent.Builder builder = new PbContent.Builder();
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    builder.big_cdn_src = jSONObject.optString("big_cdn_src");
-                    builder.big_size = jSONObject.optString("big_size");
-                    builder.big_src = jSONObject.optString("big_src");
-                    builder.bsize = jSONObject.optString("bsize");
-                    builder.btn_type = Integer.valueOf(jSONObject.optInt("btn_type"));
-                    builder.c = jSONObject.optString("c");
-                    builder.cdn_src = jSONObject.optString("cdn_src");
-                    builder.cdn_src_active = jSONObject.optString("cdn_src_active");
-                    builder.count = Integer.valueOf(jSONObject.optInt("count"));
-                    builder.during_time = Integer.valueOf(jSONObject.optInt("during_time"));
-                    builder.dynamic = jSONObject.optString(PraiseUBCHelper.SOURCE_DYNAMIC);
-                    builder.e_type = Integer.valueOf(jSONObject.optInt("e_type"));
-                    JSONObject optJSONObject = jSONObject.optJSONObject("graffiti_info");
-                    if (optJSONObject != null) {
-                        GraffitiInfo.Builder builder2 = new GraffitiInfo.Builder();
-                        builder2.gid = Long.valueOf(optJSONObject.optLong(TbEnum.ParamKey.GID));
-                        builder2.url = optJSONObject.optString("url");
-                        builder.graffiti_info = builder2.build(true);
-                    }
-                    builder.height = Integer.valueOf(jSONObject.optInt(""));
-                    JSONObject optJSONObject2 = jSONObject.optJSONObject("high_together");
-                    if (optJSONObject2 != null) {
-                        TogetherHi.Builder builder3 = new TogetherHi.Builder();
-                        builder3.album_id = Long.valueOf(optJSONObject2.optLong(GroupInfoData.SHARE_KEY_ALBUM_ID));
-                        builder3.album_name = optJSONObject2.optString("album_name");
-                        builder3.end_time = Integer.valueOf(optJSONObject2.optInt("end_time"));
-                        builder3.location = optJSONObject2.optString("location");
-                        builder3.num_join = Integer.valueOf(optJSONObject2.optInt("num_join"));
-                        builder3.num_signup = Integer.valueOf(optJSONObject2.optInt("num_signup"));
-                        JSONArray optJSONArray = optJSONObject2.optJSONArray("pic_urls");
-                        if (optJSONArray != null) {
-                            builder3.pic_urls = new ArrayList();
-                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                builder3.pic_urls.add(optJSONArray.optString(i2));
-                            }
-                        }
-                        JSONArray optJSONArray2 = optJSONObject2.optJSONArray("potraits");
-                        if (optJSONArray2 != null) {
-                            builder3.potraits = new ArrayList();
-                            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                                builder3.potraits.add(optJSONArray2.optString(i3));
-                            }
-                        }
-                        builder3.start_time = Integer.valueOf(optJSONObject2.optInt("start_time"));
-                        builder.high_together = builder3.build(true);
-                    }
-                    builder.imgtype = jSONObject.optString("imgtype");
-                    builder.is_long_pic = Integer.valueOf(jSONObject.optInt("is_long_pic"));
-                    builder.is_native_app = Integer.valueOf(jSONObject.optInt("is_native_app"));
-                    builder.is_sub = Integer.valueOf(jSONObject.optInt("is_sub"));
-                    builder.link = jSONObject.optString("link");
-                    builder.media_subtitle = jSONObject.optString("media_subtitle");
-                    JSONObject optJSONObject3 = jSONObject.optJSONObject("meme_info");
-                    if (optJSONObject3 != null) {
-                        MemeInfo.Builder builder4 = new MemeInfo.Builder();
-                        builder4.detail_link = optJSONObject3.optString("detail_link");
-                        builder4.height = Integer.valueOf(optJSONObject3.optInt("height"));
-                        builder4.pck_id = Integer.valueOf(optJSONObject3.optInt("pck_id"));
-                        builder4.pic_id = Long.valueOf(optJSONObject3.optLong(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY));
-                        builder4.pic_url = optJSONObject3.optString("pic_url");
-                        builder4.thumbnail = optJSONObject3.optString("thumbnail");
-                        builder4.width = Integer.valueOf(optJSONObject3.optInt("width"));
-                        builder.meme_info = builder4.build(true);
-                    }
-                    JSONObject optJSONObject4 = jSONObject.optJSONObject("native_app");
-                    if (optJSONObject4 != null) {
-                        NativeApp.Builder builder5 = new NativeApp.Builder();
-                        builder5.download_and = optJSONObject4.optString("download_and");
-                        builder5.download_ios = optJSONObject4.optString("download_ios");
-                        builder5.jump_and = optJSONObject4.optString("jump_and");
-                        builder5.jump_ios = optJSONObject4.optString("jump_ios");
-                        builder.native_app = builder5.build(true);
-                    }
-                    builder.origin_size = Integer.valueOf(jSONObject.optInt("origin_size"));
-                    builder.origin_src = jSONObject.optString("origin_src");
-                    builder.packet_name = jSONObject.optString("packet_name");
-                    builder.phonetype = jSONObject.optString("phonetype");
-                    builder.show_original_btn = Integer.valueOf(jSONObject.optInt("show_original_btn"));
-                    builder.src = jSONObject.optString("src");
-                    builder.text = jSONObject.optString("text");
-                    builder.uid = Long.valueOf(jSONObject.optLong("uid"));
-                    builder.type = Integer.valueOf(jSONObject.optInt("type"));
-                    JSONObject optJSONObject5 = jSONObject.optJSONObject("tiebaplus_info");
-                    if (optJSONObject5 != null) {
-                        TiebaPlusInfo.Builder builder6 = new TiebaPlusInfo.Builder();
-                        builder6.title = optJSONObject5.optString("title");
-                        builder6.desc = optJSONObject5.optString("desc");
-                        builder6.jump_url = optJSONObject5.optString(BigdayActivityConfig.JUMP_URL);
-                        builder6.download_url = optJSONObject5.optString("download_url");
-                        builder6.app_id = optJSONObject5.optString("app_id");
-                        builder6.app_icon = optJSONObject5.optString("app_icon");
-                        builder6.app_package = optJSONObject5.optString("app_package");
-                        builder6.app_version = optJSONObject5.optString("app_version");
-                        builder6.app_privacy = optJSONObject5.optString("app_privacy");
-                        builder6.app_power = optJSONObject5.optString("app_power");
-                        builder6.app_company = optJSONObject5.optString("app_company");
-                        builder6.app_effect = optJSONObject5.optString("app_effect");
-                        builder6.target_type = Integer.valueOf(optJSONObject5.optInt(GameGuideConfigInfo.KEY_TARGET_TYPE));
-                        builder6.h5_jump_type = Integer.valueOf(optJSONObject5.optInt("h5_jump_type"));
-                        builder6.h5_jump_number = optJSONObject5.optString("h5_jump_number");
-                        builder6.h5_jump_param = optJSONObject5.optString("h5_jump_param");
-                        builder6.jump_type = Integer.valueOf(optJSONObject5.optInt("jump_type"));
-                        builder6.item_id = optJSONObject5.optString("item_id");
-                        builder6.is_appoint = Integer.valueOf(optJSONObject5.optInt("is_appoint"));
-                        JSONObject optJSONObject6 = optJSONObject5.optJSONObject("plugin_user");
-                        if (optJSONObject6 != null) {
-                            PluginUser.Builder builder7 = new PluginUser.Builder();
-                            builder7.user_type = Integer.valueOf(optJSONObject6.optInt("user_type"));
-                            builder7.user_id = Long.valueOf(optJSONObject6.optLong("user_id"));
-                            builder7.user_name_show = optJSONObject6.optString("user_name_show");
-                            builder7.user_photo = optJSONObject6.optString("user_photo");
-                            builder6.plugin_user = builder7.build(true);
-                        }
-                        builder6.forum_name = optJSONObject5.optString("forum_name");
-                        builder6.jump_setting = Integer.valueOf(optJSONObject5.optInt("jump_setting"));
-                        builder6.wx_thumbnail = optJSONObject5.optString("wx_thumbnail");
-                        builder6.button_desc = optJSONObject5.optString("button_desc");
-                        builder.tiebaplus_info = builder6.build(true);
-                    }
-                    builder.url_type = Integer.valueOf(jSONObject.optInt("url_type"));
-                    builder.voice_md5 = jSONObject.optString("voice_md5");
-                    builder.width = Integer.valueOf(jSONObject.optInt("width"));
-                    builder._static = jSONObject.optString("_static");
-                    builder.item_id = Long.valueOf(jSONObject.optLong("item_id"));
-                    builder.item_forum_name = jSONObject.optString("item_forum_name");
-                    builder.link_type = Integer.valueOf(jSONObject.optInt("link_type"));
-                    arrayList.add(builder.build(true));
-                }
-                return arrayList;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, str)) == null) {
+            File file2 = new File(str);
+            if (!file2.exists() && !file2.mkdirs()) {
+                return false;
             }
-            return null;
+            boolean z = true;
+            ZipFile zipFile2 = null;
+            InputStream inputStream2 = null;
+            zipFile2 = null;
+            try {
+                try {
+                    zipFile = new ZipFile(file);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                Enumeration<? extends ZipEntry> entries = zipFile.entries();
+                while (entries.hasMoreElements()) {
+                    try {
+                        ZipEntry nextElement = entries.nextElement();
+                        String name = nextElement.getName();
+                        if (name == null || !name.contains("__MACOSX/")) {
+                            File file3 = new File(str, name);
+                            if (nextElement.isDirectory()) {
+                                file3.mkdirs();
+                            } else {
+                                inputStream = zipFile.getInputStream(nextElement);
+                                try {
+                                    fileOutputStream = new FileOutputStream(file3);
+                                    try {
+                                        try {
+                                            byte[] bArr = new byte[1024];
+                                            while (true) {
+                                                int read = inputStream.read(bArr);
+                                                if (read <= 0) {
+                                                    break;
+                                                }
+                                                fileOutputStream.write(bArr, 0, read);
+                                            }
+                                            fileOutputStream.flush();
+                                            if (inputStream != null) {
+                                                try {
+                                                    inputStream.close();
+                                                } catch (IOException e2) {
+                                                    e2.printStackTrace();
+                                                }
+                                            }
+                                            try {
+                                                fileOutputStream.close();
+                                            } catch (IOException e3) {
+                                                e3.printStackTrace();
+                                            }
+                                        } catch (Throwable th2) {
+                                            th = th2;
+                                            inputStream2 = inputStream;
+                                            if (inputStream2 != null) {
+                                                try {
+                                                    inputStream2.close();
+                                                } catch (IOException e4) {
+                                                    e4.printStackTrace();
+                                                }
+                                            }
+                                            if (fileOutputStream != null) {
+                                                try {
+                                                    fileOutputStream.close();
+                                                } catch (IOException e5) {
+                                                    e5.printStackTrace();
+                                                }
+                                            }
+                                            throw th;
+                                        }
+                                    } catch (Exception e6) {
+                                        e = e6;
+                                        e.printStackTrace();
+                                        if (inputStream != null) {
+                                            try {
+                                                inputStream.close();
+                                            } catch (IOException e7) {
+                                                e7.printStackTrace();
+                                            }
+                                        }
+                                        if (fileOutputStream != null) {
+                                            try {
+                                                fileOutputStream.close();
+                                            } catch (IOException e8) {
+                                                e8.printStackTrace();
+                                            }
+                                        }
+                                        z = false;
+                                    }
+                                } catch (Exception e9) {
+                                    e = e9;
+                                    fileOutputStream = null;
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    fileOutputStream = null;
+                                }
+                            }
+                        }
+                    } catch (Exception e10) {
+                        e = e10;
+                        inputStream = null;
+                        fileOutputStream = null;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        fileOutputStream = null;
+                    }
+                }
+                try {
+                    zipFile.close();
+                } catch (IOException e11) {
+                    e11.printStackTrace();
+                }
+                return z;
+            } catch (Exception e12) {
+                e = e12;
+                zipFile2 = zipFile;
+                e.printStackTrace();
+                if (zipFile2 == null) {
+                    return false;
+                }
+                try {
+                    zipFile2.close();
+                    return false;
+                } catch (IOException e13) {
+                    e13.printStackTrace();
+                    return false;
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                zipFile2 = zipFile;
+                if (zipFile2 != null) {
+                    try {
+                        zipFile2.close();
+                    } catch (IOException e14) {
+                        e14.printStackTrace();
+                    }
+                }
+                throw th;
+            }
         }
-        return (ArrayList) invokeL.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return a(new File(str), str2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void c(File file, String str) throws ZipException, IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, file, str) == null) {
+            File file2 = new File(str);
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            ZipFile zipFile = new ZipFile(file);
+            Enumeration<? extends ZipEntry> entries = zipFile.entries();
+            while (entries.hasMoreElements()) {
+                ZipEntry nextElement = entries.nextElement();
+                String name = nextElement.getName();
+                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
+                    InputStream inputStream = zipFile.getInputStream(nextElement);
+                    File file3 = new File(str + File.separator + name);
+                    if (!file3.exists()) {
+                        File parentFile = file3.getParentFile();
+                        if (!parentFile.exists()) {
+                            parentFile.mkdirs();
+                        }
+                        file3.createNewFile();
+                    }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
+                    byte[] bArr = new byte[10240];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    inputStream.close();
+                    fileOutputStream.close();
+                }
+            }
+        }
+    }
+
+    public static void d(String str, String str2, ZipOutputStream zipOutputStream) throws Exception {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, zipOutputStream) != null) || zipOutputStream == null) {
+            return;
+        }
+        File file = new File(str, str2);
+        if (!file.exists()) {
+            return;
+        }
+        if (file.isFile()) {
+            ZipEntry zipEntry = new ZipEntry(str2);
+            FileInputStream fileInputStream = new FileInputStream(file);
+            zipOutputStream.putNextEntry(zipEntry);
+            byte[] bArr = new byte[4096];
+            while (true) {
+                int read = fileInputStream.read(bArr);
+                if (read != -1) {
+                    zipOutputStream.write(bArr, 0, read);
+                } else {
+                    zipOutputStream.closeEntry();
+                    return;
+                }
+            }
+        } else if (file.isDirectory()) {
+            String[] list = file.list();
+            if (list.length <= 0) {
+                zipOutputStream.putNextEntry(new ZipEntry(str2 + File.separator));
+                zipOutputStream.closeEntry();
+            }
+            for (int i = 0; i < list.length; i++) {
+                d(str, str2 + File.separator + list[i], zipOutputStream);
+            }
+        }
+    }
+
+    public static boolean e(String str, String str2) {
+        InterceptResult invokeLL;
+        ZipOutputStream zipOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            ZipOutputStream zipOutputStream2 = null;
+            try {
+                try {
+                    zipOutputStream = new ZipOutputStream(new FileOutputStream(str2));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            } catch (Exception e3) {
+                e = e3;
+            }
+            try {
+                File file = new File(str);
+                if (!file.exists()) {
+                    bd.f(zipOutputStream);
+                    return false;
+                }
+                d(file.getParent(), file.getName(), zipOutputStream);
+                zipOutputStream.finish();
+                zipOutputStream.close();
+                bd.f(zipOutputStream);
+                return true;
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                bd.f(zipOutputStream2);
+                return false;
+            } catch (IOException e5) {
+                e = e5;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                bd.f(zipOutputStream2);
+                return false;
+            } catch (Exception e6) {
+                e = e6;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                bd.f(zipOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                zipOutputStream2 = zipOutputStream;
+                bd.f(zipOutputStream2);
+                throw th;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

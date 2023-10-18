@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public class cl {
+public final class cl extends ll {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, fl> a;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
+    public final String e;
 
     static {
         InterceptResult invokeClinit;
@@ -27,40 +31,119 @@ public class cl {
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("com.baidu.searchbox.livenps", new bl());
+        f = new a(null);
     }
 
-    public static void a(String str, int i) {
-        fl flVar;
+    @Override // com.baidu.tieba.zl
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) && (flVar = a.get(str)) != null) {
-            flVar.b(i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskUnRegisterAction" : (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 4;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final cl a(TaskInfo taskInfo, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, str)) == null) {
+                return new cl(taskInfo, null, str, null, null, 26, null);
+            }
+            return (cl) invokeLL.objValue;
         }
     }
 
-    public static void b(String str, int i, long j) {
-        fl flVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cl(TaskInfo taskInfo, String str, String str2, Integer num, String str3) {
+        super(str, num, str3);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) && (flVar = a.get(str)) != null) {
-            flVar.c(i, j);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {taskInfo, str, str2, num, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = str;
+        this.e = str2;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ cl(TaskInfo taskInfo, String str, String str2, Integer num, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, r2, r3, r4, r5);
+        Integer num2;
+        String str4;
+        String singleKey = (i & 2) != 0 ? taskInfo.getSingleKey() : str;
+        String str5 = (i & 4) != 0 ? "common unregister" : str2;
+        if ((i & 8) != 0) {
+            num2 = null;
+        } else {
+            num2 = num;
+        }
+        if ((i & 16) != 0) {
+            str4 = null;
+        } else {
+            str4 = str3;
         }
     }
 
-    public static void c(String str, int i, int i2) {
-        fl flVar;
+    @Override // com.baidu.tieba.ll
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) && (flVar = a.get(str)) != null) {
-            flVar.d(i, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void d(String str, int i, int i2) {
-        fl flVar;
+    public final String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) && (flVar = a.get(str)) != null) {
-            flVar.e(i, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
+        return (String) invokeV.objValue;
     }
 }

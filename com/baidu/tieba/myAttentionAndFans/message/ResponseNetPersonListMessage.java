@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.l35;
+import com.baidu.tieba.gz4;
+import com.baidu.tieba.m9;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
-import com.baidu.tieba.oe;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.tx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l35 data;
+    public tx4 data;
     public int mErrCode;
     public String mErrMsg;
 
@@ -71,8 +71,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                     z = false;
                 }
                 String str2 = new String(bArr);
-                y45.k();
-                oe<String> l = y45.l("tb.my_pages");
+                gz4.k();
+                m9<String> l = gz4.l("tb.my_pages");
                 if (l != null) {
                     if (z) {
                         str = "personal_followme";
@@ -94,20 +94,20 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                l35 l35Var = new l35();
-                this.data = l35Var;
-                l35Var.c(jSONObject);
+                tx4 tx4Var = new tx4();
+                this.data = tx4Var;
+                tx4Var.c(jSONObject);
             }
         }
     }
 
-    public l35 getData() {
+    public tx4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.data;
         }
-        return (l35) invokeV.objValue;
+        return (tx4) invokeV.objValue;
     }
 
     public String getErrMsg() {

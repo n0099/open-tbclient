@@ -1,47 +1,45 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
 import android.content.Context;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.adlanding.customer.WebViewContainer;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import com.baidu.swan.apps.camera.view.CameraPreview;
+import com.baidu.tieba.ua3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ey1 {
+public class ey1 extends ay1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WebViewContainer a;
-    public Context b;
-    public boolean c;
-    public double d;
-    public ValueAnimator e;
-    public float f;
-    public yz2 g;
-    public int h;
-    public boolean i;
-    public WebViewContainer.b j;
-    public WebViewContainer.c k;
 
     /* loaded from: classes5.dex */
-    public class a implements WebViewContainer.b {
+    public class a implements ik3<sa3<ua3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ey1 a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ p53 d;
+        public final /* synthetic */ ly1 e;
+        public final /* synthetic */ CameraPreview f;
+        public final /* synthetic */ ey1 g;
 
-        public a(ey1 ey1Var) {
+        public a(ey1 ey1Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, p53 p53Var, ly1 ly1Var, CameraPreview cameraPreview) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ey1Var};
+                Object[] objArr = {ey1Var, callbackHandler, unitedSchemeEntity, context, p53Var, ly1Var, cameraPreview};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,30 +49,48 @@ public class ey1 {
                     return;
                 }
             }
-            this.a = ey1Var;
+            this.g = ey1Var;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = context;
+            this.d = p53Var;
+            this.e = ly1Var;
+            this.f = cameraPreview;
         }
 
-        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.b
-        public void a() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ik3
+        /* renamed from: b */
+        public void a(sa3<ua3.e> sa3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.j(false);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sa3Var) == null) {
+                if (na3.h(sa3Var)) {
+                    this.g.o(this.c, this.b, this.a, this.d, this.e, this.f);
+                    return;
+                }
+                na3.p(sa3Var, this.a, this.b);
+                p22.c("SwanAppCameraManager", "camera authorize failure");
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements WebViewContainer.c {
+    public class b implements s03 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ey1 a;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ p53 c;
+        public final /* synthetic */ CameraPreview d;
+        public final /* synthetic */ ly1 e;
+        public final /* synthetic */ ey1 f;
 
-        public b(ey1 ey1Var) {
+        public b(ey1 ey1Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var, CameraPreview cameraPreview, ly1 ly1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ey1Var};
+                Object[] objArr = {ey1Var, unitedSchemeEntity, callbackHandler, p53Var, cameraPreview, ly1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,312 +100,167 @@ public class ey1 {
                     return;
                 }
             }
-            this.a = ey1Var;
+            this.f = ey1Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = p53Var;
+            this.d = cameraPreview;
+            this.e = ly1Var;
         }
 
-        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.c
-        public void a(boolean z) {
-            double d;
-            boolean z2;
+        @Override // com.baidu.tieba.s03
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.a.a == null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
                 return;
             }
-            if (z) {
-                d = 1.0d - this.a.d;
-            } else {
-                d = this.a.d;
-            }
-            if ((this.a.a.getTopMargin() * 1.0d) / (this.a.h * 1.0d) >= d) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.a.j(z2);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements WebViewContainer.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ey1 a;
-
-        public c(ey1 ey1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ey1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ey1Var;
+            this.f.r(this.a, this.b, this.c, this.d, this.e);
         }
 
-        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.a
-        public boolean a(boolean z) {
-            InterceptResult invokeZ;
+        @Override // com.baidu.tieba.s03
+        public void b(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                if (z && this.a.a.getTopMargin() <= this.a.h) {
-                    this.a.j(false);
-                    return true;
-                } else if (!z && this.a.a.getTopMargin() >= this.a.a.getMinTopMargin()) {
-                    this.a.j(true);
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-            return invokeZ.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public int b;
-        public int c;
-        public int d;
-        public float e;
-        public int f;
-        public final /* synthetic */ boolean g;
-        public final /* synthetic */ ey1 h;
-
-        public d(ey1 ey1Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ey1Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = ey1Var;
-            this.g = z;
-            this.a = 0.0f;
-            this.b = this.h.h - this.h.a.getTopMargin();
-            int topMargin = this.h.a.getTopMargin() - this.h.a.getMinTopMargin();
-            this.c = topMargin;
-            topMargin = this.g ? this.b : topMargin;
-            this.d = topMargin;
-            this.e = topMargin * this.h.f;
-            this.f = this.h.a.getTopMargin();
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            float f;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && this.h.a != null && valueAnimator != null) {
-                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (this.h.c) {
-                    f = this.d;
-                } else {
-                    f = this.e;
-                }
-                int i = (int) (f * (floatValue - this.a));
-                if (this.g) {
-                    i = 0 - i;
-                }
-                this.f -= i;
-                this.h.a.scrollBy(0, i);
-                this.h.a.setTopMargin(this.f);
-                this.a = floatValue;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                UnitedSchemeUtility.callCallback(this.b, this.a, 10005);
+                p22.c("SwanAppCameraManager", str + "");
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ ey1 b;
-
-        public e(ey1 ey1Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ey1Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ey1Var;
-            this.a = z;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.b.a != null) {
-                this.b.i(this.a);
-            }
-        }
-    }
-
-    public ey1(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ey1(m63 m63Var) {
+        super(m63Var, "/swanAPI/camera/stopRecord");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {m63Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((m63) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = true;
-        this.d = 0.25d;
-        this.i = true;
-        this.j = new a(this);
-        this.k = new b(this);
-        this.b = context;
     }
 
-    public final void j(boolean z) {
+    public final boolean p(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.h > 0 && this.a != null && this.g != null) {
-            n(z);
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void p(yz2 yz2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yz2Var) == null) {
-            this.g = yz2Var;
-        }
-    }
-
-    public final void h() {
-        ValueAnimator valueAnimator;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.e) != null) {
-            valueAnimator.cancel();
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ValueAnimator valueAnimator = this.e;
-            if (valueAnimator != null && valueAnimator.isRunning()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (!(!TextUtils.isEmpty(str))) {
+                return false;
+            }
+            File file = new File(str);
+            if (file.exists() && file.length() > 0) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void i(boolean z) {
-        WebViewContainer webViewContainer;
+    @Override // com.baidu.tieba.m73
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (webViewContainer = this.a) != null && this.g != null) {
-            if (z) {
-                if (this.c) {
-                    webViewContainer.scrollBy(0, -(this.h - webViewContainer.getTopMargin()));
-                    this.a.setTopMargin(this.h);
-                }
-                if (!this.g.n() && !this.g.m()) {
-                    this.g.s();
-                }
-                this.i = true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
+            ly1 ly1Var = (ly1) q(unitedSchemeEntity);
+            if (ly1Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                p22.c("SwanAppCameraManager", "parse json model is null");
+                return false;
+            }
+            o12 o12Var = (o12) c22.a(ly1Var);
+            if (o12Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                p22.c("SwanAppCameraManager", "get camera component is null");
+                return false;
+            }
+            CameraPreview q = o12Var.q();
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                p22.c("SwanAppCameraManager", "get camera view is null");
+                return false;
+            } else if (TextUtils.isEmpty(xc3.x(p53Var.b))) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                p22.c("SwanAppCameraManager", "get camera stop record cache path is empty");
+                return false;
+            } else {
+                p53Var.f0().g(context, PermissionProxy.SCOPE_ID_RECORD, new a(this, callbackHandler, unitedSchemeEntity, context, p53Var, ly1Var, q));
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var, ly1 ly1Var, CameraPreview cameraPreview) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, unitedSchemeEntity, callbackHandler, p53Var, ly1Var, cameraPreview}) == null) {
+            p22.i("SwanAppCameraManager", "handleAuthorized start");
+            if (zx1.b().c(context) && zx1.b().d(context)) {
+                p22.c("SwanAppCameraManager", "has authorize");
+                r(unitedSchemeEntity, callbackHandler, p53Var, cameraPreview, ly1Var);
                 return;
             }
-            if (this.c) {
-                webViewContainer.scrollBy(0, webViewContainer.getTopMargin() - this.a.getMinTopMargin());
-                WebViewContainer webViewContainer2 = this.a;
-                webViewContainer2.setTopMargin(webViewContainer2.getMinTopMargin());
-            }
-            if (this.g.n()) {
-                this.g.p();
-            }
-            this.i = false;
+            r03.f(context, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE}, 1, new b(this, unitedSchemeEntity, callbackHandler, p53Var, cameraPreview, ly1Var));
         }
     }
 
-    public final void n(boolean z) {
+    public g12 q(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048582, this, z) != null) || this.a == null || m()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, unitedSchemeEntity)) == null) {
+            return new ly1(l(unitedSchemeEntity));
         }
-        h();
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.e = ofFloat;
-        ofFloat.setDuration(100L);
-        this.e.setInterpolator(new AccelerateDecelerateInterpolator());
-        if (this.a.getYVelocity() >= 0.0f) {
-            this.f = this.a.getYVelocity() / 4000.0f;
-        } else {
-            this.f = (-this.a.getYVelocity()) / 4000.0f;
-        }
-        this.f = Math.min(this.f, 1.0f);
-        this.e.addUpdateListener(new d(this, z));
-        this.e.addListener(new e(this, z));
-        this.e.start();
+        return (g12) invokeL.objValue;
     }
 
-    public WebViewContainer k() {
-        InterceptResult invokeV;
+    public final void r(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var, CameraPreview cameraPreview, ly1 ly1Var) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            WebViewContainer webViewContainer = new WebViewContainer(this.b);
-            this.a = webViewContainer;
-            webViewContainer.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-            this.a.setClipChildren(false);
-            this.a.setLayerType(2, null);
-            this.a.setTopLimit(this.h);
-            this.a.setTopMargin(this.h);
-            this.a.setAutoScroll2TopListener(this.j);
-            this.a.setOnUpListener(this.k);
-            this.a.setMinFlingVelocity(1000);
-            this.a.setUpYVelocityRatio(3.5f);
-            this.a.setInterceptFlingListener(new c(this));
-            return this.a;
+        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, unitedSchemeEntity, callbackHandler, p53Var, cameraPreview, ly1Var) == null) {
+            p22.i("SwanAppCameraManager", "stop record start");
+            try {
+                z = cameraPreview.v();
+            } catch (Exception e) {
+                e = e;
+                z = false;
+            }
+            try {
+                zx1.b().j();
+            } catch (Exception e2) {
+                e = e2;
+                cameraPreview.m();
+                zx1.b().e(ly1Var.c, ly1Var.b, false);
+                if (m73.b) {
+                    e.printStackTrace();
+                }
+                p22.c("SwanAppCameraManager", "stop recording api occur exception");
+                String videoPath = cameraPreview.getVideoPath();
+                String thumbPath = cameraPreview.getThumbPath();
+                if (!z) {
+                }
+                k(unitedSchemeEntity, callbackHandler, false);
+                cameraPreview.m();
+                p22.i("SwanAppCameraManager", "stop record end");
+            }
+            String videoPath2 = cameraPreview.getVideoPath();
+            String thumbPath2 = cameraPreview.getThumbPath();
+            if (!z && p(videoPath2) && !TextUtils.isEmpty(thumbPath2)) {
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put("tempVideoPath", xc3.J(videoPath2, p53Var.b));
+                hashMap.put("tempThumbPath", xc3.J(thumbPath2, p53Var.b));
+                j(unitedSchemeEntity, callbackHandler, hashMap, "");
+            } else {
+                k(unitedSchemeEntity, callbackHandler, false);
+            }
+            cameraPreview.m();
+            p22.i("SwanAppCameraManager", "stop record end");
         }
-        return (WebViewContainer) invokeV.objValue;
     }
 }

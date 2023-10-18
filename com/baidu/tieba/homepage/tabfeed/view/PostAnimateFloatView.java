@@ -23,14 +23,14 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.t88;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.e38;
+import com.baidu.tieba.rs;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class PostAnimateFloatView extends FrameLayout implements ux {
+public class PostAnimateFloatView extends FrameLayout implements rs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements ux {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                t88.g();
+                e38.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -411,10 +411,10 @@ public class PostAnimateFloatView extends FrameLayout implements ux {
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0552, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f9f);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d0b);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d23);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d054d, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091faa);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d33);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d4b);
             this.c = textView;
             this.f = textView.getPaint().measureText(getContext().getString(R.string.post_new_local_thread));
             j();
@@ -460,7 +460,7 @@ public class PostAnimateFloatView extends FrameLayout implements ux {
         }
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.rs
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {

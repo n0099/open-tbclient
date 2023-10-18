@@ -1,77 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uv1;
+import com.baidu.tieba.cb2;
+import com.baidu.tieba.jn1;
+import com.baidu.tieba.jq2;
+import com.baidu.tieba.nc2;
+import com.baidu.tieba.oj3;
+import com.baidu.tieba.p32;
+import com.baidu.tieba.p92;
+import com.baidu.tieba.tw1;
+import com.baidu.tieba.ue3;
+import com.baidu.tieba.v83;
+import com.baidu.tieba.xf2;
+import com.baidu.tieba.zd2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pt1 implements uv1 {
+public class pt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.uv1
-    public void b(Context context, String str, String str2, String str3) {
+    public static HashMap<Class, Object> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            HashMap<Class, Object> hashMap = new HashMap<>();
+            hashMap.put(v83.b.class, new v83.b());
+            hashMap.put(nc2.f.class, new nc2.f());
+            hashMap.put(nc2.g.class, new nc2.g());
+            hashMap.put(p92.a.class, new p92.a());
+            hashMap.put(cb2.a.class, new cb2.a());
+            hashMap.put(oj3.c.class, new oj3.c());
+            hashMap.put(ue3.b.class, new ue3.b());
+            hashMap.put(jq2.c.class, new jq2.c());
+            hashMap.put(cx2.class, new cx2());
+            hashMap.put(zs1.class, new zs1());
+            hashMap.put(at1.class, new at1());
+            hashMap.put(be3.class, new be3());
+            hashMap.put(ae3.class, new ae3());
+            hashMap.put(ee3.class, new ee3());
+            hashMap.put(te2.class, new te2());
+            hashMap.put(zd2.c.class, new zd2.c());
+            hashMap.put(mv2.class, new mv2());
+            hashMap.put(tw1.b.class, new tw1.b());
+            hashMap.put(jn1.a.class, new jn1.a());
+            hashMap.put(z32.class, new z32());
+            hashMap.put(xf2.a.class, new xf2.a());
+            hashMap.put(xf2.b.class, new xf2.b());
+            hashMap.put(py2.class, new py2());
+            hashMap.put(p32.b.class, new p32.b());
+            return hashMap;
         }
-    }
-
-    public pt1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.uv1
-    public void a(HashMap<String, String> hashMap, File file, uv1.a aVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, hashMap, file, aVar, str) == null) {
-            e(aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.uv1
-    public void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, uv1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, bitmap, hashMap, fileArr, aVar) == null) {
-            e(aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.uv1
-    public void c(HashMap<String, String> hashMap, File file, uv1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, hashMap, file, aVar) == null) {
-            e(aVar);
-        }
-    }
-
-    public final void e(uv1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("result", "success");
-                aVar.onResult(jSONObject.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+        return (HashMap) invokeV.objValue;
     }
 }

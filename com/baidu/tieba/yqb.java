@@ -1,96 +1,248 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.view.View;
+import android.app.PendingIntent;
+import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.IntentSender;
+import android.content.ServiceConnection;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tqb;
+import com.baidu.ar.session.XRSessionAnchor;
+import com.baidu.platform.comapi.map.NodeType;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes8.dex */
-public class yqb extends FunNativeAd2Bridger<grb, com.fun.module.csj.f0> {
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.exceptions.FatalException;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.concurrent.atomic.AtomicReference;
+/* loaded from: classes9.dex */
+public class yqb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TTNativeAd.AdInteractionListener b;
-    public final /* synthetic */ tqb c;
+    public final Queue<Runnable> a;
+    public Context b;
+    public volatile int c;
+    public com.google.a.b.a.a.a.a d;
+    public BroadcastReceiver e;
+    public Context f;
+    public final ServiceConnection g;
+    public final AtomicReference<pqb> h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yqb(tqb tqbVar, ReporterPidLoader reporterPidLoader, grb grbVar) {
-        super(reporterPidLoader);
+    public yqb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tqbVar, reporterPidLoader, grbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static Bundle l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putCharSequence("package.name", XRSessionAnchor.apkinfo);
+            return bundle;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public final void p() {
+        pqb andSet;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (andSet = this.h.getAndSet(null)) != null) {
+            andSet.a();
+        }
+    }
+
+    public final synchronized void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                Log.i("ARCore-InstallService", "Install service disconnected");
+                this.c = frb.a;
+                this.d = null;
+                p();
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public yqb(byte b) {
+        this();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Byte.valueOf(b)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = tqbVar;
-        this.b = new tqb.b(tqbVar, grbVar);
+        this.a = new ArrayDeque();
+        this.c = frb.a;
+        this.g = new arb(this);
+        this.h = new AtomicReference<>();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.csj.f0, android.view.View] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.csj.f0 createExpressView(grb grbVar) {
-        InterceptResult invokeL;
+    public static void b(Activity activity, Bundle bundle, zqb zqbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, grbVar)) == null) {
-            return uqb.a((TTNativeAd) grbVar.a);
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, grb grbVar, BaseNativeAd2<grb, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, grbVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.c.k(activity, grbVar, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.b, funAdInteractionListener);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, grb grbVar, BaseNativeAd2<grb, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, grbVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            grb grbVar2 = grbVar;
-            tqb tqbVar = this.c;
-            FunNativeAdListenerHelper<grb, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = tqbVar.g;
-            pid = tqbVar.mPid;
-            funNativeAdListenerHelper.startShow(grbVar2, str, pid, this.b, funAdInteractionListener);
-            com.fun.module.csj.f0 expressView = baseNativeAd2.getExpressView();
-            if (expressView == null) {
-                if (!FunAdSdk.isLogEnabled()) {
-                    LogPrinter.e("The image mode of ad is not support!", new Object[0]);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, activity, bundle, zqbVar) == null) {
+            PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("resolution.intent");
+            if (pendingIntent != null) {
+                try {
+                    activity.startIntentSenderForResult(pendingIntent.getIntentSender(), NodeType.E_STREET_POI, new Intent(activity, activity.getClass()), 0, 0, 0);
+                    return;
+                } catch (IntentSender.SendIntentException e) {
+                    zqbVar.b(new FatalException("Installation Intent failed", e));
                     return;
                 }
-                throw new RuntimeException("The image mode of ad is not support!");
             }
-            this.c.j(activity, grbVar2, expressInflater.inflate(), expressView, this.b);
+            Log.e("ARCore-InstallService", "Did not get pending intent.");
+            zqbVar.b(new FatalException("Installation intent failed to unparcel."));
+        }
+    }
+
+    public final synchronized void k(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
+            synchronized (this) {
+                int i = this.c - 1;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            runnable.run();
+                        }
+                        return;
+                    }
+                    this.a.offer(runnable);
+                    return;
+                }
+                throw new com.google.ar.core.ab();
+            }
+        }
+    }
+
+    public static void n(Activity activity, zqb zqbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, activity, zqbVar) == null) {
+            try {
+                activity.startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("market://details?id=com.google.ar.core")));
+            } catch (ActivityNotFoundException e) {
+                zqbVar.b(new FatalException("Failed to launch installer.", e));
+            }
+        }
+    }
+
+    public synchronized void e(Context context, ArCoreApk.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, aVar) == null) {
+            synchronized (this) {
+                try {
+                    k(new brb(this, context, aVar));
+                } catch (com.google.ar.core.ab unused) {
+                    Log.e("ARCore-InstallService", "Play Store install service could not be bound.");
+                    aVar.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                }
+            }
+        }
+    }
+
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                p();
+                int i = this.c - 1;
+                if (i == 1 || i == 2) {
+                    this.b.unbindService(this.g);
+                    this.b = null;
+                    this.c = frb.a;
+                }
+                if (this.e != null) {
+                    this.f.unregisterReceiver(this.e);
+                }
+            }
+        }
+    }
+
+    public void c(Activity activity, zqb zqbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, zqbVar) == null) {
+            pqb pqbVar = new pqb(activity, zqbVar);
+            pqb andSet = this.h.getAndSet(pqbVar);
+            if (andSet != null) {
+                andSet.a();
+            }
+            pqbVar.start();
+            if (this.e == null) {
+                crb crbVar = new crb(this, zqbVar);
+                this.e = crbVar;
+                this.f = activity;
+                activity.registerReceiver(crbVar, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
+            }
+            try {
+                k(new drb(this, activity, zqbVar));
+            } catch (com.google.ar.core.ab unused) {
+                Log.w("ARCore-InstallService", "requestInstall bind failed, launching fullscreen.");
+                n(activity, zqbVar);
+            }
+        }
+    }
+
+    public synchronized void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            synchronized (this) {
+                this.b = context;
+                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.g, 1)) {
+                    this.c = frb.b;
+                    return;
+                }
+                this.c = frb.a;
+                this.b = null;
+                Log.w("ARCore-InstallService", "bindService returned false.");
+                context.unbindService(this.g);
+            }
+        }
+    }
+
+    public final synchronized void f(IBinder iBinder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iBinder) == null) {
+            synchronized (this) {
+                com.google.a.b.a.a.a.a a = com.google.a.b.a.a.a.b.a(iBinder);
+                Log.i("ARCore-InstallService", "Install service connected");
+                this.d = a;
+                this.c = frb.c;
+                for (Runnable runnable : this.a) {
+                    runnable.run();
+                }
+            }
         }
     }
 }

@@ -22,6 +22,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.UiUtils;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,14 +45,14 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao5;
-import com.baidu.tieba.bx5;
-import com.baidu.tieba.dg8;
-import com.baidu.tieba.di;
-import com.baidu.tieba.eo8;
-import com.baidu.tieba.eu8;
-import com.baidu.tieba.gj8;
-import com.baidu.tieba.id8;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.b98;
+import com.baidu.tieba.fp6;
+import com.baidu.tieba.gi5;
+import com.baidu.tieba.gn8;
+import com.baidu.tieba.hn8;
+import com.baidu.tieba.ho8;
+import com.baidu.tieba.i78;
 import com.baidu.tieba.im.base.core.inputtool.InputDelegate;
 import com.baidu.tieba.im.base.core.inputtool.InputToolFragment;
 import com.baidu.tieba.im.base.core.inputtool.callback.uistate.ViewState;
@@ -76,20 +77,19 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.detail.EmojiRep
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.navigationbar.NavigationBarSlice;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.mo8;
-import com.baidu.tieba.pt4;
-import com.baidu.tieba.qe8;
-import com.baidu.tieba.rx5;
-import com.baidu.tieba.to5;
-import com.baidu.tieba.wra;
-import com.baidu.tieba.ws8;
-import com.baidu.tieba.wu6;
-import com.baidu.tieba.xc8;
-import com.baidu.tieba.xra;
-import com.baidu.tieba.xs8;
-import com.baidu.tieba.xt8;
-import com.baidu.tieba.zt8;
+import com.baidu.tieba.jo8;
+import com.baidu.tieba.jr5;
+import com.baidu.tieba.na8;
+import com.baidu.tieba.oi8;
+import com.baidu.tieba.oma;
+import com.baidu.tieba.oo8;
+import com.baidu.tieba.pma;
+import com.baidu.tieba.qd8;
+import com.baidu.tieba.t78;
+import com.baidu.tieba.wi8;
+import com.baidu.tieba.xn4;
+import com.baidu.tieba.zi5;
+import com.baidu.tieba.zr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -105,19 +105,19 @@ import java.util.concurrent.TimeUnit;
 import kotlin.Pair;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class GroupChatFragment extends SliceFragment implements xra, xc8 {
+public class GroupChatFragment extends SliceFragment implements pma, i78 {
     public static /* synthetic */ Interceptable $ic;
     public static long I;
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     @Nullable
-    public id8 B;
+    public t78 B;
     public final CustomMessageListener C;
     public final CustomMessageListener D;
     public final CustomMessageListener E;
     public final FastRequest.b<ChatRoomDetail> F;
     public final FastRequest.b<ChatRoomDetail> G;
-    public final to5 H;
+    public final zi5 H;
     public n e;
     public long f;
     public int g;
@@ -129,7 +129,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
     public ResponsesPanelController j;
     @Nullable
     public InputDelegate k;
-    public zt8 l;
+    public jo8 l;
     @Nullable
     public ChatRoomDetail m;
     @Nullable
@@ -155,7 +155,15 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
     public long y;
     public BdUniqueId z;
 
-    @Override // com.baidu.tieba.xra
+    @Override // com.baidu.tieba.pma
+    @NonNull
+    public String I1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "chatroom_landing_page" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pma
     @NonNull
     public String V1() {
         InterceptResult invokeV;
@@ -164,7 +172,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
     }
 
     /* loaded from: classes6.dex */
-    public class j implements to5 {
+    public class j implements zi5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupChatFragment a;
@@ -202,10 +210,10 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                     if (this.a != 0) {
                         this.b.a.i3();
                         if (this.a == 430) {
-                            BdUtilHelper.showLongToast(this.b.a.getContext(), this.b.a.getStringSafely(R.string.obfuscated_res_0x7f0f0938));
+                            BdUtilHelper.showLongToast(this.b.a.getContext(), this.b.a.getStringSafely(R.string.obfuscated_res_0x7f0f093e));
                             return;
                         } else {
-                            BdUtilHelper.showLongToast(this.b.a.getContext(), this.b.a.getStringSafely(R.string.obfuscated_res_0x7f0f0939, Integer.valueOf(this.a)));
+                            BdUtilHelper.showLongToast(this.b.a.getContext(), this.b.a.getStringSafely(R.string.obfuscated_res_0x7f0f093f, Integer.valueOf(this.a)));
                             return;
                         }
                     }
@@ -232,12 +240,12 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             this.a = groupChatFragment;
         }
 
-        @Override // com.baidu.tieba.to5
+        @Override // com.baidu.tieba.zi5
         public void a(long j, int i, @NonNull String str, @Nullable IChatRoomEnterListener.ChatRoomInfo chatRoomInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str, chatRoomInfo}) == null) {
-                dg8.f(j, i, str);
-                lg.g(new a(this, i));
+                na8.f(j, i, str);
+                UiUtils.runOnUiThread(new a(this, i));
             }
         }
     }
@@ -349,7 +357,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gj8.j().s(TbadkCoreApplication.getCurrentAccount(), this.a.getName(), this.a.getAvatar(), String.valueOf(this.a.getForumId()), this.a.getForumName(), this.a.getId(), this.b.getMsgId(), this.b.getMsgTime(), this.c, this.d);
+                qd8.j().s(TbadkCoreApplication.getCurrentAccount(), this.a.getName(), this.a.getAvatar(), String.valueOf(this.a.getForumId()), this.a.getForumName(), this.a.getId(), this.b.getMsgId(), this.b.getMsgTime(), this.c, this.d);
             }
         }
     }
@@ -421,7 +429,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.e.b != null) {
-                eo8.x(this.a.e.b);
+                oi8.y(this.a.e.b);
             }
         }
     }
@@ -458,7 +466,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.N2() != null && (customResponsedMessage.getData() instanceof String)) {
-                this.a.N2().o0((String) customResponsedMessage.getData());
+                this.a.N2().p0((String) customResponsedMessage.getData());
             }
         }
     }
@@ -495,7 +503,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.h != null && (customResponsedMessage.getData() instanceof String)) {
-                this.a.h.n0(true);
+                this.a.h.o0(true);
             }
         }
     }
@@ -504,7 +512,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
     public class h extends FastRequest.b<ChatRoomDetail> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GroupChatFragment c;
+        public final /* synthetic */ GroupChatFragment d;
 
         public h(GroupChatFragment groupChatFragment) {
             Interceptable interceptable = $ic;
@@ -521,20 +529,20 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                     return;
                 }
             }
-            this.c = groupChatFragment;
+            this.d = groupChatFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: i */
-        public void g(@NonNull ChatRoomDetail chatRoomDetail) {
+        /* renamed from: l */
+        public void i(@NonNull ChatRoomDetail chatRoomDetail) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatRoomDetail) == null) {
-                super.g(chatRoomDetail);
-                this.c.m = chatRoomDetail;
-                this.c.N2().z0(chatRoomDetail);
-                if (this.c.k != null) {
-                    this.c.k.d0(chatRoomDetail.getExtraInfo().getTalkThresholdLevel());
+                super.i(chatRoomDetail);
+                this.d.m = chatRoomDetail;
+                this.d.N2().A0(chatRoomDetail);
+                if (this.d.k != null) {
+                    this.d.k.f0(chatRoomDetail.getExtraInfo().getTalkThresholdLevel());
                 }
             }
         }
@@ -544,7 +552,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
     public class i extends FastRequest.b<ChatRoomDetail> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GroupChatFragment c;
+        public final /* synthetic */ GroupChatFragment d;
 
         public i(GroupChatFragment groupChatFragment) {
             Interceptable interceptable = $ic;
@@ -561,98 +569,98 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                     return;
                 }
             }
-            this.c = groupChatFragment;
+            this.d = groupChatFragment;
         }
 
         @Override // com.baidu.tbadk.net.FastRequest.b
-        public void f() {
+        public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                super.f();
-                this.c.j3();
+                super.h();
+                this.d.j3();
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: i */
-        public void c(int i, @NonNull String str, @Nullable Exception exc, @Nullable ChatRoomDetail chatRoomDetail) {
+        /* renamed from: l */
+        public void e(int i, @NonNull String str, @Nullable Exception exc, @Nullable ChatRoomDetail chatRoomDetail) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, exc, chatRoomDetail}) == null) {
-                super.c(i, str, exc, chatRoomDetail);
-                wra.a(this.c, new Pair(PushMessageHelper.ERROR_TYPE, Integer.toString(i)), new Pair("error_info", str), new Pair("log_id", a()));
-                dg8.i(false, this.c.f, i, str);
-                this.c.i3();
+                super.e(i, str, exc, chatRoomDetail);
+                oma.a(this.d, new Pair(PushMessageHelper.ERROR_TYPE, Integer.toString(i)), new Pair("error_info", str), new Pair("log_id", b()));
+                na8.i(false, this.d.f, i, str);
+                this.d.i3();
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: j */
-        public void g(@NonNull ChatRoomDetail chatRoomDetail) {
+        /* renamed from: m */
+        public void i(@NonNull ChatRoomDetail chatRoomDetail) {
             long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, chatRoomDetail) == null) {
-                super.g(chatRoomDetail);
+                super.i(chatRoomDetail);
                 if (chatRoomDetail.isJumpH5()) {
-                    UrlManager.getInstance().dealOneLink(this.c.getPageContext(), new String[]{chatRoomDetail.getJumpH5ErrUrl()});
-                    this.c.requireActivity().finish();
+                    UrlManager.getInstance().dealOneLink(this.d.getPageContext(), new String[]{chatRoomDetail.getJumpH5ErrUrl()});
+                    this.d.requireActivity().finish();
                     return;
                 }
-                wra.c(this.c, new Pair[0]);
-                this.c.m = chatRoomDetail;
-                dg8.i(true, this.c.f, 0, DnsModel.MSG_OK);
-                if (this.c.n != null) {
-                    this.c.n.h0(chatRoomDetail);
+                oma.c(this.d, new Pair[0]);
+                this.d.m = chatRoomDetail;
+                na8.i(true, this.d.f, 0, DnsModel.MSG_OK);
+                if (this.d.n != null) {
+                    this.d.n.i0(chatRoomDetail);
                 }
-                if (this.c.s != null) {
-                    this.c.s.W2(eu8.b(this.c.f, chatRoomDetail), eu8.a(chatRoomDetail.getBasicInfo()));
+                if (this.d.s != null) {
+                    this.d.s.d3(oo8.b(this.d.f, chatRoomDetail), oo8.a(chatRoomDetail.getBasicInfo()));
                 }
-                this.c.u.k0(chatRoomDetail.getReactions());
-                if (!ListUtils.isEmpty(chatRoomDetail.getQuickTalk()) && !this.c.Y2()) {
-                    this.c.f3(ViewState.VISIBLE);
+                this.d.u.l0(chatRoomDetail.getReactions());
+                if (!ListUtils.isEmpty(chatRoomDetail.getQuickTalk()) && !this.d.Y2()) {
+                    this.d.f3(ViewState.VISIBLE);
                 } else {
-                    this.c.f3(ViewState.GONE);
+                    this.d.f3(ViewState.GONE);
                 }
-                this.c.J2().d0(chatRoomDetail);
-                if (this.c.S2() != null) {
-                    TopBubbleSlice S2 = this.c.S2();
+                this.d.J2().e0(chatRoomDetail);
+                if (this.d.S2() != null) {
+                    TopBubbleSlice S2 = this.d.S2();
                     if (chatRoomDetail.getBasicInfo() != null) {
                         j = chatRoomDetail.getBasicInfo().getForumId();
                     } else {
                         j = 0;
                     }
-                    S2.u0(j);
+                    S2.v0(j);
                     if (!ListUtils.isEmpty(chatRoomDetail.getChatBubbleData())) {
-                        this.c.S2().s0(chatRoomDetail.getChatBubbleData());
+                        this.d.S2().t0(chatRoomDetail.getChatBubbleData());
                     }
                 }
-                if (this.c.U2() != null) {
-                    this.c.U2().q0(chatRoomDetail);
+                if (this.d.U2() != null) {
+                    this.d.U2().r0(chatRoomDetail);
                 }
-                if (this.c.Q2() != null) {
-                    this.c.Q2().n0(chatRoomDetail, this.c.h);
+                if (this.d.Q2() != null) {
+                    this.d.Q2().o0(chatRoomDetail, this.d.h);
                 }
-                if (this.c.k != null) {
-                    this.c.k.b0(eu8.b(this.c.f, chatRoomDetail), chatRoomDetail.getBots());
-                    if (this.c.k.i()) {
-                        this.c.f3(ViewState.GONE);
+                if (this.d.k != null) {
+                    this.d.k.d0(oo8.b(this.d.f, chatRoomDetail), chatRoomDetail.getBots());
+                    if (this.d.k.i()) {
+                        this.d.f3(ViewState.GONE);
                     }
                 }
-                if (this.c.N2() != null) {
-                    this.c.N2().z0(chatRoomDetail);
+                if (this.d.N2() != null) {
+                    this.d.N2().A0(chatRoomDetail);
                 }
-                this.c.i.m1(chatRoomDetail);
-                if (this.c.l != null && chatRoomDetail.getGroupChatResource() != null) {
-                    this.c.l.a(chatRoomDetail.getGroupChatResource().getEggRainData(), this.c.getPageContext());
+                this.d.i.n1(chatRoomDetail);
+                if (this.d.l != null && chatRoomDetail.getGroupChatResource() != null) {
+                    this.d.l.a(chatRoomDetail.getGroupChatResource().getEggRainData(), this.d.getPageContext());
                 }
-                this.c.y2(chatRoomDetail);
+                this.d.y2(chatRoomDetail);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class k implements xs8 {
+    public class k implements hn8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupChatFragment a;
@@ -675,7 +683,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             this.a = groupChatFragment;
         }
 
-        @Override // com.baidu.tieba.xs8
+        @Override // com.baidu.tieba.hn8
         public void a(BaseItem<? extends TbBaseMsg> baseItem, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, baseItem, i, i2) == null) {
@@ -698,7 +706,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    pt4.d().c("group_chat", jSONObject.toString());
+                    xn4.d().c("group_chat", jSONObject.toString());
                 }
             }
         }
@@ -736,11 +744,11 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbNoUISysMsg) == null) {
                 if (tbNoUISysMsg.getType() == -7010) {
-                    this.a.h.t0(false);
-                    this.a.h.a0();
+                    this.a.h.u0(false);
+                    this.a.h.b0();
                     GroupChatFragment groupChatFragment = this.a;
-                    groupChatFragment.g3(false, groupChatFragment.getStringSafely(R.string.obfuscated_res_0x7f0f0940));
-                    this.a.k3(R.string.obfuscated_res_0x7f0f0933, R.string.obfuscated_res_0x7f0f0932, R.string.obfuscated_res_0x7f0f0959);
+                    groupChatFragment.g3(false, groupChatFragment.getStringSafely(R.string.obfuscated_res_0x7f0f0946));
+                    this.a.k3(R.string.obfuscated_res_0x7f0f0939, R.string.obfuscated_res_0x7f0f0938, R.string.obfuscated_res_0x7f0f0960);
                     return;
                 }
                 if (this.a.k != null && tbNoUISysMsg.getMaskInfo() != null) {
@@ -750,15 +758,15 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                     return;
                 }
                 GroupChatFragment groupChatFragment2 = this.a;
-                if (!groupChatFragment2.C2(groupChatFragment2.m, tbNoUISysMsg) && tbNoUISysMsg.getType() == 7016 && tbNoUISysMsg.getExt() != null && tbNoUISysMsg.getExt().getEggRain() != null && tbNoUISysMsg.getUserFrom() != null && tbNoUISysMsg.getUserFrom().getUserId() != TbadkCoreApplication.getCurrentAccountId() && this.a.i.I0() != null && this.a.m.getChatConf() != null) {
-                    this.a.i.I0().f0(tbNoUISysMsg.getExt().getEggRain(), this.a.m.getChatConf().getResourceMaxTimeDelay() * 1000, tbNoUISysMsg.getSessionId(), tbNoUISysMsg.isMaster());
+                if (!groupChatFragment2.C2(groupChatFragment2.m, tbNoUISysMsg) && tbNoUISysMsg.getType() == 7016 && tbNoUISysMsg.getExt() != null && tbNoUISysMsg.getExt().getEggRain() != null && tbNoUISysMsg.getUserFrom() != null && tbNoUISysMsg.getUserFrom().getUserId() != TbadkCoreApplication.getCurrentAccountId() && this.a.i.J0() != null && this.a.m.getChatConf() != null) {
+                    this.a.i.J0().g0(tbNoUISysMsg.getExt().getEggRain(), this.a.m.getChatConf().getResourceMaxTimeDelay() * 1000, tbNoUISysMsg.getSessionId(), tbNoUISysMsg.isMaster());
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class m implements InputToolFragment.g {
+    public class m implements InputToolFragment.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupChatFragment a;
@@ -781,8 +789,8 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             this.a = groupChatFragment;
         }
 
-        @Override // com.baidu.tieba.im.base.core.inputtool.InputToolFragment.g
-        public int u() {
+        @Override // com.baidu.tieba.im.base.core.inputtool.InputToolFragment.h
+        public int x() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -830,15 +838,15 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 n nVar = new n();
                 nVar.a = view2;
-                nVar.b = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f091984);
-                nVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906c2);
-                nVar.d = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0906cc);
-                nVar.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908bf);
-                nVar.f = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092622);
-                nVar.g = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092817);
-                nVar.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918ca);
-                nVar.i = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092314);
-                nVar.j = (FragmentContainerView) view2.findViewById(R.id.obfuscated_res_0x7f0906b0);
+                nVar.b = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f0919ad);
+                nVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906df);
+                nVar.d = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0906e9);
+                nVar.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908da);
+                nVar.f = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09262b);
+                nVar.g = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09280c);
+                nVar.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918f5);
+                nVar.i = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09231e);
+                nVar.j = (FragmentContainerView) view2.findViewById(R.id.obfuscated_res_0x7f0906cd);
                 return nVar;
             }
             return (n) invokeL.objValue;
@@ -875,7 +883,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && getArguments() != null && getArguments().getSerializable("chat_bot_ability") != null) {
             AbilityItem abilityItem = (AbilityItem) getArguments().getSerializable("chat_bot_ability");
             if (this.i != null && !TextUtils.isEmpty(abilityItem.getType())) {
-                this.i.p(abilityItem);
+                this.i.q(abilityItem);
                 getArguments().putSerializable("chat_bot_ability", null);
             }
         }
@@ -886,19 +894,19 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             InputToolFragment inputToolFragment = new InputToolFragment();
             this.s = inputToolFragment;
-            inputToolFragment.N2(this);
+            inputToolFragment.U2(this);
             Intent intent = new Intent();
             intent.putExtra("roomId", this.f);
             intent.putExtra("forumId", G2());
             this.s.setArguments(intent.getExtras());
             if (getActivity() != null) {
-                bx5.a(getChildFragmentManager(), R.id.obfuscated_res_0x7f0906b0, this.s);
+                jr5.a(getChildFragmentManager(), R.id.obfuscated_res_0x7f0906cd, this.s);
             }
             InputToolFragment inputToolFragment2 = this.s;
             this.B = inputToolFragment2;
             n nVar = this.e;
-            inputToolFragment2.U2(nVar.a, nVar.d);
-            this.s.P2(new m(this));
+            inputToolFragment2.b3(nVar.a, nVar.d);
+            this.s.W2(new m(this));
         }
     }
 
@@ -907,10 +915,10 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         if ((interceptable == null || interceptable.invokeV(1048618, this) == null) && N2() != null) {
             hideNetRefreshView(getView());
             this.mRefreshView = null;
-            N2().A0(8);
-            id8 id8Var = this.B;
-            if (id8Var != null) {
-                id8Var.v0(false);
+            N2().B0(8);
+            t78 t78Var = this.B;
+            if (t78Var != null) {
+                t78Var.u0(false);
             }
             f3(ViewState.GONE);
             T2().setVisibility(8);
@@ -929,7 +937,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
             super.onDestroy();
-            dg8.d();
+            na8.d();
             e3();
             long currentTimeMillis = System.currentTimeMillis();
             this.y = currentTimeMillis;
@@ -939,11 +947,11 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             I = 0L;
             InputDelegate inputDelegate = this.k;
             if (inputDelegate != null) {
-                inputDelegate.O(null);
+                inputDelegate.Q(null);
             }
             ChatRoomDetail chatRoomDetail = this.m;
             if (chatRoomDetail != null && chatRoomDetail.getBasicInfo() != null) {
-                mo8.a("c15323", j2, this.m.getBasicInfo().getForumId(), this.f);
+                wi8.a("c15323", j2, this.m.getBasicInfo().getForumId(), this.f);
             }
         }
     }
@@ -973,8 +981,8 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         InputDelegate inputDelegate;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZL(1048613, this, z, str) == null) && (inputDelegate = this.k) != null) {
-            inputDelegate.S(str);
-            this.k.a0(z);
+            inputDelegate.U(str);
+            this.k.c0(z);
         }
     }
 
@@ -997,7 +1005,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048624, this, layoutInflater, viewGroup, bundle)) == null) {
-            wra.b(this, new Pair[0]);
+            oma.b(this, new Pair[0]);
             return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d032e, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
@@ -1027,7 +1035,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         ChatPage chatPage;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (chatPage = this.i) != null) {
-            chatPage.F0();
+            chatPage.G0();
         }
     }
 
@@ -1036,11 +1044,11 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             InputDelegate inputDelegate = this.k;
             if (inputDelegate != null) {
-                inputDelegate.Y(this.i);
+                inputDelegate.a0(this.i);
             }
             InputDelegate inputDelegate2 = this.k;
             if (inputDelegate2 != null) {
-                inputDelegate2.O(new ws8(this));
+                inputDelegate2.Q(new gn8(this));
             }
         }
     }
@@ -1068,20 +1076,10 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.xc8
-    public int H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e.e.getVisibility();
-        }
-        return invokeV.intValue;
-    }
-
     public String H2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ChatRoomDetail chatRoomDetail = this.m;
             if (chatRoomDetail != null && chatRoomDetail.getBasicInfo() != null) {
                 return this.m.getBasicInfo().getForumName();
@@ -1091,10 +1089,20 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         return (String) invokeV.objValue;
     }
 
+    @Override // com.baidu.tieba.i78
+    public int I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e.e.getVisibility();
+        }
+        return invokeV.intValue;
+    }
+
     public long I2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.f;
         }
         return invokeV.longValue;
@@ -1104,7 +1112,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
     public DirectChatSlice J2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.o;
         }
         return (DirectChatSlice) invokeV.objValue;
@@ -1114,21 +1122,10 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
     public EffectSlice K2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.n;
         }
         return (EffectSlice) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xra
-    @NonNull
-    public String L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return Integer.toString(this.w);
-        }
-        return (String) invokeV.objValue;
     }
 
     @NonNull
@@ -1161,28 +1158,28 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         return (NavigationBarSlice) invokeV.objValue;
     }
 
-    @NonNull
-    public ReplayEmojiSlice O2() {
+    @Nullable
+    public VoiceManager O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.u;
-        }
-        return (ReplayEmojiSlice) invokeV.objValue;
-    }
-
-    @Nullable
-    public VoiceManager P0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             InputDelegate inputDelegate = this.k;
             if (inputDelegate == null) {
                 return null;
             }
-            return inputDelegate.y();
+            return inputDelegate.z();
         }
         return (VoiceManager) invokeV.objValue;
+    }
+
+    @NonNull
+    public ReplayEmojiSlice O2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.u;
+        }
+        return (ReplayEmojiSlice) invokeV.objValue;
     }
 
     @NonNull
@@ -1256,7 +1253,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         ChatPage chatPage;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (chatPage = this.i) != null) {
-            chatPage.L0();
+            chatPage.M0();
         }
     }
 
@@ -1265,7 +1262,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             InputDelegate inputDelegate = this.k;
-            if (inputDelegate != null && inputDelegate.r() != null && !"".equals(this.k.r())) {
+            if (inputDelegate != null && inputDelegate.s() != null && !"".equals(this.k.s())) {
                 return true;
             }
             return false;
@@ -1273,36 +1270,36 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         return invokeV.booleanValue;
     }
 
-    public final void c3() {
+    @Override // com.baidu.tieba.i78
+    public void c1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+            InputToolFragment inputToolFragment = this.s;
+            if (inputToolFragment != null) {
+                InputDelegate x2 = inputToolFragment.x2();
+                this.k = x2;
+                ChatPage chatPage = this.i;
+                if (chatPage != null && x2 != null) {
+                    x2.M(chatPage.H0());
+                }
+            }
+            ChatPage chatPage2 = this.i;
+            if (chatPage2 != null) {
+                chatPage2.C0(O0());
+            }
+        }
+    }
+
+    public final void c3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             registerListener(this.C);
             registerListener(this.D);
             registerListener(this.E);
         }
     }
 
-    @Override // com.baidu.tieba.xc8
-    public void d1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            InputToolFragment inputToolFragment = this.s;
-            if (inputToolFragment != null) {
-                InputDelegate r2 = inputToolFragment.r2();
-                this.k = r2;
-                ChatPage chatPage = this.i;
-                if (chatPage != null && r2 != null) {
-                    r2.K(chatPage.G0());
-                }
-            }
-            ChatPage chatPage2 = this.i;
-            if (chatPage2 != null) {
-                chatPage2.B0(P0());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xra
+    @Override // com.baidu.tieba.pma
     @NonNull
     public String getTraceId() {
         InterceptResult invokeV;
@@ -1317,17 +1314,17 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         ChatPage chatPage;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048615, this) == null) && (chatPage = this.i) != null) {
-            chatPage.q1();
+            chatPage.r1();
         }
     }
 
     public final void hideLoading() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048616, this) == null) && N2() != null) {
-            N2().A0(0);
-            id8 id8Var = this.B;
-            if (id8Var != null) {
-                id8Var.v0(true);
+            N2().B0(0);
+            t78 t78Var = this.B;
+            if (t78Var != null) {
+                t78Var.u0(true);
             }
             hideLoadingView(getView());
             this.loadingView = null;
@@ -1338,7 +1335,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         GroupChatRepo groupChatRepo;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048620, this) == null) && (groupChatRepo = this.h) != null) {
-            groupChatRepo.u0();
+            groupChatRepo.v0();
         }
     }
 
@@ -1349,7 +1346,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             super.onNetRefreshButtonClicked();
             GroupChatRepo groupChatRepo = this.h;
             if (groupChatRepo != null) {
-                groupChatRepo.h0(this.G, this.H, this.w);
+                groupChatRepo.i0(this.G, this.H, this.w);
             }
         }
     }
@@ -1380,7 +1377,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             if (N2() == null || this.h == null) {
                 return true;
             }
-            return !N2().H0(this.h.j0());
+            return !N2().I0(this.h.k0());
         }
         return invokeV.booleanValue;
     }
@@ -1417,7 +1414,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             int type = tbNoUISysMsg.getType();
             ChatRoomDetail.ExtraInfo extraInfo = chatRoomDetail.getExtraInfo();
             ChatRoomDetail.UserInfo userInfo = chatRoomDetail.getUserInfo();
-            qe8 x = this.k.x();
+            b98 y = this.k.y();
             TbSysMsg.ChatRoomInfo chatroomInfo = tbNoUISysMsg.getChatroomInfo();
             long j2 = 0;
             switch (type) {
@@ -1429,7 +1426,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                         if (userInfo != null) {
                             userInfo.setIsBeenTalkBanned(1);
                         }
-                        x.g(type);
+                        y.g(type);
                         A2();
                         z = true;
                         break;
@@ -1440,7 +1437,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                         j2 = tbNoUISysMsg.getUserTo().getUserId();
                     }
                     if (j2 == TbadkCoreApplication.getCurrentAccountId()) {
-                        x.b(type);
+                        y.b(type);
                         if (userInfo != null) {
                             userInfo.setIsBeenTalkBanned(0);
                         }
@@ -1453,12 +1450,12 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                     if (extraInfo != null) {
                         extraInfo.setIsTalkBanned(1);
                     }
-                    x.g(type);
+                    y.g(type);
                     A2();
                     z = true;
                     break;
                 case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL /* 7006 */:
-                    x.b(type);
+                    y.b(type);
                     if (extraInfo != null) {
                         extraInfo.setIsTalkBanned(0);
                     }
@@ -1469,11 +1466,11 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                     if (extraInfo != null) {
                         extraInfo.setIsFreezing(1);
                     }
-                    x.g(type);
+                    y.g(type);
                     z = true;
                     break;
                 case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN /* 7008 */:
-                    x.b(type);
+                    y.b(type);
                     if (extraInfo != null) {
                         extraInfo.setIsFreezing(0);
                     }
@@ -1487,9 +1484,9 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                         extraInfo.setTalkThresholdLevel(talkThresholdLevel);
                         extraInfo.setTalkType(talkType);
                         if (!a3(chatRoomDetail) && this.k.h(talkThresholdLevel, forumLevel)) {
-                            x.g(type);
+                            y.g(type);
                         } else {
-                            x.b(type);
+                            y.b(type);
                         }
                         z = true;
                         break;
@@ -1500,12 +1497,12 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                         if (userInfo.getIdentityRole() < chatroomInfo.getChatroomViewType()) {
                             GroupChatRepo groupChatRepo = this.h;
                             if (groupChatRepo != null) {
-                                groupChatRepo.a0();
+                                groupChatRepo.b0();
                             }
-                            x.g(type);
-                            k3(R.string.obfuscated_res_0x7f0f0b7e, R.string.obfuscated_res_0x7f0f0b7f, R.string.obfuscated_res_0x7f0f0959);
+                            y.g(type);
+                            k3(R.string.obfuscated_res_0x7f0f0b8b, R.string.obfuscated_res_0x7f0f0b8c, R.string.obfuscated_res_0x7f0f0960);
                         } else {
-                            x.b(type);
+                            y.b(type);
                         }
                         z = true;
                         break;
@@ -1524,9 +1521,9 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                         if (extraInfo != null) {
                             extraInfo.setTalkType(1);
                         }
-                        x.g(type);
+                        y.g(type);
                     } else {
-                        x.b(type);
+                        y.b(type);
                     }
                     z = true;
                     break;
@@ -1550,27 +1547,27 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             if (chatRoomDetail != null && chatRoomDetail.getQuickTalk() != null && !ListUtils.isEmpty(this.m.getQuickTalk())) {
                 InputToolFragment inputToolFragment = this.s;
                 boolean z6 = false;
-                if (inputToolFragment != null && inputToolFragment.w2() != null) {
-                    z2 = this.s.w2().m();
+                if (inputToolFragment != null && inputToolFragment.C2() != null) {
+                    z2 = this.s.C2().n();
                 } else {
                     z2 = false;
                 }
                 InputDelegate inputDelegate = this.k;
                 if (inputDelegate != null) {
-                    z3 = inputDelegate.t();
+                    z3 = inputDelegate.u();
                 } else {
                     z3 = false;
                 }
                 InputDelegate inputDelegate2 = this.k;
                 if (inputDelegate2 != null) {
-                    z4 = inputDelegate2.q();
+                    z4 = inputDelegate2.r();
                 } else {
                     z4 = false;
                 }
                 InputToolFragment inputToolFragment2 = this.s;
-                if (inputToolFragment2 != null && inputToolFragment2.o2() != null) {
-                    z6 = this.s.o2().c0();
-                    z5 = this.s.o2().a0();
+                if (inputToolFragment2 != null && inputToolFragment2.u2() != null) {
+                    z6 = this.s.u2().e0();
+                    z5 = this.s.u2().c0();
                 } else {
                     z5 = false;
                 }
@@ -1595,19 +1592,19 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
     }
 
     public final void d3() {
-        BaseItem<? extends TbBaseMsg> i0;
+        BaseItem<? extends TbBaseMsg> j0;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048610, this) == null) && this.h != null && this.m != null && N2() != null && (i0 = this.h.i0()) != null) {
-            TbBaseMsg tbMsg = i0.getTbMsg();
+        if ((interceptable == null || interceptable.invokeV(1048610, this) == null) && this.h != null && this.m != null && N2() != null && (j0 = this.h.j0()) != null) {
+            TbBaseMsg tbMsg = j0.getTbMsg();
             ChatRoomDetail.BasicInfo basicInfo = this.m.getBasicInfo();
-            lg.e(new c(this, basicInfo, tbMsg, N2().t0(), TimeUnit.MILLISECONDS.toMicros(System.currentTimeMillis())));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921773, new xt8(i0.getTbMsg(), basicInfo.getId())));
+            UiUtils.runOnBgThread(new c(this, basicInfo, tbMsg, N2().u0(), TimeUnit.MILLISECONDS.toMicros(System.currentTimeMillis())));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921773, new ho8(j0.getTbMsg(), basicInfo.getId())));
         }
     }
 
     public final void e3() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048611, this) == null) && N2() != null && !N2().t0()) {
+        if ((interceptable == null || interceptable.invokeV(1048611, this) == null) && N2() != null && !N2().u0()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921784, String.valueOf(this.f)));
         }
     }
@@ -1618,9 +1615,9 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             hideLoadingView(getView());
             this.loadingView = null;
             showNetRefreshView(getView(), null, false);
-            ao5 ao5Var = this.mRefreshView;
-            if (ao5Var != null) {
-                ao5Var.getAttachedView().setClickable(false);
+            gi5 gi5Var = this.mRefreshView;
+            if (gi5Var != null) {
+                gi5Var.getAttachedView().setClickable(false);
                 this.mRefreshView.k(UtilHelper.getStatusBarHeight());
                 this.mRefreshView.e(R.color.transparent);
             }
@@ -1632,15 +1629,15 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
             super.onResume();
-            dg8.d();
+            na8.d();
             I = this.f;
             NoNetworkView noNetworkView = this.e.b;
             if (noNetworkView != null) {
-                eo8.x(noNetworkView);
+                oi8.y(noNetworkView);
             }
             GroupChatRepo groupChatRepo = this.h;
             if (groupChatRepo != null) {
-                groupChatRepo.q0(this.F, this.w);
+                groupChatRepo.r0(this.F, this.w);
             }
             if (getArguments() != null && getArguments().getBoolean("is_new_intent")) {
                 X2();
@@ -1667,12 +1664,12 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         if (interceptable == null || interceptable.invokeL(1048623, this, bundle) == null) {
             super.onCreate(bundle);
             Bundle arguments = getArguments();
-            rx5.b(arguments);
+            zr5.b(arguments);
             this.f = arguments.getLong("roomId");
             arguments.getInt("requestCode", -1);
             this.w = arguments.getInt(IntentConfig.OBJ_LOCATED);
             this.A = arguments.getString("hotListText");
-            dg8.e();
+            na8.e();
             this.x = System.currentTimeMillis();
         }
     }
@@ -1719,7 +1716,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             NavigationBarSlice navigationBarSlice = new NavigationBarSlice(getPageContext(), this);
             this.t = navigationBarSlice;
             c2(this.e.h, navigationBarSlice);
-            this.t.B0(this.A);
+            this.t.C0(this.A);
             SubscribeSlice subscribeSlice = new SubscribeSlice(getPageContext(), this);
             this.r = subscribeSlice;
             c2(this.e.i, subscribeSlice);
@@ -1733,14 +1730,14 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             this.j = new ResponsesPanelControllerImpl(this);
             ChatPage chatPage = new ChatPage(this, this.h);
             this.i = chatPage;
-            this.j.f(chatPage.i1());
+            this.j.f(chatPage.j1());
             InputToolFragment inputToolFragment = this.s;
             if (inputToolFragment != null) {
-                inputToolFragment.O2(this.i.i1());
+                inputToolFragment.V2(this.i.j1());
             }
             c2(this.e.d, this.i);
             E2();
-            ReplayEmojiSlice replayEmojiSlice = new ReplayEmojiSlice(getPageContext(), this, this.i.i1());
+            ReplayEmojiSlice replayEmojiSlice = new ReplayEmojiSlice(getPageContext(), this, this.i.j1());
             this.u = replayEmojiSlice;
             c2((ViewGroup) this.e.a, replayEmojiSlice);
             UpBubbleSlice upBubbleSlice = new UpBubbleSlice(getPageContext(), this, this.i);
@@ -1749,15 +1746,15 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             TopBubbleSlice topBubbleSlice = new TopBubbleSlice(getPageContext(), this, this.i, this.f);
             this.p = topBubbleSlice;
             c2(this.e.f, topBubbleSlice);
-            DirectChatSlice directChatSlice = new DirectChatSlice(getPageContext(), this.i.i1());
+            DirectChatSlice directChatSlice = new DirectChatSlice(getPageContext(), this.i.j1());
             this.o = directChatSlice;
             c2(this.e.e, directChatSlice);
-            this.l = new zt8();
+            this.l = new jo8();
             getLifecycle().addObserver(this.h);
             getLifecycle().addObserver(this.j);
-            this.i.o1(new k(this));
-            this.h.h0(this.G, this.H, this.w);
-            this.h.C(new l(this));
+            this.i.p1(new k(this));
+            this.h.i0(this.G, this.H, this.w);
+            this.h.D(new l(this));
         }
     }
 
@@ -1776,7 +1773,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
         if (UtilHelper.isNightOrDarkMode()) {
             EMManager.from(this.e.a).setBackGroundColor(R.color.CAM_X0201);
         } else {
-            Glide.with(this.e.a).load(wu6.b("chat_room_background.webp", "chat_room_background")).into((RequestBuilder<Drawable>) new d(this));
+            Glide.with(this.e.a).load(fp6.b("chat_room_background.webp", "chat_room_background")).into((RequestBuilder<Drawable>) new d(this));
         }
         this.j.onChangeSkinType();
     }
@@ -1792,7 +1789,7 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
             List<String> inputTipsList = chatRoomDetail.getInputTipsList();
             if (inputTipsList != null && !inputTipsList.isEmpty()) {
                 g3(true, inputTipsList.get(0));
-            } else if (chatRoomDetail.getBots() != null && !di.isEmpty(chatRoomDetail.getBots().getGuide())) {
+            } else if (chatRoomDetail.getBots() != null && !ad.isEmpty(chatRoomDetail.getBots().getGuide())) {
                 g3(true, chatRoomDetail.getBots().getGuide());
             } else {
                 g3(true, getStringSafely(R.string.im_msg_input_hint));
@@ -1810,11 +1807,11 @@ public class GroupChatFragment extends SliceFragment implements xra, xc8 {
                 return true;
             }
             if (i2 == 4 && this.s != null && (inputDelegate = this.k) != null) {
-                if (inputDelegate.u()) {
-                    this.k.W(null);
+                if (inputDelegate.v()) {
+                    this.k.Y(null);
                     return true;
-                } else if (this.s.y2() && this.k.o() == BotSourceType.ONE) {
-                    this.k.I(null);
+                } else if (this.s.E2() && this.k.p() == BotSourceType.ONE) {
+                    this.k.J(null);
                     return true;
                 }
             }

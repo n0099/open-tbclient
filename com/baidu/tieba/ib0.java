@@ -1,48 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ib0 {
-    void a(Context context, String str);
+public final class ib0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Context context);
-
-    void c();
-
-    void d();
-
-    void e(Context context);
-
-    void f(Context context, int i);
-
-    void g(String str, String str2, RequestSearchData requestSearchData);
-
-    void h();
-
-    void i(String str);
-
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
-
-    void onDetach();
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void a(ib0 ib0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 4) != 0) {
-                    requestSearchData = new RequestSearchData();
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            if (str2.length() > 2001) {
+                int i = 0;
+                while (i < str2.length()) {
+                    int i2 = i + 2001;
+                    if (i2 < str2.length()) {
+                        b(3, str, str2.substring(i, i2));
+                    } else {
+                        b(3, str, str2.substring(i));
+                    }
+                    i = i2;
                 }
-                ib0Var.g(str, str2, requestSearchData);
                 return;
             }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
+            b(3, str, str2);
+        }
+    }
+
+    public static void b(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65537, null, i, str, str2) == null) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        if (i != 5) {
+                            if (i != 6) {
+                                Log.d(str, str2);
+                                return;
+                            } else {
+                                Log.e(str, str2);
+                                return;
+                            }
+                        }
+                        Log.w(str, str2);
+                        return;
+                    }
+                    Log.i(str, str2);
+                    return;
+                }
+                Log.d(str, str2);
+                return;
+            }
+            Log.v(str, str2);
         }
     }
 }

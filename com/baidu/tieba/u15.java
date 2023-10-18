@@ -1,78 +1,81 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogDataManager;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class u15 {
+public final class u15 {
     public static /* synthetic */ Interceptable $ic;
+    public static final u15 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948158160, "Lcom/baidu/tieba/u15;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948158160, "Lcom/baidu/tieba/u15;");
+                return;
+            }
+        }
+        a = new u15();
+    }
 
     public u15() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(String str) {
+    public final void a(String json) {
+        boolean z;
+        List entityList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            String k = YunDialogDataManager.k();
+            m9<String> n = gz4.n("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k);
+            if (n != null) {
+                String str = n.get(k);
+                if (str != null) {
+                    if (str.length() > 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (!z) {
+                        str = null;
+                    }
+                    if (str != null && (entityList = DataExt.toEntityList(str, DialogStrategiesData.class)) != null) {
+                        List entityList2 = DataExt.toEntityList(json, DialogStrategiesData.class);
+                        v15.a(entityList2);
+                        v15.b(entityList, entityList2);
+                    }
                 }
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                n.a(k, json);
             }
-        }
-    }
-
-    public final void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.optInt("switch");
-            JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
-            if (optJSONObject != null) {
-                this.c = optJSONObject.optInt("num");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
-            if (optJSONObject2 != null) {
-                this.b = optJSONObject2.optInt("time");
-                this.a = optJSONObject2.optInt("num");
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject(MultiRatePlayUrlHelper.RANK);
-            if (optJSONObject3 != null) {
-                optJSONObject3.optInt("succ");
-                optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                optJSONObject3.optInt("slow");
-            }
-            if (this.b > 0 && this.a > 0) {
-                int i = this.c;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 }

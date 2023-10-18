@@ -156,13 +156,13 @@ public class PbPostFriendReplyView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07c0, this);
-            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090442);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09043b);
-            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090441);
-            this.d = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090437);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090436);
-            this.f = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090435);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07b3, this);
+            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090443);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09043c);
+            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090442);
+            this.d = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090438);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090437);
+            this.f = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090436);
         }
     }
 

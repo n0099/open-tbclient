@@ -1,5 +1,17 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface l0c<TResult> {
-    void onComplete(o0c<TResult> o0cVar);
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.transvod.player.common.effectmp4.EffectFrame;
+import com.yy.transvod.player.common.effectmp4.EffectInfo;
+import com.yy.transvod.player.common.effectmp4.EffectSource;
+import java.util.TreeMap;
+/* loaded from: classes7.dex */
+public class l0c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public EffectInfo a;
+    public TreeMap<Integer, EffectSource> b;
+
+    public abstract EffectFrame a(long j);
 }

@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.android.util.KVStorageFactory;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,128 +10,111 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class c4 extends x3 {
+public class c4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long e;
-    public static final long f;
-    public static final long g;
-    public static final long h;
-    public static final long i;
-    public static final long j;
-    public static final long k;
-    public static long l;
+    public static SharedPreferences a;
+    public static c4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final e3 d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448299932, "Lcom/baidu/tieba/c4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448299932, "Lcom/baidu/tieba/c4;");
-                return;
-            }
-        }
-        e = x3.d("diffuseColor");
-        f = x3.d("specularColor");
-        g = x3.d("ambientColor");
-        h = x3.d("emissiveColor");
-        i = x3.d("reflectionColor");
-        j = x3.d("ambientLightColor");
-        long d = x3.d("fogColor");
-        k = d;
-        l = d | g | e | f | h | i | j;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c4(long j2) {
-        super(j2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = new e3();
-        if (f(j2)) {
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448299932, "Lcom/baidu/tieba/c4;")) == null) {
             return;
         }
-        throw new GdxRuntimeException("Invalid type specified");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448299932, "Lcom/baidu/tieba/c4;");
+        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public c4(long j2, e3 e3Var) {
-        this(j2);
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public c4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), e3Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                this(((Long) newInitContext.callArgs[0]).longValue());
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        if (e3Var != null) {
-            this.d.e(e3Var);
         }
     }
 
-    public static final boolean f(long j2) {
-        InterceptResult invokeJ;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
-            if ((j2 & l) != 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a.getString("abtest_sap_data", "");
         }
-        return invokeJ.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: e */
-    public int compareTo(x3 x3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x3Var)) == null) {
-            long j2 = this.a;
-            long j3 = x3Var.a;
-            if (j2 != j3) {
-                return (int) (j2 - j3);
-            }
-            return ((c4) x3Var).d.g() - this.d.g();
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.x3
-    public int hashCode() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (super.hashCode() * CyberPlayerManager.DP_MSG_INFO_CACHE_DURATION) + this.d.g();
+            return a.getString("abtest_sap_version", "");
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
+    }
+
+    public Set<String> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new HashSet(a.getStringSet("abtest_switch_keys", new HashSet()));
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public static c4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (c4.class) {
+                if (b == null) {
+                    b = new c4();
+                    a = KVStorageFactory.getSharedPreferences("abtestCCS0527", 0);
+                }
+            }
+            return b;
+        }
+        return (c4) invokeV.objValue;
+    }
+
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            SharedPreferences sharedPreferences = a;
+            return sharedPreferences.getString("abtest_" + str, "");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            SharedPreferences.Editor edit = a.edit();
+            edit.putString("abtest_client_sample_version", str);
+            edit.apply();
+        }
     }
 }

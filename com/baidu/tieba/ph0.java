@@ -1,29 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.provider.FontsContractCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ph0 {
+public class ph0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948061905, "Lcom/baidu/tieba/ph0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String a(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
+        double d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            ux0.f(jSONObject, "downStatus", str);
+            try {
+                d = Double.parseDouble(str2) * 100.0d;
+            } catch (Exception unused) {
+                d = 0.0d;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948061905, "Lcom/baidu/tieba/ph0;");
-                return;
-            }
+            ux0.e(jSONObject, "process", Math.round(d));
+            ux0.f(jSONObject, "uri", str3);
+            ux0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
+            return jSONObject.toString();
         }
-        a = qh0.c();
+        return (String) invokeLLLL.objValue;
+    }
+
+    public static void b(@Nullable he0 he0Var, boolean z, @Nullable Map<String, String> map) {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{he0Var, Boolean.valueOf(z), map}) != null) || he0Var == null) {
+            return;
+        }
+        if (map == null) {
+            map = new HashMap<>();
+        }
+        if (z) {
+            str = "0";
+        } else {
+            str = "202";
+        }
+        vx0.e(map, "status", str);
+        if (z) {
+            str2 = "调用成功";
+        } else {
+            str2 = "";
+        }
+        vx0.e(map, "message", str2);
+        he0Var.a(z, map);
+    }
+
+    public static void c(@Nullable he0 he0Var, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLLL(65538, null, he0Var, str, str2, str3, str4) != null) || he0Var == null) {
+            return;
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
+        JSONObject jSONObject = new JSONObject();
+        ux0.f(jSONObject, "uri", str2);
+        ux0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
+        ux0.f(jSONObject, "downStatus", str4);
+        hashMap.put("data", jSONObject.toString());
+        b(he0Var, true, hashMap);
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return ux0.c(str).optString("bt_info");
+        }
+        return (String) invokeL.objValue;
     }
 }

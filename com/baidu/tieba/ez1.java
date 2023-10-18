@@ -1,219 +1,137 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.RadialGradient;
+import android.graphics.Shader;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
-import com.baidu.swan.apps.api.module.network.SwanApiNetworkV8Module;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.gesture.GestureAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ez1 implements hz1 {
+public class ez1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public Context a;
-    @NonNull
-    public CallbackHandler b;
-    public WeakReference<Activity> c;
-    public ea2 d;
+    public String a;
+    public int b;
+    public Shader c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947751533, "Lcom/baidu/tieba/ez1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947751533, "Lcom/baidu/tieba/ez1;");
-                return;
-            }
-        }
-        e = qr1.a;
-    }
-
-    @Override // com.baidu.tieba.hz1
-    @NonNull
-    public ea2 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (ea2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hz1
-    @NonNull
-    public CallbackHandler f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (CallbackHandler) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hz1
-    @NonNull
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return h();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @NonNull
-    public final Context h() {
-        InterceptResult invokeV;
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            WeakReference<Activity> weakReference = this.c;
-            if (weakReference != null) {
-                activity = weakReference.get();
-            } else {
-                activity = null;
-            }
-            if (activity == null) {
-                return this.a;
-            }
-            return activity;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public ez1(@NonNull Context context, @NonNull CallbackHandler callbackHandler, @NonNull ea2 ea2Var) {
+    public ez1(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, callbackHandler, ea2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {jSONArray};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = callbackHandler;
-        this.d = ea2Var;
+        this.a = "";
+        e(jSONArray);
     }
 
-    public void a(@NonNull ea2 ea2Var) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ea2Var) == null) {
-            ea2Var.addJavascriptInterface(new SwanApiNetworkV8Module(this), SwanApiNetworkV8Module.MODULE_NAME);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    public final void b(@NonNull ea2 ea2Var) {
+    public Shader b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ea2Var) == null) {
-            if (ea2Var instanceof qi2) {
-                c((qi2) ea2Var);
-            } else {
-                d(ea2Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (Shader) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TextUtils.equals(this.a, "linearGradient") && !TextUtils.equals(this.a, "circularGradient")) {
+                return false;
             }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void c(@NonNull qi2 qi2Var) {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qi2Var) == null) {
-            g(qi2Var, SwanApi$$ModulesProvider.getV8ApiModules(this), nu2.s().b(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
         }
+        return invokeV.booleanValue;
     }
 
-    public final void d(@NonNull ea2 ea2Var) {
+    public void e(JSONArray jSONArray) {
+        float[] fArr;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ea2Var) == null) {
-            g(ea2Var, SwanApi$$ModulesProvider.getWebviewApiModules(this), nu2.s().c(this));
-        }
-    }
-
-    public void i(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, activity) == null) && activity != null) {
-            this.c = new WeakReference<>(activity);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final void g(@NonNull ea2 ea2Var, Map<String, Object> map, Map<String, Object> map2) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, ea2Var, map, map2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (map2 != null) {
-                if (map == null) {
-                    map = map2;
-                } else {
-                    try {
-                        map.putAll(map2);
-                    } catch (Exception e2) {
-                        if (!e) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) {
+            int i = 0;
+            try {
+                String optString = jSONArray.optString(0);
+                int i2 = 4;
+                int i3 = 1;
+                if (TextUtils.equals(optString, "normal")) {
+                    JSONArray optJSONArray = jSONArray.optJSONArray(1);
+                    if (optJSONArray.length() == 4) {
+                        this.b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
+                        this.a = "normal";
+                    }
+                } else if (TextUtils.equals(optString, "linearGradient") || TextUtils.equals(optString, "circularGradient")) {
+                    JSONArray optJSONArray2 = jSONArray.optJSONArray(1);
+                    int[] iArr = null;
+                    if (optJSONArray2 != null && (length = optJSONArray2.length()) > 0) {
+                        iArr = new int[length];
+                        fArr = new float[length];
+                        int i4 = 0;
+                        while (i4 < length) {
+                            JSONObject optJSONObject = optJSONArray2.optJSONObject(i4);
+                            JSONArray optJSONArray3 = optJSONObject.optJSONArray("color");
+                            if (optJSONArray3.length() == i2) {
+                                iArr[i4] = Color.argb(optJSONArray3.optInt(3), optJSONArray3.optInt(i), optJSONArray3.optInt(i3), optJSONArray3.optInt(2));
+                            }
+                            fArr[i4] = (float) optJSONObject.optDouble("stop");
+                            i4++;
+                            i = 0;
+                            i2 = 4;
+                            i3 = 1;
+                        }
+                    } else {
+                        fArr = null;
+                    }
+                    if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
+                        JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
+                        if (TextUtils.equals(optString, "linearGradient")) {
+                            this.c = new LinearGradient(gj3.g(optJSONObject2.optInt("x0")), gj3.g(optJSONObject2.optInt("y0")), gj3.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), gj3.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
+                            this.a = "linearGradient";
                             return;
                         }
-                        e2.printStackTrace();
-                        throw new RuntimeException("doBindSwanApis fail: " + e2.getMessage());
+                        this.c = new RadialGradient(gj3.g(optJSONObject2.optInt("x")), gj3.g(optJSONObject2.optInt("y")), gj3.g(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.a = "circularGradient";
                     }
                 }
-            }
-            if (map == null) {
-                if (!e) {
-                    return;
-                }
-                throw new RuntimeException("doBindSwanApis fail: api modules cannot be null");
-            }
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                String key = entry.getKey();
-                Object value = entry.getValue();
-                if (TextUtils.isEmpty(key)) {
-                    if (e) {
-                        throw new RuntimeException("doBindSwanApis fail: moduleName cannot be empty");
-                    }
-                } else if (value == null) {
-                    if (e) {
-                        throw new RuntimeException("doBindSwanApis fail: module obj cannot be null");
-                    }
-                } else {
-                    ea2Var.addJavascriptInterface(value, key);
-                    if (e) {
-                        if (ea2Var instanceof qi2) {
-                            str = "V8";
-                        } else {
-                            str = "Webview";
-                        }
-                        Log.d("Api-Binder", "doBindSwanApis(" + str + "): bound " + key);
-                    }
-                }
-            }
-            if (e) {
-                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                if (currentTimeMillis2 > 5) {
-                    Log.w("Api-Binder", "doBindSwanApis: 耗时 " + currentTimeMillis2 + "ms");
+            } catch (Exception e) {
+                if (am1.a) {
+                    e.printStackTrace();
                 }
             }
         }

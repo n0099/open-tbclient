@@ -1,159 +1,52 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes5.dex */
-public final class aac {
+public abstract class aac<E> extends n9c<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer f;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] A;
-    public int B;
-    public int C;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public byte[] H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public int Q;
-    public long R;
-    public byte[] S;
 
-    /* renamed from: T  reason: collision with root package name */
-    public int f1088T;
-    public int U;
-    public int V;
-    public int W;
-    public int X;
-    public int Y;
-    public byte[] Z;
-    public int a;
-    public int b;
-    public final r9c c;
-    public byte[] d;
-    public final int[] e;
-    public final int[] f;
-    public int g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public final x9c k;
-    public final x9c l;
-    public final x9c m;
-    public final int[] n;
-    public final int[] o;
-    public final int[] p;
-    public final int[] q;
-    public int r;
-    public int s;
-    public int t;
-    public boolean u;
-    public int v;
-    public int w;
-    public int x;
-    public int y;
-    public byte[] z;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947609894, "Lcom/baidu/tieba/aac;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947609894, "Lcom/baidu/tieba/aac;");
+                return;
+            }
+        }
+        f = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    }
 
-    public aac() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aac(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.c = new r9c();
-        this.e = new int[3240];
-        this.f = new int[3240];
-        this.k = new x9c();
-        this.l = new x9c();
-        this.m = new x9c();
-        this.n = new int[3];
-        this.o = new int[3];
-        this.p = new int[6];
-        this.q = new int[]{16, 15, 11, 4};
-        this.r = 0;
-        this.s = 0;
-        this.t = 0;
-        this.u = false;
-        this.v = 0;
-        this.Q = 0;
-        this.R = 0L;
-        this.S = new byte[0];
-        this.f1088T = 0;
-    }
-
-    public static void a(aac aacVar) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, aacVar) == null) {
-            int i = aacVar.a;
-            if (i != 0) {
-                if (i == 11) {
-                    return;
-                }
-                aacVar.a = 11;
-                r9c.b(aacVar.c);
-                return;
-            }
-            throw new IllegalStateException("State MUST be initialized");
-        }
-    }
-
-    public static int b(r9c r9cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, r9cVar)) == null) {
-            if (r9c.i(r9cVar, 1) == 0) {
-                return 16;
-            }
-            int i = r9c.i(r9cVar, 3);
-            if (i != 0) {
-                return i + 17;
-            }
-            int i2 = r9c.i(r9cVar, 3);
-            if (i2 == 0) {
-                return 17;
-            }
-            return i2 + 8;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void c(aac aacVar, InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, aacVar, inputStream) == null) {
-            if (aacVar.a == 0) {
-                r9c.e(aacVar.c, inputStream);
-                int b = b(aacVar.c);
-                if (b != 9) {
-                    int i = 1 << b;
-                    aacVar.P = i;
-                    aacVar.O = i - 16;
-                    aacVar.a = 1;
-                    return;
-                }
-                throw new BrotliRuntimeException("Invalid 'windowBits' code");
-            }
-            throw new IllegalStateException("State MUST be uninitialized");
-        }
+        Math.min(i / 4, f.intValue());
     }
 }

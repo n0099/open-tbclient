@@ -1,11 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
-import java.util.List;
+import androidx.annotation.DimenRes;
 /* loaded from: classes8.dex */
 public interface x06 {
-    int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2);
+    void a();
 
-    int b(int i);
+    void onChangeSkinType();
+
+    void setButtonText(String str, int i);
+
+    void setButtonTextColor(int i);
+
+    void setButtonTextSize(@DimenRes int i);
+
+    void setInitText(String str);
 }

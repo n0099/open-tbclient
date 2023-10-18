@@ -1,172 +1,127 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class fy2 {
+public class fy2 extends d52 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<ey2> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947780394, "Lcom/baidu/tieba/fy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a extends a72 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fy2 c;
+
+        public a(fy2 fy2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947780394, "Lcom/baidu/tieba/fy2;");
-                return;
-            }
-        }
-        a = new ArrayList<>();
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a.clear();
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                ey2 ey2Var = a.get(size);
-                if (ey2Var != null) {
-                    ey2Var.onDestroy();
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fy2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = fy2Var;
         }
-    }
 
-    public static void a(ey2 ey2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, ey2Var) == null) && ey2Var != null && !a.contains(ey2Var)) {
-            a.add(ey2Var);
-        }
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                ey2 ey2Var = a.get(size);
-                if (ey2Var != null) {
-                    ey2Var.j(z);
-                }
-            }
-        }
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                ey2 ey2Var = a.get(size);
-                if (ey2Var != null) {
-                    ey2Var.k(z);
-                }
-            }
-        }
-    }
-
-    public static void k(ey2 ey2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65547, null, ey2Var) != null) || ey2Var == null) {
-            return;
-        }
-        a.remove(ey2Var);
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            ey2 ey2Var = a.get(size);
-            if (ey2Var != null && TextUtils.equals(str, ey2Var.b())) {
-                ey2Var.onDestroy();
-            }
-        }
-    }
-
-    public static ey2 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                ey2 ey2Var = a.get(size);
-                if (ey2Var != null && TextUtils.equals(str, ey2Var.c())) {
-                    return ey2Var;
-                }
-            }
-            return null;
-        }
-        return (ey2) invokeL.objValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                ey2 ey2Var = a.get(size);
-                if (ey2Var != null && TextUtils.equals(str, ey2Var.b()) && ey2Var.onBackPressed()) {
+        @Override // com.baidu.tieba.a72, com.baidu.tieba.d72
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
+                    Map<String, String> t = hj3.t(hj3.o(str));
+                    if (t != null && t.get("statusCode") != null) {
+                        try {
+                            hy2.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), URLDecoder.decode(t.get("result"), "UTF-8"));
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                            hy2.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), null);
+                        }
+                    } else {
+                        hy2.a().onPayResult(6, null);
+                    }
+                    d52.f3();
                     return true;
                 }
+                return super.a(str);
             }
-            return false;
+            return invokeL.booleanValue;
         }
-        return invokeL.booleanValue;
     }
 
-    public static ey2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+    public fy2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.d52
+    public d72 g3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new a(this);
+        }
+        return (d72) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.d52
+    public zr1 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return jc2.V().g0().i(s());
+        }
+        return (zr1) invokeV.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r6v5, types: [com.baidu.tieba.xr1] */
+    @Override // com.baidu.tieba.d52, com.baidu.swan.support.v4.app.Fragment
+    public View B0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00e4, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f090190).setVisibility(8);
+            zr1 j = j();
+            this.G0 = j;
+            j.V(g3());
+            this.H0 = this.G0.getWebView();
+            this.G0.loadUrl(this.I0);
+            this.G0.i((FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901bc), this.H0.covertToView());
+            if (a2()) {
+                inflate = d2(inflate);
             }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                ey2 ey2Var = a.get(size);
-                if (ey2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, ey2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, ey2Var.f())) || TextUtils.equals(str3, ey2Var.c())))) {
-                    return ey2Var;
-                }
-            }
-            return null;
+            return J1(inflate, this);
         }
-        return (ey2) invokeLLL.objValue;
-    }
-
-    public static void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65545, null, str, z) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            ey2 ey2Var = a.get(size);
-            if (ey2Var != null && TextUtils.equals(str, ey2Var.b())) {
-                ey2Var.k(z);
-            }
-        }
+        return (View) invokeLLL.objValue;
     }
 }

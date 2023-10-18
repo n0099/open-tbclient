@@ -17,11 +17,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am0;
-import com.baidu.tieba.hl0;
-import com.baidu.tieba.p61;
+import com.baidu.tieba.c11;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.xg0;
 /* loaded from: classes3.dex */
-public class AdDownloadViewLP extends View implements am0<AdDownloadViewLP> {
+public class AdDownloadViewLP extends View implements xg0<AdDownloadViewLP> {
     public final Paint a;
     public int b;
     public int c;
@@ -46,7 +46,7 @@ public class AdDownloadViewLP extends View implements am0<AdDownloadViewLP> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.am0
+    @Override // com.baidu.tieba.xg0
     @NonNull
     public AdDownloadViewLP getRealView() {
         return this;
@@ -93,7 +93,7 @@ public class AdDownloadViewLP extends View implements am0<AdDownloadViewLP> {
         this.m = 100;
         this.n = State.PREPARE;
         this.o = -1.0f;
-        i();
+        j();
     }
 
     @Override // android.view.View
@@ -101,44 +101,44 @@ public class AdDownloadViewLP extends View implements am0<AdDownloadViewLP> {
         super.draw(canvas);
         if (getWidth() != 0 && getHeight() != 0 && !TextUtils.isEmpty(this.l)) {
             if (this.c != -1) {
-                j();
+                k();
             }
             if (!this.h) {
-                h(canvas);
+                i(canvas);
             } else {
-                g(canvas);
+                h(canvas);
             }
         }
     }
 
-    public final void g(Canvas canvas) {
+    public final void h(Canvas canvas) {
         RectF rectF = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-        d(canvas, rectF);
         e(canvas, rectF);
-        f(canvas);
+        f(canvas, rectF);
+        g(canvas);
     }
 
-    public AdDownloadViewLP k(boolean z) {
+    public AdDownloadViewLP l(boolean z) {
         this.f = z;
         return this;
     }
 
-    public AdDownloadViewLP l(boolean z) {
+    public AdDownloadViewLP m(boolean z) {
         this.h = z;
         return this;
     }
 
-    public AdDownloadViewLP m(int i) {
+    public AdDownloadViewLP n(int i) {
         this.b = i;
         return this;
     }
 
-    public AdDownloadViewLP n(int i) {
+    public AdDownloadViewLP o(int i) {
         this.j = i;
         return this;
     }
 
-    public AdDownloadViewLP o(float f) {
+    public AdDownloadViewLP p(float f) {
         this.k = f;
         return this;
     }
@@ -176,10 +176,20 @@ public class AdDownloadViewLP extends View implements am0<AdDownloadViewLP> {
         this.m = 100;
         this.n = State.PREPARE;
         this.o = -1.0f;
-        i();
+        j();
     }
 
-    public final void d(Canvas canvas, RectF rectF) {
+    @Override // com.baidu.tieba.xg0
+    public void c(String str, @NonNull eg0 eg0Var) {
+        this.l = str;
+        if (eg0Var.c == AdDownloadStatus.DOWNLOADING) {
+            this.l = "已下载 : " + this.l;
+        }
+        setProgress((int) eg0Var.i);
+        postInvalidate();
+    }
+
+    public final void e(Canvas canvas, RectF rectF) {
         this.a.setColor(this.b);
         this.a.setStyle(Paint.Style.FILL);
         float f = this.o;
@@ -193,16 +203,6 @@ public class AdDownloadViewLP extends View implements am0<AdDownloadViewLP> {
         canvas.drawRoundRect(rectF, f, f, this.a);
     }
 
-    @Override // com.baidu.tieba.am0
-    public void update(String str, @NonNull hl0 hl0Var) {
-        this.l = str;
-        if (hl0Var.c == AdDownloadStatus.DOWNLOADING) {
-            this.l = "已下载 : " + this.l;
-        }
-        setProgress((int) hl0Var.i);
-        postInvalidate();
-    }
-
     public AdDownloadViewLP(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.a = new Paint();
@@ -214,24 +214,24 @@ public class AdDownloadViewLP extends View implements am0<AdDownloadViewLP> {
         this.m = 100;
         this.n = State.PREPARE;
         this.o = -1.0f;
-        i();
+        j();
     }
 
-    @Override // com.baidu.tieba.am0
-    public void c(@NonNull ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.xg0
+    public void d(@NonNull ViewGroup viewGroup) {
         if (!(viewGroup instanceof RelativeLayout)) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.width = (int) (p61.c.e(getContext()) * p61.c.h(R.dimen.nad_default_round_width_size));
-        layoutParams.height = (int) (p61.c.c(getContext()) * p61.c.h(R.dimen.nad_default_round_height_size));
+        layoutParams.width = (int) (c11.c.e(getContext()) * c11.c.h(R.dimen.nad_default_round_width_size));
+        layoutParams.height = (int) (c11.c.c(getContext()) * c11.c.h(R.dimen.nad_default_round_height_size));
         layoutParams.addRule(13, -1);
         viewGroup.addView(this, layoutParams);
         viewGroup.setVisibility(0);
         viewGroup.bringToFront();
     }
 
-    public final void f(Canvas canvas) {
+    public final void g(Canvas canvas) {
         this.i.setTextSize(this.k);
         float height = (canvas.getHeight() / 2.0f) - ((this.i.descent() / 2.0f) + (this.i.ascent() / 2.0f));
         float measureText = this.i.measureText(this.l);
@@ -239,7 +239,7 @@ public class AdDownloadViewLP extends View implements am0<AdDownloadViewLP> {
         canvas.drawText(this.l, (getMeasuredWidth() - measureText) / 2.0f, height, this.i);
     }
 
-    public final void e(Canvas canvas, RectF rectF) {
+    public final void f(Canvas canvas, RectF rectF) {
         int i = b.a[this.n.ordinal()];
         float f = 0.0f;
         if (i != 1) {
@@ -270,15 +270,15 @@ public class AdDownloadViewLP extends View implements am0<AdDownloadViewLP> {
         canvas.drawRoundRect(rectF, f, f, paint);
     }
 
-    public final void i() {
-        o(getContext().getResources().getDimensionPixelSize(R.dimen.nad_dimens_16dp));
-        m(getContext().getResources().getColor(R.color.nad_download_button_color));
-        n(-1);
+    public final void j() {
+        p(getContext().getResources().getDimensionPixelSize(R.dimen.nad_dimens_16dp));
+        n(getContext().getResources().getColor(R.color.nad_download_button_color));
+        o(-1);
+        m(true);
         l(true);
-        k(true);
     }
 
-    public final void h(Canvas canvas) {
+    public final void i(Canvas canvas) {
         float f = 0;
         RectF rectF = new RectF(f, f, getWidth() + 0, getHeight() + 0);
         this.a.setColor(this.b);
@@ -299,7 +299,7 @@ public class AdDownloadViewLP extends View implements am0<AdDownloadViewLP> {
         canvas.drawText(this.l, (getMeasuredWidth() - this.i.measureText(this.l)) / 2.0f, ((getHeight() / 2.0f) - f3) + ((f3 - fontMetrics.ascent) / 2.0f), this.i);
     }
 
-    public final void j() {
+    public final void k() {
         if (this.d != null) {
             return;
         }

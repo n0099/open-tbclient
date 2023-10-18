@@ -38,13 +38,13 @@ public class s {
     }
 
     private void a(id idVar, int i, boolean z) {
-        if (com.xiaomi.push.j.m714a(this.f87a) || !com.xiaomi.push.j.m713a() || idVar == null || idVar.f631a != hh.SendMessage || idVar.m627a() == null || !z) {
+        if (com.xiaomi.push.j.m713a(this.f87a) || !com.xiaomi.push.j.m712a() || idVar == null || idVar.f631a != hh.SendMessage || idVar.m626a() == null || !z) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m183a("click to start activity result:" + String.valueOf(i));
-        ig igVar = new ig(idVar.m627a().m587a(), false);
+        com.xiaomi.channel.commonutils.logger.b.m182a("click to start activity result:" + String.valueOf(i));
+        ig igVar = new ig(idVar.m626a().m586a(), false);
         igVar.c(hr.SDK_START_ACTIVITY.f508a);
-        igVar.b(idVar.m628a());
+        igVar.b(idVar.m627a());
         igVar.d(idVar.f638b);
         HashMap hashMap = new HashMap();
         igVar.f650a = hashMap;
@@ -67,14 +67,14 @@ public class s {
     public static void e(Context context, id idVar, boolean z) {
         s a2;
         int i;
-        b m227a = b.m227a(context);
-        if (TextUtils.isEmpty(m227a.m235c()) || TextUtils.isEmpty(m227a.d())) {
+        b m226a = b.m226a(context);
+        if (TextUtils.isEmpty(m226a.m234c()) || TextUtils.isEmpty(m226a.d())) {
             a2 = a(context);
             i = 6;
         } else {
-            boolean m239f = m227a.m239f();
+            boolean m238f = m226a.m238f();
             a2 = a(context);
-            i = m239f ? 7 : 5;
+            i = m238f ? 7 : 5;
         }
         a2.a(idVar, i, z);
     }

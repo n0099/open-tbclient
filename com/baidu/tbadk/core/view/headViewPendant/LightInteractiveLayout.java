@@ -41,10 +41,10 @@ import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.e55;
+import com.baidu.tieba.f55;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.wa5;
-import com.baidu.tieba.xa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +68,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public View c;
     public View d;
     public ImageView e;
-    public xa5 f;
+    public f55 f;
     public WeakReference<Context> g;
     public LightEmotionAdapter h;
     public ImageView i;
@@ -485,13 +485,13 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public void setOnDismissListener(xa5 xa5Var) {
+    public void setOnDismissListener(f55 f55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, xa5Var) == null) {
-            this.f = xa5Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, f55Var) == null) {
+            this.f = f55Var;
             LightEmotionAdapter lightEmotionAdapter = this.h;
             if (lightEmotionAdapter != null) {
-                lightEmotionAdapter.q(xa5Var);
+                lightEmotionAdapter.q(f55Var);
             }
         }
     }
@@ -536,9 +536,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
             if (weakReference != null) {
                 return weakReference.get();
             }
-            xa5 xa5Var = this.f;
-            if (xa5Var != null) {
-                xa5Var.onClose();
+            f55 f55Var = this.f;
+            if (f55Var != null) {
+                f55Var.onClose();
                 return null;
             }
             return null;
@@ -602,7 +602,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
             LightEmotionData lightEmotionData = this.z.get(i);
             String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
             MetaData metaData = this.A;
-            if (metaData != null && di.isEquals(metaData.getUserId(), valueOf)) {
+            if (metaData != null && ad.isEquals(metaData.getUserId(), valueOf)) {
                 return;
             }
             int i2 = this.x;
@@ -610,7 +610,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 K(lightEmotionData.getId());
                 MetaData metaData2 = this.A;
                 if (metaData2 != null) {
-                    wa5.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
+                    e55.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
                 }
             } else if (i2 == 3) {
                 HashMap hashMap = new HashMap();
@@ -642,9 +642,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.A != null && getViewContext() != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getViewContext(), this.A.getUserId(), this.A.getUserName())));
-            xa5 xa5Var = this.f;
-            if (xa5Var != null) {
-                xa5Var.onClose();
+            f55 f55Var = this.f;
+            if (f55Var != null) {
+                f55Var.onClose();
             }
         }
     }
@@ -719,9 +719,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 int rawY = (int) motionEvent.getRawY();
                 this.w = rawY;
                 if (!G(this.b, this.v, rawY)) {
-                    xa5 xa5Var = this.f;
-                    if (xa5Var != null) {
-                        xa5Var.onClose();
+                    f55 f55Var = this.f;
+                    if (f55Var != null) {
+                        f55Var.onClose();
                         return true;
                     }
                     return true;

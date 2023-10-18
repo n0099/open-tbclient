@@ -1,115 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.mobads.sdk.api.MobadsPermissionSettings;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class n11 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final j11<vy0> a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final n11 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-626291523, "Lcom/baidu/tieba/n11$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-626291523, "Lcom/baidu/tieba/n11$b;");
-                    return;
-                }
-            }
-            a = new n11(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947949499, "Lcom/baidu/tieba/n11;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947949499, "Lcom/baidu/tieba/n11;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947949499, "Lcom/baidu/tieba/n11;")) == null) {
+            return;
         }
-        a = new j11<>(5);
-    }
-
-    public n11() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947949499, "Lcom/baidu/tieba/n11;");
+        }
+    }
+
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    if (context.checkSelfPermission(str) != 0) {
+                        return false;
+                    }
+                    return true;
+                } else if (context.checkCallingOrSelfPermission(str) != 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } catch (Throwable unused) {
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    public static n11 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (n11) invokeV.objValue;
-    }
-
-    public /* synthetic */ n11(a aVar) {
-        this();
-    }
-
-    public synchronized void c(vy0 vy0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vy0Var) == null) {
-            synchronized (this) {
-                a.f(vy0Var);
-            }
-        }
-    }
-
-    @NonNull
-    public synchronized vy0 b(String str) {
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this) {
-                vy0 b2 = a.b(str);
-                if (b2 != null) {
-                    return b2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                if (MobadsPermissionSettings.PERMISSION_LOCATION.equalsIgnoreCase(str)) {
+                    return b;
                 }
-                a.c(au0.c().create(str));
-                return a.a();
+                if (MobadsPermissionSettings.PERMISSION_STORAGE.equalsIgnoreCase(str)) {
+                    return c;
+                }
+                if (MobadsPermissionSettings.PERMISSION_APP_LIST.equalsIgnoreCase(str)) {
+                    return d;
+                }
+                if (MobadsPermissionSettings.PERMISSION_PHONE_STATE.equalsIgnoreCase(str)) {
+                    return a;
+                }
+                return false;
             }
+            return false;
         }
-        return (vy0) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

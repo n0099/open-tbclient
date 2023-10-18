@@ -298,7 +298,7 @@ public final class DuplicateHelper {
         } else {
             realTopActivity = BdBoxActivityManager.getRealTopActivity();
         }
-        new BdAlertDialog.Builder(realTopActivity).setTitle(R.string.obfuscated_res_0x7f0f0602).setMessage(R.string.obfuscated_res_0x7f0f0601).setButton(new BdAlertDialog.ButtonItem(realTopActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0607), new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.util.DuplicateHelper.2
+        new BdAlertDialog.Builder(realTopActivity).setTitle(R.string.obfuscated_res_0x7f0f0608).setMessage(R.string.obfuscated_res_0x7f0f0607).setButton(new BdAlertDialog.ButtonItem(realTopActivity.getResources().getString(R.string.obfuscated_res_0x7f0f060d), new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.util.DuplicateHelper.2
             @Override // com.baidu.android.ext.widget.dialog.BdAlertDialog.OnItemClickListener
             public void onItemClick(View view2) {
                 DialogClickCallback dialogClickCallback2 = DialogClickCallback.this;
@@ -307,7 +307,7 @@ public final class DuplicateHelper {
                 }
                 DownloadStatisticUtil.duplicateDialogCancel();
             }
-        })).setButton(new BdAlertDialog.ButtonItem(realTopActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0600), new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.util.DuplicateHelper.1
+        })).setButton(new BdAlertDialog.ButtonItem(realTopActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0606), new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.util.DuplicateHelper.1
             @Override // com.baidu.android.ext.widget.dialog.BdAlertDialog.OnItemClickListener
             public void onItemClick(View view2) {
                 DialogClickCallback dialogClickCallback2 = DialogClickCallback.this;
@@ -335,13 +335,13 @@ public final class DuplicateHelper {
                         duplicateDownloadCallback.onNotDuplicate();
                         return;
                     }
-                    new BoxAlertDialog.Builder(activity).setTitle(R.string.obfuscated_res_0x7f0f0602).setMessage(R.string.obfuscated_res_0x7f0f0601).setPositiveButton(R.string.obfuscated_res_0x7f0f0600, new DialogInterface.OnClickListener() { // from class: com.baidu.searchbox.download.util.DuplicateHelper.5
+                    new BoxAlertDialog.Builder(activity).setTitle(R.string.obfuscated_res_0x7f0f0608).setMessage(R.string.obfuscated_res_0x7f0f0607).setPositiveButton(R.string.obfuscated_res_0x7f0f0606, new DialogInterface.OnClickListener() { // from class: com.baidu.searchbox.download.util.DuplicateHelper.5
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i) {
                             DuplicateDownloadCallback.this.onNotDuplicate();
                             DownloadStatisticUtil.duplicateDialogConfirm();
                         }
-                    }).setNegativeButton(R.string.obfuscated_res_0x7f0f0607, new DialogInterface.OnClickListener() { // from class: com.baidu.searchbox.download.util.DuplicateHelper.4
+                    }).setNegativeButton(R.string.obfuscated_res_0x7f0f060d, new DialogInterface.OnClickListener() { // from class: com.baidu.searchbox.download.util.DuplicateHelper.4
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i) {
                             DuplicateDownloadCallback.this.onDuplicate();

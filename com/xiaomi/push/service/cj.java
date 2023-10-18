@@ -22,13 +22,13 @@ public class cj extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo758a() {
+    public String mo757a() {
         return "send mi push message";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo475a() {
+    public void mo474a() {
         try {
             ah.a(this.a, this.f972a, this.f973a);
         } catch (gg e) {

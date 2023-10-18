@@ -1,45 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.widget.TextView;
+import com.baidu.tieba.hn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
-public abstract class by0 {
+public final class by0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947661168, "Lcom/baidu/tieba/by0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947661168, "Lcom/baidu/tieba/by0;");
-        }
-    }
-
-    public abstract void a(String str, int i);
-
-    public by0() {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: android.text.SpannableString */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static final TextView a(Context context, hn0.c cVar) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cVar)) == null) {
+            if (cVar != null && !StringsKt__StringsJVMKt.isBlank(cVar.a)) {
+                int[] iArr = cVar.b;
+                if (iArr != null && iArr.length == 2) {
+                    SpannableString spannableString = new SpannableString(cVar.a);
+                    int a = y01.a(cVar.d, R.color.nad_sliding_tag_highlight_color_default);
+                    StyleSpan styleSpan = new StyleSpan(1);
+                    ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(a);
+                    spannableString.setSpan(styleSpan, iArr[0], iArr[1], 17);
+                    spannableString.setSpan(foregroundColorSpan, iArr[0], iArr[1], 17);
+                    str = spannableString;
+                } else {
+                    str = cVar.a;
+                }
+                int a2 = y01.a(cVar.c, R.color.nad_sliding_tag_text_color_default);
+                TextView textView = new TextView(context);
+                textView.setText(str);
+                textView.setTextColor(a2);
+                return textView;
             }
+            return null;
         }
+        return (TextView) invokeLL.objValue;
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.utils;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.HttpHelper;
+import com.baidu.mobads.sdk.internal.au;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -167,7 +168,7 @@ public class HttpExecutor {
                     }
                     build = new Request.Builder().url(str).headers(getHeaders(map)).build();
                 }
-                if (str.contains("logout")) {
+                if (str.contains(au.b)) {
                     Utility.addEventListMs(jSONArray, "CNetReqBegin");
                 }
                 try {

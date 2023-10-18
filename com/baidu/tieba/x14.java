@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import android.content.Context;
+import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,15 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
 /* loaded from: classes8.dex */
 public class x14 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile x14 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public DownloadState a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +29,7 @@ public class x14 {
                 return;
             }
         }
-        boolean z = qr1.a;
+        boolean z = am1.a;
     }
 
     public x14() {
@@ -48,35 +45,31 @@ public class x14 {
                 return;
             }
         }
-        this.a = DownloadState.NOT_START;
-        this.d = Integer.parseInt("0");
+        new ArrayDeque();
     }
 
-    public String b() {
+    public static x14 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (x14.class) {
+                    if (a == null) {
+                        a = new x14();
+                    }
+                }
+            }
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (x14) invokeV.objValue;
     }
 
-    public static x14 a(String str, String str2) {
-        InterceptResult invokeLL;
+    public DuMixGameSurfaceView a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            x14 x14Var = new x14();
-            x14Var.b = str;
-            x14Var.c = str2;
-            return x14Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return new DuMixGameSurfaceView(context);
         }
-        return (x14) invokeLL.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.e = str;
-        }
+        return (DuMixGameSurfaceView) invokeL.objValue;
     }
 }

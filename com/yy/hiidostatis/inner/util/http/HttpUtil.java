@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.inner.util.http;
 
 import android.os.Build;
+import com.baidu.mobads.sdk.internal.cl;
 import com.yy.hiidostatis.inner.AppInfo;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.ByteArrayOutputStream;
@@ -66,7 +67,7 @@ public class HttpUtil {
             Field declaredField = httpURLConnection.getClass().getDeclaredField("route");
             declaredField.setAccessible(true);
             Object obj = declaredField.get(httpURLConnection);
-            Field declaredField2 = obj.getClass().getDeclaredField("proxy");
+            Field declaredField2 = obj.getClass().getDeclaredField(cl.c);
             declaredField2.setAccessible(true);
             Field declaredField3 = obj.getClass().getDeclaredField("inetSocketAddress");
             declaredField3.setAccessible(true);

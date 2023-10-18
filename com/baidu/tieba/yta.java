@@ -1,61 +1,53 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.video.editvideo.data.PendantData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tieba.view.headcard.data.QuizCardRespondedMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes8.dex */
-public class yta extends BaseAdapter {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes9.dex */
+public final class yta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PendantData> a;
-    public BdPageContext b;
-    public b c;
+    public TbPageContext<BaseFragmentActivity> a;
+    public FastRequest b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public xta<QuizCardRespondedMessage.a> h;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(View view2, int i, PendantData pendantData);
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948343075, "Lcom/baidu/tieba/yta;")) == null) {
+            return;
         }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return invokeI.longValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948343075, "Lcom/baidu/tieba/yta;");
+        }
     }
 
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    /* loaded from: classes9.dex */
+    public static final class a extends FastRequest.b<QuizCardRespondedMessage.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yta a;
+        public final /* synthetic */ yta d;
 
         public a(yta ytaVar) {
             Interceptable interceptable = $ic;
@@ -72,166 +64,129 @@ public class yta extends BaseAdapter {
                     return;
                 }
             }
-            this.a = ytaVar;
+            this.d = ytaVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        /* renamed from: m */
+        public void i(QuizCardRespondedMessage.a result) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
-                c cVar = (c) view2.getTag();
-                if (!(cVar.b.getTag() instanceof Integer)) {
-                    return;
+            if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
+                Intrinsics.checkNotNullParameter(result, "result");
+                xta<QuizCardRespondedMessage.a> a = this.d.a();
+                if (a != null) {
+                    String errorMsg = a();
+                    Intrinsics.checkNotNullExpressionValue(errorMsg, "errorMsg");
+                    a.a(errorMsg);
                 }
-                Integer num = (Integer) cVar.b.getTag();
-                if (this.a.a.size() <= num.intValue()) {
-                    return;
+                super.i(result);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        /* renamed from: l */
+        public void e(int i, String errMsg, Exception exc, QuizCardRespondedMessage.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), errMsg, exc, aVar}) == null) {
+                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
+                xta<QuizCardRespondedMessage.a> a = this.d.a();
+                if (a != null) {
+                    a.b(errMsg, i, aVar);
                 }
-                this.a.c.a(view2, num.intValue(), (PendantData) this.a.a.get(num.intValue()));
+                super.f(i, errMsg, aVar);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TbImageView b;
-        public ProgressBar c;
-
-        public c(yta ytaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ytaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public yta(BdPageContext bdPageContext) {
+    public yta(TbPageContext<BaseFragmentActivity> pageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {pageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = bdPageContext;
+        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
+        this.a = pageContext;
     }
 
-    public void c(List<PendantData> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
-            return;
-        }
-        this.a = list;
-        notifyDataSetChanged();
-    }
-
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public final xta<QuizCardRespondedMessage.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<PendantData> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
         }
-        return invokeV.intValue;
+        return (xta) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c cVar;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d054b, (ViewGroup) null);
-                cVar = new c(this);
-                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907f9);
-                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b84);
-                cVar.c = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091b87);
-                cVar.b.setDefaultBgResource(R.color.transparent);
-                cVar.b.setDefaultResource(R.color.CAM_X0101);
-                view2.setOnClickListener(new a(this));
-                view2.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-                view2.setTag(cVar);
-            } else {
-                cVar = (c) view2.getTag();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.b == null) {
+                this.b = new FastRequest(this.a, CmdConfigHttp.CMD_HTTP_APPLY_MATCH_GUESS, "c/c/matchActivity/applyMatchGuessing");
             }
-            PendantData pendantData = this.a.get(i);
-            if (pendantData != null) {
-                cVar.b.setTag(Integer.valueOf(i));
-                int i2 = pendantData.pendantType;
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 3) {
-                                cVar.a.setVisibility(8);
-                                cVar.b.setVisibility(0);
-                                cVar.c.setVisibility(8);
-                                cVar.b.startLoad(pendantData.img, 10, false);
-                            } else {
-                                cVar.a.setVisibility(0);
-                                cVar.b.setVisibility(8);
-                                cVar.c.setVisibility(8);
-                                cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                                cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                                cVar.a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
-                            }
-                        } else {
-                            cVar.a.setVisibility(0);
-                            cVar.b.setVisibility(8);
-                            cVar.c.setVisibility(8);
-                            cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
-                            cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                            cVar.a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0109));
-                        }
-                    } else {
-                        cVar.a.setVisibility(0);
-                        cVar.b.setVisibility(8);
-                        cVar.c.setVisibility(8);
-                        cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
-                        cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                        cVar.a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
-                    }
-                } else {
-                    cVar.a.setVisibility(0);
-                    cVar.b.setVisibility(8);
-                    cVar.c.setVisibility(8);
-                    cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                    cVar.a.setText("No");
-                    cVar.a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
-                }
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                FastRequest fastRequest = this.b;
+                Intrinsics.checkNotNull(fastRequest);
+                fastRequest.O("product", Long.valueOf(this.c));
+                fastRequest.O("user_id", Long.valueOf(this.d));
+                fastRequest.O("quiz_id", Long.valueOf(this.e));
+                fastRequest.O("pour_count", Long.valueOf(this.f));
+                fastRequest.O("option_id", Long.valueOf(this.g));
+                fastRequest.Q(new a(this));
+                fastRequest.P();
             }
-            return view2;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public final void c(xta<QuizCardRespondedMessage.a> xtaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xtaVar) == null) {
+            this.h = xtaVar;
+        }
+    }
+
+    public final void d(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.g = j;
+        }
+    }
+
+    public final void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.f = j;
+        }
+    }
+
+    public final void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public final void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.e = j;
+        }
+    }
+
+    public final void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.d = j;
+        }
     }
 }

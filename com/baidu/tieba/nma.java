@@ -1,52 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.tracker.Monitor;
+import com.baidu.tieba.tracker.Tracker;
+import com.baidu.tieba.tracker.core.data.IEventNode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nma {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
+public final class nma {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948008647, "Lcom/baidu/tieba/nma;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948008647, "Lcom/baidu/tieba/nma;");
-        }
-    }
-
-    public static boolean a(Intent intent) {
-        InterceptResult invokeL;
+    public static final void a(Object obj, String tid) {
         boolean z;
+        IEventNode iEventNode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            if (intent == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(65536, null, obj, tid) == null) {
+            Intrinsics.checkNotNullParameter(obj, "<this>");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Monitor.a.d(tid);
+            IEventNode b = dma.a.b(tid).b();
+            if (b != null) {
+                if (b.getNext() != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    iEventNode = b;
+                } else {
+                    iEventNode = null;
+                }
+                if (iEventNode != null) {
+                    Tracker.i.d("ubc_id_stub", b);
+                }
             }
-            String action = intent.getAction();
-            Set<String> categories = intent.getCategories();
-            if (a && action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
-                z = true;
-            } else {
-                z = false;
-            }
-            a = false;
-            return z;
+            dma.a.c(tid);
         }
-        return invokeL.booleanValue;
     }
 }

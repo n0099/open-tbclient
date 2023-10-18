@@ -12,6 +12,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.task.UpgradeInfo;
 import com.baidu.down.request.task.ProgressInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -430,7 +431,7 @@ public class LBSAuthManager {
             }
             sb.append(i2);
             sb.append("");
-            hashMap.put("force", sb.toString());
+            hashMap.put(UpgradeInfo.KEY_INT_FORCE_UPGRADE, sb.toString());
         }
         if (str == null) {
             hashMap.put("from_service", "");
@@ -500,7 +501,7 @@ public class LBSAuthManager {
             }
             sb.append(i2);
             sb.append("");
-            hashMap.put("force", sb.toString());
+            hashMap.put(UpgradeInfo.KEY_INT_FORCE_UPGRADE, sb.toString());
         }
         if (str == null) {
             hashMap.put("from_service", "");

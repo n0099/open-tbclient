@@ -37,9 +37,9 @@ import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.th6;
-import com.baidu.tieba.vh6;
+import com.baidu.tieba.cc6;
+import com.baidu.tieba.ec6;
+import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,8 +59,8 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public TextView d;
     public TbImageView e;
     public BdTypeListView f;
-    public vh6 g;
-    public th6 h;
+    public ec6 g;
+    public cc6 h;
     public LoadingView i;
     public AlaNetRefreshView j;
     public TextView k;
@@ -70,11 +70,11 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public TextView o;
     public RelativeLayout p;
     public CustomMessageListener q;
-    public th6.b r;
+    public cc6.b r;
     public CustomMessageListener s;
 
     /* loaded from: classes5.dex */
-    public class c implements th6.b {
+    public class c implements cc6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectFragment a;
@@ -132,7 +132,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
             this.a = alaEnterEffectFragment;
         }
 
-        @Override // com.baidu.tieba.th6.b
+        @Override // com.baidu.tieba.cc6.b
         public void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, alaGetEnterEffectResponsedMessage) != null) {
@@ -142,25 +142,25 @@ public class AlaEnterEffectFragment extends AbsFragment {
             this.a.k2();
             if (alaGetEnterEffectResponsedMessage == null || alaGetEnterEffectResponsedMessage.getError() != 0) {
                 this.a.o2(TbadkCoreApplication.getCurrentPortrait());
-                this.a.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0238, 0));
+                this.a.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f023a, 0));
                 this.a.c.setText(TbadkCoreApplication.getCurrentAccountNameShow());
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.n2(R.drawable.pic_live_empty04, R.string.obfuscated_res_0x7f0f0264, false, null);
+                    this.a.n2(R.drawable.pic_live_empty04, R.string.obfuscated_res_0x7f0f0266, false, null);
                     return;
                 } else {
-                    this.a.n2(R.drawable.pic_live_empty03, R.string.obfuscated_res_0x7f0f0265, true, new a(this));
+                    this.a.n2(R.drawable.pic_live_empty03, R.string.obfuscated_res_0x7f0f0267, true, new a(this));
                     return;
                 }
             }
             this.a.o2(alaGetEnterEffectResponsedMessage.getPortrait());
             this.a.c.setText(alaGetEnterEffectResponsedMessage.getUserName());
-            this.a.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0238, Integer.valueOf(alaGetEnterEffectResponsedMessage.getEnterEffectCount())));
-            List<bn> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
+            this.a.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f023a, Integer.valueOf(alaGetEnterEffectResponsedMessage.getEnterEffectCount())));
+            List<yh> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
             this.a.g.c(effectList);
             if (!ListUtils.isEmpty(effectList) && BdNetTypeUtil.isWifiNet()) {
-                for (bn bnVar : effectList) {
-                    if (bnVar instanceof AlaEnterEffectData) {
-                        AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) bnVar;
+                for (yh yhVar : effectList) {
+                    if (yhVar instanceof AlaEnterEffectData) {
+                        AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) yhVar;
                         if (alaEnterEffectData.type == 1 && alaEnterEffectData.downLoadStatus == 100) {
                             AlaDynamicGift alaDynamicGift = alaEnterEffectData.gift;
                             String str = alaDynamicGift.giftId;
@@ -304,7 +304,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
                 return;
             }
         }
-        t = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f023c);
+        t = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f023e);
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsFragment
@@ -339,9 +339,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
             hideLoadingView();
-            th6 th6Var = this.h;
-            if (th6Var != null) {
-                th6Var.c();
+            cc6 cc6Var = this.h;
+            if (cc6Var != null) {
+                cc6Var.c();
             }
         }
     }
@@ -379,7 +379,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.i == null) {
-                this.i = new LoadingView(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d4));
+                this.i = new LoadingView(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d0));
             }
             this.i.attachView(this.a, false);
         }
@@ -401,22 +401,22 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (view2 = this.a) == null) {
             return;
         }
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901e4);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901e7);
         this.b = headImageView;
         headImageView.setIsRound(true);
-        this.e = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e5);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901ec);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901df);
-        this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e1);
-        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0901eb);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909f2);
-        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909f4);
-        this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0901e8);
-        this.f = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e9);
-        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0909ff);
+        this.e = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e8);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901ef);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e2);
+        this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e4);
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0901ee);
+        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a0d);
+        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a0f);
+        this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0901eb);
+        this.f = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f0901ec);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f090a1a);
         this.l = findViewById;
         this.f.setEmptyView(findViewById);
-        this.g = new vh6(getPageContext(), this.f);
+        this.g = new ec6(getPageContext(), this.f);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -496,9 +496,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00f8, (ViewGroup) null);
+            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00f5, (ViewGroup) null);
             l2();
-            this.h = new th6(getPageContext(), this.r);
+            this.h = new cc6(getPageContext(), this.r);
             m2();
             this.h.d();
             return this.a;

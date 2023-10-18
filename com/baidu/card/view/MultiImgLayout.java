@@ -22,15 +22,15 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag;
-import com.baidu.tieba.b15;
-import com.baidu.tieba.lm;
-import com.baidu.tieba.m05;
-import com.baidu.tieba.sp6;
+import com.baidu.tieba.bk6;
+import com.baidu.tieba.dv5;
+import com.baidu.tieba.gv5;
+import com.baidu.tieba.ih;
+import com.baidu.tieba.jv4;
+import com.baidu.tieba.qs;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.tx;
-import com.baidu.tieba.v06;
-import com.baidu.tieba.y06;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.ya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class MultiImgLayout extends LinearLayout implements tx<b15> {
+public class MultiImgLayout extends LinearLayout implements qs<jv4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int j;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,8 +51,8 @@ public class MultiImgLayout extends LinearLayout implements tx<b15> {
     public ConstrainImageGroup d;
     public String e;
     public boolean f;
-    public sp6<b15> g;
-    public b15 h;
+    public bk6<jv4> g;
+    public jv4 h;
     public boolean i;
 
     /* loaded from: classes3.dex */
@@ -81,7 +81,7 @@ public class MultiImgLayout extends LinearLayout implements tx<b15> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            sp6<b15> subClickListener;
+            bk6<jv4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -91,7 +91,7 @@ public class MultiImgLayout extends LinearLayout implements tx<b15> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements y06 {
+    public class b implements gv5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkedList a;
@@ -116,14 +116,14 @@ public class MultiImgLayout extends LinearLayout implements tx<b15> {
             this.a = linkedList;
         }
 
-        @Override // com.baidu.tieba.y06
+        @Override // com.baidu.tieba.gv5
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
                 if (this.b.g != null && this.b.g.c(view2, this.b.h, "")) {
                     return;
                 }
-                sp6<b15> subClickListener = this.b.getSubClickListener();
+                bk6<jv4> subClickListener = this.b.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.b.h.objType = 2;
@@ -213,19 +213,19 @@ public class MultiImgLayout extends LinearLayout implements tx<b15> {
         e();
     }
 
-    public void setConstrainImagePool(ag<TbImageView> agVar) {
+    public void setConstrainImagePool(ya<TbImageView> yaVar) {
         ConstrainImageGroup constrainImageGroup;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, agVar) == null) && (constrainImageGroup = this.d) != null) {
-            constrainImageGroup.setImageViewPool(agVar);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, yaVar) == null) && (constrainImageGroup = this.d) != null) {
+            constrainImageGroup.setImageViewPool(yaVar);
         }
     }
 
-    public void setConstrainLayoutPool(ag<ConstrainImageLayout> agVar) {
+    public void setConstrainLayoutPool(ya<ConstrainImageLayout> yaVar) {
         ConstrainImageGroup constrainImageGroup;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, agVar) == null) && (constrainImageGroup = this.d) != null) {
-            constrainImageGroup.setConstrainLayoutPool(agVar);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, yaVar) == null) && (constrainImageGroup = this.d) != null) {
+            constrainImageGroup.setConstrainLayoutPool(yaVar);
         }
     }
 
@@ -250,10 +250,10 @@ public class MultiImgLayout extends LinearLayout implements tx<b15> {
         }
     }
 
-    public void setPreloadSizeReadyCallback(lm lmVar) {
+    public void setPreloadSizeReadyCallback(ih ihVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, lmVar) == null) {
-            this.d.setPreloadSizeReadyCallback(lmVar);
+        if (interceptable == null || interceptable.invokeL(1048586, this, ihVar) == null) {
+            this.d.setPreloadSizeReadyCallback(ihVar);
         }
     }
 
@@ -265,10 +265,10 @@ public class MultiImgLayout extends LinearLayout implements tx<b15> {
         }
     }
 
-    public void setSubClickListener(sp6<b15> sp6Var) {
+    public void setSubClickListener(bk6<jv4> bk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, sp6Var) == null) {
-            this.g = sp6Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bk6Var) == null) {
+            this.g = bk6Var;
         }
     }
 
@@ -278,7 +278,7 @@ public class MultiImgLayout extends LinearLayout implements tx<b15> {
             this.d.setFromCDN(this.f);
             this.d.setSinglePicUseStyleV10(true);
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (m05.c().g() && ListUtils.getCount(medias) != 0) {
+            if (uu4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -321,15 +321,15 @@ public class MultiImgLayout extends LinearLayout implements tx<b15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
+    @Override // com.baidu.tieba.qs
     /* renamed from: f */
-    public void onBindDataToView(b15 b15Var) {
+    public void onBindDataToView(jv4 jv4Var) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b15Var) == null) {
-            this.h = b15Var;
-            ThreadData threadData = b15Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jv4Var) == null) {
+            this.h = jv4Var;
+            ThreadData threadData = jv4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.i);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, j, this.i);
             TextView textView = this.a;
@@ -368,19 +368,19 @@ public class MultiImgLayout extends LinearLayout implements tx<b15> {
             playVoiceBntNew.setAfterClickListener(new a(this));
             this.d = (ConstrainImageGroup) findViewById(R.id.thread_card_img_group);
             this.d.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002));
-            v06 v06Var = new v06(3);
-            v06Var.d(1.0d);
-            this.d.setImageProcessor(v06Var);
+            dv5 dv5Var = new dv5(3);
+            dv5Var.d(1.0d);
+            this.d.setImageProcessor(dv5Var);
         }
     }
 
-    public sp6<b15> getSubClickListener() {
+    public bk6<jv4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.g;
         }
-        return (sp6) invokeV.objValue;
+        return (bk6) invokeV.objValue;
     }
 
     public void setMarginsTop(View view2, int i) {

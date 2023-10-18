@@ -182,7 +182,7 @@ public class WheelView2d extends BdGallery {
         setGravity(1);
         setUnselectedAlpha(1.0f);
         setWillNotDraw(false);
-        this.mSelectorDrawable = getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08025f);
+        this.mSelectorDrawable = getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080261);
         if (NightModeHelper.getNightModeSwitcherState()) {
             this.mTopShadow = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, SHADOWS_COLORS_NIGHT);
             this.mBottomShadow = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, SHADOWS_COLORS_NIGHT);

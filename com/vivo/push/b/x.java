@@ -2,6 +2,7 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -102,7 +103,7 @@ public final class x extends com.vivo.push.o {
             sb.append(",msgId:");
             String str = this.a.get("messageID");
             if (TextUtils.isEmpty(str)) {
-                str = this.a.get("message_id");
+                str = this.a.get(ForbidActivityConfig.CHAT_MSG_ID);
             }
             sb.append(str);
             com.vivo.push.util.u.d("ReporterCommand", sb.toString());

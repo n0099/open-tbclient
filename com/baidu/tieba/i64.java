@@ -3,47 +3,25 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
 /* loaded from: classes6.dex */
 public class i64 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile h64 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String d() {
+    public static synchronized h64 a() {
         InterceptResult invokeV;
+        h64 h64Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "meter.js" : (String) invokeV.objValue;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File b = b();
-            if (b.exists()) {
-                kr4.j(b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (i64.class) {
+                if (a == null) {
+                    a = new h64();
+                }
+                h64Var = a;
             }
+            return h64Var;
         }
-    }
-
-    public static File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return w74.e("aigames_debug_dashboard");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File b = b();
-            if (!b.exists()) {
-                b.mkdirs();
-            }
-            return new File(b, "debugDashboard.zip");
-        }
-        return (File) invokeV.objValue;
+        return (h64) invokeV.objValue;
     }
 }

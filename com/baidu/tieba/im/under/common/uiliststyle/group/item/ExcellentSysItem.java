@@ -4,6 +4,7 @@ import androidx.annotation.WorkerThread;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.UiUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.base.core.repo.MsgProcessor;
 import com.baidu.tieba.im.base.core.uilist.Action;
@@ -12,7 +13,6 @@ import com.baidu.tieba.im.lib.socket.msg.TbExcellentSysMsg;
 import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.ExcellentInfo;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.ExcellentSysItem;
-import com.baidu.tieba.lg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -124,7 +124,7 @@ public final class ExcellentSysItem extends BaseItem<TbExcellentSysMsg> {
                     this.a.getTbMsg().setExcellentInfo(new ExcellentInfo(String.valueOf(this.a.getTbMsg().getExcellentMsgOp())));
                 }
                 final ExcellentSysItem excellentSysItem2 = this.a;
-                lg.g(new Runnable() { // from class: com.baidu.tieba.jo8
+                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ti8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -197,7 +197,7 @@ public final class ExcellentSysItem extends BaseItem<TbExcellentSysMsg> {
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.bn
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.yh
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

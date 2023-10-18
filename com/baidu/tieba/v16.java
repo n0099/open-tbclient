@@ -1,67 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.util.TiePlusHelper;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ApkDetail;
-import tbclient.TiebaPlusInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v16 {
+public class v16 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, aja ajaVar) {
-        InterceptResult invokeLL;
+    public v16() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, ajaVar)) == null) {
-            boolean z = false;
-            if (context != null && ajaVar != null && ajaVar.b()) {
-                TiePlusHelper tiePlusHelper = new TiePlusHelper(context);
-                TiebaPlusInfo a = ajaVar.a();
-                if (a == null) {
-                    return false;
-                }
-                tiePlusHelper.Q(a.app_id);
-                tiePlusHelper.R(a.title);
-                z = true;
-                tiePlusHelper.Y(true);
-                tiePlusHelper.W(a.download_url);
-                tiePlusHelper.b0(a.app_package);
-                tiePlusHelper.c0(a.app_power);
-                tiePlusHelper.d0(a.app_privacy);
-                tiePlusHelper.X(a.app_effect);
-                l26 l26Var = new l26(context, tiePlusHelper, true);
-                tiePlusHelper.U(l26Var);
-                ItemData itemData = new ItemData();
-                itemData.parseProto(a);
-                itemData.fileType = "app";
-                StringBuilder sb = new StringBuilder();
-                sb.append(itemData.pkgName);
-                sb.append(".v");
-                ApkDetail apkDetail = itemData.apkDetail;
-                if (apkDetail != null) {
-                    sb.append(apkDetail.version);
-                }
-                DownloadData downloadData = new DownloadData(sb.toString());
-                downloadData.setUrl(itemData.buttonLink);
-                downloadData.setName(itemData.mTitle);
-                downloadData.setSource(2);
-                downloadData.setType(12);
-                downloadData.setItemData(itemData);
-                tiePlusHelper.Z(itemData);
-                tiePlusHelper.V(downloadData);
-                l26Var.g(a.app_company);
-                l26Var.h(a.app_icon);
-                l26Var.i(a.title);
-                l26Var.j(a.app_version);
-                l26Var.show();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return z;
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null) {
+                return null;
+            }
+            return new CustomResponsedMessage<>(2001265, b26.f().g());
+        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -11,8 +11,8 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.Px;
 import androidx.core.content.ContextCompat;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.tieba.p61;
-import com.baidu.tieba.sj0;
+import com.baidu.tieba.c11;
+import com.baidu.tieba.pe0;
 import java.util.Set;
 import kotlin.Metadata;
 import kotlin.Result;
@@ -87,7 +87,7 @@ public final class ExtensionsKt {
     @Px
     public static final int d(int i, Context context) {
         Intrinsics.checkNotNullParameter(context, "context");
-        return p61.c.a(context, i);
+        return c11.c.a(context, i);
     }
 
     public static final void f(View isVisible, boolean z) {
@@ -128,19 +128,19 @@ public final class ExtensionsKt {
 
     @ColorInt
     public static final int g(String toColor, @ColorRes int i) {
-        Integer m852constructorimpl;
+        Integer m851constructorimpl;
         Intrinsics.checkNotNullParameter(toColor, "$this$toColor");
         try {
             Result.Companion companion = Result.Companion;
-            m852constructorimpl = Result.m852constructorimpl(Integer.valueOf(Color.parseColor(toColor)));
+            m851constructorimpl = Result.m851constructorimpl(Integer.valueOf(Color.parseColor(toColor)));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m852constructorimpl = Result.m852constructorimpl(ResultKt.createFailure(th));
+            m851constructorimpl = Result.m851constructorimpl(ResultKt.createFailure(th));
         }
-        Integer valueOf = Integer.valueOf(ContextCompat.getColor(sj0.b(), i));
-        if (Result.m858isFailureimpl(m852constructorimpl)) {
-            m852constructorimpl = valueOf;
+        Integer valueOf = Integer.valueOf(ContextCompat.getColor(pe0.b(), i));
+        if (Result.m857isFailureimpl(m851constructorimpl)) {
+            m851constructorimpl = valueOf;
         }
-        return ((Number) m852constructorimpl).intValue();
+        return ((Number) m851constructorimpl).intValue();
     }
 }

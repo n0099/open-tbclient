@@ -1,76 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import androidx.core.util.Pair;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.browser.core.cache.prefetch.FetchDynamicResourceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class te6 {
+public class te6 extends kf1<ji6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdPageContext a;
-    public final List<om> b;
-    public BdTypeMultiColumnListView c;
-    public ue6 d;
-    public xe6 e;
 
-    public te6(BdPageContext bdPageContext, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b implements ji6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.ji6
+        public List<Pair<String, Long>> a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return FetchDynamicResourceManager.c(str);
+            }
+            return (List) invokeL.objValue;
+        }
+    }
+
+    public te6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext, bdTypeMultiColumnListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new ArrayList();
-        this.a = bdPageContext;
-        this.c = bdTypeMultiColumnListView;
-        a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = new ue6((TbPageContext) this.a, af6.b);
-            this.e = new xe6((TbPageContext) this.a, af6.c);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.c.addAdapters(this.b);
-        }
-    }
-
-    public void b(jb6 jb6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jb6Var) == null) {
-            ue6 ue6Var = this.d;
-            if (ue6Var != null) {
-                ue6Var.u(jb6Var);
-            }
-            xe6 xe6Var = this.e;
-            if (xe6Var != null) {
-                xe6Var.u(jb6Var);
             }
         }
     }
 
-    public void c(List<bn> list) {
-        BdTypeMultiColumnListView bdTypeMultiColumnListView;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kf1
+    /* renamed from: a */
+    public ji6 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeMultiColumnListView = this.c) != null) {
-            bdTypeMultiColumnListView.setData(list);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(null);
         }
+        return (ji6) invokeV.objValue;
     }
 }

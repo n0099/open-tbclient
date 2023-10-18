@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ActivitySponsor;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ActivitySponsorData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class ActivitySponsorData extends OrmObject {
         }
     }
 
-    public void M(ActivitySponsor activitySponsor) {
+    public void N(ActivitySponsor activitySponsor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activitySponsor) == null) {
             Integer num = activitySponsor.is_sponsor;

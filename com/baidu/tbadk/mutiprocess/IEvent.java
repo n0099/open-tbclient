@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface IEvent {
     public static final int TYPE_PROCESS_ALL = 0;
     public static final int TYPE_PROCESS_MAIN = 3;

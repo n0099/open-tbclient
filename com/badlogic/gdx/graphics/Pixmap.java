@@ -4,9 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.graphics.g2d.Gdx2DPixmap;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b7;
-import com.baidu.tieba.d3;
-import com.baidu.tieba.e3;
+import com.baidu.tieba.d2;
+import com.baidu.tieba.v2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class Pixmap implements b7 {
+public class Pixmap implements v2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Gdx2DPixmap a;
@@ -270,7 +269,7 @@ public class Pixmap implements b7 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, format)) == null) {
-                return Gdx2DPixmap.r(toGdx2DPixmapFormat(format));
+                return Gdx2DPixmap.n(toGdx2DPixmapFormat(format));
             }
             return invokeL.intValue;
         }
@@ -279,7 +278,7 @@ public class Pixmap implements b7 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, format)) == null) {
-                return Gdx2DPixmap.s(toGdx2DPixmapFormat(format));
+                return Gdx2DPixmap.o(toGdx2DPixmapFormat(format));
             }
             return invokeL.intValue;
         }
@@ -322,47 +321,35 @@ public class Pixmap implements b7 {
         Filter filter = Filter.BiLinear;
         this.b = 0;
         this.a = new Gdx2DPixmap(i, i2, Format.toGdx2DPixmapFormat(format));
-        p(0.0f, 0.0f, 0.0f, 0.0f);
-        g();
+        m(0.0f, 0.0f, 0.0f, 0.0f);
+        d();
     }
 
-    public Pixmap(d3 d3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Blending blending = Blending.SourceOver;
-        Filter filter = Filter.BiLinear;
-        this.b = 0;
-        try {
-            byte[] n = d3Var.n();
-            this.a = new Gdx2DPixmap(n, 0, n.length, 0);
-        } catch (Exception e) {
-            throw new GdxRuntimeException("Couldn't load file: " + d3Var, e);
-        }
-    }
-
-    public void a(Pixmap pixmap, int i, int i2, int i3, int i4, int i5, int i6) {
+    public void b(Pixmap pixmap, int i, int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{pixmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            this.a.g(pixmap.a, i3, i4, i, i2, i5, i6);
+            this.a.c(pixmap.a, i3, i4, i, i2, i5, i6);
         }
     }
 
-    @Override // com.baidu.tieba.b7
+    public void c(Pixmap pixmap, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{pixmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+            this.a.d(pixmap.a, i, i2, i3, i4, i5, i6, i7, i8);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.b(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.v2
     public void dispose() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (!this.c) {
                 this.a.dispose();
                 this.c = true;
@@ -372,87 +359,73 @@ public class Pixmap implements b7 {
         }
     }
 
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.a(this.b);
-        }
-    }
-
-    public Format h() {
+    public Format e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return Format.fromGdx2DPixmapFormat(this.a.i());
+            return Format.fromGdx2DPixmapFormat(this.a.e());
         }
         return (Format) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.g();
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a.h();
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.i();
+        }
+        return invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.k();
-        }
-        return invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.l();
-        }
-        return invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.m();
-        }
-        return invokeV.intValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.n();
+            return this.a.j();
         }
         return invokeV.intValue;
     }
 
-    public ByteBuffer m() {
+    public ByteBuffer j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (!this.c) {
-                return this.a.o();
+                return this.a.k();
             }
             throw new GdxRuntimeException("Pixmap already disposed");
         }
         return (ByteBuffer) invokeV.objValue;
     }
 
-    public int n() {
+    public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.p();
+            return this.a.l();
         }
         return invokeV.intValue;
     }
 
-    public void f(Pixmap pixmap, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pixmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-            this.a.h(pixmap.a, i, i2, i3, i4, i5, i6, i7, i8);
-        }
-    }
-
-    public void o(Blending blending) {
+    public void l(Blending blending) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, blending) == null) {
@@ -462,14 +435,14 @@ public class Pixmap implements b7 {
             } else {
                 i = 1;
             }
-            gdx2DPixmap.q(i);
+            gdx2DPixmap.m(i);
         }
     }
 
-    public void p(float f, float f2, float f3, float f4) {
+    public void m(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.b = e3.b(f, f2, f3, f4);
+            this.b = d2.b(f, f2, f3, f4);
         }
     }
 }

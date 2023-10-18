@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class EnhancementResult<T> {
     public final Annotations enhancementAnnotations;
     public final T result;

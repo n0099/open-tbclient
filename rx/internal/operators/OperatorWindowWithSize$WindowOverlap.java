@@ -1,204 +1,44 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.hdc;
-import com.baidu.tieba.jhc;
-import com.baidu.tieba.kcc;
-import com.baidu.tieba.mcc;
-import com.baidu.tieba.qcc;
-import com.baidu.tieba.xcc;
-import java.util.ArrayDeque;
-import java.util.Iterator;
-import java.util.Queue;
+import com.baidu.tieba.g7c;
+import com.baidu.tieba.j6c;
+import com.baidu.tieba.n6c;
+import com.baidu.tieba.u6c;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-import rx.subjects.UnicastSubject;
 /* loaded from: classes2.dex */
-public final class OperatorWindowWithSize$WindowOverlap<T> extends qcc<T> implements xcc {
-    public final qcc<? super kcc<T>> e;
+public final class OperatorWindowWithSize$WindowOverlap<T> extends n6c<T> implements u6c {
+    public final int e;
     public final int f;
-    public final int g;
-    public final AtomicInteger h;
-    public final ArrayDeque<jhc<T, T>> i;
-    public final AtomicLong j;
-    public final AtomicInteger k;
-    public final Queue<jhc<T, T>> l;
-    public Throwable m;
-    public volatile boolean n;
-    public int o;
-    public int p;
+    public final AtomicLong g;
+
+    public abstract void i();
 
     /* loaded from: classes2.dex */
-    public final class WindowOverlapProducer extends AtomicBoolean implements mcc {
+    public final class WindowOverlapProducer extends AtomicBoolean implements j6c {
         public static final long serialVersionUID = 4625807964358024108L;
 
         public WindowOverlapProducer() {
         }
 
-        @Override // com.baidu.tieba.mcc
+        @Override // com.baidu.tieba.j6c
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0) {
                     OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap = OperatorWindowWithSize$WindowOverlap.this;
                     if (!get() && compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowOverlap.e(hdc.a(hdc.c(operatorWindowWithSize$WindowOverlap.g, j - 1), operatorWindowWithSize$WindowOverlap.f));
+                        operatorWindowWithSize$WindowOverlap.e(g7c.a(g7c.c(operatorWindowWithSize$WindowOverlap.f, j - 1), operatorWindowWithSize$WindowOverlap.e));
                     } else {
-                        OperatorWindowWithSize$WindowOverlap.this.e(hdc.c(operatorWindowWithSize$WindowOverlap.g, j));
+                        OperatorWindowWithSize$WindowOverlap.this.e(g7c.c(operatorWindowWithSize$WindowOverlap.f, j));
                     }
-                    hdc.b(operatorWindowWithSize$WindowOverlap.j, j);
-                    operatorWindowWithSize$WindowOverlap.j();
+                    g7c.b(operatorWindowWithSize$WindowOverlap.g, j);
+                    operatorWindowWithSize$WindowOverlap.i();
                     return;
                 }
                 return;
             }
             throw new IllegalArgumentException("n >= 0 required but it was " + j);
-        }
-    }
-
-    @Override // com.baidu.tieba.xcc
-    public void call() {
-        if (this.h.decrementAndGet() == 0) {
-            unsubscribe();
-        }
-    }
-
-    @Override // com.baidu.tieba.lcc
-    public void onCompleted() {
-        Iterator<jhc<T, T>> it = this.i.iterator();
-        while (it.hasNext()) {
-            it.next().onCompleted();
-        }
-        this.i.clear();
-        this.n = true;
-        j();
-    }
-
-    public boolean i(boolean z, boolean z2, qcc<? super jhc<T, T>> qccVar, Queue<jhc<T, T>> queue) {
-        if (qccVar.isUnsubscribed()) {
-            queue.clear();
-            return true;
-        } else if (z) {
-            Throwable th = this.m;
-            if (th != null) {
-                queue.clear();
-                qccVar.onError(th);
-                return true;
-            } else if (z2) {
-                qccVar.onCompleted();
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r15v0, resolved type: rx.internal.operators.OperatorWindowWithSize$WindowOverlap<T> */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x003a, code lost:
-        if (r11 != 0) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0046, code lost:
-        if (i(r15.n, r2.isEmpty(), r1, r2) == false) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0048, code lost:
-        return;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x004b, code lost:
-        if (r9 == 0) goto L27;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0054, code lost:
-        if (r5 == Long.MAX_VALUE) goto L27;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
-        r15.j.addAndGet(-r9);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x005c, code lost:
-        r4 = r0.addAndGet(-r4);
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void j() {
-        boolean z;
-        AtomicInteger atomicInteger = this.k;
-        if (atomicInteger.getAndIncrement() != 0) {
-            return;
-        }
-        qcc<? super kcc<T>> qccVar = this.e;
-        Queue<jhc<T, T>> queue = this.l;
-        int i = 1;
-        do {
-            long j = this.j.get();
-            long j2 = 0;
-            while (true) {
-                int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                if (i2 == 0) {
-                    break;
-                }
-                boolean z2 = this.n;
-                jhc<T, T> poll = queue.poll();
-                if (poll == null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (i(z2, z, qccVar, queue)) {
-                    return;
-                }
-                if (z) {
-                    break;
-                }
-                qccVar.onNext(poll);
-                j2++;
-            }
-        } while (i != 0);
-    }
-
-    @Override // com.baidu.tieba.lcc
-    public void onError(Throwable th) {
-        Iterator<jhc<T, T>> it = this.i.iterator();
-        while (it.hasNext()) {
-            it.next().onError(th);
-        }
-        this.i.clear();
-        this.m = th;
-        this.n = true;
-        j();
-    }
-
-    @Override // com.baidu.tieba.lcc
-    public void onNext(T t) {
-        int i = this.o;
-        ArrayDeque<jhc<T, T>> arrayDeque = this.i;
-        if (i == 0 && !this.e.isUnsubscribed()) {
-            this.h.getAndIncrement();
-            UnicastSubject Q = UnicastSubject.Q(16, this);
-            arrayDeque.offer(Q);
-            this.l.offer(Q);
-            j();
-        }
-        Iterator<jhc<T, T>> it = this.i.iterator();
-        while (it.hasNext()) {
-            it.next().onNext(t);
-        }
-        int i2 = this.p + 1;
-        if (i2 == this.f) {
-            this.p = i2 - this.g;
-            jhc<T, T> poll = arrayDeque.poll();
-            if (poll != null) {
-                poll.onCompleted();
-            }
-        } else {
-            this.p = i2;
-        }
-        int i3 = i + 1;
-        if (i3 == this.g) {
-            this.o = 0;
-        } else {
-            this.o = i3;
         }
     }
 }

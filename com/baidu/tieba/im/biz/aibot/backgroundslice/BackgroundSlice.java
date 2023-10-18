@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
+import com.baidu.tieba.db8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.biz.aibot.backgroundslice.BackgroundSlice;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
-import com.baidu.tieba.jg8;
-import com.baidu.tieba.lg8;
-import com.baidu.tieba.tg8;
-import com.baidu.tieba.usa;
+import com.baidu.tieba.mna;
+import com.baidu.tieba.ta8;
+import com.baidu.tieba.va8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 62\u00020\u00012\u00020\u0002:\u000267B\u0005¢\u0006\u0002\u0010\u0003J\"\u0010\u0019\u001a\u00020\u001a2\b\u0010\u001b\u001a\u0004\u0018\u00010\u00122\b\u0010\u001c\u001a\u0004\u0018\u00010\u00122\u0006\u0010\u001d\u001a\u00020\tJ\u0006\u0010\u001e\u001a\u00020\u001aJ\b\u0010\u001f\u001a\u00020\tH\u0002J\u0010\u0010 \u001a\u00020\u001a2\u0006\u0010!\u001a\u00020\fH\u0002J\u0018\u0010 \u001a\u00020\u001a2\u0006\u0010\"\u001a\u00020\u00122\u0006\u0010!\u001a\u00020\fH\u0002J \u0010 \u001a\u00020\u001a2\u0006\u0010\"\u001a\u00020\u00122\u0006\u0010!\u001a\u00020\f2\u0006\u0010#\u001a\u00020\tH\u0002J\u0010\u0010$\u001a\u00020\u001a2\u0006\u0010%\u001a\u00020&H\u0016J\"\u0010'\u001a\u00020\f2\u0006\u0010(\u001a\u00020)2\u0006\u0010*\u001a\u00020+2\b\u0010,\u001a\u0004\u0018\u00010-H\u0016J\b\u0010.\u001a\u00020\u001aH\u0016J\b\u0010/\u001a\u00020\u001aH\u0016J\u0010\u00100\u001a\u00020\u001a2\u0006\u00101\u001a\u000202H\u0016J\u0018\u00103\u001a\u00020\u001a2\u0006\u00104\u001a\u00020\u00052\u0006\u00105\u001a\u00020\tH\u0016R\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R\u000e\u0010\b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u000b\u001a\u00020\fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0016\u001a\u00020\fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u000e\"\u0004\b\u0018\u0010\u0010¨\u00068"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/backgroundslice/BackgroundSlice;", "Lcom/baidu/tieba/im/base/core/slice/Slice;", "Lcom/baidu/tieba/im/biz/aibot/IPageChangeNotify;", "()V", "DEFAULT_BG", "", "getDEFAULT_BG", "()I", "canLoadDefaultBg", "", "canStatPersonPageExp", "chatBgView", "Landroid/view/View;", "getChatBgView", "()Landroid/view/View;", "setChatBgView", "(Landroid/view/View;)V", "mChatBgUrl", "", "mPageState", "mPersonBgColor", "mPicBgLoaded", "personBgView", "getPersonBgView", "setPersonBgView", "bindData", "", "chatBgUrl", "personBgColor", "needDelayed", "changePageState", "isPersonPageState", "loadPicUrl", "targetView", "backgroundUrl", "fromNet", "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_PAUSE, "onResume", "onSetChatDetail", "chatDetail", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail;", "onSetPageState", "state", "refreshPage", "Companion", "FitTopTransformation", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class BackgroundSlice extends Slice implements lg8 {
+public final class BackgroundSlice extends Slice implements va8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View j;
@@ -157,7 +157,7 @@ public final class BackgroundSlice extends Slice implements lg8 {
             if (interceptable == null || interceptable.invokeLL(65537, null, this$0, targetView) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
                 Intrinsics.checkNotNullParameter(targetView, "$targetView");
-                this$0.m0(targetView);
+                this$0.n0(targetView);
             }
         }
 
@@ -182,7 +182,7 @@ public final class BackgroundSlice extends Slice implements lg8 {
                     SafeHandler inst = SafeHandler.getInst();
                     final BackgroundSlice backgroundSlice = this.b;
                     final View view2 = this.a;
-                    inst.post(new Runnable() { // from class: com.baidu.tieba.ng8
+                    inst.post(new Runnable() { // from class: com.baidu.tieba.xa8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -222,10 +222,10 @@ public final class BackgroundSlice extends Slice implements lg8 {
         }
         this.n = 2;
         this.q = true;
-        this.r = R.drawable.obfuscated_res_0x7f0802d5;
+        this.r = R.drawable.obfuscated_res_0x7f0802d7;
     }
 
-    public final View j0() {
+    public final View k0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -239,7 +239,7 @@ public final class BackgroundSlice extends Slice implements lg8 {
         return (View) invokeV.objValue;
     }
 
-    public final View k0() {
+    public final View l0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -253,7 +253,7 @@ public final class BackgroundSlice extends Slice implements lg8 {
         return (View) invokeV.objValue;
     }
 
-    public final boolean l0() {
+    public final boolean m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -268,7 +268,7 @@ public final class BackgroundSlice extends Slice implements lg8 {
     @Override // com.baidu.tieba.im.base.core.slice.Slice, com.baidu.tieba.im.base.core.slice.ability.LifecycleAbility
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
             this.p = true;
         }
@@ -277,43 +277,43 @@ public final class BackgroundSlice extends Slice implements lg8 {
     @Override // com.baidu.tieba.im.base.core.slice.Slice, com.baidu.tieba.im.base.core.slice.ability.LifecycleAbility
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
-            if (this.p && l0()) {
-                tg8.a.b(1);
+            if (this.p && m0()) {
+                db8.a.b(1);
             }
         }
     }
 
-    @Override // com.baidu.tieba.lg8
-    public void I(AibotChatDetail chatDetail) {
+    @Override // com.baidu.tieba.va8
+    public void J(AibotChatDetail chatDetail) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatDetail) == null) {
             Intrinsics.checkNotNullParameter(chatDetail, "chatDetail");
-            f0(chatDetail.getConfigData().getChatBackground(), chatDetail.getConfigData().getThemeColor(), false);
+            g0(chatDetail.getConfigData().getChatBackground(), chatDetail.getConfigData().getThemeColor(), false);
         }
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
-    public void S(Configuration newConfig) {
+    public void T(Configuration newConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, newConfig) == null) {
             Intrinsics.checkNotNullParameter(newConfig, "newConfig");
-            super.S(newConfig);
+            super.T(newConfig);
             this.o = false;
             this.q = true;
-            f0(this.l, this.m, true);
+            g0(this.l, this.m, true);
         }
     }
 
-    public final void m0(View view2) {
+    public final void n0(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            o0("", view2, false);
+            p0("", view2, false);
         }
     }
 
-    public final void p0(View view2) {
+    public final void q0(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
             Intrinsics.checkNotNullParameter(view2, "<set-?>");
@@ -321,7 +321,7 @@ public final class BackgroundSlice extends Slice implements lg8 {
         }
     }
 
-    public final void q0(View view2) {
+    public final void r0(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
             Intrinsics.checkNotNullParameter(view2, "<set-?>");
@@ -329,46 +329,46 @@ public final class BackgroundSlice extends Slice implements lg8 {
         }
     }
 
-    public static final void h0(String str, BackgroundSlice this$0) {
+    public static final void i0(String str, BackgroundSlice this$0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, str, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (str != null) {
-                this$0.n0(str, this$0.j0());
+                this$0.o0(str, this$0.k0());
             }
         }
     }
 
-    @Override // com.baidu.tieba.lg8
-    public void E1(int i, boolean z) {
+    @Override // com.baidu.tieba.va8
+    public void D1(int i, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || this.n == i) {
             return;
         }
         this.n = i;
         if (z) {
-            i0();
+            j0();
         }
     }
 
-    public final void n0(String str, View view2) {
+    public final void o0(String str, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, view2) == null) {
-            o0(str, view2, true);
+            p0(str, view2, true);
         }
     }
 
-    public static final void g0(String str, BackgroundSlice this$0) {
+    public static final void h0(String str, BackgroundSlice this$0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, str, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (str != null) {
                 try {
-                    this$0.k0().setBackgroundColor(Color.parseColor(str));
+                    this$0.l0().setBackgroundColor(Color.parseColor(str));
                 } catch (Exception e) {
                     if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                        jg8 jg8Var = jg8.a;
-                        jg8Var.a("BackgroundSlice 色值解析异常" + e.getMessage());
+                        ta8 ta8Var = ta8.a;
+                        ta8Var.a("BackgroundSlice 色值解析异常" + e.getMessage());
                         return;
                     }
                     throw new IllegalArgumentException("颜色解析异常");
@@ -378,7 +378,7 @@ public final class BackgroundSlice extends Slice implements lg8 {
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
-    public View T(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View U(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, inflater, container, bundle)) == null) {
@@ -386,27 +386,27 @@ public final class BackgroundSlice extends Slice implements lg8 {
             Intrinsics.checkNotNullParameter(container, "container");
             View view2 = new View(container.getContext());
             view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            q0(view2);
+            r0(view2);
             View view3 = new View(container.getContext());
             view3.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            p0(view3);
+            q0(view3);
             RelativeLayout relativeLayout = new RelativeLayout(container.getContext());
             relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            relativeLayout.addView(j0());
             relativeLayout.addView(k0());
+            relativeLayout.addView(l0());
             return relativeLayout;
         }
         return (View) invokeLLL.objValue;
     }
 
-    public final void f0(final String str, final String str2, boolean z) {
+    public final void g0(final String str, final String str2, boolean z) {
         boolean z2;
         boolean z3;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLZ(1048580, this, str, str2, z) != null) || this.o) {
             return;
         }
-        if (l0()) {
+        if (m0()) {
             if (str2 != null && str2.length() != 0) {
                 z3 = false;
             } else {
@@ -416,7 +416,7 @@ public final class BackgroundSlice extends Slice implements lg8 {
                 return;
             }
         }
-        if (!l0()) {
+        if (!m0()) {
             if (str != null && str.length() != 0) {
                 z2 = false;
             } else {
@@ -433,10 +433,10 @@ public final class BackgroundSlice extends Slice implements lg8 {
         if (z) {
             j = 25;
         }
-        if (l0()) {
-            j0().setVisibility(4);
-            k0().setVisibility(0);
-            k0().postDelayed(new Runnable() { // from class: com.baidu.tieba.mg8
+        if (m0()) {
+            k0().setVisibility(4);
+            l0().setVisibility(0);
+            l0().postDelayed(new Runnable() { // from class: com.baidu.tieba.wa8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -444,16 +444,16 @@ public final class BackgroundSlice extends Slice implements lg8 {
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BackgroundSlice.g0(str2, this);
+                        BackgroundSlice.h0(str2, this);
                     }
                 }
             }, j);
-            tg8.a.b(1);
+            db8.a.b(1);
         } else {
-            k0().setVisibility(4);
-            j0().setVisibility(0);
+            l0().setVisibility(4);
+            k0().setVisibility(0);
         }
-        j0().postDelayed(new Runnable() { // from class: com.baidu.tieba.og8
+        k0().postDelayed(new Runnable() { // from class: com.baidu.tieba.ya8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -461,17 +461,17 @@ public final class BackgroundSlice extends Slice implements lg8 {
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    BackgroundSlice.h0(str, this);
+                    BackgroundSlice.i0(str, this);
                 }
             }
         }, j);
     }
 
-    public final void o0(String str, View view2, boolean z) {
+    public final void p0(String str, View view2, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048587, this, str, view2, z) == null) {
-            RequestBuilder<Drawable> load = Glide.with(L()).load(Integer.valueOf(this.r));
+        if (interceptable == null || interceptable.invokeLLZ(1048589, this, str, view2, z) == null) {
+            RequestBuilder<Drawable> load = Glide.with(M()).load(Integer.valueOf(this.r));
             Intrinsics.checkNotNullExpressionValue(load, "with(this.host).load(DEFAULT_BG)");
             if (z) {
                 if (str.length() == 0) {
@@ -482,7 +482,7 @@ public final class BackgroundSlice extends Slice implements lg8 {
                 if (z2) {
                     return;
                 }
-                load = Glide.with(L()).load(str);
+                load = Glide.with(M()).load(str);
                 Intrinsics.checkNotNullExpressionValue(load, "with(this.host).load(backgroundUrl)");
             }
             if (UtilHelper.isFoldScreen() || UtilHelper.isLargeScreen(TbadkCoreApplication.getInst())) {
@@ -494,16 +494,16 @@ public final class BackgroundSlice extends Slice implements lg8 {
         }
     }
 
-    public final void i0() {
+    public final void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (l0()) {
-                usa.b(j0(), 240);
-                usa.d(k0(), 240);
+            if (m0()) {
+                mna.b(k0(), 240);
+                mna.d(l0(), 240);
                 return;
             }
-            usa.b(k0(), 240);
-            usa.d(j0(), 240);
+            mna.b(l0(), 240);
+            mna.d(k0(), 240);
         }
     }
 }

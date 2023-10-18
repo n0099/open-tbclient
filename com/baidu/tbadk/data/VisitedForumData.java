@@ -21,7 +21,7 @@ import tbclient.FrsTabInfo;
 import tbclient.HistoryForumInfo;
 import tbclient.RecomTagInfo;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VisitedForumData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

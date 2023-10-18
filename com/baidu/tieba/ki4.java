@@ -1,496 +1,102 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.HttpRuntime;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
-import com.baidu.tieba.ji4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import com.baidu.webkit.internal.ETAG;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.ConnectionPool;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Response;
-import org.apache.http.client.methods.HttpPut;
-@SuppressLint({"StaticFieldLeak"})
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ki4 extends HttpManager {
+public class ki4 extends yg4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile ki4 c;
-    public static volatile ki4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    /* loaded from: classes6.dex */
-    public class a extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) ? response : invokeLI.objValue;
-        }
-
-        public a(ki4 ki4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ki4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947914035, "Lcom/baidu/tieba/ki4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947914035, "Lcom/baidu/tieba/ki4;");
-                return;
-            }
-        }
-        b = yh4.c();
-    }
-
-    public zh4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new zh4(this);
-        }
-        return (zh4) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: b */
-    public ai4 deleteRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new ai4(this);
-        }
-        return (ai4) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public OkHttpClient.Builder i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return getOkHttpClient().newBuilder();
-        }
-        return (OkHttpClient.Builder) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: j */
-    public bi4 getRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return new bi4(this);
-        }
-        return (bi4) invokeV.objValue;
-    }
-
-    public final ResponseCallback k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return new a(this);
-        }
-        return (ResponseCallback) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: m */
-    public ci4 headerRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return new ci4(this);
-        }
-        return (ci4) invokeV.objValue;
-    }
-
-    public di4 o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return new di4(this);
-        }
-        return (di4) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: p */
-    public fi4 postFormRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return new fi4(this);
-        }
-        return (fi4) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: q */
-    public ei4 postRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return new ei4(this);
-        }
-        return (ei4) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: r */
-    public gi4 postStringRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return new gi4(this);
-        }
-        return (gi4) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: s */
-    public hi4 putRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return new hi4(this);
-        }
-        return (hi4) invokeV.objValue;
-    }
-
-    public ii4 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return new ii4(this);
-        }
-        return (ii4) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ki4() {
-        super(yh4.b().getAppContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = true;
-        this.a = yh4.a();
     }
 
-    public static ki4 g() {
+    @Override // com.baidu.tieba.yg4
+    public JSONArray c() {
         InterceptResult invokeV;
+        List<qe4> w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (ki4.class) {
-                    if (c == null) {
-                        c = new ki4();
-                        c.setNetworkStat(HttpRuntime.getHttpContext().getNewNetworkStat());
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "bbasp_core");
+                jSONObject.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ad4.b().J(0));
+                jSONObject.put("version_code", ad4.b().w(0));
+                jSONArray.put(jSONObject);
+            } catch (JSONException unused) {
             }
-            return c;
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("type", "bbasp_game");
+                jSONObject2.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ad4.b().J(1));
+                jSONObject2.put("version_code", ad4.b().w(1));
+                jSONArray.put(jSONObject2);
+            } catch (JSONException unused2) {
+            }
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("type", ETAG.KEY_EXTENSION);
+                jSONObject3.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ad4.b().v(0));
+                jSONObject3.put("version_code", ad4.b().j(0));
+                jSONArray.put(jSONObject3);
+            } catch (JSONException unused3) {
+            }
+            JSONObject jSONObject4 = new JSONObject();
+            try {
+                jSONObject4.put("type", "extension_game");
+                jSONObject4.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ad4.b().v(1));
+                jSONObject4.put("version_code", ad4.b().j(1));
+                jSONArray.put(jSONObject4);
+            } catch (JSONException unused4) {
+            }
+            try {
+                w = md4.i().w(f(10));
+            } catch (JSONException unused5) {
+            }
+            if (w == null) {
+                return jSONArray;
+            }
+            for (qe4 qe4Var : w) {
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("type", "ddl");
+                jSONObject5.put("bundle_id", qe4Var.g);
+                jSONObject5.put("version_code", qe4Var.i);
+                jSONObject5.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, qe4Var.j);
+                jSONArray.put(jSONObject5);
+            }
+            return jSONArray;
         }
-        return (ki4) invokeV.objValue;
+        return (JSONArray) invokeV.objValue;
     }
 
-    public static ki4 l() {
-        InterceptResult invokeV;
+    public final String f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d == null) {
-                synchronized (ki4.class) {
-                    if (d == null) {
-                        d = new ki4();
-                        d.setNetworkStat(HttpRuntime.getHttpContext().getNewNetworkStat());
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return "SELECT * from (SELECT * from (SELECT * from swan_plugin ORDER BY update_time) group by bundle_id) order by update_time DESC limit 0," + i + ParamableElem.DIVIDE_PARAM;
         }
-        return (ki4) invokeV.objValue;
-    }
-
-    public static ki4 h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return g();
-        }
-        return (ki4) invokeL.objValue;
-    }
-
-    public void d(ji4 ji4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ji4Var) == null) {
-            ji4Var.b = "GET";
-            t(ji4Var);
-        }
-    }
-
-    public void e(ji4 ji4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ji4Var) == null) {
-            ji4Var.b = "POST";
-            t(ji4Var);
-        }
-    }
-
-    public void f(ji4 ji4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ji4Var) == null) {
-            ji4Var.b = HttpPut.METHOD_NAME;
-            t(ji4Var);
-        }
-    }
-
-    public final boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (b) {
-                    Log.e("SwanHttpManager", ExceptionMessage.URL_EMPTY);
-                    return true;
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    public OkHttpClient initClient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            OkHttpClient initClient = super.initClient();
-            List<Interceptor> l = yh4.b().l();
-            if (l != null && l.size() > 0) {
-                OkHttpClient.Builder newBuilder = initClient.newBuilder();
-                for (Interceptor interceptor : l) {
-                    newBuilder.addNetworkInterceptor(interceptor);
-                }
-                if (yh4.b().i()) {
-                    try {
-                        Iterator<Interceptor> it = newBuilder.interceptors().iterator();
-                        while (it.hasNext()) {
-                            String obj = it.next().toString();
-                            if (obj.contains("RequestFilter") || obj.contains("SimCardFreeHeader")) {
-                                it.remove();
-                            }
-                        }
-                    } catch (Throwable th) {
-                        if (b) {
-                            th.printStackTrace();
-                        }
-                    }
-                }
-                xh4 b2 = yh4.b();
-                if (b2 != null && b2.k() > 0) {
-                    newBuilder.connectionPool(new ConnectionPool(b2.k(), 5L, TimeUnit.MINUTES));
-                }
-                return newBuilder.build();
-            }
-            return initClient;
-        }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    public void t(@NonNull ji4 ji4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, ji4Var) == null) {
-            if (ji4Var.e == null) {
-                ji4Var.e = k();
-            }
-            if (n(ji4Var.a)) {
-                ji4Var.e.onFail(new Exception("url is invalid"));
-                return;
-            }
-            HttpRequestBuilder a2 = li4.a(ji4Var);
-            u(a2, ji4Var);
-            a2.build().executeAsync(ji4Var.e);
-        }
-    }
-
-    public void v(HttpRequestBuilder httpRequestBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, httpRequestBuilder) == null) {
-            int m = yh4.b().m();
-            if (m > 0) {
-                httpRequestBuilder.connectionTimeout(m);
-            }
-            int readTimeout = yh4.b().getReadTimeout();
-            if (readTimeout > 0) {
-                httpRequestBuilder.readTimeout(readTimeout);
-            }
-            int g = yh4.b().g();
-            if (g > 0) {
-                httpRequestBuilder.writeTimeout(g);
-            }
-        }
-    }
-
-    public void w(OkHttpClient.Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, builder) == null) {
-            int m = yh4.b().m();
-            if (m > 0) {
-                builder.connectTimeout(m, TimeUnit.MILLISECONDS);
-            }
-            int readTimeout = yh4.b().getReadTimeout();
-            if (readTimeout > 0) {
-                builder.readTimeout(readTimeout, TimeUnit.MILLISECONDS);
-            }
-            int g = yh4.b().g();
-            if (g > 0) {
-                builder.writeTimeout(g, TimeUnit.MILLISECONDS);
-            }
-        }
-    }
-
-    public void u(HttpRequestBuilder httpRequestBuilder, ji4 ji4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048601, this, httpRequestBuilder, ji4Var) == null) {
-            if (httpRequestBuilder != null && ji4Var != null) {
-                httpRequestBuilder.url(ji4Var.a);
-                Map<String, String> map = ji4Var.c;
-                if (map != null && map.size() > 0) {
-                    httpRequestBuilder.headers(ji4Var.c);
-                }
-                if (ji4Var.f) {
-                    httpRequestBuilder.userAgent(yh4.b().getUserAgent());
-                }
-                if (ji4Var.g) {
-                    httpRequestBuilder.cookieManager(yh4.b().f());
-                }
-                if (ji4Var.h) {
-                    ji4.a b2 = ji4Var.b();
-                    if (b2 == null) {
-                        v(httpRequestBuilder);
-                    } else {
-                        x(httpRequestBuilder, b2);
-                    }
-                }
-                Object obj = ji4Var.i;
-                if (obj != null) {
-                    httpRequestBuilder.tag(obj);
-                }
-                if (ji4Var.k != 0) {
-                    httpRequestBuilder.enableStat(true);
-                    httpRequestBuilder.requestFrom(ji4Var.j);
-                    httpRequestBuilder.requestSubFrom(ji4Var.k);
-                }
-            } else if (b) {
-                Log.e("SwanHttpManager", "setNetworkConfig fail");
-            }
-        }
-    }
-
-    public final void x(HttpRequestBuilder httpRequestBuilder, @NonNull ji4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048604, this, httpRequestBuilder, aVar) == null) {
-            int i = aVar.a;
-            if (i <= 0) {
-                i = yh4.b().m();
-            }
-            if (i > 0) {
-                httpRequestBuilder.connectionTimeout(i);
-            }
-            int i2 = aVar.b;
-            if (i2 <= 0) {
-                i2 = yh4.b().getReadTimeout();
-            }
-            if (i2 > 0) {
-                httpRequestBuilder.readTimeout(i2);
-            }
-            int i3 = aVar.c;
-            if (i3 <= 0) {
-                i3 = yh4.b().g();
-            }
-            if (i3 > 0) {
-                httpRequestBuilder.writeTimeout(i3);
-            }
-        }
+        return (String) invokeI.objValue;
     }
 }

@@ -7,7 +7,7 @@ import kotlin.reflect.KClass;
 import kotlin.reflect.KDeclarationContainer;
 import kotlin.reflect.KProperty1;
 @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final /* synthetic */ class KClasses$isSubclassOf$1 extends PropertyReference1 {
     public static final KProperty1 INSTANCE = new KClasses$isSubclassOf$1();
 

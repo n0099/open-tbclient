@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ge8;
 import com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.oc8;
+import com.baidu.tieba.r88;
+import com.baidu.tieba.z68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,7 +37,7 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     public TextView i;
     public ImageView j;
     public RobotSkillRecentlyItem k;
-    public final ge8 l;
+    public final r88 l;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -68,19 +68,19 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.l != null && this.a.k != null) {
                 this.a.l.a(this.a.k.getUk(), this.a.k.getSkillId());
-                this.a.n(2);
+                this.a.o(2);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RobotSkillRecentlyItemViewHolder(@NonNull View view2, ge8 ge8Var) {
+    public RobotSkillRecentlyItemViewHolder(@NonNull View view2, r88 r88Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, ge8Var};
+            Object[] objArr = {view2, r88Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,16 +91,16 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.l = ge8Var;
-        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090445);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09043a);
+        this.l = r88Var;
+        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090446);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09043b);
         this.f = headImageView;
         headImageView.setIsRound(true);
         this.f.setIsBigV(false);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09224f);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09043e);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09224e);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f94);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092259);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09043f);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092258);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f9f);
         this.e.setOnClickListener(new a(this));
     }
 
@@ -121,17 +121,17 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull oc8 oc8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull z68 z68Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oc8Var, tbPageContext, i) == null) && (oc8Var instanceof RobotSkillRecentlyItem)) {
-            this.k = (RobotSkillRecentlyItem) oc8Var;
-            this.h.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0982) + this.k.getSkillName());
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z68Var, tbPageContext, i) == null) && (z68Var instanceof RobotSkillRecentlyItem)) {
+            this.k = (RobotSkillRecentlyItem) z68Var;
+            this.h.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0989) + this.k.getSkillName());
             this.i.setText(this.k.getSkillDesc());
             this.g.setText(this.k.getBotName());
             if (!TextUtils.isEmpty(this.k.getAvatar())) {
                 this.f.startLoad(this.k.getAvatar(), 12, false);
             } else {
-                this.f.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0811c2), 24, false);
+                this.f.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0811c3), 24, false);
             }
             if (this.i.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 if (this.k.isFuncJump()) {
@@ -146,8 +146,8 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
                     this.j.setVisibility(8);
                 }
             }
-            m();
-            n(1);
+            n();
+            o(1);
         }
     }
 
@@ -159,7 +159,7 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
         }
     }
 
-    public void m() {
+    public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             EMManager.from(this.h).setTextSize(R.dimen.T_X06).setTextColor(R.color.CAM_X0105);
@@ -169,7 +169,7 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
         }
     }
 
-    public final void n(int i) {
+    public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             TiebaStatic.log(new StatisticItem("c15243").param("obj_type", i).param("obj_id", this.k.getUk()).param("obj_name", this.k.getBotName()).param("obj_source", this.k.getSkillName()).param("fid", this.k.getmForumId()).param("room_id", this.k.getmRoomId()).param("uid", TbadkCoreApplication.getCurrentAccount()));

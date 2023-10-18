@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.TransitionDrawable;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.RoundedDrawable;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.tieba.nq2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,399 +25,320 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes7.dex */
-public class q93 extends Drawable {
+public class q93 extends UnitedSchemeBaseInterceptor {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RectF a;
-    public final RectF b;
-    public final RectF c;
-    public final BitmapShader d;
-    public final Paint e;
-    public final int f;
-    public final int g;
-    public final RectF h;
-    public final Paint i;
-    public final Matrix j;
-    public float k;
-    public int l;
-    public int m;
-    public ImageView.ScaleType n;
 
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
+    public String getInterceptorName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return -3;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "aiapps_launch_interceptor" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements ed4 {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Uri b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ q93 e;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-532956351, "Lcom/baidu/tieba/q93$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-532956351, "Lcom/baidu/tieba/q93$a;");
+        public a(q93 q93Var, String str, Uri uri, String str2, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q93Var, str, uri, str2, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[ImageView.ScaleType.values().length];
-            a = iArr;
-            try {
-                iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+            this.e = q93Var;
+            this.a = str;
+            this.b = uri;
+            this.c = str2;
+            this.d = unitedSchemeEntity;
+        }
+
+        @Override // com.baidu.tieba.ed4
+        public void a(@Nullable Map<String, String> map) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, map) != null) || map == null) {
+                return;
             }
-            try {
-                a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_START.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
+            this.e.e(this.b, map.get(this.a), this.c, this.d);
+        }
+
+        @Override // com.baidu.tieba.ed4
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && q93.a) {
+                Log.e("SwanLaunchInterceptor", "getOpenBundleId", exc);
             }
         }
     }
 
-    public q93(Bitmap bitmap, float f, int i, int i2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948046622, "Lcom/baidu/tieba/q93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948046622, "Lcom/baidu/tieba/q93;");
+                return;
+            }
+        }
+        a = am1.a;
+        HashSet hashSet = new HashSet();
+        b = hashSet;
+        hashSet.add("_baiduboxapp");
+        b.add(WebChromeClient.KEY_ARG_CALLBACK);
+        b.add("upgrade");
+        b.add("_naExtParams");
+    }
+
+    public q93() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new RectF();
-        this.b = new RectF();
-        this.c = new RectF();
-        this.h = new RectF();
-        this.j = new Matrix();
-        this.n = ImageView.ScaleType.FIT_XY;
-        this.l = i;
-        this.m = i2;
-        this.f = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        this.g = height;
-        this.c.set(0.0f, 0.0f, this.f, height);
-        this.k = f;
-        Shader.TileMode tileMode = Shader.TileMode.CLAMP;
-        BitmapShader bitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
-        this.d = bitmapShader;
-        bitmapShader.setLocalMatrix(this.j);
-        Paint paint = new Paint();
-        this.e = paint;
-        paint.setAntiAlias(true);
-        this.e.setShader(this.d);
-        Paint paint2 = new Paint();
-        this.i = paint2;
-        paint2.setAntiAlias(true);
-        this.i.setColor(this.m);
-        this.i.setStrokeWidth(i);
     }
 
-    public static Bitmap a(Drawable drawable) {
+    public final String c(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
-            if (drawable instanceof BitmapDrawable) {
-                return ((BitmapDrawable) drawable).getBitmap();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
+            if (uri == null) {
+                return "";
             }
-            int intrinsicWidth = drawable.getIntrinsicWidth();
-            int intrinsicHeight = drawable.getIntrinsicHeight();
-            if (intrinsicWidth > 0 && intrinsicHeight > 0) {
-                Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888);
-                Canvas canvas = new Canvas(createBitmap);
-                drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-                drawable.draw(canvas);
-                return createBitmap;
-            }
-            return null;
+            HashSet hashSet = new HashSet();
+            hashSet.add("_naExtParams");
+            return hj3.m(uri, hashSet);
         }
-        return (Bitmap) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"SwanDebugLog"})
-    public static Drawable b(Drawable drawable, ImageView.ScaleType scaleType, float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    public final String d(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{drawable, scaleType, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (drawable != null) {
-                if (drawable instanceof TransitionDrawable) {
-                    TransitionDrawable transitionDrawable = (TransitionDrawable) drawable;
-                    int numberOfLayers = transitionDrawable.getNumberOfLayers();
-                    Drawable[] drawableArr = new Drawable[numberOfLayers];
-                    for (int i3 = 0; i3 < numberOfLayers; i3++) {
-                        Drawable drawable2 = transitionDrawable.getDrawable(i3);
-                        if (drawable2 instanceof ColorDrawable) {
-                            drawableArr[i3] = drawable2;
-                        } else if (drawable2 instanceof q93) {
-                            drawableArr[i3] = drawable2;
-                        } else {
-                            drawableArr[i3] = new q93(a(drawable2), f, i, i2);
-                            if (scaleType != null) {
-                                ((q93) drawableArr[i3]).h(scaleType);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+            return hj3.i(uri.getEncodedQuery(), b);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:62:0x023f  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x024d  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void e(Uri uri, String str, String str2, UnitedSchemeEntity unitedSchemeEntity) {
+        String str3;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, str, str2, unitedSchemeEntity) == null) {
+            String d = d(uri);
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "query: " + d);
+            }
+            String n = hj3.n(str, uri, true);
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "pagePath: " + n);
+            }
+            String h = SwanLauncher.h();
+            o53.K().q().X().K0(h);
+            String uri2 = uri.toString();
+            String queryParameter = uri.getQueryParameter("_naExtParams");
+            if (!TextUtils.isEmpty(queryParameter)) {
+                uri2 = c(uri);
+            }
+            nq2.a aVar = (nq2.a) ((nq2.a) ((nq2.a) new nq2.a().w0(str)).L0(uri2)).K0(h);
+            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(d)) {
+                aVar.S0(n + "?" + d);
+            } else if (!TextUtils.isEmpty(n)) {
+                aVar.S0(n);
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str3 = "_naExtParams";
+            } else {
+                try {
+                    JSONObject jSONObject = new JSONObject(str2);
+                    if (a) {
+                        j = System.nanoTime();
+                    } else {
+                        j = 0;
+                    }
+                    nb3.h(jSONObject, str);
+                    if (a) {
+                        Log.d("SwanLaunchInterceptor", "SwanAppStabilityConfig#parseConfig 耗时(ns): " + (System.nanoTime() - j));
+                    }
+                    aVar.J0(jSONObject.optString("from"));
+                    aVar.Q0(jSONObject.optString("notinhis"));
+                    aVar.Y0(jSONObject.optString("subscribeWithoutClick"));
+                    JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+                    aVar.s0("srcAppId", jSONObject.optString("srcAppId"));
+                    if (p53.c0() == null) {
+                        str3 = "_naExtParams";
+                    } else {
+                        String P = p53.c0().P();
+                        aVar.s0("srcAppKey", P);
+                        int w1 = p53.c0().X().w1();
+                        str3 = "_naExtParams";
+                        try {
+                            aVar.r0("srcPkgType", w1);
+                            if (a) {
+                                Log.d("SwanLaunchInterceptor", "srcAppKey = " + P + "  ,srcPkgType = " + w1);
                             }
+                        } catch (JSONException e) {
+                            e = e;
+                            if (a) {
+                                Log.d("SwanLaunchInterceptor", "getLaunchFrom failed: " + Log.getStackTraceString(e));
+                            }
+                            aVar.z("tool_ip", unitedSchemeEntity.getParam("tip"));
+                            aVar.z("tool_port", unitedSchemeEntity.getParam("tport"));
+                            aVar.z("projectId", unitedSchemeEntity.getParam("projectId"));
+                            aVar.z("fromHost", unitedSchemeEntity.getParam("fromHost"));
+                            aVar.z("spuId", unitedSchemeEntity.getParam("spuId"));
+                            aVar.z("contentId", unitedSchemeEntity.getParam("contentId"));
+                            Bundle bundle = null;
+                            if (!TextUtils.isEmpty(queryParameter)) {
+                            }
+                            if (a) {
+                            }
+                            SwanLauncher.j().n(aVar, bundle);
                         }
                     }
-                    return new TransitionDrawable(drawableArr);
+                    if (!jSONObject.isNull(PrefetchEvent.EVENT_DATA_EXTRA_DATA)) {
+                        aVar.s0(PrefetchEvent.EVENT_DATA_EXTRA_DATA, jSONObject.optString(PrefetchEvent.EVENT_DATA_EXTRA_DATA));
+                    }
+                    aVar.s0("srcAppPage", jSONObject.optString("srcAppPage"));
+                    JSONObject b2 = rl4.b(aVar.U(), jSONObject.optJSONObject("ubc"));
+                    if (b2 != null) {
+                        aVar.s0("ubc", b2.toString());
+                    }
+                    if (optJSONObject != null) {
+                        aVar.z0(optJSONObject.optString("clkid"));
+                        aVar.s0("aiapp_abtest_info", optJSONObject.optString("aiapp_abtest_info"));
+                        aVar.s0(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, optJSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT));
+                        aVar.r0("click_time", optJSONObject.optLong("click", -1L));
+                    }
+                    String optString = jSONObject.optString("veloce");
+                    if (!TextUtils.isEmpty(optString)) {
+                        long optLong = new JSONObject(optString).optLong(LaunchedTaskSpeedStats.KEY_START_TIME);
+                        if (optLong > 0) {
+                            aVar.x("veloce_start_time", optLong);
+                        }
+                    }
+                } catch (JSONException e2) {
+                    e = e2;
+                    str3 = "_naExtParams";
                 }
-                Bitmap a2 = a(drawable);
-                if (a2 != null) {
-                    q93 q93Var = new q93(a2, f, i, i2);
-                    if (scaleType != null) {
-                        q93Var.h(scaleType);
-                    }
-                    return q93Var;
+            }
+            aVar.z("tool_ip", unitedSchemeEntity.getParam("tip"));
+            aVar.z("tool_port", unitedSchemeEntity.getParam("tport"));
+            aVar.z("projectId", unitedSchemeEntity.getParam("projectId"));
+            aVar.z("fromHost", unitedSchemeEntity.getParam("fromHost"));
+            aVar.z("spuId", unitedSchemeEntity.getParam("spuId"));
+            aVar.z("contentId", unitedSchemeEntity.getParam("contentId"));
+            Bundle bundle2 = null;
+            if (!TextUtils.isEmpty(queryParameter)) {
+                bundle2 = new Bundle();
+                bundle2.putString(str3, queryParameter);
+            }
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "launchParams: " + aVar + " \n_naExtParmas: " + queryParameter);
+            }
+            SwanLauncher.j().n(aVar, bundle2);
+        }
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
+    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            Uri uri = unitedSchemeEntity.getUri();
+            if (uri == null || !TextUtils.equals(uri.getHost(), "swan")) {
+                return false;
+            }
+            if (unitedSchemeEntity.isOnlyVerify()) {
+                return true;
+            }
+            String j = hj3.j(uri);
+            if (a) {
+                Log.d("SwanLaunchInterceptor", "mAppId: " + j);
+            }
+            if (TextUtils.isEmpty(j)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                ih3 ih3Var = new ih3();
+                ih3Var.k(1L);
+                ih3Var.i(1L);
+                ih3Var.f("appId is empty");
+                mh3.a().f(ih3Var);
+                qc3 qc3Var = new qc3();
+                qc3Var.q(ic3.n(0));
+                qc3Var.p(ih3Var);
+                qc3Var.l("scheme", uri.toString());
+                ic3.R(qc3Var);
+                uy2.k(ih3Var);
+                return true;
+            }
+            dl4.f().b(5000);
+            String uri2 = uri.toString();
+            p22.i("SwanLaunchInterceptor", "launch scheme = " + uri2);
+            String param = unitedSchemeEntity.getParam("_baiduboxapp");
+            String str = null;
+            if (!TextUtils.isEmpty(param)) {
+                try {
+                    str = new JSONObject(param).optString("navi");
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                Log.w(RoundedDrawable.TAG, "Failed to create bitmap from drawable!");
             }
-            return drawable;
-        }
-        return (Drawable) invokeCommon.objValue;
-    }
-
-    public ImageView.ScaleType c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.n;
-        }
-        return (ImageView.ScaleType) invokeV.objValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.m = i;
-            this.i.setColor(i);
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.l = i;
-            this.i.setStrokeWidth(i);
-        }
-    }
-
-    public void f(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.k = f;
-        }
-    }
-
-    public void h(ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, scaleType) == null) {
-            if (scaleType == null) {
-                scaleType = ImageView.ScaleType.FIT_XY;
+            String str2 = str;
+            if (ei4.e().g(!jj3.G()) && TextUtils.equals(str2, "naviTo")) {
+                if (!PMSConstants.a(ad4.b())) {
+                    p22.c("SwanLaunchInterceptor", "STOP :: Not Support BDTLS");
+                    return false;
+                }
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(j);
+                zc4.e(arrayList, o53.K().q().P(), new a(this, j, uri, param, unitedSchemeEntity));
+            } else {
+                e(uri, j, param, unitedSchemeEntity);
             }
-            if (this.n != scaleType) {
-                this.n = scaleType;
-                g();
-            }
+            fq2.n(str2, j, callbackHandler, unitedSchemeEntity, unitedSchemeEntity.getParam("cb"));
+            return true;
         }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, rect) == null) {
-            super.onBoundsChange(rect);
-            this.a.set(rect);
-            g();
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.e.setAlpha(i);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, colorFilter) == null) {
-            this.e.setColorFilter(colorFilter);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            if (this.l > 0) {
-                RectF rectF = this.h;
-                float f = this.k;
-                canvas.drawRoundRect(rectF, f, f, this.i);
-                canvas.drawRoundRect(this.b, Math.max(this.k - this.l, 0.0f), Math.max(this.k - this.l, 0.0f), this.e);
-                return;
-            }
-            RectF rectF2 = this.b;
-            float f2 = this.k;
-            canvas.drawRoundRect(rectF2, f2, f2, this.e);
-        }
-    }
-
-    public final void g() {
-        float width;
-        float height;
-        float min;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.h.set(this.a);
-            RectF rectF = this.b;
-            int i = this.l;
-            rectF.set(i + 0, i + 0, this.h.width() - this.l, this.h.height() - this.l);
-            switch (a.a[this.n.ordinal()]) {
-                case 1:
-                    this.h.set(this.a);
-                    RectF rectF2 = this.b;
-                    int i2 = this.l;
-                    rectF2.set(i2 + 0, i2 + 0, this.h.width() - this.l, this.h.height() - this.l);
-                    this.j.set(null);
-                    this.j.setTranslate((int) (((this.b.width() - this.f) * 0.5f) + 0.5f), (int) (((this.b.height() - this.g) * 0.5f) + 0.5f));
-                    break;
-                case 2:
-                    this.h.set(this.a);
-                    RectF rectF3 = this.b;
-                    int i3 = this.l;
-                    rectF3.set(i3 + 0, i3 + 0, this.h.width() - this.l, this.h.height() - this.l);
-                    this.j.set(null);
-                    float f = 0.0f;
-                    if (this.f * this.b.height() > this.b.width() * this.g) {
-                        width = this.b.height() / this.g;
-                        f = (this.b.width() - (this.f * width)) * 0.5f;
-                        height = 0.0f;
-                    } else {
-                        width = this.b.width() / this.f;
-                        height = (this.b.height() - (this.g * width)) * 0.5f;
-                    }
-                    this.j.setScale(width, width);
-                    Matrix matrix = this.j;
-                    int i4 = this.l;
-                    matrix.postTranslate(((int) (f + 0.5f)) + i4, ((int) (height + 0.5f)) + i4);
-                    break;
-                case 3:
-                    this.j.set(null);
-                    if (this.f <= this.a.width() && this.g <= this.a.height()) {
-                        min = 1.0f;
-                    } else {
-                        min = Math.min(this.a.width() / this.f, this.a.height() / this.g);
-                    }
-                    this.j.setScale(min, min);
-                    this.j.postTranslate((int) (((this.a.width() - (this.f * min)) * 0.5f) + 0.5f), (int) (((this.a.height() - (this.g * min)) * 0.5f) + 0.5f));
-                    this.h.set(this.c);
-                    this.j.mapRect(this.h);
-                    RectF rectF4 = this.b;
-                    RectF rectF5 = this.h;
-                    float f2 = rectF5.left;
-                    int i5 = this.l;
-                    rectF4.set(f2 + i5, rectF5.top + i5, rectF5.right - i5, rectF5.bottom - i5);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                case 4:
-                    this.h.set(this.c);
-                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.CENTER);
-                    this.j.mapRect(this.h);
-                    RectF rectF6 = this.b;
-                    RectF rectF7 = this.h;
-                    float f3 = rectF7.left;
-                    int i6 = this.l;
-                    rectF6.set(f3 + i6, rectF7.top + i6, rectF7.right - i6, rectF7.bottom - i6);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                case 5:
-                    this.h.set(this.c);
-                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.END);
-                    this.j.mapRect(this.h);
-                    RectF rectF8 = this.b;
-                    RectF rectF9 = this.h;
-                    float f4 = rectF9.left;
-                    int i7 = this.l;
-                    rectF8.set(f4 + i7, rectF9.top + i7, rectF9.right - i7, rectF9.bottom - i7);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                case 6:
-                    this.h.set(this.c);
-                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.START);
-                    this.j.mapRect(this.h);
-                    RectF rectF10 = this.b;
-                    RectF rectF11 = this.h;
-                    float f5 = rectF11.left;
-                    int i8 = this.l;
-                    rectF10.set(f5 + i8, rectF11.top + i8, rectF11.right - i8, rectF11.bottom - i8);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                default:
-                    this.h.set(this.a);
-                    RectF rectF12 = this.b;
-                    int i9 = this.l;
-                    rectF12.set(i9 + 0, i9 + 0, this.h.width() - this.l, this.h.height() - this.l);
-                    this.j.set(null);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-            }
-            this.d.setLocalMatrix(this.j);
-        }
+        return invokeLLL.booleanValue;
     }
 }

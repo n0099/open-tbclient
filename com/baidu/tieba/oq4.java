@@ -1,45 +1,79 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class oq4 {
+public abstract class oq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public int g;
-    public String h;
-    public int i;
-    public int j;
-    public String k;
 
-    public oq4(String str, String str2, String str3, int i, String str4, String str5) {
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(boolean z, boolean z2, String str, @Nullable String str2);
+    }
+
+    public abstract void a();
+
+    public abstract void d();
+
+    public abstract boolean e();
+
+    public abstract MarkData f();
+
+    public abstract String g();
+
+    public abstract void h(boolean z);
+
+    public abstract void i(MarkData markData);
+
+    public abstract void j(a aVar);
+
+    public oq4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), str4, str5};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = i;
-        this.e = str4;
-        this.f = str5;
+    }
+
+    public static oq4 b(BaseActivity baseActivity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, oq4.class, baseActivity);
+            if (runTask != null && runTask.getData() != null) {
+                return (oq4) runTask.getData();
+            }
+            return null;
+        }
+        return (oq4) invokeL.objValue;
+    }
+
+    public static oq4 c(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, oq4.class, baseFragmentActivity);
+            if (runTask != null && runTask.getData() != null) {
+                return (oq4) runTask.getData();
+            }
+            return null;
+        }
+        return (oq4) invokeL.objValue;
     }
 }

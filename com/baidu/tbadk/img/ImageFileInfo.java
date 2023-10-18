@@ -11,7 +11,7 @@ import com.baidu.tbadk.album.MediaFileInfo;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ad;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ImageFileInfo extends MediaFileInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_TYPE_EMOTION = 1;
@@ -214,7 +214,7 @@ public class ImageFileInfo extends MediaFileInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return !di.isEmpty(this.serverImageCode);
+            return !ad.isEmpty(this.serverImageCode);
         }
         return invokeV.booleanValue;
     }

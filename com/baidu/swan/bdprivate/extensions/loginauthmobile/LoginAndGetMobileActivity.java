@@ -8,13 +8,13 @@ import androidx.fragment.app.FragmentActivity;
 import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap3;
-import com.baidu.tieba.et3;
-import com.baidu.tieba.ft3;
-import com.baidu.tieba.gt3;
-import com.baidu.tieba.ho3;
-import com.baidu.tieba.nu2;
-import com.baidu.tieba.ya3;
+import com.baidu.tieba.h53;
+import com.baidu.tieba.jj3;
+import com.baidu.tieba.nn3;
+import com.baidu.tieba.on3;
+import com.baidu.tieba.pn3;
+import com.baidu.tieba.qi3;
+import com.baidu.tieba.wo2;
 /* loaded from: classes4.dex */
 public class LoginAndGetMobileActivity extends FragmentActivity implements SwanAppLoginAndGetMobileDialog.b {
     public LinearLayout a;
@@ -33,7 +33,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
         @Override // java.lang.Runnable
         public void run() {
             LoginAndGetMobileActivity loginAndGetMobileActivity = LoginAndGetMobileActivity.this;
-            ho3.a(loginAndGetMobileActivity, loginAndGetMobileActivity.getWindow().getDecorView().getWindowToken());
+            qi3.a(loginAndGetMobileActivity, loginAndGetMobileActivity.getWindow().getDecorView().getWindowToken());
         }
     }
 
@@ -41,27 +41,27 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     public void finish() {
         super.finish();
         if (this.d instanceof SwanAppPhoneLoginDialog) {
-            ho3.a(this, getWindow().getDecorView().getWindowToken());
+            qi3.a(this, getWindow().getDecorView().getWindowToken());
         }
         overridePendingTransition(0, R.anim.obfuscated_res_0x7f0100b8);
     }
 
-    public final void n1() {
-        p1();
+    public final void o1() {
+        q1();
         r1();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         if (this.d instanceof SwanAppPhoneLoginDialog) {
-            ap3.e0(new a());
+            jj3.e0(new a());
         }
         super.onPause();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        boolean a2 = nu2.M().a();
+        boolean a2 = wo2.M().a();
         if (this.c != a2) {
             SwanAppLoginAndGetMobileDialog swanAppLoginAndGetMobileDialog = this.d;
             if (swanAppLoginAndGetMobileDialog != null) {
@@ -72,24 +72,24 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
         super.onResume();
     }
 
-    public final void p1() {
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f9f);
+    public final void q1() {
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091faa);
         this.a = linearLayout;
-        linearLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060ba2));
+        linearLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b99));
         this.a.getBackground().mutate().setAlpha(0);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        int c0 = ap3.c0(this);
+        int c0 = jj3.c0(this);
         super.onCreate(bundle);
-        ap3.g(this, c0);
+        jj3.g(this, c0);
         getWindow().addFlags(256);
         getWindow().addFlags(512);
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.flags &= -1025;
         getWindow().setAttributes(attributes);
-        setContentView(R.layout.obfuscated_res_0x7f0d00c3);
+        setContentView(R.layout.obfuscated_res_0x7f0d00c0);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             this.b = extras.getString("app_name", "");
@@ -97,15 +97,15 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
             this.f = extras.getString("launch_from");
             this.g = extras.getString("appid");
         }
-        this.c = nu2.M().a();
-        n1();
+        this.c = wo2.M().a();
+        o1();
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog.b
     public void onLoginResult(int i) {
-        et3.a().onResult(i);
+        nn3.a().onResult(i);
         if (i != 0) {
-            ya3.f(this, R.string.obfuscated_res_0x7f0f1557).H(true);
+            h53.f(this, R.string.obfuscated_res_0x7f0f1568).H(true);
         } else {
             finish();
         }
@@ -121,7 +121,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     public final void r1() {
         String str;
         String str2;
-        this.d = gt3.a(this.b, this.c, this.e, this.f, this.g);
+        this.d = pn3.a(this.b, this.c, this.e, this.f, this.g);
         QuickLoginInfo quickLoginInfo = this.e;
         if (quickLoginInfo != null && quickLoginInfo.supportQuickLogin) {
             str = "swan_quick_login";
@@ -133,6 +133,6 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
         this.d.i2(this);
         this.d.k2(this);
         this.d.show(getSupportFragmentManager(), str);
-        ft3.a("show", str2, null, this.f, this.g);
+        on3.a("show", str2, null, this.f, this.g);
     }
 }

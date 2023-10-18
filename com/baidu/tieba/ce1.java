@@ -1,96 +1,112 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.widget.TextView;
-import com.baidu.tieba.p61;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import com.baidu.mobads.sdk.api.IAdInterListener;
+import com.baidu.prologue.business.data.SplashStyleRecorder;
+import com.baidu.tieba.of1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ce1 {
+public class ce1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947671770, "Lcom/baidu/tieba/ce1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @NonNull
+    public static of1 a(@NonNull ge1 ge1Var) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        int b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ge1Var)) == null) {
+            of1.b bVar = new of1.b(ge1Var.j(), ge1Var.g);
+            bVar.u(IAdInterListener.AdProdType.PRODUCT_SPLASH);
+            boolean z3 = false;
+            if (ge1Var.f == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947671770, "Lcom/baidu/tieba/ce1;");
-                return;
+            bVar.i(z);
+            bVar.f(b());
+            bVar.n(c());
+            if (ge1Var.f == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
             }
+            bVar.p(z2);
+            bVar.o(d(ge1Var.m));
+            bVar.D(ge1Var.n * 1000);
+            bVar.B(1);
+            bVar.G(SplashStyleRecorder.a());
+            bVar.g(5);
+            bVar.z(false);
+            bVar.c(ge1Var.l);
+            bVar.e(25);
+            bVar.d(13);
+            bVar.C(72);
+            bVar.A(30);
+            bVar.F(68);
+            bVar.E(30);
+            bVar.h(17);
+            bVar.r(ge1Var.z);
+            if (ge1Var.A == 1) {
+                z3 = true;
+            }
+            bVar.y(z3);
+            bVar.b(ge1Var.B);
+            bVar.q(ge1Var.f());
+            bVar.s("跳转详情页或第三方应用");
+            if (ge1Var.l()) {
+                b = 47;
+            } else {
+                b = b() + 39;
+            }
+            bVar.t(b);
+            bVar.k(ge1Var.H);
+            bVar.m(ge1Var.G);
+            bVar.l(ge1Var.e());
+            bVar.j(ge1Var.X);
+            bVar.x(ge1Var.i());
+            bVar.w(ge1Var.h());
+            bVar.v(ge1Var.g());
+            return bVar.a();
         }
-        char[] cArr = {21704};
-        a = cArr;
-        b = new String(cArr);
+        return (of1) invokeL.objValue;
     }
 
-    public static final String a(String str, String subTag, float f, TextPaint textPaint, float f2) {
-        InterceptResult invokeCommon;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, subTag, Float.valueOf(f), textPaint, Float.valueOf(f2)})) == null) {
-            Intrinsics.checkNotNullParameter(subTag, "subTag");
-            if (TextUtils.isEmpty(subTag)) {
-                subTag = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - (textPaint.measureText(GlideException.IndentedAppendable.INDENT) + f2), TextUtils.TruncateAt.END);
-            if (ellipsize != null) {
-                return ellipsize + GlideException.IndentedAppendable.INDENT + subTag;
-            }
-            return subTag;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return sd1.a().b();
         }
-        return (String) invokeCommon.objValue;
+        return invokeV.intValue;
     }
 
-    public static final SpannableStringBuilder b(String str, int i, TextView textView, Context context, Drawable drawable, int i2, float f) {
-        InterceptResult invokeCommon;
-        float e;
+    @IdRes
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), textView, context, drawable, Integer.valueOf(i2), Float.valueOf(f)})) == null) {
-            if (!TextUtils.isEmpty(str) && textView != null && context != null && drawable != null && i > 0) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                if (textView.getMeasuredWidth() > 0) {
-                    e = (textView.getMeasuredWidth() * i) - drawable.getIntrinsicWidth();
-                } else {
-                    e = ((p61.c.e(context) - i2) * i) - drawable.getIntrinsicWidth();
-                }
-                float f2 = e - ((i - 1) * 10);
-                Intrinsics.checkNotNull(str);
-                int length = str.length() + 1;
-                spannableStringBuilder.append((CharSequence) " ").append((CharSequence) b);
-                if (f2 < textView.getPaint().measureText(spannableStringBuilder.toString())) {
-                    String a2 = a(spannableStringBuilder.toString(), b, f2, textView.getPaint(), drawable.getIntrinsicWidth());
-                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(a2);
-                    drawable.setBounds(0, 0, (int) (drawable.getIntrinsicWidth() * f), (int) (drawable.getIntrinsicHeight() * f));
-                    spannableStringBuilder2.setSpan(new be1(drawable), a2.length() - b.length(), a2.length(), 17);
-                    return spannableStringBuilder2;
-                }
-                drawable.setBounds(0, 0, (int) (drawable.getIntrinsicWidth() * f), (int) (drawable.getIntrinsicHeight() * f));
-                spannableStringBuilder.setSpan(new be1(drawable), length, spannableStringBuilder.length(), 17);
-                return spannableStringBuilder;
-            }
-            return new SpannableStringBuilder("");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sd1.a().c();
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
+        return invokeV.intValue;
+    }
+
+    @IdRes
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i == 1) {
+                return sd1.a().h();
+            }
+            return sd1.a().g();
+        }
+        return invokeI.intValue;
     }
 }

@@ -22,7 +22,6 @@ import com.baidu.searchbox.config.utils.FontSizeSharedPrefs;
 import com.baidu.searchbox.config.utils.ReflectionUtil;
 import com.baidu.searchbox.config.utils.ResUtil;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -330,10 +329,10 @@ public final class FontSizeHelper {
                                                         } else {
                                                             unit = null;
                                                         }
-                                                        Result.m852constructorimpl(unit);
+                                                        Result.m851constructorimpl(unit);
                                                     } catch (Throwable th) {
                                                         Result.Companion companion2 = Result.Companion;
-                                                        Result.m852constructorimpl(ResultKt.createFailure(th));
+                                                        Result.m851constructorimpl(ResultKt.createFailure(th));
                                                     }
                                                     Unit unit2 = Unit.INSTANCE;
                                                     Unit unit3 = Unit.INSTANCE;
@@ -930,10 +929,10 @@ public final class FontSizeHelper {
                                                         } else {
                                                             unit = null;
                                                         }
-                                                        Result.m852constructorimpl(unit);
+                                                        Result.m851constructorimpl(unit);
                                                     } catch (Throwable th) {
                                                         Result.Companion companion2 = Result.Companion;
-                                                        Result.m852constructorimpl(ResultKt.createFailure(th));
+                                                        Result.m851constructorimpl(ResultKt.createFailure(th));
                                                     }
                                                     Unit unit2 = Unit.INSTANCE;
                                                     Unit unit3 = Unit.INSTANCE;
@@ -1517,10 +1516,10 @@ public final class FontSizeHelper {
                                                             } else {
                                                                 unit = null;
                                                             }
-                                                            Result.m852constructorimpl(unit);
+                                                            Result.m851constructorimpl(unit);
                                                         } catch (Throwable th) {
                                                             Result.Companion companion2 = Result.Companion;
-                                                            Result.m852constructorimpl(ResultKt.createFailure(th));
+                                                            Result.m851constructorimpl(ResultKt.createFailure(th));
                                                         }
                                                         Unit unit2 = Unit.INSTANCE;
                                                         Unit unit3 = Unit.INSTANCE;
@@ -2109,10 +2108,10 @@ public final class FontSizeHelper {
                                                             } else {
                                                                 unit = null;
                                                             }
-                                                            Result.m852constructorimpl(unit);
+                                                            Result.m851constructorimpl(unit);
                                                         } catch (Throwable th) {
                                                             Result.Companion companion2 = Result.Companion;
-                                                            Result.m852constructorimpl(ResultKt.createFailure(th));
+                                                            Result.m851constructorimpl(ResultKt.createFailure(th));
                                                         }
                                                         Unit unit2 = Unit.INSTANCE;
                                                         Unit unit3 = Unit.INSTANCE;
@@ -2925,10 +2924,10 @@ public final class FontSizeHelper {
                                                     } else {
                                                         unit = null;
                                                     }
-                                                    Result.m852constructorimpl(unit);
+                                                    Result.m851constructorimpl(unit);
                                                 } catch (Throwable th) {
                                                     Result.Companion companion2 = Result.Companion;
-                                                    Result.m852constructorimpl(ResultKt.createFailure(th));
+                                                    Result.m851constructorimpl(ResultKt.createFailure(th));
                                                 }
                                                 Unit unit4 = Unit.INSTANCE;
                                                 Unit unit5 = Unit.INSTANCE;
@@ -3121,7 +3120,7 @@ public final class FontSizeHelper {
         return setScaledStateListDrawable$default(i, drawableList, statesList, 0, 8, null);
     }
 
-    @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0007\n\u0002\b\r\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\b\u0082\b\u0018\u00002\u00020\u0001B\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0002\u0010\u0007J\t\u0010\f\u001a\u00020\u0003HÆ\u0003J\t\u0010\r\u001a\u00020\u0005HÆ\u0003J\t\u0010\u000e\u001a\u00020\u0005HÆ\u0003J'\u0010\u000f\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u0005HÆ\u0001J\u0013\u0010\u0010\u001a\u00020\u00032\b\u0010\u0011\u001a\u0004\u0018\u00010\u0001HÖ\u0003J\t\u0010\u0012\u001a\u00020\u0013HÖ\u0001J\t\u0010\u0014\u001a\u00020\u0015HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0002\u0010\bR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR\u0011\u0010\u0006\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\n¨\u0006\u0016"}, d2 = {"Lcom/baidu/searchbox/config/FontSizeHelper$Scaled1DSizeInfo;", "", "isScaledRequired", "", MapBundleKey.OfflineMapKey.OFFLINE_RATION, "", "scaledSize", "(ZFF)V", "()Z", "getRatio", "()F", "getScaledSize", "component1", "component2", "component3", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "other", TTDownloadField.TT_HASHCODE, "", "toString", "", "lib-fontsize_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0007\n\u0002\b\r\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\b\u0082\b\u0018\u00002\u00020\u0001B\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0002\u0010\u0007J\t\u0010\f\u001a\u00020\u0003HÆ\u0003J\t\u0010\r\u001a\u00020\u0005HÆ\u0003J\t\u0010\u000e\u001a\u00020\u0005HÆ\u0003J'\u0010\u000f\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u0005HÆ\u0001J\u0013\u0010\u0010\u001a\u00020\u00032\b\u0010\u0011\u001a\u0004\u0018\u00010\u0001HÖ\u0003J\t\u0010\u0012\u001a\u00020\u0013HÖ\u0001J\t\u0010\u0014\u001a\u00020\u0015HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0002\u0010\bR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR\u0011\u0010\u0006\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\n¨\u0006\u0016"}, d2 = {"Lcom/baidu/searchbox/config/FontSizeHelper$Scaled1DSizeInfo;", "", "isScaledRequired", "", MapBundleKey.OfflineMapKey.OFFLINE_RATION, "", "scaledSize", "(ZFF)V", "()Z", "getRatio", "()F", "getScaledSize", "component1", "component2", "component3", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "other", "hashCode", "", "toString", "", "lib-fontsize_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes3.dex */
     public static final class Scaled1DSizeInfo {
         public final boolean isScaledRequired;
@@ -3204,7 +3203,7 @@ public final class FontSizeHelper {
         }
     }
 
-    @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0007\n\u0002\b\r\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\b\u0082\b\u0018\u00002\u00020\u0001B\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0002\u0010\u0007J\t\u0010\f\u001a\u00020\u0003HÆ\u0003J\t\u0010\r\u001a\u00020\u0005HÆ\u0003J\t\u0010\u000e\u001a\u00020\u0005HÆ\u0003J'\u0010\u000f\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u0005HÆ\u0001J\u0013\u0010\u0010\u001a\u00020\u00032\b\u0010\u0011\u001a\u0004\u0018\u00010\u0001HÖ\u0003J\t\u0010\u0012\u001a\u00020\u0013HÖ\u0001J\t\u0010\u0014\u001a\u00020\u0015HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0002\u0010\bR\u0011\u0010\u0006\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\n¨\u0006\u0016"}, d2 = {"Lcom/baidu/searchbox/config/FontSizeHelper$Scaled2DSizeInfo;", "", "isScaledRequired", "", "scaledWidth", "", "scaledHeight", "(ZFF)V", "()Z", "getScaledHeight", "()F", "getScaledWidth", "component1", "component2", "component3", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "other", TTDownloadField.TT_HASHCODE, "", "toString", "", "lib-fontsize_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0007\n\u0002\b\r\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\b\u0082\b\u0018\u00002\u00020\u0001B\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0002\u0010\u0007J\t\u0010\f\u001a\u00020\u0003HÆ\u0003J\t\u0010\r\u001a\u00020\u0005HÆ\u0003J\t\u0010\u000e\u001a\u00020\u0005HÆ\u0003J'\u0010\u000f\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u0005HÆ\u0001J\u0013\u0010\u0010\u001a\u00020\u00032\b\u0010\u0011\u001a\u0004\u0018\u00010\u0001HÖ\u0003J\t\u0010\u0012\u001a\u00020\u0013HÖ\u0001J\t\u0010\u0014\u001a\u00020\u0015HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0002\u0010\bR\u0011\u0010\u0006\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\n¨\u0006\u0016"}, d2 = {"Lcom/baidu/searchbox/config/FontSizeHelper$Scaled2DSizeInfo;", "", "isScaledRequired", "", "scaledWidth", "", "scaledHeight", "(ZFF)V", "()Z", "getScaledHeight", "()F", "getScaledWidth", "component1", "component2", "component3", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "other", "hashCode", "", "toString", "", "lib-fontsize_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes3.dex */
     public static final class Scaled2DSizeInfo {
         public final boolean isScaledRequired;
@@ -3782,10 +3781,10 @@ public final class FontSizeHelper {
                     }
                     unit = Unit.INSTANCE;
                 }
-                Result.m852constructorimpl(unit);
+                Result.m851constructorimpl(unit);
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                Result.m852constructorimpl(ResultKt.createFailure(th));
+                Result.m851constructorimpl(ResultKt.createFailure(th));
             }
         }
         return levelListDrawable;
@@ -5610,10 +5609,10 @@ public final class FontSizeHelper {
                                     } else {
                                         unit = null;
                                     }
-                                    Result.m852constructorimpl(unit);
+                                    Result.m851constructorimpl(unit);
                                 } catch (Throwable th) {
                                     Result.Companion companion2 = Result.Companion;
-                                    Result.m852constructorimpl(ResultKt.createFailure(th));
+                                    Result.m851constructorimpl(ResultKt.createFailure(th));
                                 }
                                 Unit unit2 = Unit.INSTANCE;
                             }

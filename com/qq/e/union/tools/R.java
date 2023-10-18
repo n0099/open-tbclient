@@ -53,7 +53,7 @@ public final class R {
         public static final int obfuscated = 0x7f060aa0;
         public static final int teal_200 = 0x7f060b52;
         public static final int teal_700 = 0x7f060b53;
-        public static final int white = 0x7f060ba2;
+        public static final int white = 0x7f060b99;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -77,8 +77,8 @@ public final class R {
         public static final int ad_server_on_button = 0x7f0800e0;
 
         /* renamed from: logo */
-        public static final int obfuscated = 0x7f080f91;
-        public static final int shape_corner = 0x7f0813c2;
+        public static final int obfuscated = 0x7f080f90;
+        public static final int shape_corner = 0x7f0813c0;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -102,22 +102,22 @@ public final class R {
 
         /* renamed from: adTypeSp */
         public static final int obfuscated = 0x7f09008f;
-        public static final int cancel = 0x7f090539;
-        public static final int confirm = 0x7f090792;
+        public static final int cancel = 0x7f09053b;
+        public static final int confirm = 0x7f0907af;
 
         /* renamed from: crtSizeSp */
-        public static final int obfuscated = 0x7f090812;
+        public static final int obfuscated = 0x7f09082e;
 
         /* renamed from: crtSizeTv */
-        public static final int obfuscated = 0x7f090813;
-        public static final int isFullscreenCheckBox = 0x7f09118f;
-        public static final int isFullscreenTv = 0x7f091190;
+        public static final int obfuscated = 0x7f09082f;
+        public static final int isFullscreenCheckBox = 0x7f0911a9;
+        public static final int isFullscreenTv = 0x7f0911aa;
 
         /* renamed from: msg */
-        public static final int obfuscated = 0x7f0917b8;
-        public static final int msg_title = 0x7f091819;
-        public static final int productTypeTv = 0x7f091d77;
-        public static final int title = 0x7f09259d;
+        public static final int obfuscated = 0x7f0917d3;
+        public static final int msg_title = 0x7f091836;
+        public static final int productTypeTv = 0x7f091d99;
+        public static final int title = 0x7f0925a7;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -138,7 +138,7 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int gdt_activity_tools = 0x7f0d03de;
+        public static final int gdt_activity_tools = 0x7f0d03d9;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -160,20 +160,20 @@ public final class R {
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
-        public static final int cancel = 0x7f0f03d0;
-        public static final int confirm = 0x7f0f04c4;
+        public static final int cancel = 0x7f0f03d2;
+        public static final int confirm = 0x7f0f04c8;
 
         /* renamed from: crtSize */
-        public static final int obfuscated = 0x7f0f0518;
-        public static final int is_fullscreen = 0x7f0f0b36;
+        public static final int obfuscated = 0x7f0f051e;
+        public static final int is_fullscreen = 0x7f0f0b41;
 
         /* renamed from: msg */
-        public static final int obfuscated = 0x7f0f0cc2;
-        public static final int msg_tile = 0x7f0f0cde;
-        public static final int product_type = 0x7f0f1176;
+        public static final int obfuscated = 0x7f0f0ccf;
+        public static final int msg_tile = 0x7f0f0ceb;
+        public static final int product_type = 0x7f0f1185;
 
         /* renamed from: title */
-        public static final int obfuscated = 0x7f0f16c8;
+        public static final int obfuscated = 0x7f0f16d6;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

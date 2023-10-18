@@ -247,7 +247,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
         return invokeV.intValue;
     }
 
-    public final void B() {
+    public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f = Math.max(getPaddingLeft(), getPaddingRight());
@@ -261,7 +261,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            B();
+            C();
             this.p.reset();
             if (this.o != null) {
                 float min = Math.min(this.h / this.m, this.i / this.n);

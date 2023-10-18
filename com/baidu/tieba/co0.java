@@ -1,35 +1,49 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface co0 {
-    void a();
+    public static final co0 a;
 
-    void b(@NonNull Application application);
+    lo0 a(boolean z);
 
-    @Autowired
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a implements co0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @NonNull
-        @Singleton
-        @Inject(force = false)
-        public static co0 a() {
-            InterceptResult invokeV;
+        public a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return ny0.a();
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return (co0) invokeV.objValue;
         }
+
+        @Override // com.baidu.tieba.co0
+        public lo0 a(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                return lo0.c;
+            }
+            return (lo0) invokeZ.objValue;
+        }
+    }
+
+    static {
+        new ServiceReference("nad.core", "http");
+        a = new a();
     }
 }

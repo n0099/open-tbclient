@@ -12,12 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.nadcore.widget.IAdImageView;
-import com.baidu.tieba.ic1;
-import com.baidu.tieba.nc1;
-import com.baidu.tieba.yb1;
+import com.baidu.tieba.a71;
+import com.baidu.tieba.l61;
+import com.baidu.tieba.v61;
 /* loaded from: classes3.dex */
 public class AdImageView extends AppCompatImageView implements IAdImageView {
-    public final nc1 a;
+    public final a71 a;
     public IAdImageView.ImageScaleType b;
     public final Path c;
 
@@ -25,8 +25,8 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         this(context, null);
     }
 
-    public void r(String str) {
-        A(str, true);
+    public void s(String str) {
+        B(str, true);
     }
 
     public void setImageScaleType(IAdImageView.ImageScaleType imageScaleType) {
@@ -50,18 +50,18 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         this(context, attributeSet, 0);
     }
 
-    public void A(String str, boolean z) {
+    public void B(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
             setImageBitmap(null);
         } else {
-            yb1.a().a(str, this, z);
+            l61.a().a(str, this, z);
         }
     }
 
     public void setBorder(float f, @ColorInt int i) {
-        nc1.a aVar = this.a.d;
+        a71.a aVar = this.a.d;
         if (aVar == null) {
-            aVar = new nc1.a();
+            aVar = new a71.a();
         }
         aVar.c = f;
         aVar.d = i;
@@ -70,20 +70,20 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
 
     public AdImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = new nc1();
+        this.a = new a71();
         this.c = new Path();
-        B(attributeSet);
+        C(attributeSet);
     }
 
     public void b(String str, int i, int i2) {
-        yb1.a().b(str, this, i, i2);
+        l61.a().b(str, this, i, i2);
     }
 
-    public final void B(AttributeSet attributeSet) {
+    public final void C(AttributeSet attributeSet) {
         if (attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ic1.AdImageView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, v61.AdImageView);
         int resourceId = obtainStyledAttributes.getResourceId(5, 0);
         if (resourceId != 0) {
             this.a.a = resourceId;
@@ -92,7 +92,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         if (resourceId2 != 0) {
             this.a.c = resourceId2;
         }
-        nc1.a aVar = new nc1.a();
+        a71.a aVar = new a71.a();
         if (obtainStyledAttributes.getBoolean(3, false)) {
             aVar.a = true;
         } else {
@@ -113,7 +113,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     }
 
     @NonNull
-    public nc1 getConfig() {
+    public a71 getConfig() {
         return this.a;
     }
 
@@ -122,9 +122,9 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     }
 
     public void setCircle() {
-        nc1.a aVar = this.a.d;
+        a71.a aVar = this.a.d;
         if (aVar == null) {
-            aVar = new nc1.a();
+            aVar = new a71.a();
         }
         aVar.a = true;
         this.a.d = aVar;
@@ -132,7 +132,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        nc1.a aVar = getConfig().d;
+        a71.a aVar = getConfig().d;
         if (aVar == null) {
             super.onDraw(canvas);
             return;
@@ -172,9 +172,9 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     }
 
     public void setRadius(float f, float f2, float f3, float f4) {
-        nc1.a aVar = this.a.d;
+        a71.a aVar = this.a.d;
         if (aVar == null) {
-            aVar = new nc1.a();
+            aVar = new a71.a();
         }
         aVar.a = false;
         aVar.b = new float[]{f, f2, f3, f4};

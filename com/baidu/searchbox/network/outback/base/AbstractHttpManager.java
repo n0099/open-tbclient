@@ -103,7 +103,7 @@ public abstract class AbstractHttpManager {
     public void initCallFactory(CallFactoryParams callFactoryParams) {
         CallFactory newCallFactory = OutbackComponent.getInstance().newCallFactory(callFactoryParams);
         this.defaultCallFactory = newCallFactory;
-        this.callFactoryMap.put(EngineName.DEFAULT_ENGINE, newCallFactory);
+        this.callFactoryMap.put("DEFAULT", newCallFactory);
         setBackUpEngine();
     }
 

@@ -10,25 +10,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h53;
-import com.baidu.tieba.nu2;
-import com.baidu.tieba.pa3;
-import com.baidu.tieba.q53;
-import com.baidu.tieba.ug3;
+import com.baidu.tieba.db3;
+import com.baidu.tieba.qz2;
+import com.baidu.tieba.wo2;
+import com.baidu.tieba.y43;
+import com.baidu.tieba.zz2;
 /* loaded from: classes4.dex */
-public class LoadingView extends FrameLayout implements pa3<LoadingView> {
+public class LoadingView extends FrameLayout implements y43<LoadingView> {
     public View a;
     public SmoothProgressBar b;
     public TextView c;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pa3
+    @Override // com.baidu.tieba.y43
     public LoadingView getLoadingView() {
         return this;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements ug3 {
+    public class a implements db3 {
         public a() {
         }
     }
@@ -54,32 +54,32 @@ public class LoadingView extends FrameLayout implements pa3<LoadingView> {
 
     public void a() {
         View view2;
-        if (h53.e()) {
-            view2 = q53.a().d(R.layout.obfuscated_res_0x7f0d00c2);
+        if (qz2.e()) {
+            view2 = zz2.a().d(R.layout.obfuscated_res_0x7f0d00bf);
         } else {
             view2 = null;
         }
         if (view2 != null) {
-            addView(view2, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07081d)));
+            addView(view2, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070818)));
         } else {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00c2, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00bf, (ViewGroup) this, true);
         }
-        this.a = findViewById(R.id.obfuscated_res_0x7f091fa7);
-        this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f09163a);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09174d);
+        this.a = findViewById(R.id.obfuscated_res_0x7f091fb3);
+        this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091654);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091767);
         setPageResources();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        nu2.M().f(this, new a());
+        wo2.M().f(this, new a());
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        nu2.M().g(this);
+        wo2.M().g(this);
     }
 
     public void setMsg(String str) {

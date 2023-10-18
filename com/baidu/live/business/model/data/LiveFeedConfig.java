@@ -1,9 +1,8 @@
 package com.baidu.live.business.model.data;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
-import com.baidu.tieba.ta0;
+import com.baidu.tieba.q50;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,7 +47,7 @@ public class LiveFeedConfig {
             if (jSONObject != null) {
                 AbSwitchConfig abSwitchConfig = new AbSwitchConfig();
                 boolean z3 = false;
-                if (jSONObject.optInt(SpeedStatsUtils.UBC_VALUE_BANNER) == 1) {
+                if (jSONObject.optInt("banner") == 1) {
                     z = true;
                 } else {
                     z = false;
@@ -128,10 +127,10 @@ public class LiveFeedConfig {
                 this.minorUfoUrl = optJSONObject.optString("ufo_url");
             }
             if (z && z2) {
-                ta0.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
+                q50.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
             }
         } else if (z && z2) {
-            String b = ta0.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
+            String b = q50.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
             if (!TextUtils.isEmpty(b)) {
                 try {
                     JSONObject jSONObject2 = new JSONObject(b);
@@ -149,7 +148,7 @@ public class LiveFeedConfig {
                         this.minorUfoUrl = optJSONObject2.optString("ufo_url");
                     }
                 } catch (JSONException unused) {
-                    ta0.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
+                    q50.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
                 }
             }
         }

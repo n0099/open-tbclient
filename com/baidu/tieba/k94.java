@@ -1,19 +1,29 @@
 package com.baidu.tieba;
 
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
+import android.util.StateSet;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class k94 implements us1 {
+public class k94 extends StateListDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<Integer> a;
+    public a a;
+    public View b;
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(View view2);
+
+        void b(View view2);
+    }
 
     public k94() {
         Interceptable interceptable = $ic;
@@ -28,77 +38,59 @@ public final class k94 implements us1 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.b = null;
+        addState(new int[]{16842919}, new ColorDrawable(0));
+        addState(new int[0], new ColorDrawable(0));
     }
 
-    @Override // com.baidu.tieba.us1
-    public void a(n32 n32Var) {
+    public k94(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, n32Var) == null) && n32Var != null) {
-            d(n32Var.B("action"), n32Var.B("menuItemName"));
-        }
-    }
-
-    @Override // com.baidu.tieba.us1
-    public void b(nh4 nh4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nh4Var) != null) || this.a.isEmpty()) {
-            return;
-        }
-        Iterator<Integer> it = this.a.iterator();
-        while (it.hasNext()) {
-            Integer id = it.next();
-            if (nh4Var != null) {
-                Intrinsics.checkNotNullExpressionValue(id, "id");
-                nh4Var.l(id.intValue());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = null;
+        addState(new int[]{16842919}, drawable);
+        addState(new int[0], drawable);
     }
 
-    public final boolean c(nh4 nh4Var, String str) {
-        InterceptResult invokeLL;
+    @Override // android.graphics.drawable.StateListDrawable, android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public boolean onStateChange(int[] iArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, nh4Var, str)) == null) {
-            Integer a = l94.a(str);
-            if (a != null) {
-                if (!this.a.contains(a)) {
-                    this.a.add(a);
-                }
-                if (nh4Var != null) {
-                    nh4Var.l(a.intValue());
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean d(String str, String str2) {
-        InterceptResult invokeLL;
-        d74 d74Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (str != null && str.hashCode() == 3202370 && str.equals("hide")) {
-                tw2 T2 = tw2.T();
-                Intrinsics.checkNotNullExpressionValue(T2, "SwanAppController.getInstance()");
-                pa2 U = T2.U();
-                nh4 nh4Var = null;
-                if (U != null) {
-                    d74Var = (d74) U.n(d74.class);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr)) == null) {
+            if (this.b != null && this.a != null) {
+                if (StateSet.stateSetMatches(new int[]{16842919}, iArr)) {
+                    this.a.b(this.b);
                 } else {
-                    d74Var = null;
+                    this.a.a(this.b);
                 }
-                if (d74Var != null) {
-                    nh4Var = d74Var.z3();
-                }
-                if (nh4Var != null && d74Var != null) {
-                    d74Var.L3(true);
-                }
-                return c(nh4Var, str2);
             }
-            return false;
+            return super.onStateChange(iArr);
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    public void b(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.b = view2;
+        }
     }
 }

@@ -13,7 +13,7 @@ public final class a extends KSFrameLayout implements bg.a {
     public final View Kr;
     public final bg Ks;
     public final int OA;
-    public InterfaceC0659a Ot;
+    public InterfaceC0642a Ot;
     public boolean Ou;
     public boolean Ov;
     public int Ow;
@@ -23,7 +23,7 @@ public final class a extends KSFrameLayout implements bg.a {
 
     /* renamed from: com.kwad.components.core.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0659a {
+    public interface InterfaceC0642a {
         void em();
     }
 
@@ -74,9 +74,9 @@ public final class a extends KSFrameLayout implements bg.a {
                 this.Ks.sendEmptyMessage(1);
                 return;
             }
-            InterfaceC0659a interfaceC0659a = this.Ot;
-            if (interfaceC0659a != null) {
-                interfaceC0659a.em();
+            InterfaceC0642a interfaceC0642a = this.Ot;
+            if (interfaceC0642a != null) {
+                interfaceC0642a.em();
                 return;
             }
             return;
@@ -96,9 +96,9 @@ public final class a extends KSFrameLayout implements bg.a {
             pT();
             return;
         }
-        InterfaceC0659a interfaceC0659a2 = this.Ot;
-        if (interfaceC0659a2 != null) {
-            interfaceC0659a2.em();
+        InterfaceC0642a interfaceC0642a2 = this.Ot;
+        if (interfaceC0642a2 != null) {
+            interfaceC0642a2.em();
         }
     }
 
@@ -122,19 +122,19 @@ public final class a extends KSFrameLayout implements bg.a {
 
     @Override // com.kwad.sdk.widget.KSFrameLayout, com.kwad.sdk.widget.i
     public final void k(View view2) {
-        InterfaceC0659a interfaceC0659a;
-        InterfaceC0659a interfaceC0659a2;
+        InterfaceC0642a interfaceC0642a;
+        InterfaceC0642a interfaceC0642a2;
         super.k(view2);
-        if (this.OA == 0 && (interfaceC0659a2 = this.Ot) != null) {
-            interfaceC0659a2.em();
+        if (this.OA == 0 && (interfaceC0642a2 = this.Ot) != null) {
+            interfaceC0642a2.em();
         } else if (!this.Ox) {
             this.Ox = true;
             this.Oy = System.currentTimeMillis();
             pU();
             pT();
-        } else if (System.currentTimeMillis() - this.Oy <= this.OA || (interfaceC0659a = this.Ot) == null) {
+        } else if (System.currentTimeMillis() - this.Oy <= this.OA || (interfaceC0642a = this.Ot) == null) {
         } else {
-            interfaceC0659a.em();
+            interfaceC0642a.em();
             pU();
         }
     }
@@ -149,7 +149,7 @@ public final class a extends KSFrameLayout implements bg.a {
         pV();
     }
 
-    public final void setViewCallback(InterfaceC0659a interfaceC0659a) {
-        this.Ot = interfaceC0659a;
+    public final void setViewCallback(InterfaceC0642a interfaceC0642a) {
+        this.Ot = interfaceC0642a;
     }
 }

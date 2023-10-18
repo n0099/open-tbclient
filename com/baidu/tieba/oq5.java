@@ -1,16 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.mutiprocess.aiApply.AICapacityMainProcessToastEvent;
-import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class oq5 implements fq5<AICapacityMainProcessToastEvent> {
+public class oq5 {
     public static /* synthetic */ Interceptable $ic;
+    public static oq5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public t65 a;
+    public ABTestExtraData b;
 
     public oq5() {
         Interceptable interceptable = $ic;
@@ -26,19 +31,70 @@ public final class oq5 implements fq5<AICapacityMainProcessToastEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fq5
-    /* renamed from: a */
-    public boolean onEvent(AICapacityMainProcessToastEvent aICapacityMainProcessToastEvent) {
-        InterceptResult invokeL;
+    public static oq5 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aICapacityMainProcessToastEvent)) == null) {
-            if (aICapacityMainProcessToastEvent == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (oq5.class) {
+                    if (c == null) {
+                        c = new oq5();
+                    }
+                }
             }
-            AICapacityApplyHelper.e.a().j(aICapacityMainProcessToastEvent.getToastString());
-            return true;
+            return c;
         }
-        return invokeL.booleanValue;
+        return (oq5) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == null) {
+                ABTestExtraData aBTestExtraData = new ABTestExtraData();
+                this.b = aBTestExtraData;
+                aBTestExtraData.parserABTestExtraFormSharedPref();
+            }
+            return this.b.getABTestResult();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void a(t65 t65Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t65Var) == null) {
+            if (t65Var != null && this.a != null && t65Var.a() == this.a.a()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.a = t65Var;
+            if (z) {
+                b("zan_or_cai_smallflow");
+            }
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
+        }
+    }
+
+    public void e(t65 t65Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t65Var) == null) {
+            a(t65Var);
+        }
+    }
+
+    public void f(ABTestExtraData aBTestExtraData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
+            this.b = aBTestExtraData;
+        }
     }
 }

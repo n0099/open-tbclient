@@ -32,8 +32,8 @@ public class TailFrameBarH5View extends LinearLayout {
 
     private void c(Context context, int i) {
         LinearLayout.inflate(context, i, this);
-        this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f09141b);
-        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09141c);
+        this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f091434);
+        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091435);
     }
 
     private void jk() {
@@ -65,7 +65,7 @@ public class TailFrameBarH5View extends LinearLayout {
     }
 
     public final void e(boolean z, boolean z2) {
-        c(getContext(), z ? z2 ? R.layout.obfuscated_res_0x7f0d0507 : R.layout.obfuscated_res_0x7f0d0506 : R.layout.obfuscated_res_0x7f0d0505);
+        c(getContext(), z ? z2 ? R.layout.obfuscated_res_0x7f0d0502 : R.layout.obfuscated_res_0x7f0d0501 : R.layout.obfuscated_res_0x7f0d0500);
     }
 
     public TextView getH5OpenBtn() {

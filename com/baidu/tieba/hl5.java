@@ -1,46 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.sendtool.SendNoLaunchView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hl5 extends ij5 {
+public class hl5 implements lk5<MissionEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hl5(Context context, boolean z) {
-        super(context, (String) null, 38);
+    public hl5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.o = true;
-        this.n = 8;
-        SendNoLaunchView sendNoLaunchView = new SendNoLaunchView(context);
-        sendNoLaunchView.setIsFriend(z);
-        this.m = sendNoLaunchView;
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
-        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-        ((View) this.m).setLayoutParams(layoutParams);
-        this.p = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lk5
+    /* renamed from: a */
+    public boolean onEvent(MissionEvent missionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                return false;
+            }
+            int i = missionEvent.pageId;
+            int i2 = missionEvent.pageType;
+            long j = missionEvent.tid;
+            String str = missionEvent.actionType;
+            if ("onResume".equals(str)) {
+                un4.w().L(i, j);
+                un4.w().Q(i2, j);
+            } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
+                un4.w().E();
+            } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
+                un4.w().F();
+            } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
+                un4.w().L(i, j);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

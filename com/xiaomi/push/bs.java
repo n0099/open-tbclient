@@ -22,7 +22,7 @@ public class bs {
         String a = bv.a(context).a("sp_client_report_status", "sp_client_report_key", "");
         if (TextUtils.isEmpty(a)) {
             String a2 = bo.a(20);
-            bv.a(context).m308a("sp_client_report_status", "sp_client_report_key", a2);
+            bv.a(context).m307a("sp_client_report_status", "sp_client_report_key", a2);
             return a2;
         }
         return a;
@@ -79,7 +79,7 @@ public class bs {
                         if (!TextUtils.isEmpty(file3.getAbsolutePath())) {
                             file = new File(file3.getAbsolutePath() + ".lock");
                             try {
-                                y.m846a(file);
+                                y.m845a(file);
                                 randomAccessFile = new RandomAccessFile(file, "rw");
                                 try {
                                     try {
@@ -158,7 +158,7 @@ public class bs {
     }
 
     public static void a(Context context, List<String> list) {
-        if (list == null || list.size() <= 0 || !m304a(context)) {
+        if (list == null || list.size() <= 0 || !m303a(context)) {
             return;
         }
         for (String str : list) {
@@ -169,7 +169,7 @@ public class bs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m304a(Context context) {
+    public static boolean m303a(Context context) {
         try {
             return context.getApplicationContext().getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0).versionCode >= 108;
         } catch (PackageManager.NameNotFoundException unused) {
@@ -178,9 +178,9 @@ public class bs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m305a(Context context, String str) {
+    public static boolean m304a(Context context, String str) {
         File file = new File(str);
-        long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m188a().getMaxFileLength();
+        long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m187a().getMaxFileLength();
         if (file.exists()) {
             try {
                 if (file.length() > maxFileLength) {
@@ -191,21 +191,21 @@ public class bs {
                 return false;
             }
         } else {
-            y.m846a(file);
+            y.m845a(file);
         }
         return true;
     }
 
     @TargetApi(9)
     public static byte[] a(String str) {
-        byte[] copyOf = Arrays.copyOf(bl.m299a(str), 16);
+        byte[] copyOf = Arrays.copyOf(bl.m298a(str), 16);
         copyOf[0] = 68;
         copyOf[15] = 84;
         return copyOf;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static File[] m306a(Context context, String str) {
+    public static File[] m305a(Context context, String str) {
         File externalFilesDir = context.getExternalFilesDir(str);
         if (externalFilesDir != null) {
             return externalFilesDir.listFiles(new bu());

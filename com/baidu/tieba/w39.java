@@ -1,232 +1,162 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.live.interfaces.player.DuMediaConstants;
+import com.baidu.searchbox.live.interfaces.player.DuMediaView;
+import com.baidu.searchbox.live.interfaces.player.IDuMediaPnPController;
+import com.baidu.searchbox.live.interfaces.player.LiveDlnaSearchListener;
+import com.baidu.searchbox.live.interfaces.service.player.IDuMediaService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.google.android.exoplayer2.util.MimeTypes;
 /* loaded from: classes8.dex */
-public class w39 implements s39 {
+public class w39 implements IDuMediaService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StatisticItem a;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements s39 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.s39
-        public void a(ICardInfo iCardInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.s39
-        public s39 b(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? this : (s39) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.tieba.s39
-        public s39 c(String str, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (s39) invokeLJ.objValue;
-        }
-
-        @Override // com.baidu.tieba.s39
-        public s39 d(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this : (s39) invokeLL.objValue;
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    public void dlnaRefresh(@NonNull LiveDlnaSearchListener liveDlnaSearchListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, liveDlnaSearchListener) == null) {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public w39(BaseLegoCardInfo baseLegoCardInfo) {
-        this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    public void dlnaStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public IDuMediaPnPController getCtrlPoint(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return null;
+        }
+        return (IDuMediaPnPController) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public DuMediaView getDuMediaView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (DuMediaView) invokeV.objValue;
+    }
+
+    public w39() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseLegoCardInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public w39(String str, int i, int i2, String str2) {
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public Integer getDevicePlayQualityScore(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            return Integer.valueOf(CyberPlayerManager.getDevicePlayQualityScore(MimeTypes.VIDEO_H265, 0, i, i2, null));
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        this.a = statisticItem;
-        statisticItem.param("obj_source", i);
-        this.a.param("obj_type", i2);
-        if (!TextUtils.isEmpty(str2)) {
-            this.a.param("obj_card", str2);
-        }
+        return (Integer) invokeII.objValue;
     }
 
-    public static s39 e(BaseLegoCardInfo baseLegoCardInfo) {
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public Integer getMediaIntConstant(@Nullable DuMediaConstants.Key key) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseLegoCardInfo)) == null) {
-            if (baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getStatistics())) {
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, key)) == null) {
+            if (key == DuMediaConstants.Key.VIDEO_SCALING_MODE_SCALE_TO_FILL_WITH_CROPPING) {
+                return 0;
+            }
+            if (key == DuMediaConstants.Key.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING) {
+                return 2;
+            }
+            if (key == DuMediaConstants.Key.INSTALL_TYPE_CYBER_MEDIA) {
+                return 1;
+            }
+            if (key == DuMediaConstants.Key.SEEK_PREVIOUS_SYNC) {
+                return 0;
+            }
+            if (key == DuMediaConstants.Key.SEEK_CLOSEST) {
+                return 3;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_RESTART_PLAYED) {
+                return 956;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_FIRST_DISP_INTERVAL) {
+                return 904;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_BUFFERING_START) {
+                return 701;
+            }
+            if (key == DuMediaConstants.Key.MEDIA_INFO_BUFFERING_END) {
+                return 702;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_STATUS) {
+                return 0;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_UNKNOW) {
+                return -1;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_IDLE) {
+                return 0;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PLAYING) {
+                return 1;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PAUSED) {
+                return 2;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_PREPARED) {
+                return 3;
+            }
+            if (key == DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_COMPLETE) {
+                return 4;
+            }
+            if (key != DuMediaConstants.Key.DLNA_PLAY_SUB_STATUS_CONNECTED) {
+                return 0;
+            }
+            return 5;
+        }
+        return (Integer) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.player.IDuMediaService
+    @Nullable
+    public Boolean isCoreLoaded(@Nullable Integer num) {
+        InterceptResult invokeL;
+        int intValue;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, num)) == null) {
+            if (num == null) {
+                intValue = 1;
             } else {
-                z = false;
+                intValue = num.intValue();
             }
-            if (z) {
-                return new w39(baseLegoCardInfo);
-            }
-            return new b(null);
+            return Boolean.valueOf(CyberPlayerManager.isCoreLoaded(intValue));
         }
-        return (s39) invokeL.objValue;
-    }
-
-    public static s39 f(String str, int i, int i2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                return new w39(str, i, i2, str2);
-            }
-            return new b(null);
-        }
-        return (s39) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.s39
-    public void a(ICardInfo iCardInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
-            g(iCardInfo);
-            TiebaStatic.log(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.s39
-    public s39 b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.param(str, i);
-            }
-            return this;
-        }
-        return (s39) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.s39
-    public s39 c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.param(str, String.valueOf(j));
-            }
-            return this;
-        }
-        return (s39) invokeLJ.objValue;
-    }
-
-    @Override // com.baidu.tieba.s39
-    public s39 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                this.a.param(str, str2);
-            }
-            return this;
-        }
-        return (s39) invokeLL.objValue;
-    }
-
-    public final void g(ICardInfo iCardInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iCardInfo) == null) {
-            BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
-            if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
-                List<Object> params = this.a.getParams();
-                for (String str : baseLegoCardInfo.getsExtras().split("&")) {
-                    String[] split = str.split("=");
-                    if (split.length == 2) {
-                        String str2 = split[0];
-                        String str3 = split[1];
-                        boolean z = false;
-                        for (int i = 0; i < params.size() && !z; i += 2) {
-                            if (TextUtils.equals(str2, params.get(i).toString())) {
-                                int i2 = i + 1;
-                                if (i2 < params.size()) {
-                                    params.set(i2, str3);
-                                }
-                                z = true;
-                            }
-                        }
-                        if (!z) {
-                            this.a.param(str2, str3);
-                        }
-                    }
-                }
-                d(TiebaStatic.Params.OBJ_PARAM3, dp6.e());
-            }
-        }
+        return (Boolean) invokeL.objValue;
     }
 }

@@ -1,21 +1,16 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class p29 {
+public class p29 extends kf1<LiveRealAuthService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<o29<ChatMsg, p09<?>>> a;
-    public final HashMap<Class<? extends ChatMsg>, Integer> b;
 
     public p29() {
         Interceptable interceptable = $ic;
@@ -27,58 +22,19 @@ public final class p29 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new SparseArray<>();
-        this.b = new HashMap<>();
-    }
-
-    public final void a(int i, o29<ChatMsg, p09<?>> converter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, converter) == null) {
-            Intrinsics.checkNotNullParameter(converter, "converter");
-            this.a.put(i, converter);
         }
     }
 
-    public final void b(Class<? extends ChatMsg> sdkMsg, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kf1
+    /* renamed from: a */
+    public LiveRealAuthService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkMsg, i) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            this.b.put(sdkMsg, Integer.valueOf(i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new q29();
         }
-    }
-
-    public final ChatMsg c(p09<?> tbMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            o29<ChatMsg, p09<?>> o29Var = this.a.get(tbMsg.e().getType());
-            if (o29Var == null) {
-                return null;
-            }
-            return o29Var.b(tbMsg);
-        }
-        return (ChatMsg) invokeL.objValue;
-    }
-
-    public final p09<?> d(ChatMsg sdkMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            Integer num = this.b.get(sdkMsg.getClass());
-            if (num == null) {
-                return null;
-            }
-            o29<ChatMsg, p09<?>> o29Var = this.a.get(num.intValue());
-            if (o29Var == null) {
-                return null;
-            }
-            return o29Var.a(sdkMsg);
-        }
-        return (p09) invokeL.objValue;
+        return (LiveRealAuthService) invokeV.objValue;
     }
 }

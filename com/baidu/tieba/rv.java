@@ -1,111 +1,61 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
-import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
-import java.util.ArrayList;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.CharsKt__CharJVMKt;
-/* loaded from: classes7.dex */
-public final class rv {
+/* loaded from: classes8.dex */
+public class rv {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static byte[] b;
-    public static final rv c;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316393, "Lcom/baidu/tieba/rv;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448316393, "Lcom/baidu/tieba/rv;");
-                return;
-            }
-        }
-        c = new rv();
-        a = new int[]{219, 74, 195, 53, TTAdConstant.IMAGE_MODE_LIVE, 242, 116, 193, MatroskaExtractor.ID_TRACK_ENTRY, 134, 57, MatroskaExtractor.ID_PIXEL_WIDTH, 41, 16, 150, 94, 233, 21, 62, 77, 117, 76, 201, 232, 66, 209, 249, 34, 66, 113, 52, 203};
-    }
-
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public rv() {
+        this(0L);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Long) newInitContext.callArgs[0]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public rv(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = j;
     }
 
-    public final String a(String str) {
-        InterceptResult invokeL;
+    public boolean a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.length() % 2 == 0) {
-                try {
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 1; i < str.length(); i += 2) {
-                        arrayList.add(Byte.valueOf((byte) Integer.parseInt("" + str.charAt(i - 1) + "" + str.charAt(i), CharsKt__CharJVMKt.checkRadix(16))));
-                    }
-                    if (arrayList.size() <= 16) {
-                        return "";
-                    }
-                    if (b == null) {
-                        b = new byte[a.length];
-                        int length = a.length;
-                        for (int i2 = 0; i2 < length; i2++) {
-                            byte[] bArr = b;
-                            if (bArr == null) {
-                                Intrinsics.throwNpe();
-                            }
-                            bArr[i2] = (byte) a[i2];
-                        }
-                    }
-                    byte[] byteArray = CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(0, 16));
-                    byte[] bArr2 = b;
-                    if (bArr2 == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    String a2 = lt.a(b(byteArray, bArr2, CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(16, arrayList.size()))));
-                    Intrinsics.checkExpressionValueIsNotNull(a2, "StringUtils.bytes2Str(decodeBytes)");
-                    return a2;
-                } catch (Exception unused) {
-                }
-            }
-            return "";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = this.a;
+            long j4 = (j & j2) | ((~j2) & j3);
+            this.a = j4;
+            return (j4 ^ j3) != 0;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public final byte[] b(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, bArr3)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-            Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-            cipher.init(2, secretKeySpec, new IvParameterSpec(bArr));
-            return cipher.doFinal(bArr3);
-        }
-        return (byte[]) invokeLLL.objValue;
+        return invokeCommon.booleanValue;
     }
 }

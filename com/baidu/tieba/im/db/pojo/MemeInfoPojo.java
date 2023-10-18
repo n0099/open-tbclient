@@ -33,7 +33,7 @@ public class MemeInfoPojo extends OrmObject {
         }
     }
 
-    public static MemeInfoPojo M(MemeInfo memeInfo) {
+    public static MemeInfoPojo N(MemeInfo memeInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, memeInfo)) == null) {
@@ -53,7 +53,7 @@ public class MemeInfoPojo extends OrmObject {
         return (MemeInfoPojo) invokeL.objValue;
     }
 
-    public static MemeInfoPojo N(tbclient.MemeInfo memeInfo) {
+    public static MemeInfoPojo O(tbclient.MemeInfo memeInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, memeInfo)) == null) {

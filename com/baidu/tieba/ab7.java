@@ -1,173 +1,189 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.BawuTeamInfoActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.forumMember.member.FrsMemberTeamViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.Agree;
-import tbclient.FeedContentResource;
-import tbclient.FeedPostExpose;
-import tbclient.PostExposeHead;
+import tbclient.BawuRoleInfoPub;
+import tbclient.MemberGroupInfo;
 /* loaded from: classes5.dex */
-public final class ab7 {
+public class ab7 extends yc7<bb7, FrsMemberTeamViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View.OnClickListener l;
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0070  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0073  */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0078  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x007a  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0084  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0087  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x008a  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x008c  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0096  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0098  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00a2  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00a5  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00bf  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00c2  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00c5  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00c8  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00d3  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00d6  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final void a(FeedPostExpose feedPostExpose, List<yc7<?>> dataList, b97 feedExtraData) {
-        boolean z;
-        PostExposeHead postExposeHead;
-        String str;
-        String str2;
-        PostExposeHead postExposeHead2;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        String str7;
-        String str8;
-        PostExposeHead postExposeHead3;
-        String str9;
-        String str10;
-        String str11;
-        String str12;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedPostExpose, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedPostExpose, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            List<FeedContentResource> list = feedPostExpose.floor;
-            if (list != null) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                bb7.a(list, spannableStringBuilder, new b97(), new f87(null, null, 3, null));
-                long j = 0;
-                Agree head_agree = feedPostExpose.head_agree;
-                if (head_agree != null) {
-                    Intrinsics.checkNotNullExpressionValue(head_agree, "head_agree");
-                    Long l = head_agree.agree_num;
-                    Intrinsics.checkNotNullExpressionValue(l, "agree.agree_num");
-                    j = l.longValue();
-                    Integer num = head_agree.has_agree;
-                    if (num != null && num.intValue() == 1) {
-                        z = true;
-                        m87 m87Var = new m87();
-                        m87Var.b(dc7.a.a(feedPostExpose.business_info));
-                        z87 z87Var = new z87(j, z, m87Var);
-                        postExposeHead = feedPostExpose.head_img;
-                        if (postExposeHead == null) {
-                            str = postExposeHead.img_url;
-                        } else {
-                            str = null;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ab7 a;
+
+        public a(ab7 ab7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ab7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ab7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            bb7 bb7Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                String str = "";
+                if (view2.getTag() instanceof BawuRoleInfoPub) {
+                    BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view2.getTag();
+                    if (bawuRoleInfoPub == null) {
+                        return;
+                    }
+                    String str2 = bawuRoleInfoPub.target_scheme;
+                    if (!eh9.a(str2)) {
+                        this.a.c.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
+                        return;
+                    }
+                    DefaultLog.getInstance().i("TargetSchemeInterceptHelper", "jump targetScheme: " + str2);
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f0925d6) {
+                    Object tag = view2.getTag();
+                    String[] strArr = null;
+                    if (tag instanceof Integer) {
+                        Integer num = (Integer) tag;
+                        if (this.a.getItem(num.intValue()) instanceof bb7) {
+                            bb7Var = (bb7) this.a.getItem(num.intValue());
+                            if (bb7Var == null && bb7Var.b() != null) {
+                                if (!StringUtils.isNull(bb7Var.b().member_group_type)) {
+                                    strArr = bb7Var.b().member_group_type.split("_");
+                                }
+                                if (strArr != null && strArr.length == 2) {
+                                    str = strArr[0];
+                                }
+                                if (!StringUtils.isNull(str) && str.equalsIgnoreCase("1")) {
+                                    this.a.c.sendMessage(new CustomMessage(2002001, new BawuTeamInfoActivityConfig(this.a.mContext, JavaTypesHelper.toLong(bb7Var.a(), 0L))));
+                                    return;
+                                }
+                                return;
+                            }
                         }
-                        if (str != null) {
-                            str2 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str, "head_img?.img_url ?: \"\"");
-                            str2 = str;
-                        }
-                        postExposeHead2 = feedPostExpose.head_img;
-                        if (postExposeHead2 == null) {
-                            str3 = postExposeHead2.corner_url;
-                        } else {
-                            str3 = null;
-                        }
-                        if (str3 != null) {
-                            str4 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str3, "head_img?.corner_url ?: \"\"");
-                            str4 = str3;
-                        }
-                        str5 = feedPostExpose.head_text;
-                        if (str5 != null) {
-                            str6 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str5, "head_text ?: \"\"");
-                            str6 = str5;
-                        }
-                        str7 = feedPostExpose.stamp_url;
-                        if (str7 != null) {
-                            str8 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str7, "stamp_url ?: \"\"");
-                            str8 = str7;
-                        }
-                        aa7 aa7Var = new aa7(str2, str4, str6, str8, new SpannableString(spannableStringBuilder), z87Var);
-                        postExposeHead3 = feedPostExpose.head_img;
-                        if (postExposeHead3 == null) {
-                            str9 = postExposeHead3.schema;
-                        } else {
-                            str9 = null;
-                        }
-                        if (str9 != null) {
-                            str10 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str9, "head_img?.schema ?: \"\"");
-                            str10 = str9;
-                        }
-                        str11 = feedPostExpose.schema;
-                        if (str11 != null) {
-                            str12 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str11, "schema ?: \"\"");
-                            str12 = str11;
-                        }
-                        dataList.add(new zc7(new s77(aa7Var, str10, str12, CollectionsKt__CollectionsKt.listOf((Object[]) new ea7[]{c97.d(feedExtraData, "reply_user_head_click1", null, 2, null), c97.d(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new ea7[]{c97.d(feedExtraData, "reply_user_name_click1", null, 2, null), c97.d(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new ea7[]{c97.d(feedExtraData, "reply_card_click1", null, 2, null), c97.d(feedExtraData, "reply_card_click2", null, 2, null)})), "reply"));
+                    }
+                    bb7Var = null;
+                    if (bb7Var == null) {
                     }
                 }
-                z = false;
-                m87 m87Var2 = new m87();
-                m87Var2.b(dc7.a.a(feedPostExpose.business_info));
-                z87 z87Var2 = new z87(j, z, m87Var2);
-                postExposeHead = feedPostExpose.head_img;
-                if (postExposeHead == null) {
-                }
-                if (str != null) {
-                }
-                postExposeHead2 = feedPostExpose.head_img;
-                if (postExposeHead2 == null) {
-                }
-                if (str3 != null) {
-                }
-                str5 = feedPostExpose.head_text;
-                if (str5 != null) {
-                }
-                str7 = feedPostExpose.stamp_url;
-                if (str7 != null) {
-                }
-                aa7 aa7Var2 = new aa7(str2, str4, str6, str8, new SpannableString(spannableStringBuilder), z87Var2);
-                postExposeHead3 = feedPostExpose.head_img;
-                if (postExposeHead3 == null) {
-                }
-                if (str9 != null) {
-                }
-                str11 = feedPostExpose.schema;
-                if (str11 != null) {
-                }
-                dataList.add(new zc7(new s77(aa7Var2, str10, str12, CollectionsKt__CollectionsKt.listOf((Object[]) new ea7[]{c97.d(feedExtraData, "reply_user_head_click1", null, 2, null), c97.d(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new ea7[]{c97.d(feedExtraData, "reply_user_name_click1", null, 2, null), c97.d(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new ea7[]{c97.d(feedExtraData, "reply_card_click1", null, 2, null), c97.d(feedExtraData, "reply_card_click2", null, 2, null)})), "reply"));
             }
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.l = new a(this);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: K */
+    public FrsMemberTeamViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new FrsMemberTeamViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d030d, (ViewGroup) null), this.l);
+        }
+        return (FrsMemberTeamViewHolder) invokeL.objValue;
+    }
+
+    public View L(int i, View view2, ViewGroup viewGroup, bb7 bb7Var, FrsMemberTeamViewHolder frsMemberTeamViewHolder) {
+        InterceptResult invokeCommon;
+        MemberGroupInfo b;
+        List<BawuRoleInfoPub> list;
+        String[] strArr;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bb7Var, frsMemberTeamViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) bb7Var, (bb7) frsMemberTeamViewHolder);
+            if (bb7Var != null && bb7Var.b() != null && (list = (b = bb7Var.b()).member_group_list) != null && list.size() > 0 && !StringUtils.isNull(b.member_group_type)) {
+                frsMemberTeamViewHolder.a.setTag(Integer.valueOf(i));
+                if (!StringUtils.isNull(b.member_group_type)) {
+                    strArr = b.member_group_type.split("_");
+                } else {
+                    strArr = null;
+                }
+                if (strArr != null && strArr.length == 2) {
+                    str = strArr[1];
+                } else {
+                    str = "";
+                }
+                frsMemberTeamViewHolder.a.setText(str + "(" + b.member_group_num + SmallTailInfo.EMOTION_SUFFIX);
+                int i2 = 0;
+                for (BawuRoleInfoPub bawuRoleInfoPub : b.member_group_list) {
+                    if (i2 > 3) {
+                        break;
+                    } else if (bawuRoleInfoPub != null) {
+                        frsMemberTeamViewHolder.a(bawuRoleInfoPub, i2);
+                        i2++;
+                    }
+                }
+                frsMemberTeamViewHolder.c(this.f);
+                SkinManager.setBackgroundColor(frsMemberTeamViewHolder.n, R.color.CAM_X0201);
+                SkinManager.setViewTextColor(frsMemberTeamViewHolder.a, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(frsMemberTeamViewHolder.j, R.color.CAM_X0106, 1);
+                SkinManager.setViewTextColor(frsMemberTeamViewHolder.k, R.color.CAM_X0106, 1);
+                SkinManager.setViewTextColor(frsMemberTeamViewHolder.l, R.color.CAM_X0106, 1);
+                SkinManager.setViewTextColor(frsMemberTeamViewHolder.m, R.color.CAM_X0106, 1);
+                frsMemberTeamViewHolder.a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.yc7, com.baidu.tieba.lh
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        L(i, view2, viewGroup, (bb7) obj, (FrsMemberTeamViewHolder) viewHolder);
+        return view2;
     }
 }

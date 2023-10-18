@@ -21,20 +21,20 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a66;
-import com.baidu.tieba.d6a;
-import com.baidu.tieba.f61;
-import com.baidu.tieba.g15;
-import com.baidu.tieba.hl0;
-import com.baidu.tieba.is0;
-import com.baidu.tieba.n6a;
-import com.baidu.tieba.o49;
+import com.baidu.tieba.a1a;
+import com.baidu.tieba.a25;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.fn0;
+import com.baidu.tieba.j06;
+import com.baidu.tieba.jy0;
+import com.baidu.tieba.mx0;
+import com.baidu.tieba.ov4;
+import com.baidu.tieba.q0a;
 import com.baidu.tieba.recapp.lego.controller.NadTitleController;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.ul0;
-import com.baidu.tieba.w31;
-import com.baidu.tieba.z21;
+import com.baidu.tieba.rg0;
+import com.baidu.tieba.s01;
+import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public final class NadTitleController {
     public final Lazy a;
     public final Lazy b;
     public AdCard c;
-    public ul0 d;
+    public rg0 d;
     public final Lazy e;
 
     @Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\r\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0002\b\u0000\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0019H\u0002J8\u0010\u001a\u001a\u00020\u00172\u0006\u0010\u001b\u001a\u00020\u001c2\u0006\u0010\u001d\u001a\u00020\u00062\u0006\u0010\u001e\u001a\u00020\u00062\u0006\u0010\u001f\u001a\u00020\u00062\u0006\u0010 \u001a\u00020\u00062\u0006\u0010\u0018\u001a\u00020\u0019H\u0016J\b\u0010!\u001a\u00020\u0017H\u0002J\b\u0010\"\u001a\u00020#H\u0002J\b\u0010$\u001a\u00020\u0017H\u0002R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\b\u001a\u0004\u0018\u00010\t8BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\n\u0010\u000bR\u000e\u0010\f\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R!\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00030\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013¨\u0006%"}, d2 = {"Lcom/baidu/tieba/recapp/lego/controller/NadTitleController$EMNoPaddingSpan;", "Landroid/text/style/LineHeightSpan;", "textView", "Landroid/widget/TextView;", "(Landroid/widget/TextView;)V", "addMarginBottom", "", "addMarginTop", "marginLayoutParams", "Landroid/view/ViewGroup$MarginLayoutParams;", "getMarginLayoutParams", "()Landroid/view/ViewGroup$MarginLayoutParams;", "originMarginBottom", "originMarginLayoutParams", "originMarginTop", "textSize", "textViewWeakReference", "Ljava/lang/ref/WeakReference;", "getTextViewWeakReference", "()Ljava/lang/ref/WeakReference;", "textViewWeakReference$delegate", "Lkotlin/Lazy;", "autoAdjustMargin", "", "fm", "Landroid/graphics/Paint$FontMetricsInt;", "chooseHeight", "text", "", "start", "end", "spanstartv", "lineHeight", "init", "layoutParamsChanged", "", "restoreMargin", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
@@ -177,7 +177,7 @@ public final class NadTitleController {
                 Intrinsics.checkNotNullParameter(text, "text");
                 Intrinsics.checkNotNullParameter(fm, "fm");
                 f();
-                s75.a(fm, this.b);
+                a25.a(fm, this.b);
                 TextView textView = c().get();
                 if (textView == null || (textView.getGravity() & 112) != 16) {
                     a(fm);
@@ -289,7 +289,7 @@ public final class NadTitleController {
                 } else {
                     spannableStringBuilder = new SpannableStringBuilder(text);
                 }
-                spannableStringBuilder.setSpan(this.a.h(), 0, text.length(), 33);
+                spannableStringBuilder.setSpan(this.a.i(), 0, text.length(), 33);
                 return spannableStringBuilder;
             }
             return (CharSequence) invokeL.objValue;
@@ -323,11 +323,11 @@ public final class NadTitleController {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             AdCard adCard;
-            is0 is0Var;
-            is0.b bVar;
+            fn0 fn0Var;
+            fn0.b bVar;
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (adCard = this.a.c) != null && (is0Var = adCard.richTitleLinkModel) != null && (bVar = is0Var.a) != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (adCard = this.a.c) != null && (fn0Var = adCard.richTitleLinkModel) != null && (bVar = fn0Var.a) != null) {
                 String str2 = bVar.a;
                 if (!Intrinsics.areEqual(str2, "command")) {
                     if (Intrinsics.areEqual(str2, "download")) {
@@ -338,22 +338,22 @@ public final class NadTitleController {
                         } else {
                             str = null;
                         }
-                        a66.a(str);
+                        j06.a(str);
                         AdCard adCard3 = this.a.c;
                         if (adCard3 != null) {
                             advertAppInfo = adCard3.getAdvertAppInfo();
                         }
-                        o49.c(advertAppInfo);
-                        ul0 ul0Var = this.a.d;
-                        if (ul0Var != null) {
-                            ul0Var.l();
+                        zy8.c(advertAppInfo);
+                        rg0 rg0Var = this.a.d;
+                        if (rg0Var != null) {
+                            rg0Var.l();
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                this.a.n(bVar.e);
+                this.a.o(bVar.e);
             }
         }
     }
@@ -407,7 +407,7 @@ public final class NadTitleController {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f090111);
+                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f090114);
                 }
                 return (EMTextView) invokeV.objValue;
             }
@@ -445,7 +445,7 @@ public final class NadTitleController {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    NadRichTextView nadRichTextView = (NadRichTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f0900f1);
+                    NadRichTextView nadRichTextView = (NadRichTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f0900f5);
                     nadRichTextView.setTextSize(0, TbConfig.getContentSize());
                     return nadRichTextView;
                 }
@@ -483,58 +483,58 @@ public final class NadTitleController {
             @Override // kotlin.jvm.functions.Function0
             public final NadTitleController.EMNoPaddingSpan invoke() {
                 InterceptResult invokeV;
-                NadRichTextView k;
+                NadRichTextView l;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
                     return (NadTitleController.EMNoPaddingSpan) invokeV.objValue;
                 }
-                k = this.this$0.k();
-                return new NadTitleController.EMNoPaddingSpan(k);
+                l = this.this$0.l();
+                return new NadTitleController.EMNoPaddingSpan(l);
             }
         });
     }
 
-    public final Drawable i(is0.b bVar) {
+    public final Drawable j(fn0.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-            return f61.a.a(getContext(), bVar.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
+            return s01.a.a(f(), bVar.b);
         }
         return (Drawable) invokeL.objValue;
     }
 
     @ColorRes
-    public final int j(is0.b bVar) {
+    public final int k(fn0.b bVar) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-            Resources resources = getContext().getResources();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
+            Resources resources = f().getResources();
             if (resources == null) {
-                i = d6a.b;
+                i = q0a.b;
                 return i;
             }
-            return resources.getIdentifier(bVar.d, "color", getContext().getPackageName());
+            return resources.getIdentifier(bVar.d, "color", f().getPackageName());
         }
         return invokeL.intValue;
     }
 
-    private final Context getContext() {
+    public final Context f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            Context context = l().getContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Context context = m().getContext();
             Intrinsics.checkNotNullExpressionValue(context, "title.context");
             return context;
         }
         return (Context) invokeV.objValue;
     }
 
-    public final Drawable f() {
+    public final Drawable g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Resources resources = getContext().getResources();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Resources resources = f().getResources();
             if (resources != null) {
                 return ResourcesCompat.getDrawable(resources, R.drawable.nad_download_complete_icon, resources.newTheme());
             }
@@ -543,19 +543,19 @@ public final class NadTitleController {
         return (Drawable) invokeV.objValue;
     }
 
-    public final EMNoPaddingSpan h() {
+    public final EMNoPaddingSpan i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return (EMNoPaddingSpan) this.e.getValue();
         }
         return (EMNoPaddingSpan) invokeV.objValue;
     }
 
-    public final NadRichTextView k() {
+    public final NadRichTextView l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             Object value = this.b.getValue();
             Intrinsics.checkNotNullExpressionValue(value, "<get-richTitle>(...)");
             return (NadRichTextView) value;
@@ -563,10 +563,10 @@ public final class NadTitleController {
         return (NadRichTextView) invokeV.objValue;
     }
 
-    public final EMTextView l() {
+    public final EMTextView m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             Object value = this.a.getValue();
             Intrinsics.checkNotNullExpressionValue(value, "<get-title>(...)");
             return (EMTextView) value;
@@ -574,27 +574,27 @@ public final class NadTitleController {
         return (EMTextView) invokeV.objValue;
     }
 
-    public final TextView m() {
+    public final TextView n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             AdCard adCard = this.c;
             boolean z = true;
             if ((adCard == null || !adCard.isShowNewTitle()) ? false : false) {
-                return k();
+                return l();
             }
-            return l();
+            return m();
         }
         return (TextView) invokeV.objValue;
     }
 
-    public final Drawable g(is0.b bVar) {
+    public final Drawable h(fn0.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
-            Drawable a2 = f61.a.a(getContext(), bVar.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
+            Drawable a2 = s01.a.a(f(), bVar.b);
             if (a2 == null) {
-                Resources resources = getContext().getResources();
+                Resources resources = f().getResources();
                 if (resources != null) {
                     return ResourcesCompat.getDrawable(resources, R.drawable.nad_download_icon, resources.newTheme());
                 }
@@ -605,30 +605,30 @@ public final class NadTitleController {
         return (Drawable) invokeL.objValue;
     }
 
-    public final void p(AdCard adCard) {
+    public final void q(AdCard adCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, adCard) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, adCard) == null) {
             int i = adCard.maxTitleLine;
             if (i <= 0) {
                 i = 4;
             }
-            l().setMaxLines(i);
-            l().setText(adCard.threadTitle);
+            m().setMaxLines(i);
+            m().setText(adCard.threadTitle);
             Boolean bool = adCard.titleBold;
             Intrinsics.checkNotNullExpressionValue(bool, "card.titleBold");
             if (bool.booleanValue()) {
-                l().setTypeface(Typeface.DEFAULT_BOLD);
+                m().setTypeface(Typeface.DEFAULT_BOLD);
             } else {
-                l().setTypeface(Typeface.DEFAULT);
+                m().setTypeface(Typeface.DEFAULT);
             }
         }
     }
 
-    public final void n(String str) {
+    public final void o(String str) {
         AdvertAppInfo advertAppInfo;
-        g15 g15Var;
+        ov4 ov4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             AdCard adCard = this.c;
             AdvertAppInfo advertAppInfo2 = null;
             if (adCard != null) {
@@ -636,63 +636,63 @@ public final class NadTitleController {
             } else {
                 advertAppInfo = null;
             }
-            if (advertAppInfo == null || (g15Var = advertAppInfo.i) == null) {
+            if (advertAppInfo == null || (ov4Var = advertAppInfo.i) == null) {
                 return;
             }
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.CLICK).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(g15Var.b)).v(advertAppInfo.j).j("title_shorturl").p(advertAppInfo.g);
-            w31.e(clogBuilder);
+            clogBuilder.y(ClogBuilder.LogType.CLICK).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(ov4Var.b)).v(advertAppInfo.j).j("title_shorturl").p(advertAppInfo.g);
+            jy0.e(clogBuilder);
             AdCard adCard2 = this.c;
             if (adCard2 != null) {
                 advertAppInfo2 = adCard2.getAdvertAppInfo();
             }
-            o49.c(advertAppInfo2);
-            a66.a(str);
+            zy8.c(advertAppInfo2);
+            j06.a(str);
         }
     }
 
-    public final boolean o(AdCard adCard, int i) {
+    public final boolean p(AdCard adCard, int i) {
         InterceptResult invokeLI;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, adCard, i)) == null) {
-            is0.b bVar = adCard.richTitleLinkModel.a;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, adCard, i)) == null) {
+            fn0.b bVar = adCard.richTitleLinkModel.a;
             if (bVar == null) {
                 return false;
             }
-            NadRichTextView k = k();
+            NadRichTextView l = l();
             String str = bVar.a;
             String str2 = adCard.threadTitle;
             Intrinsics.checkNotNullExpressionValue(str2, "card.threadTitle");
             Boolean bool = adCard.titleBold;
             Intrinsics.checkNotNullExpressionValue(bool, "card.titleBold");
             boolean booleanValue = bool.booleanValue();
-            i2 = d6a.a;
-            k.setParams(new z21(str, str2, booleanValue, i2, bVar.c, j(bVar), i(bVar), g(bVar), f(), i, adCard.maxTitleLine));
-            k().setCustomizedProcessor(new a(this));
-            if (!k().i()) {
+            i2 = q0a.a;
+            l.setParams(new mx0(str, str2, booleanValue, i2, bVar.c, k(bVar), j(bVar), h(bVar), g(), i, adCard.maxTitleLine));
+            l().setCustomizedProcessor(new a(this));
+            if (!l().j()) {
                 return false;
             }
-            k().postInvalidate();
-            ul0 ul0Var = this.d;
-            if (ul0Var != null) {
-                if (ul0Var != null) {
-                    ul0Var.j();
+            l().postInvalidate();
+            rg0 rg0Var = this.d;
+            if (rg0Var != null) {
+                if (rg0Var != null) {
+                    rg0Var.j();
                 }
                 this.d = null;
             }
-            hl0 d = n6a.d(adCard);
+            eg0 d = a1a.d(adCard);
             d.q.j = "title_shorturl";
-            this.d = new ul0(d, k());
+            this.d = new rg0(d, l());
             return true;
         }
         return invokeLI.booleanValue;
     }
 
-    public final void update(AdCard card, int i, View.OnClickListener titleListener) {
+    public final void r(AdCard card, int i, View.OnClickListener titleListener) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048587, this, card, i, titleListener) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048588, this, card, i, titleListener) == null) {
             Intrinsics.checkNotNullParameter(card, "card");
             Intrinsics.checkNotNullParameter(titleListener, "titleListener");
             this.c = card;
@@ -703,17 +703,17 @@ public final class NadTitleController {
                 z = true;
             }
             if (z) {
+                m().setVisibility(8);
                 l().setVisibility(8);
-                k().setVisibility(8);
-            } else if (card.isShowNewTitle() && o(card, i)) {
-                k().setOnClickListener(titleListener, new b(this));
-                k().setVisibility(0);
-                l().setVisibility(8);
-            } else {
-                p(card);
-                l().setOnClickListener(titleListener);
+            } else if (card.isShowNewTitle() && p(card, i)) {
+                l().setOnClickListener(titleListener, new b(this));
                 l().setVisibility(0);
-                k().setVisibility(8);
+                m().setVisibility(8);
+            } else {
+                q(card);
+                m().setOnClickListener(titleListener);
+                m().setVisibility(0);
+                l().setVisibility(8);
             }
         }
     }

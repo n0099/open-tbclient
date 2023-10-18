@@ -1,165 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.tieba.pk4;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.IOException;
-import okhttp3.Response;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ju3 extends nk4<String> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final pk4.a a;
+public interface ju3 {
+    String a();
 
-    public ju3(pk4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = aVar;
-    }
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    String c();
 
-    @Override // com.baidu.tieba.pk4.a
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && a()) {
-            this.a.onStart();
-        }
-    }
+    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull qt3 qt3Var);
 
-    @Override // com.baidu.tieba.pk4.a
-    public void b(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
-            this.a.b(str, str2, jSONObject);
-        }
-    }
+    String e();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    /* renamed from: c */
-    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-        InterceptResult invokeLIL;
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i, networkStatRecord)) == null) {
-            if (response != null && response.body() != null) {
-                iu3 l = iu3.l();
-                if (TextUtils.equals(response.headers().get("Bdtls"), com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
-                    l.m().s(0);
-                    return com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY;
-                }
-                if (l.k()) {
-                    string = l.d.g(response.body().bytes());
-                    if (cu3.a) {
-                        Log.d("BDTLS", "BdtlsPmsRequest parseResponse=" + string);
-                    }
-                } else {
-                    string = response.body().string();
-                }
-                b(String.valueOf(response.request().url()), string, networkStatRecord.toUBCJson());
-                return string;
-            }
-            return "";
-        }
-        return (String) invokeLIL.objValue;
-    }
+    String f(String str);
 
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.baidu.tieba.pk4.a
-    public void onFail(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-            if (cu3.a) {
-                Log.d("BDTLS", "BdtlsPmsRequest onFail = " + exc.getMessage());
-            }
-            if (a()) {
-                this.a.onFail(exc);
-            }
-        }
-    }
+    String g();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    public void onSuccess(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
-            if (cu3.a) {
-                Log.d("BDTLS", "BdtlsPmsRequest onSuccess=" + str);
-            }
-            if (this.a == null) {
-                return;
-            }
-            iu3 l = iu3.l();
-            if (TextUtils.equals(str, com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
-                if (l.m().b()) {
-                    l.m().a();
-                    l.d.i(true);
-                    wu3 wu3Var = l.d;
-                    if (wu3Var instanceof uu3) {
-                        ((uu3) wu3Var).j();
-                        return;
-                    }
-                    return;
-                }
-                this.a.onFail(new Exception("Exceeded the limit of continuous downgrade"));
-                return;
-            }
-            l.m().k();
-            wu3 wu3Var2 = l.d;
-            if (wu3Var2 instanceof uu3) {
-                uu3 uu3Var = (uu3) wu3Var2;
-                if (l.k()) {
-                    if (l.d.b == 1) {
-                        hu3.a(MimeTypes.BASE_TYPE_APPLICATION);
-                        this.a.onSuccess(str, i);
-                        uu3Var.h = 0;
-                        return;
-                    }
-                    int i2 = uu3Var.h;
-                    uu3Var.h = i2 + 1;
-                    if (i2 < 3) {
-                        uu3Var.j();
-                        return;
-                    }
-                    pk4.a aVar = this.a;
-                    aVar.onFail(new IOException("request fail : " + str));
-                    uu3Var.h = 0;
-                    return;
-                }
-                this.a.onSuccess(str, i);
-                uu3Var.h = 0;
-            }
-        }
-    }
+    String getAppId();
+
+    String getAppKey();
+
+    String getScene();
+
+    String getSdkVersion();
+
+    int h();
+
+    String i(String str);
+
+    int j();
+
+    int k();
+
+    Uri l(@NonNull Context context, @NonNull File file);
+
+    String m();
+
+    JSONObject n();
+
+    boolean o(View view2);
 }

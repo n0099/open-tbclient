@@ -150,10 +150,20 @@ public final class FunAdConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setBzAdConfig(ModuleAdConfig moduleAdConfig) {
+        public Builder setBaiduAdConfig(ModuleAdConfig moduleAdConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, moduleAdConfig)) == null) {
+                this.moduleConfigMap.put("baidu", moduleAdConfig);
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setBzAdConfig(ModuleAdConfig moduleAdConfig) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, moduleAdConfig)) == null) {
                 this.moduleConfigMap.put(FunAdSdk.PLATFORM_BZ, moduleAdConfig);
                 return this;
             }
@@ -163,7 +173,7 @@ public final class FunAdConfig {
         public Builder setCsjAdConfig(ModuleAdConfig moduleAdConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, moduleAdConfig)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, moduleAdConfig)) == null) {
                 this.moduleConfigMap.put(FunAdSdk.PLATFORM_CSJ, moduleAdConfig);
                 return this;
             }
@@ -173,7 +183,7 @@ public final class FunAdConfig {
         public Builder setGdtAdConfig(ModuleAdConfig moduleAdConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, moduleAdConfig)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, moduleAdConfig)) == null) {
                 this.moduleConfigMap.put(FunAdSdk.PLATFORM_GDT, moduleAdConfig);
                 return this;
             }
@@ -183,7 +193,7 @@ public final class FunAdConfig {
         public Builder setIsAdConfig(ModuleAdConfig moduleAdConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, moduleAdConfig)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, moduleAdConfig)) == null) {
                 this.moduleConfigMap.put("is", moduleAdConfig);
                 return this;
             }
@@ -193,7 +203,7 @@ public final class FunAdConfig {
         public Builder setKsAdConfig(ModuleAdConfig moduleAdConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, moduleAdConfig)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, moduleAdConfig)) == null) {
                 this.moduleConfigMap.put(FunAdSdk.PLATFORM_KS, moduleAdConfig);
                 return this;
             }
@@ -203,7 +213,7 @@ public final class FunAdConfig {
         public Builder setLogEnabled(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
                 this.g = z;
                 return this;
             }
@@ -213,7 +223,7 @@ public final class FunAdConfig {
         public Builder setMaxAdConfig(ModuleAdConfig moduleAdConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, moduleAdConfig)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, moduleAdConfig)) == null) {
                 this.moduleConfigMap.put(FunAdSdk.PLATFORM_MAX, moduleAdConfig);
                 return this;
             }
@@ -223,7 +233,7 @@ public final class FunAdConfig {
         public Builder setMmAdConfig(ModuleAdConfig moduleAdConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, moduleAdConfig)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, moduleAdConfig)) == null) {
                 this.moduleConfigMap.put(FunAdSdk.PLATFORM_MM, moduleAdConfig);
                 return this;
             }
@@ -233,7 +243,7 @@ public final class FunAdConfig {
         public Builder setPgAdConfig(ModuleAdConfig moduleAdConfig) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, moduleAdConfig)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, moduleAdConfig)) == null) {
                 this.moduleConfigMap.put(FunAdSdk.PLATFORM_PG, moduleAdConfig);
                 return this;
             }
@@ -243,7 +253,7 @@ public final class FunAdConfig {
         public Builder setUseCloudAdConfiguration(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
                 this.h = z;
                 return this;
             }
@@ -253,7 +263,7 @@ public final class FunAdConfig {
         public Builder setUseTextureView(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
                 this.d = z;
                 return this;
             }
@@ -263,7 +273,7 @@ public final class FunAdConfig {
         public Builder setUserId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
                 this.i = str;
                 return this;
             }
@@ -273,7 +283,7 @@ public final class FunAdConfig {
         public Builder setVideoDataFlowAutoStart(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
                 this.f = z;
                 return this;
             }
@@ -283,7 +293,7 @@ public final class FunAdConfig {
         public Builder setVideoSoundEnable(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048595, this, z)) == null) {
                 this.e = z;
                 return this;
             }

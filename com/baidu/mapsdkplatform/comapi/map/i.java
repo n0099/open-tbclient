@@ -1,6 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -50,7 +49,7 @@ public final class i {
         e = new i("text", 4);
         f = new i("arc", 5);
         g = new i("dot", 6);
-        h = new i(Config.TRACE_CIRCLE, 7);
+        h = new i("circle", 7);
         i = new i("polyline", 8);
         j = new i("polygon", 9);
         k = new i("multiPoint", 10);

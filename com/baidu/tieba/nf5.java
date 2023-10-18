@@ -1,44 +1,56 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tbadk.editortools.sendtool.SendNoLaunchView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class nf5 implements kk1 {
+public class nf5 extends od5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SendNoLaunchView t;
 
-    public nf5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nf5(Context context, boolean z) {
+        super(context, (String) null, 38);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.o = true;
+        this.n = 8;
+        SendNoLaunchView sendNoLaunchView = new SendNoLaunchView(context);
+        this.t = sendNoLaunchView;
+        sendNoLaunchView.setIsFriend(z);
+        this.m = this.t;
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
+        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
+        ((View) this.m).setLayoutParams(layoutParams);
+        this.p = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
     }
 
-    @Override // com.baidu.tieba.kk1
-    public Object get() {
-        InterceptResult invokeV;
+    public void h(boolean z) {
+        SendNoLaunchView sendNoLaunchView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new vk5());
-            arrayList.add(new sz6());
-            arrayList.add(new vb9());
-            arrayList.add(new p3a());
-            arrayList.add(new pea());
-            arrayList.add(new cia());
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (sendNoLaunchView = this.t) != null) {
+            sendNoLaunchView.setIsFriend(z);
         }
-        return invokeV.objValue;
     }
 }

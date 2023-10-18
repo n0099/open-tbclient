@@ -195,12 +195,12 @@ public final class Affine2 implements Serializable {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048601, this, f)) == null) {
-            float d = d.d(f);
-            float p = d.p(f);
+            float d = b.d(f);
+            float m = b.m(f);
             this.m00 = d;
-            this.m01 = -p;
+            this.m01 = -m;
             this.m02 = 0.0f;
-            this.m10 = p;
+            this.m10 = m;
             this.m11 = d;
             this.m12 = 0.0f;
             return this;
@@ -212,12 +212,12 @@ public final class Affine2 implements Serializable {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048603, this, f)) == null) {
-            float c = d.c(f);
-            float o = d.o(f);
+            float c = b.c(f);
+            float l = b.l(f);
             this.m00 = c;
-            this.m01 = -o;
+            this.m01 = -l;
             this.m02 = 0.0f;
-            this.m10 = o;
+            this.m10 = l;
             this.m11 = c;
             this.m12 = 0.0f;
             return this;
@@ -380,20 +380,20 @@ public final class Affine2 implements Serializable {
             if (f == 0.0f) {
                 return this;
             }
-            float d = d.d(f);
-            float p = d.p(f);
+            float d = b.d(f);
+            float m = b.m(f);
             float f2 = this.m00;
             float f3 = this.m10;
             float f4 = this.m01;
             float f5 = this.m11;
             float f6 = this.m02;
             float f7 = this.m12;
-            this.m00 = (d * f2) - (p * f3);
-            this.m01 = (d * f4) - (p * f5);
-            this.m02 = (d * f6) - (p * f7);
-            this.m10 = (f2 * p) + (f3 * d);
-            this.m11 = (f4 * p) + (f5 * d);
-            this.m12 = (p * f6) + (d * f7);
+            this.m00 = (d * f2) - (m * f3);
+            this.m01 = (d * f4) - (m * f5);
+            this.m02 = (d * f6) - (m * f7);
+            this.m10 = (f2 * m) + (f3 * d);
+            this.m11 = (f4 * m) + (f5 * d);
+            this.m12 = (m * f6) + (d * f7);
             return this;
         }
         return (Affine2) invokeF.objValue;
@@ -406,20 +406,20 @@ public final class Affine2 implements Serializable {
             if (f == 0.0f) {
                 return this;
             }
-            float c = d.c(f);
-            float o = d.o(f);
+            float c = b.c(f);
+            float l = b.l(f);
             float f2 = this.m00;
             float f3 = this.m10;
             float f4 = this.m01;
             float f5 = this.m11;
             float f6 = this.m02;
             float f7 = this.m12;
-            this.m00 = (c * f2) - (o * f3);
-            this.m01 = (c * f4) - (o * f5);
-            this.m02 = (c * f6) - (o * f7);
-            this.m10 = (f2 * o) + (f3 * c);
-            this.m11 = (f4 * o) + (f5 * c);
-            this.m12 = (o * f6) + (c * f7);
+            this.m00 = (c * f2) - (l * f3);
+            this.m01 = (c * f4) - (l * f5);
+            this.m02 = (c * f6) - (l * f7);
+            this.m10 = (f2 * l) + (f3 * c);
+            this.m11 = (f4 * l) + (f5 * c);
+            this.m12 = (l * f6) + (c * f7);
             return this;
         }
         return (Affine2) invokeF.objValue;
@@ -432,18 +432,18 @@ public final class Affine2 implements Serializable {
             if (f == 0.0f) {
                 return this;
             }
-            float d = d.d(f);
-            float p = d.p(f);
+            float d = b.d(f);
+            float m = b.m(f);
             float f2 = this.m00;
             float f3 = this.m01;
-            float f4 = (f2 * d) + (f3 * p);
-            float f5 = -p;
+            float f4 = (f2 * d) + (f3 * m);
+            float f5 = -m;
             float f6 = (f2 * f5) + (f3 * d);
             float f7 = this.m10;
             float f8 = this.m11;
             this.m00 = f4;
             this.m01 = f6;
-            this.m10 = (f7 * d) + (p * f8);
+            this.m10 = (f7 * d) + (m * f8);
             this.m11 = (f7 * f5) + (f8 * d);
             return this;
         }
@@ -457,18 +457,18 @@ public final class Affine2 implements Serializable {
             if (f == 0.0f) {
                 return this;
             }
-            float c = d.c(f);
-            float o = d.o(f);
+            float c = b.c(f);
+            float l = b.l(f);
             float f2 = this.m00;
             float f3 = this.m01;
-            float f4 = (f2 * c) + (f3 * o);
-            float f5 = -o;
+            float f4 = (f2 * c) + (f3 * l);
+            float f5 = -l;
             float f6 = (f2 * f5) + (f3 * c);
             float f7 = this.m10;
             float f8 = this.m11;
             this.m00 = f4;
             this.m01 = f6;
-            this.m10 = (f7 * c) + (o * f8);
+            this.m10 = (f7 * c) + (l * f8);
             this.m11 = (f7 * f5) + (f8 * c);
             return this;
         }
@@ -686,11 +686,11 @@ public final class Affine2 implements Serializable {
                 this.m10 = 0.0f;
                 this.m11 = f5;
             } else {
-                float o = d.o(f3);
-                float c = d.c(f3);
+                float l = b.l(f3);
+                float c = b.c(f3);
                 this.m00 = c * f4;
-                this.m01 = (-o) * f5;
-                this.m10 = o * f4;
+                this.m01 = (-l) * f5;
+                this.m10 = l * f4;
                 this.m11 = c * f5;
             }
             return this;
@@ -710,11 +710,11 @@ public final class Affine2 implements Serializable {
                 this.m10 = 0.0f;
                 this.m11 = f5;
             } else {
-                float p = d.p(f3);
-                float d = d.d(f3);
+                float m = b.m(f3);
+                float d = b.d(f3);
                 this.m00 = d * f4;
-                this.m01 = (-p) * f5;
-                this.m10 = p * f4;
+                this.m01 = (-m) * f5;
+                this.m10 = m * f4;
                 this.m11 = d * f5;
             }
             return this;

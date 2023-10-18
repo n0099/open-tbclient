@@ -1,204 +1,77 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wt1 implements ew1 {
+public class wt1 extends vt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        /* renamed from: com.baidu.tieba.wt1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0502a implements zp3<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ File a;
-            public final /* synthetic */ String b;
-            public final /* synthetic */ a c;
-
-            /* renamed from: com.baidu.tieba.wt1$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes8.dex */
-            public class RunnableC0503a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ File a;
-                public final /* synthetic */ C0502a b;
-
-                public RunnableC0503a(C0502a c0502a, File file) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c0502a, file};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = c0502a;
-                    this.a = file;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        so3.a(this.b.c.a, this.a);
-                    }
-                }
-            }
-
-            public C0502a(a aVar, File file, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, file, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = file;
-                this.b = str;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.zp3
-            /* renamed from: b */
-            public void a(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    try {
-                        File file = new File(this.a, "report");
-                        kr4.l(file);
-                        wt1.e(file, this.b, str);
-                        wt1.d(file);
-                        File file2 = new File(this.a, "report.zip");
-                        kr4.j(file2);
-                        kr4.X(file.getAbsolutePath(), file2.getAbsolutePath());
-                        kr4.L(file);
-                        ap3.a0(new RunnableC0503a(this, file2));
-                    } catch (Exception e) {
-                        g82.b("DefaultSwanAppLogManager", Log.getStackTraceString(e));
-                        ya3.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f14f2)).G();
-                    }
-                }
-            }
-        }
-
-        public a(wt1 wt1Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt1Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                File Z2 = ra2.Z2();
-                if (Z2 == null) {
-                    g82.k("DefaultSwanAppLogManager", "cacheDir 为 null");
-                } else if (!Z2.exists() && !Z2.mkdirs()) {
-                    g82.k("DefaultSwanAppLogManager", "cacheDir 为不存在且创建目录失败：" + Z2.getAbsolutePath());
-                } else {
-                    zn3.i(this.a, new C0502a(this, Z2, zn3.l(this.a) + "===== 启动信息 =====\n"));
-                }
-            }
-        }
+    @Override // com.baidu.tieba.tt1
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BaiduAccountApi" : (String) invokeV.objValue;
     }
 
-    public wt1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wt1(@NonNull rt1 rt1Var) {
+        super(rt1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rt1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((rt1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ew1
-    public void a(Context context) {
+    public static boolean z(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || context == null) {
-            return;
-        }
-        ao3.k(new a(this, context), "log上报");
-    }
-
-    public static void d(File file) {
-        File[] C;
-        File[] C2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
-            File file2 = new File(file, "swan");
-            kr4.e(nu2.p0().a(), file2);
-            for (File file3 : kr4.C(file2)) {
-                if (file3.isDirectory()) {
-                    for (File file4 : kr4.C(file3)) {
-                        if (file4 != null && file4.isFile() && !file4.getName().endsWith(".log")) {
-                            kr4.L(file4);
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            boolean h = SwanAppAllianceLoginHelper.d.h();
+            if (!h) {
+                np1 h0 = wo2.h0();
+                if (h0 instanceof qn1) {
+                    return ((qn1) h0).k(context);
                 }
+                return h;
             }
+            return h;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void e(File file, String str, String str2) throws FileNotFoundException {
+    public qx1 y() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str, str2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            String g = un3.g(currentTimeMillis, "yyyyMMdd");
-            File file2 = new File(file, "runninginfo_" + g + ".txt");
-            String g2 = un3.g(currentTimeMillis, "yyyy-MM-dd HH:mm:ss");
-            PrintWriter printWriter = new PrintWriter(file2);
-            printWriter.println(g2 + "\n" + str + str2);
-            printWriter.flush();
-            printWriter.close();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            r("#isBaiduAccountSync", false);
+            if (p53.c0() == null) {
+                return new qx1(1001, "swan app is null");
+            }
+            boolean z = z(i());
+            JSONObject jSONObject = new JSONObject();
+            pi3.f(jSONObject, "isBaiduAccount", Boolean.valueOf(z));
+            return new qx1(0, jSONObject);
         }
+        return (qx1) invokeV.objValue;
     }
 }

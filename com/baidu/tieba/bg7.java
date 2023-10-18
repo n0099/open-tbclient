@@ -1,51 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.forumMember.bawu.BawuTeamInfoReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamReadCacheResponseMessage;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class bg7 implements CustomMessageTask.CustomRunnable<Object> {
+public final class bg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public bg7() {
+    public static final void a(TextView textView, String str) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, textView, str) == null) {
+            Intrinsics.checkNotNullParameter(textView, "<this>");
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
             }
-        }
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof BawuTeamInfoReadCacheRequestMessage)) {
-                byte[] a = new zf7().a(((BawuTeamInfoReadCacheRequestMessage) customMessage).getCacheKey());
-                BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = new BawuTeamReadCacheResponseMessage();
-                try {
-                    bawuTeamReadCacheResponseMessage.decodeInBackGround(2003005, a);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return bawuTeamReadCacheResponseMessage;
+            if (!z) {
+                textView.setText(str);
+                textView.setVisibility(0);
+                return;
             }
-            return null;
+            textView.setVisibility(8);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

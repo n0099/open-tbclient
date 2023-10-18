@@ -15,7 +15,7 @@ public abstract class BaseImageItem<TbMsg extends TbBaseImageMsg> extends BaseIt
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.bn
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.yh
     public abstract /* synthetic */ BdUniqueId getType();
 
     public BaseImageItem() {

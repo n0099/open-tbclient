@@ -8,15 +8,15 @@ import android.view.ViewConfiguration;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
-import com.baidu.tieba.fa0;
-import com.baidu.tieba.la0;
-import com.baidu.tieba.qc0;
-import com.baidu.tieba.ra0;
-import com.baidu.tieba.sc0;
+import com.baidu.tieba.c50;
+import com.baidu.tieba.i50;
+import com.baidu.tieba.n70;
+import com.baidu.tieba.o50;
+import com.baidu.tieba.p70;
 /* loaded from: classes3.dex */
 public class LiveFeedPageActivity extends AppCompatActivity {
-    public fa0 a;
-    public final int b = qc0.a().b();
+    public c50 a;
+    public final int b = n70.a().b();
     public Handler c;
     public int d;
     public float e;
@@ -35,29 +35,29 @@ public class LiveFeedPageActivity extends AppCompatActivity {
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
-        fa0 fa0Var = this.a;
-        if (fa0Var != null) {
-            fa0Var.T();
+        c50 c50Var = this.a;
+        if (c50Var != null) {
+            c50Var.U();
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        fa0 fa0Var = this.a;
-        if (fa0Var != null) {
-            fa0Var.a0();
-            this.a.e0(false);
+        c50 c50Var = this.a;
+        if (c50Var != null) {
+            c50Var.b0();
+            this.a.f0(false);
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        fa0 fa0Var = this.a;
-        if (fa0Var != null) {
-            fa0Var.b0();
-            this.a.e0(true);
+        c50 c50Var = this.a;
+        if (c50Var != null) {
+            c50Var.c0();
+            this.a.f0(true);
         }
     }
 
@@ -70,25 +70,25 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             this.e = motionEvent.getX();
             this.f = motionEvent.getY();
             boolean z4 = false;
-            if (ra0.g(this.a.z(), (int) this.e, (int) this.f) && !this.a.z().canScrollHorizontally(-1)) {
+            if (o50.g(this.a.A(), (int) this.e, (int) this.f) && !this.a.A().canScrollHorizontally(-1)) {
                 z = true;
             } else {
                 z = false;
             }
             this.i = z;
-            if (ra0.g(this.a.C(), (int) this.e, (int) this.f) && !this.a.C().canScrollHorizontally(-1)) {
+            if (o50.g(this.a.D(), (int) this.e, (int) this.f) && !this.a.D().canScrollHorizontally(-1)) {
                 z2 = true;
             } else {
                 z2 = false;
             }
             this.k = z2;
-            if (ra0.g(this.a.B(), (int) this.e, (int) this.f) && !this.a.B().canScrollHorizontally(-1)) {
+            if (o50.g(this.a.C(), (int) this.e, (int) this.f) && !this.a.C().canScrollHorizontally(-1)) {
                 z3 = true;
             } else {
                 z3 = false;
             }
             this.l = z3;
-            if (ra0.g(this.a.D(), (int) this.e, (int) this.f) && this.a.P()) {
+            if (o50.g(this.a.E(), (int) this.e, (int) this.f) && this.a.Q()) {
                 z4 = true;
             }
             this.j = z4;
@@ -100,13 +100,13 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             float f = this.g - this.e;
             float abs = Math.abs(y - this.f);
             if (f > this.d && f * 0.5d > abs) {
-                if (this.i && !this.a.z().canScrollHorizontally(-1)) {
+                if (this.i && !this.a.A().canScrollHorizontally(-1)) {
                     finish();
-                } else if (this.j && this.a.P()) {
+                } else if (this.j && this.a.Q()) {
                     finish();
-                } else if (this.k && !this.a.C().canScrollHorizontally(-1)) {
+                } else if (this.k && !this.a.D().canScrollHorizontally(-1)) {
                     finish();
-                } else if (this.l && !this.a.B().canScrollHorizontally(-1)) {
+                } else if (this.l && !this.a.C().canScrollHorizontally(-1)) {
                     finish();
                 }
             }
@@ -120,7 +120,7 @@ public class LiveFeedPageActivity extends AppCompatActivity {
         String str2;
         String str3;
         boolean z;
-        sc0.g(this);
+        p70.g(this);
         super.onCreate(bundle);
         this.d = ViewConfiguration.get(this).getScaledTouchSlop();
         if (bundle != null) {
@@ -142,11 +142,11 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             str3 = stringExtra;
             str2 = stringExtra3;
         }
-        fa0 fa0Var = new fa0(this, this.b, getSupportFragmentManager(), LiveFeedPageSdk.IMMERSION, str3, false, str, str2, z);
-        this.a = fa0Var;
-        setContentView(fa0Var.A());
-        this.a.Q();
-        la0.u(this, str3, "chenjinshi");
+        c50 c50Var = new c50(this, this.b, getSupportFragmentManager(), LiveFeedPageSdk.IMMERSION, str3, false, str, str2, z);
+        this.a = c50Var;
+        setContentView(c50Var.B());
+        this.a.R();
+        i50.u(this, str3, "chenjinshi");
         if (!TextUtils.isEmpty(str4)) {
             if (this.c == null) {
                 this.c = new Handler();

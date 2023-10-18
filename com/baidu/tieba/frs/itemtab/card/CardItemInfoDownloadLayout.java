@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.rs;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.ux;
-import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,8 +41,8 @@ import tbclient.ItemPoint;
 import tbclient.ItemTable;
 import tbclient.Ranking;
 import tbclient.RankingParam;
-/* loaded from: classes5.dex */
-public class CardItemInfoDownloadLayout extends FrameLayout implements ux {
+/* loaded from: classes6.dex */
+public class CardItemInfoDownloadLayout extends FrameLayout implements rs {
     public static /* synthetic */ Interceptable $ic;
     public static final String q;
     public static final int r;
@@ -64,7 +64,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements ux {
     public String o;
     public View.OnClickListener p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements ux {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,9 +249,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements ux {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            za5 za5Var = new za5(6);
-            za5Var.q(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, za5Var));
+            h55 h55Var = new h55(6);
+            h55Var.r(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, h55Var));
         }
     }
 
@@ -329,19 +329,19 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements ux {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0385, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0384, (ViewGroup) null);
             this.a = viewGroup;
             viewGroup.setPadding(r, 0, 0, 0);
-            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0925a5);
-            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0911bf);
+            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0925af);
+            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0911d9);
             this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09002e);
             this.h = (EMTextView) this.a.findViewById(R.id.item_score);
-            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f0911c4);
+            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f0911de);
             this.i = rankStarView;
             rankStarView.setStarSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X001));
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090fa3);
-            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0911b1);
-            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0911c6);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090fbe);
+            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0911cb);
+            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0911e0);
             this.d.setOnClickListener(this.p);
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
@@ -350,7 +350,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements ux {
         }
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.rs
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {

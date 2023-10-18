@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.load.java.structure;
 import java.util.Collection;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public interface JavaClass extends JavaClassifier, JavaModifierListOwner, JavaTypeParameterListOwner {
     Collection<JavaConstructor> getConstructors();
 

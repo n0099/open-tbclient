@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class mk1<T> implements ok1<T> {
+public class mk1 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
+    public static mk1 a;
+    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
-    public kk1<List<T>> b;
-    public kk1<List<T>> c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mk1() {
+        super("BackgroundThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,51 +24,36 @@ public class mk1<T> implements ok1<T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static mk1 b() {
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
+            mk1 mk1Var = new mk1();
+            a = mk1Var;
+            mk1Var.start();
+            b = new Handler(a.getLooper());
+        }
+    }
+
+    public static Handler b() {
         InterceptResult invokeV;
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new mk1();
-        }
-        return (mk1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ok1
-    public List<T> getList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<T> list = this.a;
-            if (list != null) {
-                return list;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (mk1.class) {
+                a();
+                handler = b;
             }
-            kk1<List<T>> kk1Var = this.b;
-            if (kk1Var != null) {
-                List<T> list2 = kk1Var.get();
-                this.a = list2;
-                return list2;
-            }
-            kk1<List<T>> kk1Var2 = this.c;
-            if (kk1Var2 != null) {
-                return kk1Var2.get();
-            }
-            return null;
+            return handler;
         }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ok1
-    public void a(kk1<List<T>> kk1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kk1Var) == null) {
-            this.b = kk1Var;
-            this.a = null;
-        }
+        return (Handler) invokeV.objValue;
     }
 }

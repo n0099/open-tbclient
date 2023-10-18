@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
+import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class t74 {
+public final class t74 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static ArrayList<q74> a;
+    public static ArrayList<Integer> b;
+    public static final t74 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public JSONObject c;
-    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +33,9 @@ public class t74 {
                 return;
             }
         }
-        e = qr1.a;
+        c = new t74();
+        a = new ArrayList<>();
+        b = new ArrayList<>();
     }
 
     public t74() {
@@ -54,132 +52,73 @@ public class t74 {
         }
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (gb3.M() != null && TextUtils.equals(gb3.g0(), "7TxyeScrKPj02EATE68RBG5Z8f46a8So")) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Iterator<q74> it = a.iterator();
+            while (it.hasNext()) {
+                it.next().close();
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public t74 e() {
-        InterceptResult invokeV;
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.a = false;
-            this.b = false;
-            this.d = null;
-            this.c = c();
-            boolean b = b();
-            this.a = b;
-            if (b) {
-                return this;
-            }
-            this.b = a();
-            return this;
+        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || b.contains(Integer.valueOf(i))) {
+            return;
         }
-        return (t74) invokeV.objValue;
+        b.add(Integer.valueOf(i));
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public final q74 b(JSRuntime jsRuntime) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.a && !this.b) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsRuntime)) == null) {
+            Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
+            q74 q74Var = new q74(jsRuntime);
+            a.add(q74Var);
+            return q74Var;
+        }
+        return (q74) invokeL.objValue;
+    }
+
+    public final boolean c(q74 socket) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socket)) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            if (a.contains(socket)) {
                 return false;
             }
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
-        boolean z;
-        boolean z2;
+    public final boolean d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = this.c;
-            boolean z3 = false;
-            if (jSONObject == null) {
-                return false;
-            }
-            int optInt = jSONObject.optInt("bbaspg_guide_count", 3);
-            int optInt2 = this.c.optInt("bbaspg_guide_interval", 72);
-            long optLong = this.c.optLong("bbaspg_guide_last_time", 0L);
-            int optInt3 = this.c.optInt("bbaspg_guide_shown_count", 0);
-            int optInt4 = this.c.optInt("bbaspg_guide_image_index", 0);
-            if (System.currentTimeMillis() - optLong > optInt2 * 3600000) {
-                z = true;
-            } else {
-                z = false;
-            }
-            String optString = this.c.optString("filter_channelid");
-            if (!TextUtils.isEmpty(optString)) {
-                String[] split = optString.split(",");
-                String T2 = fb3.K().q().W().T();
-                z2 = true;
-                for (String str : split) {
-                    if (TextUtils.equals(T2, str)) {
-                        z2 = false;
-                    }
-                }
-            } else {
-                z2 = true;
-            }
-            if (optInt3 < optInt && z && z2) {
-                z3 = true;
-            }
-            if (e) {
-                Log.i("SwanGameGuideDialogChecker", "isShow:" + z3 + " maxCount" + optInt + " isOverInterval" + z + "imageUrl " + this.d + UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY + z3);
-            }
-            if (z3) {
-                d(this.c, optInt4, "bbaspg_guide_images");
-            }
-            return z3;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return b.contains(Integer.valueOf(i));
         }
-        return invokeV.booleanValue;
+        return invokeI.booleanValue;
     }
 
-    public final JSONObject c() {
-        InterceptResult invokeV;
+    public final void e(q74 socket) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String string = uj3.a().getString("swan_game_guide_toast", "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    return new JSONObject(string);
-                } catch (JSONException e2) {
-                    if (qr1.a) {
-                        e2.printStackTrace();
-                        return null;
-                    }
-                    return null;
-                }
+        if (interceptable == null || interceptable.invokeL(1048580, this, socket) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            if (a.contains(socket)) {
+                g(socket.z());
+                a.remove(socket);
             }
-            return null;
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    public final int d(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        JSONArray optJSONArray;
+    public final void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, jSONObject, i, str)) == null) {
-            if (jSONObject == null || i < 0 || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
-                return 0;
-            }
-            if (i >= optJSONArray.length()) {
-                i = 0;
-            }
-            this.d = optJSONArray.optString(i);
-            return i;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            b.remove(Integer.valueOf(i));
         }
-        return invokeLIL.intValue;
     }
 }

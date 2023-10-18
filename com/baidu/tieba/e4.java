@@ -1,228 +1,205 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.config.ABTestConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e4 extends x3 {
+public class e4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long j;
-    public static final long k;
-    public static final long l;
-    public static final long m;
-    public static final long n;
-    public static final long o;
-    public static final long p;
-    public static long q;
     public transient /* synthetic */ FieldHolder $fh;
-    public final h5<Texture> d;
-    public float e;
-    public float f;
-    public float g;
-    public float h;
-    public int i;
+    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448301854, "Lcom/baidu/tieba/e4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448301854, "Lcom/baidu/tieba/e4;");
-                return;
-            }
-        }
-        j = x3.d("diffuseTexture");
-        k = x3.d("specularTexture");
-        l = x3.d("bumpTexture");
-        m = x3.d("normalTexture");
-        n = x3.d("ambientTexture");
-        o = x3.d("emissiveTexture");
-        long d = x3.d("reflectionTexture");
-        p = d;
-        q = d | j | k | l | m | n | o;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e4(long j2) {
-        super(j2);
+    public e4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = 0.0f;
-        this.f = 0.0f;
-        this.g = 1.0f;
-        this.h = 1.0f;
-        this.i = 0;
-        if (f(j2)) {
-            this.d = new h5<>();
-            return;
-        }
-        throw new GdxRuntimeException("Invalid type specified");
+        this.a = c4.b().a();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public <T extends Texture> e4(long j2, h5<T> h5Var) {
-        this(j2);
+    public HashMap<String, r3> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), h5Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap<String, r3> hashMap = new HashMap<>();
+            for (String str : c4.b().f()) {
+                try {
+                    String optString = new JSONObject(c4.b().e(str)).optString("sid");
+                    String[] split = optString.split("_");
+                    if (split.length == 2) {
+                        hashMap.put(optString, new r3(hx.d(split[0]), hx.d(split[1])));
+                    }
+                } catch (JSONException unused) {
+                    if (ABTestConfig.isDebug()) {
+                        Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
+                    }
+                }
             }
+            return hashMap;
         }
-        this.d.c(h5Var);
+        return (HashMap) invokeV.objValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public <T extends Texture> e4(long j2, h5<T> h5Var, float f, float f2, float f3, float f4) {
-        this(j2, h5Var, f, f2, f3, f4, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), h5Var, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Long) objArr2[0]).longValue(), (h5) objArr2[1], ((Float) objArr2[2]).floatValue(), ((Float) objArr2[3]).floatValue(), ((Float) objArr2[4]).floatValue(), ((Float) objArr2[5]).floatValue(), ((Integer) objArr2[6]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public <T extends Texture> e4(long j2, h5<T> h5Var, float f, float f2, float f3, float f4, int i) {
-        this(j2, h5Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {Long.valueOf(j2), h5Var, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Long) objArr2[0]).longValue(), (h5) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.e = f;
-        this.f = f2;
-        this.g = f3;
-        this.h = f4;
-        this.i = i;
-    }
-
-    public static final boolean f(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j2)) == null) {
-            if ((j2 & q) != 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: e */
-    public int compareTo(x3 x3Var) {
+    public HashMap<String, r3> b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x3Var)) == null) {
-            long j2 = this.a;
-            long j3 = x3Var.a;
-            if (j2 != j3) {
-                if (j2 < j3) {
-                    return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            HashMap<String, r3> hashMap = new HashMap<>();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject(keys.next());
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("sid");
+                        String[] split = optString.split("_");
+                        if (split.length == 2) {
+                            hashMap.put(optString, new r3(hx.d(split[0]), hx.d(split[1])));
+                        }
+                    }
                 }
-                return 1;
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            e4 e4Var = (e4) x3Var;
-            int compareTo = this.d.compareTo(e4Var.d);
-            if (compareTo != 0) {
-                return compareTo;
-            }
-            int i = this.i;
-            int i2 = e4Var.i;
-            if (i != i2) {
-                return i - i2;
-            }
-            if (!com.badlogic.gdx.math.d.e(this.g, e4Var.g)) {
-                if (this.g <= e4Var.g) {
-                    return -1;
-                }
-                return 1;
-            } else if (!com.badlogic.gdx.math.d.e(this.h, e4Var.h)) {
-                if (this.h <= e4Var.h) {
-                    return -1;
-                }
-                return 1;
-            } else if (!com.badlogic.gdx.math.d.e(this.e, e4Var.e)) {
-                if (this.e <= e4Var.e) {
-                    return -1;
-                }
-                return 1;
-            } else if (!com.badlogic.gdx.math.d.e(this.f, e4Var.f)) {
-                if (this.f <= e4Var.f) {
-                    return -1;
-                }
-                return 1;
-            } else {
-                return 0;
-            }
+            return hashMap;
         }
-        return invokeL.intValue;
+        return (HashMap) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.x3
-    public int hashCode() {
+    public HashMap<String, r3> d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            HashMap<String, r3> hashMap = new HashMap<>();
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    JSONArray jSONArray = new JSONObject(str).getJSONArray("data");
+                    if (jSONArray != null && jSONArray.length() > 0) {
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            String string = jSONArray.getString(i);
+                            String[] split = string.split("_");
+                            if (split.length == 2) {
+                                hashMap.put(string, new r3(hx.d(split[0]), hx.d(split[1])));
+                            }
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public List<a4> e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (String str : c4.b().f()) {
+                if (ix.a(str, this.a) == i) {
+                    try {
+                        arrayList.add(new a4(str, new JSONObject(c4.b().e(str)).opt("data")));
+                    } catch (JSONException unused) {
+                        if (ABTestConfig.isDebug()) {
+                            Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeI.objValue;
+    }
+
+    public HashMap<String, r3> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (((((((((((super.hashCode() * 991) + this.d.hashCode()) * 991) + n7.b(this.e)) * 991) + n7.b(this.f)) * 991) + n7.b(this.g)) * 991) + n7.b(this.h)) * 991) + this.i;
+            HashMap<String, r3> hashMap = new HashMap<>();
+            String c = c4.b().c();
+            if (!TextUtils.isEmpty(c)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(c);
+                    if (jSONArray.length() > 0) {
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            String string = jSONArray.getString(i);
+                            String[] split = string.split("_");
+                            if (split.length == 2) {
+                                hashMap.put(string, new r3(hx.d(split[0]), hx.d(split[1])));
+                            }
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return hashMap;
         }
-        return invokeV.intValue;
+        return (HashMap) invokeV.objValue;
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                String d = c4.b().d();
+                String c = c4.b().c();
+                if (!TextUtils.isEmpty(c)) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        JSONArray jSONArray = new JSONArray(c);
+                        jSONObject.put("version", d);
+                        jSONObject.put("exps", jSONArray);
+                        yw.h(jSONObject);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this) {
+                Set<String> f = c4.b().f();
+                JSONObject jSONObject = new JSONObject();
+                for (String str : f) {
+                    try {
+                        jSONObject.put(str, new JSONObject(c4.b().e(str)));
+                    } catch (JSONException unused) {
+                        if (ABTestConfig.isDebug()) {
+                            Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
+                        }
+                    }
+                }
+                yw.l(jSONObject);
+            }
+        }
     }
 }

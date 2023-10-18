@@ -1,41 +1,89 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.text.Spanned;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class s75 {
+import com.google.gson.annotations.SerializedName;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public final class s75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @SerializedName("funny_sprite_support_text")
+    public final String a;
+    @SerializedName("funny_sprite_loop_time")
+    public final Integer b;
+    @SerializedName("funny_sprite_bubble_text_length")
+    public final Integer c;
+    @SerializedName("funny_sprite_bubble_text_line_number")
+    public final Integer d;
 
-    public static void a(Paint.FontMetricsInt fontMetricsInt, int i) {
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65536, null, fontMetricsInt, i) != null) || (i3 = (i2 = fontMetricsInt.descent) - fontMetricsInt.ascent) <= 0) {
-            return;
-        }
-        int round = Math.round(i2 * ((i * 1.0f) / i3));
-        fontMetricsInt.descent = round;
-        fontMetricsInt.ascent = round - i;
-    }
-
-    public static boolean b(CharSequence charSequence) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
-            if (!(charSequence instanceof Spanned)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            Spanned spanned = (Spanned) charSequence;
-            if (((EMTextView.a[]) spanned.getSpans(0, spanned.length(), EMTextView.a.class)).length <= 0) {
-                return false;
+            if (obj instanceof s75) {
+                s75 s75Var = (s75) obj;
+                return Intrinsics.areEqual(this.a, s75Var.a) && Intrinsics.areEqual(this.b, s75Var.b) && Intrinsics.areEqual(this.c, s75Var.c) && Intrinsics.areEqual(this.d, s75Var.d);
             }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String str = this.a;
+            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
+            Integer num = this.b;
+            int hashCode2 = (hashCode + (num == null ? 0 : num.hashCode())) * 31;
+            Integer num2 = this.c;
+            int hashCode3 = (hashCode2 + (num2 == null ? 0 : num2.hashCode())) * 31;
+            Integer num3 = this.d;
+            return hashCode3 + (num3 != null ? num3.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "FunnySpriteConfig(funnySpriteSupportText=" + this.a + ", funnySpriteLoopTime=" + this.b + ", funnySpriteBubbleTextLength=" + this.c + ", funnySpriteBubbleTextLineLimit=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Integer a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public final Integer b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

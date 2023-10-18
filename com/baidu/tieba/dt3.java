@@ -1,62 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dt3 extends ActivityDelegation implements sr1 {
-    public static /* synthetic */ Interceptable $ic;
+public class dt3 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static float a = 3.0f;
+    public static float b = 1.5f;
+    public static float c = 0.12f;
+    public static float d = 0.06f;
+    public static float e = 0.13f;
+    public static float f = 0.12f;
+    public static float g = 0.19f;
+    public static float h = 0.05f;
+    public static float i = 0.48f;
+    public static float j = 0.33f;
+    public static float k = 0.19f;
+    public static float l = 0.45f;
+    public static float m = 0.15f;
+    public static float n = 0.12f;
+    public static float o = 0.13f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dt3() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947716038, "Lcom/baidu/tieba/dt3;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
         }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            et3.b();
-            finish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Intent intent = new Intent(getAgent(), LoginAndGetMobileActivity.class);
-            intent.putExtras(this.mParams);
-            getAgent().startActivity(intent);
-            getAgent().overridePendingTransition(R.anim.obfuscated_res_0x7f0100b7, 0);
-            et3.c(this);
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.sr1
-    public void onResult(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.mResult.putInt("loginStatusCode", i);
-            c();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947716038, "Lcom/baidu/tieba/dt3;");
         }
     }
 }

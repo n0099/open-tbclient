@@ -110,7 +110,7 @@ public final class a {
         com.kwai.sodler.kwai.a.a(context, bVar, new b.c() { // from class: com.kwad.components.offline.tk.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0699b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0682b, com.kwai.sodler.lib.ext.b
             public void a(c cVar) {
                 super.a((AnonymousClass1) cVar);
             }
@@ -121,7 +121,7 @@ public final class a {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0699b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0682b, com.kwai.sodler.lib.ext.b
             /* renamed from: b */
             public void c(c cVar) {
                 super.c((AnonymousClass1) cVar);
@@ -131,7 +131,7 @@ public final class a {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0699b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0682b, com.kwai.sodler.lib.ext.b
             /* renamed from: c */
             public void b(c cVar) {
                 String str9;
@@ -155,12 +155,12 @@ public final class a {
                 soLoadListener.onLoaded();
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0699b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0682b, com.kwai.sodler.lib.ext.b
             public final /* synthetic */ void a(f fVar, com.kwai.sodler.lib.a.a aVar) {
                 qB();
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0699b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0682b, com.kwai.sodler.lib.ext.b
             public final /* bridge */ /* synthetic */ void a(f fVar, PluginError pluginError) {
                 a(pluginError);
             }

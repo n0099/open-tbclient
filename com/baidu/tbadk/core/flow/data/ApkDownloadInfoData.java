@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.flow.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.tieba.hl0;
-import com.baidu.tieba.u75;
+import com.baidu.tieba.c25;
+import com.baidu.tieba.eg0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
-public class ApkDownloadInfoData implements u75, Serializable, Comparable<ApkDownloadInfoData> {
+public class ApkDownloadInfoData implements c25, Serializable, Comparable<ApkDownloadInfoData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SOURCE_PRIORITY = 100;
     public transient /* synthetic */ FieldHolder $fh;
-    public hl0 adDownloadBean;
+    public eg0 adDownloadBean;
     public File apkFile;
     public String apkIcon;
     public String apkName;
@@ -51,7 +51,7 @@ public class ApkDownloadInfoData implements u75, Serializable, Comparable<ApkDow
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.u75
+    @Override // com.baidu.tieba.c25
     public String getPicLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class ApkDownloadInfoData implements u75, Serializable, Comparable<ApkDow
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.u75
+    @Override // com.baidu.tieba.c25
     public String getPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,13 +90,13 @@ public class ApkDownloadInfoData implements u75, Serializable, Comparable<ApkDow
         this.notificationShowContent = "";
     }
 
-    public hl0 getAdDownloadBean() {
+    public eg0 getAdDownloadBean() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.adDownloadBean;
         }
-        return (hl0) invokeV.objValue;
+        return (eg0) invokeV.objValue;
     }
 
     public File getApkFile() {
@@ -258,10 +258,10 @@ public class ApkDownloadInfoData implements u75, Serializable, Comparable<ApkDow
         return invokeL.intValue;
     }
 
-    public void setAdDownloadBean(hl0 hl0Var) {
+    public void setAdDownloadBean(eg0 eg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, hl0Var) == null) {
-            this.adDownloadBean = hl0Var;
+        if (interceptable == null || interceptable.invokeL(1048596, this, eg0Var) == null) {
+            this.adDownloadBean = eg0Var;
         }
     }
 

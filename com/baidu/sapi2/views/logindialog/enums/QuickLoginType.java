@@ -8,7 +8,7 @@ public enum QuickLoginType {
     SHARE(1, "share"),
     ONEKEY(2, "onekey"),
     SMS(3, LoginConstants.SMS_LOGIN),
-    QQ(4, LoginConstants.QQ_LOGIN),
+    QQ(4, "qq"),
     WECHAT(5, "wechat"),
     YY(6, "yy"),
     SINA(7, LoginConstants.SINA_LOGIN),

@@ -36,8 +36,8 @@ public class BroadcastCoroutine<E> extends AbstractCoroutine<Unit> implements Pr
     @Override // kotlinx.coroutines.channels.SendChannel
     @ExperimentalCoroutinesApi
     /* renamed from: invokeOnClose */
-    public void mo2360invokeOnClose(Function1<? super Throwable, Unit> function1) {
-        this._channel.mo2360invokeOnClose(function1);
+    public void mo2359invokeOnClose(Function1<? super Throwable, Unit> function1) {
+        this._channel.mo2359invokeOnClose(function1);
     }
 
     @Override // kotlinx.coroutines.channels.SendChannel
@@ -63,8 +63,8 @@ public class BroadcastCoroutine<E> extends AbstractCoroutine<Unit> implements Pr
 
     @Override // kotlinx.coroutines.channels.SendChannel
     /* renamed from: trySend-JP2dKIU */
-    public Object mo2301trySendJP2dKIU(E e) {
-        return this._channel.mo2301trySendJP2dKIU(e);
+    public Object mo2300trySendJP2dKIU(E e) {
+        return this._channel.mo2300trySendJP2dKIU(e);
     }
 
     public BroadcastCoroutine(CoroutineContext coroutineContext, BroadcastChannel<E> broadcastChannel, boolean z) {

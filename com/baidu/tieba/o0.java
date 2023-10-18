@@ -12,9 +12,9 @@ public class o0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public u6<k0> b;
+    public r2<k0> b;
     public s0<k0> c;
-    public q7<Class<?>, k0> d;
+    public a3<Class<?>, k0> d;
     public c e;
 
     /* loaded from: classes7.dex */
@@ -90,10 +90,10 @@ public class o0 {
             }
         }
         this.a = new b(null);
-        u6<k0> u6Var = new u6<>(true, 16);
-        this.b = u6Var;
-        this.c = new s0<>(u6Var);
-        this.d = new q7<>();
+        r2<k0> r2Var = new r2<>(true, 16);
+        this.b = r2Var;
+        this.c = new s0<>(r2Var);
+        this.d = new a3<>();
         this.e = cVar;
     }
 
@@ -106,7 +106,7 @@ public class o0 {
                 d(b2);
             }
             this.b.a(k0Var);
-            this.d.i(cls, k0Var);
+            this.d.h(cls, k0Var);
             this.b.sort(this.a);
             this.e.b(k0Var);
         }
@@ -116,15 +116,15 @@ public class o0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-            return (T) this.d.c(cls);
+            return (T) this.d.b(cls);
         }
         return (T) invokeL.objValue;
     }
 
     public void d(k0 k0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, k0Var) == null) && this.b.i(k0Var, true)) {
-            this.d.k(k0Var.getClass());
+        if ((interceptable == null || interceptable.invokeL(1048579, this, k0Var) == null) && this.b.g(k0Var, true)) {
+            this.d.j(k0Var.getClass());
             this.e.a(k0Var);
         }
     }

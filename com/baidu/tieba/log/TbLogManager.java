@@ -2,6 +2,7 @@ package com.baidu.tieba.log;
 
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -64,7 +65,7 @@ public final class TbLogManager {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    @Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0007\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004j\u0002\b\u0005j\u0002\b\u0006j\u0002\b\u0007¨\u0006\b"}, d2 = {"Lcom/baidu/tieba/log/TbLogManager$Level;", "", "(Ljava/lang/String;I)V", "VERBOSE", "DEBUG", "INFO", "WARN", "ERROR", "TbLogCore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0007\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004j\u0002\b\u0005j\u0002\b\u0006j\u0002\b\u0007¨\u0006\b"}, d2 = {"Lcom/baidu/tieba/log/TbLogManager$Level;", "", "(Ljava/lang/String;I)V", "VERBOSE", "DEBUG", "INFO", "WARN", bx.l, "TbLogCore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes7.dex */
     public static final class Level {
         public static final /* synthetic */ Level[] $VALUES;
@@ -109,7 +110,7 @@ public final class TbLogManager {
             DEBUG = new Level("DEBUG", 1);
             INFO = new Level("INFO", 2);
             WARN = new Level("WARN", 3);
-            ERROR = new Level("ERROR", 4);
+            ERROR = new Level(bx.l, 4);
             $VALUES = $values();
         }
 

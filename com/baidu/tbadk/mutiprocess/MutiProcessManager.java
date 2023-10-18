@@ -16,13 +16,13 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.fq5;
-import com.baidu.tieba.gq5;
-import com.baidu.tieba.hq5;
-import com.baidu.tieba.iq5;
-import com.baidu.tieba.jq5;
-import com.baidu.tieba.kq5;
-import com.baidu.tieba.xz4;
+import com.baidu.tieba.fu4;
+import com.baidu.tieba.lk5;
+import com.baidu.tieba.mk5;
+import com.baidu.tieba.nk5;
+import com.baidu.tieba.ok5;
+import com.baidu.tieba.pk5;
+import com.baidu.tieba.qk5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,16 +34,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MutiProcessManager {
     public static /* synthetic */ Interceptable $ic;
     public static MutiProcessManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasInited;
-    public final xz4 mActivityLifecycleCallbacks;
-    public final gq5 mEventDispatcher;
-    public final Map<Class<? extends IEvent>, fq5> mForeverListeners;
-    public hq5 mMutiProcessProcessor;
+    public final fu4 mActivityLifecycleCallbacks;
+    public final mk5 mEventDispatcher;
+    public final Map<Class<? extends IEvent>, lk5> mForeverListeners;
+    public nk5 mMutiProcessProcessor;
     public final Map<Class<? extends IEvent>, LinkedList<ResponsedEventListener>> mResponsedListeners;
     public final Handler mUIHandler;
 
@@ -62,8 +62,8 @@ public class MutiProcessManager {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements gq5 {
+    /* loaded from: classes5.dex */
+    public class a implements mk5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiProcessManager a;
@@ -86,7 +86,7 @@ public class MutiProcessManager {
             this.a = mutiProcessManager;
         }
 
-        @Override // com.baidu.tieba.gq5
+        @Override // com.baidu.tieba.mk5
         public void a(IEvent iEvent) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, iEvent) != null) {
@@ -96,7 +96,7 @@ public class MutiProcessManager {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,8 +131,8 @@ public class MutiProcessManager {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends xz4 {
+    /* loaded from: classes5.dex */
+    public class c extends fu4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiProcessManager a;
@@ -155,7 +155,7 @@ public class MutiProcessManager {
             this.a = mutiProcessManager;
         }
 
-        @Override // com.baidu.tieba.xz4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.baidu.tieba.fu4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && (activity instanceof TbPageContextSupport)) {
@@ -185,14 +185,14 @@ public class MutiProcessManager {
         this.mResponsedListeners = new HashMap();
     }
 
-    public void registerForeverListener(@NonNull Class<? extends IEvent> cls, @NonNull fq5 fq5Var) {
+    public void registerForeverListener(@NonNull Class<? extends IEvent> cls, @NonNull lk5 lk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, cls, fq5Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, cls, lk5Var) == null) {
             if (this.mForeverListeners.containsKey(cls)) {
                 BdLog.e(cls + " has existed, Please unRegister old listener first！");
                 return;
             }
-            this.mForeverListeners.put(cls, fq5Var);
+            this.mForeverListeners.put(cls, lk5Var);
         }
     }
 
@@ -204,9 +204,9 @@ public class MutiProcessManager {
         }
         Class<?> cls = iEvent.getClass();
         try {
-            fq5 fq5Var = this.mForeverListeners.get(cls);
-            if (fq5Var != null) {
-                fq5Var.onEvent(iEvent);
+            lk5 lk5Var = this.mForeverListeners.get(cls);
+            if (lk5Var != null) {
+                lk5Var.onEvent(iEvent);
             }
         } catch (Exception e) {
             BdLog.detailException(cls.getName(), e);
@@ -251,10 +251,10 @@ public class MutiProcessManager {
     }
 
     private void publishProcessEvent(IEvent iEvent) {
-        hq5 hq5Var;
+        nk5 nk5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, this, iEvent) == null) && (hq5Var = this.mMutiProcessProcessor) != null) {
-            hq5Var.a(iEvent);
+        if ((interceptable == null || interceptable.invokeL(65545, this, iEvent) == null) && (nk5Var = this.mMutiProcessProcessor) != null) {
+            nk5Var.b(iEvent);
         }
     }
 
@@ -274,19 +274,19 @@ public class MutiProcessManager {
         if ((interceptable != null && interceptable.invokeL(1048576, this, application) != null) || this.hasInited) {
             return;
         }
-        jq5.g();
+        pk5.g();
         registerActivityLifecycleCallbacks(application);
-        iq5 iq5Var = new iq5(application);
-        this.mMutiProcessProcessor = iq5Var;
-        iq5Var.b(this.mEventDispatcher);
-        this.mMutiProcessProcessor.startService();
+        ok5 ok5Var = new ok5(application);
+        this.mMutiProcessProcessor = ok5Var;
+        ok5Var.c(this.mEventDispatcher);
+        this.mMutiProcessProcessor.a();
         this.hasInited = true;
     }
 
     public void removeStickyEvent(@NonNull Class<? extends StickyEvent> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cls) == null) {
-            kq5.s(cls.getSimpleName());
+            qk5.s(cls.getSimpleName());
         }
     }
 
@@ -302,7 +302,7 @@ public class MutiProcessManager {
     private void dispatchStickyEventIfNeed(@NonNull Class<? extends IEvent> cls, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65542, this, cls, bdUniqueId) == null) && StickyEvent.class.isAssignableFrom(cls)) {
-            OrmObject h = kq5.h(cls.getSimpleName(), cls);
+            OrmObject h = qk5.h(cls.getSimpleName(), cls);
             if (h instanceof StickyEvent) {
                 StickyEvent stickyEvent = (StickyEvent) h;
                 stickyEvent.resetPid();
@@ -348,9 +348,9 @@ public class MutiProcessManager {
     public void postEvent(@NonNull IEvent iEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iEvent) == null) {
-            if (!jq5.i()) {
-                String c2 = jq5.c();
-                jq5.m(c2 + " Process Not In WhiteList，Ignore Event!");
+            if (!pk5.i()) {
+                String c2 = pk5.c();
+                pk5.m(c2 + " Process Not In WhiteList，Ignore Event!");
                 return;
             }
             int myPid = Process.myPid();
@@ -385,12 +385,12 @@ public class MutiProcessManager {
     public void postStickyEvent(@NonNull StickyEvent stickyEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, stickyEvent) == null) {
-            if (!jq5.i()) {
-                String c2 = jq5.c();
-                jq5.m(c2 + " Process Not In WhiteList，Ignore StickyEvent!");
+            if (!pk5.i()) {
+                String c2 = pk5.c();
+                pk5.m(c2 + " Process Not In WhiteList，Ignore StickyEvent!");
                 return;
             }
-            kq5.p(stickyEvent.getClass().getSimpleName(), stickyEvent);
+            qk5.p(stickyEvent.getClass().getSimpleName(), stickyEvent);
         }
     }
 
@@ -407,7 +407,7 @@ public class MutiProcessManager {
                 return;
             }
             responsedEventListener.setTag(bdUniqueId);
-            FrameHelper.insert(linkedList, responsedEventListener);
+            FrameHelper.f(linkedList, responsedEventListener);
             dispatchStickyEventIfNeed(cls, bdUniqueId);
         }
     }

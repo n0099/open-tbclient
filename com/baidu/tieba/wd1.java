@@ -3,18 +3,23 @@ package com.baidu.tieba;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
-public interface wd1<View> {
-    void a();
+public interface wd1 {
+    void a(String str);
 
-    void b(String str, boolean z);
+    boolean b(String str);
 
-    void c(boolean z);
+    void c();
 
-    View getRealView();
+    void d(hg1 hg1Var);
 
-    void setContainer(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+    void e();
 
-    void setCriusPopListener(@NonNull ud1 ud1Var);
+    @NonNull
+    ViewGroup f();
 
-    void setData(@NonNull kr0 kr0Var);
+    void onAdClick();
+
+    void onAdShow();
+
+    void onSkip();
 }

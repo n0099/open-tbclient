@@ -1,8 +1,6 @@
 package com.baidu.nadcore.widget.uitemplate;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,30 +8,24 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h61;
-import com.baidu.tieba.m61;
-import com.baidu.tieba.td1;
-import com.baidu.tieba.yr0;
+import com.baidu.tieba.d81;
+import com.baidu.tieba.u01;
+import com.baidu.tieba.z01;
 /* loaded from: classes3.dex */
 public class NadRewardCountDownView extends RelativeLayout {
     public TextView a;
     public TextView b;
     public TextView c;
-    public m61 d;
-    public int e;
-    public int f;
+    public z01 d;
+    public String e;
+    public String f;
     public int g;
-    public String h;
-    public String i;
-    public String j;
-    public int k;
-    public g l;
-    public td1 m;
+    public c h;
+    public d81 i;
 
     /* loaded from: classes3.dex */
-    public interface g {
+    public interface c {
         void a();
 
         void b();
@@ -43,10 +35,6 @@ public class NadRewardCountDownView extends RelativeLayout {
         void d();
 
         void e();
-
-        void f();
-
-        void g();
     }
 
     /* loaded from: classes3.dex */
@@ -56,19 +44,19 @@ public class NadRewardCountDownView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (NadRewardCountDownView.this.k == 1) {
+            if (NadRewardCountDownView.this.g == 1) {
                 return;
             }
-            if (NadRewardCountDownView.this.k == 2) {
-                NadRewardCountDownView.this.r();
-                if (NadRewardCountDownView.this.m != null) {
-                    h61.b(NadRewardCountDownView.this.m);
-                    if (NadRewardCountDownView.this.l != null) {
-                        NadRewardCountDownView.this.l.d();
+            if (NadRewardCountDownView.this.g == 2) {
+                NadRewardCountDownView.this.e();
+                if (NadRewardCountDownView.this.i != null) {
+                    u01.b(NadRewardCountDownView.this.i);
+                    if (NadRewardCountDownView.this.h != null) {
+                        NadRewardCountDownView.this.h.a();
                     }
                 }
-            } else if (NadRewardCountDownView.this.k == 3 && NadRewardCountDownView.this.l != null) {
-                NadRewardCountDownView.this.l.f();
+            } else if (NadRewardCountDownView.this.g == 3 && NadRewardCountDownView.this.h != null) {
+                NadRewardCountDownView.this.h.e();
             }
         }
     }
@@ -80,98 +68,9 @@ public class NadRewardCountDownView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (NadRewardCountDownView.this.k == 4 && NadRewardCountDownView.this.l != null) {
-                NadRewardCountDownView.this.l.e();
+            if (NadRewardCountDownView.this.g == 4 && NadRewardCountDownView.this.h != null) {
+                NadRewardCountDownView.this.h.d();
             }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c extends m61.c {
-        public c() {
-        }
-
-        @Override // com.baidu.tieba.m61.c
-        public void b() {
-            super.b();
-            if (NadRewardCountDownView.this.k < 3) {
-                NadRewardCountDownView nadRewardCountDownView = NadRewardCountDownView.this;
-                nadRewardCountDownView.i = "恭喜您已获得" + NadRewardCountDownView.this.h + "!";
-                NadRewardCountDownView.this.k = 3;
-            }
-            if (NadRewardCountDownView.this.b.getVisibility() != 0) {
-                NadRewardCountDownView.this.b.setVisibility(0);
-            }
-            NadRewardCountDownView.this.a.setText(String.format(NadRewardCountDownView.this.i, Integer.valueOf(NadRewardCountDownView.this.f)));
-            NadRewardCountDownView.this.invalidate();
-        }
-
-        @Override // com.baidu.tieba.m61.c
-        public void f(long j) {
-            super.f(j);
-            NadRewardCountDownView.this.f = (((int) j) / 1000) + 1;
-            if (NadRewardCountDownView.this.k < 2 && NadRewardCountDownView.this.g > 0 && NadRewardCountDownView.this.e - NadRewardCountDownView.this.f > NadRewardCountDownView.this.g) {
-                if (NadRewardCountDownView.this.b.getVisibility() != 0) {
-                    NadRewardCountDownView.this.b.setVisibility(0);
-                }
-                NadRewardCountDownView.this.k = 2;
-            }
-            NadRewardCountDownView.this.a.setText(String.format(NadRewardCountDownView.this.i, Integer.valueOf(NadRewardCountDownView.this.f)));
-            NadRewardCountDownView.this.invalidate();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements td1.b {
-        public d() {
-        }
-
-        @Override // com.baidu.tieba.td1.b
-        public void a(boolean z) {
-            NadRewardCountDownView.this.m.dismiss();
-            if (z && NadRewardCountDownView.this.l != null) {
-                NadRewardCountDownView.this.l.a();
-            }
-            NadRewardCountDownView.this.t();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements DialogInterface.OnDismissListener {
-        public e() {
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            if (NadRewardCountDownView.this.l != null) {
-                NadRewardCountDownView.this.l.g();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f extends m61.c {
-        public f() {
-        }
-
-        @Override // com.baidu.tieba.m61.c
-        public void b() {
-            super.b();
-            if (NadRewardCountDownView.this.k != 4) {
-                NadRewardCountDownView.this.j = "";
-                NadRewardCountDownView.this.k = 4;
-            }
-            NadRewardCountDownView.this.c.setText(NadRewardCountDownView.this.j);
-            NadRewardCountDownView.this.c.setBackground(NadRewardCountDownView.this.getResources().getDrawable(R.drawable.nad_reward_close_icon_bg));
-            NadRewardCountDownView.this.requestLayout();
-        }
-
-        @Override // com.baidu.tieba.m61.c
-        public void f(long j) {
-            super.f(j);
-            NadRewardCountDownView.this.f = (((int) j) / 1000) + 1;
-            NadRewardCountDownView.this.c.setText(String.format(NadRewardCountDownView.this.j, Integer.valueOf(NadRewardCountDownView.this.f)));
-            NadRewardCountDownView.this.invalidate();
         }
     }
 
@@ -189,15 +88,15 @@ public class NadRewardCountDownView extends RelativeLayout {
             z = false;
         }
         if (z) {
-            t();
+            f();
         }
         if (!z) {
-            r();
+            e();
         }
     }
 
-    public void setRewardDownInnerListener(g gVar) {
-        this.l = gVar;
+    public void setRewardDownInnerListener(c cVar) {
+        this.h = cVar;
     }
 
     public NadRewardCountDownView(Context context, @Nullable AttributeSet attributeSet) {
@@ -206,15 +105,14 @@ public class NadRewardCountDownView extends RelativeLayout {
 
     public NadRewardCountDownView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.g = -1;
-        this.h = "奖励";
-        this.i = "%2ss后可以领取" + this.h;
-        this.j = "%2ss";
-        this.k = 1;
-        q(context);
+        this.e = "奖励";
+        String str = "%2ss后可以领取" + this.e;
+        this.f = "%2ss";
+        this.g = 1;
+        d(context);
     }
 
-    public final void q(Context context) {
+    public final void d(Context context) {
         LayoutInflater.from(context).inflate(R.layout.nad_reward_count_down_view, (ViewGroup) this, true);
         TextView textView = (TextView) findViewById(R.id.nad_skip_view);
         this.b = textView;
@@ -228,76 +126,25 @@ public class NadRewardCountDownView extends RelativeLayout {
         setVisibility(8);
     }
 
-    public void r() {
-        m61 m61Var = this.d;
-        if (m61Var != null) {
-            m61Var.d();
-            g gVar = this.l;
-            if (gVar != null) {
-                gVar.c();
+    public void e() {
+        z01 z01Var = this.d;
+        if (z01Var != null) {
+            z01Var.d();
+            c cVar = this.h;
+            if (cVar != null) {
+                cVar.c();
             }
         }
     }
 
-    public void s() {
-        m61 m61Var = this.d;
-        if (m61Var != null) {
-            m61Var.b();
-            this.d = null;
-        }
-    }
-
-    public void t() {
-        m61 m61Var = this.d;
-        if (m61Var != null) {
-            m61Var.e();
-            g gVar = this.l;
-            if (gVar != null) {
-                gVar.b();
+    public void f() {
+        z01 z01Var = this.d;
+        if (z01Var != null) {
+            z01Var.e();
+            c cVar = this.h;
+            if (cVar != null) {
+                cVar.b();
             }
-        }
-    }
-
-    public void u() {
-        s();
-        this.b.setVisibility(8);
-        this.a.setVisibility(8);
-        this.c.setVisibility(0);
-        m61 m61Var = new m61(3000L, 1000L);
-        this.d = m61Var;
-        m61Var.f(new f());
-        this.d.g();
-    }
-
-    public void update(AdBaseModel adBaseModel) {
-        if (adBaseModel != null && adBaseModel.j != null) {
-            setTag(adBaseModel);
-            yr0 yr0Var = adBaseModel.p;
-            float f2 = 1.0f;
-            if (yr0Var != null) {
-                this.g = yr0Var.e;
-                String str = yr0Var.i;
-                if (!TextUtils.isEmpty(str) && str.length() <= 4) {
-                    this.h = str;
-                    this.i = "%2ss后可以领取" + this.h;
-                }
-                float f3 = adBaseModel.p.g;
-                if (f3 > 0.0f && f3 <= 1.0f) {
-                    f2 = f3;
-                }
-            }
-            int floor = (int) Math.floor(adBaseModel.j.c * f2);
-            this.e = floor;
-            this.f = floor;
-            m61 m61Var = new m61(floor * 1000, 1000L);
-            this.d = m61Var;
-            m61Var.f(new c());
-            td1 td1Var = new td1(getContext(), adBaseModel, new d());
-            this.m = td1Var;
-            td1Var.setOnDismissListener(new e());
-            this.a.setVisibility(0);
-            setVisibility(0);
-            this.d.g();
         }
     }
 }

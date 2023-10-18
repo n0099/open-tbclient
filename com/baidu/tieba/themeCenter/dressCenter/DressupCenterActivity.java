@@ -4,11 +4,11 @@ import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.ara;
+import com.baidu.tieba.mla;
+import com.baidu.tieba.ola;
+import com.baidu.tieba.pla;
+import com.baidu.tieba.qla;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel;
-import com.baidu.tieba.wqa;
-import com.baidu.tieba.yqa;
-import com.baidu.tieba.zqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import java.util.List;
 public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yqa a;
+    public ola a;
     public DressupCenterModel b;
     public DressupCenterModel.b c;
 
@@ -55,9 +55,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.b
-        public void a(int i, String str, List<wqa> list, ara araVar, List<zqa> list2) {
+        public void a(int i, String str, List<mla> list, qla qlaVar, List<pla> list2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, list, araVar, list2}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, list, qlaVar, list2}) == null) {
                 DressupCenterActivity dressupCenterActivity = this.a;
                 dressupCenterActivity.hideLoadingView(dressupCenterActivity.a.e());
                 if (i != 0) {
@@ -65,7 +65,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
                     this.a.a.n();
                     return;
                 }
-                this.a.a.o(list, araVar, list2, this.a.b.T());
+                this.a.a.o(list, qlaVar, list2, this.a.b.U());
             }
         }
     }
@@ -114,10 +114,10 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        yqa yqaVar;
+        ola olaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (yqaVar = this.a) != null) {
-            hideNetRefreshView(yqaVar.e());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (olaVar = this.a) != null) {
+            hideNetRefreshView(olaVar.e());
             showLoadingView(this.a.e());
             this.b.loadData();
         }
@@ -128,9 +128,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            yqa yqaVar = this.a;
-            if (yqaVar != null) {
-                yqaVar.g();
+            ola olaVar = this.a;
+            if (olaVar != null) {
+                olaVar.g();
             }
         }
     }
@@ -140,9 +140,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            yqa yqaVar = this.a;
-            if (yqaVar != null) {
-                yqaVar.h();
+            ola olaVar = this.a;
+            if (olaVar != null) {
+                olaVar.h();
             }
         }
     }
@@ -152,9 +152,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            yqa yqaVar = this.a;
-            if (yqaVar != null) {
-                yqaVar.f();
+            ola olaVar = this.a;
+            if (olaVar != null) {
+                olaVar.f();
             }
         }
     }
@@ -166,10 +166,10 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
             super.onCreate(bundle);
             DressupCenterModel dressupCenterModel = new DressupCenterModel(this);
             this.b = dressupCenterModel;
-            dressupCenterModel.U(this.c);
-            yqa yqaVar = new yqa(this);
-            this.a = yqaVar;
-            showLoadingView(yqaVar.e());
+            dressupCenterModel.V(this.c);
+            ola olaVar = new ola(this);
+            this.a = olaVar;
+            showLoadingView(olaVar.e());
             this.b.loadData();
         }
     }

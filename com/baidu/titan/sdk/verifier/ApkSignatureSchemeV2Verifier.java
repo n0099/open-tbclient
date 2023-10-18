@@ -408,6 +408,27 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
+    public static ByteBuffer getByteBuffer(ByteBuffer byteBuffer, int i) throws BufferUnderflowException {
+        if (i >= 0) {
+            int limit = byteBuffer.limit();
+            int position = byteBuffer.position();
+            int i2 = i + position;
+            if (i2 >= position && i2 <= limit) {
+                byteBuffer.limit(i2);
+                try {
+                    ByteBuffer slice = byteBuffer.slice();
+                    slice.order(byteBuffer.order());
+                    byteBuffer.position(i2);
+                    return slice;
+                } finally {
+                    byteBuffer.limit(limit);
+                }
+            }
+            throw new BufferUnderflowException();
+        }
+        throw new IllegalArgumentException("size: " + i);
+    }
+
     public static int compareSignatureAlgorithm(int i, int i2) {
         return compareContentDigestAlgorithm(getSignatureAlgorithmContentDigestAlgorithm(i), getSignatureAlgorithmContentDigestAlgorithm(i2));
     }
@@ -632,27 +653,6 @@ public class ApkSignatureSchemeV2Verifier {
             throw new IOException("Underflow while reading length-prefixed value. Length: " + i + ", available: " + byteBuffer.remaining());
         }
         throw new IOException("Negative length");
-    }
-
-    public static ByteBuffer getByteBuffer(ByteBuffer byteBuffer, int i) throws BufferUnderflowException {
-        if (i >= 0) {
-            int limit = byteBuffer.limit();
-            int position = byteBuffer.position();
-            int i2 = i + position;
-            if (i2 >= position && i2 <= limit) {
-                byteBuffer.limit(i2);
-                try {
-                    ByteBuffer slice = byteBuffer.slice();
-                    slice.order(byteBuffer.order());
-                    byteBuffer.position(i2);
-                    return slice;
-                } finally {
-                    byteBuffer.limit(limit);
-                }
-            }
-            throw new BufferUnderflowException();
-        }
-        throw new IllegalArgumentException("size: " + i);
     }
 
     public static long getCentralDirOffset(ByteBuffer byteBuffer, long j) throws SignatureNotFoundException {

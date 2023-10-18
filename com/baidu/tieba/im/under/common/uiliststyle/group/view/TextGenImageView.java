@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ec8;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.im.lib.socket.msg.TbSingleTextImageMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.adapter.SingleTextImageAdapter;
-import com.baidu.tieba.m47;
-import com.baidu.tieba.no8;
-import com.baidu.tieba.uh8;
+import com.baidu.tieba.vy6;
+import com.baidu.tieba.xi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class TextGenImageView extends LinearLayout {
     public ChatImageWithTailView c;
 
     /* loaded from: classes6.dex */
-    public class a implements m47.i {
+    public class a implements vy6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbSingleTextImageMsg a;
@@ -59,11 +59,11 @@ public class TextGenImageView extends LinearLayout {
             this.a = tbSingleTextImageMsg;
         }
 
-        @Override // com.baidu.tieba.m47.i
+        @Override // com.baidu.tieba.vy6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                no8.a(spannableStringBuilder);
+                xi8.a(spannableStringBuilder, -1);
                 this.a.setCacheText(spannableStringBuilder);
                 this.b.b.setText(this.a.getCacheText());
             }
@@ -125,12 +125,12 @@ public class TextGenImageView extends LinearLayout {
     public void b(@NonNull SingleTextImageAdapter.Holder holder, @NonNull TbSingleTextImageMsg tbSingleTextImageMsg, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, holder, tbSingleTextImageMsg, i) == null) {
-            no8.b(tbSingleTextImageMsg.getAtUserInfoList());
+            xi8.b(tbSingleTextImageMsg.getAtUserInfoList());
             CharSequence cacheText = tbSingleTextImageMsg.getCacheText();
             if (cacheText != null) {
                 this.b.setText(cacheText);
             } else {
-                m47.e(getContext(), tbSingleTextImageMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, tbSingleTextImageMsg));
+                vy6.e(getContext(), tbSingleTextImageMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, tbSingleTextImageMsg));
             }
             c(this.c, tbSingleTextImageMsg);
         }
@@ -142,7 +142,7 @@ public class TextGenImageView extends LinearLayout {
             String thumbUrl = tbSingleTextImageMsg.getThumbUrl();
             String thumbSize = tbSingleTextImageMsg.getThumbSize();
             if (!StringUtils.isNull(thumbSize) && !StringUtils.isNull(thumbUrl)) {
-                tbSingleTextImageMsg.setThumbSize(uh8.d(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_placeholder));
+                tbSingleTextImageMsg.setThumbSize(ec8.d(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_placeholder));
             }
         }
     }
@@ -152,7 +152,7 @@ public class TextGenImageView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b = new TextView(this.a);
             this.b.setLayoutParams(new LinearLayout.LayoutParams(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds608), -2));
-            this.b.setId(R.id.obfuscated_res_0x7f090eb3);
+            this.b.setId(R.id.obfuscated_res_0x7f090ece);
             this.b.setLineSpacing(1.0f, 1.2f);
             EMManager.from(this.b).setTextSize(R.dimen.T_X05);
             addView(this.b);
@@ -163,7 +163,7 @@ public class TextGenImageView extends LinearLayout {
             this.c.e(false);
             this.c.setErrorResId(R.drawable.icon_pic_placeholder);
             this.c.setErrorBgResId(R.drawable.transparent_bg);
-            this.c.getImage().setId(R.id.obfuscated_res_0x7f090e92);
+            this.c.getImage().setId(R.id.obfuscated_res_0x7f090eac);
             addView(this.c);
         }
     }

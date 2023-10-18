@@ -9,6 +9,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ForbidActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String CHAT_MSG_ID = "message_id";
+    public static final String CHAT_ROOM_ID = "chatroom_id";
+    public static final String FORBID_TYPE = "forbid_type";
     public static final String MANAGER_USER_ID = "bar_manager_user_id";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,5 +41,36 @@ public class ForbidActivityConfig extends IntentConfig {
         getIntent().putExtra("post_id", str7);
         getIntent().putExtra("name_show", str6);
         getIntent().putExtra("portrait", str8);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ForbidActivityConfig(Context context, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, long j, long j2) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r4;
+            Object[] objArr = {context, str, str2, str3, str4, str5, str6, str7, str8, str9, Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("forum_id", str);
+        getIntent().putExtra("forum_name", str2);
+        getIntent().putExtra("thread_id", str3);
+        getIntent().putExtra(MANAGER_USER_ID, str4);
+        getIntent().putExtra("user_name", str5);
+        getIntent().putExtra("post_id", str7);
+        getIntent().putExtra("name_show", str6);
+        getIntent().putExtra("portrait", str8);
+        getIntent().putExtra(FORBID_TYPE, str9);
+        getIntent().putExtra("chatroom_id", j);
+        getIntent().putExtra(CHAT_MSG_ID, j2);
     }
 }

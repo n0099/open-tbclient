@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.webkit.URLUtil;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
-import androidx.core.util.Pair;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.browser.proxy.OfflineBridgeData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.ad.AbsDownloadGuide;
+import com.baidu.tbadk.widget.ad.DownloadGuideFull;
+import com.baidu.tbadk.widget.ad.DownloadGuidePart;
+import com.baidu.tieba.feed.widget.roundcorners.RoundFrameLayout;
+import com.baidu.tieba.s07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes8.dex */
-public final class yl6 {
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.PbContent;
+/* loaded from: classes9.dex */
+public final class yl6 implements s07.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public az4 a;
+    public RoundFrameLayout a;
+    public AbsDownloadGuide b;
+    public String c;
 
     public yl6() {
         Interceptable interceptable = $ic;
@@ -38,205 +38,124 @@ public final class yl6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = "part";
     }
 
-    public void c() {
-        az4 az4Var;
+    @Override // com.baidu.tieba.s07.s
+    public void b(ViewGroup view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (az4Var = this.a) != null) {
-            az4Var.h();
-            this.a = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            AbsDownloadGuide absDownloadGuide = this.b;
+            if (absDownloadGuide == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                absDownloadGuide = null;
+            }
+            absDownloadGuide.q();
         }
     }
 
-    public static boolean b(String str) {
+    @Override // com.baidu.tieba.s07.g
+    public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return "0".equals(Uri.parse(str).getQueryParameter("useOfflinePackage"));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            this.a = new RoundFrameLayout(context);
+            int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds21);
+            RoundFrameLayout roundFrameLayout = this.a;
+            if (roundFrameLayout == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                roundFrameLayout = null;
             }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return str + str2;
+            roundFrameLayout.setRadiusPx(0, 0, dimens, dimens);
+            this.b = new DownloadGuidePart(context);
+            RoundFrameLayout roundFrameLayout2 = this.a;
+            if (roundFrameLayout2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                roundFrameLayout2 = null;
             }
-            return str + str2 + "?" + str3;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public final void d(WebView webView, Uri uri, hm6 hm6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, uri, hm6Var) == null) && !qn6.a(hm6Var.b) && webView != null) {
-            if (this.a == null) {
-                this.a = new az4();
+            AbsDownloadGuide absDownloadGuide = this.b;
+            if (absDownloadGuide == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                absDownloadGuide = null;
             }
-            Map<String, String> a = jk6.a(uri);
-            Iterator<String> it = hm6Var.b.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                Uri parse = Uri.parse(next);
-                for (String str : parse.getQueryParameterNames()) {
-                    String queryParameter = parse.getQueryParameter(str);
-                    if (!TextUtils.isEmpty(queryParameter) && queryParameter.startsWith("{") && queryParameter.endsWith("}")) {
-                        next = next.replace(queryParameter, jk6.c(a, queryParameter));
-                    }
-                }
-                OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
-                offlineBridgeData.type = CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE;
-                offlineBridgeData.url = next;
-                offlineBridgeData.module = hm6Var.c;
-                offlineBridgeData.begin = System.currentTimeMillis();
-                az4 az4Var = this.a;
-                if (az4Var != null) {
-                    az4Var.j(webView, offlineBridgeData, null);
-                }
-            }
-        }
-    }
-
-    public final void e(String str, String str2, boolean z, String str3, String str4) {
-        String str5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), str3, str4}) == null) {
-            yk6 a = yk6.a(HybridStatisticKey.KEY_OFFLINE_PACKAGE);
-            a.c("obj_name", str3);
-            a.c("obj_source", str);
-            a.c("obj_locate", str2);
-            a.c("obj_param1", str4);
-            Pair[] pairArr = new Pair[2];
-            if (z) {
-                str5 = "1";
-            } else {
-                str5 = "0";
-            }
-            pairArr[0] = Pair.create("is_proxy", str5);
-            pairArr[1] = Pair.create("is_new_hybrid", "1");
-            a.c(TiebaStatic.Params.OBJ_PARAM2, tn6.a(pairArr));
-            a.d();
-        }
-    }
-
-    public final String f(WebView webView, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            Uri parse = Uri.parse(str);
-            hm6 g = xl6.e().g(parse);
-            if (g == null) {
-                HybridLog.getInstance().e("Offline", "离线包匹配失败 rule不存在：" + str);
-                e(str, "without_bundle", false, "", "");
+            roundFrameLayout2.addView(absDownloadGuide);
+            RoundFrameLayout roundFrameLayout3 = this.a;
+            if (roundFrameLayout3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
                 return null;
             }
-            String p = wl6.n().p(g.c);
-            if (TextUtils.isEmpty(g.c)) {
-                str2 = "none";
-            } else {
-                str2 = g.c;
-            }
-            String str3 = str2;
-            if (TextUtils.isEmpty(p)) {
-                p = "0.0.0.0";
-            }
-            String str4 = p;
-            if (!g.g) {
-                if (!wl6.n().s()) {
-                    HybridLog.getInstance().i("Offline", "接口未返回，启用旧的离线包：moduleName: " + str3 + " moduleVersion:" + str4 + " + url+" + str);
-                    g.g = true;
-                } else {
-                    e(str, "processing_bundle", g.h, str3, str4);
-                    HybridLog.getInstance().e("Offline", "离线包匹配失败 离线包不可用：" + str3 + " " + str4);
-                    return null;
-                }
-            }
-            String str5 = g.d;
-            if (!TextUtils.isEmpty(str5) && !str5.endsWith(".html")) {
-                str5 = g.d + ".html";
-            }
-            String str6 = str5;
-            if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str6) && !TextUtils.isEmpty(str4)) {
-                String str7 = wl6.n().m() + "/" + str3 + "/" + str4 + "/";
-                File file = new File(str7, str6);
-                if (!file.exists()) {
-                    g.g = false;
-                    e(str, "path_not_found", g.h, str3, str4);
-                    HybridLog.getInstance().e("Offline", "离线包匹配失败 本地主html文件不存在：" + file);
-                    return null;
-                }
-                g.g = true;
-                g.e = "file://" + str7;
-                xl6.e().a(vn6.c(str), g);
-                if (!g.h && !qn6.a(g.b)) {
-                    d(webView, parse, g);
-                }
-                e(str, "success", g.h, str3, str4);
-                if (g.h) {
-                    HybridLog.getInstance().i("Offline", "命中代理模式离线包：url: " + str);
-                    return str;
-                }
-                return a(g.e, str6, parse.getQuery());
-            }
-            g.g = false;
-            e(str, "config_error", g.h, str3, str4);
-            HybridLog.getInstance().e("Offline", "离线包匹配失败 配置校验失败：" + str3 + " " + str6 + " " + str4);
-            return null;
+            return roundFrameLayout3;
         }
-        return (String) invokeLL.objValue;
+        return (ViewGroup) invokeL.objValue;
     }
 
-    @NonNull
-    public Pair<Boolean, String> g(WebView webView, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.s07.g
+    public void g(ViewGroup view2, e37 downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
-            if (!URLUtil.isAssetUrl(str) && !URLUtil.isFileUrl(str)) {
-                if (!URLUtil.isNetworkUrl(str)) {
-                    return Pair.create(Boolean.FALSE, str);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, downloadData) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
+            Map<String, String> a = downloadData.a().a();
+            String b = downloadData.b();
+            AbsDownloadGuide absDownloadGuide = null;
+            if (!Intrinsics.areEqual(b, this.c)) {
+                RoundFrameLayout roundFrameLayout = this.a;
+                if (roundFrameLayout == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                    roundFrameLayout = null;
                 }
-                e(str, "start", false, "", "");
-                if (!QuickWebViewSwitch.getInOn()) {
-                    TbLog hybridLog = HybridLog.getInstance();
-                    hybridLog.e("Offline", "离线包开关关闭：" + str);
-                    xl6.e().h(str);
-                    e(str, "close_offline", false, "", "");
-                    return Pair.create(Boolean.FALSE, str);
-                } else if (b(str)) {
-                    xl6.e().h(str);
-                    TbLog hybridLog2 = HybridLog.getInstance();
-                    hybridLog2.e("Offline", "强制使用线上：" + str);
-                    e(str, "dev_mode", false, "", "");
-                    return Pair.create(Boolean.FALSE, str);
-                } else {
-                    String str2 = null;
-                    try {
-                        str2 = f(webView, str);
-                    } catch (Exception e) {
-                        TbLog hybridLog3 = HybridLog.getInstance();
-                        hybridLog3.e("Offline", "离线包处理异常 exception：" + e + " " + str);
-                        e(str, "exception", false, "", "");
-                    }
-                    if (!TextUtils.isEmpty(str2)) {
-                        return Pair.create(Boolean.TRUE, str2);
-                    }
-                    xl6.e().h(str);
-                    return Pair.create(Boolean.FALSE, str);
+                AbsDownloadGuide absDownloadGuide2 = this.b;
+                if (absDownloadGuide2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                    absDownloadGuide2 = null;
                 }
+                roundFrameLayout.removeView(absDownloadGuide2);
+                if (Intrinsics.areEqual(b, "part")) {
+                    Context context = view2.getContext();
+                    Intrinsics.checkNotNullExpressionValue(context, "view.context");
+                    this.b = new DownloadGuidePart(context);
+                } else if (Intrinsics.areEqual(b, "full")) {
+                    Context context2 = view2.getContext();
+                    Intrinsics.checkNotNullExpressionValue(context2, "view.context");
+                    this.b = new DownloadGuideFull(context2);
+                }
+                RoundFrameLayout roundFrameLayout2 = this.a;
+                if (roundFrameLayout2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
+                    roundFrameLayout2 = null;
+                }
+                AbsDownloadGuide absDownloadGuide3 = this.b;
+                if (absDownloadGuide3 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+                    absDownloadGuide3 = null;
+                }
+                roundFrameLayout2.addView(absDownloadGuide3);
             }
-            return Pair.create(Boolean.TRUE, str);
+            ThreadData threadData = new ThreadData();
+            ArrayList arrayList = new ArrayList();
+            PbContent.Builder builder = new PbContent.Builder();
+            builder.type = 35;
+            builder.tiebaplus_info = um6.a(downloadData.a());
+            PbContent build = builder.build(true);
+            Intrinsics.checkNotNullExpressionValue(build, "contentBuilder.build(true)");
+            arrayList.add(build);
+            threadData.setRichAbstractList(arrayList);
+            threadData.isTiebaPlusAdThread = Intrinsics.areEqual(a.get("is_tie_plus_ad"), "1");
+            threadData.tiebaPlusOrderId = a.get("tie_plus_order_id");
+            threadData.tid = a.get("thread_id");
+            threadData.setFid(JavaTypesHelper.toLong(a.get("forum_id"), 0L));
+            AbsDownloadGuide absDownloadGuide4 = this.b;
+            if (absDownloadGuide4 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
+            } else {
+                absDownloadGuide = absDownloadGuide4;
+            }
+            absDownloadGuide.setData(threadData);
         }
-        return (Pair) invokeLL.objValue;
     }
 }

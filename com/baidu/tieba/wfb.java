@@ -1,52 +1,61 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.sapi2.share.ShareCallPacking;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public final class wfb {
+public class wfb {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<Integer> a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                char[] charArray = str.toCharArray();
-                StringBuilder sb = new StringBuilder();
-                for (char c : charArray) {
-                    String binaryString = Integer.toBinaryString(c);
-                    while (binaryString.length() < 8) {
-                        binaryString = "0" + binaryString;
-                    }
-                    sb.append(binaryString);
-                }
-                while (sb.length() % 6 != 0) {
-                    sb.append("0");
-                }
-                String valueOf = String.valueOf(sb);
-                int length = valueOf.length() / 6;
-                char[] cArr = new char[length];
-                for (int i = 0; i < length; i++) {
-                    int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
-                    valueOf = valueOf.substring(6);
-                    cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
-                }
-                StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
-                if (str.length() % 3 == 1) {
-                    sb2.append("==");
-                } else if (str.length() % 3 == 2) {
-                    sb2.append("=");
-                }
-                for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
-                    sb2.insert(i2, "\r\n");
-                }
-                sb2.append("\r\n");
-                return String.valueOf(sb2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948270070, "Lcom/baidu/tieba/wfb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return str;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948270070, "Lcom/baidu/tieba/wfb;");
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        ArrayList<Integer> arrayList = new ArrayList<>(4);
+        a = arrayList;
+        arrayList.add(10000);
+        a.add(10001);
+        a.add(10002);
+        a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
+        a.add(-1);
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                b = kgb.a();
+            }
+            if (TextUtils.isEmpty(b)) {
+                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
+            }
+            if (b.toUpperCase().contains("HUAWEI")) {
+                return 10001;
+            }
+            if (!b.toUpperCase().contains(RomUtils.ROM_XIAOMI)) {
+                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
+            }
+            return 10002;
+        }
+        return invokeV.intValue;
     }
 }

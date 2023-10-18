@@ -43,8 +43,8 @@ public class CommonLikeButton extends AppCompatTextView {
             }
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ea);
-        d();
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec);
+        e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,8 +67,8 @@ public class CommonLikeButton extends AppCompatTextView {
             }
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ea);
-        d();
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec);
+        e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -91,11 +91,11 @@ public class CommonLikeButton extends AppCompatTextView {
             }
         }
         TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ea);
-        d();
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec);
+        e();
     }
 
-    public void d() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setSingleLine();

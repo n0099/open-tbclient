@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import androidx.core.view.InputDeviceCompat;
 import com.badlogic.ashley.core.ComponentOperationHandler;
 import com.badlogic.ashley.core.EntityManager;
-import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.o0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -30,6 +29,10 @@ public class h0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
+
+    public abstract <T extends f0> T h(Class<T> cls);
+
+    public abstract i0 i();
 
     /* loaded from: classes6.dex */
     public class b implements p0<i0> {
@@ -215,15 +218,6 @@ public class h0 {
         l0.d(new Class[0]).b();
     }
 
-    public i0 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return new i0();
-        }
-        return (i0) invokeV.objValue;
-    }
-
     public s0<k0> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -282,19 +276,6 @@ public class h0 {
         if (interceptable == null || interceptable.invokeL(1048580, this, k0Var) == null) {
             this.c.a(k0Var);
         }
-    }
-
-    public <T extends f0> T h(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
-            try {
-                return (T) n8.i(cls);
-            } catch (ReflectionException unused) {
-                return null;
-            }
-        }
-        return (T) invokeL.objValue;
     }
 
     public s0<i0> j(l0 l0Var) {
@@ -366,7 +347,7 @@ public class h0 {
         }
     }
 
-    public void update(float f) {
+    public void q(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
             if (!this.g) {
@@ -376,7 +357,7 @@ public class h0 {
                     try {
                         k0 k0Var = c2.get(i);
                         if (k0Var.e()) {
-                            k0Var.update(f);
+                            k0Var.i(f);
                         }
                         this.e.b();
                         this.d.d();

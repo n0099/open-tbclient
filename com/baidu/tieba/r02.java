@@ -1,108 +1,68 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.net.NetInfo;
-import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Observable;
-import java.util.Observer;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class r02 implements Observer {
+public class r02 extends n02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<wy1> k;
+    public fz1 l;
 
-    public r02() {
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r02(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.k = new ArrayList();
+        fz1 fz1Var = new fz1(str);
+        this.l = fz1Var;
+        this.k.add(fz1Var);
     }
 
-    public final String a(@NonNull NetInfo netInfo, @NonNull NetRequestResult netRequestResult, int i) {
-        InterceptResult invokeLLI;
-        Integer num;
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, netInfo, netRequestResult, i)) == null) {
-            Object obj = "";
-            if (i == 200) {
-                return "";
-            }
-            String statusMsg = netRequestResult.getStatusMsg();
-            NetInfo.Response response = netInfo.getResponse();
-            NetInfo.Base base = netInfo.getBase();
-            StringBuilder sb = new StringBuilder();
-            sb.append(statusMsg);
-            sb.append("; code=");
-            if (response == null) {
-                num = "";
-            } else {
-                num = Integer.valueOf(response.mCode);
-            }
-            sb.append(num);
-            String sb2 = sb.toString();
-            StringBuilder sb3 = new StringBuilder();
-            sb3.append(sb2);
-            sb3.append("; status=");
-            if (base != null) {
-                obj = Integer.valueOf(base.mStatus);
-            }
-            sb3.append(obj);
-            return sb3.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.l.c();
         }
-        return (String) invokeLLI.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // java.util.Observer
-    @SuppressLint({"BDThrowableCheck"})
-    public void update(Observable observable, Object obj) {
+    public List<wy1> i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observable, obj) != null) || !(obj instanceof NetRequestResult)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.k;
         }
-        NetRequestResult netRequestResult = (NetRequestResult) obj;
-        String url = netRequestResult.getUrl();
-        String valueOf = String.valueOf(netRequestResult.getId());
-        int statusCode = netRequestResult.getStatusCode();
-        if (statusCode != 3) {
-            if (statusCode != 4) {
-                if (statusCode != 5) {
-                    if (statusCode == 6) {
-                        qg2.D(valueOf, netRequestResult.getCreatedTime(), 0L, 0L);
-                    }
-                } else {
-                    qg2.D(valueOf, 0L, 0L, netRequestResult.getCreatedTime());
-                }
-            } else if (url != null) {
-                qg2.k().q(valueOf, url);
-            }
-        } else {
-            qg2.D(valueOf, 0L, netRequestResult.getCreatedTime(), 0L);
-        }
-        NetInfo netInfo = netRequestResult.getNetInfo();
-        int statusCode2 = netRequestResult.getStatusCode();
-        if (netRequestResult.getFromType() == 1 && url != null && netInfo != null) {
-            qg2.k().B(valueOf, url, netInfo);
-            long l = qg2.k().l(valueOf);
-            long currentTimeMillis = System.currentTimeMillis();
-            String e = ap3.n().e();
-            zh3.Q(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), zh3.l(), e, l, currentTimeMillis, valueOf);
-        } else if (netInfo != null) {
-            if (statusCode2 < 0 || statusCode2 >= 400) {
-                zh3.P(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), 0L, 0L, valueOf);
-            }
-        }
+        return (List) invokeV.objValue;
     }
 }

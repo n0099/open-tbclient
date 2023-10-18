@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.webkit.ValueCallback;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobads.sdk.internal.bj;
 import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ETAG;
@@ -1691,7 +1692,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 if (!sBlackListModels.contains(Build.MODEL)) {
                     return false;
                 }
-            } else if (!"sdk_int".equals(next)) {
+            } else if (!bj.f.equals(next)) {
                 Log.w(LOGTAG, "unknown key: ".concat(String.valueOf(next)));
                 return false;
             } else if (Build.VERSION.SDK_INT != jSONObject.getInt(next)) {

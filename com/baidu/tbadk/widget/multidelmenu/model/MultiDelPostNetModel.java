@@ -7,8 +7,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.l16;
-import com.baidu.tieba.m16;
+import com.baidu.tieba.tv5;
+import com.baidu.tieba.uv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
     public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiDelPostNetModel<T>.b a;
-    public l16 b;
+    public tv5 b;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -32,7 +32,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<String, Integer, m16> {
+    public class b extends BdAsyncTask<String, Integer, uv5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -60,13 +60,13 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(m16 m16Var) {
+        public void onPostExecute(uv5 uv5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m16Var) == null) {
-                super.onPostExecute(m16Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uv5Var) == null) {
+                super.onPostExecute(uv5Var);
                 this.b.a = null;
                 if (this.b.mLoadDataCallBack != null) {
-                    this.b.mLoadDataCallBack.c(m16Var);
+                    this.b.mLoadDataCallBack.c(uv5Var);
                 }
             }
         }
@@ -78,7 +78,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public m16 doInBackground(String... strArr) {
+        public uv5 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -94,18 +94,18 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
                 this.a.addPostData("type", this.b.b.e);
                 this.a.getNetContext().getRequest().mIsNeedTbs = true;
                 String postNetData = this.a.postNetData();
-                m16 m16Var = new m16();
+                uv5 uv5Var = new uv5();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    m16Var.a = true;
-                    m16Var.a(postNetData);
+                    uv5Var.a = true;
+                    uv5Var.a(postNetData);
                 } else {
-                    m16Var.a = false;
-                    m16Var.b = this.a.getErrorString();
+                    uv5Var.a = false;
+                    uv5Var.b = this.a.getErrorString();
                     this.a.getServerErrorCode();
                 }
-                return m16Var;
+                return uv5Var;
             }
-            return (m16) invokeL.objValue;
+            return (uv5) invokeL.objValue;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -195,10 +195,10 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         return invokeV.booleanValue;
     }
 
-    public void T(l16 l16Var) {
+    public void U(tv5 tv5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, l16Var) == null) {
-            this.b = l16Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tv5Var) == null) {
+            this.b = tv5Var;
         }
     }
 }

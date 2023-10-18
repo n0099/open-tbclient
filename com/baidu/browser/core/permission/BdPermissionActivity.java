@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.app.ActivityCompat;
-import com.baidu.tieba.hw;
-import com.baidu.tieba.iw;
+import com.baidu.tieba.er;
+import com.baidu.tieba.fr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,16 +44,16 @@ public class BdPermissionActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            requestPermissions();
+            b();
         }
     }
 
-    private void requestPermissions() {
+    public final void b() {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (strArr = this.b) != null && strArr.length != 0) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (strArr = this.b) != null && strArr.length != 0) {
             boolean z = false;
             for (String str : strArr) {
                 if (!z && !ActivityCompat.shouldShowRequestPermissionRationale(this, str)) {
@@ -64,7 +64,7 @@ public class BdPermissionActivity extends Activity {
             }
             if (z) {
                 ActivityCompat.requestPermissions(this, this.b, this.a);
-            } else if (iw.c(this, this.a)) {
+            } else if (fr.c(this, this.a)) {
                 ActivityCompat.requestPermissions(this, this.b, this.a);
             } else {
                 onRequestPermissionsResult(this.a, this.b, new int[0]);
@@ -75,7 +75,7 @@ public class BdPermissionActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             a();
         }
@@ -84,8 +84,8 @@ public class BdPermissionActivity extends Activity {
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) {
-            ActivityCompat.OnRequestPermissionsResultCallback c = hw.b().c(this.a);
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, strArr, iArr) == null) {
+            ActivityCompat.OnRequestPermissionsResultCallback c = er.b().c(this.a);
             if (c != null) {
                 c.onRequestPermissionsResult(i, strArr, iArr);
             }

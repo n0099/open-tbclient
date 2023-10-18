@@ -1,26 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.Surface;
+import androidx.annotation.NonNull;
 /* loaded from: classes9.dex */
-public final class zl2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zl2 extends bm2 {
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return uj3.a().getBoolean("KEY_SWAN_APP_STABILITY_OPEN_COLLECTOR", false);
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes9.dex */
+    public interface a {
     }
 
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            uj3.a().putBoolean("KEY_SWAN_APP_STABILITY_OPEN_COLLECTOR", z);
-        }
-    }
+    void W(long j);
+
+    int getVideoHeight();
+
+    int getVideoWidth();
+
+    void m(String str);
+
+    void o(@NonNull a aVar);
+
+    void onSurfaceChanged(int i, int i2);
+
+    void s(int i, int i2, int i3, int i4);
+
+    void setSurface(Surface surface);
+
+    void z(int i);
 }

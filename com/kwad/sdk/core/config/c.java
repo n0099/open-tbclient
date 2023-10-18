@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.config;
 
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.kwad.sdk.core.config.item.InstallActivateReminderConfigItem;
 import com.kwad.sdk.core.config.item.TipsConfigItem;
 import com.kwad.sdk.core.config.item.e;
@@ -187,7 +186,7 @@ public final class c {
         UO = new o("exceptionSoUrlV7a", "");
         UP = new o("exceptionSoUrlV8a", "");
         UQ = new j("kwaiAppVersionSwitch", 1);
-        UR = new o(TTDownloadField.TT_USERAGENT, com.kwad.sdk.core.network.o.getDefaultUserAgent());
+        UR = new o("userAgent", com.kwad.sdk.core.network.o.getDefaultUserAgent());
         US = new j("biddingLogSwitch", 0);
         UT = new j("forceActiveThreshold", 5);
         UU = new j("forceActiveInterval", 3);

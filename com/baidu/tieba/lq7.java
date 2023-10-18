@@ -1,88 +1,196 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.mainTab.FragmentDelegate;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.FragmentTabStructure;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.PraiseData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.GameCenterCoreUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
-public class lq7 extends FragmentDelegate {
+public class lq7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public boolean isAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-624265766, "Lcom/baidu/tieba/lq7$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-624265766, "Lcom/baidu/tieba/lq7$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[UtilHelper.NativePageType.values().length];
+            a = iArr;
+            try {
+                iArr[UtilHelper.NativePageType.FRS.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[UtilHelper.NativePageType.PB.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public lq7(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947951607, "Lcom/baidu/tieba/lq7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947951607, "Lcom/baidu/tieba/lq7;");
                 return;
             }
         }
-        FragmentTabStructure fragmentTabStructure = this.mFragement;
-        fragmentTabStructure.type = i;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) fragmentTabStructure.frag;
-        specialFrsWebFragment.U2(i);
-        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
-            if (str.contains("&ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            } else if (str.contains("?ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
+        a = Pattern.compile("(/p/){1}(\\d+)");
+    }
+
+    public static void a(@Nullable tw4 tw4Var, @Nullable BaseFragment baseFragment) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, tw4Var, baseFragment) == null) && tw4Var != null && baseFragment != null) {
+            String e = tw4Var.e();
+            if (tw4Var.a() == 1) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2902014, new FacePackageDetailActivityConfig(baseFragment.getPageContext().getPageActivity(), e, false, "frs_banner")));
+            } else if (tw4Var.a() == 2) {
+                if (e.contains("tieba.baidu.com")) {
+                    Matcher matcher = a.matcher(e);
+                    if (matcher.find()) {
+                        try {
+                            String group = matcher.group(2);
+                            PbActivityConfig createNormalCfg = new PbActivityConfig(baseFragment.getPageContext().getPageActivity()).createNormalCfg(group, null, "frs_banner");
+                            createNormalCfg.setForumId(group);
+                            createNormalCfg.setStartFrom(3);
+                            baseFragment.sendMessage(new CustomMessage(2004001, createNormalCfg));
+                        } catch (Exception e2) {
+                            BdLog.e(e2.toString());
+                        }
+                    }
+                }
+            } else if (tw4Var.a() == 3) {
+                UtilHelper.NativePage isNativeAddress = UtilHelper.isNativeAddress(e);
+                UtilHelper.NativePageType nativePageType = isNativeAddress.type;
+                if (nativePageType != UtilHelper.NativePageType.NONE) {
+                    int i = a.a[nativePageType.ordinal()];
+                    if (i != 1) {
+                        if (i == 2) {
+                            PbActivityConfig createNormalCfg2 = new PbActivityConfig(baseFragment.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, null, "frs_banner");
+                            createNormalCfg2.setForumId(isNativeAddress.id);
+                            createNormalCfg2.setStartFrom(3);
+                            baseFragment.sendMessage(new CustomMessage(2004001, createNormalCfg2));
+                            return;
+                        }
+                        return;
+                    }
+                    baseFragment.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(baseFragment.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, "frs_banner")));
+                    return;
+                }
+                UrlManager.getInstance().dealOneLink(baseFragment.getPageContext(), new String[]{e});
+                if (!StringUtils.isNull(e) && e.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
+                    TiebaStatic.eventStat(baseFragment.getPageContext().getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", GameCenterCoreUtils.REF_TYPE_FROM_FRS);
+                }
+            } else if (tw4Var.a() == 4) {
+                baseFragment.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(baseFragment.getPageContext().getPageActivity()).createNormalCfg(e, "frs_banner")));
             }
         }
-        specialFrsWebFragment.k2(str);
     }
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public FragmentTabStructure createFragmentTabStructure() {
-        InterceptResult invokeV;
+    public static void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.frag = new SpecialFrsWebFragment();
-            fragmentTabStructure.type = 101;
-            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
-            return fragmentTabStructure;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            id7 id7Var = new id7();
+            id7Var.a = i;
+            id7Var.b = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, id7Var));
         }
-        return (FragmentTabStructure) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public TbFragmentTabIndicator getTabIndicator(Context context) {
-        InterceptResult invokeL;
+    public static void c(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.mIndicator = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.mIndicator;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && !z) {
+            id7 id7Var = new id7();
+            id7Var.a = i;
+            id7Var.b = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, id7Var));
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
+    }
+
+    public static void d(ThreadData threadData, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i) == null) {
+            if (i == 1) {
+                PraiseData praise = threadData.getPraise();
+                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+                if (currentAccountObj != null) {
+                    MetaData metaData = new MetaData();
+                    metaData.setName_show(currentAccountObj.getAccount());
+                    metaData.setPortrait(currentAccountObj.getPortrait());
+                    metaData.setUserId(currentAccountObj.getID());
+                    if (praise == null) {
+                        PraiseData praiseData = new PraiseData();
+                        praiseData.setIsLike(i);
+                        praiseData.setNum(1L);
+                        praiseData.getUser().add(0, metaData);
+                        threadData.setPraise(praiseData);
+                        return;
+                    }
+                    threadData.getPraise().getUser().add(0, metaData);
+                    threadData.getPraise().setNum(threadData.getPraise().getNum() + 1);
+                    threadData.getPraise().setIsLike(i);
+                }
+            } else if (threadData.getPraise() != null) {
+                threadData.getPraise().setIsLike(i);
+                threadData.getPraise().setNum(threadData.getPraise().getNum() - 1);
+                ArrayList<MetaData> user = threadData.getPraise().getUser();
+                if (user != null) {
+                    Iterator<MetaData> it = user.iterator();
+                    while (it.hasNext()) {
+                        MetaData next = it.next();
+                        if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
+                            threadData.getPraise().getUser().remove(next);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

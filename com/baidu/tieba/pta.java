@@ -2,38 +2,41 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.MatchPlayerInfo;
+import tbclient.Post;
 /* loaded from: classes7.dex */
-public abstract class pta {
+public final class pta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
+    public String a;
     public String b;
-    public String c;
-    public String d;
-    public boolean e;
+    public double c;
+    public long d;
+    public pea e;
     public String f;
     public String g;
-    public boolean h;
+    public int h;
+    public String i;
+    public long j;
+    public int k;
+    public long l;
+    public int m;
+    public String n;
+    public String o;
+    public int p;
+    public String q;
 
-    public abstract void e();
-
-    public abstract void h();
-
-    public pta(BaseActivity baseActivity, String str, String str2) {
+    public pta() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,59 +46,294 @@ public abstract class pta {
                 return;
             }
         }
-        this.b = str;
-        this.c = str2;
-        this.a = baseActivity;
+        this.n = "";
+        this.o = "";
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !di.isEmpty(this.g)) {
-            FileHelper.deleteFile(new File(this.g));
-        }
-    }
-
-    public boolean b() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.n;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.o;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final pea d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (pea) invokeV.objValue;
+    }
+
+    public final long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.j;
+        }
+        return invokeV.longValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.m;
+        }
+        return invokeV.intValue;
+    }
+
+    public final long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.l;
+        }
+        return invokeV.longValue;
+    }
+
+    public final double j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public final long k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public final String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.h;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void c() {
+    public final int n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.p;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.q;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.q = UtilHelper.urlAddParam(str, "tab_id=1");
         }
     }
 
-    public void d(int i, String str) {
+    public final void t(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            a();
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.n = str;
         }
     }
 
-    public void g(int i, String str) {
+    public final void u(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-            a();
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.o = str;
         }
     }
 
-    public void f(VideoInfo videoInfo) {
+    public final void v(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, videoInfo) == null) {
-            a();
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.m = i;
         }
     }
 
-    public void i(boolean z) {
+    public final void w(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.h = z;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.c = d;
         }
+    }
+
+    public final void x(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.d = j;
+        }
+    }
+
+    public final void y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public final void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.p = i;
+        }
+    }
+
+    public final void r(MatchPlayerInfo matchPlayerInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048594, this, matchPlayerInfo) != null) || matchPlayerInfo == null) {
+            return;
+        }
+        this.a = matchPlayerInfo.name;
+        this.b = matchPlayerInfo.avatar;
+        Double d = matchPlayerInfo.score;
+        Intrinsics.checkNotNullExpressionValue(d, "matchPlayerInfo.score");
+        this.c = d.doubleValue();
+        Long l = matchPlayerInfo.score_cnt;
+        Intrinsics.checkNotNullExpressionValue(l, "matchPlayerInfo.score_cnt");
+        this.d = l.longValue();
+        Post post = matchPlayerInfo.hot_post;
+        if (post != null) {
+            pea peaVar = new pea();
+            this.e = peaVar;
+            Intrinsics.checkNotNull(peaVar);
+            peaVar.J0(post);
+        }
+        this.f = matchPlayerInfo.sub_avatar;
+        this.g = matchPlayerInfo.sub_text;
+        Integer num = matchPlayerInfo.score_self;
+        Intrinsics.checkNotNullExpressionValue(num, "matchPlayerInfo.score_self");
+        this.h = num.intValue();
+        this.i = matchPlayerInfo.score_link;
+        Long l2 = matchPlayerInfo.match_id;
+        Intrinsics.checkNotNullExpressionValue(l2, "matchPlayerInfo.match_id");
+        this.j = l2.longValue();
+        Integer num2 = matchPlayerInfo.match_index;
+        Intrinsics.checkNotNullExpressionValue(num2, "matchPlayerInfo.match_index");
+        this.k = num2.intValue();
+        Long l3 = matchPlayerInfo.player_id;
+        Intrinsics.checkNotNullExpressionValue(l3, "matchPlayerInfo.player_id");
+        this.l = l3.longValue();
+        A(matchPlayerInfo.score_link);
+    }
+
+    public final void s(tbclient.Personalized.MatchPlayerInfo matchPlayerInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048595, this, matchPlayerInfo) != null) || matchPlayerInfo == null) {
+            return;
+        }
+        this.a = matchPlayerInfo.name;
+        this.b = matchPlayerInfo.avatar;
+        Double d = matchPlayerInfo.score;
+        Intrinsics.checkNotNullExpressionValue(d, "matchPlayerInfo.score");
+        this.c = d.doubleValue();
+        Long l = matchPlayerInfo.score_cnt;
+        Intrinsics.checkNotNullExpressionValue(l, "matchPlayerInfo.score_cnt");
+        this.d = l.longValue();
+        Post post = matchPlayerInfo.hot_post;
+        if (post != null) {
+            pea peaVar = new pea();
+            this.e = peaVar;
+            Intrinsics.checkNotNull(peaVar);
+            peaVar.J0(post);
+        }
+        this.f = matchPlayerInfo.sub_avatar;
+        this.g = matchPlayerInfo.sub_text;
+        Integer num = matchPlayerInfo.score_self;
+        Intrinsics.checkNotNullExpressionValue(num, "matchPlayerInfo.score_self");
+        this.h = num.intValue();
+        this.i = matchPlayerInfo.score_link;
+        Long l2 = matchPlayerInfo.match_id;
+        Intrinsics.checkNotNullExpressionValue(l2, "matchPlayerInfo.match_id");
+        this.j = l2.longValue();
+        Integer num2 = matchPlayerInfo.match_index;
+        Intrinsics.checkNotNullExpressionValue(num2, "matchPlayerInfo.match_index");
+        this.k = num2.intValue();
+        Long l3 = matchPlayerInfo.player_id;
+        Intrinsics.checkNotNullExpressionValue(l3, "matchPlayerInfo.player_id");
+        this.l = l3.longValue();
+        A(matchPlayerInfo.score_link);
     }
 }

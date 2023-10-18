@@ -31,7 +31,7 @@ import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestCall implements Cancelable, IRequestCall {
     public static final String TAG = "RequestCall";
     public OkHttpClient client;

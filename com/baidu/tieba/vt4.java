@@ -1,61 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.filedownloader.TbDownloadManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vt4 extends rt4 {
+public class vt4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile TbDownloadManager a;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile long e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vt4(lt4 lt4Var) {
-        super(lt4Var);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948252307, "Lcom/baidu/tieba/vt4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lt4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((lt4) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.e = System.currentTimeMillis();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948252307, "Lcom/baidu/tieba/vt4;");
+        }
     }
 
-    public synchronized long i() {
-        InterceptResult invokeV;
-        long j;
+    public static TbDownloadManager a(DownloadData downloadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                this.e = System.currentTimeMillis() + 60000;
-                j = this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, downloadData)) == null) {
+            if (a == null) {
+                synchronized (CommonTbJsBridge.class) {
+                    if (a == null) {
+                        a = new TbDownloadManager();
+                    }
+                }
             }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (System.currentTimeMillis() - this.e >= 60000) {
-                return true;
+            a.w(2);
+            if (a.p(downloadData) <= 0) {
+                a.w(1);
+                if (a.p(downloadData) <= 0) {
+                    a.w(x97.a());
+                }
             }
-            return false;
+            return a;
         }
-        return invokeV.booleanValue;
+        return (TbDownloadManager) invokeL.objValue;
     }
 }

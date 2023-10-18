@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes6.dex */
-public interface l9 {
-    BdUniqueId getUniqueId();
+import com.baidu.tieba.m9;
+/* loaded from: classes7.dex */
+public interface l9<T> {
+    T a(String str, String str2);
 
-    boolean isScroll();
+    void b(String str);
 
-    void onPreLoad(fn fnVar);
+    f9 c();
 
-    void setIsScroll(boolean z);
+    void d(String str, String str2);
+
+    m9.b<T> e(String str, String str2);
+
+    void f(String str, String str2, T t, long j);
+
+    void g(String str);
 }

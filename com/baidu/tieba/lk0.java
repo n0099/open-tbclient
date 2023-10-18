@@ -1,16 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.content.Context;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.lp.reward.NadRewardVideoActivity;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+@Service
 /* loaded from: classes7.dex */
-public class lk0 {
+public class lk0 extends zd0 {
     public static /* synthetic */ Interceptable $ic;
-    public static gk0 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.zd0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rewardImpl" : (String) invokeV.objValue;
+    }
 
     public lk0() {
         Interceptable interceptable = $ic;
@@ -26,22 +41,27 @@ public class lk0 {
         }
     }
 
-    public static gk0 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zd0
+    public boolean b(@NonNull Context context, @NonNull de0 de0Var, @Nullable Map<String, Object> map, @Nullable he0 he0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (lk0.class) {
-                    if (a == null) {
-                        a = (gk0) ServiceManager.getService(gk0.a);
-                    }
-                    if (a == null) {
-                        a = gk0.b;
-                    }
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, de0Var, map, he0Var)) == null) {
+            super.b(context, de0Var, map, he0Var);
+            HashMap<String, String> d = de0Var.d();
+            int i = 0;
+            if (d.isEmpty()) {
+                c(he0Var, de0Var, 202, false);
+                return true;
             }
-            return a;
+            Intent intent = new Intent(context, NadRewardVideoActivity.class);
+            intent.putExtra("params", d);
+            boolean d2 = u01.d(context, intent);
+            if (!d2) {
+                i = 1001;
+            }
+            c(he0Var, de0Var, i, d2);
+            return true;
         }
-        return (gk0) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

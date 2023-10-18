@@ -6,11 +6,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.ara;
-import com.baidu.tieba.dqa;
-import com.baidu.tieba.eqa;
-import com.baidu.tieba.fqa;
+import com.baidu.tieba.qla;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
+import com.baidu.tieba.tka;
+import com.baidu.tieba.uka;
+import com.baidu.tieba.vka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,8 +23,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundGroupModel b;
-    public eqa c;
-    public fqa d;
+    public uka c;
+    public vka d;
     public BackgroundGroupModel.c e;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
@@ -59,9 +59,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, ara araVar, List<dqa> list) {
+        public void a(int i, String str, qla qlaVar, List<tka> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, araVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, qlaVar, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.c.d());
                 this.a.c.i();
@@ -70,7 +70,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     this.a.c.j();
                     return;
                 }
-                this.a.c.k(araVar, list, this.a.b.V());
+                this.a.c.k(qlaVar, list, this.a.b.W());
             }
         }
     }
@@ -91,7 +91,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         this.e = new a(this);
     }
 
-    public int O0() {
+    public int Q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -124,10 +124,10 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        eqa eqaVar;
+        uka ukaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b != null && (eqaVar = this.c) != null) {
-            showLoadingView(eqaVar.d());
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b != null && (ukaVar = this.c) != null) {
+            showLoadingView(ukaVar.d());
             this.b.loadData();
         }
     }
@@ -137,9 +137,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            eqa eqaVar = this.c;
-            if (eqaVar != null) {
-                eqaVar.f();
+            uka ukaVar = this.c;
+            if (ukaVar != null) {
+                ukaVar.f();
             }
         }
     }
@@ -153,13 +153,13 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             this.a = getPageContext();
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.b = backgroundGroupModel;
-            backgroundGroupModel.Y(this.e);
-            fqa fqaVar = new fqa(this.a, this.b.getUniqueId());
-            this.d = fqaVar;
-            fqaVar.c(1);
-            eqa eqaVar = new eqa(this, this.d);
-            this.c = eqaVar;
-            eqaVar.e();
+            backgroundGroupModel.Z(this.e);
+            vka vkaVar = new vka(this.a, this.b.getUniqueId());
+            this.d = vkaVar;
+            vkaVar.c(1);
+            uka ukaVar = new uka(this, this.d);
+            this.c = ukaVar;
+            ukaVar.e();
             showLoadingView(this.c.d());
             this.b.loadData();
         }

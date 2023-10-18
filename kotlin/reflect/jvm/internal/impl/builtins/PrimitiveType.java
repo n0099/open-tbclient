@@ -5,7 +5,7 @@ import java.util.EnumSet;
 import java.util.Set;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public enum PrimitiveType {
     BOOLEAN("Boolean"),
     CHAR("Char"),

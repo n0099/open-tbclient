@@ -1,223 +1,214 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.swan.apps.component.components.textarea.SwanEditText;
-import com.baidu.tieba.n62;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.tieba.x52;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes7.dex */
-public abstract class m62<V extends SwanEditText, M extends n62> extends r62<V, M> {
+public class m62 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final x52 a;
+    public final g62 b;
+    public final u52 c;
+    public long d;
+    public String e;
+    public Timer f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m62(@Nullable Context context, @NonNull M m) {
-        super(context, m);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (s62) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m62 a;
+
+        public a(m62 m62Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m62Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m62Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e(null);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements x52.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w52 a;
+        public final /* synthetic */ i62 b;
+        public final /* synthetic */ ik3 c;
+        public final /* synthetic */ m62 d;
+
+        public b(m62 m62Var, w52 w52Var, i62 i62Var, ik3 ik3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m62Var, w52Var, i62Var, ik3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = m62Var;
+            this.a = w52Var;
+            this.b = i62Var;
+            this.c = ik3Var;
+        }
+
+        @Override // com.baidu.tieba.x52.b
+        public void a(NetworkStatus networkStatus) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.a.a());
+                sb.append(this.b.d());
+                sb.append(networkStatus.getDesc());
+                sb.append(this.b.c());
+                if (m62.g) {
+                    Log.d("SceneLaunchDefaultTips", ">> " + sb.toString());
+                }
+                this.d.e = sb.toString();
+                ik3 ik3Var = this.c;
+                if (ik3Var != null) {
+                    ik3Var.a(this.d.e);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947924544, "Lcom/baidu/tieba/m62;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947924544, "Lcom/baidu/tieba/m62;");
                 return;
             }
         }
+        g = am1.a;
     }
 
-    public void f0(@NonNull V v, @NonNull M m) {
-        int i;
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) {
-            if (v62.h) {
-                Log.d("Component-EditText", "renderSelection");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (System.currentTimeMillis() - this.d > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
+                return true;
             }
-            Editable text = v.getText();
-            int i2 = 0;
-            if (text != null) {
-                i2 = text.length();
-            }
-            int i3 = m.H;
-            if (i3 <= i2 && (i = m.G) >= 0 && i <= i3) {
-                v.setSelection(i, i3);
-            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void g() {
+        Timer timer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (timer = this.f) != null) {
+            timer.cancel();
+            this.f = null;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t62
-    /* renamed from: b0 */
-    public void Q(@NonNull V v, @NonNull M m) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
-            if (v62.h) {
-                Log.d("Component-EditText", "renderBackground");
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (g) {
+                Log.d("SceneLaunchDefaultTips", ">> start to collect default launch info.");
             }
-            v.setBackgroundColor(0);
+            g();
+            Timer timer = new Timer();
+            this.f = timer;
+            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
         }
     }
 
-    public void d0(@NonNull V v, @NonNull M m) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, v, m) == null) {
-            if (v62.h) {
-                Log.d("Component-EditText", "renderCursor");
-            }
-            Editable text = v.getText();
-            int i = 0;
-            if (text != null) {
-                i = text.length();
-            }
-            int i2 = m.F;
-            if (i2 <= i && i2 >= 0) {
-                v.setSelection(i2);
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            g();
         }
     }
 
-    public final void e0(@NonNull V v, @NonNull M m) {
+    public m62() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, v, m) == null) {
-            if (v62.h) {
-                Log.d("Component-EditText", "renderMaxLength");
-            }
-            if (m.D >= 0) {
-                v.setFilters(new InputFilter[]{new InputFilter.LengthFilter(m.D)});
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = System.currentTimeMillis();
+        this.e = "";
+        this.a = new x52();
+        this.b = g62.d();
+        this.c = u52.d();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r62, com.baidu.tieba.t62, com.baidu.tieba.v62
-    @NonNull
-    /* renamed from: Z */
-    public y72 k(@NonNull M m, @NonNull M m2) {
-        InterceptResult invokeLL;
+    public void e(@Nullable ik3<String> ik3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, m, m2)) == null) {
-            y72 k = super.k(m, m2);
-            if (q() != 0 && !TextUtils.equals(((SwanEditText) q()).getText().toString(), m2.t)) {
-                k.b(6);
-            }
-            if (m.D != m2.D) {
-                k.b(10);
-            }
-            if (m.F != m2.F) {
-                k.b(11);
-            }
-            if (m.G != m2.G || m.H != m2.H) {
-                k.b(12);
-            }
-            if (!TextUtils.equals(m.I, m2.I)) {
-                k.b(13);
-            }
-            return k;
-        }
-        return (y72) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r62
-    /* renamed from: a0 */
-    public void T(@NonNull V v, @NonNull M m, @NonNull y72 y72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, v, m, y72Var) == null) {
-            super.O(v, m, y72Var);
-            if (y72Var.a(11)) {
-                d0(v, m);
-            }
-            if (y72Var.a(12)) {
-                f0(v, m);
-            }
-            if (y72Var.a(10)) {
-                e0(v, m);
-            }
-            if (y72Var.a(13)) {
-                c0(v, m);
-            }
-        }
-    }
-
-    public boolean c0(@NonNull V v, @NonNull M m) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, v, m)) == null) {
-            if (v62.h) {
-                Log.d("Component-EditText", "renderConfirmType:" + m.I);
-            }
-            String str = m.I;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -906336856:
-                    if (str.equals("search")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
-                    if (str.equals("go")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3089282:
-                    if (str.equals("done")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 3377907:
-                    if (str.equals("next")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3526536:
-                    if (str.equals("send")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                return false;
-                            }
-                            v.setImeOptions(6);
-                        } else {
-                            v.setImeOptions(2);
-                        }
-                    } else {
-                        v.setImeOptions(5);
-                    }
-                } else {
-                    v.setImeOptions(3);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ik3Var) == null) {
+            if (d() && !TextUtils.isEmpty(this.e)) {
+                if (ik3Var != null) {
+                    ik3Var.a(this.e);
+                    return;
                 }
-            } else {
-                v.setImeOptions(4);
+                return;
             }
-            return true;
+            this.a.a(new b(this, this.c.f(), this.b.f(), ik3Var));
         }
-        return invokeLL.booleanValue;
     }
 }

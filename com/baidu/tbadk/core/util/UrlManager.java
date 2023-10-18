@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.af5;
-import com.baidu.tieba.f26;
-import com.baidu.tieba.kf5;
+import com.baidu.tieba.h95;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.ow5;
+import com.baidu.tieba.r95;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -292,7 +292,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new f26(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new ow5(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -549,7 +549,7 @@ public class UrlManager {
                 return false;
             }
             String str2 = strArr[0];
-            af5 a = new kf5().a(str2);
+            h95 a = new r95().a(str2);
             if (a.b() && StringUtils.isNotNull(a.a())) {
                 str2 = a.a();
                 strArr[0] = str2;

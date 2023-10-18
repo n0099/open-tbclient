@@ -48,7 +48,7 @@ public class a {
     }
 
     public static com.meizu.cloud.pushsdk.d.e.a a(com.meizu.cloud.pushsdk.d.b.a aVar, c cVar, Context context) {
-        return new com.meizu.cloud.pushsdk.d.e.a.a(new a.C0711a(aVar, "PushAndroidTracker", context.getPackageCodePath(), context, com.meizu.cloud.pushsdk.d.e.a.a.class).a(b.VERBOSE).a(Boolean.FALSE).a(cVar).a(4));
+        return new com.meizu.cloud.pushsdk.d.e.a.a(new a.C0694a(aVar, "PushAndroidTracker", context.getPackageCodePath(), context, com.meizu.cloud.pushsdk.d.e.a.a.class).a(b.VERBOSE).a(Boolean.FALSE).a(cVar).a(4));
     }
 
     public static c a(Context context) {
@@ -78,6 +78,6 @@ public class a {
     }
 
     public static com.meizu.cloud.pushsdk.d.b.a b(Context context, com.meizu.cloud.pushsdk.c.c.a aVar, f fVar) {
-        return new com.meizu.cloud.pushsdk.d.b.a.a(new a.C0708a(a(), context, com.meizu.cloud.pushsdk.d.b.a.a.class).a(fVar).a(aVar).a(1).a(com.meizu.cloud.pushsdk.d.b.b.DefaultGroup).b(com.meizu.cloud.pushsdk.d.b.b.DefaultGroup.a()).c(2));
+        return new com.meizu.cloud.pushsdk.d.b.a.a(new a.C0691a(a(), context, com.meizu.cloud.pushsdk.d.b.a.a.class).a(fVar).a(aVar).a(1).a(com.meizu.cloud.pushsdk.d.b.b.DefaultGroup).b(com.meizu.cloud.pushsdk.d.b.b.DefaultGroup.a()).c(2));
     }
 }

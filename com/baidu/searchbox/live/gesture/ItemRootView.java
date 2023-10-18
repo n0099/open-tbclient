@@ -8,14 +8,14 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.live.util.ImmersionUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ItemRootView extends FrameLayout {
     public int downY;
     public boolean isInterceptAllTouch;
     public ItemGestureListener listener;
     public GestureDetector mGestureDetector;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SimpleGestureListener implements ItemGestureListener {
         @Override // com.baidu.searchbox.live.gesture.ItemGestureListener
         public void onDoubleTap(int i, int i2) {

@@ -1,74 +1,63 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.browser.exception.TbWebViewException;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class mn6 {
+public final class mn6 implements l77 {
     public static /* synthetic */ Interceptable $ic;
-    public static final pn6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void c(Throwable th) {
+    @Override // com.baidu.tieba.l77
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, th) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947978484, "Lcom/baidu/tieba/mn6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947978484, "Lcom/baidu/tieba/mn6;");
-                return;
-            }
-        }
-        a = new pn6() { // from class: com.baidu.tieba.ln6
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.pn6
-            public final void a(Throwable th) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, th) == null) {
-                    mn6.b(th);
-                }
-            }
-        };
-    }
-
-    public static void a(Throwable th) {
+    public mn6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, th) == null) {
-            throw new RuntimeException(th);
-        }
-    }
-
-    public static /* synthetic */ void b(Throwable th) {
-        if (!nm6.a()) {
-            c(th);
-        } else {
-            a(th);
-            throw null;
-        }
-    }
-
-    public static void d(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
-            if (!(th instanceof TbWebViewException)) {
-                th = new TbWebViewException(th);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            a.a(th);
         }
+    }
+
+    @Override // com.baidu.tieba.l77
+    public Map<String, String> a(v27 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_locate", "1");
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            String str = "";
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            hashMap.put("obj_id", currentAccount);
+            String str2 = a.get("user_id");
+            if (str2 != null) {
+                str = str2;
+            }
+            hashMap.put("obj_param1", str);
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

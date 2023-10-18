@@ -1,92 +1,143 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class q5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public final Handler c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448313417, "Lcom/baidu/tieba/q5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448313417, "Lcom/baidu/tieba/q5;");
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public static void a(int i, Pixmap pixmap, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (!a) {
-                b(i, pixmap, i2, i3);
-            } else if (y0.a.getType() != Application.ApplicationType.Android && y0.a.getType() != Application.ApplicationType.WebGL && y0.a.getType() != Application.ApplicationType.iOS) {
-                c(i, pixmap, i2, i3);
-            } else {
-                d(i, pixmap);
-            }
-        }
-    }
+    /* loaded from: classes7.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q5 a;
 
-    public static void b(int i, Pixmap pixmap, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            y0.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            if (y0.f == null && i2 != i3) {
-                throw new GdxRuntimeException("texture width and height must be square when using mipmapping.");
-            }
-            int n = pixmap.n() / 2;
-            int l = pixmap.l() / 2;
-            int i4 = 1;
-            Pixmap pixmap2 = pixmap;
-            while (n > 0 && l > 0) {
-                Pixmap pixmap3 = new Pixmap(n, l, pixmap2.h());
-                pixmap3.o(Pixmap.Blending.None);
-                pixmap3.f(pixmap2, 0, 0, pixmap2.n(), pixmap2.l(), 0, 0, n, l);
-                if (i4 > 1) {
-                    pixmap2.dispose();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(q5 q5Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q5Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                pixmap2 = pixmap3;
-                y0.e.q(i, i4, pixmap3.j(), pixmap3.n(), pixmap3.l(), 0, pixmap3.i(), pixmap3.k(), pixmap3.m());
-                n = pixmap2.n() / 2;
-                l = pixmap2.l() / 2;
-                i4++;
+            }
+            this.a = q5Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what == 1) {
+                    this.a.c.removeMessages(1);
+                    BdLog.i("this is reconn time:" + this.a.b);
+                    BdSocketLinkService.startService(true, "time to reconnStragety");
+                    q5.c(this.a);
+                    int[] c = h5.c();
+                    if (c != null && this.a.b < c.length) {
+                        BdLog.i("Next will be delay:" + c[this.a.b]);
+                        this.a.c.sendMessageDelayed(this.a.c.obtainMessage(1), (long) (c[this.a.b] * 1000));
+                        return;
+                    }
+                    this.a.f("reconnStragety to the end");
+                }
             }
         }
     }
 
-    public static void c(int i, Pixmap pixmap, int i2, int i3) {
+    public q5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (!y0.b.a("GL_ARB_framebuffer_object") && !y0.b.a("GL_EXT_framebuffer_object") && y0.g == null) {
-                b(i, pixmap, i2, i3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            y0.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            y0.f.F(i);
+        }
+        this.a = false;
+        this.b = 0;
+        this.c = new a(this, Looper.getMainLooper());
+    }
+
+    public static /* synthetic */ int c(q5 q5Var) {
+        int i = q5Var.b;
+        q5Var.b = i + 1;
+        return i;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a) {
+            i5.a("reconn", 0, 0, "stop", BdSocketLinkService.STOP_RECONN, str);
+            this.a = false;
+            this.b = 0;
+            BdLog.i("stop reconnStrategy");
+            this.c.removeMessages(1);
         }
     }
 
-    public static void d(int i, Pixmap pixmap) {
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, pixmap) == null) {
-            y0.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            y0.f.F(i);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (!BdSocketLinkService.isAvailable()) {
+                f("online failed 5");
+            } else if (!this.a) {
+                this.a = true;
+                this.c.removeMessages(1);
+                if (zd.h().j()) {
+                    BdLog.d("启动重连策略失败，  WebSocketClient opened");
+                    f("in Opened");
+                    return;
+                }
+                d();
+                BdLog.d("启动重连策略");
+                this.b = 0;
+                int[] c = h5.c();
+                if (c != null && c.length >= 1) {
+                    BdLog.i("start reconnStrategy... the first will be delay" + c[0]);
+                    int i = BdSocketLinkService.STOP_RECONN;
+                    i5.a("reconn", 0, 0, "reconn", i, str + " retryTimes=" + String.valueOf(this.b));
+                    Handler handler = this.c;
+                    handler.sendMessageDelayed(handler.obtainMessage(1), (long) (c[0] * 1000));
+                    return;
+                }
+                BdLog.i("don't have reconnStrategy!");
+            } else {
+                BdLog.d("重连策略正在运行中， 再次启动无效");
+                i5.a("reconn", 0, 0, "start", BdSocketLinkService.ALLREADY, "have in Running,so invalid");
+            }
         }
     }
 }

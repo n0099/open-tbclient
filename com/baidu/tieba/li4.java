@@ -1,124 +1,35 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.RequestBody;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpOptions;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes6.dex */
-public class li4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+/* loaded from: classes7.dex */
+public class li4 extends xg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static HttpRequestBuilder a(@NonNull ji4 ji4Var) {
-        InterceptResult invokeL;
+    public li4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ji4Var)) == null) {
-            return b(ji4Var, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (HttpRequestBuilder) invokeL.objValue;
     }
 
-    @NonNull
-    public static HttpRequestBuilder b(@NonNull ji4 ji4Var, @Nullable ki4 ki4Var) {
-        InterceptResult invokeLL;
-        HttpCommonRequestBuilder o;
+    @Override // com.baidu.tieba.xg4, com.baidu.tieba.ah4
+    public void a(JSONArray jSONArray, kd4 kd4Var, @Nullable kd4 kd4Var2, @Nullable kd4 kd4Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ji4Var, ki4Var)) == null) {
-            if (ki4Var == null) {
-                ki4Var = ki4.g();
-            }
-            String str = ji4Var.b;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -531492226:
-                    if (str.equals(HttpOptions.METHOD_NAME)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 70454:
-                    if (str.equals("GET")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 79599:
-                    if (str.equals(HttpPut.METHOD_NAME)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 2213344:
-                    if (str.equals("HEAD")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 2461856:
-                    if (str.equals("POST")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 80083237:
-                    if (str.equals(HttpTrace.METHOD_NAME)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 1669334218:
-                    if (str.equals("CONNECT")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 2012838315:
-                    if (str.equals(HttpDelete.METHOD_NAME)) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return ki4Var.getRequest();
-                case 1:
-                    return ki4Var.headerRequest();
-                case 2:
-                    o = ki4Var.o();
-                    break;
-                case 3:
-                    o = ki4Var.postRequest();
-                    break;
-                case 4:
-                    o = ki4Var.putRequest();
-                    break;
-                case 5:
-                    o = ki4Var.deleteRequest();
-                    break;
-                case 6:
-                    o = ki4Var.y();
-                    break;
-                case 7:
-                    o = ki4Var.a();
-                    break;
-                default:
-                    return ki4Var.getRequest();
-            }
-            RequestBody requestBody = ji4Var.d;
-            if (requestBody != null) {
-                o.requestBody(requestBody);
-            }
-            return o;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, kd4Var, kd4Var2, kd4Var3) == null) {
+            ii4.a().c(jSONArray, kd4Var, kd4Var2, kd4Var3);
         }
-        return (HttpRequestBuilder) invokeLL.objValue;
     }
 }

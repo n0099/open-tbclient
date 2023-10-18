@@ -12,7 +12,6 @@ import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.sapi2.result.AccountToolsResult;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.SapiHost;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class AccountToolsActivity extends Activity {
@@ -39,7 +38,7 @@ public class AccountToolsActivity extends Activity {
                     if (i != 4) {
                         if (i == 5) {
                             hashMap.put("u", SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd");
-                            hashMap.put(SpeedStatsUtils.UBC_VALUE_BANNER, "1");
+                            hashMap.put("banner", "1");
                             str = "/wp/wappassword";
                         } else {
                             throw new RuntimeException("account tools type is not support");

@@ -1,46 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class f64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public q64 b;
+    public int c;
+    public long d;
 
-    public static void a(n54 n54Var, JsObject jsObject) {
+    public f64(int i, q64 q64Var) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, n54Var, jsObject) == null) {
-            g64 g64Var = new g64();
-            n32 F = n32.F(jsObject);
-            if (F == null) {
-                F = new n32();
-            }
-            boolean z = false;
-            if (n54Var == null) {
-                g64Var.errMsg = "openCustomerServiceConversation:fail";
-                sd4.call(F, false, g64Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), q64Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (q74.c()) {
-                gb3 M = gb3.M();
-                if (M != null) {
-                    String str = "{\"appKey\":\"" + M.O() + "\"}";
-                    if (SchemeRouter.invoke(nu2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
-                        g64Var.errMsg = "openCustomerServiceConversation:ok";
-                        z = true;
-                    } else {
-                        g64Var.errMsg = "openCustomerServiceConversation:fail";
-                    }
-                } else {
-                    g64Var.errMsg = "openCustomerServiceConversation:fail";
-                }
-            } else {
-                g64Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
-            }
-            sd4.call(F, z, g64Var);
         }
+        this.a = i;
+        this.b = q64Var;
+        if (m64.d()) {
+            i2 = 20;
+        } else {
+            i2 = 10;
+        }
+        this.c = i2;
+        this.d = System.currentTimeMillis();
+    }
+
+    public JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", this.a);
+                jSONObject.put("stage", this.c);
+                jSONObject.put("ts", this.d);
+                if (this.b != null) {
+                    jSONObject.put("msg", this.b.a());
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

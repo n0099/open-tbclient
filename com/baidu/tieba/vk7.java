@@ -1,16 +1,31 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AchievementActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.MessageCenterActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.frs.gametabs.NewSpecialFrsWebFragment;
+import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,39 +35,119 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class vk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
+    public BdPageContext a;
+    public NavigationBar b;
+    public SpecialFrsWebFragment c;
+    public NewSpecialFrsWebFragment d;
+    public mo6 e;
+    public ImageView f;
+    public ImageView g;
+    public ImageView h;
+    public View.OnClickListener i;
+    public CustomMessageListener j;
 
-    public final String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vk7 a;
+
+        public a(vk7 vk7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vk7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vk7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2 == this.a.f) {
+                    this.a.s();
+                } else if (this.a.e != null && view2 == this.a.e.c()) {
+                    if (!ViewHelper.checkUpIsLogin(this.a.a.getPageActivity())) {
+                        return;
+                    }
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.MESSAGE_ENTER_ICON_CLICK).param("obj_locate", 2));
+                    this.a.a.sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.a.a.getPageActivity())));
+                } else if (view2 == this.a.h) {
+                    if (!StringUtils.isNull(this.a.h())) {
+                        this.a.a.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.a.a.getPageActivity(), this.a.h(), ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
+                    }
+                } else if (view2 == this.a.g) {
+                    vk7 vk7Var = this.a;
+                    vk7Var.r(vk7Var.c.K2(null, null, null, null));
+                }
+            }
+        }
     }
 
-    public vk7(TbPageContext tbPageContext) {
+    /* loaded from: classes8.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vk7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(vk7 vk7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vk7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vk7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            NewsRemindMessage newsRemindMessage;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage instanceof NewsRemindMessage) || customResponsedMessage.getCmd() != 2001626 || (newsRemindMessage = (NewsRemindMessage) customResponsedMessage) == null) {
+                return;
+            }
+            int msgCount = newsRemindMessage.getMsgCount() + newsRemindMessage.getChatCount() + newsRemindMessage.getNotificationCount();
+            if (!newsRemindMessage.hasMsgRemind() && !newsRemindMessage.hasChatRemind() && !newsRemindMessage.hasNotificationRemind()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (this.a.e != null) {
+                this.a.e.f(z, msgCount);
+            }
+        }
+    }
+
+    public vk7(BdPageContext bdPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,254 +157,191 @@ public class vk7 {
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.i = new a(this);
+        this.j = new b(this, 2001626);
+        this.a = bdPageContext;
+        mo6 mo6Var = new mo6(bdPageContext.getPageActivity());
+        this.e = mo6Var;
+        mo6Var.c().setOnClickListener(this.i);
+        this.a.registerListener(this.j);
     }
 
-    public final SpannableString d(String str) {
-        InterceptResult invokeL;
+    public void o(boolean z) {
+        ImageView imageView;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), 0, spannableString.length(), 33);
-            return spannableString;
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (imageView = this.h) != null) {
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            imageView.setVisibility(i);
         }
-        return (SpannableString) invokeL.objValue;
     }
 
-    public final SpannableStringBuilder a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        InterceptResult invokeCommon;
+    public void p(boolean z) {
+        NavigationBar navigationBar;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) ("忍不住想告诉你个好消息，" + str + "吧的成员数量突破了"));
-            StringBuilder sb = new StringBuilder();
-            sb.append(str2);
-            sb.append("人");
-            spannableStringBuilder.append((CharSequence) d(sb.toString()));
-            spannableStringBuilder.append((CharSequence) ("！作为吧主，我邀请你加入" + str + "吧！\n\n"));
-            spannableStringBuilder.append((CharSequence) "在我担任吧主的这");
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) ("，为" + str + "吧创造了良好的社区氛围，近期发现了"));
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "篇优质贴子，最火热的一篇");
-            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
-            spannableStringBuilder.append((CharSequence) "竟然盖了");
-            spannableStringBuilder.append((CharSequence) d(str7 + "层"));
-            spannableStringBuilder.append((CharSequence) "楼。\n\n");
-            spannableStringBuilder.append((CharSequence) "我很喜欢");
-            spannableStringBuilder.append((CharSequence) i(str));
-            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
-            return spannableStringBuilder;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (navigationBar = this.b) != null) {
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            navigationBar.setVisibility(i);
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public final SpannableStringBuilder g(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        InterceptResult invokeCommon;
+    public void q(boolean z) {
+        ImageView imageView;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) ("恭喜！" + str + "吧成员数突破"));
-            StringBuilder sb = new StringBuilder();
-            sb.append(str2);
-            sb.append("人");
-            spannableStringBuilder.append((CharSequence) d(sb.toString()));
-            spannableStringBuilder.append((CharSequence) "！\n\n");
-            spannableStringBuilder.append((CharSequence) "感谢你在过去");
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) "的辛勤付出，火眼金睛的你最近挑选出了");
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "篇精品贴子，处理了大量违规内容。\n\n衷心感谢你为吧友提供了和谐快乐的社区氛围。截止目前");
-            spannableStringBuilder.append((CharSequence) i(str));
-            spannableStringBuilder.append((CharSequence) "吧共有");
-            spannableStringBuilder.append((CharSequence) d(str5 + "篇"));
-            spannableStringBuilder.append((CharSequence) "贴子，最火热的一篇贴子");
-            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
-            spannableStringBuilder.append((CharSequence) "竟然盖了");
-            spannableStringBuilder.append((CharSequence) d(str7 + "层"));
-            spannableStringBuilder.append((CharSequence) "楼。\n\n继续加油吧！期望你能带领");
-            spannableStringBuilder.append((CharSequence) i(str));
-            spannableStringBuilder.append((CharSequence) "吧走得更远！");
-            return spannableStringBuilder;
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (imageView = this.g) != null) {
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            imageView.setVisibility(i);
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public final SpannableStringBuilder b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
-        InterceptResult invokeCommon;
+    public void r(ShareItem shareItem) {
+        SpecialFrsWebFragment specialFrsWebFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) "给你安利一个有趣的社区——");
-            spannableStringBuilder.append((CharSequence) (str + "吧！现在成员数已经突破"));
-            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
-            spannableStringBuilder.append((CharSequence) "了！\n\n");
-            spannableStringBuilder.append((CharSequence) "我加入");
-            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) "了，近期发表了");
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "篇贴子，最火的一篇");
-            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
-            spannableStringBuilder.append((CharSequence) "收到了");
-            spannableStringBuilder.append((CharSequence) d(str7 + "条"));
-            spannableStringBuilder.append((CharSequence) "回复、");
-            spannableStringBuilder.append((CharSequence) d(str8 + "个"));
-            spannableStringBuilder.append((CharSequence) "赞！\n\n");
-            spannableStringBuilder.append((CharSequence) "我很喜欢");
-            spannableStringBuilder.append((CharSequence) i(str));
-            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
-            return spannableStringBuilder;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, shareItem) == null) && (specialFrsWebFragment = this.c) != null) {
+            specialFrsWebFragment.V2(shareItem);
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public final SpannableStringBuilder c(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) "给你安利一个有趣的社区——");
-            spannableStringBuilder.append((CharSequence) (str + "吧！现在成员数已经突破"));
-            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
-            spannableStringBuilder.append((CharSequence) "了！\n\n");
-            spannableStringBuilder.append((CharSequence) "我加入");
-            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) "了，近期参与了");
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "主题贴的讨论，写了");
-            spannableStringBuilder.append((CharSequence) d(str5 + "条"));
-            spannableStringBuilder.append((CharSequence) "评论。\n\n");
-            spannableStringBuilder.append((CharSequence) "我很喜欢");
-            spannableStringBuilder.append((CharSequence) i(str));
-            spannableStringBuilder.append((CharSequence) "吧，我觉得你也会喜欢！加入我们吧，有你一定更精彩！");
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeCommon.objValue;
-    }
-
-    public final SpannableStringBuilder f(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) (str + "吧成员数突破了"));
-            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
-            spannableStringBuilder.append((CharSequence) "！感谢你的一路相伴，见证了这个特别的时刻。\n\n你加入");
-            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) "了，近期参与了");
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "个主题贴的讨论，写了");
-            spannableStringBuilder.append((CharSequence) d(str5 + "条"));
-            spannableStringBuilder.append((CharSequence) "评论。近一个月累计签到了");
-            spannableStringBuilder.append((CharSequence) (str6 + "天。\n\n"));
-            spannableStringBuilder.append((CharSequence) (str + "吧因为有你而精彩！"));
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeCommon.objValue;
-    }
-
-    public final SpannableStringBuilder e(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9})) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) (str + "吧成员数突破了"));
-            spannableStringBuilder.append((CharSequence) d(str2 + "人"));
-            spannableStringBuilder.append((CharSequence) "！感谢你的一路相伴，见证了这个特别的时刻。\n\n你加入");
-            spannableStringBuilder.append((CharSequence) (str + "吧已经"));
-            spannableStringBuilder.append((CharSequence) d(str3 + "天"));
-            spannableStringBuilder.append((CharSequence) "了，最近发表了");
-            spannableStringBuilder.append((CharSequence) i(str4));
-            spannableStringBuilder.append((CharSequence) "篇贴子，最火的一篇");
-            spannableStringBuilder.append((CharSequence) d("《" + str6 + "》"));
-            spannableStringBuilder.append((CharSequence) "收到了");
-            spannableStringBuilder.append((CharSequence) d(str7 + "条"));
-            spannableStringBuilder.append((CharSequence) "回复、");
-            spannableStringBuilder.append((CharSequence) d(str8 + "个"));
-            spannableStringBuilder.append((CharSequence) "赞！近一个月累计签到了");
-            spannableStringBuilder.append((CharSequence) (str9 + "天"));
-            spannableStringBuilder.append((CharSequence) "。\n\n");
-            spannableStringBuilder.append((CharSequence) (str + "吧因为有你而精彩！"));
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeCommon.objValue;
-    }
-
-    public SpannableStringBuilder h() {
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = this.m;
-            if (str == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            SpecialFrsWebFragment specialFrsWebFragment = this.c;
+            if (specialFrsWebFragment != null) {
+                return specialFrsWebFragment.w();
             }
-            if (str.equals("bazhu")) {
-                return a(this.f, this.g, this.h, this.i, this.j, this.k, this.l);
-            }
-            if (this.m.equals("active-a")) {
-                return b(this.f, this.g, this.n, this.o, this.j, this.k, this.p, this.q, this.r);
-            }
-            if (!this.m.equals("active-b")) {
-                return null;
-            }
-            return c(this.f, this.g, this.n, this.s, this.t, this.r);
+            return "";
         }
-        return (SpannableStringBuilder) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public SpannableStringBuilder j() {
+    public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String str = this.m;
-            if (str == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            SpecialFrsWebFragment specialFrsWebFragment = this.c;
+            if (specialFrsWebFragment != null) {
+                return specialFrsWebFragment.v();
             }
-            if (str.equals("bazhu")) {
-                return g(this.f, this.g, this.h, this.i, this.j, this.k, this.l);
-            }
-            if (this.m.equals("active-a")) {
-                return e(this.f, this.g, this.n, this.o, this.j, this.k, this.p, this.q, this.r);
-            }
-            if (!this.m.equals("active-b")) {
-                return null;
-            }
-            return f(this.f, this.g, this.n, this.s, this.t, this.r);
+            return "";
         }
-        return (SpannableStringBuilder) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void k() {
-        Uri parse;
+    public NavigationBar j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a.getPageActivity() != null && this.a.getPageActivity().getIntent() != null) {
-            this.b = this.a.getPageActivity().getIntent().getStringExtra("key_url");
-            this.c = this.a.getPageActivity().getIntent().getStringExtra(AchievementActivityConfig.KEY_SHARE_URL);
-            if (TextUtils.isEmpty(this.b) || (parse = Uri.parse(this.b)) == null) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (NavigationBar) invokeV.objValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            NavigationBar navigationBar = this.b;
+            if (navigationBar != null) {
+                navigationBar.release();
             }
-            this.d = parse.getQueryParameter("nickname");
-            this.e = parse.getQueryParameter("fid");
-            this.f = parse.getQueryParameter("fname");
-            this.g = parse.getQueryParameter("subcribe-num");
-            this.h = parse.getQueryParameter("bazhu-days");
-            this.i = parse.getQueryParameter("goods-num");
-            this.j = parse.getQueryParameter("tid-num");
-            String queryParameter = parse.getQueryParameter("most-hot-name");
-            this.k = queryParameter;
-            this.k = StringHelper.cutStringWithSuffix(queryParameter, 20, "...");
-            this.l = parse.getQueryParameter("most-hot-floors");
-            this.m = parse.getQueryParameter("achievement");
-            this.n = parse.getQueryParameter("join-days");
-            this.o = parse.getQueryParameter("send-tids");
-            this.p = parse.getQueryParameter("reply-num");
-            this.q = parse.getQueryParameter("zan-num");
-            this.r = parse.getQueryParameter("sign-days");
-            this.s = parse.getQueryParameter("join-topicnum");
-            this.t = parse.getQueryParameter("write-num");
+            MessageManager.getInstance().unRegisterListener(this.j);
+        }
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
+            customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.a.getUniqueId()));
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+        }
+    }
+
+    public void k(NavigationBar navigationBar, NewSpecialFrsWebFragment newSpecialFrsWebFragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, navigationBar, newSpecialFrsWebFragment) == null) {
+            this.b = navigationBar;
+            this.d = newSpecialFrsWebFragment;
+            navigationBar.showBottomLine();
+            this.b.getBarBgView().setAlpha(1.0f);
+            this.b.setCenterTextTitle(i());
+            ImageView imageView = (ImageView) this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(R.id.widget_navi_back_button);
+            this.f = imageView;
+            imageView.setOnClickListener(this.i);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(0, 0, BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
+            ImageView imageView2 = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08e2, (View.OnClickListener) null);
+            this.g = imageView2;
+            imageView2.setLayoutParams(layoutParams);
+            this.g.setOnClickListener(this.i);
+            ImageView imageView3 = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_forum_info_item, (View.OnClickListener) null);
+            this.h = imageView3;
+            imageView3.setLayoutParams(layoutParams);
+            this.h.setOnClickListener(this.i);
+            p(newSpecialFrsWebFragment.g2());
+            q(newSpecialFrsWebFragment.h2());
+            o(newSpecialFrsWebFragment.f2());
+            m(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void l(NavigationBar navigationBar, SpecialFrsWebFragment specialFrsWebFragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, navigationBar, specialFrsWebFragment) == null) {
+            this.b = navigationBar;
+            this.c = specialFrsWebFragment;
+            navigationBar.showBottomLine();
+            this.b.getBarBgView().setAlpha(1.0f);
+            this.b.setCenterTextTitle(i());
+            ImageView imageView = (ImageView) this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(R.id.widget_navi_back_button);
+            this.f = imageView;
+            imageView.setOnClickListener(this.i);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(0, 0, BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
+            ImageView imageView2 = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08e2, (View.OnClickListener) null);
+            this.g = imageView2;
+            imageView2.setLayoutParams(layoutParams);
+            this.g.setOnClickListener(this.i);
+            ImageView imageView3 = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_forum_info_item, (View.OnClickListener) null);
+            this.h = imageView3;
+            imageView3.setLayoutParams(layoutParams);
+            this.h.setOnClickListener(this.i);
+            p(specialFrsWebFragment.g2());
+            q(specialFrsWebFragment.h2());
+            o(specialFrsWebFragment.f2());
+            m(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void m(int i) {
+        NavigationBar navigationBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && this.c != null && (navigationBar = this.b) != null) {
+            navigationBar.onChangeSkinType(this.a, i);
+            SkinManager.setViewTextColor(this.b.mTextTitle, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.b.mCenterText, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundColor(this.b.getBottomLine(), R.color.CAM_X0204);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            mo6 mo6Var = this.e;
+            if (mo6Var != null) {
+                mo6Var.e(i);
+            }
+            SkinManager.setNavbarIconSrc(this.h, R.drawable.selector_web_topbar_other_black, R.drawable.selector_web_topbar_other_white);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 }

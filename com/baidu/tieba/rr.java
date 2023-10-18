@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,103 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class rr {
+import org.apache.commons.codec.net.QCodec;
+/* loaded from: classes8.dex */
+public class rr {
     public static /* synthetic */ Interceptable $ic;
-    public static final a i;
+    public static final /* synthetic */ boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public byte[] b;
-    public byte c;
-    public byte d;
-    public short e;
-    public int f;
-    public byte[] g;
-    public byte[] h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316269, "Lcom/baidu/tieba/rr;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448316269, "Lcom/baidu/tieba/rr;");
-                return;
-            }
-        }
-        i = new a(null);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public rr() {
-        this(null, null, (byte) 0, (byte) 0, (short) 0, 0, null, null, 255, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((byte[]) objArr[0], (byte[]) objArr[1], ((Byte) objArr[2]).byteValue(), ((Byte) objArr[3]).byteValue(), ((Short) objArr[4]).shortValue(), ((Integer) objArr[5]).intValue(), (byte[]) objArr[6], (byte[]) objArr[7], ((Integer) objArr[8]).intValue(), (DefaultConstructorMarker) objArr[9]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof rr) {
-                    rr rrVar = (rr) obj;
-                    if (Intrinsics.areEqual(this.a, rrVar.a) && Intrinsics.areEqual(this.b, rrVar.b)) {
-                        if (this.c == rrVar.c) {
-                            if (this.d == rrVar.d) {
-                                if (this.e == rrVar.e) {
-                                    if (!(this.f == rrVar.f) || !Intrinsics.areEqual(this.g, rrVar.g) || !Intrinsics.areEqual(this.h, rrVar.h)) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            byte[] bArr = this.a;
-            int hashCode = (bArr != null ? Arrays.hashCode(bArr) : 0) * 31;
-            byte[] bArr2 = this.b;
-            int hashCode2 = (((((((((hashCode + (bArr2 != null ? Arrays.hashCode(bArr2) : 0)) * 31) + this.c) * 31) + this.d) * 31) + this.e) * 31) + this.f) * 31;
-            byte[] bArr3 = this.g;
-            int hashCode3 = (hashCode2 + (bArr3 != null ? Arrays.hashCode(bArr3) : 0)) * 31;
-            byte[] bArr4 = this.h;
-            return hashCode3 + (bArr4 != null ? Arrays.hashCode(bArr4) : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
+    /* loaded from: classes8.dex */
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public byte[] a;
+        public int b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -121,244 +35,333 @@ public final class rr {
                 }
             }
         }
+    }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    /* loaded from: classes8.dex */
+    public static class b extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final byte[] j;
+        public static final /* synthetic */ boolean k;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final byte[] c;
+        public int d;
+        public int e;
+        public final boolean f;
+        public final boolean g;
+        public final boolean h;
+        public final byte[] i;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(262511599, "Lcom/baidu/tieba/rr$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(262511599, "Lcom/baidu/tieba/rr$b;");
+                    return;
+                }
+            }
+            k = !rr.class.desiredAssertionStatus();
+            j = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, QCodec.UNDERSCORE};
         }
 
-        public final rr a() {
-            InterceptResult invokeV;
+        public b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                rr rrVar = new rr(null, null, (byte) 0, (byte) 0, (short) 0, 0, null, null, 255, null);
-                rrVar.d(new byte[2]);
-                byte[] e = rrVar.e();
-                if (e != null) {
-                    e[0] = 0;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
                 }
-                byte[] e2 = rrVar.e();
-                if (e2 != null) {
-                    e2[1] = 2;
-                }
-                rrVar.g(new byte[2]);
-                byte[] h = rrVar.h();
-                if (h != null) {
-                    h[0] = -27;
-                }
-                byte[] h2 = rrVar.h();
-                if (h2 != null) {
-                    h2[1] = -89;
-                }
-                return rrVar;
             }
-            return (rr) invokeV.objValue;
+            this.a = null;
+            this.f = false;
+            this.g = false;
+            this.h = false;
+            this.i = j;
+            this.c = new byte[2];
+            this.d = 0;
+            this.e = 0 != 0 ? 19 : -1;
         }
     }
 
-    public rr(byte[] bArr, byte[] bArr2, byte b, byte b2, short s, int i2, byte[] bArr3, byte[] bArr4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, bArr2, Byte.valueOf(b), Byte.valueOf(b2), Short.valueOf(s), Integer.valueOf(i2), bArr3, bArr4};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316269, "Lcom/baidu/tieba/rr;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448316269, "Lcom/baidu/tieba/rr;");
                 return;
             }
         }
-        this.a = bArr;
-        this.b = bArr2;
-        this.c = b;
-        this.d = b2;
-        this.e = s;
-        this.f = i2;
-        this.g = bArr3;
-        this.h = bArr4;
+        a = !rr.class.desiredAssertionStatus();
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
+    public rr() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0109, code lost:
+        if (r2.h == false) goto L40;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x010b, code lost:
+        r5[r11] = 13;
+        r11 = r11 + 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0110, code lost:
+        r5[r11] = 10;
+        r11 = r11 + 1;
+        r13 = r12;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0205 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x0216 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x01f6  */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x0110 -> B:41:0x00bd). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ rr(byte[] bArr, byte[] bArr2, byte b, byte b2, short s, int i2, byte[] bArr3, byte[] bArr4, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r1, r2, r3, r5, r6, r4, r7, (i3 & 128) == 0 ? bArr4 : null);
-        byte[] bArr5;
-        byte[] bArr6;
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        byte b2;
         byte b3;
         byte b4;
-        short s2;
-        byte[] bArr7;
-        if ((i3 & 1) != 0) {
-            bArr5 = new byte[2];
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
+        int length = bArr.length;
+        b bVar = new b();
+        int i6 = (length / 3) * 4;
+        int i7 = 1;
+        if (!bVar.f) {
+            int i8 = length % 3;
+            if (i8 == 1) {
+                i6 += 2;
+            } else if (i8 == 2) {
+                i6 += 3;
+            }
+        } else if (length % 3 > 0) {
+            i6 += 4;
+        }
+        if (bVar.g && length > 0) {
+            i6 += (((length - 1) / 57) + 1) * (bVar.h ? 2 : 1);
+        }
+        byte[] bArr2 = new byte[i6];
+        bVar.a = bArr2;
+        byte[] bArr3 = bVar.i;
+        int i9 = bVar.e;
+        int i10 = length + 0;
+        int i11 = bVar.d;
+        if (i11 != 1) {
+            if (i11 == 2 && i10 > 0) {
+                byte[] bArr4 = bVar.c;
+                i = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[0] & 255);
+                bVar.d = 0;
+                i2 = 1;
+            }
+            i = -1;
+            i2 = 0;
         } else {
-            bArr5 = bArr;
+            if (2 <= i10) {
+                i = ((bVar.c[0] & 255) << 16) | ((bArr[0] & 255) << 8) | (bArr[1] & 255);
+                bVar.d = 0;
+                i2 = 2;
+            }
+            i = -1;
+            i2 = 0;
         }
-        if ((i3 & 2) != 0) {
-            bArr6 = new byte[2];
+        if (i != -1) {
+            bArr2[0] = bArr3[(i >> 18) & 63];
+            bArr2[1] = bArr3[(i >> 12) & 63];
+            bArr2[2] = bArr3[(i >> 6) & 63];
+            bArr2[3] = bArr3[i & 63];
+            i9--;
+            if (i9 == 0) {
+                if (bVar.h) {
+                    i5 = 5;
+                    bArr2[4] = 13;
+                } else {
+                    i5 = 4;
+                }
+                i3 = i5 + 1;
+                bArr2[i5] = 10;
+                i9 = 19;
+            } else {
+                i3 = 4;
+            }
         } else {
-            bArr6 = bArr2;
+            i3 = 0;
         }
-        if ((i3 & 4) != 0) {
-            b3 = 0;
-        } else {
-            b3 = b;
+        while (true) {
+            int i12 = i2 + 3;
+            if (i12 > i10) {
+                int i13 = bVar.d;
+                if (i2 - i13 == i10 - 1) {
+                    if (i13 > 0) {
+                        b4 = bVar.c[0];
+                    } else {
+                        b4 = bArr[i2];
+                        i2++;
+                        i7 = 0;
+                    }
+                    int i14 = (b4 & 255) << 4;
+                    bVar.d -= i7;
+                    int i15 = i3 + 1;
+                    bArr2[i3] = bArr3[(i14 >> 6) & 63];
+                    int i16 = i15 + 1;
+                    bArr2[i15] = bArr3[i14 & 63];
+                    if (bVar.f) {
+                        int i17 = i16 + 1;
+                        bArr2[i16] = 61;
+                        i16 = i17 + 1;
+                        bArr2[i17] = 61;
+                    }
+                    if (!bVar.g) {
+                        i3 = i16;
+                        if (b.k) {
+                        }
+                        if (b.k) {
+                        }
+                        bVar.b = i3;
+                        bVar.e = i9;
+                        if (a) {
+                        }
+                        return bVar.a;
+                    }
+                    if (bVar.h) {
+                        bArr2[i16] = 13;
+                        i16++;
+                    }
+                    i4 = i16 + 1;
+                    bArr2[i16] = 10;
+                    i3 = i4;
+                    if (!b.k || bVar.d == 0) {
+                        if (!b.k || i2 == i10) {
+                            bVar.b = i3;
+                            bVar.e = i9;
+                            if (!a || i3 == i6) {
+                                return bVar.a;
+                            }
+                            throw new AssertionError();
+                        }
+                        throw new AssertionError();
+                    }
+                    throw new AssertionError();
+                } else if (i2 - i13 != i10 - 2) {
+                    if (bVar.g && i3 > 0 && i9 != 19) {
+                        if (bVar.h) {
+                            bArr2[i3] = 13;
+                            i3++;
+                        }
+                        i4 = i3 + 1;
+                        bArr2[i3] = 10;
+                        i3 = i4;
+                    }
+                    if (b.k) {
+                    }
+                    if (b.k) {
+                    }
+                    bVar.b = i3;
+                    bVar.e = i9;
+                    if (a) {
+                    }
+                    return bVar.a;
+                } else {
+                    if (i13 > 1) {
+                        b2 = bVar.c[0];
+                    } else {
+                        byte b5 = bArr[i2];
+                        i2++;
+                        b2 = b5;
+                        i7 = 0;
+                    }
+                    int i18 = (b2 & 255) << 10;
+                    if (bVar.d > 0) {
+                        b3 = bVar.c[i7];
+                        i7++;
+                    } else {
+                        b3 = bArr[i2];
+                        i2++;
+                    }
+                    int i19 = ((b3 & 255) << 2) | i18;
+                    bVar.d -= i7;
+                    int i20 = i3 + 1;
+                    bArr2[i3] = bArr3[(i19 >> 12) & 63];
+                    int i21 = i20 + 1;
+                    bArr2[i20] = bArr3[(i19 >> 6) & 63];
+                    int i22 = i21 + 1;
+                    bArr2[i21] = bArr3[i19 & 63];
+                    if (bVar.f) {
+                        bArr2[i22] = 61;
+                        i22++;
+                    }
+                    if (!bVar.g) {
+                        i3 = i22;
+                        if (b.k) {
+                        }
+                        if (b.k) {
+                        }
+                        bVar.b = i3;
+                        bVar.e = i9;
+                        if (a) {
+                        }
+                        return bVar.a;
+                    }
+                    if (bVar.h) {
+                        bArr2[i22] = 13;
+                        i22++;
+                    }
+                    i4 = i22 + 1;
+                    bArr2[i22] = 10;
+                    i3 = i4;
+                    if (b.k) {
+                    }
+                    if (b.k) {
+                    }
+                    bVar.b = i3;
+                    bVar.e = i9;
+                    if (a) {
+                    }
+                    return bVar.a;
+                }
+            }
+            int i23 = ((bArr[i2 + 1] & 255) << 8) | ((bArr[i2] & 255) << 16) | (bArr[i2 + 2] & 255);
+            bArr2[i3] = bArr3[(i23 >> 18) & 63];
+            bArr2[i3 + 1] = bArr3[(i23 >> 12) & 63];
+            bArr2[i3 + 2] = bArr3[(i23 >> 6) & 63];
+            bArr2[i3 + 3] = bArr3[i23 & 63];
+            i3 += 4;
+            i9--;
+            if (i9 == 0) {
+                break;
+            }
+            i2 = i12;
         }
-        if ((i3 & 8) != 0) {
-            b4 = 0;
-        } else {
-            b4 = b2;
-        }
-        if ((i3 & 16) != 0) {
-            s2 = 0;
-        } else {
-            s2 = s;
-        }
-        int i4 = (i3 & 32) == 0 ? i2 : 0;
-        if ((i3 & 64) != 0) {
-            bArr7 = null;
-        } else {
-            bArr7 = bArr3;
-        }
-    }
-
-    public final void a(byte b) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(1048576, this, b) == null) {
-            this.c = b;
-        }
-    }
-
-    public final void b(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f = i2;
-        }
-    }
-
-    public final void c(short s) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Short.valueOf(s)}) == null) {
-            this.e = s;
-        }
-    }
-
-    public final void d(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            this.a = bArr;
-        }
-    }
-
-    public final void f(byte b) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(1048582, this, b) == null) {
-            this.d = b;
-        }
-    }
-
-    public final void g(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
-            this.b = bArr;
-        }
-    }
-
-    public final void j(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bArr) == null) {
-            this.g = bArr;
-        }
-    }
-
-    public final void l(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bArr) == null) {
-            this.h = bArr;
-        }
-    }
-
-    public final byte[] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final byte[] h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final byte i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return invokeV.byteValue;
-    }
-
-    public final byte k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.d;
-        }
-        return invokeV.byteValue;
-    }
-
-    public final short m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.e;
-        }
-        return invokeV.shortValue;
-    }
-
-    public final int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final byte[] o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.g;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final byte[] p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.h;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return "RecordParams(protocolVersion=" + Arrays.toString(this.a) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeType=" + ((int) this.c) + ", schemeExtType=" + ((int) this.d) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeLen=" + ((int) this.e) + ", contentLen=" + this.f + StringUtil.ARRAY_ELEMENT_SEPARATOR + "scheme=" + Arrays.toString(this.g) + ')';
-        }
-        return (String) invokeV.objValue;
     }
 }

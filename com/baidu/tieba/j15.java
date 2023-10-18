@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.ActivityInfo;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class j15 {
+public final class j15 implements e15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,39 +31,41 @@ public class j15 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.e15
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap();
+            hashMap.put("dialogName", "newGod");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
         }
-        try {
-            jSONObject.optLong("activity_id");
-            jSONObject.optString("main_title");
-            jSONObject.optString("sub_title");
-            jSONObject.optInt("back_pic_width");
-            jSONObject.optInt("back_pic_height");
-            jSONObject.optString("back_pic");
-            jSONObject.optString("subpage_link");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        return (Map) invokeLLL.objValue;
     }
 
-    public void b(ActivityInfo activityInfo) {
+    @Override // com.baidu.tieba.e15
+    public boolean b(Map<String, Object> map) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activityInfo) != null) || activityInfo == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            boolean z2 = SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_new_god_pop_is_show"), false);
+            if (TbSingleton.getInstance().getNewGodData() != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z2 || !z) {
+                return false;
+            }
+            return true;
         }
-        try {
-            activityInfo.activity_id.longValue();
-            String str = activityInfo.main_title;
-            String str2 = activityInfo.sub_title;
-            activityInfo.back_pic_width.intValue();
-            activityInfo.back_pic_height.intValue();
-            String str3 = activityInfo.back_pic;
-            String str4 = activityInfo.subpage_link;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        return invokeL.booleanValue;
     }
 }

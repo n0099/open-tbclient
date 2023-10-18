@@ -10,8 +10,6 @@ public abstract class t0 implements Graphics {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract /* synthetic */ Graphics.GraphicsType getType();
-
     public t0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

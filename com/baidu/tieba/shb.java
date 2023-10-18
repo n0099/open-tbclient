@@ -1,25 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface shb {
-    void a(DownloadException downloadException);
+    public static final ServiceReference a = new ServiceReference("yaLog", "yaLogConfig");
 
-    void b(DownloadException downloadException);
+    void a(JSONObject jSONObject);
 
-    void onConnectCanceled();
-
-    void onConnected(long j, long j2, boolean z);
-
-    void onConnecting();
-
-    void onDownloadCanceled();
-
-    void onDownloadCompleted(String str);
-
-    void onDownloadPaused();
-
-    void onDownloadProgress(long j, long j2, int i);
-
-    void onStarted();
+    void b(JSONObject jSONObject, boolean z);
 }

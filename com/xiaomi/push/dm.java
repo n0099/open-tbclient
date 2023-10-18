@@ -18,7 +18,7 @@ public class dm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dl m366a() {
+    public dl m365a() {
         return this.f231a;
     }
 

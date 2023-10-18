@@ -1,210 +1,233 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.cert.CertificateParsingException;
-import java.security.cert.X509Certificate;
-import java.util.Arrays;
-import java.util.Collection;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.common.AVframe;
+import com.yy.transvod.player.common.AudioSendStamp;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.FrameInfo;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.regex.Pattern;
-import javax.net.ssl.SSLException;
-import okhttp3.CertificatePinner;
+import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public class p1c {
+public abstract class p1c extends k1c {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public NativeFfmpeg A;
+    public ByteBuffer B;
+    public ByteBuffer C;
+    public TreeMap<Integer, Object> D;
+    public int E;
+    public FrameInfo F;
+    public r0c G;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948010631, "Lcom/baidu/tieba/p1c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948010631, "Lcom/baidu/tieba/p1c;");
+    public p1c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
-        String[] strArr = {"ac", "co", FkApkInfoSearchRequestKt.PARAMS_KEY_COM, Config.EVENT_PATH_MAPPING, "edu", "go", "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
-        b = strArr;
-        Arrays.sort(strArr);
+        this.A = new NativeFfmpeg();
+        this.B = null;
+        this.C = null;
+        this.D = new TreeMap<>();
+        this.E = 0;
+        this.F = new FrameInfo();
+        this.G = new r0c(200);
     }
 
-    public static final void a(String str, X509Certificate x509Certificate, boolean z) throws SSLException {
+    @Override // com.baidu.tieba.k1c
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, x509Certificate, z) == null) {
-            String[] d = d(x509Certificate);
-            String[] f = f(x509Certificate);
-            v1c.b("", "cn is : " + Arrays.toString(d));
-            v1c.b("", "san is : " + Arrays.toString(f));
-            b(str, d, f, z);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            while (!this.r.b() && K() == 1) {
+                TLog.g(this, "handleEndOfStream");
+                try {
+                    Thread.sleep(20L);
+                } catch (Exception unused) {
+                    TLog.g(this, "handleEndOfStream error");
+                }
+            }
         }
     }
 
-    public static final void b(String str, String[] strArr, String[] strArr2, boolean z) throws SSLException {
-        boolean z2;
+    public void L() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, strArr, strArr2, Boolean.valueOf(z)}) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (strArr != null && strArr.length > 0 && strArr[0] != null) {
-                linkedList.add(strArr[0]);
-            }
-            if (strArr2 != null) {
-                for (String str2 : strArr2) {
-                    if (str2 != null) {
-                        linkedList.add(str2);
-                    }
-                }
-            }
-            if (!linkedList.isEmpty()) {
-                StringBuffer stringBuffer = new StringBuffer();
-                String lowerCase = str.trim().toLowerCase(Locale.ENGLISH);
-                Iterator it = linkedList.iterator();
-                boolean z3 = false;
-                while (it.hasNext()) {
-                    String lowerCase2 = ((String) it.next()).toLowerCase(Locale.ENGLISH);
-                    stringBuffer.append(" <");
-                    stringBuffer.append(lowerCase2);
-                    stringBuffer.append('>');
-                    if (it.hasNext()) {
-                        stringBuffer.append(" OR");
-                    }
-                    if (lowerCase2.startsWith(CertificatePinner.Pin.WILDCARD) && lowerCase2.indexOf(46, 2) != -1 && c(lowerCase2) && !g(str)) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        boolean endsWith = lowerCase.endsWith(lowerCase2.substring(1));
-                        if (endsWith && z) {
-                            if (e(lowerCase) == e(lowerCase2)) {
-                                z3 = true;
-                                continue;
-                            } else {
-                                z3 = false;
-                                continue;
-                            }
-                        } else {
-                            z3 = endsWith;
-                            continue;
-                        }
-                    } else {
-                        z3 = lowerCase.equals(lowerCase2);
-                        continue;
-                    }
-                    if (z3) {
-                        break;
-                    }
-                }
-                if (z3) {
-                    return;
-                }
-                throw new SSLException("hostname in certificate didn't match: <" + str + "> !=" + ((Object) stringBuffer));
-            }
-            throw new SSLException("Certificate for <" + str + "> doesn't contain CN or DNS subjectAlt");
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TLog.g(this, "NativeFfmpegFilter.stopCodec enter.");
+            this.A.k();
+            this.B = null;
+            this.C = null;
+            this.E = 0;
+            this.F.a = 0L;
+            this.v = 0L;
+            G();
+            TLog.g(this, "NativeFfmpegFilter.stopCodec leave.");
         }
     }
 
-    public static boolean c(String str) {
+    @Override // com.baidu.tieba.k1c
+    public int D(MediaSample mediaSample) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int length = str.length();
-            if (length < 7 || length > 9) {
-                return true;
-            }
-            int i = length - 3;
-            if (str.charAt(i) != '.') {
-                return true;
-            }
-            if (Arrays.binarySearch(b, str.substring(2, i)) < 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String[] d(X509Certificate x509Certificate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x509Certificate)) == null) {
-            List<String> d = new o1c(x509Certificate.getSubjectX500Principal()).d("cn");
-            if (!d.isEmpty()) {
-                String[] strArr = new String[d.size()];
-                d.toArray(strArr);
-                return strArr;
-            }
-            return null;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                if (str.charAt(i2) == '.') {
-                    i++;
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample)) == null) {
+            K();
+            int J = J(mediaSample);
+            K();
+            return J;
         }
         return invokeL.intValue;
     }
 
-    public static boolean g(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.k1c, com.baidu.tieba.t1c, com.baidu.tieba.b0c.a
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            return a.matcher(str).matches();
+        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
+            if (message.what != 1002) {
+                super.handleMessage(message);
+            } else {
+                L();
+            }
         }
-        return invokeL.booleanValue;
     }
 
-    public static String[] f(X509Certificate x509Certificate) {
+    public final int J(MediaSample mediaSample) {
         InterceptResult invokeL;
-        Collection<List<?>> collection;
+        AVframe aVframe;
+        MediaInfo mediaInfo;
+        ByteBuffer byteBuffer;
+        byte[] bArr;
+        byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, x509Certificate)) == null) {
-            LinkedList linkedList = new LinkedList();
-            try {
-                collection = x509Certificate.getSubjectAlternativeNames();
-            } catch (CertificateParsingException e) {
-                v1c.c("", "Error parsing certificate.", e);
-                collection = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample)) == null) {
+            if (mediaSample == null || (aVframe = mediaSample.g) == null || (mediaInfo = mediaSample.i) == null || (byteBuffer = this.B) == null || mediaInfo.k == null || mediaInfo.a == 0) {
+                return -1;
             }
-            if (collection != null) {
-                for (List<?> list : collection) {
-                    if (((Integer) list.get(0)).intValue() == 2) {
-                        linkedList.add((String) list.get(1));
+            int i = aVframe.e;
+            int i2 = this.a;
+            if (i > i2) {
+                long j = this.v + 1;
+                this.v = j;
+                if (j < 10 || j % 1000 == 0) {
+                    TLog.c(this, String.format("ffmepg::sample.avFrame.playTaskID: %d > mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
+                }
+                return 0;
+            } else if (i < i2) {
+                long j2 = this.v + 1;
+                this.v = j2;
+                if (j2 < 10 || j2 % 1000 == 0) {
+                    TLog.c(this, String.format("ffmpeg::sample.avFrame.playTaskID: %d < mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
+                }
+                return -1;
+            } else {
+                byteBuffer.clear();
+                boolean z = mediaSample.g.c;
+                int capacity = mediaSample.i.k.capacity();
+                if (mediaSample.d && (bArr2 = mediaSample.g.q) != null) {
+                    capacity += bArr2.length + 7;
+                }
+                ByteBuffer byteBuffer2 = this.B;
+                if (byteBuffer2 == null || byteBuffer2.capacity() < capacity) {
+                    int i3 = (int) (capacity * 1.5d);
+                    if (i3 > 2000000 || i3 < capacity) {
+                        i3 = capacity;
+                    }
+                    this.B = ByteBuffer.allocateDirect(i3);
+                }
+                if (this.B.capacity() >= capacity) {
+                    if (mediaSample.d && (bArr = mediaSample.g.q) != null) {
+                        g1c.d(bArr, this.B);
+                    }
+                    this.B.put(mediaSample.i.k).flip();
+                    if (this.A.o(this.B, mediaSample.d, mediaSample.l, mediaSample.k) < 0) {
+                        TLog.c(this, "mCodec.send_packet() failed.");
+                        m(51);
+                        return -1;
                     }
                 }
+                this.G.b(mediaSample.t);
+                this.r.a(mediaSample);
+                return 1;
             }
-            if (linkedList.isEmpty()) {
-                return null;
-            }
-            String[] strArr = new String[linkedList.size()];
-            linkedList.toArray(strArr);
-            return strArr;
         }
-        return (String[]) invokeL.objValue;
+        return invokeL.intValue;
+    }
+
+    public final int K() {
+        InterceptResult invokeV;
+        MediaInfo mediaInfo;
+        AVframe aVframe;
+        AVframe aVframe2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ByteBuffer byteBuffer = this.C;
+            if (byteBuffer != null) {
+                byteBuffer.clear();
+                this.D.clear();
+                FrameInfo frameInfo = this.F;
+                frameInfo.a = 0L;
+                frameInfo.b = 0L;
+                if (this.A.n(this.C, this.D, frameInfo) > 0) {
+                    MediaSample c = this.r.c();
+                    if (c != null && c.g != null && (mediaInfo = c.i) != null) {
+                        mediaInfo.c(this.q);
+                        c.i.k = this.C;
+                        FrameInfo frameInfo2 = this.F;
+                        c.l = frameInfo2.a;
+                        E(c, frameInfo2.b);
+                        this.u++;
+                        c.I = NativeFfmpeg.l(this.D);
+                        ArrayList<Long> m = NativeFfmpeg.m(this.D);
+                        if (m != null && !m.isEmpty()) {
+                            c.J = new ArrayList<>();
+                            Iterator<Long> it = m.iterator();
+                            while (it.hasNext()) {
+                                c.J.add(new AudioSendStamp(this.G.a(), it.next().longValue()));
+                            }
+                        }
+                        n(c);
+                        if (!c.c) {
+                            t0c t0cVar = this.s.get();
+                            if (t0cVar != null && (aVframe2 = c.g) != null) {
+                                t0cVar.t((int) aVframe2.l);
+                            }
+                        } else {
+                            t0c t0cVar2 = this.s.get();
+                            if (t0cVar2 != null && (aVframe = c.g) != null) {
+                                t0cVar2.s((int) aVframe.l);
+                            }
+                        }
+                        this.D.clear();
+                        x0c.c(c, 6);
+                        synchronized (this.k) {
+                            if (this.d != null) {
+                                this.d.f(c);
+                            }
+                        }
+                        return 1;
+                    }
+                    return -1;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 }

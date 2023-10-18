@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.Color;
-import com.baidu.live.LiveFeedPageSdk;
+import android.app.Activity;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,27 +13,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public class dd0 extends cd0 {
+public final class dd0 implements mj0, lj0, nj0, oj0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String[]> b;
+    public static boolean d;
+    public static dd0 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CopyOnWriteArrayList<mj0> a;
+    public final LinkedList<WeakReference<Activity>> b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947700569, "Lcom/baidu/tieba/dd0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947700569, "Lcom/baidu/tieba/dd0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947700569, "Lcom/baidu/tieba/dd0;")) == null) {
+            return;
         }
-        b = new HashMap<>();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947700569, "Lcom/baidu/tieba/dd0;");
+        }
     }
 
     public dd0() {
@@ -47,66 +55,268 @@ public class dd0 extends cd0 {
                 return;
             }
         }
-        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
-        b.put("color_white1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
-        b.put("color_white2", new String[]{"#FFFFFF", "", "#333333", ""});
-        b.put("color_white3", new String[]{"#FFFFFF", "", "#FFFFFF", ""});
-        b.put("color_F5F5F51", new String[]{"#F4F5F6", "", "#1C1C1C", ""});
-        b.put("color_F5F5F52", new String[]{"#F4F5F6", "", "#000000", ""});
-        b.put("color_F5F5F53", new String[]{"#F4F5F6", "", "#292929", ""});
-        b.put("color_FF33551", new String[]{"#FF3355", "", "#F63B68", ""});
-        b.put("color_FF33552", new String[]{"#1AFF3355", "", "#26F63B68", ""});
-        b.put("color_858585", new String[]{"#858585", "", "#80FFFFFF", ""});
-        b.put("color_525252", new String[]{"#525252", "", "#80FFFFFF", ""});
-        b.put("color_FF3333", new String[]{"#FF3333", "", "#FF3333", ""});
-        b.put("color_768CAE", new String[]{"#768CAE", "", "#768CAE", ""});
-        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "#4E6EF2", ""});
-        b.put("color_8585852", new String[]{"#858585", "", "#66FFFFFF", ""});
-        b.put("color_5252522", new String[]{"#525252", "", "#1AFFFFFF", ""});
-        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "#00FFFFFF", ""});
-        b.put("color_btn_fill", new String[]{"#00000000", "", "#1AFFFFFF", ""});
-        b.put("color_sub_tab_normal", new String[]{"#888888", "", "#CCFFFFFF", ""});
-        b.put("color_main_bg", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
-        b.put("color_white4", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
-        b.put("color_gradient_1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
-        b.put("color_gradient_2", new String[]{"#00FFFFFF", "", "#001C1C1C", ""});
-        b.put("color_E0E0E0", new String[]{"#E0E0E0", "", "", ""});
-        b.put("color_EEEEEE", new String[]{"#eeeeee", "", "", ""});
+        this.a = new CopyOnWriteArrayList<>();
+        this.b = new LinkedList<>();
     }
 
-    @Override // com.baidu.tieba.cd0
-    @SuppressLint({"Range"})
-    public int a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
+    public static dd0 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
-            if (!b.containsKey(str2)) {
-                return -16777216;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (dd0.class) {
+                    if (e == null) {
+                        e = new dd0();
+                    }
+                }
             }
-            String str3 = "";
-            try {
-                str3 = b.get(str2)[0];
-            } catch (Exception e) {
-                LiveFeedPageSdk.liveLog("getColor Exception: " + e.getMessage());
+            return e;
+        }
+        return (dd0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lj0
+    @NonNull
+    public LinkedList<WeakReference<Activity>> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    @Nullable
+    public Activity g() {
+        InterceptResult invokeV;
+        WeakReference<Activity> last;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b.isEmpty() || (last = this.b.getLast()) == null) {
+                return null;
             }
-            if ("recommend".equals(str)) {
-                return gd0.c().a(context, str, str2);
+            return last.get();
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public final boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.a.size() > 0) {
+                return true;
             }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                str3 = b.get(str2)[3];
-            } else if ("dark".equals(this.a)) {
-                str3 = b.get(str2)[2];
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.lj0
+    @Nullable
+    public Activity b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!this.b.isEmpty() && this.b.size() >= 2) {
+                LinkedList<WeakReference<Activity>> linkedList = this.b;
+                return linkedList.get(linkedList.size() - 2).get();
             }
-            if (wc0.a(str3)) {
-                return -16777216;
+            return null;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lj0
+    @Nullable
+    public Activity d() {
+        InterceptResult invokeV;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int size = this.b.size();
+            if (size < 2) {
+                return g();
             }
-            try {
-                return Color.parseColor(str3);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return -16777216;
+            for (int i = size - 1; i >= 0; i--) {
+                WeakReference<Activity> weakReference = this.b.get(i);
+                if (weakReference != null && (activity = weakReference.get()) != null && !activity.isFinishing()) {
+                    return activity;
+                }
+            }
+            return null;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oj0
+    public void c(@Nullable mj0 mj0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mj0Var) == null) && mj0Var != null && !this.a.contains(mj0Var)) {
+            if (d && this.a.size() > 0) {
+                CopyOnWriteArrayList<mj0> copyOnWriteArrayList = this.a;
+                copyOnWriteArrayList.add(copyOnWriteArrayList.size() - 1, mj0Var);
+                return;
+            }
+            this.a.add(mj0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.mj0
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, activity) == null) {
+            if (h()) {
+                Iterator<mj0> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().onActivityStarted(activity);
+                }
+            }
+            int i = this.c + 1;
+            this.c = i;
+            if (i == 1) {
+                onBackgroundToForeground(activity);
             }
         }
-        return invokeLLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.mj0
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, activity) == null) {
+            if (h()) {
+                Iterator<mj0> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().onActivityStopped(activity);
+                }
+            }
+            int i = this.c - 1;
+            this.c = i;
+            if (i == 0) {
+                onForegroundToBackground(activity);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.oj0
+    public void e(@Nullable mj0 mj0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, mj0Var) == null) && mj0Var != null && this.a.contains(mj0Var)) {
+            this.a.remove(mj0Var);
+        }
+    }
+
+    public void i(@Nullable mj0 mj0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, mj0Var) == null) && mj0Var != null && !this.a.contains(mj0Var)) {
+            d = true;
+            this.a.add(mj0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.mj0
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, activity) != null) || !h()) {
+            return;
+        }
+        Iterator<mj0> it = this.a.iterator();
+        while (it.hasNext()) {
+            it.next().onActivityPaused(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.mj0
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, activity) != null) || !h()) {
+            return;
+        }
+        Iterator<mj0> it = this.a.iterator();
+        while (it.hasNext()) {
+            it.next().onActivityResumed(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.mj0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048591, this, activity) != null) || !h()) {
+            return;
+        }
+        Iterator<mj0> it = this.a.iterator();
+        while (it.hasNext()) {
+            it.next().onBackgroundToForeground(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.mj0
+    public void onForegroundToBackground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, activity) != null) || !h()) {
+            return;
+        }
+        Iterator<mj0> it = this.a.iterator();
+        while (it.hasNext()) {
+            it.next().onForegroundToBackground(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.mj0
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
+            this.b.add(new WeakReference<>(activity));
+            if (!h()) {
+                return;
+            }
+            Iterator<mj0> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().onActivityCreated(activity, bundle);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.mj0
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
+            if (h()) {
+                Iterator<mj0> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().onActivityDestroyed(activity);
+                }
+            }
+            if (this.b.isEmpty()) {
+                return;
+            }
+            int size = this.b.size();
+            while (true) {
+                size--;
+                if (size >= 0) {
+                    if (this.b.get(size).get() == activity) {
+                        break;
+                    }
+                } else {
+                    size = -1;
+                    break;
+                }
+            }
+            if (size != -1) {
+                this.b.remove(size);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.mj0
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048588, this, activity, bundle) != null) || !h()) {
+            return;
+        }
+        Iterator<mj0> it = this.a.iterator();
+        while (it.hasNext()) {
+            it.next().onActivitySaveInstanceState(activity, bundle);
+        }
     }
 }

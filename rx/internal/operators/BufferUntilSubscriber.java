@@ -1,44 +1,44 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.jhc;
-import com.baidu.tieba.kcc;
-import com.baidu.tieba.lcc;
-import com.baidu.tieba.ohc;
-import com.baidu.tieba.qcc;
-import com.baidu.tieba.xcc;
+import com.baidu.tieba.h6c;
+import com.baidu.tieba.i6c;
+import com.baidu.tieba.ibc;
+import com.baidu.tieba.n6c;
+import com.baidu.tieba.nbc;
+import com.baidu.tieba.u6c;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class BufferUntilSubscriber<T> extends jhc<T, T> {
-    public static final lcc d = new a();
+public final class BufferUntilSubscriber<T> extends ibc<T, T> {
+    public static final i6c d = new a();
     public final State<T> b;
     public boolean c;
 
     /* loaded from: classes2.dex */
-    public static class a implements lcc {
-        @Override // com.baidu.tieba.lcc
+    public static class a implements i6c {
+        @Override // com.baidu.tieba.i6c
         public void onCompleted() {
         }
 
-        @Override // com.baidu.tieba.lcc
+        @Override // com.baidu.tieba.i6c
         public void onError(Throwable th) {
         }
 
-        @Override // com.baidu.tieba.lcc
+        @Override // com.baidu.tieba.i6c
         public void onNext(Object obj) {
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class b<T> implements kcc.a<T> {
+    public static final class b<T> implements h6c.a<T> {
         public final State<T> a;
 
         /* loaded from: classes2.dex */
-        public class a implements xcc {
+        public class a implements u6c {
             public a() {
             }
 
-            @Override // com.baidu.tieba.xcc
+            @Override // com.baidu.tieba.u6c
             public void call() {
                 b.this.a.set(BufferUntilSubscriber.d);
             }
@@ -48,15 +48,13 @@ public final class BufferUntilSubscriber<T> extends jhc<T, T> {
             this.a = state;
         }
 
-        @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((qcc) ((qcc) obj));
-        }
-
-        public void call(qcc<? super T> qccVar) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.v6c
+        /* renamed from: a */
+        public void call(n6c<? super T> n6cVar) {
             boolean z;
-            if (this.a.casObserverRef(null, qccVar)) {
-                qccVar.b(ohc.a(new a()));
+            if (this.a.casObserverRef(null, n6cVar)) {
+                n6cVar.b(nbc.a(new a()));
                 synchronized (this.a.guard) {
                     z = true;
                     if (!this.a.emitting) {
@@ -82,7 +80,7 @@ public final class BufferUntilSubscriber<T> extends jhc<T, T> {
                     }
                 }
             } else {
-                qccVar.onError(new IllegalStateException("Only one subscriber allowed!"));
+                n6cVar.onError(new IllegalStateException("Only one subscriber allowed!"));
             }
         }
     }
@@ -91,7 +89,7 @@ public final class BufferUntilSubscriber<T> extends jhc<T, T> {
         return new BufferUntilSubscriber<>(new State());
     }
 
-    @Override // com.baidu.tieba.lcc
+    @Override // com.baidu.tieba.i6c
     public void onCompleted() {
         if (this.c) {
             this.b.get().onCompleted();
@@ -101,14 +99,14 @@ public final class BufferUntilSubscriber<T> extends jhc<T, T> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class State<T> extends AtomicReference<lcc<? super T>> {
+    public static final class State<T> extends AtomicReference<i6c<? super T>> {
         public static final long serialVersionUID = 8026705089538090368L;
         public boolean emitting;
         public final Object guard = new Object();
         public final ConcurrentLinkedQueue<Object> buffer = new ConcurrentLinkedQueue<>();
 
-        public boolean casObserverRef(lcc<? super T> lccVar, lcc<? super T> lccVar2) {
-            return compareAndSet(lccVar, lccVar2);
+        public boolean casObserverRef(i6c<? super T> i6cVar, i6c<? super T> i6cVar2) {
+            return compareAndSet(i6cVar, i6cVar2);
         }
     }
 
@@ -117,7 +115,7 @@ public final class BufferUntilSubscriber<T> extends jhc<T, T> {
         this.b = state;
     }
 
-    @Override // com.baidu.tieba.lcc
+    @Override // com.baidu.tieba.i6c
     public void onError(Throwable th) {
         if (this.c) {
             this.b.get().onError(th);
@@ -126,7 +124,7 @@ public final class BufferUntilSubscriber<T> extends jhc<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.lcc
+    @Override // com.baidu.tieba.i6c
     public void onNext(T t) {
         if (this.c) {
             this.b.get().onNext(t);

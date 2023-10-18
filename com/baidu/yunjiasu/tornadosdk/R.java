@@ -12,7 +12,7 @@ public final class R {
     /* loaded from: classes9.dex */
     public static final class xml {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int booster_network_config = 0x7f130001;
+        public static final int booster_network_config = 0x7f130002;
         public transient /* synthetic */ FieldHolder $fh;
 
         public xml() {

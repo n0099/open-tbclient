@@ -1,35 +1,41 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.container.NgWebView;
+import android.text.TextUtils;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tieba.mq2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vc3 extends dd3 {
+public final class vc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nx1 a;
+        public final /* synthetic */ rc3 a;
 
-        public a(vc3 vc3Var, nx1 nx1Var) {
+        public a(rc3 rc3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vc3Var, nx1Var};
+                Object[] objArr = {rc3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,78 +45,120 @@ public class vc3 extends dd3 {
                     return;
                 }
             }
-            this.a = nx1Var;
+            this.a = rc3Var;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.a.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                wb3.k("4165", this.a.f());
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vc3(dc3 dc3Var) {
-        super(dc3Var, "/swanAPI/pageScrollTo");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948235939, "Lcom/baidu/tieba/vc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948235939, "Lcom/baidu/tieba/vc3;");
                 return;
             }
         }
+        a = am1.a;
     }
 
-    @Override // com.baidu.tieba.dd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
-        InterceptResult invokeLLLL;
-        int f;
+    public static String a(Response response) {
+        InterceptResult invokeL;
+        ResponseBody body;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
-            if (gb3Var != null && context != null) {
-                JSONObject a2 = dd3.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    g82.i("PageScrollToAction", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
-                    return false;
-                }
-                int optInt = a2.optInt("scrollTop", -1);
-                int optInt2 = a2.optInt("duration", -1);
-                if (optInt > -1 && optInt2 > -1) {
-                    nx1 i = tw2.T().i();
-                    if (i != null) {
-                        if (i instanceof NgWebView) {
-                            f = d02.z(i, xo3.f(context, optInt));
-                        } else {
-                            f = xo3.f(context, optInt);
-                        }
-                        ValueAnimator ofInt = ValueAnimator.ofInt(i.getWebViewScrollY(), f);
-                        ofInt.setDuration(optInt2);
-                        ofInt.addUpdateListener(new a(this, i));
-                        ofInt.start();
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
-                g82.c("PageScrollToAction", "illegal scrollTop or duration");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, response)) == null) {
+            if (response == null || (body = response.body()) == null) {
+                return "";
             }
-            g82.c("PageScrollToAction", "swanApp is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-            return false;
+            JSONObject jSONObject = null;
+            try {
+                str = body.string();
+            } catch (IOException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                str = null;
+            }
+            if (str == null) {
+                return "";
+            }
+            try {
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+            if (jSONObject == null) {
+                return "";
+            }
+            return jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, "");
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(String str, int i, String str2, int i2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) != null) || TextUtils.equals(str, GameAssistConstKt.METHOD_GET_LOCATION)) {
+            return;
+        }
+        c(str, i, str2, i2, str3, null);
+    }
+
+    public static void c(String str, int i, String str2, int i2, String str3, Response response) {
+        x42 J;
+        wr1 v3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, response}) == null) {
+            rc3 rc3Var = new rc3();
+            p53 c0 = p53.c0();
+            if (c0 == null || (J = cr2.V().J()) == null || (v3 = J.v3()) == null) {
+                return;
+            }
+            String l = v3.l();
+            mq2.a X = c0.X();
+            String a0 = c0.a0();
+            String appId = c0.getAppId();
+            String X2 = X.X();
+            String x1 = X.x1();
+            String i3 = ue3.i(cr2.V().getCoreVersion(), X.H());
+            String a2 = a(response);
+            String d = NetworkUtils.d();
+            rc3Var.a = ic3.n(X.H());
+            rc3Var.c = c0.X().U();
+            rc3Var.d = c0.X().W();
+            rc3Var.f = appId;
+            rc3Var.a("name", a0);
+            rc3Var.a("apiName", str);
+            rc3Var.a(CloudStabilityUBCUtils.KEY_ERROR_CODE, String.valueOf(i));
+            rc3Var.a("errorMsg", str2);
+            rc3Var.a("pagePath", l);
+            if (i2 != -1) {
+                rc3Var.a("oldErrorCode", String.valueOf(i2));
+            }
+            rc3Var.a("oldErrorMsg", str3);
+            rc3Var.a("scheme", X2);
+            rc3Var.a("appVersion", x1);
+            rc3Var.a("swan", i3);
+            rc3Var.a("requestid", a2);
+            rc3Var.a("net", d);
+            if (ad4.b() != null) {
+                rc3Var.a("SDKVersion", ad4.b().b());
+                rc3Var.a("hostName", ad4.b().c());
+            }
+            ji3.j(new a(rc3Var), "monitor");
+        }
     }
 }

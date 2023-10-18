@@ -1,101 +1,106 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public final class kx1 extends jw2<kx1> {
+public class kx1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, dx1> a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        public static final String a = jw2.r("SwanFileFetcher.Params", "file_url");
-        public static final String b = jw2.r("SwanFileFetcher.Params", "file_save_path");
-        public static final String c = jw2.r("SwanFileFetcher.Params", "file_head_map");
-        public static final String d = jw2.r("SwanFileFetcher.Params", "image_save_gallery");
-        public static final String e = jw2.r("SwanFileFetcher.Params", "file_cancel_tag");
-    }
-
-    public kx1 J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (kx1) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947928357, "Lcom/baidu/tieba/kx1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947928357, "Lcom/baidu/tieba/kx1;");
+                return;
+            }
+        }
+        b = am1.a;
     }
 
     public kx1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedHashMap();
+    }
+
+    public synchronized void a(BasePendingOperation basePendingOperation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
+            synchronized (this) {
+                if (basePendingOperation == null) {
+                    return;
+                }
+                if (b) {
+                    Log.d("PendingOperationHandler", "*************** 【Add pending module】:" + basePendingOperation.b() + " params: " + basePendingOperation.c());
+                }
+                c(basePendingOperation.d()).b(basePendingOperation);
             }
         }
     }
 
-    @Override // com.baidu.tieba.cq3
-    public /* bridge */ /* synthetic */ cq3 i() {
-        J();
-        return this;
-    }
-
-    public kx1 E(String str) {
-        InterceptResult invokeL;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return z(a.e, str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, dx1> entry : this.a.entrySet()) {
+                    entry.getValue().c();
+                }
+                this.a.clear();
+            }
         }
-        return (kx1) invokeL.objValue;
     }
 
-    public kx1 G(String str) {
-        InterceptResult invokeL;
+    public synchronized void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return z(a.b, str);
-        }
-        return (kx1) invokeL.objValue;
-    }
-
-    public kx1 H(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return z(a.a, str);
-        }
-        return (kx1) invokeL.objValue;
-    }
-
-    public kx1 I(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            return t(a.d, z);
-        }
-        return (kx1) invokeZ.objValue;
-    }
-
-    public kx1 F(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Bundle bundle = new Bundle();
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    bundle.putString(entry.getKey(), entry.getValue());
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, dx1> entry : this.a.entrySet()) {
+                    entry.getValue().a();
                 }
             }
-            return u(a.c, bundle);
         }
-        return (kx1) invokeL.objValue;
+    }
+
+    public final dx1 c(BasePendingOperation.OperationType operationType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operationType)) == null) {
+            if (!this.a.containsKey(operationType.name())) {
+                dx1 a = hx1.a(operationType);
+                this.a.put(operationType.name(), a);
+                return a;
+            }
+            return this.a.get(operationType.name());
+        }
+        return (dx1) invokeL.objValue;
     }
 }

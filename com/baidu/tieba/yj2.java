@@ -1,60 +1,30 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.AnyThread;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.al2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.xj2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-/* loaded from: classes8.dex */
-public class yj2 {
+/* loaded from: classes9.dex */
+public class yj2 extends kj2<xj2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final int b;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    /* loaded from: classes9.dex */
+    public class a implements xj2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ zm4 c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ al2.b e;
-        public final /* synthetic */ yj2 f;
+        public final /* synthetic */ yj2 a;
 
-        public a(yj2 yj2Var, Set set, boolean z, zm4 zm4Var, long j, al2.b bVar) {
+        public a(yj2 yj2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yj2Var, set, Boolean.valueOf(z), zm4Var, Long.valueOf(j), bVar};
+                Object[] objArr = {yj2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -64,301 +34,47 @@ public class yj2 {
                     return;
                 }
             }
-            this.f = yj2Var;
-            this.a = set;
-            this.b = z;
-            this.c = zm4Var;
-            this.d = j;
-            this.e = bVar;
+            this.a = yj2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            int i2;
+        @Override // com.baidu.tieba.xj2.a
+        public void a(Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HashSet hashSet = new HashSet();
-                Set set = this.a;
-                if (set != null) {
-                    hashSet.addAll(set);
-                }
-                Set<String> f = cu2.f();
-                hashSet.addAll(f);
-                g82.k("SwanAppDiskCleaner", "排除正在活动的小程：" + f);
-                Set<String> b = vj2.b();
-                hashSet.addAll(b);
-                g82.k("SwanAppDiskCleaner", "排除正在下载中的小程：" + b);
-                Map<String, PMSAppInfo> v = dj4.i().v();
-                if (!sj2.c().d().n(v)) {
-                    g82.k("SwanAppDiskCleaner", "PMS数据库没有文件，不需要清理");
-                    return;
-                }
-                if (yj2.a) {
-                    Log.d("SwanAppDiskCleaner", "删除所有小程序包下的历史版本包");
-                }
-                cu2.d(hashSet, v);
-                Map m = this.f.m(86400000L, v);
-                if (m.isEmpty()) {
-                    return;
-                }
-                ArrayList arrayList = new ArrayList(m.keySet());
-                yj2.k(hashSet, arrayList);
-                ArrayList arrayList2 = new ArrayList();
-                ArrayList arrayList3 = new ArrayList();
-                yj2.l(arrayList, arrayList2, arrayList3);
-                ArrayList arrayList4 = new ArrayList();
-                if (this.b) {
-                    i = yj2.b;
-                } else {
-                    i = this.c.d;
-                }
-                int max = Math.max(10, i);
-                yj2.r(arrayList3, max, arrayList4);
-                long j = this.c.e;
-                yj2.q(arrayList3, j * 3600000, arrayList4, m);
-                if (this.b) {
-                    i2 = yj2.c;
-                } else {
-                    i2 = this.c.b;
-                }
-                int max2 = Math.max(40, i2);
-                yj2.r(arrayList2, max2, arrayList4);
-                long j2 = this.c.c;
-                yj2.q(arrayList2, 3600000 * j2, arrayList4, m);
-                g82.k("SwanAppDiskCleaner", "clean_internal_hour=" + this.d + " pre_hold_count=" + max + " pre_force_clean_hour=" + j + " used_hold_count=" + max2 + " used_force_clean_hour=" + j2 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + "\n");
-                sj2.c().d().g(arrayList4, false, false, this.e);
-                ye2.c();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && this.a.b != null) {
+                this.a.b.onCallback(this.a, "onMediaMetadataExtracted", bundle);
             }
         }
-    }
 
-    /* loaded from: classes8.dex */
-    public static class b implements Comparator<PMSAppInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
+        @Override // com.baidu.tieba.xj2.a
+        public void onRelease() {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, pMSAppInfo2)) == null) {
-                return Long.compare(pMSAppInfo2.createTime, pMSAppInfo.createTime);
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948332008, "Lcom/baidu/tieba/yj2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948332008, "Lcom/baidu/tieba/yj2;");
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a.b == null) {
                 return;
             }
+            this.a.b = null;
         }
-        a = qr1.a;
-        nu2.g0().getSwitch("swan_disk_level_pkg_hold_used", 0);
-        b = 0;
-        nu2.g0().getSwitch("swan_disk_level_pkg_hold_predownload", 0);
-        c = 0;
     }
 
-    public yj2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yj2(@NonNull xj2 xj2Var) {
+        super(xj2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xj2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((mj2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return uj3.a().getBoolean("key_disk_force_clean", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @AnyThread
-    public synchronized void i(@Nullable Set<String> set, boolean z, al2.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
-            synchronized (this) {
-                j(set, z, bVar);
-            }
-        }
-    }
-
-    public static void k(Set<String> set, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, set, list) == null) {
-            if (set != null) {
-                Iterator<String> it = list.iterator();
-                while (it.hasNext()) {
-                    if (set.contains(it.next())) {
-                        it.remove();
-                    }
-                }
-            }
-            list.remove("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
-        }
-    }
-
-    public static void l(@NonNull List<String> list, @NonNull List<String> list2, @NonNull List<String> list3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, list, list2, list3) == null) {
-            Set<String> i = ji2.i(AppRuntime.getAppContext().getContentResolver());
-            List<SwanFavorItemData> i2 = SwanFavorDataManager.h().i();
-            HashSet hashSet = new HashSet();
-            for (SwanFavorItemData swanFavorItemData : i2) {
-                hashSet.add(swanFavorItemData.getAppKey());
-            }
-            for (String str : list) {
-                if (!i.contains(str) && !hashSet.contains(str)) {
-                    list3.add(str);
-                } else {
-                    list2.add(str);
-                }
-            }
-        }
-    }
-
-    @AnyThread
-    public synchronized void j(@Nullable Set<String> set, boolean z, al2.b bVar) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{set, Boolean.valueOf(z), bVar}) == null) {
-            synchronized (this) {
-                if (!ProcessUtils.isMainProcess()) {
-                    if (a) {
-                        Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
-                    }
-                    return;
-                }
-                g82.k("SwanAppDiskCleaner", "是否为强制自动清理：" + z);
-                zm4 a2 = an4.b().a();
-                if (z && wj2.a()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                long j = a2.a;
-                if (!z2 && o(3600000 * j)) {
-                    return;
-                }
-                uj3.a().putLong("clean_disk_check_time", System.currentTimeMillis());
-                ExecutorUtilsExt.postOnSerial(new a(this, set, z, a2, j, bVar), "cleanDiskSpaceOptimized");
-            }
-        }
-    }
-
-    public static boolean o(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
-            if (System.currentTimeMillis() - uj3.a().getLong("clean_disk_check_time", 0L) < j) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public static void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
-            uj3.a().putBoolean("key_disk_force_clean", z);
-        }
-    }
-
-    public static void q(List<String> list, long j, List<String> list2, Map<String, Long> map) {
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{list, Long.valueOf(j), list2, map}) == null) {
-            Iterator<String> it = list.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!TextUtils.isEmpty(next) && (l = map.get(next)) != null && j < System.currentTimeMillis() - l.longValue()) {
-                    list2.add(next);
-                    it.remove();
-                }
-            }
-        }
-    }
-
-    public static void r(List<String> list, int i, List<String> list2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65552, null, list, i, list2) == null) && list != null && !list.isEmpty() && i >= 0 && i < list.size()) {
-            Iterator<String> it = list.iterator();
-            int i2 = 0;
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!TextUtils.isEmpty(next)) {
-                    int i3 = i2 + 1;
-                    if (i2 >= i) {
-                        list2.add(next);
-                        it.remove();
-                    }
-                    i2 = i3;
-                }
-            }
-        }
-    }
-
-    @NonNull
-    @WorkerThread
-    public final Map<String, Long> m(long j, Map<String, PMSAppInfo> map) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                ArrayList<PMSAppInfo> arrayList = new ArrayList(map.values());
-                Collections.sort(arrayList, new b(null));
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                for (PMSAppInfo pMSAppInfo : arrayList) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long j2 = pMSAppInfo.createTime;
-                    if (currentTimeMillis - j2 > j) {
-                        linkedHashMap.put(pMSAppInfo.appId, Long.valueOf(j2));
-                    }
-                }
-                return linkedHashMap;
-            }
-            return Collections.emptyMap();
-        }
-        return (Map) invokeJL.objValue;
+        ((xj2) this.c).w(new a(this));
+        this.a.a(new ak2());
+        this.a.a(new bk2());
     }
 }

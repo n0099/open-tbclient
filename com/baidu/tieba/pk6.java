@@ -1,337 +1,112 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.webkit.JsPromptResult;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.browser.exception.JsInterfaceException;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pk6 implements vm6 {
+public class pk6 extends hk6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<xm6> b;
-    public final qk6 c;
+    public List<q58> a;
+    public String b;
+    public String c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948064974, "Lcom/baidu/tieba/pk6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948064974, "Lcom/baidu/tieba/pk6;");
+                return;
+            }
+        }
+        d = BdUniqueId.gen();
+    }
 
     public pk6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList<>();
-        this.c = new qk6();
+        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.vm6
-    public void a(List<Pair<String, String>> list) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.c.g(list);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<q58> getDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return d;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void c(q58 q58Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, q58Var) == null) {
+            this.a.add(q58Var);
         }
     }
 
-    @Override // com.baidu.tieba.vm6
-    public void b(String str, HashMap<String, Object> hashMap) {
-        WebView webView;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap) == null) {
-            for (WeakReference<WebView> weakReference : zm6.b().a()) {
-                if (weakReference != null && (webView = weakReference.get()) != null) {
-                    try {
-                        d(webView, str, hashMap);
-                    } catch (JsInterfaceException e) {
-                        BdLog.e(e, true);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
         }
     }
 
-    @Override // com.baidu.tieba.vm6
-    public boolean c(WebView webView, String str, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLL;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, jsPromptResult)) == null) {
-            l(str, str, webView.getUrl());
-            if (str.startsWith("tiebaapp")) {
-                return o(webView, str);
-            }
-            boolean n = n(webView, str, jsPromptResult);
-            if (!n) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_type", "hybrid").param("obj_source", str));
-            }
-            return n;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c = str;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vm6
-    public void g(String str, JSONObject jSONObject, WebView webView) {
-        WebView webView2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, jSONObject, webView) == null) {
-            for (WeakReference<WebView> weakReference : zm6.b().a()) {
-                if (weakReference != null && (webView2 = weakReference.get()) != null) {
-                    j(webView2, str, jSONObject, webView);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vm6
-    public void d(View view2, String str, @Nullable HashMap<String, Object> hashMap) {
-        WebView webView;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, view2, str, hashMap) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (view2 instanceof WebView) {
-                webView = (WebView) view2;
-            } else if (view2 instanceof TbWebView) {
-                webView = ((TbWebView) view2).getInnerWebView();
-            } else {
-                webView = null;
-            }
-            if (webView != null) {
-                m(webView.getUrl(), str, str);
-                List<ska> h = this.c.h(webView, str, hashMap);
-                boolean f = this.c.f(webView, h);
-                boolean z2 = false;
-                if (!ListUtils.isEmpty(h)) {
-                    loop0: while (true) {
-                        z = false;
-                        for (ska skaVar : h) {
-                            if (skaVar != null && skaVar.k()) {
-                                if (skaVar.j || z) {
-                                    z = true;
-                                }
-                            }
-                        }
-                    }
-                    z2 = z;
-                }
-                if (!z2) {
-                    if (f) {
-                        TbLog hybridLog = HybridLog.getInstance();
-                        hybridLog.i("newHybrid", "端能力 执行成功 " + str + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
-                        return;
-                    }
-                    TbLog hybridLog2 = HybridLog.getInstance();
-                    hybridLog2.e("newHybrid", "端能力 执行失败 " + str + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
-                    return;
-                }
-                return;
-            }
-            kn6.b("newHybrid", "端能力 执行失败 view类型不匹配！" + view2);
-        }
-    }
-
-    @Override // com.baidu.tieba.vm6
-    public void e(View view2, String str, ValueCallback<String> valueCallback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048580, this, view2, str, valueCallback) == null) && !TextUtils.isEmpty(str)) {
-            if (view2 instanceof WebView) {
-                ((WebView) view2).evaluateJavascript(str, valueCallback);
-            } else if (view2 instanceof TbWebView) {
-                ((TbWebView) view2).w(str, valueCallback);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vm6
-    public void i(View view2, String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, str, jSONObject) == null) {
-            j(view2, str, jSONObject, null);
-        }
-    }
-
-    public final void l(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem("js_call_native");
-            statisticItem.addParam("obj_type", str);
-            statisticItem.addParam("obj_name", str2);
-            statisticItem.addParam("obj_source", str3);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void m(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048588, this, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem("native_call_js");
-            statisticItem.addParam("obj_type", str);
-            statisticItem.addParam("obj_name", str2);
-            statisticItem.addParam("obj_source", str3);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final boolean p(TbPageContext<?> tbPageContext, String str, ska skaVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, tbPageContext, str, skaVar)) == null) {
-            if (skaVar == null || skaVar.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
-                return false;
-            }
-            skaVar.s(true);
-            skaVar.z(0);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vm6
-    public void f(xm6 xm6Var, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, xm6Var, obj) == null) && (obj instanceof qka)) {
-            this.b.add(xm6Var);
-            this.c.a((qka) obj);
-        }
-    }
-
-    @Override // com.baidu.tieba.vm6
-    public void h(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, jSONObject) == null) {
-            g(str, jSONObject, null);
-        }
-    }
-
-    public void j(View view2, String str, JSONObject jSONObject, WebView webView) {
-        WebView webView2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048585, this, view2, str, jSONObject, webView) == null) {
-            if (view2 instanceof WebView) {
-                webView2 = (WebView) view2;
-            } else if (view2 instanceof TbWebView) {
-                webView2 = ((TbWebView) view2).getInnerWebView();
-            } else {
-                webView2 = null;
-            }
-            if (webView2 == null) {
-                return;
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("key", str);
-                jSONObject2.put("data", jSONObject);
-                if (webView != null) {
-                    jSONObject2.put("sourceWebviewId", webView.toString());
-                }
-                this.c.b(webView2, jSONObject2.toString());
-            } catch (Exception e) {
-                TbLog hybridLog = HybridLog.getInstance();
-                hybridLog.e("JsBridge", "dispatchEvent Exception:" + e);
-            }
-        }
-    }
-
-    public final boolean k(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048586, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            Iterator<xm6> it = this.b.iterator();
-            while (it.hasNext()) {
-                xm6 next = it.next();
-                if (next != null && next.b(webView, str, str2, str3, jsPromptResult)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean n(WebView webView, String str, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, webView, str, jsPromptResult)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                TbLog hybridLog = HybridLog.getInstance();
-                hybridLog.i("JsBridge", "旧版端能力：start processJSON json:" + str + " " + webView);
-                JSONObject jSONObject = new JSONObject(str);
-                return k(webView, jSONObject.optString("interfaceName", ""), jSONObject.optString("methodName", ""), jSONObject.optString("param", ""), jsPromptResult);
-            } catch (JSONException e) {
-                TbLog hybridLog2 = HybridLog.getInstance();
-                hybridLog2.e("JsBridge", "旧版端能力异常：processJSON JSONException:" + e);
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean o(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, webView, str)) == null) {
-            TbLog hybridLog = HybridLog.getInstance();
-            hybridLog.i("JsBridge", "新版端能力：start processScheme scheme:" + str + " " + webView);
-            uka ukaVar = new uka();
-            String a = wka.a(str);
-            String d = wka.d(str);
-            String b = wka.b(str);
-            ukaVar.f(a);
-            ukaVar.h(d);
-            ska skaVar = new ska();
-            skaVar.w(b);
-            if (di.isEmpty(a) || di.isEmpty(d) || di.isEmpty(b)) {
-                skaVar.z(101);
-            }
-            try {
-                ukaVar.j(wka.f(str));
-            } catch (JSONException unused) {
-                ukaVar.j(new JSONObject());
-                skaVar.z(101);
-            }
-            ukaVar.i(wka.e(str));
-            ukaVar.g(wka.c(str));
-            ska d2 = this.c.d(webView, ukaVar, skaVar);
-            if (d2.g()) {
-                this.c.e(webView, d2);
-                return false;
-            }
-            p(dia.c(webView.getContext()), str, d2);
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

@@ -11,9 +11,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
-import com.baidu.tieba.md9;
-import com.baidu.tieba.sd9;
-import com.baidu.tieba.wd9;
+import com.baidu.tieba.f89;
+import com.baidu.tieba.j89;
+import com.baidu.tieba.z79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,13 +34,13 @@ public class VideoEncoderCore {
     public long mLastFrameSyncTime;
     public MediaMuxerWrapper mMuxer;
     public boolean mMuxerStarted;
-    public sd9 mPostMonitorManager;
+    public f89 mPostMonitorManager;
     public boolean mRequestStop;
     public int mTrackIndex;
     public Bundle params;
 
     public VideoEncoderCore(int i, int i2, int i3, MediaMuxerWrapper mediaMuxerWrapper) throws IOException {
-        wd9 wd9Var;
+        j89 j89Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,14 +58,14 @@ public class VideoEncoderCore {
         this.params = new Bundle();
         this.mLastFrameSyncTime = 0L;
         this.mRequestStop = false;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, wd9.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, j89.class);
         if (runTask != null) {
-            wd9Var = (wd9) runTask.getData();
+            j89Var = (j89) runTask.getData();
         } else {
-            wd9Var = null;
+            j89Var = null;
         }
-        if (wd9Var != null) {
-            this.mPostMonitorManager = wd9Var.get();
+        if (j89Var != null) {
+            this.mPostMonitorManager = j89Var.get();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -198,9 +198,9 @@ public class VideoEncoderCore {
                 try {
                     mediaMuxerWrapper.stop();
                 } catch (IllegalStateException e) {
-                    sd9 sd9Var = this.mPostMonitorManager;
-                    if (sd9Var != null) {
-                        sd9Var.b(17, md9.a(e));
+                    f89 f89Var = this.mPostMonitorManager;
+                    if (f89Var != null) {
+                        f89Var.b(17, z79.a(e));
                     }
                 }
                 this.mMuxer = null;

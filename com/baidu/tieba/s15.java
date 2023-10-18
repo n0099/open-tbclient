@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.content.SharedPreferences;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class s15 extends ThreadData {
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__IndentKt;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public final class s15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final s15 a;
+    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public int d;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +38,8 @@ public class s15 extends ThreadData {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        a = new s15();
+        b = TbadkCoreApplication.getInst().getSharedPreferences("new_frequency_strategy_helper_sp", 0);
     }
 
     public s15() {
@@ -47,85 +52,110 @@ public class s15 extends ThreadData {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public final int a(String dialogName) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogName)) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String str = "";
+            String string = b.getString(c(dialogName), "");
+            if (string != null) {
+                str = string;
+            }
+            if (StringUtils.isNotNull(str)) {
+                return e(str, "count");
+            }
+            return 0;
         }
-        return invokeV.intValue;
+        return invokeL.intValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public final int b(String dialogName) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName)) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String str = "";
+            String string = b.getString(c(dialogName), "");
+            if (string != null) {
+                str = string;
+            }
+            if (StringUtils.isNotNull(str)) {
+                return e(str, "version");
+            }
+            return 0;
         }
-        return invokeV.booleanValue;
+        return invokeL.intValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public final String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return SharedPrefHelper.getSharedPrefKeyWithAccount("KEY_NEW_FREQUENCE_DIALOG_STRATEGY_COUNTER") + '_' + str;
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public final String d(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            return StringsKt__IndentKt.trimIndent("\n        {\"version\":" + i + ",\"count\":" + i2 + "}\n    ");
         }
-        return invokeV.booleanValue;
+        return (String) invokeII.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final void g(String dialogName, int i) {
+        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, dialogName, i) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String c = c(dialogName);
+            if (StringUtils.isNull(b.getString(c, ""))) {
+                d = d(i, 1);
+            } else {
+                d = d(i, a(dialogName) + 1);
+            }
+            SharedPreferences.Editor edit = b.edit();
+            edit.putString(c, d);
+            edit.apply();
         }
     }
 
-    public void l(boolean z) {
+    public final int e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            try {
+                return new JSONObject(str).optInt(str2);
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    TbLog yunDialogLog = YunDialogLog.getInstance();
+                    yunDialogLog.e(YunDialogManager.LOG_KEY, "读取缓存频次json失败" + e.getMessage());
+                    e.printStackTrace();
+                    return 0;
+                }
+                throw e;
+            }
+        }
+        return invokeLL.intValue;
+    }
+
+    public final void f(String dialogName, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, dialogName, i) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            TbLog yunDialogLog = YunDialogLog.getInstance();
+            yunDialogLog.i(YunDialogManager.LOG_KEY, "重置弹窗 " + dialogName + " 的本地频次记录");
+            String c = c(dialogName);
+            SharedPreferences.Editor edit = b.edit();
+            edit.putString(c, a.d(i, 0));
+            edit.apply();
         }
     }
 }

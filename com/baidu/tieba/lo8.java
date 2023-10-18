@@ -1,34 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.net.Uri;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class lo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(long j, long j2, String str) {
+    public static void a(TbPageContext<?> tbPageContext, String str, int i) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_ICON_CLICK);
-            statisticItem.param("uid", j);
-            statisticItem.param("obj_locate", j2);
-            statisticItem.param("obj_type", str);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void b(long j, long j2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_ICON_EXPLORE);
-            statisticItem.param("uid", j);
-            statisticItem.param("obj_locate", j2);
-            statisticItem.param("obj_type", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeLLI(65536, null, tbPageContext, str, i) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("level", i);
+                jSONObject.put("success_jump_url", str);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("page", "pass/accountAuth");
+                jSONObject2.put(YunDialogManager.PAGE_PARAMS_KEY, jSONObject);
+                String jSONObject3 = jSONObject2.toString();
+                Uri.Builder builder = new Uri.Builder();
+                builder.scheme("tiebaapp").authority(DI.ROUTER_NAME).path("/portal").appendQueryParameter("params", jSONObject3);
+                str2 = builder.build().toString();
+            } catch (JSONException e) {
+                BdLog.e(e);
+                str2 = "";
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str2});
         }
     }
 }

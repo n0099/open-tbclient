@@ -1,274 +1,243 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class as0 {
+public final class as0 implements rs0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final List<qs0> d;
-    public final String e;
-    public final String f;
-    public String g;
-    public final String h;
+    public lu0 a;
+    public lu0 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625611, "Lcom/baidu/tieba/as0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947625611, "Lcom/baidu/tieba/as0;");
-                return;
+    public as0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        i = new a(null);
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.rs0
+    public void a(zo0 player) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof as0) {
-                    as0 as0Var = (as0) obj;
-                    return Intrinsics.areEqual(this.a, as0Var.a) && Intrinsics.areEqual(this.b, as0Var.b) && Intrinsics.areEqual(this.c, as0Var.c) && Intrinsics.areEqual(this.d, as0Var.d) && Intrinsics.areEqual(this.e, as0Var.e) && Intrinsics.areEqual(this.f, as0Var.f) && Intrinsics.areEqual(this.g, as0Var.g) && Intrinsics.areEqual(this.h, as0Var.h);
+        if (interceptable == null || interceptable.invokeL(1048576, this, player) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            i(player, player.v());
+            lu0 k = player.k();
+            if (k != null) {
+                if (!Intrinsics.areEqual(k, this.b)) {
+                    j(this.b);
+                    this.b = null;
+                } else if (!Intrinsics.areEqual(k, this.a)) {
+                    j(this.a);
+                    this.a = null;
                 }
+                j(k);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rs0
+    public lu0 b(zo0 player, lu0 lu0Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, player, lu0Var)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            if (player.q1()) {
+                lu0Var = h(player, player.v());
+            }
+            if (lu0Var == null) {
+                lu0Var = f(player.p());
+            }
+            this.a = lu0Var;
+            return lu0Var;
+        }
+        return (lu0) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rs0
+    public void c(zo0 player, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, player, z) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            lu0 lu0Var = this.a;
+            if (lu0Var != null) {
+                e(player, lu0Var);
+                return;
+            }
+            if (this.b == null) {
+                this.b = f(player.p());
+            }
+            e(player, this.b);
+        }
+    }
+
+    public final void e(zo0 zo0Var, lu0 lu0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, zo0Var, lu0Var) == null) && lu0Var != null) {
+            zo0Var.e(lu0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.rs0
+    public boolean d(zo0 player, lu0 lu0Var) {
+        InterceptResult invokeLL;
+        String vid;
+        lu0 lu0Var2;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, player, lu0Var)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            BdVideoSeries j1 = player.j1();
+            if (j1 == null || (vid = j1.getVid()) == null) {
+                return false;
+            }
+            Intrinsics.checkNotNullExpressionValue(vid, "player.videoSeries?.vid ?: return false");
+            PlayerStatus playerStatus = null;
+            if (!(lu0Var instanceof su0)) {
+                lu0Var2 = null;
+            } else {
+                lu0Var2 = lu0Var;
+            }
+            su0 su0Var = (su0) lu0Var2;
+            if (su0Var != null) {
+                str = su0Var.z0();
+            } else {
+                str = null;
+            }
+            if (!Intrinsics.areEqual(vid, str)) {
+                return false;
+            }
+            if (lu0Var != null) {
+                playerStatus = lu0Var.T();
+            }
+            if (!PlayerStatus.isActiveStatus(playerStatus)) {
                 return false;
             }
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public boolean g(yo0 player, String str) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.b;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.c;
-            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            List<qs0> list = this.d;
-            int hashCode4 = (hashCode3 + (list != null ? list.hashCode() : 0)) * 31;
-            String str4 = this.e;
-            int hashCode5 = (hashCode4 + (str4 != null ? str4.hashCode() : 0)) * 31;
-            String str5 = this.f;
-            int hashCode6 = (hashCode5 + (str5 != null ? str5.hashCode() : 0)) * 31;
-            String str6 = this.g;
-            int hashCode7 = (hashCode6 + (str6 != null ? str6.hashCode() : 0)) * 31;
-            String str7 = this.h;
-            return hashCode7 + (str7 != null ? str7.hashCode() : 0);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, player, str)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return false;
+            }
+            lu0 k = player.k();
+            rw0.a("ReuseHelper: detach,cache is " + k + ",cacheKey is " + str);
+            if (k != null) {
+                k.Z();
+                qp0.a().c(str, k);
+            }
+            return true;
         }
-        return invokeV.intValue;
+        return invokeLL.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public lu0 h(yo0 player, String str) {
+        InterceptResult invokeLL;
+        Boolean bool;
+        rt0 U;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "BigCardData(avatar=" + this.a + ", brandName=" + this.b + ", title=" + this.c + ", tagList=" + this.d + ", btnText=" + this.e + ", btnColor=" + this.f + ", btnScheme=" + this.g + ", showTime=" + this.h + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, player, str)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            lu0 b = qp0.a().b(str);
+            if (b != null && (U = b.U()) != null) {
+                bool = Boolean.valueOf(U.verify(player.p()));
+            } else {
+                bool = null;
+            }
+            if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
+                qp0.a().d(str);
+                player.y0(true);
+                if (b.x() != null) {
+                    b.x().k();
+                    return b;
+                }
+                return b;
+            }
+            player.y0(false);
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (lu0) invokeLL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public final su0 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (str == null) {
+                str = "CyberNetPlayer";
             }
+            return new su0(str);
         }
+        return (su0) invokeL.objValue;
+    }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public final void j(lu0 lu0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, lu0Var) == null) && lu0Var != null) {
+            lu0Var.Z();
+            lu0Var.u0();
+            lu0Var.b0();
         }
+    }
 
-        public final as0 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("avatar");
-                    Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"avatar\")");
-                    String optString2 = jSONObject.optString("brand_name");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObj.optString(\"brand_name\")");
-                    String optString3 = jSONObject.optString("title");
-                    Intrinsics.checkNotNullExpressionValue(optString3, "jsonObj.optString(\"title\")");
-                    List<qs0> b = as0.i.b(jSONObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST));
-                    String optString4 = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-                    Intrinsics.checkNotNullExpressionValue(optString4, "jsonObj.optString(\"button_text\")");
-                    String optString5 = jSONObject.optString("button_color");
-                    Intrinsics.checkNotNullExpressionValue(optString5, "jsonObj.optString(\"button_color\")");
-                    String optString6 = jSONObject.optString("button_scheme");
-                    Intrinsics.checkNotNullExpressionValue(optString6, "jsonObj.optString(\"button_scheme\")");
-                    String optString7 = jSONObject.optString("show_time");
-                    Intrinsics.checkNotNullExpressionValue(optString7, "jsonObj.optString(\"show_time\")");
-                    return new as0(optString, optString2, optString3, b, optString4, optString5, optString6, optString7);
+    public void i(zo0 player, String str) {
+        Activity m;
+        yo0 yo0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, player, str) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            if (player.q1() && player.Z() && !player.R() && (m = player.m()) != null && m.isFinishing()) {
+                rw0.a("performAutoDetachCache begin");
+                lu0 B = player.B();
+                lu0 lu0Var = this.a;
+                if (lu0Var != null) {
+                    yo0Var = lu0Var.x();
+                } else {
+                    yo0Var = null;
                 }
-                return null;
-            }
-            return (as0) invokeL.objValue;
-        }
-
-        public final List<qs0> b(JSONArray jSONArray) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-                if (jSONArray != null && jSONArray.length() > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        qs0 a = qs0.b.a(jSONArray.optJSONObject(i));
-                        if (a != null) {
-                            arrayList.add(a);
-                        }
+                if (Intrinsics.areEqual(yo0Var, player)) {
+                    rw0.a("autoDetachCache,cacheKey:" + str + ", kernelLayer:" + B);
+                    if (g(player, str)) {
+                        this.a = null;
                     }
-                    return arrayList;
+                } else if (this.a != null) {
+                    rw0.a("detachCache,cacheKey:" + str + ", kernelLayer:" + B);
+                    lu0 lu0Var2 = this.a;
+                    if (lu0Var2 != null) {
+                        lu0Var2.Z();
+                    }
+                    qp0.a().c(str, this.a);
+                    this.a = null;
                 }
-                return new ArrayList();
             }
-            return (List) invokeL.objValue;
-        }
-    }
-
-    public as0(String avatar, String brandName, String title, List<qs0> tagList, String btnText, String btnColor, String btnScheme, String showTime) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {avatar, brandName, title, tagList, btnText, btnColor, btnScheme, showTime};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(avatar, "avatar");
-        Intrinsics.checkNotNullParameter(brandName, "brandName");
-        Intrinsics.checkNotNullParameter(title, "title");
-        Intrinsics.checkNotNullParameter(tagList, "tagList");
-        Intrinsics.checkNotNullParameter(btnText, "btnText");
-        Intrinsics.checkNotNullParameter(btnColor, "btnColor");
-        Intrinsics.checkNotNullParameter(btnScheme, "btnScheme");
-        Intrinsics.checkNotNullParameter(showTime, "showTime");
-        this.a = avatar;
-        this.b = brandName;
-        this.c = title;
-        this.d = tagList;
-        this.e = btnText;
-        this.f = btnColor;
-        this.g = btnScheme;
-        this.h = showTime;
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.g = str;
         }
     }
 }

@@ -1,7 +1,28 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface nh9<V> {
-    void a(V v);
 
-    void onError(int i, String str);
+import android.view.View;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+/* loaded from: classes7.dex */
+public interface nh9 {
+    void c(boolean z);
+
+    void d(View.OnLongClickListener onLongClickListener);
+
+    void e(View.OnClickListener onClickListener);
+
+    void f(boolean z);
+
+    void k(View.OnClickListener onClickListener);
+
+    void l(int i);
+
+    void n(TbRichTextView.z zVar);
+
+    void o(String str);
+
+    void p(boolean z);
+
+    void q(ye9 ye9Var);
+
+    void setFromCDN(boolean z);
 }

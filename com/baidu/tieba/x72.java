@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import androidx.annotation.IntRange;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,13 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class x72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static int c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
+    public final List<b82> a;
+    public final Object b;
+    public final int c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,11 +37,11 @@ public class x72 {
                 return;
             }
         }
-        b = qr1.a;
-        c = 5;
+        d = am1.a;
     }
 
-    public x72(@IntRange(from = 1) int i) {
+    @SuppressLint({"BDThrowableCheck"})
+    public x72(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,113 +56,236 @@ public class x72 {
                 return;
             }
         }
-        c(i, false);
-    }
-
-    public x72(@IntRange(from = 1) int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        c(i, z);
-    }
-
-    public final int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return i >> c;
-        }
-        return invokeI.intValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public boolean b(@IntRange(from = 0) int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0) {
-                g82.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return false;
-                }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
-            }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                g82.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return false;
-                }
-                throw new IndexOutOfBoundsException(str);
-            } else if (((1 << i) & iArr[a(i)]) == 0) {
-                return false;
+        if (i < 1) {
+            if (!d) {
+                i = 1;
             } else {
-                return true;
+                throw new RuntimeException("MasterPool size can not less than 1");
             }
         }
-        return invokeI.booleanValue;
+        this.c = i;
+        this.b = new Object();
+        this.a = new LinkedList();
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public void d(@IntRange(from = 0) int i) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i < 0) {
-                g82.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str) || TextUtils.equals(str, "_default_id_")) {
+            return;
+        }
+        synchronized (this.b) {
+            ArrayList arrayList = new ArrayList();
+            for (b82 b82Var : this.a) {
+                if (TextUtils.equals(b82Var.h(), str)) {
+                    arrayList.add(b82Var);
                 }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
             }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                g82.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return;
-                }
-                throw new IndexOutOfBoundsException(str);
-            }
-            int a = a(i);
-            iArr[a] = (1 << i) | iArr[a];
+            b(arrayList);
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public final void c(@IntRange(from = 1) int i, boolean z) {
+    public void a(Collection<b82> collection) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i <= 0) {
-                String str = "number <= 0: " + i;
-                g82.c("Component-DiffBitMap", str);
-                if (!b) {
-                    i = 500;
-                } else {
-                    throw new NegativeArraySizeException(str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, collection) == null) {
+            int i = 0;
+            if (collection != null && collection.size() > 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (d) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("master pool clear, excludes size - ");
+                if (collection != null) {
+                    i = collection.size();
+                }
+                sb.append(i);
+                Log.i("MasterPool", sb.toString());
+                if (collection != null) {
+                    for (b82 b82Var : collection) {
+                        if (b82Var.i() != null) {
+                            Log.i("MasterPool", "excludes  - " + b82Var.i().a());
+                        }
+                    }
                 }
             }
-            int[] iArr = new int[a(i - 1) + 1];
-            this.a = iArr;
-            int length = iArr.length;
-            if (z) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    this.a[i2] = -1;
+            synchronized (this.b) {
+                ArrayList arrayList = new ArrayList();
+                for (b82 b82Var2 : this.a) {
+                    if (z || (collection != null && !collection.contains(b82Var2))) {
+                        arrayList.add(b82Var2);
+                    }
+                }
+                b(arrayList);
+            }
+        }
+    }
+
+    public final void b(Collection<b82> collection) {
+        long j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) && collection.size() > 0) {
+            if (d) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            this.a.removeAll(collection);
+            if (d) {
+                Log.i("MasterPool", "remove no use master in pool, size - " + collection.size());
+            }
+            for (b82 b82Var : collection) {
+                if (b82Var.i() != null) {
+                    b82Var.i().destroy();
+                    if (d) {
+                        Log.i("MasterPool", "master destroy, id - " + b82Var.i().a() + ", isReady - " + b82Var.n() + ", is Default - " + b82Var.l() + ", is Prefetch - " + b82Var.j());
+                    }
+                }
+            }
+            if (d) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Log.i("MasterPool", "destroy masters cost - " + (currentTimeMillis - j) + "ms");
+            }
+        }
+    }
+
+    public void g(Collection<b82> collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
+            if (this.c >= 3) {
+                boolean z = true;
+                if (this.a.size() > 1) {
+                    if (collection != null && collection.size() > 0) {
+                        z = false;
+                    }
+                    synchronized (this.b) {
+                        ArrayList arrayList = new ArrayList();
+                        for (b82 b82Var : this.a) {
+                            if (!b82Var.l() && b82Var.j() && (z || !collection.contains(b82Var))) {
+                                arrayList.add(b82Var);
+                            }
+                        }
+                        if (d) {
+                            Log.d("MasterPool", "remove all prefetch event master, size - " + arrayList.size());
+                        }
+                        b(arrayList);
+                    }
+                    return;
+                }
+            }
+            if (d) {
+                Log.d("MasterPool", "no need to remove prefetch master");
+                Log.d("MasterPool", "max size - " + this.c);
+                Log.d("MasterPool", "current cache size - " + this.a.size());
+            }
+        }
+    }
+
+    public b82 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            b82 b82Var = null;
+            if (TextUtils.isEmpty(str)) {
+                if (d) {
+                    Log.w("MasterPool", "appId can not be empty");
+                }
+                return null;
+            }
+            synchronized (this.b) {
+                if (TextUtils.equals(str, "_default_id_")) {
+                    if (d) {
+                        Log.i("MasterPool", "get default master manger for id - " + str);
+                    }
+                    return e();
+                }
+                int size = this.a.size() - 1;
+                int i = size;
+                while (true) {
+                    if (i < 0) {
+                        break;
+                    }
+                    b82 b82Var2 = this.a.get(i);
+                    if (TextUtils.equals(b82Var2.h(), str)) {
+                        if (d) {
+                            Log.i("MasterPool", "get master in pool for id - " + str);
+                        }
+                        b82Var = b82Var2;
+                    } else {
+                        i--;
+                    }
+                }
+                if (b82Var != null && i != size) {
+                    this.a.remove(i);
+                    this.a.add(b82Var);
+                }
+                if (d) {
+                    if (b82Var == null) {
+                        Log.i("MasterPool", "find no master for id - " + str);
+                    } else {
+                        Log.i("MasterPool", "hit a master cache for id - " + str);
+                    }
+                }
+                return b82Var;
+            }
+        }
+        return (b82) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public final b82 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            for (b82 b82Var : this.a) {
+                if (b82Var.l()) {
+                    return b82Var;
+                }
+            }
+            if (!d) {
+                return null;
+            }
+            throw new RuntimeException("there must be one default master in pool, you should add default one first");
+        }
+        return (b82) invokeV.objValue;
+    }
+
+    public void f(b82 b82Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, b82Var) != null) || b82Var == null) {
+            return;
+        }
+        synchronized (this.b) {
+            if (!this.a.contains(b82Var)) {
+                this.a.add(b82Var);
+            }
+            h();
+        }
+    }
+
+    public final void h() {
+        int size;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (size = this.a.size()) <= this.c) {
+            return;
+        }
+        if (d) {
+            Log.i("MasterPool", "resize, current - " + size + ", target - " + this.c);
+        }
+        ArrayList arrayList = new ArrayList();
+        boolean z = false;
+        for (int i = 0; i < size; i++) {
+            b82 b82Var = this.a.get(i);
+            if (b82Var.l() && !z) {
+                z = true;
+            } else {
+                arrayList.add(b82Var);
+                if (arrayList.size() >= size - this.c) {
+                    break;
                 }
             }
         }
+        b(arrayList);
     }
 }

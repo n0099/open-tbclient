@@ -36,7 +36,7 @@ import kotlin.reflect.jvm.internal.impl.types.ClassTypeConstructorImpl;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public class EnumEntrySyntheticClassDescriptor extends ClassDescriptorBase {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public final Annotations annotations;
@@ -211,13 +211,13 @@ public class EnumEntrySyntheticClassDescriptor extends ClassDescriptorBase {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getCompanionObjectDescriptor */
-    public ClassDescriptor mo2100getCompanionObjectDescriptor() {
+    public ClassDescriptor mo2099getCompanionObjectDescriptor() {
         return null;
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getUnsubstitutedPrimaryConstructor */
-    public ClassConstructorDescriptor mo2101getUnsubstitutedPrimaryConstructor() {
+    public ClassConstructorDescriptor mo2100getUnsubstitutedPrimaryConstructor() {
         return null;
     }
 
@@ -251,7 +251,7 @@ public class EnumEntrySyntheticClassDescriptor extends ClassDescriptorBase {
         return false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public class EnumEntryScope extends MemberScopeImpl {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public final NotNullLazyValue<Collection<DeclarationDescriptor>> allDescriptors;
@@ -629,7 +629,7 @@ public class EnumEntrySyntheticClassDescriptor extends ClassDescriptorBase {
         }
 
         private MemberScope getSupertypeScope() {
-            MemberScope memberScope = this.this$0.getTypeConstructor().mo2108getSupertypes().iterator().next().getMemberScope();
+            MemberScope memberScope = this.this$0.getTypeConstructor().mo2107getSupertypes().iterator().next().getMemberScope();
             if (memberScope == null) {
                 $$$reportNull$$$0(9);
             }

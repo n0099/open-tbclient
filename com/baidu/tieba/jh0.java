@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,23 +9,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import java.util.HashMap;
-import java.util.Map;
-@Service
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class jh0 extends cj0 {
+public class jh0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cj0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "mnprogram" : (String) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final jh0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-690044263, "Lcom/baidu/tieba/jh0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-690044263, "Lcom/baidu/tieba/jh0$b;");
+                    return;
+                }
+            }
+            a = new jh0(null);
+        }
     }
 
     static {
@@ -47,7 +58,7 @@ public class jh0 extends cj0 {
                 return;
             }
         }
-        a = lk0.a().a();
+        a = TimeUnit.DAYS.toMillis(10L);
     }
 
     public jh0() {
@@ -64,57 +75,56 @@ public class jh0 extends cj0 {
         }
     }
 
-    @Override // com.baidu.tieba.cj0
-    public boolean b(@NonNull Context context, @NonNull gj0 gj0Var, @Nullable Map<String, Object> map, @Nullable kj0 kj0Var) {
-        InterceptResult invokeLLLL;
-        String str;
+    public static jh0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, gj0Var, map, kj0Var)) == null) {
-            super.b(context, gj0Var, map, kj0Var);
-            if (TextUtils.isEmpty(a)) {
-                c(kj0Var, gj0Var, 303, false);
-                return true;
-            }
-            HashMap<String, String> d = gj0Var.d();
-            if (TextUtils.isEmpty((CharSequence) i31.b(d, "mn_program_type"))) {
-                c(kj0Var, gj0Var, 202, false);
-                return true;
-            }
-            WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
-            req.userName = (String) i31.b(d, "user_name");
-            req.path = (String) i31.b(d, "path");
-            req.miniprogramType = Integer.parseInt((String) i31.b(d, "mn_program_type"));
-            String str2 = (String) i31.b(d, MigrateStatisticUtils.EXT_INFO);
-            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, a);
-            boolean sendReq = createWXAPI.sendReq(req);
-            if (!sendReq) {
-                if (!createWXAPI.isWXAppInstalled()) {
-                    str = "1001";
-                } else {
-                    str = "1002";
-                }
-                e("URL", str2, str);
-                return bj0.e((String) i31.b(d, "web_url"), context, map, kj0Var);
-            }
-            e(ClogBuilder.Area.APP.type, str2, null);
-            c(kj0Var, gj0Var, 0, sendReq);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        return invokeLLLL.booleanValue;
+        return (jh0) invokeV.objValue;
     }
 
-    public final void e(@NonNull String str, @Nullable String str2, @Nullable String str3) {
+    public /* synthetic */ jh0(a aVar) {
+        this();
+    }
+
+    public void a(lh0 lh0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) && !TextUtils.isEmpty(str2)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.u(ClogBuilder.Page.MINI_PROGRAM);
-            clogBuilder.y(ClogBuilder.LogType.MINI_PROGRAM);
-            clogBuilder.j(str);
-            clogBuilder.p(str2);
-            if (!TextUtils.isEmpty(str3)) {
-                clogBuilder.k(str3);
+        if (interceptable == null || interceptable.invokeL(1048576, this, lh0Var) == null) {
+            eg0 eg0Var = new eg0();
+            eg0Var.g = "https://cover.baidu.com/cover/deeplink_android?downloadUrl=";
+            eg0Var.h(lh0Var.b);
+            ig0 ig0Var = eg0Var.p;
+            ig0Var.a = lh0Var.c;
+            eg0Var.d = lh0Var.a;
+            ig0Var.o = lh0Var.e;
+            ig0Var.p = lh0Var.f;
+            ig0Var.n = lh0Var.d;
+            eg0Var.q.a = "SCHEDULEDDOWNLOAD";
+            if (!TextUtils.isEmpty(lh0Var.g)) {
+                eg0Var.q.b = lh0Var.g;
+            } else {
+                eg0Var.q.b = "na_ads";
             }
-            w31.e(clogBuilder);
+            if (!TextUtils.isEmpty(lh0Var.h)) {
+                eg0Var.q.c = lh0Var.h;
+            } else {
+                eg0Var.q.c = "apk_yuansheng";
+            }
+            eg0Var.l = Long.MAX_VALUE - (a * 2);
+            vf0.b().g(eg0Var);
+            vf0.b().f(eg0Var);
         }
+    }
+
+    public void c(String str, boolean z) {
+        eg0 eg0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) != null) || (eg0Var = (eg0) vx0.b(vf0.b().a(), str)) == null) {
+            return;
+        }
+        eg0Var.p.p = z;
+        vf0.b().g(eg0Var);
+        vf0.b().f(eg0Var);
     }
 }

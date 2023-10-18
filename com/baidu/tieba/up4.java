@@ -1,108 +1,29 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.view.LayoutInflater;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class up4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
+    public static int b = 2;
+    public static int c = 3;
+    public static int d = 1;
+    public static int e = 2;
+    public static int f = 3;
+    public static int g = 4;
+    public static int h = 5;
+    public static int i = 6;
+    public static int j = 7;
+    public static int k = 8;
+    public static int l = 9;
+    public static int m = 10;
+    public static vp4 n;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(LayoutInflater layoutInflater, yp4 yp4Var);
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.up4.a
-        public void a(LayoutInflater layoutInflater, yp4 yp4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, yp4Var) == null) {
-                vp4.a(layoutInflater, yp4Var);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class c extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.up4.b, com.baidu.tieba.up4.a
-        public void a(LayoutInflater layoutInflater, yp4 yp4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, yp4Var) == null) {
-                wp4.b(layoutInflater, yp4Var);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class d extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.up4.c, com.baidu.tieba.up4.b, com.baidu.tieba.up4.a
-        public void a(LayoutInflater layoutInflater, yp4 yp4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, yp4Var) == null) {
-                xp4.a(layoutInflater, yp4Var);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -117,20 +38,20 @@ public class up4 {
                 return;
             }
         }
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 21) {
-            a = new d();
-        } else if (i >= 11) {
-            a = new c();
-        } else {
-            a = new b();
-        }
+        n = new vp4();
     }
 
-    public static void a(LayoutInflater layoutInflater, yp4 yp4Var) {
+    public static void a(@NonNull int i2, @NonNull int i3, String str, String str2, String str3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, yp4Var) == null) {
-            a.a(layoutInflater, yp4Var);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Integer.valueOf(i4)}) == null) {
+            wp4 wp4Var = new wp4();
+            wp4Var.a = i2;
+            wp4Var.b = i3;
+            wp4Var.c = str;
+            wp4Var.d = str2;
+            wp4Var.e = str3;
+            wp4Var.f = i4;
+            n.a(wp4Var);
         }
     }
 }

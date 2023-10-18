@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.SecureRandom;
 /* loaded from: classes8.dex */
 public class uz {
     public static /* synthetic */ Interceptable $ic;
-    public static final SecureRandom b;
+    public static final char[] a;
+    public static final char[] b;
+    public static final byte[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public wz a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,64 +26,47 @@ public class uz {
                 return;
             }
         }
-        b = new SecureRandom();
+        a = "0123456789ABCDEF".toCharArray();
+        b = "0123456789abcdef".toCharArray();
+        c = new byte[128];
+        for (int i = 0; i < 10; i++) {
+            byte[] bArr = c;
+            bArr[i + 48] = (byte) i;
+            byte b2 = (byte) (i + 10);
+            bArr[i + 65] = b2;
+            bArr[i + 97] = b2;
+        }
     }
 
-    public uz() {
+    public static char[] a(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        char[] cArr;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            if (z) {
+                cArr = a;
+            } else {
+                cArr = b;
             }
-        }
-        this.a = null;
-        this.a = new wz(new tz(), 16);
-    }
-
-    public static byte[] c(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bArr, bArr2, bArr3)) == null) {
-            uz uzVar = new uz();
-            uzVar.a(1, bArr, bArr2);
-            return uzVar.b(bArr3);
-        }
-        return (byte[]) invokeLLL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bArr, bArr2, bArr3)) == null) {
-            uz uzVar = new uz();
-            uzVar.a(2, bArr, bArr2);
-            return uzVar.b(bArr3);
-        }
-        return (byte[]) invokeLLL.objValue;
-    }
-
-    public void a(int i, byte[] bArr, byte[] bArr2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, bArr, bArr2) == null) {
-            this.a.c(i, bArr, bArr2, b);
-        }
-    }
-
-    public final byte[] b(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null) {
-                return this.a.e(bArr, 0, bArr.length);
+            char[] cArr2 = new char[bArr.length * 2];
+            int i = 0;
+            for (byte b2 : bArr) {
+                int i2 = i + 1;
+                cArr2[i] = cArr[(b2 & 240) >>> 4];
+                i = i2 + 1;
+                cArr2[i2] = cArr[b2 & 15];
             }
-            throw new IllegalArgumentException("Null input buffer");
+            return cArr2;
         }
-        return (byte[]) invokeL.objValue;
+        return (char[]) invokeLZ.objValue;
+    }
+
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) {
+            return new String(a(bArr, z));
+        }
+        return (String) invokeLZ.objValue;
     }
 }

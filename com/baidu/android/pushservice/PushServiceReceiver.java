@@ -20,6 +20,7 @@ import com.baidu.android.pushservice.x.k;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -625,7 +626,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     byte[] byteArrayExtra = intent.getByteArrayExtra("baidu_message_body");
                     byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_secur_info");
                     int intExtra2 = intent.getIntExtra("baidu_message_type", -1);
-                    String stringExtra6 = intent.getStringExtra("message_id");
+                    String stringExtra6 = intent.getStringExtra(ForbidActivityConfig.CHAT_MSG_ID);
                     int intExtra3 = intent.getIntExtra("extra_push_show_switch", -1);
                     int intExtra4 = intent.getIntExtra("extra_float_window_duration", 5);
                     String stringExtra7 = intent.getStringExtra("notification_log_ext");

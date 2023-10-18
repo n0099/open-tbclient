@@ -1,102 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wf4 extends sf4<sx2> {
+public class wf4 extends bf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public rf4 a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948268644, "Lcom/baidu/tieba/wf4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948268644, "Lcom/baidu/tieba/wf4;");
-                return;
-            }
-        }
-        boolean z = qr1.a;
-    }
-
-    public wf4() {
+    public wf4(rf4 rf4Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rf4Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = rf4Var;
+        this.b = z;
     }
 
-    public static wf4 d() {
+    @Override // com.baidu.tieba.bf4
+    public rf4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new wf4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (wf4) invokeV.objValue;
+        return (rf4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sf4
-    public boolean b(Context context, sx2 sx2Var, px2 px2Var, gb3 gb3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.bf4
+    public boolean b(rf4 rf4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, sx2Var, px2Var, gb3Var, jSONObject)) == null) {
-            return e(context, sx2Var, px2Var, gb3Var, jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rf4Var)) == null) {
+            rf4 rf4Var2 = this.a;
+            if (rf4Var2 == rf4Var) {
+                return true;
+            }
+            return rf4Var2.d(rf4Var);
         }
-        return invokeLLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final boolean e(Context context, sx2 sx2Var, px2 px2Var, gb3 gb3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.bf4
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sx2Var, px2Var, gb3Var, jSONObject)) == null) {
-            g82.i("map", "GetCenterLcationAction start");
-            ox1 A = tw2.T().A(sx2Var.c);
-            if (!(A instanceof mx1)) {
-                g82.c("map", "WebViewManager is null");
-                return false;
-            }
-            qg4 d = pf4.b().c((mx1) A).d(sx2Var.b);
-            if (d == null) {
-                g82.c("map", "can not find map by id " + sx2Var.b);
-                return false;
-            }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            zx2 zx2Var = new zx2();
-            LatLng latLng = mapStatus.target;
-            double d2 = latLng.latitude;
-            zx2Var.a = d2;
-            zx2Var.b = latLng.longitude;
-            try {
-                jSONObject.put("latitude", d2);
-                jSONObject.put("longitude", zx2Var.b);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            g82.i("map", "GetCenterLocationAction end");
-            return true;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.b) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
+        if (z) {
+            rf4 rf4Var = this.a;
+            rf4Var.a.b.b = 0L;
+            rf4Var.b(0);
+        }
+        pf4.b().f(this.a);
+    }
+
+    @Override // com.baidu.tieba.bf4
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "isAttached=" + this.b + " " + super.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

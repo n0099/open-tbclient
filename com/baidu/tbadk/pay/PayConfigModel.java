@@ -14,8 +14,8 @@ import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vs5;
-import com.baidu.tieba.xs5;
+import com.baidu.tieba.bn5;
+import com.baidu.tieba.dn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,11 +23,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetClientConfig.CPayType;
 import tbclient.GetClientConfig.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PayConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vs5 a;
+    public bn5 a;
     public final NetMessageListener b;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -50,7 +50,7 @@ public class PayConfigModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,22 +81,22 @@ public class PayConfigModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || !this.a.P(responsedMessage)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || !this.a.Q(responsedMessage)) {
                 return;
             }
             if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                 if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
-                    this.a.Q(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                    this.a.R(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                     return;
                 } else if (responsedMessage instanceof ClientConfigSocketResponse) {
-                    this.a.Q(((ClientConfigSocketResponse) responsedMessage).getData());
+                    this.a.R(((ClientConfigSocketResponse) responsedMessage).getData());
                     return;
                 } else {
                     return;
                 }
             }
             String errorString = responsedMessage.getErrorString();
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e42);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e4f);
             if (StringUtils.isNull(errorString)) {
                 errorString = string;
             }
@@ -107,13 +107,13 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PayConfigModel(TbPageContext tbPageContext, vs5 vs5Var) {
+    public PayConfigModel(TbPageContext tbPageContext, bn5 bn5Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, vs5Var};
+            Object[] objArr = {tbPageContext, bn5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -126,11 +126,11 @@ public class PayConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = vs5Var;
+        this.a = bn5Var;
         registerListener(aVar);
     }
 
-    public final boolean P(ResponsedMessage<?> responsedMessage) {
+    public final boolean Q(ResponsedMessage<?> responsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, responsedMessage)) == null) {
@@ -142,25 +142,25 @@ public class PayConfigModel extends BdBaseModel {
         return invokeL.booleanValue;
     }
 
-    public final void Q(DataRes dataRes) {
+    public final void R(DataRes dataRes) {
         CPayType cPayType;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
             if (dataRes != null && (cPayType = dataRes.payType) != null) {
                 if (cPayType.pay_type.intValue() == 1) {
-                    vs5 vs5Var = this.a;
-                    if (vs5Var != null) {
-                        vs5Var.b();
+                    bn5 bn5Var = this.a;
+                    if (bn5Var != null) {
+                        bn5Var.b();
                     }
                 } else if (dataRes.payType.pay_type.intValue() == 2) {
-                    vs5 vs5Var2 = this.a;
-                    if (vs5Var2 != null) {
-                        vs5Var2.a();
+                    bn5 bn5Var2 = this.a;
+                    if (bn5Var2 != null) {
+                        bn5Var2.a();
                     }
                 } else {
-                    vs5 vs5Var3 = this.a;
-                    if (vs5Var3 != null) {
-                        vs5Var3.onError("");
+                    bn5 bn5Var3 = this.a;
+                    if (bn5Var3 != null) {
+                        bn5Var3.onError("");
                     }
                 }
             } else if (this.a != null) {
@@ -169,18 +169,18 @@ public class PayConfigModel extends BdBaseModel {
         }
     }
 
-    public void R() {
+    public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!xs5.c().d()) {
-                vs5 vs5Var = this.a;
-                if (vs5Var != null) {
-                    vs5Var.a();
+            if (!dn5.c().d()) {
+                bn5 bn5Var = this.a;
+                if (bn5Var != null) {
+                    bn5Var.a();
                 }
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                vs5 vs5Var2 = this.a;
-                if (vs5Var2 != null) {
-                    vs5Var2.b();
+                bn5 bn5Var2 = this.a;
+                if (bn5Var2 != null) {
+                    bn5Var2.b();
                 }
             } else {
                 ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();

@@ -1,28 +1,28 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ve;
+import com.baidu.tieba.t9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class GiftSwitch extends ve {
+/* loaded from: classes5.dex */
+public class GiftSwitch extends t9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GIFT_SWITCH_KEY = "offline_gift";
     public static final int TYPE_OFF = 1;
     public static final int TYPE_ON = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     /* renamed from: getCrashKeys */
     public String[] mo130getCrashKeys() {
         InterceptResult invokeV;
@@ -33,7 +33,7 @@ public class GiftSwitch extends ve {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class GiftSwitch extends ve {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class GiftSwitch extends ve {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? GIFT_SWITCH_KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

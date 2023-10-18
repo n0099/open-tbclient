@@ -1,304 +1,219 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.config.AppConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.Headers;
+import com.baidu.searchbox.network.outback.core.HttpMethod;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.ProxySelector;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes5.dex */
-public class b20 {
+public class b20 implements y10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public v10 a;
+    public z10 b;
+    public t10 c;
 
-    public static synchronized void a(List<t8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
-            synchronized (b20.class) {
-                if (list != null) {
-                    if (list.size() > 0) {
-                        if (AppConfig.isDebug()) {
-                            Log.d("ExperimentManager", "deleteExpInfoList >> " + list.size());
-                        }
-                        String a = e20.a();
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            if (!TextUtils.isEmpty(a)) {
-                                jSONObject = new JSONObject(a);
-                            }
-                            for (t8 t8Var : list) {
-                                jSONObject.remove(t8Var.c() + "_" + t8Var.b());
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        e20.f(jSONObject);
-                    }
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947592937, "Lcom/baidu/tieba/b20;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947592937, "Lcom/baidu/tieba/b20;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public t10 a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
+            }
+        }
+
+        public b20 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new b20(this, null);
+            }
+            return (b20) invokeV.objValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public b c(t10 t10Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t10Var)) == null) {
+                this.a = t10Var;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+    }
+
+    public b20(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        t10 t10Var = bVar.a;
+        this.c = t10Var;
+        ProxySelector.setDefault(t10Var.y());
+        this.b = this.c.s();
+    }
+
+    public /* synthetic */ b20(b bVar, a aVar) {
+        this(bVar);
+    }
+
+    public final void c(Request request, HttpURLConnection httpURLConnection) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, httpURLConnection) == null) {
+            OutputStream outputStream = null;
+            try {
+                try {
+                    outputStream = httpURLConnection.getOutputStream();
+                    request.body().writeTo(outputStream);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    throw e;
+                }
+            } finally {
+                Util.closeQuietly(outputStream);
             }
         }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return e20.a();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return e20.b();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
+    public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return e20.c();
+            return new b(null);
         }
-        return (String) invokeV.objValue;
+        return (b) invokeV.objValue;
     }
 
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return e20.d();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static JSONObject[] f(JSONObject jSONObject, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, jSONObject, i)) == null) {
-            JSONObject[] jSONObjectArr = new JSONObject[i];
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                int a = l20.a(next, i);
-                JSONObject jSONObject2 = jSONObjectArr[a];
-                if (jSONObject2 == null) {
-                    jSONObject2 = new JSONObject();
-                    jSONObjectArr[a] = jSONObject2;
-                }
-                try {
-                    Object obj = jSONObject.get(next);
-                    if (obj != null) {
-                        jSONObject2.put(next, obj);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObjectArr;
-        }
-        return (JSONObject[]) invokeLI.objValue;
-    }
-
-    public static synchronized boolean o(JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65550, null, jSONObject, z)) == null) {
-            synchronized (b20.class) {
-                if (jSONObject != null) {
-                    if (jSONObject.length() != 0) {
-                        int a = e9.b().a();
-                        return m(f(jSONObject, a), a, z);
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public static synchronized void g(List<t8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, list) == null) {
-            synchronized (b20.class) {
-                if (list != null) {
-                    if (list.size() != 0) {
-                        if (AppConfig.isDebug()) {
-                            Log.d("ExperimentManager", "saveExpInfoList >> " + list.size());
-                        }
-                        String a = e20.a();
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            if (!TextUtils.isEmpty(a)) {
-                                jSONObject = new JSONObject(a);
-                            }
-                            for (t8 t8Var : list) {
-                                String str = t8Var.c() + "_" + t8Var.b();
-                                JSONObject jSONObject2 = new JSONObject();
-                                if (t8Var.e() && t8Var.d() != -1) {
-                                    jSONObject2.put("is_upload", t8Var.e());
-                                    jSONObject2.put("expired_time", t8Var.d());
-                                }
-                                jSONObject.put(str, jSONObject2);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        e20.f(jSONObject);
-                    }
-                }
-            }
-        }
-    }
-
-    public static synchronized void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) {
-            synchronized (b20.class) {
-                if (jSONObject != null) {
-                    if (jSONObject.length() != 0) {
-                        e20.g(jSONObject);
-                    }
-                }
-            }
-        }
-    }
-
-    public static synchronized void i(JSONObject jSONObject, JSONObject jSONObject2, List<t8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, jSONObject, jSONObject2, list) == null) {
-            synchronized (b20.class) {
-                o(jSONObject2, false);
-                j(jSONObject);
-                g(list);
-            }
-        }
-    }
-
-    public static synchronized void k(JSONObject jSONObject, JSONObject jSONObject2, List<t8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, jSONObject, jSONObject2, list) == null) {
-            synchronized (b20.class) {
-                o(jSONObject2, true);
-                l(jSONObject);
-                g(list);
-            }
-        }
-    }
-
-    public static synchronized void j(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, jSONObject) == null) {
-            synchronized (b20.class) {
-                if (AppConfig.isDebug()) {
-                    Log.d("ExperimentManager", "saveV1SwitchData >> " + jSONObject);
-                }
-                e20.h(jSONObject);
-            }
-        }
-    }
-
-    public static synchronized boolean l(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.y10
+    public v10 a(Request request) throws IOException {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
-            synchronized (b20.class) {
-                if (jSONObject != null) {
-                    if (jSONObject.length() != 0) {
-                        String d = e20.d();
-                        if (!TextUtils.isEmpty(d)) {
-                            try {
-                                JSONObject jSONObject2 = new JSONObject(d);
-                                Iterator<String> keys = jSONObject.keys();
-                                while (keys.hasNext()) {
-                                    String next = keys.next();
-                                    jSONObject2.put(next, jSONObject.get(next));
-                                }
-                                if (jSONObject2.length() > 0) {
-                                    e20.i(jSONObject2);
-                                    return true;
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        } else {
-                            e20.i(jSONObject);
-                        }
-                        return false;
-                    }
-                }
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
+            HttpURLConnection openHttpURLConnection = this.b.openHttpURLConnection(request.url().url());
+            boolean equals = "CronetHttpURLConnection".equals(openHttpURLConnection.getClass().getSimpleName());
+            if (!equals) {
+                i = 4;
+            } else {
+                i = 5;
             }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean m(JSONObject[] jSONObjectArr, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{jSONObjectArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                JSONObject jSONObject = jSONObjectArr[i2];
-                String e = e20.e(i2);
-                if (TextUtils.isEmpty(e)) {
-                    e20.j(jSONObject, i2);
+            NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
+            if (networkStatRecord != null) {
+                networkStatRecord.netEngine = i;
+            }
+            if (request.getConnectionTimeout() > 0) {
+                openHttpURLConnection.setConnectTimeout(request.getConnectionTimeout());
+            } else if (this.c.o() > 0) {
+                openHttpURLConnection.setConnectTimeout(this.c.o());
+            }
+            if (request.getReadTimeout() > 0) {
+                openHttpURLConnection.setReadTimeout(request.getReadTimeout());
+            } else if (this.c.z() > 0) {
+                openHttpURLConnection.setReadTimeout(this.c.z());
+            }
+            openHttpURLConnection.setInstanceFollowRedirects(request.isFollowRedirects());
+            if ("https".equalsIgnoreCase(request.url().scheme()) && !equals) {
+                SSLSocketFactory B = this.c.B();
+                if (B != null) {
+                    ((HttpsURLConnection) openHttpURLConnection).setSSLSocketFactory(B);
+                }
+                HostnameVerifier r = this.c.r();
+                if (r != null) {
+                    ((HttpsURLConnection) openHttpURLConnection).setHostnameVerifier(r);
+                }
+            }
+            String method = request.method();
+            openHttpURLConnection.setRequestMethod(method);
+            openHttpURLConnection.setDoInput(true);
+            boolean permitsRequestBody = HttpMethod.permitsRequestBody(method);
+            openHttpURLConnection.setDoOutput(permitsRequestBody);
+            Headers headers = request.headers();
+            if (permitsRequestBody) {
+                long contentLength = request.body().contentLength();
+                int i2 = (contentLength > 0L ? 1 : (contentLength == 0L ? 0 : -1));
+                if (i2 < 0 && !"chunked".equals(headers.get("Transfer-Encoding"))) {
+                    throw new IOException("content length < 0 but transfer-encoding is not set to chunked");
+                }
+                if (i2 < 0 && "chunked".equals(headers.get("Transfer-Encoding"))) {
+                    openHttpURLConnection.setChunkedStreamingMode(-1);
                 } else {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(e);
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            Object obj = jSONObject.get(next);
-                            if (!jSONObject2.has(next) || z) {
-                                jSONObject2.put(next, obj);
-                            }
-                        }
-                        if (jSONObject2.length() > 0) {
-                            e20.j(jSONObject2, i2);
-                        }
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
+                    openHttpURLConnection.setFixedLengthStreamingMode((int) contentLength);
                 }
             }
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static synchronized void n(JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, jSONObject, i) == null) {
-            synchronized (b20.class) {
-                if (jSONObject != null) {
-                    if (jSONObject.length() != 0) {
-                        String e = e20.e(i);
-                        if (!TextUtils.isEmpty(e)) {
-                            try {
-                                JSONObject jSONObject2 = new JSONObject(e);
-                                Iterator<String> keys = jSONObject.keys();
-                                while (keys.hasNext()) {
-                                    String next = keys.next();
-                                    jSONObject2.put(next, jSONObject.get(next));
-                                }
-                                e20.j(jSONObject2, i);
-                            } catch (JSONException e2) {
-                                e2.printStackTrace();
-                            }
-                        } else {
-                            e20.j(jSONObject, i);
-                        }
-                    }
-                }
+            int size = headers.size();
+            for (int i3 = 0; i3 < size; i3++) {
+                openHttpURLConnection.setRequestProperty(headers.name(i3), headers.value(i3));
             }
+            if (permitsRequestBody) {
+                c(request, openHttpURLConnection);
+            }
+            openHttpURLConnection.connect();
+            a20 a20Var = new a20(openHttpURLConnection);
+            this.a = a20Var;
+            a20Var.m(i);
+            return this.a;
         }
+        return (v10) invokeL.objValue;
     }
 }

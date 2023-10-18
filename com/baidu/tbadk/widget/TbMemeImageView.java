@@ -17,7 +17,7 @@ import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.n6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pb a;
+    public n6 a;
     public Bitmap b;
     public int c;
     public BdImage d;
@@ -65,7 +65,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            pb gif;
+            n6 gif;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (gif = this.a.getGif()) != null && message.what == 1) {
                 TbMemeImageView.c(this.a, 1);
@@ -289,17 +289,17 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         return (BdImage) invokeV.objValue;
     }
 
-    public pb getGif() {
+    public n6 getGif() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            pb pbVar = this.a;
-            if (pbVar == null) {
+            n6 n6Var = this.a;
+            if (n6Var == null) {
                 return null;
             }
-            return pbVar;
+            return n6Var;
         }
-        return (pb) invokeV.objValue;
+        return (n6) invokeV.objValue;
     }
 
     public void h() {
@@ -319,7 +319,7 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     }
 
     public void g() {
-        pb gif;
+        n6 gif;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (gif = getGif()) == null) {
             return;
@@ -338,9 +338,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDetachedFromWindow();
             this.j.removeMessages(1);
-            pb pbVar = this.a;
-            if (pbVar != null) {
-                pbVar.close();
+            n6 n6Var = this.a;
+            if (n6Var != null) {
+                n6Var.close();
                 this.a = null;
             }
             if (this.d != null) {
@@ -361,9 +361,9 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onStartTemporaryDetach();
             this.j.removeMessages(1);
-            pb pbVar = this.a;
-            if (pbVar != null) {
-                pbVar.close();
+            n6 n6Var = this.a;
+            if (n6Var != null) {
+                n6Var.close();
                 this.a = null;
             }
             if (this.d != null) {

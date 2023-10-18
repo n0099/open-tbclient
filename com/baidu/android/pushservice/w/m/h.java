@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.util.Utility;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,7 +140,7 @@ public class h extends c {
                             str = "com.baidu.android.pushservice.action.MESSAGE";
                         }
                         intent.putExtra("message_string", a5.mDescription);
-                        intent.putExtra("message_id", h);
+                        intent.putExtra(ForbidActivityConfig.CHAT_MSG_ID, h);
                         intent.putExtra("baidu_message_type", q);
                         intent.putExtra("baidu_message_body", bArr);
                         intent.putExtra("app_id", a2);

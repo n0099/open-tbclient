@@ -18,12 +18,11 @@ import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ei9;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
+import com.baidu.tieba.rc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -257,13 +256,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                ei9.f().b(z, str);
+                rc9.f().b(z, str);
             } else if (i == 1) {
-                ei9.f().e(z);
+                rc9.f().e(z);
             } else if (i == 2) {
-                ei9.f().c(z);
+                rc9.f().c(z);
             } else {
-                ei9.f().a(null);
+                rc9.f().a(null);
             }
             finish();
         }
@@ -307,7 +306,7 @@ public class AuthActivity extends BaseActivity {
             ArrayList arrayList = new ArrayList();
             try {
                 arrayList.add(new PassNameValuePair("adapter", URLEncoder.encode("3", "UTF-8")));
-                arrayList.add(new PassNameValuePair(SpeedStatsUtils.UBC_VALUE_BANNER, "1"));
+                arrayList.add(new PassNameValuePair("banner", "1"));
                 arrayList.add(new PassNameValuePair("isnew", YYOption.IsLive.VALUE_TRUE));
                 arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.v, "UTF-8")));
                 arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.x, "UTF-8")));
@@ -342,7 +341,7 @@ public class AuthActivity extends BaseActivity {
             try {
                 arrayList.add(new PassNameValuePair("u", URLEncoder.encode(l(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd", "UTF-8")));
                 arrayList.add(new PassNameValuePair("adapter", "3"));
-                arrayList.add(new PassNameValuePair(SpeedStatsUtils.UBC_VALUE_BANNER, "1"));
+                arrayList.add(new PassNameValuePair("banner", "1"));
                 arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
                 arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.x, "UTF-8")));
                 arrayList.add(new PassNameValuePair(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android"));

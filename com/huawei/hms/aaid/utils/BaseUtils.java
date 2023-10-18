@@ -16,7 +16,7 @@ import com.huawei.hms.opendevice.n;
 import com.huawei.hms.opendevice.p;
 import com.huawei.hms.support.log.HMSLog;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BaseUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

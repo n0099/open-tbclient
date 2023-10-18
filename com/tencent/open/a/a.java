@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import com.baidu.mobads.sdk.internal.cl;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.tencent.open.log.SLog;
 /* loaded from: classes10.dex */
@@ -70,7 +71,7 @@ public class a {
                 }
                 return null;
             }
-            String string = query.getString(query.getColumnIndex("proxy"));
+            String string = query.getString(query.getColumnIndex(cl.c));
             if (query != null) {
                 query.close();
             }

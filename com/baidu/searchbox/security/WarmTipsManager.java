@@ -9,8 +9,8 @@ import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tieba.n20;
-import com.baidu.tieba.ndb;
+import com.baidu.tieba.i8b;
+import com.baidu.tieba.kx;
 import com.baidu.ubc.UBCManager;
 import java.util.UUID;
 import org.json.JSONException;
@@ -186,13 +186,13 @@ public class WarmTipsManager {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.security.WarmTipsManager.1
             @Override // java.lang.Runnable
             public void run() {
-                ndb ndbVar = (ndb) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                i8b i8bVar = (i8b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("source", str);
                     jSONObject.put("type", str2);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("iid", n20.f(AppRuntime.getAppContext()).e());
+                    jSONObject2.put("iid", kx.f(AppRuntime.getAppContext()).e());
                     jSONObject2.put("randid", WarmTipsManager.getUUID());
                     if (!TextUtils.isEmpty(WarmTipsManager.mExtData)) {
                         jSONObject2.put("data", WarmTipsManager.mExtData);
@@ -204,7 +204,7 @@ public class WarmTipsManager {
                         e.printStackTrace();
                     }
                 }
-                ndbVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
+                i8bVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
             }
         }, UBC_TASK_EXTERNAL_INVOKE, 3);
     }
@@ -213,13 +213,13 @@ public class WarmTipsManager {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.security.WarmTipsManager.2
             @Override // java.lang.Runnable
             public void run() {
-                ndb ndbVar = (ndb) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                i8b i8bVar = (i8b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("source", str);
                     jSONObject.put("value", str2);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("iid", n20.f(AppRuntime.getAppContext()).e());
+                    jSONObject2.put("iid", kx.f(AppRuntime.getAppContext()).e());
                     jSONObject2.put("randid", WarmTipsManager.getUUID());
                     jSONObject.put("ext", jSONObject2);
                 } catch (JSONException e) {
@@ -227,7 +227,7 @@ public class WarmTipsManager {
                         e.printStackTrace();
                     }
                 }
-                ndbVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
+                i8bVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
             }
         }, UBC_TASK_WIDGET_SCHEME_INVOKE, 3);
     }

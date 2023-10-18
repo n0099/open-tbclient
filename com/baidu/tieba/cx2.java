@@ -1,27 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import com.baidu.searchbox.http.NetworkQuality;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cx2 implements dx2 {
+public class cx2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-
-    @Override // com.baidu.tieba.dx2
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
 
     public cx2() {
         Interceptable interceptable = $ic;
@@ -33,71 +24,36 @@ public class cx2 implements dx2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -2;
-        this.b = -2;
     }
 
-    @Override // com.baidu.tieba.dx2
-    public int a() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            e23 c = c23.c(cx2.class, null);
+            if (!c.a()) {
+                return -1;
+            }
+            return c.a.getInt("net_quality", -1);
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.dx2
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == -2) {
-                nu2.g0().getSwitch("swan_webview_pause_control", 3);
-                this.b = 3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (SwanAppNetworkUtils.h()) {
+                bundle2.putInt("net_quality", NetworkQuality.getNetworkQuality());
+            } else {
+                bundle2.putInt("net_quality", 3);
             }
-            if ((this.b & 2) == 2) {
-                return true;
-            }
-            return false;
+            return bundle2;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dx2
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == -2) {
-                nu2.g0().getSwitch("swan_webview_pause_control", 3);
-                this.b = 3;
-            }
-            if ((this.b & 1) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dx2
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == -2) {
-                nu2.g0().getSwitch("swan_webview_backstage_optimize", -1);
-                this.a = -1;
-            }
-            if (this.a > -1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (Bundle) invokeL.objValue;
     }
 }

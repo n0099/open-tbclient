@@ -11,9 +11,9 @@ import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.ofa;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
-import com.baidu.tieba.yka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public class LocationCacheData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (sInstance == null) {
-                synchronized (yka.class) {
+                synchronized (ofa.class) {
                     if (sInstance == null) {
                         sInstance = new LocationCacheData();
                     }
@@ -98,11 +98,11 @@ public class LocationCacheData {
             builder.asp_shown_info = this.aspShowInfo;
             MercatorModel.MercatorData e = MercatorModel.d().e();
             if (e != null) {
-                builder.mercator_lat = e.P();
-                builder.mercator_lon = e.Q();
-                builder.mercator_city = Integer.valueOf(e.M());
-                builder.mercator_radius = e.S();
-                builder.mercator_time = Long.valueOf(e.T());
+                builder.mercator_lat = e.Q();
+                builder.mercator_lon = e.R();
+                builder.mercator_city = Integer.valueOf(e.N());
+                builder.mercator_radius = e.T();
+                builder.mercator_time = Long.valueOf(e.U());
             }
             return builder.build(false);
         }
@@ -150,9 +150,9 @@ public class LocationCacheData {
             String str = this.latitude;
             builder.latitude = str;
             builder.longitude = this.longitude;
-            if (di.isEmpty(str) || di.isEmpty(this.longitude)) {
+            if (ad.isEmpty(str) || ad.isEmpty(this.longitude)) {
                 String string = SharedPrefHelper.getInstance().getString("key_last_receive_location_latitude_and_longitude", "");
-                if (!di.isEmpty(string)) {
+                if (!ad.isEmpty(string)) {
                     String[] split = string.split(",");
                     if (split.length >= 2) {
                         builder.latitude = split[0];
@@ -165,14 +165,14 @@ public class LocationCacheData {
             builder.asp_shown_info = this.aspShowInfo;
             MercatorModel.MercatorData e = MercatorModel.d().e();
             if (e != null) {
-                builder.mercator_lat = e.P();
-                builder.mercator_lon = e.Q();
-                builder.mercator_city = Integer.valueOf(e.M());
-                builder.mercator_radius = e.S();
-                builder.mercator_time = Long.valueOf(e.T());
-                builder.mercator_province_name = e.R();
-                builder.mercator_city_name = e.N();
-                builder.mercator_district_name = e.O();
+                builder.mercator_lat = e.Q();
+                builder.mercator_lon = e.R();
+                builder.mercator_city = Integer.valueOf(e.N());
+                builder.mercator_radius = e.T();
+                builder.mercator_time = Long.valueOf(e.U());
+                builder.mercator_province_name = e.S();
+                builder.mercator_city_name = e.O();
+                builder.mercator_district_name = e.P();
             }
             return builder.build(false);
         }

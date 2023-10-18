@@ -1,41 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsNativeAd;
 /* loaded from: classes5.dex */
-public abstract class dvb implements KsNativeAd.AdInteractionListener {
+public class dvb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dvb() {
+    public static String a(String str, cvb cvbVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, cvbVar)) == null) {
+            return vub.g(str, cvbVar.c());
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onDownloadTipsDialogDismiss() {
+    public static String b(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bArr)) == null) {
+            return vub.g(str, bArr);
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onDownloadTipsDialogShow() {
+    public static String c(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) {
+            return vub.k(str, bArr);
         }
+        return (String) invokeLL.objValue;
     }
 }

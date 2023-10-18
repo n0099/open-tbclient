@@ -1,39 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.boxdownload.IBoxDownloadDbOperator;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final class v10 implements bl1<IBoxDownloadDbOperator> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface v10 extends Closeable {
+    void disconnect();
 
-    public v10() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int getCode() throws IOException;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bl1
-    /* renamed from: a */
-    public IBoxDownloadDbOperator getService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new w10();
-        }
-        return (IBoxDownloadDbOperator) invokeV.objValue;
-    }
+    Map<String, List<String>> getHeaders() throws IOException;
+
+    InputStream getInputStream() throws IOException;
+
+    String getMessage() throws IOException;
+
+    InputStream l() throws IOException;
+
+    void m(int i);
+
+    int n();
 }

@@ -1,15 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContextSupport;
-/* loaded from: classes8.dex */
-public interface ym9<T> extends TbPageContextSupport {
-    boolean Q0();
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
+/* loaded from: classes9.dex */
+public final class ym9 extends px9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean S(String str);
+    @Override // com.baidu.tieba.tx9
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "collect" : (String) invokeV.objValue;
+    }
 
-    ar9 Y0();
-
-    String o1();
-
-    int q0();
+    public ym9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

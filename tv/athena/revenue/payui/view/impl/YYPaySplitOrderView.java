@@ -13,17 +13,17 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.alc;
-import com.baidu.tieba.amc;
-import com.baidu.tieba.ilc;
-import com.baidu.tieba.kkc;
-import com.baidu.tieba.nkc;
-import com.baidu.tieba.plc;
-import com.baidu.tieba.qlc;
-import com.baidu.tieba.rhc;
-import com.baidu.tieba.ukc;
-import com.baidu.tieba.vic;
-import com.baidu.tieba.xkc;
+import com.baidu.tieba.hfc;
+import com.baidu.tieba.jec;
+import com.baidu.tieba.mec;
+import com.baidu.tieba.ofc;
+import com.baidu.tieba.pfc;
+import com.baidu.tieba.qbc;
+import com.baidu.tieba.tec;
+import com.baidu.tieba.ucc;
+import com.baidu.tieba.wec;
+import com.baidu.tieba.zec;
+import com.baidu.tieba.zfc;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -39,17 +39,17 @@ import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PaySplitOrderAdapter;
 /* loaded from: classes2.dex */
-public class YYPaySplitOrderView extends LinearLayout implements amc {
+public class YYPaySplitOrderView extends LinearLayout implements zfc {
     public Activity a;
     public int b;
     public int c;
     public PayUIKitConfig d;
-    public amc.b e;
-    public amc.a f;
+    public zfc.b e;
+    public zfc.a f;
     public View g;
     public ImageView h;
-    public vic i;
-    public kkc j;
+    public ucc i;
+    public jec j;
     public RecyclerView k;
     public TextView l;
     public TextView m;
@@ -58,12 +58,12 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
     public List<SplitRecordItem> p;
     public PayFlowType q;
 
-    @Override // com.baidu.tieba.vlc
+    @Override // com.baidu.tieba.ufc
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.vlc
+    @Override // com.baidu.tieba.ufc
     public void refreshWindow(WindowParams windowParams) {
     }
 
@@ -77,7 +77,7 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
             long j;
             String str;
             RLog.info("YYPaySplitOrderView", "onLinkItemClick mPayAmount:" + YYPaySplitOrderView.this.j + " item:" + splitRecordItem);
-            ilc.a(YYPaySplitOrderView.this.a, splitRecordItem.value);
+            hfc.a(YYPaySplitOrderView.this.a, splitRecordItem.value);
             if (YYPaySplitOrderView.this.j != null) {
                 j = (long) YYPaySplitOrderView.this.j.c();
             } else {
@@ -91,7 +91,7 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
             String str2 = str;
             int i = YYPaySplitOrderView.this.b;
             int i2 = YYPaySplitOrderView.this.c;
-            ukc.b(i, i2, str2, "", "", "" + j);
+            tec.b(i, i2, str2, "", "", "" + j);
         }
 
         @Override // tv.athena.revenue.payui.view.adapter.PaySplitOrderAdapter.c
@@ -100,7 +100,7 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
             String str;
             RLog.info("YYPaySplitOrderView", "onPayAmoyntItemClick mPayAmount:" + YYPaySplitOrderView.this.j + " item:" + splitRecordItem);
             if (YYPaySplitOrderView.this.f != null) {
-                kkc a = xkc.a((int) (plc.d(splitRecordItem.value) * 100.0d), YYPaySplitOrderView.this.d);
+                jec a = wec.a((int) (ofc.d(splitRecordItem.value) * 100.0d), YYPaySplitOrderView.this.d);
                 a.e(splitRecordItem.id);
                 YYPaySplitOrderView.this.f.a(a);
             }
@@ -117,7 +117,7 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
             String str2 = str;
             int i = YYPaySplitOrderView.this.b;
             int i2 = YYPaySplitOrderView.this.c;
-            ukc.b(i, i2, str2, "", "", "" + j);
+            tec.b(i, i2, str2, "", "", "" + j);
         }
     }
 
@@ -146,7 +146,7 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
             String str2 = str;
             int i = YYPaySplitOrderView.this.b;
             int i2 = YYPaySplitOrderView.this.c;
-            ukc.b(i, i2, str2, "", "", "" + j);
+            tec.b(i, i2, str2, "", "", "" + j);
         }
     }
 
@@ -183,9 +183,9 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
         }
     }
 
-    public YYPaySplitOrderView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, amc.b bVar, vic vicVar) {
+    public YYPaySplitOrderView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, zfc.b bVar, ucc uccVar) {
         super(activity);
-        kkc kkcVar;
+        jec jecVar;
         long j;
         String str;
         this.p = new ArrayList();
@@ -194,19 +194,19 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
         this.e = bVar;
         this.b = i;
         this.c = i2;
-        this.i = vicVar;
+        this.i = uccVar;
         if (bVar != null) {
-            kkcVar = bVar.a;
+            jecVar = bVar.a;
         } else {
-            kkcVar = null;
+            jecVar = null;
         }
-        this.j = kkcVar;
-        amc.b bVar2 = this.e;
+        this.j = jecVar;
+        zfc.b bVar2 = this.e;
         this.q = bVar2 != null ? bVar2.c : null;
         o(activity);
-        kkc kkcVar2 = this.j;
-        if (kkcVar2 != null) {
-            j = (long) kkcVar2.c();
+        jec jecVar2 = this.j;
+        if (jecVar2 != null) {
+            j = (long) jecVar2.c();
         } else {
             j = -1;
         }
@@ -217,10 +217,10 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
         }
         String str2 = str;
         RLog.debug("YYPaySplitOrderView", "mPayFlowType:" + this.q + " event:" + str2);
-        ukc.b(this.b, this.c, str2, "", "", "" + j);
+        tec.b(this.b, this.c, str2, "", "", "" + j);
     }
 
-    @Override // com.baidu.tieba.vlc
+    @Override // com.baidu.tieba.ufc
     public void attachWindow(Window window) {
         w(window);
     }
@@ -228,9 +228,9 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
     public final void r(SplitOrderConfigResult splitOrderConfigResult) {
         List<SplitRecordItem> list;
         if (splitOrderConfigResult != null && (list = splitOrderConfigResult.splitRecordItemList) != null && !list.isEmpty()) {
-            vic vicVar = this.i;
-            if (vicVar != null) {
-                vicVar.c(new nkc(splitOrderConfigResult, this.e));
+            ucc uccVar = this.i;
+            if (uccVar != null) {
+                uccVar.c(new mec(splitOrderConfigResult, this.e));
             }
             v(splitOrderConfigResult);
             return;
@@ -238,8 +238,8 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
         q(-1, "splitRecordItemList null");
     }
 
-    @Override // com.baidu.tieba.amc
-    public void setCallback(amc.a aVar) {
+    @Override // com.baidu.tieba.zfc
+    public void setCallback(zfc.a aVar) {
         this.f = aVar;
     }
 
@@ -258,19 +258,19 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
     }
 
     public final void q(int i, String str) {
-        amc.a aVar = this.f;
+        zfc.a aVar = this.f;
         if (aVar != null) {
             aVar.onRefreshViewFail(i, str);
         }
     }
 
-    @Override // com.baidu.tieba.amc
+    @Override // com.baidu.tieba.zfc
     public void a() {
         long j;
         String str;
-        kkc kkcVar = this.j;
-        if (kkcVar != null) {
-            j = (long) kkcVar.c();
+        jec jecVar = this.j;
+        if (jecVar != null) {
+            j = (long) jecVar.c();
         } else {
             j = -1;
         }
@@ -281,30 +281,30 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
         }
         int i = this.b;
         int i2 = this.c;
-        ukc.b(i, i2, str, "", "", "" + j);
+        tec.b(i, i2, str, "", "", "" + j);
         RLog.info("YYPaySplitOrderView", "onBtnCloseClick mPayFlowType:" + this.q + " event:" + str);
     }
 
     public final void s() {
         RLog.info("YYPaySplitOrderView", "querySplitOrderConfig mPayAmount:" + this.j);
-        rhc yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
+        qbc yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
         if (yYPayMiddleService == null) {
             RLog.error("YYPaySplitOrderView", "querySplitOrderConfig error yyPayMiddleService null", new Object[0]);
             return;
         }
-        kkc kkcVar = this.j;
-        if (kkcVar == null) {
+        jec jecVar = this.j;
+        if (jecVar == null) {
             RLog.error("YYPaySplitOrderView", "querySplitOrderConfig error mPayAmount null", new Object[0]);
         } else {
-            yYPayMiddleService.e(1, "", (long) kkcVar.c(), new c());
+            yYPayMiddleService.e(1, "", (long) jecVar.c(), new c());
         }
     }
 
     public final void n() {
-        alc.a(this.g, this.h);
+        zec.a(this.g, this.h);
     }
 
-    @Override // com.baidu.tieba.vlc
+    @Override // com.baidu.tieba.ufc
     public void refreshView() {
         RLog.info("YYPaySplitOrderView", "refreshView");
         u();
@@ -312,18 +312,18 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
     }
 
     public final void u() {
-        alc.b(this.g, this.h);
+        zec.b(this.g, this.h);
     }
 
     public final void o(Activity activity) {
-        LayoutInflater.from(new ContextThemeWrapper(activity, qlc.a.a(this.d))).inflate(R.layout.pay_ui_layout_pay_split_order_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(activity, pfc.a.a(this.d))).inflate(R.layout.pay_ui_layout_pay_split_order_view, (ViewGroup) this, true);
         this.g = findViewById(R.id.root_loading);
         this.h = (ImageView) findViewById(R.id.iv_loading_circle);
         this.k = (RecyclerView) findViewById(R.id.grid_recharge_split_order);
         PaySplitOrderAdapter paySplitOrderAdapter = new PaySplitOrderAdapter(this.a, this.p, this.d);
         this.o = paySplitOrderAdapter;
         paySplitOrderAdapter.m(new a());
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0926e8);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0926e4);
         this.l = textView;
         textView.getPaint().setFlags(8);
         this.l.setOnClickListener(new b());
@@ -357,13 +357,13 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
     public final void p() {
         long j;
         String str;
-        amc.a aVar = this.f;
+        zfc.a aVar = this.f;
         if (aVar != null) {
             aVar.b();
         }
-        kkc kkcVar = this.j;
-        if (kkcVar != null) {
-            j = (long) kkcVar.c();
+        jec jecVar = this.j;
+        if (jecVar != null) {
+            j = (long) jecVar.c();
         } else {
             j = -1;
         }
@@ -375,16 +375,16 @@ public class YYPaySplitOrderView extends LinearLayout implements amc {
         String str2 = str;
         int i = this.b;
         int i2 = this.c;
-        ukc.b(i, i2, str2, "", "", "" + j);
+        tec.b(i, i2, str2, "", "", "" + j);
     }
 
     public final void t() {
-        kkc kkcVar;
+        jec jecVar;
         boolean z;
         String format;
-        amc.b bVar = this.e;
-        if (bVar != null && (kkcVar = bVar.a) != null) {
-            double c2 = kkcVar.c();
+        zfc.b bVar = this.e;
+        if (bVar != null && (jecVar = bVar.a) != null) {
+            double c2 = jecVar.c();
             if (c2 == ((long) c2)) {
                 z = true;
             } else {

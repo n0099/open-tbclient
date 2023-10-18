@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.interfa.IThreadManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.qn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-@Service
 /* loaded from: classes8.dex */
-public class uk implements IThreadManager {
+public final class uk<VD extends TaskDialogData, VM extends pn<VD>, View extends qn<VM>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Executor a;
+    public final View a;
+    public final VM b;
+    public final VD c;
 
-    public uk() {
+    public uk(View view2, VM vm, VD vd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, vm, vd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,14 +30,16 @@ public class uk implements IThreadManager {
                 return;
             }
         }
-        this.a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
+        this.a = view2;
+        this.b = vm;
+        this.c = vd;
     }
 
-    @Override // com.baidu.nps.interfa.IThreadManager
-    public void run(Runnable runnable) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.a.execute(runnable);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.a(this.b);
+            this.b.b(this.c);
         }
     }
 }

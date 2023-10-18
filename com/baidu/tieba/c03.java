@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,15 +11,54 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c03 extends i03 {
+public class c03 implements a03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public b03 a;
+    public long b;
+    public long c;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c03 a;
+
+        public a(c03 c03Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c03Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c03Var;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (this.a.j()) {
+                    this.a.k();
+                    return true;
+                }
+                this.a.l();
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -36,68 +73,123 @@ public class c03 extends i03 {
                 return;
             }
         }
-        b = qr1.a;
+        d = am1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c03(String str) {
-        super(str);
+    public c03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        if (j()) {
+            this.a = new b03();
+        }
     }
 
-    public final int d(HashMap<String, String> hashMap) {
-        InterceptResult invokeL;
+    public final boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
-            String str = hashMap.get("params");
-            if (TextUtils.isEmpty(str)) {
-                return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!d) {
+                return false;
             }
-            try {
-                return new JSONObject(str).optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, -1);
-            } catch (JSONException e) {
-                if (!b) {
-                    return -1;
-                }
-                e.printStackTrace();
-                return -1;
+            return AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).getBoolean("light_info_switch", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
+            b03 b03Var = this.a;
+            if (b03Var != null) {
+                b03Var.c();
             }
         }
-        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.i03
-    public boolean a(yz2 yz2Var, a03 a03Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.a03
+    public void a(long j) {
+        b03 b03Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{yz2Var, a03Var, context, unitedSchemeEntity, callbackHandler, gb3Var})) == null) {
-            g82.i("video", "fullscreen, video id:" + a03Var.j + " slave id: " + a03Var.c);
-            e(yz2Var, a03Var.s, unitedSchemeEntity, callbackHandler);
-            return true;
+        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j() && (b03Var = this.a) != null) {
+            b03Var.f(j - this.b);
         }
-        return invokeCommon.booleanValue;
     }
 
-    public final void e(yz2 yz2Var, boolean z, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        HashMap<String, String> params;
+    @Override // com.baidu.tieba.a03
+    public void c(long j) {
+        b03 b03Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{yz2Var, Boolean.valueOf(z), unitedSchemeEntity, callbackHandler}) == null) && (params = unitedSchemeEntity.getParams()) != null && !params.isEmpty()) {
-            yz2Var.u(z, d(params));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && j() && (b03Var = this.a) != null) {
+            b03Var.h(j - this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.a03
+    public void d(long j) {
+        b03 b03Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && j() && (b03Var = this.a) != null) {
+            b03Var.i(j - this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.a03
+    public void e(long j) {
+        b03 b03Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048579, this, j) == null) && j() && (b03Var = this.a) != null) {
+            b03Var.g(j - this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.bz2
+    public void end(long j) {
+        b03 b03Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j() && (b03Var = this.a) != null) {
+            this.c = j;
+            b03Var.l(this.b, j);
+            this.a.a();
+        }
+    }
+
+    @Override // com.baidu.tieba.a03
+    public void f(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && d && view2 != null) {
+            view2.setOnLongClickListener(new a(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.bz2
+    public void start(long j) {
+        b03 b03Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048585, this, j) == null) && j() && (b03Var = this.a) != null) {
+            this.b = j;
+            b03Var.e();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
+            if (this.a == null) {
+                this.a = new b03();
+            }
+            this.a.k();
         }
     }
 }

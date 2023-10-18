@@ -103,28 +103,28 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             com.kwad.sdk.core.e.b.d("LaunchAppTaskPresenter", "initBottomActionBar screen is horizontal");
             return;
         }
-        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091373)).inflate();
-        ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091369);
+        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09138c)).inflate();
+        ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091382);
         this.tw = viewGroup;
         viewGroup.setClickable(true);
         new com.kwad.sdk.widget.f(this.tw, this);
-        final KSFrameLayout kSFrameLayout = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09136a);
-        kSFrameLayout.setRadius(getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070502));
-        final float dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704fd);
+        final KSFrameLayout kSFrameLayout = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091383);
+        kSFrameLayout.setRadius(getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704fd));
+        final float dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704f6);
         kSFrameLayout.post(new Runnable() { // from class: com.kwad.components.ad.reward.presenter.d.b.1
             @Override // java.lang.Runnable
             public final void run() {
                 kSFrameLayout.getHeight();
             }
         });
-        ViewGroup viewGroup2 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091369);
+        ViewGroup viewGroup2 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091382);
         this.tw = viewGroup2;
         c cVar = new c(viewGroup2);
         this.ty = cVar;
         cVar.a(this.nM.mApkDownloadHelper);
         this.ty.a(this);
         this.ty.c(this.nM.mAdTemplate, false);
-        e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091368), this.tw, this.nM.mApkDownloadHelper, this);
+        e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091381), this.tw, this.nM.mApkDownloadHelper, this);
         this.tx = eVar;
         eVar.a(new com.kwad.components.ad.reward.k.f() { // from class: com.kwad.components.ad.reward.presenter.d.b.2
             @Override // com.kwad.components.ad.reward.k.f
@@ -160,8 +160,8 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             this.mK = iz;
             this.nM.mK = iz;
             com.kwad.components.ad.reward.i.a.a.a(iz, getContext(), this.nM.mAdTemplate);
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913ea);
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09125c);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091403);
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091275);
             this.f1214tv = viewGroup;
             if (viewGroup != null) {
                 viewGroup.setVisibility(8);
@@ -170,8 +170,8 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                 cVar.a(this.nM.mApkDownloadHelper);
                 this.tz.a(this);
                 this.tz.c(this.nM.mAdTemplate, false);
-                ((KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913e7)).setWidthBasedRatio(false);
-                t tVar = new t((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913e6), this.f1214tv, this.nM.mApkDownloadHelper, this);
+                ((KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091400)).setWidthBasedRatio(false);
+                t tVar = new t((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913ff), this.f1214tv, this.nM.mApkDownloadHelper, this);
                 this.sV = tVar;
                 tVar.a(this.nM.mAdTemplate, adBaseFrameLayout);
             }

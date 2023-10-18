@@ -1,139 +1,81 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.myCollection.baseHistory.PbHistoryData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.task.TbSocketMessageTask;
+import com.baidu.tieba.pb.chosen.PbChosenActivity;
+import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
+import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
+import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
 /* loaded from: classes7.dex */
-public class ne9 extends bs5<PbHistoryData, wr5> {
+public class ne9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public View k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ne9(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, view2, viewEventCenter);
+    public ne9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = view2;
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09259d);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907b0);
-        this.h = textView;
-        textView.setSingleLine();
-        this.h.setEllipsize(TextUtils.TruncateAt.END);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092566);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915ca);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f09151e);
+        b();
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.es5
-    /* renamed from: j */
-    public void f(PbHistoryData pbHistoryData) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbHistoryData) == null) {
-            super.f(pbHistoryData);
-            if (pbHistoryData == null) {
-                return;
-            }
-            int i = 0;
-            if (this.g != null) {
-                if (pbHistoryData.getThreadType() == 49) {
-                    if (StringUtils.isNull(pbHistoryData.getDescription())) {
-                        if (StringUtils.isNull(pbHistoryData.getUserName())) {
-                            this.g.setText(e(R.string.obfuscated_res_0x7f0f0ffc));
-                        } else {
-                            this.g.setText(pbHistoryData.getUserName());
-                        }
-                    } else {
-                        this.g.setText(pbHistoryData.getDescription());
-                    }
-                } else if (pbHistoryData.getThreadName() != null) {
-                    if (pbHistoryData.isShareThread()) {
-                        this.g.setText(String.format("%s%s", e(R.string.obfuscated_res_0x7f0f0ffe), pbHistoryData.getThreadName()));
-                    } else {
-                        this.g.setText(pbHistoryData.getThreadName());
-                    }
-                }
-            }
-            if (this.h != null) {
-                if (pbHistoryData.getThreadType() == 49 && !TextUtils.isEmpty(pbHistoryData.getUserName())) {
-                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0fff), pbHistoryData.getUserName()));
-                } else if (pbHistoryData.getThreadType() == 49) {
-                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0fff), e(R.string.obfuscated_res_0x7f0f0ffc)));
-                } else if (pbHistoryData.getForumName() != null) {
-                    this.h.setText(pbHistoryData.getForumName());
-                }
-            }
-            if (pbHistoryData.getThreadType() == 49) {
-                TextView textView = this.j;
-                if (!pbHistoryData.isLive()) {
-                    i = 8;
-                }
-                textView.setVisibility(i);
-            } else {
-                this.j.setVisibility(8);
-            }
-            if (this.i != null) {
-                String postTimeString = StringHelper.getPostTimeString(new Date(pbHistoryData.getTime()));
-                if (postTimeString == null) {
-                    postTimeString = "";
-                }
-                this.i.setText(postTimeString);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(309093);
+            tbSocketMessageTask.setResponsedClass(ChosenPbSocketResponse.class);
+            tbSocketMessageTask.setNeedAck(true);
+            tbSocketMessageTask.setNeedCompress(false);
+            MessageManager.getInstance().registerTask(tbSocketMessageTask);
         }
     }
 
-    @Override // com.baidu.tieba.xia
-    @SuppressLint({"ResourceAsColor"})
-    public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i)) == null) {
-            SkinManager.setBackgroundResource(this.f, R.drawable.list_item_selector);
-            SkinManager.setBackgroundResource(this.k, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
-            TBSelector.makeDrawableSelector().cornerRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).gradientLinear(DrawableSelector.LEFT_RIGHT, R.color.CAM_X0308, R.color.CAM_X0301).into(this.j);
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, xda.a(TbConfig.FINE_PB_PAGE, 309093));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return invokeLI.booleanValue;
+    }
+
+    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(pbChosenActivity.getPageContext().getPageActivity());
+            int equipmentHeight = BdUtilHelper.getEquipmentHeight(pbChosenActivity.getPageContext().getPageActivity());
+            float equipmentDensity = BdUtilHelper.getEquipmentDensity(pbChosenActivity.getPageContext().getPageActivity());
+            chosenPbNetMessage.setQ_type(45L);
+            chosenPbNetMessage.setScrH(equipmentHeight);
+            chosenPbNetMessage.setScrW(equipmentWidth);
+            chosenPbNetMessage.setScr_dip(equipmentDensity);
+            chosenPbNetMessage.setExcId(j);
+            chosenPbNetMessage.setTagCode(j2);
+            chosenPbNetMessage.setThreadId(j3);
+            pbChosenActivity.sendMessage(chosenPbNetMessage);
+        }
     }
 }

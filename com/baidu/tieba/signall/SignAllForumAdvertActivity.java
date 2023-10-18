@@ -174,16 +174,16 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
-    public final void O0() {
+    public final void Q0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d08c9);
+            setContentView(R.layout.obfuscated_res_0x7f0d08bb);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09222b);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092226);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092225);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092235);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092230);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09222f);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             BdResourceLoader.getInstance().loadResource(this.a, 10, new a(this), null);
             this.d.startLoad(this.a, 10, false);
@@ -203,7 +203,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
             this.a = intent.getStringExtra("ad_pic");
             this.b = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
             intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
-            O0();
+            Q0();
             N0();
         }
     }

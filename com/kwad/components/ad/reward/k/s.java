@@ -42,7 +42,7 @@ public final class s extends d implements View.OnClickListener {
         this.wj = viewGroup;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04ec, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04e7, viewGroup, false);
         this.pV = viewGroup2;
         this.mContext = viewGroup2.getContext();
         initView();
@@ -61,14 +61,14 @@ public final class s extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913e3);
-        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913e5);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913e1);
-        this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913e4);
-        this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913e2);
-        this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913d5);
-        this.f1212vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0913e0);
-        this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0913df);
+        this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913fc);
+        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913fe);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913fa);
+        this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913fd);
+        this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913fb);
+        this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913ee);
+        this.f1212vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0913f9);
+        this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0913f8);
         this.f1212vi.setOnClickListener(this);
         this.vj.setOnClickListener(this);
         this.it.setOnClickListener(this);

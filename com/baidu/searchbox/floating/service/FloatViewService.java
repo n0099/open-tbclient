@@ -183,7 +183,7 @@ public final class FloatViewService extends Service {
             setConfig(cfg);
             if (cfg.isForeground() && Build.VERSION.SDK_INT >= 26) {
                 checkNotification(context, cfg);
-                getInnerHandler().post(new Runnable() { // from class: com.baidu.tieba.wn1
+                getInnerHandler().post(new Runnable() { // from class: com.baidu.tieba.gi1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

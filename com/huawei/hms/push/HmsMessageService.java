@@ -12,6 +12,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -159,7 +160,7 @@ public class HmsMessageService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
             Bundle bundle = new Bundle();
-            bundle.putString("message_id", intent.getStringExtra("message_id"));
+            bundle.putString(ForbidActivityConfig.CHAT_MSG_ID, intent.getStringExtra(ForbidActivityConfig.CHAT_MSG_ID));
             bundle.putByteArray(RemoteMessageConst.MSGBODY, intent.getByteArrayExtra(RemoteMessageConst.MSGBODY));
             bundle.putString(RemoteMessageConst.DEVICE_TOKEN, intent.getStringExtra(RemoteMessageConst.DEVICE_TOKEN));
             if (intent.getIntExtra(RemoteMessageConst.INPUT_TYPE, -1) == 1) {
@@ -370,7 +371,7 @@ public class HmsMessageService extends Service {
                 return;
             }
             try {
-                String stringExtra = intent.getStringExtra("message_id");
+                String stringExtra = intent.getStringExtra(ForbidActivityConfig.CHAT_MSG_ID);
                 String stringExtra2 = intent.getStringExtra("message_type");
                 String stringExtra3 = intent.getStringExtra(CommonCode.MapKey.TRANSACTION_ID);
                 if ("new_token".equals(stringExtra2)) {

@@ -1,83 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import androidx.core.util.Pair;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.j67;
-import com.baidu.tieba.tbadkCore.data.WorksInfoData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ms6 implements j67.p {
+public class ms6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public FeatureCardHot a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947983289, "Lcom/baidu/tieba/ms6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947983289, "Lcom/baidu/tieba/ms6;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
 
     public ms6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.j67.p
-    public SpannableString a(Context context, m87 businessInfo) {
-        InterceptResult invokeLL;
+    public FeatureCardHot c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            ThreadData threadData = new ThreadData();
-            String str = businessInfo.a().get("tiebaplus_ad");
-            if (str != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    threadData.tiePlusAdSource = jSONObject.optString("ad_source");
-                    threadData.tiePlusShowUrl = jSONObject.optString("show_url");
-                    threadData.tiePlusCostUrl = jSONObject.optString("cost_url");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            threadData.tiePlusMonitorShowUrl = businessInfo.a().get("exposure_monitor_url");
-            threadData.tiePlusMonitorClickUrl = businessInfo.a().get("click_monitor_url");
-            String str2 = businessInfo.a().get("works_info");
-            if (str2 != null) {
-                WorksInfoData worksInfoData = new WorksInfoData();
-                worksInfoData.parseJson(new JSONObject(str2));
-                threadData.worksInfoData = worksInfoData;
-            }
-            threadData.threadType = JavaTypesHelper.toInt(businessInfo.a().get("thread_type"), 0);
-            threadData.isTiebaPlusAdThread = Intrinsics.areEqual(businessInfo.a().get("is_tiebaplus_ad"), "1");
-            threadData.tiebaPlusOrderId = businessInfo.a().get("tiebaplus_order_id");
-            threadData.tiebaPlusToken = businessInfo.a().get("tiebaplus_token");
-            threadData.tiebaPlusExtraParam = businessInfo.a().get("tiebaplus_extra_param");
-            threadData.tiebaplusCantDelete = Intrinsics.areEqual(businessInfo.a().get("tiebaplus_cant_delete"), "1");
-            Pair<CharSequence, m26> r = e26.r(35, threadData, ls6.a(businessInfo));
-            if (r != null) {
-                CharSequence charSequence = r.first;
-                if (charSequence instanceof SpannableString) {
-                    if (charSequence != null) {
-                        return (SpannableString) charSequence;
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type android.text.SpannableString");
-                }
-            }
-            return new SpannableString("");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (SpannableString) invokeLL.objValue;
+        return (FeatureCardHot) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.yh
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void d(FeatureCardHot featureCardHot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardHot) == null) {
+            this.a = featureCardHot;
+        }
     }
 }

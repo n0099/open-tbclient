@@ -5,7 +5,8 @@ import android.media.MediaRecorder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hc5;
+import com.baidu.mobads.sdk.internal.bx;
+import com.baidu.tieba.p65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,8 +17,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes4.dex */
-public class MyAudioRecorder implements hc5 {
+/* loaded from: classes5.dex */
+public class MyAudioRecorder implements p65 {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] n;
     public static Object o;
@@ -45,7 +46,7 @@ public class MyAudioRecorder implements hc5 {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -72,7 +73,7 @@ public class MyAudioRecorder implements hc5 {
             INITIALIZING = new State("INITIALIZING", 0);
             READY = new State("READY", 1);
             RECORDING = new State("RECORDING", 2);
-            ERROR = new State("ERROR", 3);
+            ERROR = new State(bx.l, 3);
             State state = new State("STOPPED", 4);
             STOPPED = state;
             $VALUES = new State[]{INITIALIZING, READY, RECORDING, ERROR, state};
@@ -116,7 +117,7 @@ public class MyAudioRecorder implements hc5 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +170,7 @@ public class MyAudioRecorder implements hc5 {
         q = null;
     }
 
-    @Override // com.baidu.tieba.hc5
+    @Override // com.baidu.tieba.p65
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -255,7 +256,7 @@ public class MyAudioRecorder implements hc5 {
         }
     }
 
-    @Override // com.baidu.tieba.hc5
+    @Override // com.baidu.tieba.p65
     public boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -294,7 +295,7 @@ public class MyAudioRecorder implements hc5 {
         return (MyAudioRecorder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hc5
+    @Override // com.baidu.tieba.p65
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -302,7 +303,7 @@ public class MyAudioRecorder implements hc5 {
         }
     }
 
-    @Override // com.baidu.tieba.hc5
+    @Override // com.baidu.tieba.p65
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

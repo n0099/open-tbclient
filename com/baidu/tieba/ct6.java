@@ -1,50 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.database.Cursor;
+import com.baidu.searchbox.download.model.Downloads;
+import com.baidu.searchbox.download.unified.DownloadUnifiedManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import kotlin.Unit;
+import kotlin.io.CloseableKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ct6 implements cd7 {
+public final class ct6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cd7
-    public String getKey() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final long a(DownloadUnifiedManager downloadUnifiedManager, Context context, String downloadTitle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
-    }
-
-    public ct6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, downloadUnifiedManager, context, downloadTitle)) == null) {
+            Intrinsics.checkNotNullParameter(downloadUnifiedManager, "<this>");
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(downloadTitle, "downloadTitle");
+            Cursor query = context.getContentResolver().query(Downloads.Impl.CONTENT_URI, new String[]{"_id"}, "title= ?", new String[]{downloadTitle}, null);
+            long j = -1;
+            if (query != null) {
+                try {
+                    if (query.moveToFirst()) {
+                        j = query.getLong(query.getColumnIndex("_id"));
+                    }
+                    Unit unit = Unit.INSTANCE;
+                    CloseableKt.closeFinally(query, null);
+                } finally {
+                }
             }
+            return j;
         }
-    }
-
-    @Override // com.baidu.tieba.cd7
-    public Map<String, String> a(m87 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            hashMap.put("obj_locate", "2");
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
+        return invokeLLL.longValue;
     }
 }

@@ -1,56 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.yt1;
 /* loaded from: classes6.dex */
-public class jp1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public String d;
+public interface jp1 {
+    @NonNull
+    ta3 a(Activity activity, boolean z, String str, String str2);
 
-    public jp1(int i, int i2, int i3, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = -1;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = str;
-    }
+    @NonNull
+    ya3 b(Activity activity, yt1.d dVar, Bundle bundle);
 
-    public static jp1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new jp1(3, 2020, -1, "No Authorized User Privacy Agreement");
-        }
-        return (jp1) invokeV.objValue;
-    }
+    @NonNull
+    za3 c(Activity activity, String str, String str2, boolean z, boolean z2);
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CallBackMsg{status=" + this.a + ", subStatus=" + this.b + ", op='" + this.c + "', data='" + this.d + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
+    @NonNull
+    ua3 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3);
+
+    @NonNull
+    xa3 e(Context context);
+
+    @NonNull
+    wa3 f(Context context);
+
+    @NonNull
+    va3 g(Context context, String str);
 }

@@ -1,26 +1,26 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u6;
+import com.baidu.tieba.r2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class s0<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u6<T> a;
-    public u6.a<T> b;
+    public final r2<T> a;
+    public r2.a<T> b;
 
-    public s0(u6<T> u6Var) {
+    public s0(r2<T> r2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u6Var};
+            Object[] objArr = {r2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,7 +30,7 @@ public class s0<T> implements Iterable<T> {
                 return;
             }
         }
-        this.a = u6Var;
+        this.a = r2Var;
     }
 
     public boolean equals(Object obj) {
@@ -66,7 +66,7 @@ public class s0<T> implements Iterable<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.b == null) {
-                this.b = new u6.a<>(this.a, false);
+                this.b = new r2.a<>(this.a, false);
             }
             return this.b.iterator();
         }

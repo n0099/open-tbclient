@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ee5;
-import com.baidu.tieba.wt5;
+import com.baidu.tieba.co5;
+import com.baidu.tieba.m85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -214,7 +214,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                 super.onPostExecute((c) str);
                 this.d.b = null;
                 if (this.c.getNetContext().getResponse().isRequestSuccess()) {
-                    CreateForumSuccessActivity.startActivity(this.d.getPageContext().getPageActivity(), this.a);
+                    CreateForumSuccessActivity.N0(this.d.getPageContext().getPageActivity(), this.a);
                     this.d.finish();
                     return;
                 }
@@ -274,14 +274,14 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        ee5 ee5Var = new ee5();
-                        ee5Var.e(postNetData);
-                        if (ee5Var.c() != null && ee5Var.c().length() > 0) {
-                            this.c.d = ee5Var.b();
+                        m85 m85Var = new m85();
+                        m85Var.e(postNetData);
+                        if (m85Var.c() != null && m85Var.c().length() > 0) {
+                            this.c.d = m85Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(ee5Var.c());
+                            NetWork netWork2 = new NetWork(m85Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -430,28 +430,28 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = new a(this);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091fb6);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091fc1);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.f.setTitleText(R.string.create_bar);
             this.g = (NoNetworkView) this.e.findViewById(R.id.view_no_network);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090975);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090990);
             this.h = editText;
             editText.setText(this.m);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f090986);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f0909a1);
             this.i = editText2;
             editText2.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091eae);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ece);
             this.k = textView;
             textView.setOnClickListener(this.a);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09107f);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091099);
             this.j = imageView;
             imageView.setOnClickListener(this.a);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ab);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b5);
             this.l = textView2;
             textView2.setOnClickListener(this.a);
-            findViewById(R.id.obfuscated_res_0x7f090415).setOnTouchListener(new b(this));
+            findViewById(R.id.obfuscated_res_0x7f090416).setOnTouchListener(new b(this));
         }
     }
 
@@ -461,7 +461,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.changeSkinType(i);
             getLayoutMode().onModeChanged(this.e);
-            wt5.a(getPageContext(), this.e);
+            co5.a(getPageContext(), this.e);
             NavigationBar navigationBar = this.f;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i);

@@ -9,24 +9,24 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.io4;
-import com.baidu.tieba.xj4;
+import com.baidu.tieba.ge4;
+import com.baidu.tieba.ri4;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class PMSDBProviderProxy extends ContentProvider {
-    public static final io4 b = io4.c();
-    public volatile xj4 a;
+    public static final ri4 b = ri4.c();
+    public volatile ge4 a;
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
         return true;
     }
 
-    public xj4 a() {
+    public ge4 a() {
         if (this.a == null) {
-            synchronized (xj4.class) {
+            synchronized (ge4.class) {
                 if (this.a == null) {
-                    this.a = new xj4(getContext());
+                    this.a = new ge4(getContext());
                 }
             }
         }
@@ -42,7 +42,7 @@ public class PMSDBProviderProxy extends ContentProvider {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) {
-        SQLiteDatabase writableDatabase = a().a().getWritableDatabase();
+        SQLiteDatabase writableDatabase = a().b().getWritableDatabase();
         try {
             try {
                 b.i("PMSDBProviderProxy", "#applyBatch beginTransaction");
@@ -76,29 +76,29 @@ public class PMSDBProviderProxy extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return a().delete(uri, str, strArr);
+        return a().a(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return a().getType(uri);
+        return a().d(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return a().insert(uri, contentValues);
+        return a().e(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return a().query(uri, strArr, str, strArr2, str2);
+        return a().f(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return a().update(uri, contentValues, str, strArr);
+        return a().h(uri, contentValues, str, strArr);
     }
 }

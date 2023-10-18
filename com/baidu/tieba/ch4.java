@@ -1,63 +1,76 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.swan.pms.node.Node;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ch4 extends bh4 {
+public class ch4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947674746, "Lcom/baidu/tieba/ch4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947674746, "Lcom/baidu/tieba/ch4;");
-                return;
-            }
+    public static JSONObject a(@Nullable zg4<JSONArray> zg4Var, @Nullable zg4<JSONObject> zg4Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, zg4Var, zg4Var2)) == null) {
+            return b(Node.values(), zg4Var, zg4Var2);
         }
-        g = Color.parseColor("#26c56c");
+        return (JSONObject) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.bh4
-    public int f() {
-        InterceptResult invokeV;
+    public static JSONObject b(Node[] nodeArr, @Nullable zg4<JSONArray> zg4Var, @Nullable zg4<JSONObject> zg4Var2) {
+        InterceptResult invokeLLL;
+        bh4 provider;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return g;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, nodeArr, zg4Var, zg4Var2)) == null) {
+            if (nodeArr == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Node node : nodeArr) {
+                    if (node != null && (provider = Node.getProvider(node)) != null) {
+                        if (node.isDataArray()) {
+                            jSONObject.put(node.getName(), provider.b(zg4Var));
+                        } else {
+                            jSONObject.put(node.getName(), provider.a(zg4Var2));
+                        }
+                    }
+                }
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
         }
-        return invokeV.intValue;
+        return (JSONObject) invokeLLL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ch4(BaiduMap baiduMap) {
-        super(baiduMap);
+    public static void c(JSONObject jSONObject, kd4 kd4Var, @Nullable kd4 kd4Var2, @Nullable kd4 kd4Var3) {
+        yc4 b;
+        ah4 a;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((BaiduMap) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable != null && interceptable.invokeLLLL(65538, null, jSONObject, kd4Var, kd4Var2, kd4Var3) != null) || jSONObject == null) {
+            return;
+        }
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            Node nodeByConfigName = Node.getNodeByConfigName(next);
+            if (nodeByConfigName != null && (a = dh4.a(nodeByConfigName)) != null) {
+                if (nodeByConfigName.isDataArray()) {
+                    a.a(jSONObject.optJSONArray(next), kd4Var, kd4Var2, kd4Var3);
+                } else {
+                    a.b(jSONObject.optJSONObject(next), kd4Var, kd4Var2, kd4Var3);
+                }
             }
+        }
+        if (vh4.a && (b = ad4.b()) != null) {
+            b.C();
         }
     }
 }

@@ -16,7 +16,6 @@ import com.baidu.android.pushservice.frequency.UploadDataListener;
 import com.baidu.android.pushservice.httpapi.TokenBindListener;
 import com.baidu.android.pushservice.pull.ClientEventInfo;
 import com.baidu.android.pushservice.util.Utility;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -102,7 +101,7 @@ public class PushManager {
             str = str.substring(0, str.length() - 1);
         }
         i.putExtra("method", "method_del_tags");
-        i.putExtra(TaskProcess.keyTags, str + PreferencesUtil.RIGHT_MOUNT);
+        i.putExtra("tags", str + PreferencesUtil.RIGHT_MOUNT);
         com.baidu.android.pushservice.u.a.a(TAG, "a delTags intent send", context.getApplicationContext());
         e.a(context, i);
     }
@@ -450,7 +449,7 @@ public class PushManager {
             str = str.substring(0, str.length() - 1);
         }
         i.putExtra("method", "method_set_tags");
-        i.putExtra(TaskProcess.keyTags, str + PreferencesUtil.RIGHT_MOUNT);
+        i.putExtra("tags", str + PreferencesUtil.RIGHT_MOUNT);
         com.baidu.android.pushservice.u.a.a(TAG, "a setTags intent send ", context.getApplicationContext());
         e.a(context, i);
     }

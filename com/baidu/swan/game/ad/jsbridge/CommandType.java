@@ -1,17 +1,17 @@
 package com.baidu.swan.game.ad.jsbridge;
 
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.mobads.sdk.internal.ap;
 /* loaded from: classes4.dex */
 public enum CommandType {
     ACTION_URL("setActionUrl"),
     GET_CONFS("getConfs"),
     PRINT_LOG("printLog"),
     PAUSE_DOWNLOAD("pauseDownload"),
-    GET_DOWNLOAD_STATUS("getDownloadStatus"),
+    GET_DOWNLOAD_STATUS(ap.e),
     INSTALL_APP("installApp"),
     GET_APP_STATUS("getAppStatus"),
     OPEN_APP("openApp"),
-    BANNER_VIEW(SpeedStatsUtils.UBC_VALUE_BANNER),
+    BANNER_VIEW("banner"),
     DOWNLOAD_PERMISSION_CLICK("setPermissionActionUrl"),
     DOWNLOAD_PRIVACY_CLICK("setPrivacyActionUrl"),
     UNSPECIFIED("");

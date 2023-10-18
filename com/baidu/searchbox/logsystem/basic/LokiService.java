@@ -128,11 +128,11 @@ public class LokiService extends Service {
                         File file4 = new File(stringExtra4);
                         if (file4.exists() && file4.isFile()) {
                             file2 = file4;
-                            logObject = new LogObject(logType, stringExtra3, stringExtra, file, file2, (LogExtra) intent.getParcelableExtra("logExtra"), stringExtra5);
+                            logObject = new LogObject(logType, stringExtra3, stringExtra, file, file2, (LogExtra) intent.getParcelableExtra(Constant.LOG_EXTRA), stringExtra5);
                         }
                     }
                     file2 = null;
-                    logObject = new LogObject(logType, stringExtra3, stringExtra, file, file2, (LogExtra) intent.getParcelableExtra("logExtra"), stringExtra5);
+                    logObject = new LogObject(logType, stringExtra3, stringExtra, file, file2, (LogExtra) intent.getParcelableExtra(Constant.LOG_EXTRA), stringExtra5);
                 }
                 LogSystemProcessor logSystemProcessor = mProcessor;
                 if (logSystemProcessor != null) {

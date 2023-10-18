@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public final class g0 {
     public static /* synthetic */ Interceptable $ic;
-    public static q7<Class<? extends f0>, g0> b;
+    public static a3<Class<? extends f0>, g0> b;
     public static int c;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -30,7 +30,7 @@ public final class g0 {
                 return;
             }
         }
-        b = new q7<>();
+        b = new a3<>();
         c = 0;
     }
 
@@ -70,30 +70,30 @@ public final class g0 {
         return invokeV.intValue;
     }
 
-    public static x6 a(Class<? extends f0>... clsArr) {
+    public static s2 a(Class<? extends f0>... clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, clsArr)) == null) {
-            x6 x6Var = new x6();
+            s2 s2Var = new s2();
             for (Class<? extends f0> cls : clsArr) {
-                x6Var.k(d(cls));
+                s2Var.k(d(cls));
             }
-            return x6Var;
+            return s2Var;
         }
-        return (x6) invokeL.objValue;
+        return (s2) invokeL.objValue;
     }
 
     public static g0 b(Class<? extends f0> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            g0 c2 = b.c(cls);
-            if (c2 == null) {
+            g0 b2 = b.b(cls);
+            if (b2 == null) {
                 g0 g0Var = new g0();
-                b.i(cls, g0Var);
+                b.h(cls, g0Var);
                 return g0Var;
             }
-            return c2;
+            return b2;
         }
         return (g0) invokeL.objValue;
     }

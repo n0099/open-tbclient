@@ -1,325 +1,104 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.e4a;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.view.View;
+import android.view.Window;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.dialog.CircleView1080;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jz4 {
+public class jz4 extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public TextView b;
+    public TextView c;
+    public CircleView1080 d;
+    public int e;
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jz4(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file.exists() && file.isFile() && file.canRead()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static e4a.g b(String str, String str2) {
-        InterceptResult invokeLL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            File file = new File(e4a.g + "bdtbNWCache");
-            FileInputStream fileInputStream2 = null;
-            if (TextUtils.isEmpty(str2) || !file.exists()) {
-                return null;
-            }
-            e4a.g gVar = new e4a.g();
-            File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
-            gVar.a = file.getAbsolutePath();
-            gVar.c = str2;
-            File file3 = new File(file2, "router.json");
-            try {
-                if (!file3.exists()) {
-                    return null;
-                }
-                try {
-                    fileInputStream = new FileInputStream(file3);
-                } catch (FileNotFoundException e) {
-                    e = e;
-                }
-                try {
-                    gVar.b = f(fileInputStream);
-                    ei.e(fileInputStream);
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                    fileInputStream2 = fileInputStream;
-                    e.printStackTrace();
-                    ei.e(fileInputStream2);
-                    return gVar;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    ei.e(fileInputStream2);
-                    throw th;
-                }
-                return gVar;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (e4a.g) invokeLL.objValue;
-        }
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        g4a d;
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (QuickWebViewSwitch.getInOn() && !e4a.s(str)) {
-                try {
-                    d = f4a.a().d(new URL(str).getPath());
-                } catch (MalformedURLException | Exception unused) {
-                }
-                if (d != null && d.e) {
-                    String p = e4a.n().p(d.b);
-                    if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(p)) {
-                        String str2 = e4a.n().m() + "/" + d.b + "/" + p + "/";
-                        if (!d.c.endsWith(".html")) {
-                            file = new File(str2, d.c + ".html");
-                        } else {
-                            file = new File(str2, d.c);
-                        }
-                        if (!a(file)) {
-                            YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：主html文件异常==" + str);
-                            return false;
-                        }
-                        ArrayList<String> arrayList = d.d;
-                        if (ListUtils.isEmpty(arrayList)) {
-                            YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：静态资源(js、css)配置信息错误==" + str);
-                            return false;
-                        }
-                        for (String str3 : arrayList) {
-                            if (TextUtils.isEmpty(str3)) {
-                                YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：静态资源(js、css)配置信息错误2==" + str);
-                                return false;
-                            } else if (!a(new File(str2, str3))) {
-                                YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：静态资源(js、css)配置信息错误3==" + str);
-                                return false;
-                            }
-                        }
-                        return true;
-                    }
-                    YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：版本异常==" + str);
-                    return false;
-                }
-                YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：离线包未初始化==" + str);
-                return false;
-            }
-            YunDialogLog.getInstance().e("OfflineHelper", "离线包检查：开关关闭==" + str);
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(Set<String> set) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !qn6.a(set)) {
-            e4a.f fVar = new e4a.f();
-            fVar.a = new HashMap();
-            fVar.b = new HashMap<>();
-            for (String str : set) {
-                e4a.g b = b(str, e4a.n().p(str));
-                if (b != null && !TextUtils.isEmpty(b.a) && !qn6.b(b.b)) {
-                    fVar.a.put(str, b);
-                    fVar.b.putAll(b.b);
-                }
-            }
-            if (!qn6.b(fVar.b)) {
-                f4a.a().i(fVar.b);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static HashMap<String, g4a> f(InputStream inputStream) {
-        InterceptResult invokeL;
-        InputStreamReader inputStreamReader;
-        Throwable th;
-        BufferedReader bufferedReader;
-        HashMap<String, g4a> hashMap;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
-            InputStreamReader inputStreamReader2 = null;
-            if (inputStream == null) {
-                return null;
-            }
-            try {
-                StringBuffer stringBuffer = new StringBuffer();
-                inputStreamReader = new InputStreamReader(inputStream);
-                try {
-                    bufferedReader = new BufferedReader(inputStreamReader);
-                    try {
-                        try {
-                            for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                                stringBuffer.append(readLine);
-                            }
-                            bufferedReader.close();
-                            hashMap = new HashMap<>();
-                        } catch (Exception e) {
-                            e = e;
-                            hashMap = null;
-                        }
-                        try {
-                            JSONObject jSONObject = new JSONObject(stringBuffer.toString());
-                            e(jSONObject.optJSONObject("proxyConfig"), hashMap);
-                            e(jSONObject.optJSONObject("config"), hashMap);
-                            ei.g(inputStreamReader);
-                        } catch (Exception e2) {
-                            e = e2;
-                            inputStreamReader2 = inputStreamReader;
-                            try {
-                                e.printStackTrace();
-                                ei.g(inputStreamReader2);
-                                ei.g(bufferedReader);
-                                return hashMap;
-                            } catch (Throwable th2) {
-                                inputStreamReader = inputStreamReader2;
-                                th = th2;
-                                ei.g(inputStreamReader);
-                                ei.g(bufferedReader);
-                                throw th;
-                            }
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        ei.g(inputStreamReader);
-                        ei.g(bufferedReader);
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    bufferedReader = null;
-                    hashMap = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    bufferedReader = null;
-                }
-            } catch (Exception e4) {
-                e = e4;
-                bufferedReader = null;
-                hashMap = null;
-            } catch (Throwable th5) {
-                inputStreamReader = null;
-                th = th5;
-                bufferedReader = null;
-            }
-            ei.g(bufferedReader);
-            return hashMap;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i == this.e) {
+            return;
         }
-        return (HashMap) invokeL.objValue;
+        this.e = i;
+        TextView textView = this.b;
+        if (textView != null) {
+            textView.setText(i + "%");
+        }
+        CircleView1080 circleView1080 = this.d;
+        if (circleView1080 != null) {
+            circleView1080.setProgress(i);
+        }
     }
 
-    public static void e(JSONObject jSONObject, HashMap<String, g4a> hashMap) {
-        String str;
-        String str2;
-        String str3;
-        boolean z;
-        JSONArray optJSONArray;
-        JSONArray optJSONArray2;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, hashMap) == null) {
-            JSONObject jSONObject2 = jSONObject;
-            String str4 = "source";
-            String str5 = "path";
-            if (jSONObject2 != null && hashMap != null) {
-                try {
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!hashMap.containsKey(next)) {
-                            JSONObject jSONObject3 = jSONObject2.getJSONObject(next);
-                            ArrayList<String> arrayList = new ArrayList<>();
-                            if (jSONObject3.has("data_urls") && (optJSONArray2 = jSONObject3.optJSONArray("data_urls")) != null) {
-                                for (int i = 0; i < optJSONArray2.length(); i++) {
-                                    arrayList.add(optJSONArray2.optString(i));
-                                }
-                            }
-                            if (!jSONObject3.has("module")) {
-                                str = "";
-                            } else {
-                                str = jSONObject3.optString("module");
-                            }
-                            if (!jSONObject3.has(str5)) {
-                                str2 = "";
-                            } else {
-                                str2 = jSONObject3.optString(str5);
-                            }
-                            ArrayList<String> arrayList2 = new ArrayList<>();
-                            if (jSONObject3.has(str4) && (optJSONArray = jSONObject3.optJSONArray(str4)) != null) {
-                                str3 = str4;
-                                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                    arrayList2.add(optJSONArray.optString(i2));
-                                }
-                            } else {
-                                str3 = str4;
-                            }
-                            String optString = jSONObject3.optString("staticPrePath", "");
-                            int optInt = jSONObject3.optInt("proxyMode");
-                            f4a.a().j(next, next);
-                            f4a.a().k(next, str2);
-                            Iterator<String> it = arrayList2.iterator();
-                            while (it.hasNext()) {
-                                String next2 = it.next();
-                                if (!TextUtils.isEmpty(next2)) {
-                                    f4a a = f4a.a();
-                                    String str6 = str5;
-                                    a.j(optString + "/" + next2, next);
-                                    f4a a2 = f4a.a();
-                                    a2.k(optString + "/" + next2, next2);
-                                    str5 = str6;
-                                }
-                            }
-                            String str7 = str5;
-                            g4a g4aVar = new g4a();
-                            g4aVar.a = arrayList;
-                            g4aVar.b = str;
-                            g4aVar.c = str2;
-                            g4aVar.d = arrayList2;
-                            if (optInt == 1) {
-                                z = true;
-                            } else {
-                                z = false;
-                            }
-                            g4aVar.f = z;
-                            g4aVar.e = true;
-                            hashMap.put(next, g4aVar);
-                            jSONObject2 = jSONObject;
-                            str4 = str3;
-                            str5 = str7;
-                        }
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = str;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setText(str);
+            }
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.show();
+            Window window = getWindow();
+            if (window != null) {
+                window.setContentView(R.layout.progress_dialog_1080);
+                GreyUtil.grey(window);
+                View findViewById = findViewById(R.id.frame_progress_dialog);
+                if (findViewById.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) findViewById.getLayoutParams();
+                    layoutParams.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds50);
+                    findViewById.setLayoutParams(layoutParams);
                 }
+                TextView textView = (TextView) window.findViewById(R.id.text_progress_dialog_message);
+                this.c = textView;
+                if (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+                    layoutParams2.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds35);
+                    this.c.setLayoutParams(layoutParams2);
+                }
+                if (!StringUtils.isNull(this.a)) {
+                    this.c.setText(this.a);
+                }
+                this.b = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
+                this.d = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
             }
         }
     }

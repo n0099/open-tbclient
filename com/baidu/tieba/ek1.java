@@ -1,25 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.sdk.base.api.CallBack;
 /* loaded from: classes5.dex */
-public abstract class ek1 {
+public abstract class ek1<T> implements CallBack<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public void a(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-        }
-    }
-
-    public abstract boolean c(Context context, gk1 gk1Var, ak1 ak1Var);
+    public final long a;
 
     public ek1() {
         Interceptable interceptable = $ic;
@@ -31,25 +22,18 @@ public abstract class ek1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = System.currentTimeMillis();
     }
 
-    public boolean b(Context context, gk1 gk1Var, ak1 ak1Var) {
-        InterceptResult invokeLLL;
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, gk1Var, ak1Var)) == null) {
-            return d(context, gk1Var, ak1Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean d(Context context, gk1 gk1Var, ak1 ak1Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, gk1Var, ak1Var)) == null) {
-            return c(context, gk1Var, ak1Var);
-        }
-        return invokeLLL.booleanValue;
+        return invokeV.longValue;
     }
 }

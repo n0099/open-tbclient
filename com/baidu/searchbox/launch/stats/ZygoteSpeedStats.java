@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static final String AD_CLOSE_TO_MAIN_FINISH = "adCloseToMainFinish";
     public static final String AFTER_MAINTAB_CREATE_COST_NO_AD = "afterMainTabCreateCostNoAd";
@@ -97,7 +97,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
         return appOnCreateDuration;
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00c0: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:59:0x00c0 */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00c1: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:59:0x00c1 */
     private long getStartTimeFromStats() {
         BufferedReader bufferedReader;
         NumberFormatException e;

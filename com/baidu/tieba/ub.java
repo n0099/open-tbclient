@@ -1,94 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
+import java.util.Comparator;
 /* loaded from: classes8.dex */
-public class ub extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
+public class ub implements Comparator<tb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tb a;
-    public volatile wb b;
-    public DiskFileOperate c;
 
-    public ub(tb tbVar, DiskFileOperate diskFileOperate) {
+    public ub() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbVar, diskFileOperate};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        if (tbVar != null && diskFileOperate != null) {
-            this.a = tbVar;
-            this.c = diskFileOperate;
-            return;
-        }
-        throw new InvalidParameterException("DiskFileTask parameter null");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public DiskFileOperate doInBackground(DiskFileOperate... diskFileOperateArr) {
-        InterceptResult invokeL;
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(tb tbVar, tb tbVar2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskFileOperateArr)) == null) {
-            this.b = new wb(this.a, this.c);
-            this.b.call();
-            return this.c;
-        }
-        return (DiskFileOperate) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    public void onPostExecute(DiskFileOperate diskFileOperate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diskFileOperate) == null) {
-            super.onPostExecute(diskFileOperate);
-            if (diskFileOperate != null) {
-                this.c.callback(diskFileOperate.isSuccess());
-            } else {
-                this.c.callback(false);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbVar, tbVar2)) == null) {
+            int i = (tbVar.c > tbVar2.c ? 1 : (tbVar.c == tbVar2.c ? 0 : -1));
+            if (i > 0) {
+                return 1;
             }
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.cancel();
-            if (this.b != null) {
-                this.b.b();
+            if (i == 0) {
+                return 0;
             }
+            return -1;
         }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreCancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onPreCancel();
-            this.c.callback(false);
-        }
+        return invokeLL.intValue;
     }
 }

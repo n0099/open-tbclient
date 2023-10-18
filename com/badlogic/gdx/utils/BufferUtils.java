@@ -1,7 +1,6 @@
 package com.badlogic.gdx.utils;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.u6;
+import com.baidu.tieba.r2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,8 +16,6 @@ import java.nio.IntBuffer;
 /* loaded from: classes.dex */
 public final class BufferUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static u6<ByteBuffer> a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static native void clear(ByteBuffer byteBuffer, int i);
@@ -96,8 +93,7 @@ public final class BufferUtils {
                 return;
             }
         }
-        a = new u6<>();
-        b = 0;
+        new r2();
     }
 
     public BufferUtils() {
@@ -114,37 +110,10 @@ public final class BufferUtils {
         }
     }
 
-    public static void a(float[] fArr, Buffer buffer, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65538, null, fArr, buffer, i, i2) == null) {
-            if (buffer instanceof ByteBuffer) {
-                buffer.limit(i << 2);
-            } else if (buffer instanceof FloatBuffer) {
-                buffer.limit(i);
-            }
-            copyJni(fArr, buffer, i, i2);
-            buffer.position(0);
-        }
-    }
-
-    public static void b(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, byteBuffer) == null) {
-            int capacity = byteBuffer.capacity();
-            synchronized (a) {
-                if (!a.i(byteBuffer, true)) {
-                    throw new IllegalArgumentException("buffer not allocated with newUnsafeByteBuffer or already disposed");
-                }
-            }
-            b -= capacity;
-            freeMemory(byteBuffer);
-        }
-    }
-
-    public static FloatBuffer c(int i) {
+    public static FloatBuffer a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i * 4);
             allocateDirect.order(ByteOrder.nativeOrder());
             return allocateDirect.asFloatBuffer();
@@ -152,29 +121,14 @@ public final class BufferUtils {
         return (FloatBuffer) invokeI.objValue;
     }
 
-    public static IntBuffer d(int i) {
+    public static IntBuffer b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i * 4);
             allocateDirect.order(ByteOrder.nativeOrder());
             return allocateDirect.asIntBuffer();
         }
         return (IntBuffer) invokeI.objValue;
-    }
-
-    public static ByteBuffer e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
-            ByteBuffer newDisposableByteBuffer = newDisposableByteBuffer(i);
-            newDisposableByteBuffer.order(ByteOrder.nativeOrder());
-            b += i;
-            synchronized (a) {
-                a.a(newDisposableByteBuffer);
-            }
-            return newDisposableByteBuffer;
-        }
-        return (ByteBuffer) invokeI.objValue;
     }
 }

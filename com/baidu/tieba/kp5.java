@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import java.util.List;
+import android.content.Intent;
 /* loaded from: classes6.dex */
-public interface kp5 {
-    List<LaunchTask> asyncList();
+public interface kp5<T> {
+    void a(Intent intent);
+
+    T b(boolean z);
+
+    ep5 c();
 }

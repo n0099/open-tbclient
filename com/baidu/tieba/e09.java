@@ -1,152 +1,103 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class e09<T> {
+public class e09 extends e65<g65, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p09<T> a;
-    public Function2<? super View, ? super p09<T>, Unit> b;
-    public Function2<? super View, ? super p09<T>, Unit> c;
+    public Context d;
 
-    public e09(p09<T> data) {
+    /* loaded from: classes5.dex */
+    public class a extends BdBaseViewPagerAdapter.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(e09 e09Var, View view2) {
+            super(view2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e09Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            if (view2 instanceof TbImageView) {
+                TbImageView tbImageView = (TbImageView) view2;
+                this.d = tbImageView;
+                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e09(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
+        this.d = context;
     }
 
-    public boolean f(e09<?> other) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.e65
+    /* renamed from: g */
+    public a c(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, other)) == null) {
-            Intrinsics.checkNotNullParameter(other, "other");
-            if (this.a.e().c() != 2 && other.a.e().c() != 2) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            TbImageView tbImageView = new TbImageView(this.d);
+            tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            return new a(this, tbImageView);
         }
-        return invokeL.booleanValue;
+        return (a) invokeL.objValue;
     }
 
-    public final p09<T> c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.e65
+    /* renamed from: h */
+    public View e(ViewGroup viewGroup, a aVar, g65 g65Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, aVar, g65Var)) == null) {
+            aVar.d.startLoad(g65Var.a(), 17, false);
+            return null;
         }
-        return (p09) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.p09<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.p09<T>, kotlin.Unit> */
-    public final Function2<View, p09<T>, Unit> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (Function2<? super View, ? super p09<T>, Unit>) this.b;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.p09<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.p09<T>, kotlin.Unit> */
-    public final Function2<View, p09<T>, Unit> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (Function2<? super View, ? super p09<T>, Unit>) this.c;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return Objects.hashCode(this.a);
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10 */
-    /* JADX WARN: Type inference failed for: r1v11 */
-    /* JADX WARN: Type inference failed for: r1v12 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.CharSequence] */
-    /* JADX WARN: Type inference failed for: r1v9 */
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        e09 e09Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            p09<T> p09Var = (p09<T>) false;
-            if (obj instanceof e09) {
-                e09Var = (e09) obj;
-            } else {
-                e09Var = null;
-            }
-            if (this instanceof g09) {
-                String a = ((g09) this).c().g().a();
-                ?? r1 = p09Var;
-                if (e09Var != null) {
-                    p09<T> p09Var2 = e09Var.a;
-                    r1 = p09Var;
-                    if (p09Var2 != null) {
-                        o09 g = p09Var2.g();
-                        r1 = p09Var;
-                        if (g != null) {
-                            r1 = (p09<T>) g.a();
-                        }
-                    }
-                }
-                return TextUtils.equals(a, r1);
-            }
-            p09<T> p09Var3 = this.a;
-            p09<T> p09Var4 = p09Var;
-            if (e09Var != null) {
-                p09Var4 = e09Var.a;
-            }
-            return Objects.equals(p09Var3, p09Var4);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g(Function2<? super View, ? super p09<T>, Unit> function2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, function2) == null) {
-            this.b = function2;
-        }
-    }
-
-    public final void h(Function2<? super View, ? super p09<T>, Unit> function2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, function2) == null) {
-            this.c = function2;
-        }
+        return (View) invokeLLL.objValue;
     }
 }

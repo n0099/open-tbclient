@@ -2,11 +2,10 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jw0 extends vw0 {
+public final class jw0 extends pr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,14 +21,5 @@ public class jw0 extends vw0 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static vw0 w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return vw0.m(str, 8);
-        }
-        return (vw0) invokeL.objValue;
     }
 }

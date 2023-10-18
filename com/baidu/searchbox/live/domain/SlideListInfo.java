@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SlideListInfo {
     public int errno;
     public String errorMessage;
@@ -17,7 +17,7 @@ public class SlideListInfo {
     public String logId;
     public String pageSession;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SlideInfo {
         public String avcUrl;
         public String bgCover;

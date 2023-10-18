@@ -52,12 +52,12 @@ public class PbFloorComplaint extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07c5, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ebc);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f39);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091ebd);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091ef1);
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090b8a);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07b8, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091edc);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f5a);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091edd);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091f11);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090ba5);
         }
     }
 

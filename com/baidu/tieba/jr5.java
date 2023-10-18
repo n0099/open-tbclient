@@ -1,84 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.base.BdActivityStack;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
-import com.baidu.tbadk.switchs.PraiseSwitch;
-import com.baidu.tbadk.switchs.WindowGreySwitch;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class jr5 implements fq5<SyncDataEvent> {
+public class jr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jr5() {
+    @NonNull
+    public static Fragment a(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, fragmentManager, i, fragment)) == null) {
+            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+            beginTransaction.add(i, fragment, fragment.getClass().getCanonicalName());
+            beginTransaction.commitAllowingStateLoss();
+            return fragment;
         }
+        return (Fragment) invokeLIL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fq5
-    /* renamed from: a */
-    public boolean onEvent(SyncDataEvent syncDataEvent) {
-        InterceptResult invokeL;
-        boolean z;
+    @NonNull
+    public static Fragment c(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
-            boolean z2 = false;
-            if (syncDataEvent == null) {
-                return false;
-            }
-            HashMap<String, Integer> hashMap = syncDataEvent.switches;
-            if (hashMap != null && hashMap.size() > 0) {
-                SwitchManager.getInstance().refreshSwitchManager(syncDataEvent.switches);
-            }
-            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-            hw5.d().f(syncDataEvent.abtestExtraData);
-            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
-            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
-            ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);
-            BdActivityStack inst = BdActivityStack.getInst();
-            if (syncDataEvent.themeIsBlack == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            inst.setActivityIsGrey(z);
-            WindowGreySwitch.setNewValue(syncDataEvent.themeIsBlack);
-            SwitchManager.getInstance().turn(PraiseSwitch.KEY, syncDataEvent.praiseSwitch);
-            AICapacityApplyHelper c = AICapacityApplyHelper.c();
-            if (syncDataEvent.aiAvailableStatus == 1) {
-                z2 = true;
-            }
-            c.g(z2);
-            if (!TextUtils.isEmpty(syncDataEvent.aiWriteScheme)) {
-                AICapacityApplyHelper.c().h(syncDataEvent.aiWriteScheme);
-            }
-            if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                mt4.w().J();
-            }
-            return true;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, fragmentManager, i, fragment)) == null) {
+            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+            beginTransaction.replace(i, fragment, fragment.getClass().getCanonicalName());
+            beginTransaction.commitAllowingStateLoss();
+            return fragment;
         }
-        return invokeL.booleanValue;
+        return (Fragment) invokeLIL.objValue;
+    }
+
+    @Nullable
+    public static <T extends Fragment> T b(@NonNull FragmentManager fragmentManager, @NonNull Class<T> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, fragmentManager, cls)) == null) {
+            return (T) fragmentManager.findFragmentByTag(cls.getCanonicalName());
+        }
+        return (T) invokeLL.objValue;
     }
 }

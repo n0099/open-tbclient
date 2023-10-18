@@ -22,11 +22,11 @@ public final class a {
     @KsJson
     /* renamed from: com.kwad.sdk.core.report.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0674a extends com.kwad.sdk.core.response.kwai.a {
+    public static class C0657a extends com.kwad.sdk.core.response.kwai.a {
         public String Qd;
         public int code;
 
-        public C0674a(int i, String str) {
+        public C0657a(int i, String str) {
             this.code = i;
             this.Qd = str;
         }
@@ -103,9 +103,9 @@ public final class a {
         b(adTemplate, i, bVar, jSONObject);
     }
 
-    public static void a(AdTemplate adTemplate, C0674a c0674a) {
+    public static void a(AdTemplate adTemplate, C0657a c0657a) {
         u.b bVar = new u.b();
-        bVar.abL = c0674a.toJson().toString();
+        bVar.abL = c0657a.toJson().toString();
         b(adTemplate, 40, bVar, null);
     }
 

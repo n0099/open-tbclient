@@ -11,16 +11,16 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ScrollView;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.g82;
-import com.baidu.tieba.o72;
-import com.baidu.tieba.qr1;
-import com.baidu.tieba.w62;
-import com.baidu.tieba.z72;
+import com.baidu.tieba.am1;
+import com.baidu.tieba.g12;
+import com.baidu.tieba.i22;
+import com.baidu.tieba.p22;
+import com.baidu.tieba.x12;
 /* loaded from: classes4.dex */
 public class SwanAppComponentContainerView extends FrameLayout {
-    public static final boolean e = qr1.a;
+    public static final boolean e = am1.a;
     public View a;
-    public w62 b;
+    public g12 b;
     public Path c;
     public ScrollView d;
 
@@ -53,8 +53,8 @@ public class SwanAppComponentContainerView extends FrameLayout {
         view2.setVisibility(i);
     }
 
-    public void setModel(@NonNull w62 w62Var) {
-        this.b = w62Var;
+    public void setModel(@NonNull g12 g12Var) {
+        this.b = g12Var;
     }
 
     public void setScrollView(ScrollView scrollView) {
@@ -69,20 +69,20 @@ public class SwanAppComponentContainerView extends FrameLayout {
     public final void a(Canvas canvas) {
         Path path;
         if (Build.VERSION.SDK_INT >= 21 && (path = this.c) != null && this.a != null) {
-            w62 w62Var = this.b;
-            if (w62Var instanceof o72) {
-                o72 o72Var = (o72) w62Var;
-                if (o72Var.n > 0) {
+            g12 g12Var = this.b;
+            if (g12Var instanceof x12) {
+                x12 x12Var = (x12) g12Var;
+                if (x12Var.n > 0) {
                     path.reset();
                     Path path2 = this.c;
                     float left = this.a.getLeft();
                     float top = this.a.getTop();
                     float right = this.a.getRight();
                     float bottom = this.a.getBottom();
-                    int i = o72Var.n;
+                    int i = x12Var.n;
                     path2.addRoundRect(left, top, right, bottom, i, i, Path.Direction.CW);
                     if (e) {
-                        Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + o72Var.n);
+                        Log.d("Component-ContainerView", "SwanAppComponentContainerView  model.borderRadius =" + x12Var.n);
                     }
                     canvas.save();
                     canvas.clipPath(this.c);
@@ -94,14 +94,14 @@ public class SwanAppComponentContainerView extends FrameLayout {
 
     public void setTargetView(@NonNull View view2, int i) {
         if (this.a == view2) {
-            g82.o("Component-ContainerView", "repeat setTargetView with the same view");
+            p22.o("Component-ContainerView", "repeat setTargetView with the same view");
             return;
         }
         if (this.c == null) {
             this.c = new Path();
         }
         if (this.a != null) {
-            z72.a("Component-ContainerView", "repeat setTargetView with the different view");
+            i22.a("Component-ContainerView", "repeat setTargetView with the different view");
             removeView(this.a);
         }
         this.a = view2;

@@ -1,47 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class oy2 extends dd3 {
+public class oy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int c;
-    public String d;
-    public boolean e;
-    public String f;
+    public final Map<String, Map<String, HybridUbcFlow>> a;
+    public final Map<String, ik3<HybridUbcFlow>> b;
+    public final ik3<HybridUbcFlow> c;
 
     /* loaded from: classes7.dex */
-    public class a implements j63 {
+    public class a implements ik3<HybridUbcFlow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ gb3 d;
-        public final /* synthetic */ oy2 e;
+        public final /* synthetic */ oy2 a;
 
-        public a(oy2 oy2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
+        public a(oy2 oy2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oy2Var, context, unitedSchemeEntity, callbackHandler, gb3Var};
+                Object[] objArr = {oy2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,161 +38,152 @@ public class oy2 extends dd3 {
                     return;
                 }
             }
-            this.e = oy2Var;
-            this.a = context;
-            this.b = unitedSchemeEntity;
-            this.c = callbackHandler;
-            this.d = gb3Var;
+            this.a = oy2Var;
         }
 
-        @Override // com.baidu.tieba.j63
-        public void a(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ik3
+        /* renamed from: b */
+        public void a(HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (dd3.b) {
-                    Log.d("SwanAppAction", str + "");
-                }
-                this.e.n(this.a, this.b, this.c, this.d);
-            }
-        }
-
-        @Override // com.baidu.tieba.j63
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.e.f);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+                this.a.g(hybridUbcFlow.p);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements bz2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ gb3 c;
-        public final /* synthetic */ oy2 d;
-
-        public b(oy2 oy2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, gb3 gb3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oy2Var, callbackHandler, unitedSchemeEntity, gb3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = oy2Var;
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = gb3Var;
-        }
-
-        @Override // com.baidu.tieba.bz2
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                g82.c("chooseAlbum", str);
-                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1002, str).toString(), this.d.f);
-            }
-        }
-
-        @Override // com.baidu.tieba.bz2
-        public void f(List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                if (list != null && list.size() > 0) {
-                    g82.i("chooseAlbum", "choose success");
-                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(wy2.m(list, this.c, CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER), 0).toString(), this.d.f);
-                    return;
-                }
-                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1002, "choose file list is error").toString(), this.d.f);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oy2(dc3 dc3Var) {
-        super(dc3Var, "/swanAPI/chooseAlbum");
+    public oy2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap();
+        this.b = new HashMap();
+        this.c = new a(this);
     }
 
-    @Override // com.baidu.tieba.dd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
-        InterceptResult invokeLLLL;
+    public final HybridUbcFlow a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
-            if (gb3Var != null && gb3Var.w() != null) {
-                if (gb3Var.n0()) {
-                    if (dd3.b) {
-                        Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                    return false;
-                }
-                JSONObject d = go3.d(unitedSchemeEntity.getParam("params"));
-                String optString = d.optString("cb");
-                this.f = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    g82.c("chooseAlbum", "callback is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "callback is null");
-                    return false;
-                }
-                this.c = d.optInt("count");
-                this.d = d.optString("mode");
-                this.e = d.optBoolean("compressed");
-                m(context, unitedSchemeEntity, callbackHandler, gb3Var);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
+            hybridUbcFlow.H("callback_on_submit", this.c);
+            ik3<HybridUbcFlow> ik3Var = this.b.get(str);
+            if (ik3Var != null) {
+                ik3Var.a(hybridUbcFlow);
             }
-            g82.c("chooseAlbum", "runtime exception");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
-            return false;
+            return hybridUbcFlow;
         }
-        return invokeLLLL.booleanValue;
+        return (HybridUbcFlow) invokeL.objValue;
     }
 
-    public final void m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
+    public HybridUbcFlow b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, gb3Var) == null) {
-            i63.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new a(this, context, unitedSchemeEntity, callbackHandler, gb3Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return c(str, "default");
         }
+        return (HybridUbcFlow) invokeL.objValue;
     }
 
-    public final void n(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
+    public synchronized HybridUbcFlow e(String str) {
+        InterceptResult invokeL;
+        HybridUbcFlow f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, gb3Var) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("launchType", CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER);
-            bundle.putBoolean("isShowCamera", false);
-            bundle.putInt("count", this.c);
-            bundle.putString("mode", this.d);
-            bundle.putBoolean("compressed", this.e);
-            bundle.putString("swanAppId", gb3Var.b);
-            bundle.putString("swanTmpPath", tw2.T().G().k());
-            wy2.l(context, bundle, new b(this, callbackHandler, unitedSchemeEntity, gb3Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                f = f(str, "default");
+            }
+            return f;
         }
+        return (HybridUbcFlow) invokeL.objValue;
+    }
+
+    public oy2 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            synchronized (this.a) {
+                this.a.remove(str);
+            }
+            return this;
+        }
+        return (oy2) invokeL.objValue;
+    }
+
+    public HybridUbcFlow c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            synchronized (this.a) {
+                Map<String, HybridUbcFlow> map = this.a.get(str);
+                if (map == null) {
+                    return null;
+                }
+                return map.get(str2);
+            }
+        }
+        return (HybridUbcFlow) invokeLL.objValue;
+    }
+
+    public oy2 d(String str, ik3<HybridUbcFlow> ik3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, ik3Var)) == null) {
+            synchronized (this.b) {
+                this.b.put(str, ik3Var);
+            }
+            return this;
+        }
+        return (oy2) invokeLL.objValue;
+    }
+
+    public oy2 h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            synchronized (this.a) {
+                Map<String, HybridUbcFlow> map = this.a.get(str);
+                if (map != null) {
+                    map.remove(str2);
+                }
+            }
+            return this;
+        }
+        return (oy2) invokeLL.objValue;
+    }
+
+    public synchronized HybridUbcFlow f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            synchronized (this) {
+                synchronized (this.a) {
+                    Map<String, HybridUbcFlow> map = this.a.get(str);
+                    if (map == null) {
+                        HashMap hashMap = new HashMap();
+                        HybridUbcFlow a2 = a(str);
+                        hashMap.put(str2, a2);
+                        this.a.put(str, hashMap);
+                        return a2;
+                    }
+                    HybridUbcFlow hybridUbcFlow = map.get(str2);
+                    if (hybridUbcFlow == null) {
+                        hybridUbcFlow = a(str);
+                        map.put(str2, hybridUbcFlow);
+                    }
+                    return hybridUbcFlow;
+                }
+            }
+        }
+        return (HybridUbcFlow) invokeLL.objValue;
     }
 }

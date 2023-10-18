@@ -1,15 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Bundle;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,89 +14,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Headers;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.Buffer;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gp3 {
+public class gp3 extends fp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static c g;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Application a;
-    @Nullable
-    public ow2 b;
-    public boolean c;
-    public boolean d;
-    public int e;
+    public Callback d;
+    public JSONObject e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public int j;
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void a(boolean z, int i);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends ow2 {
+    public class a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gp3 a;
 
-        /* renamed from: com.baidu.tieba.gp3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0315a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0315a(a aVar, Activity activity) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, activity};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = activity;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                boolean u;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Intent intent = this.a.getIntent();
-                    qv1 o = nu2.o();
-                    ComponentName component = intent.getComponent();
-                    if (this.b.a.c && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && o != null && component != null && TextUtils.equals(o.A(), component.getClassName())) {
-                        if (this.b.a.d) {
-                            if (gp3.f) {
-                                Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
-                                return;
-                            }
-                            return;
-                        }
-                        mn3 m = mn3.m();
-                        if (nn3.a() && mn3.k()) {
-                            u = m.w(this.a, this.b.a.e, false);
-                        } else {
-                            u = m.u(this.b.a.e, false, false);
-                        }
-                        if (gp3.f) {
-                            Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + u + ", taskId=" + this.b.a.e);
-                        }
-                        m.i();
-                    }
-                    if (gp3.f) {
-                        Log.d("SwanHomeScreenLaunch", "class=" + this.a + ", swanAppForeground=" + this.b.a.c + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
-                    }
-                }
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
             }
         }
 
@@ -121,78 +68,32 @@ public class gp3 {
             this.a = gp3Var;
         }
 
-        @Override // com.baidu.tieba.ow2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            boolean z;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                super.onActivityStarted(activity);
-                gp3 gp3Var = this.a;
-                if (gp3Var.c && activity != null && activity.getTaskId() == this.a.e) {
-                    z = true;
-                } else {
-                    z = false;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (lo3.a) {
+                    Log.d("BDTLS", "Bdtls Request API onFailure = " + exc.getMessage());
                 }
-                gp3Var.c = z;
-            }
-        }
-
-        @Override // com.baidu.tieba.ow2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, bundle) != null) || !mn3.j()) {
-                return;
-            }
-            super.onActivityCreated(activity, bundle);
-            if (activity != null && activity.getIntent() != null) {
-                RunnableC0315a runnableC0315a = new RunnableC0315a(this, activity);
-                if (nn3.a()) {
-                    runnableC0315a.run();
-                } else {
-                    ao3.j(runnableC0315a, "moveTaskToFront");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gp3 a;
-
-        public b(gp3 gp3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gp3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gp3Var;
-        }
-
-        @Override // com.baidu.tieba.gp3.c
-        public void a(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                if (!z) {
-                    if (this.a.c && i == 1) {
-                        this.a.c = false;
+                if (this.a.d != null) {
+                    if (exc instanceof IOException) {
+                        this.a.d.onFailure(null, (IOException) exc);
+                    } else {
+                        this.a.d.onFailure(null, new IOException(exc));
                     }
-                } else {
-                    this.a.c = true;
-                    this.a.e = i;
                 }
-                this.a.d = z;
             }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.a.n(null, response);
+                return response;
+            }
+            return invokeLI.objValue;
         }
     }
 
@@ -209,23 +110,23 @@ public class gp3 {
                 return;
             }
         }
-        f = qr1.a;
+        k = am1.a;
     }
 
-    public void i() {
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g = null;
-            this.a.unregisterActivityLifecycleCallbacks(this.b);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.j++;
+            o(this.g);
         }
     }
 
-    public gp3(@NonNull Application application) {
+    public gp3(p53 p53Var, JSONObject jSONObject, String str, Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {application};
+            Object[] objArr = {p53Var, jSONObject, str, callback};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -235,17 +136,185 @@ public class gp3 {
                 return;
             }
         }
-        this.a = application;
-        this.b = new a(this);
-        g = new b(this);
-        application.registerActivityLifecycleCallbacks(this.b);
+        this.d = callback;
+        this.f = str;
+        m(jSONObject);
+        d(this.e.optString("method"));
     }
 
-    public static void h(boolean z, int i) {
-        c cVar;
+    @Override // com.baidu.tieba.fp3
+    public void e(IOException iOException) {
+        Callback callback;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && (cVar = g) != null) {
-            cVar.a(z, i);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, iOException) == null) && (callback = this.d) != null) {
+            callback.onFailure(null, iOException);
+        }
+    }
+
+    public final void l(HttpRequest httpRequest) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, httpRequest) != null) || httpRequest == null) {
+            return;
+        }
+        httpRequest.executeAsync(new a(this));
+    }
+
+    public final void m(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            this.e = jSONObject;
+            this.h = jSONObject.optString("url");
+            JSONObject optJSONObject = this.e.optJSONObject("ext");
+            if (optJSONObject != null) {
+                this.i = optJSONObject.optString("customHost");
+            }
+        }
+    }
+
+    public void o(String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.g = str;
+            JSONObject jSONObject = this.e;
+            if (jSONObject != null) {
+                str2 = jSONObject.optString("data");
+            } else {
+                str2 = "";
+            }
+            a(str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.fp3
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (lo3.a) {
+                Log.d("BdtlsRequestApi", "onRequestError=" + i);
+            }
+            Callback callback = this.d;
+            if (callback != null) {
+                callback.onFailure(null, new IOException("request error  code : " + i));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.fp3
+    public void h(byte[] bArr) {
+        JSONObject jSONObject;
+        HttpRequest httpRequest;
+        Callback callback;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject = new JSONObject(this.e.toString());
+                try {
+                    Uri parse = Uri.parse(this.h);
+                    String path = parse.getPath();
+                    String query = parse.getQuery();
+                    if (TextUtils.isEmpty(this.i)) {
+                        str = mo3.b;
+                    } else {
+                        str = this.i + "/bdtls";
+                    }
+                    StringBuilder sb = new StringBuilder(str + "/" + this.g);
+                    String str3 = "";
+                    if (TextUtils.isEmpty(path)) {
+                        path = "";
+                    }
+                    sb.append(path);
+                    if (!TextUtils.isEmpty(query)) {
+                        str3 = "?" + query;
+                    }
+                    sb.append(str3);
+                    if (k) {
+                        Log.d("BdtlsRequestApi", "bdtls url is : " + sb.toString());
+                    }
+                    JSONObject optJSONObject = jSONObject.optJSONObject("header");
+                    if (this.a) {
+                        if (TextUtils.equals(b(), "GET")) {
+                            str2 = Base64.encodeToString(bArr, 2);
+                        } else {
+                            jSONObject.putOpt("data", bArr);
+                            str2 = "Bdtls";
+                        }
+                        optJSONObject.put("Bdtls", str2);
+                    }
+                    jSONObject.putOpt("header", optJSONObject);
+                    jSONObject.putOpt("url", sb.toString());
+                } catch (JSONException e) {
+                    e = e;
+                    jSONObject2 = jSONObject;
+                    if (k) {
+                        Log.e("BdtlsRequestApi", "Bdtls request data is invalid", e);
+                    }
+                    jSONObject = jSONObject2;
+                    httpRequest = (HttpRequest) ev1.D(jSONObject, this.f).first;
+                    if (httpRequest == null) {
+                        callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
+                    }
+                    l(httpRequest);
+                }
+            } catch (JSONException e2) {
+                e = e2;
+            }
+            httpRequest = (HttpRequest) ev1.D(jSONObject, this.f).first;
+            if (httpRequest == null && (callback = this.d) != null) {
+                callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
+            }
+            l(httpRequest);
+        }
+    }
+
+    public final void n(Call call, Response response) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, call, response) == null) {
+            Headers headers = response.headers();
+            if (headers != null && TextUtils.equals(headers.get("Bdtls"), com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
+                ro3.l().m().s(0);
+                if (ro3.l().m().b()) {
+                    ro3.l().m().a();
+                    i(true);
+                    p();
+                    return;
+                }
+                this.d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
+                return;
+            }
+            ro3.l().m().k();
+            if (this.a) {
+                ResponseBody body = response.body();
+                String g = g(body.bytes());
+                if (lo3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
+                }
+                if (this.b == 1) {
+                    Buffer buffer = new Buffer();
+                    buffer.writeString(g, Charset.forName("utf-8"));
+                    Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
+                    Callback callback = this.d;
+                    if (callback != null) {
+                        callback.onResponse(call, build);
+                    }
+                    this.j = 0;
+                    return;
+                } else if (this.j < 3) {
+                    p();
+                    return;
+                } else {
+                    this.d.onFailure(call, new IOException("Url or serviceId is invalid"));
+                    this.j = 0;
+                    return;
+                }
+            }
+            Callback callback2 = this.d;
+            if (callback2 != null) {
+                callback2.onResponse(call, response);
+            }
         }
     }
 }

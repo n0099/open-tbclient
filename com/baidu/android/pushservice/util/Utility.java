@@ -64,6 +64,7 @@ import com.baidu.sapi2.SapiOptions;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -349,7 +350,7 @@ public final class Utility {
                     intent.putExtra("msg_id", localPushMsg.f());
                     intent.putExtra("message", localPushMsg.e().getBytes());
                     intent.putExtra("message_string", localPushMsg.e());
-                    intent.putExtra("message_id", localPushMsg.f());
+                    intent.putExtra(ForbidActivityConfig.CHAT_MSG_ID, localPushMsg.f());
                     intent.putExtra("baidu_message_type", localPushMsg.g());
                     intent.putExtra("baidu_message_body", localPushMsg.e().getBytes());
                     intent.putExtra("baidu_message_secur_info", localPushMsg.i());
@@ -1108,7 +1109,7 @@ public final class Utility {
         }
         context.sendBroadcast(intent);
         if (action.equals("com.baidu.android.pushservice.action.notification.SHOW")) {
-            String str2 = intent.getStringExtra("message_id") + " sendBroadcast to recevier=" + b2;
+            String str2 = intent.getStringExtra(ForbidActivityConfig.CHAT_MSG_ID) + " sendBroadcast to recevier=" + b2;
         }
     }
 
@@ -1171,7 +1172,7 @@ public final class Utility {
                 if (TextUtils.isEmpty(action) || !action.equals("com.baidu.android.pushservice.action.notification.SHOW")) {
                     return;
                 }
-                String str3 = intent.getStringExtra("message_id") + " reflectrecevier=" + str2;
+                String str3 = intent.getStringExtra(ForbidActivityConfig.CHAT_MSG_ID) + " reflectrecevier=" + str2;
             } catch (Exception unused) {
             }
         }
@@ -1724,7 +1725,7 @@ public final class Utility {
         Intent b2 = m.b(context);
         b2.putExtra("method", "com.baidu.android.pushservice.action.SEND_ACK");
         b2.putExtra("bd.cross.request.RESULT_CODE", i);
-        b2.putExtra("message_id", str);
+        b2.putExtra(ForbidActivityConfig.CHAT_MSG_ID, str);
         b2.setPackage(context.getPackageName());
         String b3 = b(context, context.getPackageName(), "com.baidu.android.pushservice.action.METHOD");
         if (!TextUtils.isEmpty(b3)) {

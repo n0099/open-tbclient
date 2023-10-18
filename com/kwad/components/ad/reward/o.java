@@ -109,7 +109,7 @@ public final class o extends com.kwad.components.core.i.e {
 
         public c(LayoutInflater layoutInflater, ViewGroup viewGroup) {
             super((byte) 0);
-            this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04c5, viewGroup, false);
+            this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04c0, viewGroup, false);
             initView();
         }
 
@@ -127,7 +127,7 @@ public final class o extends com.kwad.components.core.i.e {
             }
             this.nA.setText(aVar.gF());
             this.nB.setText(aVar.gG());
-            KSImageLoader.loadCircleIcon(this.nC, aVar.eL(), this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5d));
+            KSImageLoader.loadCircleIcon(this.nC, aVar.eL(), this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5c));
         }
 
         private void initView() {
@@ -135,13 +135,13 @@ public final class o extends com.kwad.components.core.i.e {
             if (viewGroup == null) {
                 return;
             }
-            this.kP = viewGroup.findViewById(R.id.obfuscated_res_0x7f09130c);
-            this.nA = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09130d);
-            this.nB = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09130e);
-            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f09130f);
-            this.nD = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091311);
-            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091313);
-            this.nE = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091312);
+            this.kP = viewGroup.findViewById(R.id.obfuscated_res_0x7f091325);
+            this.nA = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091326);
+            this.nB = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f091327);
+            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f091328);
+            this.nD = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09132a);
+            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09132c);
+            this.nE = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09132b);
             this.kP.setOnClickListener(this);
             this.nB.setOnClickListener(this);
             this.nA.setOnClickListener(this);
@@ -212,13 +212,13 @@ public final class o extends com.kwad.components.core.i.e {
         }
 
         private void initView() {
-            this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f0913bc);
-            this.eQ = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0913c0);
-            this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f0913be);
-            this.nH = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0913bd);
-            this.nI = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f0913bf);
-            this.nJ = (KsStyledTextButton) this.es.findViewById(R.id.obfuscated_res_0x7f0913b9);
-            this.nK = this.es.findViewById(R.id.obfuscated_res_0x7f0913ba);
+            this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f0913d5);
+            this.eQ = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0913d9);
+            this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f0913d7);
+            this.nH = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0913d6);
+            this.nI = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f0913d8);
+            this.nJ = (KsStyledTextButton) this.es.findViewById(R.id.obfuscated_res_0x7f0913d2);
+            this.nK = this.es.findViewById(R.id.obfuscated_res_0x7f0913d3);
             this.nJ.setOnClickListener(this);
             this.nK.setOnClickListener(this);
             this.nH.setOnClickListener(this);
@@ -317,7 +317,7 @@ public final class o extends com.kwad.components.core.i.e {
             com.kwad.sdk.core.e.b.printStackTraceOnly(th);
         }
         if (r(this.mAdTemplate) != 2) {
-            fR = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04e5, viewGroup, false);
+            fR = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04e0, viewGroup, false);
             d dVar = new d((ViewGroup) fR);
             dVar.a(new b(this, this.nv));
             this.nw = dVar;

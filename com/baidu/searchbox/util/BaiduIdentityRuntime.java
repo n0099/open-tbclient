@@ -2,12 +2,12 @@ package com.baidu.searchbox.util;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.cca;
+import com.baidu.tieba.s6a;
 @Autowired
 /* loaded from: classes4.dex */
 public class BaiduIdentityRuntime {
     @Inject
     public static IBaiduIdentityContext getBaiduIdentityContext() {
-        return cca.a();
+        return s6a.a();
     }
 }

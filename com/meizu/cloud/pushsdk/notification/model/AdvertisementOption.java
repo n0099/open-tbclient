@@ -60,8 +60,8 @@ public class AdvertisementOption implements Parcelable {
         AdvertisementOption advertisementOption = new AdvertisementOption();
         if (jSONObject != null) {
             try {
-                if (!jSONObject.isNull(AD_PACKAGE)) {
-                    advertisementOption.setAdPackage(jSONObject.getString(AD_PACKAGE));
+                if (!jSONObject.isNull("ap")) {
+                    advertisementOption.setAdPackage(jSONObject.getString("ap"));
                 }
                 if (!jSONObject.isNull("pt")) {
                     advertisementOption.setPriorityValidTime(jSONObject.getInt("pt"));

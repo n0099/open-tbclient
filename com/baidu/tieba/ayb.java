@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import android.util.Base64;
+import android.os.Bundle;
+import android.os.RemoteCallbackList;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.eyb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,18 +13,55 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.StandardCharsets;
-import java.security.GeneralSecurityException;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.GCMParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.yy.render.ITransDataListener;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.TypeCastException;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ayb {
+public final class ayb {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile azb a;
-    public static final ayb b;
+    public static ayb e;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final ConcurrentHashMap<String, byb> b;
+    public final ConcurrentHashMap<String, String> c;
+    public ConcurrentHashMap<String, RemoteCallbackList<ITransDataListener>> d;
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final ayb a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return ayb.e;
+            }
+            return (ayb) invokeV.objValue;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +76,8 @@ public class ayb {
                 return;
             }
         }
-        b = new ayb();
+        f = new a(null);
+        e = new ayb();
     }
 
     public ayb() {
@@ -51,136 +90,334 @@ public class ayb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = "MessageChannel";
+        this.b = new ConcurrentHashMap<>();
+        this.c = new ConcurrentHashMap<>();
+        this.d = new ConcurrentHashMap<>();
     }
 
-    public final void a(Context context) {
+    public final byb b(String str, Context context, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && a == null) {
-            a = new azb(context, "push");
-        }
-    }
-
-    public synchronized void b(Context context, String str) {
-        byte[] bArr;
-        byte[] bArr2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
-            synchronized (this) {
-                a(context);
-                if (TextUtils.isEmpty(str)) {
-                    a.a("key_push_token");
-                } else {
-                    String e = vxb.e(context, context.getPackageName());
-                    byte[] h = vxb.h("EA23F5B8C7577CDC744ABD1C6D7E143D5123F8F282BF4E7853C1EC86BD2EDD22");
-                    byte[] h2 = vxb.h(e);
-                    try {
-                        bArr = new byte[32];
-                        new SecureRandom().nextBytes(bArr);
-                    } catch (Exception unused) {
-                        bArr = new byte[0];
-                    }
-                    vxb.i(h, -4);
-                    byte[] j = vxb.j(h, h2);
-                    vxb.i(j, 6);
-                    String encodeToString = Base64.encodeToString(vxb.j(j, bArr), 0);
-                    boolean b2 = a.b("key_aes_gcm", encodeToString);
-                    byte[] decode = Base64.decode(encodeToString, 0);
-                    String str2 = "";
-                    if (!TextUtils.isEmpty(str) && decode != null && decode.length >= 16) {
-                        try {
-                            try {
-                                bArr2 = new byte[12];
-                                new SecureRandom().nextBytes(bArr2);
-                            } catch (GeneralSecurityException e2) {
-                                String str3 = "GCM encrypt data error" + e2.getMessage();
-                            }
-                        } catch (Exception unused2) {
-                            bArr2 = new byte[0];
-                        }
-                        byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(decode, "AES");
-                        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                        cipher.init(1, secretKeySpec, new GCMParameterSpec(128, bArr2));
-                        byte[] doFinal = cipher.doFinal(bytes);
-                        if (doFinal != null && doFinal.length != 0) {
-                            str2 = vxb.f(bArr2) + vxb.f(doFinal);
-                        }
-                    }
-                    if (b2 && !TextUtils.isEmpty(str2)) {
-                        a.b("key_push_token", str2);
-                    }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, context, str2)) == null) {
+            try {
+                Object newInstance = Class.forName(str).getConstructor(Context.class, String.class).newInstance(context, str2);
+                if (newInstance != null) {
+                    return (byb) newInstance;
                 }
+                throw new TypeCastException("null cannot be cast to non-null type com.yy.render.trans.ServerMessageHandler");
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
+        return (byb) invokeLLL.objValue;
     }
 
-    public synchronized String c(Context context) {
-        InterceptResult invokeL;
-        String str;
+    public final void c(String str, Bundle bundle) {
         boolean z;
-        String str2;
-        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            synchronized (this) {
-                a(context);
-                str = "";
-                SharedPreferences sharedPreferences = a.a;
-                boolean z2 = true;
-                if (sharedPreferences != null && sharedPreferences.contains("key_push_token")) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z && bundle != null) {
+                byb bybVar = this.b.get(str);
+                if (bybVar == null) {
+                    eyb.a aVar = eyb.b;
+                    String str2 = this.a;
+                    aVar.g(str2, "onBundleFromClient " + str + " no handler");
+                    return;
                 }
-                if (z) {
-                    SharedPreferences sharedPreferences2 = a.a;
-                    if (sharedPreferences2 == null || !sharedPreferences2.contains("key_aes_gcm")) {
-                        z2 = false;
+                bybVar.f(bundle);
+                return;
+            }
+            eyb.b.g(this.a, "onBundleFromClient null");
+        }
+    }
+
+    public final boolean d(String str, Bundle bundle) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z && bundle != null) {
+                byb bybVar = this.b.get(str);
+                if (bybVar == null) {
+                    eyb.a aVar = eyb.b;
+                    String str2 = this.a;
+                    aVar.g(str2, "onBundleFromClientForBoolean " + str + " no handler");
+                    return false;
+                }
+                return bybVar.g(bundle);
+            }
+            eyb.b.g(this.a, "onBundleFromClientForBoolean null");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final String e(String str, Bundle bundle) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bundle)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z && bundle != null) {
+                byb bybVar = this.b.get(str);
+                if (bybVar == null) {
+                    eyb.a aVar = eyb.b;
+                    String str2 = this.a;
+                    aVar.g(str2, "onBundleFromClientForStr " + str + " no handler");
+                    return "";
+                }
+                return bybVar.h(bundle);
+            }
+            eyb.b.g(this.a, "onBundleFromClientForStr null");
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final void f(String str, String str2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            boolean z2 = false;
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                if (!((str2 == null || str2.length() == 0) ? true : true)) {
+                    byb bybVar = this.b.get(str);
+                    if (bybVar == null) {
+                        eyb.a aVar = eyb.b;
+                        String str3 = this.a;
+                        aVar.g(str3, "onDataFromClient " + str + " no handler");
+                        return;
                     }
-                    if (z2) {
-                        SharedPreferences sharedPreferences3 = a.a;
-                        if (sharedPreferences3 != null) {
-                            str2 = sharedPreferences3.getString("key_push_token", "");
-                        } else {
-                            str2 = "";
-                        }
-                        SharedPreferences sharedPreferences4 = a.a;
-                        if (sharedPreferences4 != null) {
-                            str3 = sharedPreferences4.getString("key_aes_gcm", "");
-                        } else {
-                            str3 = "";
-                        }
-                        byte[] decode = Base64.decode(str3, 0);
-                        String str4 = "";
-                        if (!TextUtils.isEmpty(str2) && decode != null && decode.length >= 16) {
-                            try {
-                                SecretKeySpec secretKeySpec = new SecretKeySpec(decode, "AES");
-                                Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                                String substring = str2.substring(0, 24);
-                                String substring2 = str2.substring(24);
-                                if (!TextUtils.isEmpty(substring) && !TextUtils.isEmpty(substring2)) {
-                                    cipher.init(2, secretKeySpec, new GCMParameterSpec(128, vxb.h(substring)));
-                                    str4 = new String(cipher.doFinal(vxb.h(substring2)), StandardCharsets.UTF_8);
-                                }
-                            } catch (Exception e) {
-                                String str5 = "GCM decrypt data exception: " + e.getMessage();
-                            }
-                        }
-                        if (!TextUtils.isEmpty(str4)) {
-                            str = str4;
-                        } else {
-                            a.a("key_aes_gcm");
-                            a.a("key_push_token");
-                        }
+                    bybVar.i(str2);
+                    return;
+                }
+            }
+            eyb.b.g(this.a, "onDataFromClient null");
+        }
+    }
+
+    public final boolean k(String str, ITransDataListener iTransDataListener) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, iTransDataListener)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z && iTransDataListener != null) {
+                byb remove = this.b.remove(str);
+                if (remove != null) {
+                    remove.l();
+                }
+                this.c.remove(str);
+                RemoteCallbackList<ITransDataListener> remoteCallbackList = this.d.get(str);
+                if (remoteCallbackList == null) {
+                    return true;
+                }
+                return remoteCallbackList.unregister(iTransDataListener);
+            }
+            eyb.b.g(this.a, "registerDataListener null");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean g(String str, String str2) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            boolean z2 = true;
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                if (str2 != null && str2.length() != 0) {
+                    z2 = false;
+                }
+                if (!z2) {
+                    byb bybVar = this.b.get(str);
+                    if (bybVar == null) {
+                        eyb.a aVar = eyb.b;
+                        String str3 = this.a;
+                        aVar.g(str3, "onDataFromClientForBoolean " + str + " no handler");
+                        return false;
+                    }
+                    return bybVar.j(str2);
+                }
+            }
+            eyb.b.g(this.a, "onDataFromClientForBoolean null");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final String h(String str, String str2) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
+            boolean z2 = false;
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                if (!((str2 == null || str2.length() == 0) ? true : true)) {
+                    byb bybVar = this.b.get(str);
+                    if (bybVar == null) {
+                        eyb.a aVar = eyb.b;
+                        String str3 = this.a;
+                        aVar.g(str3, "onDataFromClientForStr " + str + " no handler");
+                        return "";
+                    }
+                    return bybVar.k(str2);
+                }
+            }
+            eyb.b.g(this.a, "onDataFromClientForStr null");
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final boolean i(Context context, String str, String str2, ITransDataListener iTransDataListener) {
+        InterceptResult invokeLLLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, str, str2, iTransDataListener)) == null) {
+            boolean z2 = true;
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                if (str2 != null && str2.length() != 0) {
+                    z2 = false;
+                }
+                if (!z2 && iTransDataListener != null) {
+                    if (this.b.get(str) != null) {
+                        eyb.a aVar = eyb.b;
+                        String str3 = this.a;
+                        aVar.g(str3, "registerDataListener " + str + " has handler");
+                        return false;
+                    }
+                    if (context == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    byb b = b(str2, context, str);
+                    if (b == null) {
+                        eyb.b.g(this.a, "registerDataListener reflect fail");
+                        return false;
+                    }
+                    this.b.put(str, b);
+                    this.c.put(str, str2);
+                    RemoteCallbackList<ITransDataListener> remoteCallbackList = this.d.get(str);
+                    if (remoteCallbackList == null) {
+                        remoteCallbackList = new RemoteCallbackList<>();
+                        this.d.put(str, remoteCallbackList);
+                    }
+                    return remoteCallbackList.register(iTransDataListener);
+                }
+            }
+            eyb.b.g(this.a, "registerDataListener null");
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final cyb<String> j(String str, String str2) {
+        InterceptResult invokeLL;
+        boolean z;
+        boolean z2;
+        cyb<String> cybVar;
+        String transDataForStr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            if (str.length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                if (str2.length() == 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (!z2) {
+                    if (!this.d.containsKey(str)) {
+                        return new cyb<>(false, str + " no handler");
+                    }
+                    RemoteCallbackList<ITransDataListener> remoteCallbackList = this.d.get(str);
+                    if (remoteCallbackList == null) {
+                        return new cyb<>(false, str + "  handler is null");
+                    } else if (remoteCallbackList.getRegisteredCallbackCount() == 0) {
+                        return new cyb<>(false, str + " callback count = 0");
                     } else {
-                        a.a("key_push_token");
+                        try {
+                            synchronized (remoteCallbackList) {
+                                int beginBroadcast = remoteCallbackList.beginBroadcast();
+                                String str3 = "";
+                                eyb.a aVar = eyb.b;
+                                String str4 = this.a;
+                                aVar.g(str4, "sendData2MainProcessForStr callback count = " + beginBroadcast + WebvttCueParser.CHAR_SPACE);
+                                if (1 <= beginBroadcast) {
+                                    int i = 1;
+                                    while (true) {
+                                        transDataForStr = remoteCallbackList.getBroadcastItem(i - 1).transDataForStr(str, str2);
+                                        Intrinsics.checkExpressionValueIsNotNull(transDataForStr, "listener.transDataForStr(channelId, data)");
+                                        if (i == beginBroadcast) {
+                                            break;
+                                        }
+                                        i++;
+                                    }
+                                    str3 = transDataForStr;
+                                }
+                                remoteCallbackList.finishBroadcast();
+                                cybVar = new cyb<>(true, str3);
+                            }
+                            return cybVar;
+                        } catch (Exception e2) {
+                            eyb.a aVar2 = eyb.b;
+                            String str5 = this.a;
+                            aVar2.d(str5, "sendData2MainProcessForStr ex: " + e2.getMessage());
+                            return new cyb<>(false, "");
+                        }
                     }
                 }
             }
-            return str;
+            return new cyb<>(false, "channelId, data is null or empty");
         }
-        return (String) invokeL.objValue;
+        return (cyb) invokeLL.objValue;
     }
 }

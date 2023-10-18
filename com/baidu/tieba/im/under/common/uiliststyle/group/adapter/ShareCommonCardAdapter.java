@@ -73,44 +73,44 @@ public final class ShareCommonCardAdapter extends BaseStyleNormalAdapter<ShareCo
     }
 
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
-    public BaseViewHolder M(ViewGroup parent) {
+    public BaseViewHolder N(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parent)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
             Context context = parent.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-            return f0(context);
+            return g0(context);
         }
         return (BaseViewHolder) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
-    public BaseViewHolder O(ViewGroup parent) {
+    public BaseViewHolder P(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parent)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
             Context context = parent.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-            return f0(context);
+            return g0(context);
         }
         return (BaseViewHolder) invokeL.objValue;
     }
 
-    public final void h0(long j) {
+    public final void i0(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             this.m = j;
         }
     }
 
-    public final BaseViewHolder f0(Context context) {
+    public final BaseViewHolder g0(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             final ChatShareCommonCard chatShareCommonCard = new ChatShareCommonCard(context, null, 2, null);
-            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090eae);
+            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090ec9);
             chatShareCommonCard.setScene(1);
             chatShareCommonCard.setRoomId(this.m);
             chatShareCommonCard.setLayoutParams(new ViewGroup.LayoutParams(n, -2));
@@ -152,8 +152,8 @@ public final class ShareCommonCardAdapter extends BaseStyleNormalAdapter<ShareCo
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
-    /* renamed from: g0 */
-    public void T(int i, ViewGroup directParent, ShareCommonCardSysItem data, BaseViewHolder holder, List<Object> payloads, int i2) {
+    /* renamed from: h0 */
+    public void U(int i, ViewGroup directParent, ShareCommonCardSysItem data, BaseViewHolder holder, List<Object> payloads, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), directParent, data, holder, payloads, Integer.valueOf(i2)}) == null) {

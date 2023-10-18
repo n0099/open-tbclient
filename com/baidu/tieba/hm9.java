@@ -1,171 +1,135 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.EditText;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.nm9;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.pb.bot.RequestBotSkillHelper;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.PbContent;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
 /* loaded from: classes6.dex */
-public abstract class hm9<V extends nm9, D extends IBaseDialogData> implements mm9 {
+public class hm9 {
     public static /* synthetic */ Interceptable $ic;
+    public static List<pea> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-    public TbPageContext b;
-    public Context c;
-    public DialogInterface.OnKeyListener d;
-    public DialogInterface.OnCancelListener e;
-    public int f;
-    public boolean g;
-    public V h;
 
-    /* loaded from: classes6.dex */
-    public class a implements ViewHelper.ViewCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicBoolean a;
-
-        public a(hm9 hm9Var, AtomicBoolean atomicBoolean) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947828661, "Lcom/baidu/tieba/hm9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hm9Var, atomicBoolean};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947828661, "Lcom/baidu/tieba/hm9;");
+                return;
+            }
+        }
+        a = new ArrayList();
+    }
+
+    public static void a(TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull String str, long j, @NonNull String str2, @NonNull String str3, @NonNull String str4, FastRequest.b<Void> bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, str, Long.valueOf(j), str2, str3, str4, bVar}) == null) {
+            new RequestBotSkillHelper(tbPageContext).b(new RequestBotSkillHelper.BotRequest(str, j, str2, str3, str4), bVar);
+        }
+    }
+
+    public static void b(PbModel pbModel, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, pbModel, str) != null) || pbModel == null) {
+            return;
+        }
+        ye9 s1 = pbModel.s1();
+        ye9 ye9Var = new ye9();
+        ArrayList<pea> F = ye9Var.F();
+        pea peaVar = new pea();
+        peaVar.s1(System.currentTimeMillis());
+        ArrayList arrayList = new ArrayList();
+        PbContent.Builder builder = new PbContent.Builder();
+        List<RobotSkillInfo> list = s1.K().robot_skill_info;
+        List<RobotSkill> list2 = s1.K().bottom_bar_robot_skill;
+        if (list != null && list2 != null) {
+            builder.text = BotEntranceManager.h().c(list, list2).style_conf.android_extra.bot_loading_content;
+        }
+        if (TextUtils.isEmpty(builder.text)) {
+            builder.text = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07ff);
+        }
+        arrayList.add(builder.build(true));
+        peaVar.o1(new TbRichText(arrayList, pbModel.M1(), false));
+        peaVar.T0(1);
+        if (s1 != null && s1.y() != null) {
+            peaVar.W0(s1.F().size() + 1);
+        }
+        if (s1 != null && s1.O() != null) {
+            ye9Var.S0(s1.O());
+            ye9Var.O().setReply_num(ye9Var.O().getReply_num() + 1);
+        }
+        MetaData metaData = new MetaData();
+        UserData V = pbModel.s1().V();
+        metaData.setName_show(V.getName_show());
+        metaData.setPortrait(V.getPortrait());
+        metaData.setUserId(V.getUserId());
+        metaData.setLevel_id(V.getLevel_id());
+        metaData.setLevelName(V.getLevelName());
+        metaData.setIconInfo(V.getIconInfo());
+        peaVar.P0(metaData);
+        peaVar.Q0(str);
+        F.clear();
+        F.add(peaVar);
+        a.add(peaVar);
+        pbModel.D2(ye9Var, 8, false, 0, "", false, 0, 0L, 0L, true);
+    }
+
+    public static String c(String str, String str2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            return gd.c(str + str2 + j);
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static void d(String str, String str2, String str3, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, i) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            for (pea peaVar : a) {
+                if (str.equals(peaVar.x()) && peaVar.l() == 1) {
+                    ArrayList arrayList = new ArrayList();
+                    PbContent.Builder builder = new PbContent.Builder();
+                    builder.text = str2;
+                    arrayList.add(builder.build(true));
+                    peaVar.o1(new TbRichText(arrayList, "", false));
+                    peaVar.c1(str3);
+                    peaVar.T0(i);
                     return;
                 }
             }
-            this.a = atomicBoolean;
-        }
-
-        @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
-        public boolean onViewFound(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (view2 instanceof EditText) {
-                    this.a.set(true);
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
         }
     }
 
-    public hm9(TbPageContext tbPageContext, V v, D d) {
+    public static void e(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, v, d};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = -1;
-        this.g = false;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.h = v;
-        d(d);
-    }
-
-    public void d(D d) {
-        V v;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, d) == null) && (v = this.h) != null) {
-            v.c(d);
-        }
-    }
-
-    @Override // com.baidu.tieba.mm9
-    public void dismiss() {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.a) != null) {
-            jg.a(alertDialog, this.b.getPageActivity());
-        }
-    }
-
-    @Override // com.baidu.tieba.mm9
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            AlertDialog alertDialog = this.a;
-            if (alertDialog != null) {
-                jg.i(alertDialog, this.b.getPageActivity());
-                return;
-            }
-            if (this.g) {
-                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f10041d).create();
-            } else {
-                this.a = new AlertDialog.Builder(this.c).create();
-            }
-            GreyUtil.grey(this.a);
-            this.a.setCanceledOnTouchOutside(c());
-            this.a.setCancelable(b());
-            this.a.setOnKeyListener(this.d);
-            DialogInterface.OnCancelListener onCancelListener = this.e;
-            if (onCancelListener != null) {
-                this.a.setOnCancelListener(onCancelListener);
-            }
-            jg.i(this.a, this.b.getPageActivity());
-            if (this.a.getWindow().getDecorView().getParent() == null) {
-                return;
-            }
-            Window window = this.a.getWindow();
-            if (this.f == -1) {
-                this.f = 17;
-            }
-            window.setGravity(this.f);
-            window.setBackgroundDrawableResource(R.drawable.transparent_bg);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.dimAmount = 0.7f;
-            attributes.width = -1;
-            DisplayMetrics screenSize = BdUtilHelper.getScreenSize(this.b.getPageActivity());
-            if (screenSize != null) {
-                int a2 = a();
-                if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
-                    attributes.width = screenSize.heightPixels - (a2 * 2);
-                } else {
-                    attributes.width = screenSize.widthPixels - (a2 * 2);
-                }
-            }
-            attributes.height = -2;
-            window.setAttributes(attributes);
-            window.setContentView(this.h.getViewGroup());
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ViewHelper.processAllViewsIn(this.h.getViewGroup(), false, new a(this, atomicBoolean));
-            if (atomicBoolean.get()) {
-                window.clearFlags(131080);
-            }
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            BdToast.makeText(TbadkCoreApplication.getInst().getContext(), str).show();
         }
     }
 }

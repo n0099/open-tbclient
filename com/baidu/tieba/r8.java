@@ -1,29 +1,32 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.SparseArray;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r8 {
+public class r8 implements e8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
-    public r8(File file) {
+    public r8(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,111 +36,110 @@ public class r8 {
                 return;
             }
         }
-        this.a = null;
-        this.a = file.getAbsolutePath();
+        this.a = str;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e8
+    public Object a(u8 u8Var) {
+        Class<?> a;
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b() : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0088 A[Catch: Exception -> 0x0084, TRY_LEAVE, TryCatch #6 {Exception -> 0x0084, blocks: (B:50:0x0080, B:54:0x0088), top: B:68:0x0080 }] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b() {
-        InterceptResult invokeV;
-        FileInputStream fileInputStream;
-        Exception e;
-        ZipInputStream zipInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-            return invokeV.booleanValue;
-        }
-        if (TextUtils.isEmpty(this.a)) {
-            return false;
-        }
-        ZipInputStream zipInputStream2 = null;
-        try {
-            fileInputStream = new FileInputStream(new File(this.a));
-        } catch (Exception e2) {
-            fileInputStream = null;
-            e = e2;
-            zipInputStream = null;
-        } catch (Throwable th) {
-            th = th;
-            fileInputStream = null;
-        }
-        try {
-            zipInputStream = new ZipInputStream(new BufferedInputStream(fileInputStream));
-            while (true) {
-                try {
-                    try {
-                        ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry == null) {
-                            try {
-                                zipInputStream.close();
-                                fileInputStream.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u8Var)) == null) {
+            try {
+                a = u8Var.a();
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                return null;
+            }
+            if (a != Byte.class && a != Byte.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        if (a != Boolean.class && a != Boolean.TYPE) {
+                                            if (a == String.class) {
+                                                return this.a;
+                                            }
+                                            if (a == char[].class) {
+                                                return this.a.toCharArray();
+                                            }
+                                            if (a == byte[].class) {
+                                                try {
+                                                    return tc.e(this.a, 0);
+                                                } catch (IOException e2) {
+                                                    e2.printStackTrace();
+                                                    return null;
+                                                }
+                                            } else if (b7.e(a, OrmObject.class)) {
+                                                return OrmObject.objectWithJsonStr(this.a, a);
+                                            } else {
+                                                if (b7.e(a, List.class)) {
+                                                    try {
+                                                        return new g8(new JSONArray(this.a)).a(u8Var);
+                                                    } catch (JSONException e3) {
+                                                        e3.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (a.isArray()) {
+                                                    try {
+                                                        return new g8(new JSONArray(this.a)).a(u8Var);
+                                                    } catch (JSONException e4) {
+                                                        e4.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (b7.e(a, Queue.class)) {
+                                                    try {
+                                                        return new g8(new JSONArray(this.a)).a(u8Var);
+                                                    } catch (JSONException e5) {
+                                                        e5.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (b7.e(a, Set.class)) {
+                                                    try {
+                                                        return new g8(new JSONArray(this.a)).a(u8Var);
+                                                    } catch (JSONException e6) {
+                                                        e6.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (b7.e(a, Map.class)) {
+                                                    try {
+                                                        return new h8(new JSONObject(this.a)).a(u8Var);
+                                                    } catch (JSONException e7) {
+                                                        e7.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (b7.e(a, SparseArray.class)) {
+                                                    try {
+                                                        return new h8(new JSONObject(this.a)).a(u8Var);
+                                                    } catch (JSONException e8) {
+                                                        e8.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else {
+                                                    return null;
+                                                }
+                                            }
+                                            e.printStackTrace();
+                                            return null;
+                                        }
+                                        return Boolean.valueOf(Boolean.parseBoolean(this.a));
+                                    }
+                                    return Character.valueOf(this.a.charAt(0));
+                                }
+                                return Double.valueOf(Double.parseDouble(this.a));
                             }
-                            return true;
-                        } else if (!nextEntry.isDirectory() && nextEntry.getName().contains("../")) {
-                            try {
-                                zipInputStream.close();
-                                fileInputStream.close();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
-                            }
-                            return false;
+                            return Float.valueOf(Float.parseFloat(this.a));
                         }
-                    } catch (Exception e5) {
-                        e = e5;
-                        e.printStackTrace();
-                        if (zipInputStream != null) {
-                            try {
-                                zipInputStream.close();
-                            } catch (Exception e6) {
-                                e6.printStackTrace();
-                                return false;
-                            }
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                            return false;
-                        }
-                        return false;
+                        return Long.valueOf(Long.parseLong(this.a));
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    zipInputStream2 = zipInputStream;
-                    if (zipInputStream2 != null) {
-                        try {
-                            zipInputStream2.close();
-                        } catch (Exception e7) {
-                            e7.printStackTrace();
-                            throw th;
-                        }
-                    }
-                    if (fileInputStream != null) {
-                        fileInputStream.close();
-                    }
-                    throw th;
+                    return Integer.valueOf(Integer.parseInt(this.a));
                 }
+                return Short.valueOf(Short.parseShort(this.a));
             }
-        } catch (Exception e8) {
-            e = e8;
-            zipInputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            if (zipInputStream2 != null) {
-            }
-            if (fileInputStream != null) {
-            }
-            throw th;
+            return Byte.valueOf(Byte.parseByte(this.a));
         }
+        return invokeL.objValue;
     }
 }

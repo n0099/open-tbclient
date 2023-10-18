@@ -1,33 +1,38 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.TypeCastException;
-import kotlin.jvm.internal.TypeIntrinsics;
-import kotlin.text.Regex;
-import kotlin.text.StringsKt__StringsKt;
-import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes8.dex */
-public final class ya0 {
+public class ya0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public final String b;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
+    public long i;
+    public long j;
+    public String k;
+    public String l;
+    public boolean m;
+    public StringBuilder n;
 
-    public ya0(String str) {
+    public ya0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,101 +42,103 @@ public final class ya0 {
                 return;
             }
         }
-        this.b = str;
+        this.f = 1000L;
+        this.m = false;
+        this.n = new StringBuilder();
+        this.k = str;
+        this.l = str2;
+        e();
     }
 
-    public final Map<String, String> a() {
+    public final void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            Log.d(str, str2);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.h;
+            this.i = currentTimeMillis;
+            this.j = this.g;
+            this.h = 0L;
+            this.g = 0L;
+            if (this.m) {
+                a(this.k, String.format("%s, PeriodTime: %d, Times: %d", this.l, Long.valueOf(currentTimeMillis), Long.valueOf(this.j)));
+            }
+        }
+    }
+
+    public String c() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Map<String, String> map = this.a;
-            if (map != null) {
-                if (map != null) {
-                    return TypeIntrinsics.asMutableMap(map);
-                }
-                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.MutableMap<kotlin.String, kotlin.String>");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String format = String.format("%s, Total: %d, Times: %d, Min: %d, Max: %d, Average：%f", this.l, Long.valueOf(this.d), Long.valueOf(this.e), Long.valueOf(this.c), Long.valueOf(this.b), Float.valueOf(((float) this.d) / ((float) this.e)));
+            if (this.m) {
+                a(this.k, format);
             }
-            this.a = new HashMap();
-            if (StringsKt__StringsKt.indexOf$default((CharSequence) this.b, (char) RFC1522Codec.SEP, 0, false, 6, (Object) null) < 0) {
-                Map<String, String> map2 = this.a;
-                if (map2 != null) {
-                    return (HashMap) map2;
-                }
-                throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
-            }
-            Object[] array = new Regex("\\?").split(this.b, 0).toArray(new String[0]);
-            if (array != null) {
-                String[] strArr = (String[]) array;
-                if (strArr.length < 2) {
-                    Map<String, String> map3 = this.a;
-                    if (map3 != null) {
-                        return (HashMap) map3;
-                    }
-                    throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
-                }
-                Object[] array2 = new Regex("&").split(strArr[1], 0).toArray(new String[0]);
-                if (array2 != null) {
-                    String[] strArr2 = (String[]) array2;
-                    if (strArr2.length == 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (z) {
-                        Map<String, String> map4 = this.a;
-                        if (map4 != null) {
-                            return (HashMap) map4;
-                        }
-                        throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
-                    }
-                    for (String str : strArr2) {
-                        Object[] array3 = new Regex("=").split(str, 0).toArray(new String[0]);
-                        if (array3 != null) {
-                            String[] strArr3 = (String[]) array3;
-                            if (strArr3.length >= 2) {
-                                Map<String, String> map5 = this.a;
-                                if (map5 != null) {
-                                    ((HashMap) map5).put(strArr3[0], strArr3[1]);
-                                } else {
-                                    throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
-                                }
-                            }
-                        } else {
-                            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
-                        }
-                    }
-                    Map<String, String> map6 = this.a;
-                    if (map6 != null) {
-                        return (HashMap) map6;
-                    }
-                    throw new TypeCastException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
-                }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
-            }
-            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+            return format;
         }
-        return (Map) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final String b(String str) {
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(str)) {
-                String str2 = null;
-                try {
-                    str2 = Uri.parse(this.b).getQueryParameter(str);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (TextUtils.isEmpty(str2)) {
-                    return a().get(str);
-                }
-                return str2;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.a == 0) {
+                this.a = System.currentTimeMillis();
+                return;
             }
-            return "";
+            long currentTimeMillis = System.currentTimeMillis() - this.a;
+            this.d += currentTimeMillis;
+            this.e++;
+            if (currentTimeMillis > this.b) {
+                this.b = currentTimeMillis;
+            } else if (currentTimeMillis < this.c) {
+                this.c = currentTimeMillis;
+            }
+            if (this.m) {
+                if (this.n.length() > 0) {
+                    StringBuilder sb = this.n;
+                    sb.delete(0, sb.length());
+                }
+                this.n.append(this.l);
+                for (int i = (int) ((currentTimeMillis - 33) / 5); i > 0; i--) {
+                    this.n.append(IStringUtil.EXTENSION_SEPARATOR);
+                }
+                this.n.append(currentTimeMillis);
+                a(this.k, this.n.toString());
+            }
+            this.g++;
+            if (this.f > 0 && System.currentTimeMillis() - this.h > this.f) {
+                b();
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            this.a = currentTimeMillis2;
+            if (this.h == 0) {
+                this.h = currentTimeMillis2;
+                this.g = 0L;
+            }
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = 0L;
+            this.d = 0L;
+            this.e = 0L;
+            this.b = Long.MIN_VALUE;
+            this.c = Long.MAX_VALUE;
+        }
+    }
+
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.f = j;
+        }
     }
 }

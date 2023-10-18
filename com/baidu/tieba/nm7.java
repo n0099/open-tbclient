@@ -1,49 +1,77 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
+import android.text.TextUtils;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
+import androidx.fragment.app.Fragment;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.ForeDrawableImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.ny;
-import com.baidu.tieba.zw;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
+import com.baidu.tieba.frs.good.FrsGoodFragment;
+import com.baidu.tieba.frs.h5.FrsTabWebFragment;
+import com.baidu.tieba.frs.h5.NewFrsTabWebFragment;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
+import com.baidu.tieba.frs.vc.FrsTabViewController;
+import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.tbadkCore.model.ForumManageModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.GetMyPost.DataRes;
+import tbclient.GetMyPost.GetMyPostResIdl;
+import tbclient.GetMyPost.User_Info;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes7.dex */
-public class nm7 extends em7 implements qp6, yt7, p56 {
+public class nm7 extends tm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ag<ImageView> u;
-    public ag<GifView> v;
+    public final CustomMessageListener h;
+    public final CustomMessageListener i;
+    public final HttpMessageListener j;
 
     /* loaded from: classes7.dex */
-    public class a implements bg<ImageView> {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nm7 a;
 
-        public a(nm7 nm7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(nm7 nm7Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nm7Var};
+                Object[] objArr = {nm7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -52,120 +80,229 @@ public class nm7 extends em7 implements qp6, yt7, p56 {
             this.a = nm7Var;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.bg
-        public /* bridge */ /* synthetic */ ImageView a(ImageView imageView) {
-            ImageView imageView2 = imageView;
-            e(imageView2);
-            return imageView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.bg
-        public /* bridge */ /* synthetic */ ImageView c(ImageView imageView) {
-            ImageView imageView2 = imageView;
-            h(imageView2);
-            return imageView2;
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        /* renamed from: f */
-        public void b(ImageView imageView) {
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, imageView) == null) {
-                imageView.setBackgroundDrawable(null);
-                imageView.setImageDrawable(null);
-                imageView.setTag(null);
-                imageView.setOnClickListener(null);
-                if (imageView instanceof ForeDrawableImageView) {
-                    ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.stopLoading();
-                    foreDrawableImageView.setForegroundDrawable(0);
-                    foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
-                }
-            }
-        }
-
-        public ImageView e(ImageView imageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imageView)) == null) {
-                if (imageView instanceof TbImageView) {
-                    TbImageView tbImageView = (TbImageView) imageView;
-                    tbImageView.setTag(null);
-                    if (m05.c().g()) {
-                        tbImageView.setAdjustViewBounds(false);
-                        tbImageView.setInterceptOnClick(false);
-                    } else {
-                        tbImageView.setDefaultResource(R.drawable.icon_click);
-                        tbImageView.setAdjustViewBounds(true);
-                        tbImageView.setInterceptOnClick(true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+                String str = (String) customResponsedMessage.getData();
+                if (!StringUtils.isNull(str) && this.a.b.s1() != null) {
+                    FrsViewData s1 = this.a.b.s1();
+                    s1.removeThread(str);
+                    mm7 mm7Var = this.a.g;
+                    if (mm7Var != null) {
+                        mm7Var.k(str);
+                    }
+                    this.a.a.O1(s1.getThreadList(), s1);
+                    if (wca.i() != null) {
+                        wca.i().n(this.a.b.v(), false);
+                    }
+                    if (this.a.b != null) {
+                        if (xc7.g()) {
+                            new BdTopToast(this.a.b.getContext()).setIcon(true).setContent(this.a.b.getContext().getString(R.string.shield_success)).show((ViewGroup) this.a.b.q4());
+                        } else {
+                            new BdTopToast(this.a.b.getContext()).setIcon(true).setContent(this.a.b.getContext().getString(R.string.delete_success)).show((ViewGroup) this.a.b.q4());
+                        }
                     }
                 }
-                return imageView;
             }
-            return (ImageView) invokeL.objValue;
-        }
-
-        public ImageView h(ImageView imageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, imageView)) == null) {
-                imageView.setBackgroundDrawable(null);
-                imageView.setImageDrawable(null);
-                imageView.setTag(null);
-                imageView.setOnClickListener(null);
-                if (imageView instanceof ForeDrawableImageView) {
-                    ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.stopLoading();
-                    foreDrawableImageView.setForegroundDrawable(0);
-                    foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
-                    foreDrawableImageView.reset();
-                }
-                return imageView;
-            }
-            return (ImageView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        /* renamed from: g */
-        public ImageView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.l.getPageActivity());
-                boolean g = m05.c().g();
-                foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
-                if (g) {
-                    foreDrawableImageView.setAdjustViewBounds(false);
-                    foreDrawableImageView.setInterceptOnClick(false);
-                } else {
-                    foreDrawableImageView.setDefaultResource(R.drawable.icon_click);
-                    foreDrawableImageView.setAdjustViewBounds(true);
-                    foreDrawableImageView.setInterceptOnClick(true);
-                }
-                return foreDrawableImageView;
-            }
-            return (ImageView) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements bg<GifView> {
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nm7 a;
 
-        public b(nm7 nm7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(nm7 nm7Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nm7Var};
+                Object[] objArr = {nm7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nm7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Type inference failed for: r2v3, types: [java.util.List] */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            ForumManageModel.e eVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e)) {
+                nm7 nm7Var = this.a;
+                if (nm7Var.b != null && nm7Var.a != null && nm7Var.d != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.a) && this.a.b.s1() != null) {
+                    String str = eVar.a;
+                    String str2 = eVar.b;
+                    String str3 = eVar.c;
+                    if (eVar.d == 4) {
+                        FrsViewData s1 = this.a.b.s1();
+                        ThreadData threadDataById = s1.getThreadDataById(str);
+                        s1.removeThreadData(threadDataById);
+                        List<yh> topThreadList = s1.getTopThreadList();
+                        if (topThreadList == null) {
+                            topThreadList = new ArrayList<>();
+                        }
+                        topThreadList.add(0, threadDataById);
+                        this.a.a.O1(s1.getThreadList(), s1);
+                        this.a.d.n0(s1);
+                    }
+                    if (TextUtils.equals(this.a.b.v(), str3)) {
+                        wca.i().n(this.a.b.v(), false);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nm7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(nm7 nm7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nm7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nm7Var;
+        }
+
+        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.tieba.nm7.a(com.baidu.tieba.nm7, org.json.JSONObject, com.baidu.tieba.homepage.RequestGetMyPostNetMessage):org.json.JSONObject
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+            Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+            	... 1 more
+            */
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(com.baidu.adp.framework.message.HttpResponsedMessage r8) {
+            /*
+                r7 = this;
+                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.nm7.c.$ic
+                if (r0 != 0) goto L86
+            L4:
+                if (r8 == 0) goto L1f
+                com.baidu.adp.framework.message.Message r0 = r8.getOrginalMessage()
+                if (r0 == 0) goto L1f
+                com.baidu.adp.framework.message.Message r0 = r8.getOrginalMessage()
+                java.lang.Object r0 = r0.getExtra()
+                boolean r1 = r0 instanceof com.baidu.tieba.homepage.RequestGetMyPostNetMessage
+                if (r1 == 0) goto L1f
+                com.baidu.tieba.homepage.RequestGetMyPostNetMessage r0 = (com.baidu.tieba.homepage.RequestGetMyPostNetMessage) r0
+                boolean r0 = r0.showErrorToast()
+                goto L20
+            L1f:
+                r0 = 1
+            L20:
+                org.json.JSONObject r6 = new org.json.JSONObject
+                r6.<init>()
+                boolean r1 = r8 instanceof com.baidu.tieba.homepage.GetMyPostHttpResponseMessage
+                if (r1 == 0) goto L85
+                r1 = r8
+                com.baidu.tieba.homepage.GetMyPostHttpResponseMessage r1 = (com.baidu.tieba.homepage.GetMyPostHttpResponseMessage) r1
+                java.lang.String r2 = r1.getErrorString()
+                boolean r2 = com.baidu.adp.lib.util.StringUtils.isNull(r2)
+                if (r2 == 0) goto L46
+                com.baidu.tieba.nm7 r2 = r7.a
+                com.baidu.tieba.frs.FrsFragment r2 = r2.b
+                android.content.res.Resources r2 = r2.getResources()
+                r3 = 2131693135(0x7f0f0e4f, float:1.901539E38)
+                java.lang.String r2 = r2.getString(r3)
+                goto L4a
+            L46:
+                java.lang.String r2 = r1.getErrorString()
+            L4a:
+                r3 = r2
+                r2 = 0
+                com.baidu.adp.framework.message.Message r4 = r8.getOrginalMessage()
+                java.lang.Object r4 = r4.getExtra()
+                boolean r4 = r4 instanceof com.baidu.tieba.homepage.RequestGetMyPostNetMessage
+                if (r4 == 0) goto L6d
+                com.baidu.adp.framework.message.Message r8 = r8.getOrginalMessage()
+                java.lang.Object r8 = r8.getExtra()
+                com.baidu.tieba.homepage.RequestGetMyPostNetMessage r8 = (com.baidu.tieba.homepage.RequestGetMyPostNetMessage) r8
+                int r2 = r8.getProZone()
+                com.baidu.tieba.nm7 r4 = r7.a
+                com.baidu.tieba.nm7.a(r4, r6, r8)
+                r5 = r2
+                goto L6e
+            L6d:
+                r5 = 0
+            L6e:
+                if (r0 != 0) goto L77
+                int r8 = r1.getError()
+                if (r8 == 0) goto L77
+                return
+            L77:
+                com.baidu.tieba.nm7 r8 = r7.a
+                int r2 = r1.getError()
+                tbclient.GetMyPost.GetMyPostResIdl r4 = r1.getResponseData()
+                r1 = r8
+                com.baidu.tieba.nm7.b(r1, r2, r3, r4, r5, r6)
+            L85:
+                return
+            L86:
+                r5 = r0
+                r6 = 1048576(0x100000, float:1.469368E-39)
+                com.baidu.titan.sdk.runtime.InterceptResult r0 = r5.invokeL(r6, r7, r8)
+                if (r0 == 0) goto L4
+                return
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.nm7.c.onMessage(com.baidu.adp.framework.message.HttpResponsedMessage):void");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ nm7 d;
+
+        public d(nm7 nm7Var, long j, long j2, long j3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nm7Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -175,187 +312,284 @@ public class nm7 extends em7 implements qp6, yt7, p56 {
                     return;
                 }
             }
-            this.a = nm7Var;
+            this.d = nm7Var;
+            this.a = j;
+            this.b = j2;
+            this.c = j3;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.bg
-        public /* bridge */ /* synthetic */ GifView a(GifView gifView) {
-            GifView gifView2 = gifView;
-            e(gifView2);
-            return gifView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.bg
-        public /* bridge */ /* synthetic */ GifView c(GifView gifView) {
-            GifView gifView2 = gifView;
-            h(gifView2);
-            return gifView2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        /* renamed from: f */
-        public void b(GifView gifView) {
+        @Override // java.lang.Runnable
+        public void run() {
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, gifView) == null) {
-                gifView.setBackgroundDrawable(null);
-                gifView.setImageDrawable(null);
-                gifView.setTag(null);
-                gifView.setOnClickListener(null);
-                gifView.setDefaultBgResource(R.color.common_color_10220);
-                gifView.h();
-            }
-        }
-
-        public GifView h(GifView gifView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, gifView)) == null) {
-                gifView.k();
-                gifView.h();
-                gifView.setImageDrawable(null);
-                gifView.l();
-                gifView.setBackgroundDrawable(null);
-                gifView.setTag(null);
-                gifView.setOnClickListener(null);
-                gifView.setDefaultBgResource(R.color.common_color_10220);
-                return gifView;
-            }
-            return (GifView) invokeL.objValue;
-        }
-
-        public GifView e(GifView gifView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
-                gifView.setTag(null);
-                if (m05.c().g()) {
-                    gifView.setAdjustViewBounds(false);
-                    gifView.setInterceptOnClick(false);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
+                int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
+                float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
+                if (TbImageHelper.getInstance().isShowBigImage()) {
+                    i = 2;
                 } else {
-                    gifView.setDefaultResource(R.drawable.icon_click);
-                    gifView.setAdjustViewBounds(true);
-                    gifView.setInterceptOnClick(true);
+                    i = 1;
                 }
-                return gifView;
-            }
-            return (GifView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        /* renamed from: g */
-        public GifView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                GifView gifView = new GifView(this.a.l.getPageActivity());
-                boolean g = m05.c().g();
-                gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
-                if (g) {
-                    gifView.setAdjustViewBounds(false);
-                    gifView.setInterceptOnClick(false);
-                } else {
-                    gifView.setDefaultResource(R.drawable.icon_click);
-                    gifView.setAdjustViewBounds(true);
-                    gifView.setInterceptOnClick(true);
-                }
-                return gifView;
-            }
-            return (GifView) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements zw.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nm7 a;
-
-        public c(nm7 nm7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nm7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nm7Var;
-        }
-
-        @Override // com.baidu.tieba.zw.a
-        public void a(b15 b15Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, b15Var) == null) && b15Var != null && b15Var.getThreadData() != null && b15Var.getThreadData().originalThreadData != null && !b15Var.getThreadData().originalThreadData.m && !b15Var.getThreadData().shouldShowBlockedState()) {
-                ThreadCardUtils.jumpToPB(b15Var.getThreadData().originalThreadData, this.a.mContext, 3, (Rect) null, b15Var.getThreadData().getForum_name());
+                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
+                requestGetMyPostNetMessage.setParams(this.a, this.b, this.c, equipmentWidth, equipmentHeight, f, i);
+                this.d.b.sendMessage(requestGetMyPostNetMessage);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nm7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    public nm7(FrsFragment frsFragment) {
+        super(frsFragment);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((FrsFragment) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.u = new ag<>(new a(this), 8, 0);
-        this.v = new ag<>(new b(this), 20, 0);
-        this.l = tbPageContext;
-        this.mPageId = bdUniqueId2;
+        this.h = new a(this, 2921031);
+        this.i = new b(this, 2921316);
+        c cVar = new c(this, CmdConfigHttp.CMD_GET_MY_POST);
+        this.j = cVar;
+        cVar.setSelfListener(true);
+        this.h.setSelfListener(false);
+        this.b.registerListener(this.h);
+        this.b.registerListener(this.j);
+        this.b.registerListener(this.i);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: R */
-    public ThreadCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
+        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+        */
+    public static /* synthetic */ org.json.JSONObject a(com.baidu.tieba.nm7 r0, org.json.JSONObject r1, com.baidu.tieba.homepage.RequestGetMyPostNetMessage r2) {
+        /*
+            r0.e(r1, r2)
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.nm7.a(com.baidu.tieba.nm7, org.json.JSONObject, com.baidu.tieba.homepage.RequestGetMyPostNetMessage):org.json.JSONObject");
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.nm7.c.onMessage(com.baidu.adp.framework.message.HttpResponsedMessage):void] */
+    public static /* synthetic */ void b(nm7 nm7Var, int i, String str, GetMyPostResIdl getMyPostResIdl, int i2, JSONObject jSONObject) {
+        nm7Var.g(i, str, getMyPostResIdl, i2, jSONObject);
+    }
+
+    public final void c(ThreadData threadData, FrsNewAreaFragment frsNewAreaFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            ny.b bVar = new ny.b(this.l.getPageActivity());
-            M(bVar);
-            J(bVar, R.dimen.tbds33);
-            px pxVar = new px(this.l.getPageActivity());
-            pxVar.setFrom("frs");
-            pxVar.E(3);
-            pxVar.G(true);
-            pxVar.H(this.u, this.v);
-            pxVar.D(this.o);
-            pxVar.r(Boolean.TRUE);
-            pxVar.B(R.color.CAM_X0204);
-            pxVar.J(HomeGroupUbsUIHelper.getTransmitLRMarginByUbs(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004), HomeGroupUbsUIHelper.getTransmitLRMarginByUbs(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004));
-            pxVar.F(new c(this));
-            bVar.h(pxVar);
-            bVar.h(new ry(this.l.getPageActivity()));
-            I(bVar, this.o);
-            L(bVar);
-            ThreadCardViewHolder H = H(bVar, viewGroup, this.p, this.s);
-            H.n();
-            return H;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, threadData, frsNewAreaFragment) == null) {
+            frsNewAreaFragment.E2(threadData);
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    public final void d(jx4 jx4Var) {
+        FrsViewData s1;
+        ArrayList<yh> threadList;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jx4Var) != null) || (s1 = this.b.s1()) == null) {
+            return;
+        }
+        this.e.X(jx4Var);
+        if (this.e.L0()) {
+            ArrayList<yh> arrayList = new ArrayList<>();
+            arrayList.add(jx4Var);
+            threadList = this.g.c(false, true, arrayList, null, true, -1, null);
+        } else {
+            threadList = s1.getThreadList();
+        }
+        if (threadList != null) {
+            s1.setThreadList(threadList);
+            s1.checkLiveStageInThreadList();
+            this.a.O1(threadList, s1);
+        }
+    }
+
+    public final JSONObject e(JSONObject jSONObject, RequestGetMyPostNetMessage requestGetMyPostNetMessage) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, requestGetMyPostNetMessage)) == null) {
+            f(jSONObject, String.valueOf(requestGetMyPostNetMessage.getForumId()), String.valueOf(requestGetMyPostNetMessage.getThreadId()), String.valueOf(requestGetMyPostNetMessage.getPostId()), requestGetMyPostNetMessage.getQType(), requestGetMyPostNetMessage.getFrom(), String.valueOf(requestGetMyPostNetMessage.getCallFrom()));
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public final JSONObject f(JSONObject jSONObject, String str, String str2, String str3, int i, String str4, String str5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{jSONObject, str, str2, str3, Integer.valueOf(i), str4, str5})) == null) {
+            try {
+                jSONObject.put("forum_id", str);
+                jSONObject.put("thread_id", str2);
+                jSONObject.put("post_id", str3);
+                jSONObject.put("scr_w", BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+                jSONObject.put("scr_h", BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+                jSONObject.put("scr_dip", TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
+                jSONObject.put("q_type", i);
+                jSONObject.put("bfrom", str4);
+                jSONObject.put(IntentConfig.CALL_FROM, str5);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    public final void g(int i, String str, GetMyPostResIdl getMyPostResIdl, int i2, JSONObject jSONObject) {
+        DataRes dataRes;
+        User_Info user_Info;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, getMyPostResIdl, Integer.valueOf(i2), jSONObject}) == null) {
+            if (i != 0) {
+                this.b.showToast(str);
+                return;
+            }
+            FrsViewData s1 = this.b.s1();
+            if (s1 != null && s1.getForum() != null && getMyPostResIdl != null && this.a != null && this.e != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
+                jx4 jx4Var = new jx4();
+                ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
+                User.Builder builder2 = new User.Builder(builder.author);
+                h(builder2, getMyPostResIdl.data.user_info);
+                User user = builder.author;
+                if (user == null || TextUtils.isEmpty(user.name)) {
+                    builder.author = builder2.build(true);
+                }
+                User user2 = builder.author;
+                if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
+                    builder.author = builder2.build(true);
+                }
+                builder.cheak_repeat = 1;
+                builder.fname = s1.getForum().getName();
+                builder.fid = Long.valueOf(JavaTypesHelper.toLong(s1.getForum().getId(), 0L));
+                jx4Var.parserProtobuf(builder.build(true));
+                i(jx4Var, i2, jSONObject);
+            }
+        }
+    }
+
+    public final void h(User.Builder builder, User_Info user_Info) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, builder, user_Info) != null) || user_Info == null) {
+            return;
+        }
+        Long l = user_Info.id;
+        builder.id = l;
+        builder.gender = user_Info.gender;
+        builder.type = user_Info.type;
+        builder.name = user_Info.name;
+        builder.name_show = user_Info.name_show;
+        if (l.longValue() == TbadkCoreApplication.getCurrentAccountId()) {
+            builder.portrait = TbadkCoreApplication.getCurrentPortrait();
+        } else {
+            builder.portrait = user_Info.portrait;
+        }
+        builder.god_data = user_Info.god_data;
+        builder.fans_num = user_Info.fans_num;
+        builder.fans_nickname = user_Info.fans_nickname;
+        builder.is_bawu = user_Info.is_bawu;
+        builder.bawu_type = user_Info.bawu_type;
+        builder.new_god_data = user_Info.new_god_data;
+        builder.business_account_info = user_Info.business_account_info;
+    }
+
+    public final void i(jx4 jx4Var, int i, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048582, this, jx4Var, i, jSONObject) == null) {
+            if (i == 2) {
+                FrsTabViewController.i I = this.b.s4().I(301);
+                if (I != null && (I.b instanceof FrsGoodFragment)) {
+                    this.c.b(301);
+                    ((FrsGoodFragment) I.b).C2(jx4Var);
+                }
+            } else if (jx4Var.getTabId() > 0) {
+                FrsTabViewController.i I2 = this.b.s4().I(jx4Var.getTabId());
+                if (I2 != null) {
+                    Fragment fragment = I2.b;
+                    if (fragment instanceof FrsCommonTabFragment) {
+                        ((FrsCommonTabFragment) fragment).m2(jx4Var);
+                    } else if (fragment instanceof FrsTabWebFragment) {
+                        ((FrsTabWebFragment) fragment).C2(jx4Var, jSONObject);
+                    } else if (fragment instanceof NewFrsTabWebFragment) {
+                        ((NewFrsTabWebFragment) fragment).B2(jx4Var, jSONObject);
+                    }
+                }
+            } else {
+                if (!ListUtils.isEmpty(jx4Var.getItemStar())) {
+                    jx4Var.insertItemToTitleOrAbstractText();
+                }
+                FrsTabViewController.i I3 = this.b.s4().I(this.b.s4().E());
+                if (I3 != null) {
+                    Fragment fragment2 = I3.b;
+                    if (fragment2 instanceof FrsNewAreaFragment) {
+                        c(jx4Var, (FrsNewAreaFragment) fragment2);
+                    } else {
+                        d(jx4Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public void j(PostWriteCallBackData postWriteCallBackData) {
+        FrsModelController frsModelController;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, postWriteCallBackData) != null) || (frsModelController = this.e) == null) {
+            return;
+        }
+        int i = 0;
+        if (frsModelController.v0() != null && this.e.v0().getIsBrandForum()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        int i0 = this.e.i0();
+        int i2 = 2;
+        if (i0 != 2 && i0 != 3 && i0 != 7 && i0 != 8 && !z) {
+            return;
+        }
+        int n0 = this.e.n0();
+        if (sd7.a().b(1) != null) {
+            i = n0;
+        }
+        if (i == 0 && postWriteCallBackData != null) {
+            long j = JavaTypesHelper.toLong(postWriteCallBackData.getPostId(), 0L);
+            long j2 = JavaTypesHelper.toLong(postWriteCallBackData.getThreadId(), 0L);
+            long j3 = JavaTypesHelper.toLong(this.b.w(), 0L);
+            if (j != 0 && j2 != 0 && j3 != 0) {
+                SafeHandler.getInst().postDelayed(new d(this, j2, j, j3), 1000L);
+                return;
+            }
+            WriteData writeData = postWriteCallBackData.writeDataForVideo;
+            if (writeData != null) {
+                jx4 jx4Var = new jx4();
+                jx4Var.parseFromWriteData(writeData);
+                JSONObject jSONObject = new JSONObject();
+                String forumId = writeData.getForumId();
+                String threadId = writeData.getThreadId();
+                String repostId = writeData.getRepostId();
+                if (!TbImageHelper.getInstance().isShowBigImage()) {
+                    i2 = 1;
+                }
+                f(jSONObject, forumId, threadId, repostId, i2, "", "0");
+                i(jx4Var, -1, jSONObject);
+            }
+        }
     }
 }

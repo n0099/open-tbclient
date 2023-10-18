@@ -1,38 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes8.dex */
-public class y97 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public boolean d;
-    public double e;
-    public double f;
-    public String g;
-    public List<z97> h;
-    public List<ea7> i;
+public interface y97 {
+    void a(z97 z97Var);
 
-    public y97() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.i = new ArrayList();
-    }
+    void b(DownloadData downloadData, z97 z97Var);
+
+    boolean c(DownloadData downloadData, z97 z97Var);
+
+    void d(DownloadData downloadData);
+
+    int e(DownloadData downloadData);
+
+    void f(DownloadData downloadData);
+
+    int g(DownloadData downloadData);
+
+    String h(DownloadData downloadData);
+
+    void i(z97 z97Var);
 }

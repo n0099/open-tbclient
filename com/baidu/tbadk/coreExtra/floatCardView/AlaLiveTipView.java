@@ -51,10 +51,10 @@ import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
 import com.baidu.tbadk.switchs.GifLibrarySwitch;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e95;
-import com.baidu.tieba.f95;
-import com.baidu.tieba.m9;
-import com.baidu.tieba.pe5;
+import com.baidu.tieba.k4;
+import com.baidu.tieba.m35;
+import com.baidu.tieba.n35;
+import com.baidu.tieba.x85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,7 +70,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaLiveTipView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     public boolean y;
     public AnimatorSet z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +155,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +190,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -233,7 +233,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -265,12 +265,12 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728 && !customResponsedMessage.hasError() && customResponsedMessage.getError() == 0) {
-                this.a.setData(e95.a().b, e95.a().c(this.a.n), false);
+                this.a.setData(m35.a().b, m35.a().c(this.a.n), false);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -302,12 +302,12 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921733 && this.a.n == 2) {
-                this.a.setData(e95.a().b, e95.a().c(this.a.n), false);
+                this.a.setData(m35.a().b, m35.a().c(this.a.n), false);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -344,7 +344,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements RequestListener<Drawable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -393,7 +393,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -428,7 +428,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class i extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -462,7 +462,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class j extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -498,7 +498,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class k implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -540,7 +540,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class l implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -575,7 +575,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class m implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -614,7 +614,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class n implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -653,7 +653,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class o implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -742,7 +742,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                     this.d.post(new o(this, null));
                 }
                 if (this.e.getVisibility() == 0) {
-                    f95.b().f(LiveRemindConfig.Scene.LIVE_BUBBLE);
+                    n35.b().f(LiveRemindConfig.Scene.LIVE_BUBBLE);
                     f0();
                     return;
                 }
@@ -853,20 +853,20 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             this.m = liveRemindRecommendData;
             this.y = z;
             if (liveRemindNormalConfigData == null) {
-                Z(true);
+                a0(true);
             } else if (liveRemindRecommendData != null && !I(liveRemindRecommendData)) {
                 this.q = this.m.getDisappearType();
                 this.p = this.m.getDisappearSecond() * 1000;
                 this.g.setText(this.m.getDesc());
                 O(false);
-                if (f95.b().j(LiveRemindConfig.Scene.LIVE_BUBBLE)) {
+                if (n35.b().j(LiveRemindConfig.Scene.LIVE_BUBBLE)) {
                     h0(true);
                     b0();
                 } else if (this.y) {
                     d0();
                 }
             } else {
-                Z(false);
+                a0(false);
             }
         }
     }
@@ -923,14 +923,14 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             if (GifLibrarySwitch.getIsOn()) {
-                X(z);
-            } else {
                 Y(z);
+            } else {
+                Z(z);
             }
         }
     }
 
-    public final void X(boolean z) {
+    public final void Y(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZ(1048599, this, z) != null) || (imageView = this.k) == null) {
@@ -947,7 +947,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public final void Z(boolean z) {
+    public final void a0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             O(z);
@@ -1065,7 +1065,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             LiveRemindNormalConfigData liveRemindNormalConfigData = this.l;
             if (liveRemindNormalConfigData != null && !StringUtils.isNull(liveRemindNormalConfigData.getNormalIconScheme())) {
-                y(pe5.a(this.l.getNormalIconScheme(), this.n));
+                y(x85.a(this.l.getNormalIconScheme(), this.n));
             } else {
                 y("");
             }
@@ -1206,7 +1206,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                 L();
                 return;
             }
-            String b2 = pe5.b(liveRemindRecommendData);
+            String b2 = x85.b(liveRemindRecommendData);
             if (StringUtils.isNull(b2)) {
                 y("");
             } else {
@@ -1229,7 +1229,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.B = true;
             if (this.D) {
-                X(false);
+                Y(false);
             }
             if (this.C && (tBLottieAnimationView = this.d) != null) {
                 tBLottieAnimationView.playAnimation();
@@ -1296,7 +1296,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             super.onAttachedToWindow();
-            setData(e95.a().b, e95.a().c(this.n), true);
+            setData(m35.a().b, m35.a().c(this.n), true);
         }
     }
 
@@ -1384,7 +1384,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             if (J()) {
-                pe5.e();
+                x85.e();
             } else if (G()) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_YY_ENTRANCE_BIGPIC_RECOMMON_CLICK);
                 statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
@@ -1439,7 +1439,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public final void Y(boolean z) {
+    public final void Z(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             if (z) {
@@ -1544,7 +1544,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048612, this, view2) != null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(m9.a(getContext()))) {
+        if ((interceptable != null && interceptable.invokeL(1048612, this, view2) != null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(k4.a(getContext()))) {
             return;
         }
         if (view2.getId() != R.id.ala_bubble_view && view2.getId() != R.id.ala_living_user_container) {

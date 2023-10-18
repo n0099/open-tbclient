@@ -6,6 +6,7 @@ import android.net.NetworkCapabilities;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.sdk.internal.cl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -169,7 +170,7 @@ public class n0 {
                     while (aliases.hasMoreElements()) {
                         c++;
                         X509Certificate x509Certificate = (X509Certificate) keyStore.getCertificate(aliases.nextElement());
-                        if (x509Certificate.getIssuerDN().getName().contains("2021") || x509Certificate.getIssuerDN().getName().contains("macbook") || x509Certificate.getIssuerDN().getName().contains("proxy") || x509Certificate.getIssuerDN().getName().contains("Proxy") || x509Certificate.getIssuerDN().getName().contains("local") || x509Certificate.getIssuerDN().getName().contains("github")) {
+                        if (x509Certificate.getIssuerDN().getName().contains("2021") || x509Certificate.getIssuerDN().getName().contains("macbook") || x509Certificate.getIssuerDN().getName().contains(cl.c) || x509Certificate.getIssuerDN().getName().contains("Proxy") || x509Certificate.getIssuerDN().getName().contains("local") || x509Certificate.getIssuerDN().getName().contains("github")) {
                             sb.append(x509Certificate.getIssuerDN().getName());
                             sb.append("|");
                         }

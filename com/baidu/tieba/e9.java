@@ -1,120 +1,148 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.m9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public class e9 {
+public abstract class e9<T> implements l9<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
-    public static e9 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public final f9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448302009, "Lcom/baidu/tieba/e9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448302009, "Lcom/baidu/tieba/e9;");
-        }
-    }
+    public abstract h9<T> i(String str);
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
+    public abstract void j(h9<T> h9Var);
 
-    public e9() {
+    public abstract void l(String str);
+
+    public abstract void m(String str);
+
+    public e9(f9 f9Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f9Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = f9Var;
+        this.a = z;
+    }
+
+    @Override // com.baidu.tieba.l9
+    public T a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            h9<T> k = k(str, str2);
+            if (k == null) {
+                return null;
+            }
+            return k.b;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.l9
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            l(h(str, str2));
         }
     }
 
-    public String c() {
+    @Override // com.baidu.tieba.l9
+    public m9.b<T> e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            h9<T> k = k(str, str2);
+            if (k == null) {
+                return null;
+            }
+            m9.b<T> bVar = new m9.b<>();
+            bVar.a = str2;
+            bVar.b = k.b;
+            long j = k.f;
+            bVar.c = k.d;
+            return bVar;
+        }
+        return (m9.b) invokeLL.objValue;
+    }
+
+    public String h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (this.a) {
+                return str + "@" + str2;
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.l9
+    public f9 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a.getString("abtest_sap_data", "");
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (f9) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.l9
+    public void f(String str, String str2, T t, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a.getString("abtest_sap_version", "");
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, t, Long.valueOf(j)}) == null) {
+            h9<T> h9Var = new h9<>();
+            h9Var.a = h(str, str2);
+            h9Var.c = str;
+            h9Var.f = j;
+            h9Var.b = t;
+            h9Var.e = System.currentTimeMillis();
+            h9Var.d = System.currentTimeMillis();
+            j(h9Var);
         }
-        return (String) invokeV.objValue;
     }
 
-    public Set<String> f() {
-        InterceptResult invokeV;
+    public h9<T> k(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new HashSet(a.getStringSet("abtest_switch_keys", new HashSet()));
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public static e9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (e9.class) {
-                if (b == null) {
-                    b = new e9();
-                    a = KVStorageFactory.getSharedPreferences("abtestCCS0527", 0);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            String h = h(str, str2);
+            h9<T> i = i(h);
+            if (i == null) {
+                BdLog.isDebugMode();
+                return null;
+            } else if (i.f < System.currentTimeMillis()) {
+                m(h);
+                BdLog.isDebugMode();
+                return null;
+            } else {
+                if (this.b.a()) {
+                    i.e = System.currentTimeMillis();
+                    j(i);
                 }
+                BdLog.isDebugMode();
+                return i;
             }
-            return b;
         }
-        return (e9) invokeV.objValue;
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            SharedPreferences sharedPreferences = a;
-            return sharedPreferences.getString("abtest_" + str, "");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            SharedPreferences.Editor edit = a.edit();
-            edit.putString("abtest_client_sample_version", str);
-            edit.apply();
-        }
+        return (h9) invokeLL.objValue;
     }
 }

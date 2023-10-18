@@ -1,109 +1,126 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
-import com.baidu.tieba.tbadkCore.data.WorksInfoData;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
 /* loaded from: classes6.dex */
-public final class i9a {
+public final class i9a implements kca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final p9a a;
+    public final n9a b;
+    public final q9a c;
+    public final o9a d;
+    public final j9a e;
+    public final l9a f;
+    public final k9a g;
+    public final HashMap<nca, HashMap<lca, nca>> h;
 
-    public static final ThreadData a(Map<String, String> map) {
-        InterceptResult invokeL;
+    public i9a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            ThreadData threadData = new ThreadData();
-            threadData.tid = map.get("thread_id");
-            threadData.setFid(JavaTypesHelper.toLong(map.get("forum_id"), 0L));
-            threadData.threadType = JavaTypesHelper.toInt(map.get("thread_type"), 0);
-            if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
-                WorksInfoData worksInfoData = new WorksInfoData();
-                worksInfoData.isWorks = true;
-                threadData.worksInfoData = worksInfoData;
-            }
-            threadData.tiebaPlusOrderId = map.get("tie_plus_order_id");
-            return threadData;
-        }
-        return (ThreadData) invokeL.objValue;
-    }
-
-    public static final void b(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            z78.f("c15195", a(map));
-        }
-    }
-
-    public static final void c(Map<String, String> map) {
-        int i;
-        int i2;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            String str = map.get("tie_plus_info");
-            if (str != null) {
-                if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
-                    i = 3;
-                } else if (!Intrinsics.areEqual(map.get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK) && !Intrinsics.areEqual(map.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK)) {
-                    i = 1;
-                } else {
-                    i = 2;
-                }
-                int i3 = 0;
-                try {
-                    jSONObject = new JSONObject(str);
-                    i2 = jSONObject.optInt(GameGuideConfigInfo.KEY_TARGET_TYPE);
-                } catch (Exception e) {
-                    e = e;
-                    i2 = 0;
-                }
-                try {
-                    i3 = jSONObject.optInt("jump_type");
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE).param("obj_locate", 1).param("obj_type", i).param(TiePlusStat.RichTextType.STAT_KEY, 1).param("t_obj", i2).param(TiePlusStat.LandingType.STAT_KEY, i3).param("tid", map.get("thread_id")).param(TiebaStatic.Params.FID_1, map.get("forum_id")).param("order_id", map.get("tie_plus_order_id")));
-                }
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE).param("obj_locate", 1).param("obj_type", i).param(TiePlusStat.RichTextType.STAT_KEY, 1).param("t_obj", i2).param(TiePlusStat.LandingType.STAT_KEY, i3).param("tid", map.get("thread_id")).param(TiebaStatic.Params.FID_1, map.get("forum_id")).param("order_id", map.get("tie_plus_order_id")));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new p9a();
+        this.b = new n9a();
+        this.c = new q9a();
+        this.d = new o9a();
+        new r9a();
+        this.e = new j9a();
+        this.f = new l9a();
+        new m9a();
+        this.g = new k9a();
+        this.h = MapsKt__MapsKt.hashMapOf(new Pair(a(), MapsKt__MapsKt.hashMapOf(new Pair(this.e, this.b))), new Pair(this.b, MapsKt__MapsKt.hashMapOf(new Pair(this.f, this.c))), new Pair(this.c, MapsKt__MapsKt.hashMapOf(new Pair(this.g, this.d))), new Pair(this.d, MapsKt__MapsKt.hashMapOf(new Pair(this.e, this.b))));
     }
 
-    public static final void d(Map<String, String> map) {
+    public final j9a b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            ThreadData threadData = new ThreadData();
-            threadData.tiePlusShowUrl = map.get("tie_plus_show_url");
-            threadData.tid = map.get("thread_id");
-            threadData.setFid(JavaTypesHelper.toLong(map.get("forum_id"), 0L));
-            threadData.threadType = JavaTypesHelper.toInt(map.get("thread_type"), 0);
-            if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
-                WorksInfoData worksInfoData = new WorksInfoData();
-                worksInfoData.isWorks = true;
-                threadData.worksInfoData = worksInfoData;
-            }
-            threadData.tiePlusMonitorClickUrl = map.get("tie_plus_monitor_show_url");
-            threadData.isTiebaPlusAdThread = true;
-            threadData.tiebaPlusOrderId = map.get("tie_plus_order_id");
-            threadData.tiebaPlusToken = map.get("tie_plus_token");
-            threadData.tiebaPlusExtraParam = map.get("tie_plus_extra_param");
-            z78.o(threadData, map.get("source"), JavaTypesHelper.toInt(map.get("position_from_1"), 0));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
+        return (j9a) invokeV.objValue;
+    }
+
+    public final n9a c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (n9a) invokeV.objValue;
+    }
+
+    public final o9a d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (o9a) invokeV.objValue;
+    }
+
+    public final k9a e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (k9a) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kca
+    /* renamed from: f */
+    public p9a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (p9a) invokeV.objValue;
+    }
+
+    public final l9a g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (l9a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kca
+    public HashMap<nca, HashMap<lca, nca>> getMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final q9a h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.c;
+        }
+        return (q9a) invokeV.objValue;
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.flutter.FlutterPluginManager;
-import com.baidu.tieba.sk;
+import com.baidu.tieba.pf;
 import com.baidu.tieba.wallet.WalletPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -90,7 +90,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     }
 
     @NonNull
-    public final TbSettingTextTipView O0() {
+    public final TbSettingTextTipView Q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -117,7 +117,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public final void N0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092106);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092111);
             this.e.add(LiveMediaPluginManager.BJH_PLUGIN_PKG_NAME);
             this.e.add("com.baidu.live.media.business");
             this.e.add("com.baidu.searchbox.livenps");
@@ -125,15 +125,16 @@ public class NpsPluginCenterActivity extends BaseActivity {
             this.e.add(WalletPluginManager.PLUGIN_PKG_NAME);
             this.e.add(FlutterPluginManager.PLUGIN_PKG_NAME);
             this.e.add(GameAssistNPSPluginManager.GAMEASSIST_PKG_NAME);
-            for (BundleInfo bundleInfo : sk.f().c()) {
+            this.e.add("com.baidu.tieba.plugin.sdkcode");
+            for (BundleInfo bundleInfo : pf.f().c()) {
                 if (this.e.contains(bundleInfo.getPackageName())) {
-                    TbSettingTextTipView O0 = O0();
-                    O0.setText(bundleInfo.getName());
-                    O0.setTip(String.valueOf(bundleInfo.getVersionCode()));
-                    this.d.add(O0);
-                    linearLayout.addView(O0);
+                    TbSettingTextTipView Q0 = Q0();
+                    Q0.setText(bundleInfo.getName());
+                    Q0.setTip(String.valueOf(bundleInfo.getVersionCode()));
+                    this.d.add(Q0);
+                    linearLayout.addView(Q0);
                     if (TbadkCoreApplication.getInst().isDebugMode()) {
-                        O0.setOnClickListener(new a(this, bundleInfo));
+                        Q0.setOnClickListener(new a(this, bundleInfo));
                     }
                 }
             }
@@ -163,7 +164,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0755);
+            setContentView(R.layout.obfuscated_res_0x7f0d0748);
             M0();
             N0();
         }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.action;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractEvent {
     public int uniqueId;
 

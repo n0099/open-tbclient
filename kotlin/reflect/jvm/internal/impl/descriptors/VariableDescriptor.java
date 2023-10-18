@@ -1,10 +1,10 @@
 package kotlin.reflect.jvm.internal.impl.descriptors;
 
 import kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public interface VariableDescriptor extends ValueDescriptor {
     /* renamed from: getCompileTimeInitializer */
-    ConstantValue<?> mo2103getCompileTimeInitializer();
+    ConstantValue<?> mo2102getCompileTimeInitializer();
 
     boolean isConst();
 

@@ -17,41 +17,41 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh7;
-import com.baidu.tieba.ch7;
 import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoHttpResponsedMessage;
 import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsedMessage;
-import com.baidu.tieba.gia;
-import com.baidu.tieba.hja;
-import com.baidu.tieba.i9;
+import com.baidu.tieba.g4;
+import com.baidu.tieba.ib7;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.im.settingcache.OfficialSettingCache;
+import com.baidu.tieba.kb7;
+import com.baidu.tieba.lb7;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.zg7;
+import com.baidu.tieba.wca;
+import com.baidu.tieba.xda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetLevelInfo.DataRes;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public ch7 c;
-    public zg7<TbTitleActivity> d;
+    public lb7 c;
+    public ib7<TbTitleActivity> d;
     public LikeModel e;
-    public zg7.c f;
+    public ib7.c f;
     public View.OnClickListener g;
     public NoNetworkView.b h;
-    public i9 i;
+    public g4 i;
 
     /* loaded from: classes5.dex */
-    public class a implements zg7.c {
+    public class a implements ib7.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbTitleActivity a;
@@ -74,27 +74,27 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             this.a = tbTitleActivity;
         }
 
-        @Override // com.baidu.tieba.zg7.c
+        @Override // com.baidu.tieba.ib7.c
         public void a(DataRes dataRes, boolean z, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
                 if (z) {
                     if (i == 0 && dataRes != null) {
-                        this.a.c.s();
-                        this.a.c.t();
+                        this.a.c.u();
+                        this.a.c.x();
                         this.a.c.g(dataRes);
-                        this.a.c.h(dataRes.level_info);
+                        this.a.c.t(dataRes.level_info);
                         return;
                     }
                     this.a.d.c(JavaTypesHelper.toInt(this.a.a, 0));
                 } else if (i == 0 && dataRes != null) {
-                    this.a.c.s();
-                    this.a.c.t();
+                    this.a.c.u();
+                    this.a.c.x();
                     this.a.c.g(dataRes);
-                    this.a.c.h(dataRes.level_info);
+                    this.a.c.t(dataRes.level_info);
                 } else {
-                    this.a.c.s();
-                    this.a.c.E(str);
+                    this.a.c.u();
+                    this.a.c.F(str);
                 }
             }
         }
@@ -127,13 +127,13 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f09247e || !this.a.checkUpIsLogin()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f092488 || !this.a.checkUpIsLogin()) {
                 return;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0e42);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0e4f);
             } else {
-                this.a.e.e0(this.a.b, this.a.a);
+                this.a.e.f0(this.a.b, this.a.a);
             }
         }
     }
@@ -207,20 +207,20 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void k(boolean z) {
+        public void l(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    this.a.c.D();
+                    this.a.c.E();
                     this.a.d.d(JavaTypesHelper.toInt(this.a.a, 0));
                 }
-                this.a.c.z(z);
+                this.a.c.B(z);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class e extends i9 {
+    public class e extends g4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbTitleActivity a;
@@ -243,19 +243,19 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             this.a = tbTitleActivity;
         }
 
-        @Override // com.baidu.tieba.i9
+        @Override // com.baidu.tieba.g4
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 boolean z = false;
                 if (obj != null && (obj instanceof LikeReturnData)) {
-                    gia.i().n(this.a.b, false);
+                    wca.i().n(this.a.b, false);
                     z = true;
                 }
                 if (z) {
                     TbadkCoreApplication.getInst().addLikeForum(this.a.b);
                     TbTitleActivity tbTitleActivity = this.a;
-                    tbTitleActivity.W0(true, tbTitleActivity.a);
+                    tbTitleActivity.Z0(true, tbTitleActivity.a);
                     LikeReturnData likeReturnData = (LikeReturnData) obj;
                     if (likeReturnData != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, likeReturnData));
@@ -300,7 +300,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            this.c.y(i);
+            this.c.A(i);
         }
     }
 
@@ -316,9 +316,9 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public final void V0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hja.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
-            hja.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
-            hja.b(2003007, bh7.class);
+            xda.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
+            xda.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
+            xda.b(2003007, kb7.class);
         }
     }
 
@@ -334,7 +334,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && BdNetTypeUtil.isNetWorkAvailable()) {
-            this.c.D();
+            this.c.E();
             this.d.d(JavaTypesHelper.toInt(this.a, 0));
         }
     }
@@ -355,7 +355,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         }
     }
 
-    public final void W0(boolean z, String str) {
+    public final void Z0(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
             new c(this, str, z).execute(new Void[0]);
@@ -368,11 +368,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            ch7 ch7Var = new ch7(this, this.g);
-            this.c = ch7Var;
-            ch7Var.C(this.h);
+            lb7 lb7Var = new lb7(this, this.g);
+            this.c = lb7Var;
+            lb7Var.D(this.h);
             U0();
-            this.d = new zg7<>(this.f, this);
+            this.d = new ib7<>(this.f, this);
             Intent intent = getIntent();
             if (intent != null) {
                 this.a = intent.getStringExtra("forumId");
@@ -380,11 +380,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             }
             if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
                 V0();
-                this.c.D();
+                this.c.E();
                 this.d.d(JavaTypesHelper.toInt(this.a, 0));
                 return;
             }
-            this.c.E("");
+            this.c.F("");
         }
     }
 }

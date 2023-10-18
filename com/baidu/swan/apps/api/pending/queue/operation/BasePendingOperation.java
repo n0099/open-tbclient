@@ -13,7 +13,7 @@ public abstract class BasePendingOperation implements Runnable {
         return "";
     }
 
-    public OperationType getType() {
+    public OperationType d() {
         return OperationType.OPERATION_TYPE_WORK_THREAD;
     }
 

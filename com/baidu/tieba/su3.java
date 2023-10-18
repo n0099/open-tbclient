@@ -1,189 +1,237 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.swan.bdtls.Certificate;
-import com.baidu.swan.bdtls.DH;
-import com.baidu.swan.bdtls.RSA;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ApplicationData;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ClientHello;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Extension;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Random;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ServerHello;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.api.IAdInterListener;
+import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.protobuf.ByteString;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class su3 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class su3 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String k = "ug_";
+    public static String l = "ug_business";
+    public static String m = "ctkey";
+    public static String n = "CTK";
+    public static String o = "sid_eid";
+    public static String p = "exps";
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public Context b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public qu3 i;
+    public String j;
 
-    public static ou3 a(ru3 ru3Var, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ru3Var, bArr)) == null) {
-            ou3 ou3Var = null;
-            if (ru3Var == null || bArr == null || bArr.length == 0) {
-                return null;
-            }
-            try {
-                if (bArr[0] != 2) {
-                    return null;
-                }
-                ou3 ou3Var2 = new ou3();
-                try {
-                    Bdtls$ServerHello parseFrom = Bdtls$ServerHello.parseFrom(Arrays.copyOfRange(bArr, 1, bArr.length));
-                    if (parseFrom == null) {
-                        return null;
-                    }
-                    ou3Var2.a(parseFrom);
-                    List<Bdtls$Extension> extensionsList = parseFrom.getExtensionsList();
-                    if (extensionsList == null) {
-                        return null;
-                    }
-                    for (Bdtls$Extension bdtls$Extension : extensionsList) {
-                        int type = bdtls$Extension.getType();
-                        byte[] byteArray = bdtls$Extension.getData().toByteArray();
-                        if (type == 0) {
-                            byte[] decrypt = RSA.decrypt(byteArray);
-                            int a = gu3.a(decrypt);
-                            byte[] dHSecretKey = DH.getDHSecretKey(a, ru3Var.d().intValue(), ru3Var.f().intValue());
-                            ru3Var.l(dHSecretKey);
-                            ru3Var.p(Integer.valueOf(a));
-                            if (cu3.a) {
-                                Log.d("BDTLS", "GroupId=" + ru3Var.d());
-                                Log.d("BDTLS", "client dh pubkey secret=" + ru3Var.f());
-                                Log.d("BDTLS", "client dh pubkey=" + ru3Var.e());
-                                Log.d("BDTLS", "server dh pubkey=" + a);
-                                Log.d("BDTLS", "server dh raw pubkey=" + gu3.d(decrypt));
-                                Log.d("BDTLS", "aeskey=" + gu3.d(dHSecretKey));
-                            }
-                        }
-                    }
-                    if (parseFrom.getSKR() == null) {
-                        return null;
-                    }
-                    Bdtls$ApplicationData.b newBuilder = Bdtls$ApplicationData.newBuilder();
-                    newBuilder.u(parseFrom.getSKR());
-                    Bdtls$ApplicationData build = newBuilder.build();
-                    ru3Var.t(build.toByteArray());
-                    if (ru3Var.c() == null) {
-                        return null;
-                    }
-                    long currentTimeMillis = (System.currentTimeMillis() / 1000) + parseFrom.getLifeTime();
-                    if (cu3.a) {
-                        Log.d("BDTLS", "liftTime=" + parseFrom.getLifeTime());
-                        Log.d("BDTLS", "expireTime=" + currentTimeMillis);
-                    }
-                    ru3Var.r(currentTimeMillis);
-                    if (parseFrom.getCipherSuite() != null) {
-                        ru3Var.q(parseFrom.getCipherSuite().toByteArray());
-                    }
-                    if (e53.c()) {
-                        new nu3().edit().putString("secretKey", Arrays.toString(ru3Var.c())).putString("sessionTicket", String.valueOf(build)).putLong("expireTime", currentTimeMillis).apply();
-                        return ou3Var2;
-                    }
-                    return ou3Var2;
-                } catch (Exception e) {
-                    e = e;
-                    ou3Var = ou3Var2;
-                    if (cu3.a) {
-                        e.printStackTrace();
-                        Log.d("BDTLS", "exception=" + e.getMessage());
-                    }
-                    return ou3Var;
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-        } else {
-            return (ou3) invokeLL.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948163864, "Lcom/baidu/tieba/su3;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948163864, "Lcom/baidu/tieba/su3;");
         }
     }
 
-    public static byte[] b(ru3 ru3Var, ou3 ou3Var) {
-        InterceptResult invokeLL;
-        byte[] encrypt;
+    public abstract HashMap<String, String> a();
+
+    public abstract String e();
+
+    public su3(Context context, qu3 qu3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ru3Var, ou3Var)) == null) {
-            if (ou3Var == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, qu3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
-            byte[] bArr = new byte[32];
-            new Random().nextBytes(bArr);
-            Bdtls$Random.b newBuilder = Bdtls$Random.newBuilder();
-            newBuilder.v(currentTimeMillis);
-            newBuilder.w(ByteString.copyFrom(bArr));
-            Bdtls$Random build = newBuilder.build();
-            int dHGroupId = DH.getDHGroupId();
-            int dHSecret = DH.getDHSecret();
-            int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
-            ru3Var.m(Integer.valueOf(dHGroupId));
-            ru3Var.o(Integer.valueOf(dHSecret));
-            ru3Var.n(Integer.valueOf(dHPublicKey));
-            byte[] g = gu3.g(dHPublicKey);
-            if (g == null || (encrypt = RSA.encrypt(g)) == null) {
-                return null;
-            }
-            byte[] bytes = mr4.a(Certificate.getSignature(nu2.c()), "", false).getBytes(StandardCharsets.UTF_8);
-            LinkedList linkedList = new LinkedList();
-            Bdtls$Extension.b newBuilder2 = Bdtls$Extension.newBuilder();
-            newBuilder2.v(0);
-            newBuilder2.u(ByteString.copyFrom(encrypt));
-            linkedList.offer(newBuilder2.build());
-            Bdtls$Extension.b newBuilder3 = Bdtls$Extension.newBuilder();
-            newBuilder3.v(1);
-            newBuilder3.u(ByteString.copyFrom(new byte[]{0}));
-            linkedList.offer(newBuilder3.build());
-            Bdtls$Extension.b newBuilder4 = Bdtls$Extension.newBuilder();
-            newBuilder4.v(2);
-            newBuilder4.u(ByteString.copyFrom(gu3.g(dHGroupId)));
-            linkedList.offer(newBuilder4.build());
-            Bdtls$Extension.b newBuilder5 = Bdtls$Extension.newBuilder();
-            newBuilder5.v(3);
-            newBuilder5.u(ByteString.copyFrom(bytes));
-            linkedList.offer(newBuilder5.build());
-            if (e53.c()) {
-                if (bv3.getContext() != null) {
-                    Bdtls$Extension.b newBuilder6 = Bdtls$Extension.newBuilder();
-                    newBuilder6.v(4);
-                    newBuilder6.u(ByteString.copyFrom(bv3.getContext().b().getBytes()));
-                    linkedList.offer(newBuilder6.build());
-                }
-                if (bv3.getContext() != null) {
-                    Bdtls$Extension.b newBuilder7 = Bdtls$Extension.newBuilder();
-                    newBuilder7.v(5);
-                    newBuilder7.u(ByteString.copyFrom(hr4.f().getBytes()));
-                    linkedList.offer(newBuilder7.build());
-                }
-            }
-            if (cu3.a) {
-                Log.d("BDTLS", "groupId encode=" + dHGroupId);
-                Log.d("BDTLS", "secretC encode=" + dHSecret);
-                Log.d("BDTLS", "pubKey encode=" + dHPublicKey);
-                Log.d("BDTLS", "signature encode=" + new String(bytes));
-            }
-            Bdtls$ClientHello.b newBuilder8 = Bdtls$ClientHello.newBuilder();
-            Iterator it = linkedList.iterator();
-            while (it.hasNext()) {
-                newBuilder8.m((Bdtls$Extension) it.next());
-            }
-            newBuilder8.B(build);
-            newBuilder8.l(ByteString.copyFrom(du3.c));
-            byte[] byteArray = newBuilder8.build().toByteArray();
-            ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
-            allocate.put((byte) 1);
-            allocate.put(byteArray);
-            return allocate.array();
         }
-        return (byte[]) invokeLL.objValue;
+        this.a = "https://mobads.baidu.com/cpro/ui/mads.php";
+        this.f = "1";
+        this.g = "2";
+        this.h = "8.800201";
+        this.b = context;
+        this.i = qu3Var;
+        if (qu3Var != null) {
+            this.c = qu3Var.b();
+            this.d = this.i.e();
+            this.e = this.i.g();
+        }
+        if (!iv3.o()) {
+            this.j = iv3.b();
+        }
+    }
+
+    public final HashMap<String, String> b() {
+        InterceptResult invokeV;
+        String str;
+        JSONArray optJSONArray;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            try {
+                hashMap.put("lw", String.valueOf(Math.round(iv3.i(this.b) / iv3.d(this.b))));
+                hashMap.put(MultiRatePlayUrlHelper.ABBR_FLV_HEVC_LIST, String.valueOf(Math.round(iv3.h(this.b) / iv3.d(this.b))));
+                StringBuilder sb = new StringBuilder();
+                sb.append("");
+                sb.append(NetworkUtils.c(false));
+                hashMap.put("net", sb.toString());
+                hashMap.put("n", this.f);
+                hashMap.put(PushConstants.URI_PACKAGE_NAME, this.e);
+                hashMap.put("appid", this.d);
+                hashMap.put(TbConfig.SW_APID, "" + iv3.i(this.b));
+                hashMap.put("sh", "" + iv3.h(this.b));
+                hashMap.put(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, "" + f());
+                hashMap.put("os", "android");
+                hashMap.put("pa", hu3.b().c());
+                hashMap.put(IAdInterListener.AdReqParam.APID, "" + this.c);
+                hashMap.put("chid", "0");
+                String m2 = hu3.b().m();
+                if (m2.equals("0")) {
+                    m2 = "";
+                }
+                hashMap.put("imei", m2);
+                hashMap.put("cuid", hu3.b().e());
+                hashMap.put("osv", iv3.f());
+                hashMap.put("tp", iv3.e());
+                hashMap.put("app_ver", iv3.l());
+                String c = iv3.c(d(), "BAIDUID");
+                if (TextUtils.isEmpty(c) || c.split(":").length <= 0) {
+                    str = "";
+                } else {
+                    str = c.split(":")[0];
+                }
+                hashMap.put("baiduid", str);
+                hashMap.put("p_ver", this.h);
+                hashMap.put("rpt", this.g);
+                hashMap.put("tab", "2");
+                hashMap.put("req_id", "");
+                hashMap.put("scene", hu3.b().getScene());
+                String e = e();
+                hashMap.put(p, e);
+                hashMap.put(TiebaStatic.Params.EQID, hu3.b().g());
+                JSONObject n2 = hu3.b().n();
+                if (n2 != null) {
+                    if (n2.has(l) && (jSONObject = n2.getJSONObject(l)) != null) {
+                        Iterator<String> keys = jSONObject.keys();
+                        while (keys != null && keys.hasNext()) {
+                            String next = keys.next();
+                            if (!TextUtils.isEmpty(next)) {
+                                String optString = jSONObject.optString(next, "none");
+                                if (n.equals(next)) {
+                                    hashMap.put(m, optString);
+                                    this.j = optString;
+                                } else {
+                                    hashMap.put(k + next, optString);
+                                }
+                            }
+                        }
+                    }
+                    if (n2.has(o) && (optJSONArray = n2.optJSONArray(o)) != null && optJSONArray.length() > 0) {
+                        StringBuilder sb2 = new StringBuilder();
+                        if (!TextUtils.isEmpty(e)) {
+                            sb2.append(e + ",");
+                        }
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            String optString2 = optJSONArray.optString(i);
+                            if (!TextUtils.isEmpty(optString2)) {
+                                sb2.append(optString2);
+                                if (i >= 0 && i < optJSONArray.length() - 1) {
+                                    sb2.append(",");
+                                }
+                            }
+                        }
+                        if (sb2.length() > 0) {
+                            hashMap.put(p, sb2.toString());
+                        }
+                    }
+                }
+                if (!hashMap.containsKey(n) && !TextUtils.isEmpty(this.j)) {
+                    hashMap.put(n, this.j);
+                }
+                hashMap.put("con_name", hu3.b().a());
+            } catch (Exception unused) {
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return hu3.b().f(".baidu.com");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                String m2 = hu3.b().m();
+                String e = NetworkUtils.e(this.b);
+                if (TextUtils.isEmpty(m2)) {
+                    return e;
+                }
+                return m2;
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            HashMap<String, String> b = b();
+            b.putAll(a());
+            return fv3.a(this.a, b);
+        }
+        return (String) invokeV.objValue;
     }
 }

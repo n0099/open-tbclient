@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ge8;
 import com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.oc8;
+import com.baidu.tieba.r88;
+import com.baidu.tieba.z68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +32,7 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
     public TextView h;
     public ImageView i;
     public RobotSkillItem j;
-    public ge8 k;
+    public r88 k;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -68,13 +68,13 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RobotSkillItemViewHolder(@NonNull View view2, ge8 ge8Var) {
+    public RobotSkillItemViewHolder(@NonNull View view2, r88 r88Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, ge8Var};
+            Object[] objArr = {view2, r88Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,12 +85,12 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.k = ge8Var;
-        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f99);
-        this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f97);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f9a);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f98);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f96);
+        this.k = r88Var;
+        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fa4);
+        this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fa2);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa5);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa3);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fa1);
         this.e.setOnClickListener(new a(this));
     }
 
@@ -112,10 +112,10 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
 
     @Override // com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder
     @SuppressLint({"ResourceAsColor"})
-    public void d(@NonNull oc8 oc8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull z68 z68Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oc8Var, tbPageContext, i) == null) && (oc8Var instanceof RobotSkillItem)) {
-            RobotSkillItem robotSkillItem = (RobotSkillItem) oc8Var;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z68Var, tbPageContext, i) == null) && (z68Var instanceof RobotSkillItem)) {
+            RobotSkillItem robotSkillItem = (RobotSkillItem) z68Var;
             this.j = robotSkillItem;
             if (!TextUtils.isEmpty(robotSkillItem.getSkillName())) {
                 TextView textView = this.g;
@@ -137,7 +137,7 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
                     this.i.setVisibility(8);
                 }
             }
-            l();
+            m();
         }
     }
 
@@ -149,7 +149,7 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
         }
     }
 
-    public void l() {
+    public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             EMManager.from(this.g).setTextSize(R.dimen.T_X06).setTextColor(R.color.CAM_X0105);

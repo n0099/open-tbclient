@@ -40,7 +40,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         en a;
         String packageName;
-        String m455a;
+        String m454a;
         int i;
         Intent intent = activity.getIntent();
         if (intent == null) {
@@ -55,17 +55,17 @@ public class a implements Application.ActivityLifecycleCallbacks {
         if (intExtra == 3000) {
             a = en.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m455a = em.m455a(intExtra);
+            m454a = em.m454a(intExtra);
             i = 3008;
         } else if (intExtra != 1000) {
             return;
         } else {
             a = en.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m455a = em.m455a(intExtra);
+            m454a = em.m454a(intExtra);
             i = 1008;
         }
-        a.a(packageName, m455a, stringExtra, i, null);
+        a.a(packageName, m454a, stringExtra, i, null);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

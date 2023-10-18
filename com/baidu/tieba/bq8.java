@@ -1,122 +1,142 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class bq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public long d;
-    public YyExtData e;
-    public String f;
-    public String g;
+    public BdTypeRecyclerView a;
+    public ArrayList<yh> b;
+    public List<lh> c;
+    public xp8 d;
+    public xp8 e;
+    public xp8 f;
+    public zp8 g;
+    public zp8 h;
+    public zp8 i;
 
-    public bq8() {
+    public bq8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new LinkedList();
+        if (tbPageContext != null && bdTypeRecyclerView != null) {
+            this.a = bdTypeRecyclerView;
+            b(tbPageContext);
+        }
+    }
+
+    public void a(int i) {
+        BdTypeRecyclerView bdTypeRecyclerView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bdTypeRecyclerView = this.a) != null) {
+            bdTypeRecyclerView.removeItem(i);
+        }
+    }
+
+    public void e(ii iiVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iiVar) == null) {
+            for (lh lhVar : this.c) {
+                if (lhVar != null) {
+                    lhVar.setOnAdapterItemClickListener(iiVar);
+                }
             }
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void f(ArrayList<yh> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
+            this.a.setData(arrayList);
+            this.b = arrayList;
         }
-        return invokeV.intValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void g(ji jiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jiVar) == null) {
+            for (lh lhVar : this.c) {
+                if (lhVar != null) {
+                    lhVar.setOnAdapterItemLongClickListener(jiVar);
+                }
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void h(bk6 bk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bk6Var) == null) {
+            this.i.x(bk6Var);
+            this.h.x(bk6Var);
+            this.g.x(bk6Var);
         }
-        return (String) invokeV.objValue;
     }
 
-    public long d() {
-        InterceptResult invokeV;
+    public final void b(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+            xp8 xp8Var = new xp8(tbPageContext, vp8.D);
+            this.d = xp8Var;
+            xp8Var.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
+            xp8 xp8Var2 = new xp8(tbPageContext, vp8.E);
+            this.e = xp8Var2;
+            xp8Var2.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
+            xp8 xp8Var3 = new xp8(tbPageContext, vp8.F);
+            this.f = xp8Var3;
+            xp8Var3.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
+            zp8 zp8Var = new zp8(tbPageContext, vp8.I);
+            this.g = zp8Var;
+            zp8Var.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
+            zp8 zp8Var2 = new zp8(tbPageContext, vp8.H);
+            this.h = zp8Var2;
+            zp8Var2.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
+            zp8 zp8Var3 = new zp8(tbPageContext, vp8.G);
+            this.i = zp8Var3;
+            zp8Var3.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.c.add(this.g);
+            this.c.add(this.h);
+            this.c.add(this.i);
+            this.c.add(this.f);
+            this.a.addAdapters(this.c);
         }
-        return invokeV.longValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.getAdapter().notifyDataSetChanged();
         }
-        return (String) invokeV.objValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (lh lhVar : this.c) {
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public YyExtData g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (YyExtData) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-        jSONObject.optLong("live_id");
-        this.b = jSONObject.optString("user_name");
-        jSONObject.optString("portrait");
-        this.c = jSONObject.optInt("audience_count");
-        jSONObject.optString("title");
-        this.d = jSONObject.optLong("room_id");
-        jSONObject.optString("cover_wide");
-        JSONObject optJSONObject = jSONObject.optJSONObject("yy_ext");
-        YyExtData yyExtData = new YyExtData();
-        this.e = yyExtData;
-        yyExtData.parserJson(optJSONObject);
-        this.f = jSONObject.optString("label_name");
-        jSONObject.optString("feed_id");
-        this.g = jSONObject.optString("user_id");
     }
 }

@@ -9,10 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eq4;
-import com.baidu.tieba.fq4;
-import com.baidu.tieba.gq4;
-import com.baidu.tieba.hq4;
+import com.baidu.tieba.mk4;
+import com.baidu.tieba.nk4;
+import com.baidu.tieba.ok4;
+import com.baidu.tieba.pk4;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.Set;
 public class TraceInfoActivity extends Activity implements View.OnClickListener {
     public TextView a;
     public Button b;
-    public List<eq4> c;
+    public List<mk4> c;
     public Set<String> d;
     public int e;
 
@@ -58,14 +58,14 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     }
 
     public final void e() {
-        for (eq4 eq4Var : this.c) {
-            this.d.add(eq4Var.f());
+        for (mk4 mk4Var : this.c) {
+            this.d.add(mk4Var.f());
         }
     }
 
     public final void g() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0926ad);
-        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092372);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0926b6);
+        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09237c);
         this.b = button;
         button.setOnClickListener(this);
         this.d = new HashSet();
@@ -77,8 +77,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        List<eq4> list;
-        if (view2.getId() == R.id.obfuscated_res_0x7f092372 && (list = this.c) != null && list.size() > 0) {
+        List<mk4> list;
+        if (view2.getId() == R.id.obfuscated_res_0x7f09237c && (list = this.c) != null && list.size() > 0) {
             d();
         }
     }
@@ -86,7 +86,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d005e);
+        setContentView(R.layout.obfuscated_res_0x7f0d005b);
         g();
         i();
     }
@@ -97,21 +97,21 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         this.e = i + 1;
         String str = (String) arrayList.get(i % arrayList.size());
         ArrayList arrayList2 = new ArrayList();
-        for (eq4 eq4Var : this.c) {
-            if (TextUtils.equals(eq4Var.f(), str)) {
-                arrayList2.add(eq4Var);
+        for (mk4 mk4Var : this.c) {
+            if (TextUtils.equals(mk4Var.f(), str)) {
+                arrayList2.add(mk4Var);
             }
         }
-        return hq4.c(arrayList2, null);
+        return pk4.c(arrayList2, null);
     }
 
     public final void i() {
-        gq4<List<eq4>> c = fq4.b().c();
+        ok4<List<mk4>> c = nk4.b().c();
         if (c == null) {
             this.a.setText("NO DATA");
             return;
         }
-        List<eq4> a2 = c.a();
+        List<mk4> a2 = c.a();
         if (a2 != null && a2.size() > 0) {
             this.c = a2;
             this.e = 0;

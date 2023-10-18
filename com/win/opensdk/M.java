@@ -20,6 +20,7 @@ import android.webkit.WebView;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -583,10 +584,10 @@ public class M {
                     str3 = "error!";
                     return str3.toUpperCase();
                 }
-                return "ERROR";
+                return bx.l;
             } catch (Exception e3) {
                 e3.printStackTrace();
-                return "ERROR";
+                return bx.l;
             }
         }
         return (String) invokeLLL.objValue;

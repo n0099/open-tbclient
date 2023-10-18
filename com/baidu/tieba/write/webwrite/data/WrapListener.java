@@ -2,8 +2,8 @@ package com.baidu.tieba.write.webwrite.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.hz4;
-import com.baidu.tieba.ym6;
+import com.baidu.tieba.hh6;
+import com.baidu.tieba.pt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\b&\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010\u0011\u001a\u00020\u0003J\u0006\u0010\u0012\u001a\u00020\u0005RA\u0010\u0007\u001a2\u0012\u0013\u0012\u00110\u0003¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b\u0012\u0013\u0012\u00110\f¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\r\u0012\u0004\u0012\u00020\u000e0\b¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u0010R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0013"}, d2 = {"Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "Lcom/baidu/tbadk/browser/utils/HybridNotifyManager$TargetWebViewListener;", "notificationKey", "", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "(Ljava/lang/String;Lcom/baidu/tieba/browser/TbWebView;)V", "dispatchTo", "Lkotlin/Function2;", "Lkotlin/ParameterName;", "name", "eventName", "Lorg/json/JSONObject;", "r", "", "getDispatchTo", "()Lkotlin/jvm/functions/Function2;", "getKey", "targetWebView", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public abstract class WrapListener implements hz4.e {
+public abstract class WrapListener implements pt4.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
@@ -81,13 +81,13 @@ public abstract class WrapListener implements hz4.e {
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e, r) == null) {
                     Intrinsics.checkNotNullParameter(e, "e");
                     Intrinsics.checkNotNullParameter(r, "r");
-                    ym6.a().i(this.this$0.b(), e, r);
+                    hh6.a().i(this.this$0.b(), e, r);
                 }
             }
         };
     }
 
-    @Override // com.baidu.tieba.hz4.e
+    @Override // com.baidu.tieba.pt4.e
     public final TbWebView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public abstract class WrapListener implements hz4.e {
         return (TbWebView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hz4.d
+    @Override // com.baidu.tieba.pt4.d
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

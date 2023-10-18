@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.down.manage.Download;
-import com.baidu.down.request.task.ProgressInfo;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.tieba.ze3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class v14 extends a24 {
+public class v14 extends x82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.x82
+    public int U() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,23 +41,52 @@ public class v14 extends a24 {
                 return;
             }
         }
-        d = qr1.a;
+        k = am1.a;
+    }
+
+    @Override // com.baidu.tieba.x82
+    public PMSDownloadType V() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return PMSDownloadType.SWAN_GAME_UPDATE_CORE;
+        }
+        return (PMSDownloadType) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.x82
+    public String W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return h92.f();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.x82
+    public String X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return h92.e();
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v14(int i) {
-        super("onSuccess", 0, f(null, i, false));
+    public v14(ik3<Exception> ik3Var) {
+        super(ik3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {ik3Var};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ik3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -55,133 +94,77 @@ public class v14 extends a24 {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v14(Download download) {
-        super("onSuccess", 0, f(d(download), -1, false));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v14(Download download, boolean z) {
-        super("onSuccess", 0, f(e(download, z), -1, false));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v14(boolean z) {
-        super("onSuccess", 0, f(null, -1, z));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static JSONObject d(Download download) {
+    @Override // com.baidu.tieba.x82
+    public ih3 b0(ke4 ke4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, download)) == null) {
-            return e(download, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ke4Var)) == null) {
+            if (ke4Var == null) {
+                ih3 ih3Var = new ih3();
+                ih3Var.k(14L);
+                ih3Var.b(2908L);
+                ih3Var.d("小游戏Extension包 Extension null");
+                return ih3Var;
+            }
+            vg2 vg2Var = new vg2();
+            vg2Var.b = ke4Var.i;
+            vg2Var.a = ke4Var.j;
+            vg2Var.c = ke4Var.a;
+            vg2Var.d = ke4Var.m;
+            boolean z = true;
+            if (yf2.b(1, vg2Var) != null) {
+                z = false;
+            }
+            if (z) {
+                if (k) {
+                    Log.i("SwanGameUpdateCore", "小游戏Extension包解压成功");
+                    return null;
+                }
+                return null;
+            }
+            ih3 ih3Var2 = new ih3();
+            ih3Var2.k(14L);
+            ih3Var2.b(2908L);
+            ih3Var2.d("小游戏Extension包更新失败");
+            return ih3Var2;
         }
-        return (JSONObject) invokeL.objValue;
+        return (ih3) invokeL.objValue;
     }
 
-    public static JSONObject e(Download download, boolean z) {
-        InterceptResult invokeLZ;
-        String str;
+    @Override // com.baidu.tieba.x82
+    public ih3 c0(me4 me4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, download, z)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (download == null) {
-                return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, me4Var)) == null) {
+            if (k) {
+                Log.d("SwanGameUpdateCore", "onFrameworkDownloadFinish framework = " + me4Var);
             }
-            try {
-                jSONObject.put("apkId", new o14(download).h());
-                jSONObject.put("downloadId", download.getId());
-                jSONObject.put("packageName", download.getKeyByUser());
-                jSONObject.put("url", download.getUrl());
-                if (z) {
-                    jSONObject.put("status", Download.DownloadState.CANCEL.ordinal());
-                } else {
-                    jSONObject.put("status", download.getState().ordinal());
-                }
-                jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, download.getCurrentbytes());
-                jSONObject.put("total", download.getTotalbytes());
-                if (p14.d(download)) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                jSONObject.put("fileExist", str);
-            } catch (JSONException e) {
-                if (d) {
-                    e.printStackTrace();
-                }
+            if (me4Var == null) {
+                ih3 ih3Var = new ih3();
+                ih3Var.k(13L);
+                ih3Var.b(2907L);
+                ih3Var.d("小游戏GameCore包 Framework null");
+                return ih3Var;
             }
-            return jSONObject;
+            ze3.b c = ze3.c(me4Var, 1);
+            sl4.k(me4Var.a);
+            if (c.c()) {
+                if (k) {
+                    Log.d("SwanGameUpdateCore", "小游戏GameCore解压成功");
+                }
+                long e = ze3.e(1);
+                if (e > 0) {
+                    SwanAppMessengerService.sendMessageWithDataToAllClient(117, e);
+                    return null;
+                }
+                return null;
+            }
+            ih3 ih3Var2 = new ih3();
+            ih3Var2.k(13L);
+            ih3Var2.b(2907L);
+            ih3Var2.d("小游戏GameCore包更新失败");
+            return ih3Var2;
         }
-        return (JSONObject) invokeLZ.objValue;
-    }
-
-    public static String f(Object obj, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{obj, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("data", obj);
-                if (i > -1) {
-                    jSONObject.put("progress", i);
-                }
-                jSONObject.put("installed", z);
-            } catch (JSONException e) {
-                if (d) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeCommon.objValue;
+        return (ih3) invokeL.objValue;
     }
 }

@@ -1,119 +1,49 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ud {
+public abstract class ud implements xe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile byte[] a;
+    public volatile boolean b;
 
-    public static final List<Object> a(wd wdVar, int i) {
-        InterceptResult invokeLI;
+    public abstract byte[] d();
+
+    public ud() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, wdVar, i)) == null) {
-            Class<?> a = wdVar.a();
-            if (a != List.class && a != ArrayList.class) {
-                if (a == LinkedList.class) {
-                    return new LinkedList();
-                }
-                Object h = dc.h(a, i);
-                if (h == null) {
-                    h = dc.g(a);
-                }
-                if (h instanceof List) {
-                    return (List) h;
-                }
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return new ArrayList(i);
         }
-        return (List) invokeLI.objValue;
+        this.a = null;
+        this.b = false;
     }
 
-    public static final Queue<Object> c(wd wdVar, int i) {
-        InterceptResult invokeLI;
+    public byte[] e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, wdVar, i)) == null) {
-            Class<?> a = wdVar.a();
-            if (a == Queue.class) {
-                return new LinkedList();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (!this.b) {
+                    this.b = true;
+                    this.a = d();
+                }
             }
-            Object h = dc.h(a, i);
-            if (h == null) {
-                h = dc.g(a);
-            }
-            if (h instanceof Queue) {
-                return (Queue) h;
-            }
-            return null;
+            return this.a;
         }
-        return (Queue) invokeLI.objValue;
-    }
-
-    public static final Set<Object> d(wd wdVar, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, wdVar, i)) == null) {
-            Class<?> a = wdVar.a();
-            if (a == Set.class) {
-                return new HashSet();
-            }
-            Object h = dc.h(a, i);
-            if (h == null) {
-                h = dc.g(a);
-            }
-            if (h instanceof Set) {
-                return (Set) h;
-            }
-            return null;
-        }
-        return (Set) invokeLI.objValue;
-    }
-
-    public static final Map<String, Object> b(wd wdVar, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, wdVar, i)) == null) {
-            Class<?> a = wdVar.a();
-            Type[] b = wdVar.b();
-            if (!dc.e(a, Map.class)) {
-                return null;
-            }
-            if (b != null && b.length >= 2 && b[0] == String.class) {
-                if (a == Map.class) {
-                    return new HashMap(i);
-                }
-                Object h = dc.h(a, i);
-                if (h == null) {
-                    h = dc.g(a);
-                }
-                if (!(h instanceof Map)) {
-                    return null;
-                }
-                return (Map) h;
-            } else if (a == Map.class) {
-                return new HashMap(i);
-            } else {
-                Object h2 = dc.h(a, i);
-                if (h2 == null) {
-                    h2 = dc.g(a);
-                }
-                if (!(h2 instanceof Map)) {
-                    return null;
-                }
-                return (Map) h2;
-            }
-        }
-        return (Map) invokeLI.objValue;
+        return (byte[]) invokeV.objValue;
     }
 }

@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebResourceResponse;
 import androidx.annotation.Nullable;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.searchbox.player.model.YYOption;
 import com.kwad.components.a.b.b;
 import com.kwad.components.a.b.c;
@@ -75,7 +76,7 @@ public final class b {
             hashMap.put(Headers.CONTENT_TYPE, str);
             hashMap.put("Date", bVar.PX.PV);
             hashMap.put("union-cache ", "1");
-            return new WebResourceResponse(bVar.PU, "", bVar.status, "OK", hashMap, inputStream);
+            return new WebResourceResponse(bVar.PU, "", bVar.status, bx.k, hashMap, inputStream);
         }
         return new WebResourceResponse(str, "UTF-8", inputStream);
     }

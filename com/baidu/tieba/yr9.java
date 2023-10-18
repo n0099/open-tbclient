@@ -1,238 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationManagerCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.pb.pb.main.pendantrecord.PbPendantRecordCacheModel;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class yr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public PbPendantRecordCacheModel b;
-    public boolean c;
-    public boolean d;
-    public String e;
-    public String f;
-    public ArrayList<mr9> g;
-    public long h;
-    public final CacheModel.CacheModelCallback<mr9> i;
 
-    /* loaded from: classes8.dex */
-    public class a implements CacheModel.CacheModelCallback<mr9> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yr9 a;
-
-        public a(yr9 yr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void a(View view2, jv4 jv4Var, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65536, null, view2, jv4Var, i) == null) && view2 != null && jv4Var != null && jv4Var.getThreadData() != null && !StringUtils.isNull(jv4Var.getThreadData().getTid())) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
+            statisticItem.param("obj_source", 3);
+            ThreadData threadData = jv4Var.getThreadData();
+            if (threadData.isBJHArticleThreadType()) {
+                statisticItem.param("obj_type", 1);
+            } else if (threadData.isBJHVideoThreadType()) {
+                statisticItem.param("obj_type", 2);
+            } else if (threadData.isBJHNormalThreadType()) {
+                statisticItem.param("obj_type", 3);
+            } else if (threadData.isBJHVideoDynamicThreadType()) {
+                statisticItem.param("obj_type", 4);
+            } else if (threadData.threadType == 0) {
+                statisticItem.param("obj_type", 5);
+            } else if (threadData.isVideoThreadType()) {
+                statisticItem.param("obj_type", 6);
             }
-            this.a = yr9Var;
-        }
-
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-        public void onCacheDataGet(ReadCacheRespMsg<List<mr9>> readCacheRespMsg, ReadCacheMessage<mr9> readCacheMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, readCacheRespMsg, readCacheMessage) == null) {
-                this.a.c = true;
-                if (readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
-                    this.a.g.clear();
-                    this.a.g.addAll(readCacheRespMsg.getData());
-                }
-                if (this.a.d) {
-                    this.a.d = false;
-                    if (!TextUtils.isEmpty(this.a.e) && !TextUtils.isEmpty(this.a.f)) {
-                        yr9 yr9Var = this.a;
-                        yr9Var.n(yr9Var.e, this.a.f);
-                        this.a.e = null;
-                        this.a.f = null;
-                    }
-                }
+            if (jv4Var.getThreadData().getAuthor() != null) {
+                statisticItem.param("uid", jv4Var.getThreadData().getAuthor().getUserId());
             }
-        }
-
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-        public void onCacheDataWrite(WriteCacheRespMsg<List<mr9>> writeCacheRespMsg, WriteCacheMessage<mr9> writeCacheMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) {
-                if (writeCacheMessage != null && writeCacheMessage.getData() != null) {
-                    this.a.j(writeCacheMessage.getData().getCacheKey(), writeCacheMessage.getData().b(), ListUtils.getCount(writeCacheMessage.getData().c()));
-                }
-                this.a.p();
+            if (threadData.getBaijiahaoData() != null) {
+                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
+            } else {
+                statisticItem.param("obj_id", threadData.getTid());
             }
+            statisticItem.param("obj_locate", i);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public yr9(TbPageContext tbPageContext) {
+    public static void b(jv4 jv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65537, null, jv4Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_SHOW);
+            ThreadData threadData = jv4Var.getThreadData();
+            if (threadData.isBJHArticleThreadType()) {
+                statisticItem.param("obj_type", 1);
+            } else if (threadData.isBJHVideoThreadType()) {
+                statisticItem.param("obj_type", 2);
+            } else if (threadData.isBJHNormalThreadType()) {
+                statisticItem.param("obj_type", 3);
+            } else if (threadData.isBJHVideoDynamicThreadType()) {
+                statisticItem.param("obj_type", 4);
+            } else if (threadData.threadType == 0) {
+                statisticItem.param("obj_type", 5);
+            } else if (threadData.isVideoThreadType()) {
+                statisticItem.param("obj_type", 6);
             }
-        }
-        this.c = false;
-        this.d = false;
-        this.g = new ArrayList<>();
-        this.h = 0L;
-        this.i = new a(this);
-        this.a = tbPageContext;
-    }
-
-    public final ArrayList<String> k(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(str);
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    @MainThread
-    public void q(@NonNull String str) {
-        PbPendantRecordCacheModel pbPendantRecordCacheModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || (pbPendantRecordCacheModel = this.b) == null) {
-            return;
-        }
-        pbPendantRecordCacheModel.addCache(new mr9(str, "", new ArrayList()));
-    }
-
-    public final void j(@NonNull String str, @NonNull String str2, int i) {
-        n3a g;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) && (g = o3a.e().g("pb_to_personalize")) != null && g.e() > 0 && o3a.e().b("pb_to_personalize") && i >= g.e()) {
-            nu6.b().b(new ll9(true, JavaTypesHelper.toLong(str2, 0L)));
-            if (this.a != null && !TextUtils.isEmpty(str)) {
-                String string = this.a.getResources().getString(R.string.push_tip_default_title);
-                String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1019, str);
-                g.h(string);
-                g.g(string2);
+            if (threadData.getBaijiahaoData() != null) {
+                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
+            } else {
+                statisticItem.param("obj_id", threadData.getTid());
             }
-            q(str);
-        }
-    }
-
-    @NonNull
-    public final ArrayList l(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (ListUtils.isEmpty(this.g)) {
-                this.g = new ArrayList<>();
-            }
-            Iterator<mr9> it = this.g.iterator();
-            while (it.hasNext()) {
-                mr9 next = it.next();
-                if (next != null && str.equals(next.a())) {
-                    ArrayList<String> c = next.c();
-                    if (next.d() < this.h) {
-                        c.clear();
-                        c.add(str2);
-                        return c;
-                    } else if (c.contains(str2)) {
-                        return c;
-                    } else {
-                        c.add(str2);
-                        return c;
-                    }
-                }
-            }
-            return k(str2);
-        }
-        return (ArrayList) invokeLL.objValue;
-    }
-
-    public yr9 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == null) {
-                PbPendantRecordCacheModel pbPendantRecordCacheModel = new PbPendantRecordCacheModel(this.a);
-                this.b = pbPendantRecordCacheModel;
-                pbPendantRecordCacheModel.setCallback(this.i);
-                this.h = UtilHelper.getTodayZeroTime();
-                p();
-            }
-            return this;
-        }
-        return (yr9) invokeV.objValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            TbPageContext tbPageContext = this.a;
-            if (tbPageContext != null && tbPageContext.getPageActivity() != null && NotificationManagerCompat.from(this.a.getPageActivity()).areNotificationsEnabled()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void p() {
-        PbPendantRecordCacheModel pbPendantRecordCacheModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (pbPendantRecordCacheModel = this.b) == null) {
-            return;
-        }
-        pbPendantRecordCacheModel.loadCache();
-    }
-
-    @MainThread
-    public void n(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.b != null && !TextUtils.isEmpty(str)) {
-            if (!this.c) {
-                this.d = true;
-                this.e = str;
-                this.f = str2;
-                p();
-                return;
-            }
-            this.b.addCache(new mr9(str, str2, l(str, str2)));
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
         }
     }
 }

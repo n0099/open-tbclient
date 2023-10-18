@@ -13,14 +13,14 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lia;
+import com.baidu.tieba.bda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FrsAdCommentScrollView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,11 +30,11 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrameLayout d;
     public Handler e;
     public ValueAnimator f;
-    public List<lia> g;
+    public List<bda> g;
     public int h;
     public Runnable i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -268,7 +268,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    public void m(List<lia> list) {
+    public void m(List<bda> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
@@ -290,13 +290,13 @@ public class FrsAdCommentScrollView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.g = new LinkedList();
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d034a, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090818);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091967);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090817);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0349, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090834);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091990);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090833);
             this.c = frameLayout;
             frameLayout.setTag(this.a);
-            FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091966);
+            FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09198f);
             this.d = frameLayout2;
             frameLayout2.setTag(this.b);
         }
@@ -324,26 +324,26 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void r() {
-        lia liaVar;
+        bda bdaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            lia liaVar2 = (lia) ListUtils.getItem(this.g, this.h);
+            bda bdaVar2 = (bda) ListUtils.getItem(this.g, this.h);
             if (this.h + 1 >= this.g.size()) {
-                liaVar = (lia) ListUtils.getItem(this.g, 0);
+                bdaVar = (bda) ListUtils.getItem(this.g, 0);
             } else {
-                liaVar = (lia) ListUtils.getItem(this.g, this.h + 1);
+                bdaVar = (bda) ListUtils.getItem(this.g, this.h + 1);
             }
-            if ((this.c.getTag() instanceof TextView) && liaVar2 != null) {
-                String a2 = liaVar2.a();
-                if (liaVar2.b()) {
-                    a2 = getContext().getString(R.string.obfuscated_res_0x7f0f0884, a2);
+            if ((this.c.getTag() instanceof TextView) && bdaVar2 != null) {
+                String a2 = bdaVar2.a();
+                if (bdaVar2.b()) {
+                    a2 = getContext().getString(R.string.obfuscated_res_0x7f0f088a, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
-            if ((this.d.getTag() instanceof TextView) && liaVar != null) {
-                String a3 = liaVar.a();
-                if (liaVar.b()) {
-                    a3 = getContext().getString(R.string.obfuscated_res_0x7f0f0884, a3);
+            if ((this.d.getTag() instanceof TextView) && bdaVar != null) {
+                String a3 = bdaVar.a();
+                if (bdaVar.b()) {
+                    a3 = getContext().getString(R.string.obfuscated_res_0x7f0f088a, a3);
                 }
                 ((TextView) this.d.getTag()).setText(a3);
             }

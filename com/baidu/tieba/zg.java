@@ -1,514 +1,112 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
-import com.baidu.adp.lib.stats.switchs.BdStatSwitchData;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.titan.sdk.internal.util.Files;
+import com.baidu.titan.sdk.loader.LoaderHead;
+import com.baidu.titan.sdk.loader.LoaderManager;
+import com.baidu.titan.sdk.pm.PatchInstallInfo;
+import com.baidu.titan.sdk.pm.PatchMetaInfo;
+import com.baidu.titan.sdk.pm.TitanPaths;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.ArrayList;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class zg {
+public class zg implements ug {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zg j;
-    public static final Handler k;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public Context d;
-    public c e;
-    public BdStatSwitchData f;
-    public ah g;
-    public b h;
-    public hi i;
-
-    /* loaded from: classes9.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes9.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                Object obj = message.obj;
-                if (obj instanceof BdUploadStatMsgData) {
-                    mh.i().r(((BdUploadStatMsgData) obj).parentType);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zg this$0;
-
-        public c(zg zgVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zgVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = zgVar;
-        }
-
-        public /* synthetic */ c(zg zgVar, a aVar) {
-            this(zgVar);
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Serializable serializableExtra;
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null) {
-                return;
-            }
-            String action = intent.getAction();
-            if ("com.baidu.adp.stats.background".equals(action)) {
-                BdStatisticsManager.getInstance().save();
-                if (this.this$0.a) {
-                    mh.i().f();
-                }
-            } else if ("com.baidu.adp.stats.switch".equals(action)) {
-                if (!this.this$0.a) {
-                    this.this$0.p();
-                    mh.i().s();
-                }
-            } else if ("com.baidu.adp.stats.updatecmd".equals(action) && !this.this$0.a && (serializableExtra = intent.getSerializableExtra("switchsCmdBrdMsg")) != null && (serializableExtra instanceof BdUploadStatMsgData)) {
-                BdUploadStatMsgData bdUploadStatMsgData = (BdUploadStatMsgData) serializableExtra;
-                if (bdUploadStatMsgData.parentType == null && bdUploadStatMsgData.childType == null) {
-                    return;
-                }
-                if (TextUtils.isEmpty(bdUploadStatMsgData.childType)) {
-                    str = bdUploadStatMsgData.parentType;
-                } else {
-                    str = bdUploadStatMsgData.childType;
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    this.this$0.f.putTmpSwitchConfData(str, bdUploadStatMsgData);
-                    this.this$0.l(bdUploadStatMsgData);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zg a;
-
-        public d(zg zgVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zgVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zgVar;
-        }
-
-        public /* synthetic */ d(zg zgVar, a aVar) {
-            this(zgVar);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public BdStatSwitchData doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                BdStatSwitchData bdStatSwitchData = new BdStatSwitchData();
-                if (this.a.g.a()) {
-                    bdStatSwitchData.parserJson(this.a.g.b);
-                }
-                this.a.b = false;
-                if (this.a.a) {
-                    zg zgVar = this.a;
-                    if (zgVar.t(zgVar.g.b)) {
-                        String w = this.a.w();
-                        if (!TextUtils.isEmpty(w) && !w.equals(this.a.g.b)) {
-                            this.a.b = true;
-                            bdStatSwitchData.parserJson(w);
-                            this.a.g.b(w);
-                        }
-                    }
-                }
-                return bdStatSwitchData;
-            }
-            return (BdStatSwitchData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(BdStatSwitchData bdStatSwitchData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdStatSwitchData) == null) {
-                super.onPostExecute(bdStatSwitchData);
-                if (bdStatSwitchData != null) {
-                    this.a.f = bdStatSwitchData;
-                    if (this.a.a && this.a.b && !BdBaseApplication.getInst().checkInterrupt()) {
-                        this.a.z();
-                        mh.i().s();
-                    }
-                    b bVar = this.a.h;
-                    if (bVar != null) {
-                        bVar.a();
-                    }
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448323616, "Lcom/baidu/tieba/zg;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448323616, "Lcom/baidu/tieba/zg;");
-                return;
-            }
-        }
-        k = new a(Looper.getMainLooper());
-    }
-
-    public static zg o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (j == null) {
-                synchronized (zg.class) {
-                    if (j == null) {
-                        j = new zg();
-                    }
-                }
-            }
-            return j;
-        }
-        return (zg) invokeV.objValue;
-    }
-
-    public void p() {
-        hi hiVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (hiVar = this.i) != null && hiVar.isAgreePrivacyPolicy()) {
-            d dVar = new d(this, null);
-            dVar.setPriority(4);
-            dVar.execute(new Object[0]);
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.a) {
-            Intent intent = new Intent("com.baidu.adp.stats.switch");
-            intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.d.sendBroadcast(intent);
-        }
-    }
 
     public zg() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = false;
-        this.c = null;
-        this.f = new BdStatSwitchData();
-        this.g = new ah();
-        this.h = null;
     }
 
-    public final String w() {
-        InterceptResult invokeV;
+    public JSONObject a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                qf g = new xf().g(this.c, 3, 30000, -1);
-                if (g != null) {
-                    return new String(g.i, "utf-8");
+                PatchInstallInfo currentPatchInfo = LoaderManager.getInstance().getCurrentPatchInfo();
+                if (currentPatchInfo != null) {
+                    jSONObject.put("info", PatchMetaInfo.createFromPatch(currentPatchInfo.getPatchFile()).toJson());
+                } else {
+                    jSONObject.put("error", "no-patch-loaded");
                 }
             } catch (Exception e) {
-                BdLog.e(e);
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void A(hi hiVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hiVar) == null) {
-            this.i = hiVar;
-        }
-    }
-
-    public ArrayList<String> n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return this.f.getChiledTypes(str);
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public boolean s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return this.f.isExactWriteFile(tg.g(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && System.currentTimeMillis() - this.g.a < 86400000) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void y(BdUploadStatMsgData bdUploadStatMsgData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, bdUploadStatMsgData) == null) && this.a) {
-            Intent intent = new Intent("com.baidu.adp.stats.updatecmd");
-            intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.d.sendBroadcast(intent);
-        }
-    }
-
-    public boolean B(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                return this.f.smallFlowUpload(tg.g(str), str2);
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public int m(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return i;
-            }
-            return this.f.geUploadCycle(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public int q(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return i;
-            }
-            return this.f.getMaxAlertCount(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public boolean u(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            return this.f.isUpload(tg.g(str), str2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean v(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            return this.f.isWrite(tg.g(str), str2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean x(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            return this.f.onlyWifiUpload(tg.g(str), str2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean k(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, bdUploadStatMsgData)) == null) {
-            if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || bdUploadStatMsgData == null) {
-                return false;
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                str = str2;
-            }
-            if (this.f.getTmpSwitchConfData(str) == null) {
-                this.f.putTmpSwitchConfData(str, bdUploadStatMsgData);
-                y(bdUploadStatMsgData);
-                l(bdUploadStatMsgData);
-                return true;
-            }
-            long j2 = bdUploadStatMsgData.deadLineTime;
-            if (0 == j2) {
-                this.f.rmTmpSwitchConfData(str);
-                return false;
-            } else if (0 >= j2) {
-                return false;
-            } else {
-                this.f.putTmpSwitchConfData(str, bdUploadStatMsgData);
-                y(bdUploadStatMsgData);
-                l(bdUploadStatMsgData);
-                return true;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void l(BdUploadStatMsgData bdUploadStatMsgData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUploadStatMsgData) == null) {
-            long currentTimeMillis = bdUploadStatMsgData.deadLineTime - System.currentTimeMillis();
-            if (currentTimeMillis < 0) {
-                return;
-            }
-            long j2 = currentTimeMillis - 3000;
-            if (j2 > 0) {
-                currentTimeMillis = j2;
-            }
-            Message obtainMessage = k.obtainMessage();
-            obtainMessage.what = 1;
-            obtainMessage.obj = bdUploadStatMsgData;
-            k.removeMessages(1);
-            k.sendMessageDelayed(obtainMessage, currentTimeMillis);
-        }
-    }
-
-    public void r(boolean z, String str, Context context, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), str, context, bVar}) == null) {
-            this.a = z;
-            this.c = str;
-            this.d = context;
-            try {
-                if (this.e == null && context != null && !BdBaseApplication.getInst().checkInterrupt()) {
-                    this.e = new c(this, null);
-                    IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction("com.baidu.adp.stats.background");
-                    intentFilter.addAction("com.baidu.adp.stats.switch");
-                    intentFilter.addAction("com.baidu.adp.stats.updatecmd");
-                    intentFilter.addAction("com.baidu.adp.stats.uploadallfile");
-                    this.d.registerReceiver(this.e, intentFilter);
+                try {
+                    jSONObject.put("error", Log.getStackTraceString(e));
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
-            } catch (Exception e) {
-                BdLog.e(e);
             }
-            this.h = bVar;
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                File headFile = TitanPaths.getHeadFile();
+                if (headFile.exists()) {
+                    String fileStringContent = Files.getFileStringContent(headFile);
+                    jSONObject2.put("head", new JSONObject(fileStringContent));
+                    LoaderHead createFromJson = LoaderHead.createFromJson(fileStringContent);
+                    if (createFromJson != null) {
+                        PatchMetaInfo createFromPatch = PatchMetaInfo.createFromPatch(new PatchInstallInfo(TitanPaths.getPatchDir(createFromJson.patchHash)).getPatchFile());
+                        if (createFromPatch == null) {
+                            jSONObject2.put("error", "patch file damage");
+                        } else {
+                            context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                            if (createFromPatch.versionInfo != null) {
+                                jSONObject2.put("info", createFromPatch.toJson());
+                            } else {
+                                jSONObject2.put("error", "version info dismiss");
+                            }
+                        }
+                    }
+                } else {
+                    jSONObject2.put("error", "no-patch-installed");
+                }
+            } catch (Exception e3) {
+                try {
+                    jSONObject2.put("error", Log.getStackTraceString(e3));
+                } catch (JSONException e4) {
+                    e4.printStackTrace();
+                }
+            }
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                ch d = ch.d();
+                d.g();
+                jSONObject3.put("info", d.k());
+            } catch (Exception e5) {
+                try {
+                    jSONObject3.put("error", Log.getStackTraceString(e5));
+                } catch (JSONException e6) {
+                    e6.printStackTrace();
+                }
+            }
+            JSONObject jSONObject4 = new JSONObject();
+            try {
+                jSONObject4.put("load", jSONObject);
+                jSONObject4.put("install", jSONObject2);
+                jSONObject4.put(StickerDataChangeType.UPDATE, jSONObject3);
+            } catch (JSONException e7) {
+                e7.printStackTrace();
+            }
+            return jSONObject4;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

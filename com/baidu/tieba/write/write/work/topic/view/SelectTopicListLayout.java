@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ec8;
-import com.baidu.tieba.hc8;
+import com.baidu.tieba.p68;
+import com.baidu.tieba.s68;
 import com.baidu.tieba.write.write.work.topic.fragment.VideoTopicListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -207,12 +207,12 @@ public class SelectTopicListLayout extends LinearLayout {
         b();
     }
 
-    public void a(ec8 ec8Var, ec8 ec8Var2, ec8 ec8Var3) {
+    public void a(p68 p68Var, p68 p68Var2, p68 p68Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, ec8Var, ec8Var2, ec8Var3) == null) {
-            if (ec8Var != null && !ListUtils.isEmpty(ec8Var.b())) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, p68Var, p68Var2, p68Var3) == null) {
+            if (p68Var != null && !ListUtils.isEmpty(p68Var.b())) {
                 this.a.setVisibility(0);
-                this.d.e(ec8Var.c());
+                this.d.e(p68Var.c());
             } else {
                 this.a.setVisibility(8);
             }
@@ -221,14 +221,14 @@ public class SelectTopicListLayout extends LinearLayout {
                     int i = fragmentTabStructure.type;
                     if (i == 1) {
                         VideoTopicListFragment videoTopicListFragment = (VideoTopicListFragment) fragmentTabStructure.frag;
-                        if (ec8Var3 != null && ec8Var3.c() != null) {
-                            hc8 hc8Var = new hc8("", 0L, false);
-                            hc8Var.n(true);
-                            ec8Var3.c().add(0, hc8Var);
+                        if (p68Var3 != null && p68Var3.c() != null) {
+                            s68 s68Var = new s68("", 0L, false);
+                            s68Var.n(true);
+                            p68Var3.c().add(0, s68Var);
                         }
-                        videoTopicListFragment.f2(ec8Var3);
+                        videoTopicListFragment.f2(p68Var3);
                     } else if (i == 2) {
-                        ((VideoTopicListFragment) fragmentTabStructure.frag).f2(ec8Var2);
+                        ((VideoTopicListFragment) fragmentTabStructure.frag).f2(p68Var2);
                     }
                 }
             }
@@ -238,12 +238,12 @@ public class SelectTopicListLayout extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08b4, this);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09162f);
-            this.d = (SelectTopicToolBar) findViewById(R.id.obfuscated_res_0x7f09265d);
-            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090774);
-            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f09266f);
-            this.c = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f092672);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08a6, this);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091649);
+            this.d = (SelectTopicToolBar) findViewById(R.id.obfuscated_res_0x7f092666);
+            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090791);
+            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f092678);
+            this.c = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f09267b);
             this.d.setmFromType(2);
             this.d.h(false);
             c();
@@ -260,7 +260,7 @@ public class SelectTopicListLayout extends LinearLayout {
             VideoTopicListFragment c2 = VideoTopicListFragment.c2();
             fragmentTabStructure.frag = c2;
             c2.setArguments(bundle);
-            fragmentTabStructure.text = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1373);
+            fragmentTabStructure.text = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1384);
             fragmentTabStructure.type = 1;
             this.f.add(fragmentTabStructure);
             Bundle bundle2 = new Bundle();
@@ -269,7 +269,7 @@ public class SelectTopicListLayout extends LinearLayout {
             VideoTopicListFragment c22 = VideoTopicListFragment.c2();
             fragmentTabStructure2.frag = c22;
             c22.setArguments(bundle2);
-            fragmentTabStructure2.text = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f136d);
+            fragmentTabStructure2.text = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f137e);
             fragmentTabStructure2.type = 2;
             this.f.add(fragmentTabStructure2);
             this.c.setOffscreenPageLimit(this.f.size());

@@ -1,65 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
 public final class z87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final boolean b;
-    public final m87 c;
 
-    public z87(long j, boolean z, m87 businessInfo) {
+    @JvmOverloads
+    public static final boolean a(View view2, Object obj, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z), businessInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, view2, obj, z)) == null) {
+            Intrinsics.checkNotNullParameter(view2, "<this>");
+            if (Intrinsics.areEqual(view2.getTag(R.id.obfuscated_res_0x7f092960), obj)) {
+                return true;
             }
+            if (z) {
+                view2.setTag(R.id.obfuscated_res_0x7f092960, obj);
+            }
+            return false;
         }
-        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-        this.a = j;
-        this.b = z;
-        this.c = businessInfo;
+        return invokeLLZ.booleanValue;
     }
 
-    public final long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+    public static /* synthetic */ boolean b(View view2, Object obj, boolean z, int i, Object obj2) {
+        if ((i & 2) != 0) {
+            z = true;
         }
-        return invokeV.longValue;
-    }
-
-    public final m87 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (m87) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
+        return a(view2, obj, z);
     }
 }

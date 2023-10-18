@@ -6,32 +6,32 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sg4;
-import com.baidu.tieba.tg4;
+import com.baidu.tieba.bb4;
+import com.baidu.tieba.cb4;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public Context a;
     public RecyclerView b;
-    public List<tg4> c;
-    public sg4 d;
+    public List<cb4> c;
+    public bb4 d;
     public boolean e;
     public String f;
 
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, sg4 sg4Var) {
-        this(context, recyclerView, sg4Var, true);
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, bb4 bb4Var) {
+        this(context, recyclerView, bb4Var, true);
     }
 
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, sg4 sg4Var, boolean z) {
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, bb4 bb4Var, boolean z) {
         this.b = recyclerView;
         this.a = context;
-        this.d = sg4Var;
+        this.d = bb4Var;
         this.e = z;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        List<tg4> list = this.c;
+        List<cb4> list = this.c;
         if (list == null) {
             return 0;
         }
@@ -51,8 +51,8 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     public void n() {
-        for (tg4 tg4Var : this.c) {
-            tg4Var.b = false;
+        for (cb4 cb4Var : this.c) {
+            cb4Var.b = false;
         }
     }
 
@@ -64,11 +64,11 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return 101;
     }
 
-    public void setData(List<tg4> list) {
+    public void setData(List<cb4> list) {
         o(list, null);
     }
 
-    public void o(List<tg4> list, String str) {
+    public void o(List<cb4> list, String str) {
         if (list != null) {
             this.c = list;
             this.f = str;
@@ -79,7 +79,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         if (viewHolder.getItemViewType() != 101) {
-            ((LocationDetailViewHolder) viewHolder).update(this.c.get(i), this.f, l());
+            ((LocationDetailViewHolder) viewHolder).c(this.c.get(i), this.f, l());
         } else {
             ((LocationFooterViewHolder) viewHolder).b(m());
         }
@@ -88,8 +88,8 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         if (i != 101) {
-            return new LocationDetailViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d008f, viewGroup, false), this, this.d);
+            return new LocationDetailViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d008c, viewGroup, false), this, this.d);
         }
-        return new LocationFooterViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d008e, viewGroup, false));
+        return new LocationFooterViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d008b, viewGroup, false));
     }
 }

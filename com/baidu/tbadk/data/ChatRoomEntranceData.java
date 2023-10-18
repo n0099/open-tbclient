@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Loop.ChatroomFrsRes;
 import tbclient.Loop.ChatroomList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChatRoomEntranceData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2669260759526247252L;

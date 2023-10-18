@@ -1,0 +1,99 @@
+package com.baidu.tieba;
+
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.tieba.im.under.common.tag.item.AbilityTagItemViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.AddEmojiPendantVH;
+import com.baidu.tieba.im.under.common.tag.item.ElementFileItemViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.ElementItemViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.EmojiReplyPendantVH;
+import com.baidu.tieba.im.under.common.tag.item.SkillIconViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.SkillTagItemViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.TagItemViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.TagSugItemViewHolder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class vh8 extends x98 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public BotsDTO.BotListDTO.SkillDTO d;
+    @Nullable
+    public BotsDTO.BotListDTO.UserDTO e;
+
+    public vh8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.x98
+    public BaseTagItemViewHolder b(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (i == ki8.b) {
+                return new TagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0962, viewGroup, false), this.a);
+            }
+            if (i == aa8.d) {
+                return new ElementItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d095f, viewGroup, false), this.a);
+            }
+            if (i == ji8.c) {
+                return new SkillTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c7, viewGroup, false), this.a);
+            }
+            if (i == ii8.a) {
+                return new SkillIconViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c6, viewGroup, false), this.a);
+            }
+            if (i == ba8.f) {
+                return new ElementFileItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0961, viewGroup, false), this.a);
+            }
+            if (i == di8.e) {
+                return new AbilityTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d095e, viewGroup, false), this.b, this.c);
+            }
+            if (i == li8.b) {
+                TagSugItemViewHolder tagSugItemViewHolder = new TagSugItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d095f, viewGroup, false), this.a, this.c);
+                tagSugItemViewHolder.p(this.d);
+                tagSugItemViewHolder.s(this.e);
+                return tagSugItemViewHolder;
+            } else if (i == gi8.d) {
+                return new EmojiReplyPendantVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0520, viewGroup, false), this.b);
+            } else {
+                if (i == ei8.b) {
+                    return new AddEmojiPendantVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0520, viewGroup, false), this.b);
+                }
+                return null;
+            }
+        }
+        return (BaseTagItemViewHolder) invokeLI.objValue;
+    }
+
+    public void e(@Nullable BotsDTO.BotListDTO.SkillDTO skillDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, skillDTO) == null) {
+            this.d = skillDTO;
+        }
+    }
+
+    public void f(@Nullable BotsDTO.BotListDTO.UserDTO userDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, userDTO) == null) {
+            this.e = userDTO;
+        }
+    }
+}

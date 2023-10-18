@@ -57,13 +57,13 @@ public final class PopActionChatAdapter extends RecyclerView.Adapter<ViewHolder>
                 }
             }
             Intrinsics.checkNotNullParameter(view2, "view");
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091cf3);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091d1b);
             Intrinsics.checkNotNullExpressionValue(findViewById, "view.findViewById(R.id.pop_item_root)");
             this.a = (ViewGroup) findViewById;
-            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f091cf2);
+            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f091d1a);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "view.findViewById(R.id.pop_item_image)");
             this.b = (ImageView) findViewById2;
-            View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f091cf1);
+            View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f091d19);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "view.findViewById(R.id.pop_item_content)");
             this.c = (TextView) findViewById3;
             EMManager.from(this.a).setBackGroundColor(R.color.CAM_X0208);
@@ -115,7 +115,7 @@ public final class PopActionChatAdapter extends RecyclerView.Adapter<ViewHolder>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parent, i)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
-            View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0637, parent, false);
+            View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0629, parent, false);
             Intrinsics.checkNotNullExpressionValue(view2, "view");
             return new ViewHolder(this, view2);
         }

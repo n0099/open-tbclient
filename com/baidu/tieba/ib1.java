@@ -1,116 +1,163 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ib1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int a = 3072;
-    public static final ib1 b;
+public class ib1 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947847633, "Lcom/baidu/tieba/ib1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947847633, "Lcom/baidu/tieba/ib1;");
-                return;
-            }
-        }
-        b = new ib1();
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ac1 a;
 
-    public ib1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+        /* renamed from: com.baidu.tieba.ib1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0330a extends ac1 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ JSONArray a;
+            public final /* synthetic */ a b;
 
-    @JvmStatic
-    public static final void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65538, null, str, str2) != null) || str == null) {
-            return;
-        }
-        if (str2 == null) {
-            if (jb1.a()) {
-                Log.d("NadBrowser@DEBUG@" + str, " >>>>>>>> " + str2);
-            }
-        } else if (jb1.a()) {
-            if (str2.length() <= a) {
-                Log.d("NadBrowser@DEBUG@" + str, " >>>>>>>> " + str2);
-                return;
-            }
-            String str3 = str2;
-            while (true) {
-                int length = str3.length();
-                int i = a;
-                if (length > i) {
-                    if (str3 != null) {
-                        String substring = str3.substring(0, i);
-                        Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                        str3 = StringsKt__StringsJVMKt.replace$default(str3, substring, "", false, 4, (Object) null);
-                        Log.d("NadBrowser@DEBUG@" + str, " >>>>>>>> " + substring);
-                    } else {
-                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+            public C0330a(a aVar, JSONArray jSONArray) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, jSONArray};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
-                } else {
-                    return;
+                }
+                this.b = aVar;
+                this.a = jSONArray;
+            }
+
+            @Override // com.baidu.tieba.ac1
+            public void a(int i, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                    ac1 ac1Var = this.b.a;
+                    if (ac1Var != null) {
+                        ac1Var.a(i, str);
+                    }
+                    if (i == 1) {
+                        ib1.e(this.a);
+                    }
                 }
             }
         }
-    }
 
-    @JvmStatic
-    public static final void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && jb1.a()) {
-            Log.e("NadBrowser@ERROR@" + str, "printLog: >>>>>>>> " + str2);
+        public a(ac1 ac1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ac1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ac1Var;
         }
-    }
 
-    @JvmStatic
-    public static final void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) && context != null && jb1.a()) {
-            Toast.makeText(context, str, 0).show();
-        }
-    }
-
-    @JvmStatic
-    public static final void d(Exception exception) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, exception) == null) {
-            Intrinsics.checkNotNullParameter(exception, "exception");
-            if (!jb1.a()) {
+        @Override // java.lang.Runnable
+        public void run() {
+            JSONArray a;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (a = ib1.a()) == null) {
                 return;
             }
-            throw exception;
+            eb1.d(a, new C0330a(this, a));
+        }
+    }
+
+    public static /* synthetic */ JSONArray a() {
+        return c();
+    }
+
+    public static void f(ac1 ac1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, ac1Var) == null) {
+            hc1.a(new a(ac1Var));
+        }
+    }
+
+    public static synchronized JSONArray c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (ib1.class) {
+                File file = new File(tc1.a().getFilesDir(), "poly_cashier_commission_record_cache.json");
+                JSONArray jSONArray = null;
+                if (!file.exists()) {
+                    return null;
+                }
+                try {
+                    JSONArray jSONArray2 = new JSONArray(nc1.b(file));
+                    try {
+                        file.delete();
+                    } catch (JSONException unused) {
+                    }
+                    jSONArray = jSONArray2;
+                } catch (JSONException unused2) {
+                }
+                return jSONArray;
+            }
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public static void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONObject.put("operateTime", String.valueOf(System.currentTimeMillis() / 1000));
+        } catch (JSONException unused) {
+        }
+        JSONArray c = c();
+        if (c == null) {
+            c = new JSONArray();
+        }
+        c.put(jSONObject);
+        if (c.length() > 100) {
+            c.remove(0);
+        }
+        e(c);
+    }
+
+    public static synchronized void e(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray) == null) {
+            synchronized (ib1.class) {
+                if (jSONArray != null) {
+                    if (jSONArray.length() != 0) {
+                        nc1.d(jSONArray.toString(), new File(tc1.a().getFilesDir(), "poly_cashier_commission_record_cache.json"));
+                    }
+                }
+            }
         }
     }
 }

@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class r51 {
+public final class r51 {
     public static /* synthetic */ Interceptable $ic;
-    public static o51 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,35 +27,14 @@ public class r51 {
         }
     }
 
-    public r51() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static o51 a() {
+    @JvmStatic
+    public static final o51 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (r51.class) {
-                    if (a == null) {
-                        a = (o51) ServiceManager.getService(o51.a);
-                    }
-                    if (a == null) {
-                        a = o51.b;
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            o51 o51Var = o51.a;
+            Intrinsics.checkNotNullExpressionValue(o51Var, "INativeWebViewCreator.EMPTY");
+            return o51Var;
         }
         return (o51) invokeV.objValue;
     }

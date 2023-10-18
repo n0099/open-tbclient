@@ -1,34 +1,45 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class pv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String queryParameter;
+    public pv4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            Uri parse = Uri.parse(str);
-            if (parse.isOpaque()) {
-                queryParameter = "";
-            } else {
-                queryParameter = parse.getQueryParameter("key");
-            }
-            if (queryParameter == null) {
-                return "";
-            }
-            return queryParameter;
         }
-        return (String) invokeL.objValue;
+        this.a = 0;
+        this.b = 0;
+        this.c = 1;
+        this.d = 1;
+        this.e = 0;
+        this.f = 0;
+        this.g = 1;
+        this.h = 0;
+        this.i = 0;
     }
 }

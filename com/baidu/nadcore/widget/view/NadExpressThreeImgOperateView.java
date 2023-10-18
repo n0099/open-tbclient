@@ -9,30 +9,22 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fr0;
-import com.baidu.tieba.g31;
-import com.baidu.tieba.p61;
-import com.baidu.tieba.tr0;
-import com.baidu.tieba.yr0;
-import java.util.List;
+import com.baidu.tieba.c11;
+import com.baidu.tieba.vm0;
 /* loaded from: classes3.dex */
 public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
+    public int k;
+    public int l;
     public int m;
     public int n;
-    public int o;
-    public int p;
+    @Nullable
+    public AdImageView o;
+    @Nullable
+    public AdImageView p;
     @Nullable
     public AdImageView q;
-    @Nullable
-    public AdImageView r;
-    @Nullable
-    public AdImageView s;
-    public int t;
-    public int u;
-
-    @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void m(AdBaseModel adBaseModel) {
-    }
+    public int r;
+    public int s;
 
     public NadExpressThreeImgOperateView(Context context) {
         this(context, null);
@@ -43,18 +35,18 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void j(LayoutInflater layoutInflater, yr0 yr0Var) {
+    public void g(LayoutInflater layoutInflater, vm0 vm0Var) {
         int i = R.layout.nad_tpl_triple_image;
-        if (yr0Var != null) {
-            if (yr0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
-                i = yr0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
+        if (vm0Var != null) {
+            if (vm0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
+                i = vm0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
             }
-            yr0.a aVar = yr0Var.j;
+            vm0.a aVar = vm0Var.e;
             if (aVar != null) {
-                this.m = aVar.a;
-                this.n = aVar.b;
-                this.o = aVar.c;
-                this.p = aVar.d;
+                this.k = aVar.a;
+                this.l = aVar.b;
+                this.m = aVar.c;
+                this.n = aVar.d;
             }
         }
         layoutInflater.inflate(i, this);
@@ -64,67 +56,42 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadExpressThreeImgOperateView(Context context, AttributeSet attributeSet, int i, yr0 yr0Var) {
-        super(context, attributeSet, i, yr0Var);
-        this.m = 15;
-        this.n = 15;
-        this.o = 0;
-        this.p = 0;
+    public NadExpressThreeImgOperateView(Context context, AttributeSet attributeSet, int i, vm0 vm0Var) {
+        super(context, attributeSet, i, vm0Var);
+        this.k = 15;
+        this.l = 15;
+        this.m = 0;
+        this.n = 0;
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void k(Context context) {
-        this.q = (AdImageView) findViewById(R.id.nad_feed_template_tripe_image_one_id);
-        this.r = (AdImageView) findViewById(R.id.nad_feed_template_tripe_image_two_id);
-        this.s = (AdImageView) findViewById(R.id.nad_feed_template_tripe_image_three_id);
+    public void h(Context context) {
+        this.o = (AdImageView) findViewById(R.id.nad_feed_template_tripe_image_one_id);
+        this.p = (AdImageView) findViewById(R.id.nad_feed_template_tripe_image_two_id);
+        this.q = (AdImageView) findViewById(R.id.nad_feed_template_tripe_image_three_id);
         Resources resources = context.getResources();
-        this.t = (((((p61.c.e(context) - p61.c.a(getContext(), this.m)) - p61.c.a(getContext(), this.n)) - p61.c.a(getContext(), this.o)) - p61.c.a(getContext(), this.p)) - (resources.getDimensionPixelSize(R.dimen.NAD_F_M_W_X024) * 2)) / 3;
-        this.u = Math.round((this.t / ((int) resources.getDimension(R.dimen.nad_template_p1_w))) * ((int) resources.getDimension(R.dimen.nad_template_p1_h)));
-        AdImageView adImageView = this.q;
+        this.r = (((((c11.c.e(context) - c11.c.a(getContext(), this.k)) - c11.c.a(getContext(), this.l)) - c11.c.a(getContext(), this.m)) - c11.c.a(getContext(), this.n)) - (resources.getDimensionPixelSize(R.dimen.NAD_F_M_W_X024) * 2)) / 3;
+        this.s = Math.round((this.r / ((int) resources.getDimension(R.dimen.nad_template_p1_w))) * ((int) resources.getDimension(R.dimen.nad_template_p1_h)));
+        AdImageView adImageView = this.o;
         if (adImageView != null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) adImageView.getLayoutParams();
-            layoutParams.width = this.t;
-            layoutParams.height = this.u;
-            this.q.setLayoutParams(layoutParams);
+            layoutParams.width = this.r;
+            layoutParams.height = this.s;
+            this.o.setLayoutParams(layoutParams);
         }
-        AdImageView adImageView2 = this.r;
+        AdImageView adImageView2 = this.p;
         if (adImageView2 != null) {
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) adImageView2.getLayoutParams();
-            layoutParams2.width = this.t;
-            layoutParams2.height = this.u;
-            this.r.setLayoutParams(layoutParams2);
+            layoutParams2.width = this.r;
+            layoutParams2.height = this.s;
+            this.p.setLayoutParams(layoutParams2);
         }
-        AdImageView adImageView3 = this.s;
+        AdImageView adImageView3 = this.q;
         if (adImageView3 != null) {
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) adImageView3.getLayoutParams();
-            layoutParams3.width = this.t;
-            layoutParams3.height = this.u;
-            this.s.setLayoutParams(layoutParams3);
-        }
-    }
-
-    @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void n(AdBaseModel adBaseModel) {
-        AdImageView adImageView;
-        AdImageView adImageView2;
-        AdImageView adImageView3;
-        if (!(adBaseModel instanceof tr0)) {
-            return;
-        }
-        List<fr0> list = ((tr0) adBaseModel).f.k;
-        if (!g31.g(list) && g31.l(list) >= 3) {
-            fr0 fr0Var = (fr0) g31.d(list, 0);
-            fr0 fr0Var2 = (fr0) g31.d(list, 1);
-            fr0 fr0Var3 = (fr0) g31.d(list, 2);
-            if (fr0Var != null && (adImageView3 = this.q) != null) {
-                adImageView3.r(fr0Var.a);
-            }
-            if (fr0Var2 != null && (adImageView2 = this.r) != null) {
-                adImageView2.r(fr0Var2.a);
-            }
-            if (fr0Var3 != null && (adImageView = this.s) != null) {
-                adImageView.r(fr0Var3.a);
-            }
+            layoutParams3.width = this.r;
+            layoutParams3.height = this.s;
+            this.q.setLayoutParams(layoutParams3);
         }
     }
 }

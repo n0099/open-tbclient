@@ -1,13 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface vl1 {
-    void a(wl1 wl1Var);
+public class vl1 implements kl1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public ul1 b;
 
-    void c(ul1 ul1Var);
+    public vl1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    View getAdView();
+    @Override // com.baidu.tieba.kl1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ul1 ul1Var = this.b;
+            return ul1Var.a(this.a, ul1Var.c);
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void load();
+    @Override // com.baidu.tieba.kl1
+    public void a(Context context, ll1 ll1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ll1Var) == null) {
+            this.a = context;
+            ul1 ul1Var = new ul1();
+            this.b = ul1Var;
+            ul1Var.c = null;
+            try {
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                ul1Var.b = cls;
+                ul1Var.a = cls.newInstance();
+            } catch (Throwable unused) {
+            }
+            try {
+                ul1Var.c = ul1Var.b.getMethod("getOAID", Context.class);
+            } catch (Throwable unused2) {
+            }
+            try {
+                ul1Var.b.getMethod("getVAID", Context.class);
+            } catch (Throwable unused3) {
+            }
+            try {
+                ul1Var.b.getMethod("getAAID", Context.class);
+            } catch (Throwable unused4) {
+            }
+            if (ll1Var != null) {
+                ll1Var.a();
+            }
+        }
+    }
 }

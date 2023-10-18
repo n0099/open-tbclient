@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
+import android.graphics.Bitmap;
+import android.graphics.Typeface;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface nib {
-    void a() throws IOException;
+public class nib {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str) throws IOException;
+    public abstract boolean a(String str);
 
-    int c(byte[] bArr, int i, int i2) throws IOException;
+    public abstract String b(String str);
 
-    void d(vib vibVar);
+    public abstract Typeface c(String str, int i, String str2);
+
+    public abstract Bitmap d(String str);
 }

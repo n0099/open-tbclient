@@ -1,253 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.text.TextUtils;
+import android.util.Log;
 import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.websocket.WebSocketManager;
+import com.baidu.searchbox.websocket.WebSocketRequest;
+import com.baidu.searchbox.websocket.WebSocketTask;
+import com.baidu.swan.games.network.websocket.WebSocketEventTarget;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Locale;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class o44 extends EventTargetImpl implements l44 {
+public class o44 extends WebSocketEventTarget {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n04 a;
-    @V8JavascriptField
-    public String adUnitId;
-    public String b;
-    public boolean c;
-    public m44 d;
-    public n44 e;
-    public Map<String, String> f;
-    public wz3 g;
-    public b h;
-    public boolean i;
-    public boolean j;
-    public fq3 k;
-    public m04 l;
+    public String c;
+    public n44 d;
 
     /* loaded from: classes7.dex */
-    public class a implements m04 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o44 a;
 
-        /* renamed from: com.baidu.tieba.o44$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0400a implements fq3 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            @Override // com.baidu.tieba.fq3
-            public void onViewDestroy() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                }
-            }
-
-            public C0400a(a aVar) {
-                Interceptable interceptable = $ic;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-594802467, "Lcom/baidu/tieba/o44$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
+                    $ic = interceptable;
                 }
-                this.a = aVar;
-            }
-
-            @Override // com.baidu.tieba.fq3
-            public void d() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.i = false;
-                    this.a.a.a.i0();
-                }
-            }
-
-            @Override // com.baidu.tieba.fq3
-            public void k() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.a.a.i = true;
-                    if (this.a.a.j) {
-                        this.a.a.a.N();
-                    }
-                }
-            }
-        }
-
-        public a(o44 o44Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-594802467, "Lcom/baidu/tieba/o44$a;");
                     return;
                 }
             }
-            this.a = o44Var;
-        }
-
-        @Override // com.baidu.tieba.m04
-        public void onClick(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                e44.a(this.a.getType(), "click", i);
+            int[] iArr = new int[WebSocketEventTarget.SocketTaskState.values().length];
+            a = iArr;
+            try {
+                iArr[WebSocketEventTarget.SocketTaskState.IDLE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-        }
-
-        @Override // com.baidu.tieba.m04
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                JSEvent jSEvent = new JSEvent("error");
-                jSEvent.data = p44.b(str);
-                this.a.dispatchEvent(jSEvent);
-                p04.k(this.a.f, str);
-                this.a.destroy();
-            }
-        }
-
-        @Override // com.baidu.tieba.m04
-        public void a(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-                if (z) {
-                    this.a.dispatchEvent(new JSEvent("load"));
-                    if (this.a.d != null) {
-                        this.a.d.c();
-                    }
-                    k44.b().c(16, "");
-                    e44.b(this.a.getType(), "success");
-                    return;
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(str);
-                }
-                k44.b().c(17, str);
-                e44.c(this.a.getType(), "fail", str);
-            }
-        }
-
-        @Override // com.baidu.tieba.m04
-        public void b(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-                if (z) {
-                    if (this.a.e != null) {
-                        this.a.e.c();
-                    }
-                    if (this.a.h == null) {
-                        this.a.h = new b(this.a, null);
-                        IntentFilter intentFilter = new IntentFilter();
-                        intentFilter.addAction("android.intent.action.SCREEN_ON");
-                        intentFilter.addAction("android.intent.action.SCREEN_OFF");
-                        AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
-                    }
-                    if (this.a.k == null) {
-                        this.a.k = new C0400a(this);
-                        o44.K(this.a.k);
-                    }
-                } else if (this.a.e != null) {
-                    this.a.e.b(str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.m04
-        public void c(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                JSEvent jSEvent = new JSEvent("close");
-                jSEvent.data = p44.a(z);
-                this.a.dispatchEvent(jSEvent);
-                e44.a(this.a.getType(), "pageclose", i);
-                this.a.destroy();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o44 this$0;
-
-        public b(o44 o44Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = o44Var;
-        }
-
-        public /* synthetic */ b(o44 o44Var, a aVar) {
-            this(o44Var);
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_ON")) {
-                    this.this$0.j = true;
-                    if (this.this$0.i) {
-                        this.this$0.a.N();
-                    }
-                } else if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_OFF")) {
-                    this.this$0.j = false;
-                }
+            try {
+                a[WebSocketEventTarget.SocketTaskState.CLOSE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o44(qi2 qi2Var, JsObject jsObject) {
-        super(qi2Var);
+    public o44(n44 n44Var, zc2 zc2Var) {
+        super(zc2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qi2Var, jsObject};
+            Object[] objArr = {n44Var, zc2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -258,101 +83,242 @@ public class o44 extends EventTargetImpl implements l44 {
                 return;
             }
         }
-        this.adUnitId = "";
-        this.f = new TreeMap();
-        this.j = true;
-        this.l = new a(this);
-        n32 F = n32.F(jsObject);
-        if (F != null) {
-            this.adUnitId = F.B("adUnitId");
-            this.b = F.B("appSid");
-        }
-        if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.b)) {
-            boolean g = a14.g();
-            this.c = g;
-            if (g) {
-                this.b = a14.c();
-                this.adUnitId = a14.d();
+        this.d = n44Var;
+    }
+
+    public final boolean B(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            this.f = p04.a("video", "game", this.b, this.adUnitId, this.c);
-            this.g = new c44();
-            n04 n04Var = new n04(tw2.T().getActivity(), this.b, this.adUnitId, this.c, this.l, this.g);
-            this.a = n04Var;
-            n04Var.k0(this.f);
-            loadAd(null);
-            return;
+            if (o13.q()) {
+                return true;
+            }
+            if (!str.startsWith("wss://") || g63.c(Logger.SOCKET_TYPE, str, str2) != 0) {
+                return false;
+            }
+            return true;
         }
-        qi2Var.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
+        return invokeLL.booleanValue;
     }
 
-    public static void K(fq3 fq3Var) {
-        xs1 V;
+    public o44 A(JsObject jsObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, fq3Var) == null) && (V = tw2.T().V()) != null) {
-            V.e(fq3Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
+            xx1 C = C(jsObject);
+            this.c = String.format(Locale.CHINA, "WebSocketTask-%d", Long.valueOf(System.currentTimeMillis()));
+            int i = C.i("url");
+            if (i != 7) {
+                y(C, "connectSocket", String.format("parameter error: parameter.url should be %s instead of %s", z64.f(7), z64.f(i)));
+                return this;
+            }
+            String C2 = C.C("url");
+            String C3 = C.C("__plugin__");
+            if (!this.d.a()) {
+                y(C, "connectSocket", "up to max connect count");
+                return this;
+            } else if (!B(C2, C3)) {
+                y(C, "connectSocket", String.format("invalid url \"%s\"", C2));
+                return this;
+            } else {
+                WebSocketRequest x = x(C2, C);
+                D(jsObject);
+                try {
+                    WebSocketTask connect = WebSocketManager.INSTANCE.connect(x, this);
+                    this.c = connect.getTaskId();
+                    this.d.b(connect);
+                    b84.a(C, true, new s44(this.c, String.format("%s:ok", "connectSocket")));
+                    return this;
+                } catch (Exception e) {
+                    y(C, "connectSocket", e.getMessage());
+                    return this;
+                }
+            }
+        }
+        return (o44) invokeL.objValue;
+    }
+
+    @NonNull
+    public final xx1 C(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject)) == null) {
+            xx1 G = xx1.G(jsObject);
+            if (G == null) {
+                return new xx1();
+            }
+            return G;
+        }
+        return (xx1) invokeL.objValue;
+    }
+
+    public final void D(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) && jsObject != null) {
+            jsObject.release();
         }
     }
 
-    public static void L(fq3 fq3Var) {
-        xs1 V;
+    @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
+    public void onClose(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, null, fq3Var) == null) && (V = tw2.T().V()) != null) {
-            V.f(fq3Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            super.onClose(jSONObject);
+            if (this.d != null && jSONObject != null) {
+                this.d.c(jSONObject.optString("taskID"));
+            }
         }
     }
 
     @JavascriptInterface
-    public synchronized void loadAd(JsObject jsObject) {
+    public void close() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            synchronized (this) {
-                this.d = m44.d(n32.F(jsObject));
-                k44.b().a(this.d);
-                if (this.a != null) {
-                    this.a.c0();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            close(null);
+        }
+    }
+
+    @JavascriptInterface
+    public void close(JsObject jsObject) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
+            xx1 C = C(jsObject);
+            if (this.a == WebSocketEventTarget.SocketTaskState.CLOSE) {
+                y(C, "SocketTask.close", "SocketTask.readyState is CLOSED");
+                return;
+            }
+            int s = C.s("code", 1000);
+            String C2 = C.C("reason");
+            if (s != 1000 && (s < 3000 || s > 4999)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            try {
+                if (!z) {
+                    y(C, "SocketTask.close", p44.a);
+                    return;
                 }
+                try {
+                    WebSocketManager.INSTANCE.close(this.c, s, C2);
+                    z(C, "SocketTask.close");
+                } catch (Exception e) {
+                    y(C, "SocketTask.close", e.getMessage());
+                }
+            } finally {
+                this.d.c(this.c);
             }
         }
     }
 
     @JavascriptInterface
-    public synchronized void showAd(JsObject jsObject) {
+    public void send(JsObject jsObject) {
+        JsArrayBuffer jsArrayBuffer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
-            synchronized (this) {
-                e44.d(getType());
-                this.e = n44.d(n32.F(jsObject));
-                if (this.a != null) {
-                    this.a.l0();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
+            xx1 C = C(jsObject);
+            int i = a.a[this.a.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    int i2 = C.i("data");
+                    String str = null;
+                    if (i2 != 7) {
+                        if (i2 != 10) {
+                            y(C, "SocketTask.send", "invalid data type");
+                            return;
+                        }
+                        jsArrayBuffer = C.u("data", null);
+                    } else {
+                        str = C.D("data", null);
+                        jsArrayBuffer = null;
+                    }
+                    if (str == null && jsArrayBuffer == null) {
+                        y(C, "SocketTask.send", "invalid data type");
+                        return;
+                    }
+                    try {
+                        if (str != null) {
+                            WebSocketManager.INSTANCE.send(this.c, str);
+                        } else if (jsArrayBuffer != null) {
+                            WebSocketManager.INSTANCE.send(this.c, ByteBuffer.wrap(jsArrayBuffer.buffer()));
+                        }
+                        z(C, "SocketTask.send");
+                        return;
+                    } catch (Exception e) {
+                        y(C, "SocketTask.send", e.getMessage());
+                        return;
+                    }
+                }
+                y(C, "SocketTask.send", "SocketTask.readyState is CLOSED");
+                return;
+            }
+            y(C, "SocketTask.send", "SocketTask.readyState is not OPEN");
+        }
+    }
+
+    @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
+    public void onError(Throwable th, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, th, jSONObject) == null) {
+            super.onError(th, jSONObject);
+            if (this.d != null && jSONObject != null) {
+                this.d.c(jSONObject.optString("taskID"));
+            }
+        }
+    }
+
+    public final void z(xx1 xx1Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, xx1Var, str) == null) {
+            String format = String.format("%s:ok", str);
+            if (WebSocketEventTarget.b) {
+                Log.i("WebSocket", format);
+            }
+            b84.a(xx1Var, true, new r44(format));
+        }
+    }
+
+    public final WebSocketRequest x(String str, @NonNull xx1 xx1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, xx1Var)) == null) {
+            WebSocketRequest.Builder builder = new WebSocketRequest.Builder();
+            builder.setUrl(str);
+            builder.setMethod(xx1Var.C("method"));
+            xx1 x = xx1Var.x("header");
+            if (x != null) {
+                for (String str2 : x.k()) {
+                    if (!TextUtils.isEmpty(str2) && !rw2.d.contains(str2.toUpperCase(Locale.US))) {
+                        builder.addHeader(str2, x.I(str2));
+                    }
                 }
             }
+            String[] E = xx1Var.E(WebSocketRequest.PARAM_KEY_PROTOCOLS);
+            ArrayList arrayList = new ArrayList();
+            if (E != null && E.length != 0) {
+                arrayList.addAll(Arrays.asList(E));
+            } else {
+                arrayList.add("");
+            }
+            builder.setProtocols(arrayList);
+            builder.setConnectionLostTimeout(0);
+            return builder.build();
         }
+        return (WebSocketRequest) invokeLL.objValue;
     }
 
-    public final void destroy() {
+    public final void y(xx1 xx1Var, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.h != null) {
-                AppRuntime.getAppContext().unregisterReceiver(this.h);
-                this.h = null;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, xx1Var, str, str2) == null) {
+            String format = String.format("%s:fail %s", str, str2);
+            if (WebSocketEventTarget.b) {
+                Log.i("WebSocket", format);
             }
-            fq3 fq3Var = this.k;
-            if (fq3Var != null) {
-                L(fq3Var);
-                this.k = null;
-            }
+            b84.a(xx1Var, false, new r44(format));
         }
-    }
-
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c) {
-                return "gdtvideo";
-            }
-            return "video";
-        }
-        return (String) invokeV.objValue;
     }
 }

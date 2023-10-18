@@ -1,14 +1,51 @@
 package com.baidu.tieba;
 
-import java.nio.Buffer;
-import java.nio.IntBuffer;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
 /* loaded from: classes6.dex */
-public interface h3 extends g3 {
-    void A(int i, IntBuffer intBuffer);
+public class h3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static h3 b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public k3 a;
 
-    void O(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, Buffer buffer);
+    public h3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(int i, IntBuffer intBuffer);
+    public static h3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                b = new h3();
+            }
+            return b;
+        }
+        return (h3) invokeV.objValue;
+    }
 
-    void v(int i, IntBuffer intBuffer);
+    public <T> void b(T[] tArr, Comparator<? super T> comparator, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, tArr, comparator, i, i2) == null) {
+            if (this.a == null) {
+                this.a = new k3();
+            }
+            this.a.c(tArr, comparator, i, i2);
+        }
+    }
 }

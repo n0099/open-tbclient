@@ -1,171 +1,1619 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.TbadkCore;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
-import org.chromium.net.NetError;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.ConnectException;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
+import javax.net.ssl.SSLException;
 /* loaded from: classes6.dex */
 public class ja {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int A;
-    public static String B = null;
-    public static String C = null;
-    public static int[] D = null;
-    public static ArrayList<BasicNameValuePair> E = null;
-    public static int a = -100000000;
-    public static final int b;
-    public static final int c;
-    public static final int d;
-    public static final int e;
-    public static final int f;
-    public static final int g;
-    public static final int h;
-    public static final int i;
-    public static final int j;
-    public static final int k;
-    public static final int l;
-    public static final int m;
-    public static final int n;
-    public static final int o;
-    public static final int p;
-    public static final int q;
-    public static final int r;
-    public static final int s;
-    public static final int t;
-    public static final int u;
-    public static final int v;
-    public static final int w;
-    public static final int x;
-    public static final int y;
-    public static final int z;
+    public static boolean e = true;
     public transient /* synthetic */ FieldHolder $fh;
+    public ma a;
+    public ia b;
+    public int c;
+    public long d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308054, "Lcom/baidu/tieba/ja;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448308054, "Lcom/baidu/tieba/ja;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448308054, "Lcom/baidu/tieba/ja;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448308054, "Lcom/baidu/tieba/ja;");
+        }
+    }
+
+    public final boolean l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? (i == 502 || i == 503 || i == 504 || i == 404) ? false : true : invokeI.booleanValue;
+    }
+
+    public ja(ma maVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {maVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        b = (-100000000) - 200;
-        c = (-100000000) - 211;
-        d = (-100000000) - 213;
-        e = (-100000000) + NetError.ERR_CERTIFICATE_TRANSPARENCY_REQUIRED;
-        f = (-100000000) - 221;
-        g = (-100000000) - 230;
-        h = (-100000000) - 232;
-        i = (-100000000) - 233;
-        j = (-100000000) - 234;
-        k = (-100000000) - 235;
-        l = (-100000000) - 236;
-        m = (-100000000) - 301;
-        n = (-100000000) - 302;
-        o = (-100000000) - 303;
-        p = (-100000000) - 306;
-        q = (-100000000) - 307;
-        r = (-100000000) - 308;
-        s = (-100000000) + NetError.ERR_REDIRECT_CANCEL;
-        t = (-100000000) + NetError.ERR_TOO_MANY_REDIRECTS;
-        u = (-100000000) + NetError.ERR_UNSAFE_REDIRECT;
-        v = (-100000000) + NetError.ERR_UNSAFE_PORT;
-        w = (-100000000) - 313;
-        x = (-100000000) - 314;
-        y = (-100000000) + NetError.ERR_TOO_MANY_REDIRECTS;
-        z = (-100000000) + NetError.ERR_UNSAFE_REDIRECT;
-        A = (-100000000) - 400;
-        D = y9.a;
-        E = null;
+        this.c = 0;
+        this.d = 0L;
+        this.a = maVar;
     }
 
-    public static String a() {
+    public final void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            try {
+                if (this.a != null && i > 0) {
+                    this.a.b().a("Retry-Count", String.valueOf(i));
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
+        }
+    }
+
+    public void b() {
+        ia iaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (iaVar = this.b) != null) {
+            iaVar.b();
+        }
+    }
+
+    public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return C;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ia iaVar = this.b;
+            if (iaVar == null) {
+                return -1L;
+            }
+            return iaVar.e();
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static ArrayList<BasicNameValuePair> b() {
+    public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return E;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ia iaVar = this.b;
+            if (iaVar == null) {
+                return -1L;
+            }
+            return iaVar.h();
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static int[] c() {
+    public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return D;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            long j = this.d;
+            if (j > 0) {
+                return j;
+            }
+            ia iaVar = this.b;
+            if (iaVar == null) {
+                return -1L;
+            }
+            return iaVar.i();
         }
-        return (int[]) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static String d() {
+    public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return B;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ia iaVar = this.b;
+            if (iaVar == null) {
+                return -1L;
+            }
+            return iaVar.l();
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static void e(String str) {
+    public long i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            C = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ia iaVar = this.b;
+            if (iaVar == null) {
+                return -1L;
+            }
+            return iaVar.j();
         }
+        return invokeV.longValue;
     }
 
-    public static void f(ArrayList<BasicNameValuePair> arrayList) {
+    public int j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, arrayList) == null) {
-            E = arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    public static void g(int[] iArr) {
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, iArr) != null) || iArr == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ma maVar = this.a;
+            if (maVar == null) {
+                return false;
+            }
+            return maVar.c().a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void p() {
+        ma maVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || (maVar = this.a) == null) {
             return;
         }
-        D = iArr;
+        maVar.c().a = true;
     }
 
-    public static void h(String str) {
+    public boolean c(String str, pa paVar, int i, int i2, int i3, int i4, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        int i5;
+        int i6;
+        int i7;
+        la laVar;
+        int i8;
+        int i9;
+        String str2;
+        int i10;
+        la laVar2;
+        String str3;
+        StringBuilder sb;
+        StringBuilder sb2;
+        la laVar3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            B = str;
-        }
-    }
-
-    public static String i(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
-            int i3 = a - i2;
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i3 > -300 && i3 <= -200) {
-                return app.getString(R.string.obfuscated_res_0x7f0f0a50);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, paVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            String str4 = "responseCode:";
+            if (i3 <= 0) {
+                i5 = i6.d().b().b();
+            } else {
+                i5 = i3;
             }
-            return app.getString(R.string.obfuscated_res_0x7f0f0a51);
+            if (i <= 0) {
+                i6 = i6.d().a();
+            } else {
+                i6 = i;
+            }
+            if (i4 <= 0) {
+                i7 = i6.d().c().b();
+            } else {
+                i7 = i4;
+            }
+            ia iaVar = new ia(this.a);
+            this.b = iaVar;
+            iaVar.r(e);
+            int i11 = 0;
+            boolean z3 = false;
+            while (i11 < i6) {
+                la laVar4 = new la();
+                this.a.c().c = -1;
+                this.b.q(i11);
+                int i12 = i11 + 1;
+                try {
+                    try {
+                        laVar4.e = i12;
+                        try {
+                            this.c = i11;
+                            a(i11);
+                            str2 = str4;
+                            i10 = i12;
+                            i8 = i11;
+                            i9 = i6;
+                        } catch (IllegalStateException e2) {
+                            e = e2;
+                            str2 = str4;
+                            i10 = i12;
+                            laVar2 = laVar4;
+                            i8 = i11;
+                            i9 = i6;
+                        } catch (ConnectException e3) {
+                            e = e3;
+                            str2 = str4;
+                            i10 = i12;
+                            laVar2 = laVar4;
+                            i8 = i11;
+                            i9 = i6;
+                        } catch (SocketException e4) {
+                            e = e4;
+                            str2 = str4;
+                            i10 = i12;
+                            laVar2 = laVar4;
+                            i8 = i11;
+                            i9 = i6;
+                        } catch (SocketTimeoutException e5) {
+                            e = e5;
+                            str2 = str4;
+                            i10 = i12;
+                            laVar2 = laVar4;
+                            i8 = i11;
+                            i9 = i6;
+                        }
+                    } catch (IllegalStateException e6) {
+                        e = e6;
+                        str3 = str4;
+                        i10 = i12;
+                        laVar2 = laVar4;
+                        i8 = i11;
+                        i9 = i6;
+                    } catch (ConnectException e7) {
+                        e = e7;
+                        str3 = str4;
+                        i10 = i12;
+                        laVar2 = laVar4;
+                        i8 = i11;
+                        i9 = i6;
+                    } catch (SocketException e8) {
+                        e = e8;
+                        str3 = str4;
+                        i10 = i12;
+                        laVar2 = laVar4;
+                        i8 = i11;
+                        i9 = i6;
+                    } catch (SocketTimeoutException e9) {
+                        e = e9;
+                        str3 = str4;
+                        i10 = i12;
+                        laVar2 = laVar4;
+                        i8 = i11;
+                        i9 = i6;
+                    }
+                } catch (FileNotFoundException e10) {
+                    e = e10;
+                    str2 = str4;
+                    i10 = i12;
+                    laVar2 = laVar4;
+                    i8 = i11;
+                    i9 = i6;
+                } catch (UnknownHostException e11) {
+                    e = e11;
+                    str2 = str4;
+                    i10 = i12;
+                    laVar = laVar4;
+                    i8 = i11;
+                    i9 = i6;
+                } catch (SSLException e12) {
+                    e = e12;
+                    str2 = str4;
+                    i10 = i12;
+                    laVar = laVar4;
+                    i8 = i11;
+                    i9 = i6;
+                } catch (IOException e13) {
+                    e = e13;
+                    str2 = str4;
+                    i10 = i12;
+                    laVar = laVar4;
+                    i8 = i11;
+                    i9 = i6;
+                } catch (Exception e14) {
+                    e = e14;
+                    str2 = str4;
+                    i10 = i12;
+                    laVar = laVar4;
+                    i8 = i11;
+                    i9 = i6;
+                } catch (Throwable th) {
+                    th = th;
+                    laVar = laVar4;
+                    i8 = i11;
+                    i9 = i6;
+                }
+                try {
+                    z3 = this.b.d(str, paVar, i5, i7, z, laVar4, z2);
+                    if (!z3 && this.a.c().a) {
+                        this.a.c().c = -14;
+                    }
+                    if (!z3 && i8 == i9 - 1) {
+                        StringBuilder sb3 = new StringBuilder();
+                        laVar3 = laVar4;
+                        sb3.append(laVar3.h);
+                        sb3.append("|netAvailable:");
+                        sb3.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
+                        laVar3.h = sb3.toString();
+                    } else {
+                        laVar3 = laVar4;
+                    }
+                    this.a.e(laVar3);
+                    return z3;
+                } catch (FileNotFoundException e15) {
+                    e = e15;
+                    laVar2 = laVar4;
+                    StringBuilder sb4 = new StringBuilder();
+                    str3 = str2;
+                    sb4.append(str3);
+                    sb4.append(String.valueOf(this.a.c().b));
+                    sb4.append("|retryCount:");
+                    sb4.append(i8);
+                    sb4.append("|");
+                    sb4.append(e.getClass().getName());
+                    sb4.append("|");
+                    sb4.append(e.getMessage());
+                    laVar2.h = sb4.toString();
+                    this.a.c().c = -100;
+                    if (!z3 && i8 == i9 - 1) {
+                        sb2 = new StringBuilder();
+                        sb2.append(laVar2.h);
+                        sb2.append("|netAvailable:");
+                        sb2.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
+                        laVar2.h = sb2.toString();
+                    }
+                    this.a.e(laVar2);
+                    str4 = str3;
+                    i11 = i10;
+                    i6 = i9;
+                } catch (IllegalStateException e16) {
+                    e = e16;
+                    laVar2 = laVar4;
+                    str3 = str2;
+                    laVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                    this.a.c().c = -19;
+                    if (!z3 && i8 == i9 - 1) {
+                        sb2 = new StringBuilder();
+                        sb2.append(laVar2.h);
+                        sb2.append("|netAvailable:");
+                        sb2.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
+                        laVar2.h = sb2.toString();
+                    }
+                    this.a.e(laVar2);
+                    str4 = str3;
+                    i11 = i10;
+                    i6 = i9;
+                } catch (ConnectException e17) {
+                    e = e17;
+                    laVar2 = laVar4;
+                    str3 = str2;
+                    laVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                    this.a.c().c = -22;
+                    if (!z3 && i8 == i9 - 1) {
+                        sb2 = new StringBuilder();
+                        sb2.append(laVar2.h);
+                        sb2.append("|netAvailable:");
+                        sb2.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
+                        laVar2.h = sb2.toString();
+                    }
+                    this.a.e(laVar2);
+                    str4 = str3;
+                    i11 = i10;
+                    i6 = i9;
+                } catch (SocketException e18) {
+                    e = e18;
+                    laVar2 = laVar4;
+                    str3 = str2;
+                    laVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                    this.a.c().c = -12;
+                    if (!z3 && i8 == i9 - 1) {
+                        sb2 = new StringBuilder();
+                        sb2.append(laVar2.h);
+                        sb2.append("|netAvailable:");
+                        sb2.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
+                        laVar2.h = sb2.toString();
+                    }
+                    this.a.e(laVar2);
+                    str4 = str3;
+                    i11 = i10;
+                    i6 = i9;
+                } catch (SocketTimeoutException e19) {
+                    e = e19;
+                    laVar2 = laVar4;
+                    str3 = str2;
+                    laVar2.h = str3 + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                    this.a.c().c = -13;
+                    if (!z3 && i8 == i9 - 1) {
+                        sb2 = new StringBuilder();
+                        sb2.append(laVar2.h);
+                        sb2.append("|netAvailable:");
+                        sb2.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
+                        laVar2.h = sb2.toString();
+                    }
+                    this.a.e(laVar2);
+                    str4 = str3;
+                    i11 = i10;
+                    i6 = i9;
+                } catch (UnknownHostException e20) {
+                    e = e20;
+                    laVar = laVar4;
+                    laVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                    this.a.c().c = -21;
+                    if (!z3 && i8 == i9 - 1) {
+                        sb = new StringBuilder();
+                        sb.append(laVar.h);
+                        sb.append("|netAvailable:");
+                        sb.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
+                        laVar.h = sb.toString();
+                    }
+                    this.a.e(laVar);
+                    str3 = str2;
+                    str4 = str3;
+                    i11 = i10;
+                    i6 = i9;
+                } catch (SSLException e21) {
+                    e = e21;
+                    laVar = laVar4;
+                    if (this.a.b().e() && i8 < i9 - 1) {
+                        ((TbadkCore) ServiceManager.getService(TbadkCore.SERVICE_REFERENCE)).statHttpsDownToHttp();
+                    } else {
+                        laVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.a.c().c = -20;
+                    }
+                    if (!z3 && i8 == i9 - 1) {
+                        sb = new StringBuilder();
+                        sb.append(laVar.h);
+                        sb.append("|netAvailable:");
+                        sb.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
+                        laVar.h = sb.toString();
+                    }
+                    this.a.e(laVar);
+                    str3 = str2;
+                    str4 = str3;
+                    i11 = i10;
+                    i6 = i9;
+                } catch (IOException e22) {
+                    e = e22;
+                    laVar = laVar4;
+                    laVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                    this.a.c().c = -19;
+                    if (!z3 && i8 == i9 - 1) {
+                        sb = new StringBuilder();
+                        sb.append(laVar.h);
+                        sb.append("|netAvailable:");
+                        sb.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
+                        laVar.h = sb.toString();
+                    }
+                    this.a.e(laVar);
+                    str3 = str2;
+                    str4 = str3;
+                    i11 = i10;
+                    i6 = i9;
+                } catch (Exception e23) {
+                    e = e23;
+                    laVar = laVar4;
+                    try {
+                        laVar.h = "errorCode:" + String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.a.c().c = -10;
+                        BdLog.e(e.getMessage());
+                        if (!z3 && i8 == i9 - 1) {
+                            sb = new StringBuilder();
+                            sb.append(laVar.h);
+                            sb.append("|netAvailable:");
+                            sb.append(BdNetTypeUtil.isNetworkAvailableForImmediately());
+                            laVar.h = sb.toString();
+                        }
+                        this.a.e(laVar);
+                        str3 = str2;
+                        str4 = str3;
+                        i11 = i10;
+                        i6 = i9;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (!z3 && i8 == i9 - 1) {
+                            laVar.h += "|netAvailable:" + BdNetTypeUtil.isNetworkAvailableForImmediately();
+                        }
+                        this.a.e(laVar);
+                        throw th;
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                    laVar = laVar4;
+                    if (!z3) {
+                        laVar.h += "|netAvailable:" + BdNetTypeUtil.isNetworkAvailableForImmediately();
+                    }
+                    this.a.e(laVar);
+                    throw th;
+                }
+            }
+            return z3;
         }
-        return (String) invokeI.objValue;
+        return invokeCommon.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:109:0x0216, code lost:
+        if (r0 != null) goto L61;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x02db, code lost:
+        if (r0 != null) goto L78;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:134:0x0333, code lost:
+        if (r0 != null) goto L78;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:135:0x0335, code lost:
+        r22.d = r0.i();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x0168, code lost:
+        if (r0 != null) goto L61;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x016a, code lost:
+        r22.d = r0.i();
+     */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x02d9  */
+    /* JADX WARN: Removed duplicated region for block: B:133:0x0331  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void d(int i, int i2, int i3) {
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        boolean z;
+        boolean z2;
+        sa saVar;
+        la laVar;
+        int i8;
+        ia iaVar;
+        ia iaVar2;
+        ia iaVar3;
+        ia iaVar4;
+        boolean z3;
+        boolean z4;
+        ia iaVar5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048579, this, i, i2, i3) == null) {
+            if (i2 <= 0) {
+                i4 = i6.d().b().b();
+            } else {
+                i4 = i2;
+            }
+            if (i <= 0) {
+                i5 = i6.d().a();
+            } else {
+                i5 = i;
+            }
+            if (i3 <= 0) {
+                i6 = i6.d().c().b();
+            } else {
+                i6 = i3;
+            }
+            if (((ha) ServiceManager.getService(ha.a)).qaHttpsTest()) {
+                i7 = 0;
+            } else {
+                i7 = 2;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            int i9 = 1;
+            int i10 = 0;
+            boolean z5 = true;
+            while (!this.a.c().a && z5 && i10 < i5 + i7) {
+                la laVar2 = new la();
+                this.a.e(laVar2);
+                sa saVar2 = new sa();
+                na b = this.a.b();
+                if (i10 < i7) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                saVar2.a = b.k(z);
+                if (i10 < i7) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                saVar2.d = z2;
+                try {
+                    this.c = i10;
+                    laVar2.e = i10 + 1;
+                    laVar2.v = i9;
+                    a(i10);
+                    ia iaVar6 = new ia(this.a);
+                    this.b = iaVar6;
+                    iaVar6.q(i10);
+                    this.b.r(e);
+                    ia iaVar7 = this.b;
+                    if (i10 < i7) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (i10 < i9) {
+                        z4 = true;
+                    } else {
+                        z4 = false;
+                    }
+                    i8 = i10;
+                    try {
+                        iaVar7.k(z3, z4, i4, i6, laVar2, saVar2);
+                    } catch (SocketException e2) {
+                        e = e2;
+                        saVar = saVar2;
+                        laVar = laVar2;
+                    } catch (SocketTimeoutException e3) {
+                        e = e3;
+                        saVar = saVar2;
+                        laVar = laVar2;
+                    } catch (IOException e4) {
+                        e = e4;
+                        saVar = saVar2;
+                        laVar = laVar2;
+                    } catch (Exception e5) {
+                        e = e5;
+                        saVar = saVar2;
+                        laVar = laVar2;
+                    } catch (Throwable th) {
+                        th = th;
+                        saVar = saVar2;
+                        laVar = laVar2;
+                    }
+                } catch (SocketException e6) {
+                    e = e6;
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    i8 = i10;
+                } catch (SocketTimeoutException e7) {
+                    e = e7;
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    i8 = i10;
+                } catch (IOException e8) {
+                    e = e8;
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    i8 = i10;
+                } catch (Exception e9) {
+                    e = e9;
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    i8 = i10;
+                } catch (Throwable th2) {
+                    th = th2;
+                    saVar = saVar2;
+                    laVar = laVar2;
+                }
+                if (this.a.c().b != 200) {
+                    laVar = laVar2;
+                    try {
+                        laVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i8;
+                        z5 = l(this.a.c().b);
+                        saVar = saVar2;
+                        try {
+                            try {
+                                try {
+                                    saVar.b = this.a.c().b;
+                                    saVar.c = "faild";
+                                    if (this.d <= 0 && (iaVar5 = this.b) != null) {
+                                        this.d = iaVar5.i();
+                                    }
+                                    laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                    this.a.f(laVar);
+                                    saVar.a();
+                                } catch (Exception e10) {
+                                    e = e10;
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                                if (this.d <= 0 && (iaVar3 = this.b) != null) {
+                                    this.d = iaVar3.i();
+                                }
+                                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                this.a.f(laVar);
+                                saVar.a();
+                                throw th;
+                            }
+                        } catch (SocketException e11) {
+                            e = e11;
+                            laVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass() + "|" + e.getMessage();
+                            this.a.c().c = -12;
+                            saVar.b = -12;
+                            saVar.c = Log.getStackTraceString(e);
+                            if (this.d <= 0) {
+                            }
+                            laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                            this.a.f(laVar);
+                            saVar.a();
+                            z5 = true;
+                            i10 = i8 + 1;
+                            i9 = 1;
+                        } catch (SocketTimeoutException e12) {
+                            e = e12;
+                            laVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass() + "|" + e.getMessage();
+                            this.a.c().c = -13;
+                            saVar.b = -13;
+                            saVar.c = Log.getStackTraceString(e);
+                            if (this.d <= 0) {
+                            }
+                            laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                            this.a.f(laVar);
+                            saVar.a();
+                            z5 = true;
+                            i10 = i8 + 1;
+                            i9 = 1;
+                        } catch (IOException e13) {
+                            e = e13;
+                            this.a.c().c = -19;
+                            laVar.h = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                            saVar.b = -19;
+                            saVar.c = Log.getStackTraceString(e);
+                            if (this.d <= 0) {
+                                this.d = iaVar.i();
+                            }
+                            laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                            this.a.f(laVar);
+                            saVar.a();
+                            i10 = i8 + 1;
+                            i9 = 1;
+                        }
+                    } catch (SocketException e14) {
+                        e = e14;
+                        saVar = saVar2;
+                    } catch (SocketTimeoutException e15) {
+                        e = e15;
+                        saVar = saVar2;
+                    } catch (IOException e16) {
+                        e = e16;
+                        saVar = saVar2;
+                    } catch (Exception e17) {
+                        e = e17;
+                        saVar = saVar2;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        saVar = saVar2;
+                        if (this.d <= 0) {
+                            this.d = iaVar3.i();
+                        }
+                        laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                        this.a.f(laVar);
+                        saVar.a();
+                        throw th;
+                    }
+                    i10 = i8 + 1;
+                    i9 = 1;
+                } else {
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    this.a.f(laVar);
+                    try {
+                        saVar.b = 0;
+                        saVar.c = DnsModel.MSG_OK;
+                        if (this.d <= 0) {
+                            iaVar4 = this.b;
+                        }
+                        laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                        this.a.f(laVar);
+                        saVar.a();
+                        return;
+                    } catch (SocketException e18) {
+                        e = e18;
+                        laVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass() + "|" + e.getMessage();
+                        this.a.c().c = -12;
+                        saVar.b = -12;
+                        saVar.c = Log.getStackTraceString(e);
+                        if (this.d <= 0) {
+                            iaVar2 = this.b;
+                        }
+                        laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                        this.a.f(laVar);
+                        saVar.a();
+                        z5 = true;
+                        i10 = i8 + 1;
+                        i9 = 1;
+                    } catch (SocketTimeoutException e19) {
+                        e = e19;
+                        laVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass() + "|" + e.getMessage();
+                        this.a.c().c = -13;
+                        saVar.b = -13;
+                        saVar.c = Log.getStackTraceString(e);
+                        if (this.d <= 0) {
+                            iaVar2 = this.b;
+                        }
+                        laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                        this.a.f(laVar);
+                        saVar.a();
+                        z5 = true;
+                        i10 = i8 + 1;
+                        i9 = 1;
+                    } catch (IOException e20) {
+                        e = e20;
+                        this.a.c().c = -19;
+                        laVar.h = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                        saVar.b = -19;
+                        saVar.c = Log.getStackTraceString(e);
+                        if (this.d <= 0 && (iaVar = this.b) != null) {
+                            this.d = iaVar.i();
+                        }
+                        laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                        this.a.f(laVar);
+                        saVar.a();
+                        i10 = i8 + 1;
+                        i9 = 1;
+                    }
+                }
+                e = e10;
+                laVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i8 + "|" + e.getClass() + "|" + e.getMessage();
+                this.a.c().c = -10;
+                BdLog.e(e.getMessage());
+                saVar.b = -10;
+                saVar.c = Log.getStackTraceString(e);
+                if (this.d <= 0) {
+                    iaVar4 = this.b;
+                }
+                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                this.a.f(laVar);
+                saVar.a();
+                return;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CMP_L]}, finally: {[IGET, CMP_L, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, INVOKE, IPUT, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF, IGET, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:112:0x0231, code lost:
+        if (r0 != null) goto L81;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:123:0x0299, code lost:
+        if (r0 != null) goto L81;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:124:0x029b, code lost:
+        r20.d = r0.i();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:132:0x0318, code lost:
+        if (r0 != null) goto L61;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:140:0x0380, code lost:
+        if (r0 != null) goto L61;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:141:0x0382, code lost:
+        r20.d = r0.i();
+     */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x01f9  */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x01fb  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x022f  */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x0242  */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x0244  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x0297  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void n(int i, int i2, int i3) {
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        boolean z;
+        boolean z2;
+        int i8;
+        sa saVar;
+        la laVar;
+        int i9;
+        int i10;
+        int i11;
+        int i12;
+        ia iaVar;
+        boolean z3;
+        ia iaVar2;
+        ia iaVar3;
+        boolean z4;
+        boolean z5;
+        ia iaVar4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048589, this, i, i2, i3) == null) {
+            if (i2 <= 0) {
+                i4 = i6.d().b().b();
+            } else {
+                i4 = i2;
+            }
+            if (i <= 0) {
+                i5 = i6.d().a();
+            } else {
+                i5 = i;
+            }
+            if (i3 <= 0) {
+                i6 = i6.d().c().b();
+            } else {
+                i6 = i3;
+            }
+            if (((ha) ServiceManager.getService(ha.a)).qaHttpsTest()) {
+                i7 = 0;
+            } else {
+                i7 = 2;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            int i13 = 1;
+            boolean z6 = true;
+            int i14 = 0;
+            while (!this.a.c().a && z6 && i14 < i5 + i7) {
+                la laVar2 = new la();
+                sa saVar2 = new sa();
+                na b = this.a.b();
+                if (i14 < i7) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                saVar2.a = b.k(z);
+                if (i14 < i7) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                saVar2.d = z2;
+                this.c = i14;
+                int i15 = i14 + 1;
+                laVar2.e = i15;
+                a(i14);
+                try {
+                    try {
+                        try {
+                            ia iaVar5 = new ia(this.a);
+                            this.b = iaVar5;
+                            iaVar5.q(i14);
+                            this.b.r(e);
+                            ia iaVar6 = this.b;
+                            if (i14 < i7) {
+                                z4 = true;
+                            } else {
+                                z4 = false;
+                            }
+                            if (i14 < i13) {
+                                z5 = true;
+                            } else {
+                                z5 = false;
+                            }
+                            i8 = i15;
+                            i11 = i14;
+                            try {
+                                iaVar6.p(z4, z5, i4, i6, laVar2, saVar2);
+                            } catch (UnsupportedOperationException e2) {
+                                e = e2;
+                                saVar = saVar2;
+                                laVar = laVar2;
+                            } catch (SocketException e3) {
+                                e = e3;
+                                saVar = saVar2;
+                                laVar = laVar2;
+                            } catch (SocketTimeoutException e4) {
+                                e = e4;
+                                saVar = saVar2;
+                                laVar = laVar2;
+                            } catch (Throwable th) {
+                                th = th;
+                                saVar = saVar2;
+                                laVar = laVar2;
+                            }
+                        } catch (UnsupportedOperationException e5) {
+                            e = e5;
+                            i8 = i15;
+                            saVar = saVar2;
+                            laVar = laVar2;
+                            i11 = i14;
+                        } catch (SocketException e6) {
+                            e = e6;
+                            i8 = i15;
+                            saVar = saVar2;
+                            laVar = laVar2;
+                        } catch (SocketTimeoutException e7) {
+                            e = e7;
+                            i8 = i15;
+                            saVar = saVar2;
+                            laVar = laVar2;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        i8 = i15;
+                        saVar = saVar2;
+                        laVar = laVar2;
+                        i11 = i14;
+                    }
+                } catch (UnsupportedOperationException e8) {
+                    e = e8;
+                    i8 = i15;
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    i11 = i14;
+                    i12 = R.string.obfuscated_res_0x7f0f0e4f;
+                } catch (SocketException e9) {
+                    e = e9;
+                    i8 = i15;
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    i10 = R.string.obfuscated_res_0x7f0f0e4f;
+                } catch (SocketTimeoutException e10) {
+                    e = e10;
+                    i8 = i15;
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    i9 = R.string.obfuscated_res_0x7f0f0e4f;
+                }
+                if (this.a.c().b != 200) {
+                    laVar = laVar2;
+                    try {
+                        laVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i11;
+                        z6 = l(this.a.c().b);
+                        this.a.e(laVar);
+                        saVar = saVar2;
+                        try {
+                            try {
+                                saVar.b = this.a.c().b;
+                                saVar.c = "faild";
+                                if (this.d <= 0 && (iaVar4 = this.b) != null) {
+                                    this.d = iaVar4.i();
+                                }
+                                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                this.a.e(laVar);
+                                saVar.a();
+                            } catch (SocketException e11) {
+                                e = e11;
+                                i10 = R.string.obfuscated_res_0x7f0f0e4f;
+                                this.a.c().c = -12;
+                                oa c = this.a.c();
+                                c.g = e.getMessage() + Log.getStackTraceString(e);
+                                laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i10);
+                                BdLog.e(e.getMessage());
+                                this.a.e(laVar);
+                                saVar.b = -12;
+                                saVar.c = Log.getStackTraceString(e);
+                                if (this.d <= 0) {
+                                    iaVar3 = this.b;
+                                }
+                                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                this.a.e(laVar);
+                                saVar.a();
+                                z6 = true;
+                                i14 = i8;
+                                i13 = 1;
+                            } catch (SocketTimeoutException e12) {
+                                e = e12;
+                                i9 = R.string.obfuscated_res_0x7f0f0e4f;
+                                this.a.c().c = -13;
+                                oa c2 = this.a.c();
+                                c2.g = e.getMessage() + Log.getStackTraceString(e);
+                                laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i9);
+                                BdLog.e(e.getMessage());
+                                this.a.e(laVar);
+                                saVar.b = -13;
+                                saVar.c = Log.getStackTraceString(e);
+                                if (this.d <= 0) {
+                                    iaVar3 = this.b;
+                                }
+                                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                this.a.e(laVar);
+                                saVar.a();
+                                z6 = true;
+                                i14 = i8;
+                                i13 = 1;
+                            }
+                        } catch (UnsupportedOperationException e13) {
+                            e = e13;
+                            i12 = R.string.obfuscated_res_0x7f0f0e4f;
+                            if (i11 >= i7) {
+                            }
+                            this.a.c().c = -14;
+                            oa c3 = this.a.c();
+                            c3.g = e.getMessage() + Log.getStackTraceString(e);
+                            laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i12);
+                            this.a.e(laVar);
+                            saVar.b = -14;
+                            saVar.c = Log.getStackTraceString(e);
+                            if (this.d <= 0) {
+                            }
+                            laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                            this.a.e(laVar);
+                            saVar.a();
+                            z6 = z3;
+                            i14 = i8;
+                            i13 = 1;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            try {
+                                this.a.c().c = -10;
+                                oa c4 = this.a.c();
+                                c4.g = th.getMessage() + Log.getStackTraceString(th);
+                                if (i11 >= i7) {
+                                }
+                                laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e4f);
+                                BdLog.e(th.getMessage());
+                                this.a.e(laVar);
+                                saVar.b = -10;
+                                saVar.c = Log.getStackTraceString(th);
+                                if (this.d <= 0) {
+                                }
+                                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                this.a.e(laVar);
+                                saVar.a();
+                                z6 = z3;
+                                i14 = i8;
+                                i13 = 1;
+                            } finally {
+                                if (this.d <= 0 && (iaVar = this.b) != null) {
+                                    this.d = iaVar.i();
+                                }
+                                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                this.a.e(laVar);
+                                saVar.a();
+                            }
+                        }
+                    } catch (UnsupportedOperationException e14) {
+                        e = e14;
+                        saVar = saVar2;
+                    } catch (SocketException e15) {
+                        e = e15;
+                        saVar = saVar2;
+                    } catch (SocketTimeoutException e16) {
+                        e = e16;
+                        saVar = saVar2;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        saVar = saVar2;
+                    }
+                    i14 = i8;
+                    i13 = 1;
+                } else {
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    try {
+                        saVar.b = 0;
+                        saVar.c = DnsModel.MSG_OK;
+                        return;
+                    } catch (UnsupportedOperationException e17) {
+                        e = e17;
+                        i12 = R.string.obfuscated_res_0x7f0f0e4f;
+                        if (i11 >= i7) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
+                        this.a.c().c = -14;
+                        oa c32 = this.a.c();
+                        c32.g = e.getMessage() + Log.getStackTraceString(e);
+                        laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i12);
+                        this.a.e(laVar);
+                        saVar.b = -14;
+                        saVar.c = Log.getStackTraceString(e);
+                        if (this.d <= 0) {
+                            iaVar2 = this.b;
+                        }
+                        laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                        this.a.e(laVar);
+                        saVar.a();
+                        z6 = z3;
+                        i14 = i8;
+                        i13 = 1;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        this.a.c().c = -10;
+                        oa c42 = this.a.c();
+                        c42.g = th.getMessage() + Log.getStackTraceString(th);
+                        if (i11 >= i7) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
+                        laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e4f);
+                        BdLog.e(th.getMessage());
+                        this.a.e(laVar);
+                        saVar.b = -10;
+                        saVar.c = Log.getStackTraceString(th);
+                        if (this.d <= 0) {
+                            iaVar2 = this.b;
+                        }
+                        laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                        this.a.e(laVar);
+                        saVar.a();
+                        z6 = z3;
+                        i14 = i8;
+                        i13 = 1;
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CMP_L]}, finally: {[IGET, CMP_L, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, INVOKE, IPUT, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF, IGET, INVOKE, ARITH, IPUT, IGET, INVOKE, INVOKE, IF] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:112:0x0231, code lost:
+        if (r0 != null) goto L81;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:123:0x0299, code lost:
+        if (r0 != null) goto L81;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:124:0x029b, code lost:
+        r20.d = r0.i();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:132:0x0318, code lost:
+        if (r0 != null) goto L61;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:140:0x0380, code lost:
+        if (r0 != null) goto L61;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:141:0x0382, code lost:
+        r20.d = r0.i();
+     */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x01f9  */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x01fb  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x022f  */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x0242  */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x0244  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x0297  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void o(int i, int i2, int i3) {
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        boolean z;
+        boolean z2;
+        int i8;
+        sa saVar;
+        la laVar;
+        int i9;
+        int i10;
+        int i11;
+        int i12;
+        ia iaVar;
+        boolean z3;
+        ia iaVar2;
+        ia iaVar3;
+        boolean z4;
+        boolean z5;
+        ia iaVar4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048590, this, i, i2, i3) == null) {
+            if (i2 <= 0) {
+                i4 = i6.d().b().b();
+            } else {
+                i4 = i2;
+            }
+            if (i <= 0) {
+                i5 = i6.d().a();
+            } else {
+                i5 = i;
+            }
+            if (i3 <= 0) {
+                i6 = i6.d().c().b();
+            } else {
+                i6 = i3;
+            }
+            if (((ha) ServiceManager.getService(ha.a)).qaHttpsTest()) {
+                i7 = 0;
+            } else {
+                i7 = 2;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            int i13 = 1;
+            boolean z6 = true;
+            int i14 = 0;
+            while (!this.a.c().a && z6 && i14 < i5 + i7) {
+                la laVar2 = new la();
+                sa saVar2 = new sa();
+                na b = this.a.b();
+                if (i14 < i7) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                saVar2.a = b.k(z);
+                if (i14 < i7) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                saVar2.d = z2;
+                int i15 = i14 + 1;
+                laVar2.e = i15;
+                this.c = i14;
+                a(i14);
+                try {
+                    try {
+                        try {
+                            ia iaVar5 = new ia(this.a);
+                            this.b = iaVar5;
+                            iaVar5.q(i14);
+                            this.b.r(e);
+                            ia iaVar6 = this.b;
+                            if (i14 < i7) {
+                                z4 = true;
+                            } else {
+                                z4 = false;
+                            }
+                            if (i14 < i13) {
+                                z5 = true;
+                            } else {
+                                z5 = false;
+                            }
+                            i8 = i15;
+                            i11 = i14;
+                            try {
+                                iaVar6.o(z4, z5, i4, i6, laVar2, saVar2);
+                            } catch (UnsupportedOperationException e2) {
+                                e = e2;
+                                saVar = saVar2;
+                                laVar = laVar2;
+                            } catch (SocketException e3) {
+                                e = e3;
+                                saVar = saVar2;
+                                laVar = laVar2;
+                            } catch (SocketTimeoutException e4) {
+                                e = e4;
+                                saVar = saVar2;
+                                laVar = laVar2;
+                            } catch (Throwable th) {
+                                th = th;
+                                saVar = saVar2;
+                                laVar = laVar2;
+                            }
+                        } catch (UnsupportedOperationException e5) {
+                            e = e5;
+                            i8 = i15;
+                            saVar = saVar2;
+                            laVar = laVar2;
+                            i11 = i14;
+                        } catch (SocketException e6) {
+                            e = e6;
+                            i8 = i15;
+                            saVar = saVar2;
+                            laVar = laVar2;
+                        } catch (SocketTimeoutException e7) {
+                            e = e7;
+                            i8 = i15;
+                            saVar = saVar2;
+                            laVar = laVar2;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        i8 = i15;
+                        saVar = saVar2;
+                        laVar = laVar2;
+                        i11 = i14;
+                    }
+                } catch (UnsupportedOperationException e8) {
+                    e = e8;
+                    i8 = i15;
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    i11 = i14;
+                    i12 = R.string.obfuscated_res_0x7f0f0e4f;
+                } catch (SocketException e9) {
+                    e = e9;
+                    i8 = i15;
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    i10 = R.string.obfuscated_res_0x7f0f0e4f;
+                } catch (SocketTimeoutException e10) {
+                    e = e10;
+                    i8 = i15;
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    i9 = R.string.obfuscated_res_0x7f0f0e4f;
+                }
+                if (this.a.c().b != 200) {
+                    laVar = laVar2;
+                    try {
+                        laVar.h = String.valueOf(this.a.c().b) + "|retryCount:" + i11;
+                        z6 = l(this.a.c().b);
+                        this.a.e(laVar);
+                        saVar = saVar2;
+                        try {
+                            try {
+                                saVar.b = this.a.c().b;
+                                saVar.c = "faild";
+                                if (this.d <= 0 && (iaVar4 = this.b) != null) {
+                                    this.d = iaVar4.i();
+                                }
+                                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                this.a.e(laVar);
+                                saVar.a();
+                            } catch (SocketException e11) {
+                                e = e11;
+                                i10 = R.string.obfuscated_res_0x7f0f0e4f;
+                                this.a.c().c = -12;
+                                oa c = this.a.c();
+                                c.g = e.getMessage() + Log.getStackTraceString(e);
+                                laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i10);
+                                BdLog.e(e.getMessage());
+                                this.a.e(laVar);
+                                saVar.b = -12;
+                                saVar.c = Log.getStackTraceString(e);
+                                if (this.d <= 0) {
+                                    iaVar3 = this.b;
+                                }
+                                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                this.a.e(laVar);
+                                saVar.a();
+                                z6 = true;
+                                i14 = i8;
+                                i13 = 1;
+                            } catch (SocketTimeoutException e12) {
+                                e = e12;
+                                i9 = R.string.obfuscated_res_0x7f0f0e4f;
+                                this.a.c().c = -13;
+                                oa c2 = this.a.c();
+                                c2.g = e.getMessage() + Log.getStackTraceString(e);
+                                laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i9);
+                                BdLog.e(e.getMessage());
+                                this.a.e(laVar);
+                                saVar.b = -13;
+                                saVar.c = Log.getStackTraceString(e);
+                                if (this.d <= 0) {
+                                    iaVar3 = this.b;
+                                }
+                                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                this.a.e(laVar);
+                                saVar.a();
+                                z6 = true;
+                                i14 = i8;
+                                i13 = 1;
+                            }
+                        } catch (UnsupportedOperationException e13) {
+                            e = e13;
+                            i12 = R.string.obfuscated_res_0x7f0f0e4f;
+                            if (i11 >= i7) {
+                            }
+                            this.a.c().c = -14;
+                            oa c3 = this.a.c();
+                            c3.g = e.getMessage() + Log.getStackTraceString(e);
+                            laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i12);
+                            this.a.e(laVar);
+                            saVar.b = -14;
+                            saVar.c = Log.getStackTraceString(e);
+                            if (this.d <= 0) {
+                            }
+                            laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                            this.a.e(laVar);
+                            saVar.a();
+                            z6 = z3;
+                            i14 = i8;
+                            i13 = 1;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            try {
+                                this.a.c().c = -10;
+                                oa c4 = this.a.c();
+                                c4.g = th.getMessage() + Log.getStackTraceString(th);
+                                if (i11 >= i7) {
+                                }
+                                laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e4f);
+                                BdLog.e(th.getMessage());
+                                this.a.e(laVar);
+                                saVar.b = -10;
+                                saVar.c = Log.getStackTraceString(th);
+                                if (this.d <= 0) {
+                                }
+                                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                this.a.e(laVar);
+                                saVar.a();
+                                z6 = z3;
+                                i14 = i8;
+                                i13 = 1;
+                            } finally {
+                                if (this.d <= 0 && (iaVar = this.b) != null) {
+                                    this.d = iaVar.i();
+                                }
+                                laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                                this.a.e(laVar);
+                                saVar.a();
+                            }
+                        }
+                    } catch (UnsupportedOperationException e14) {
+                        e = e14;
+                        saVar = saVar2;
+                    } catch (SocketException e15) {
+                        e = e15;
+                        saVar = saVar2;
+                    } catch (SocketTimeoutException e16) {
+                        e = e16;
+                        saVar = saVar2;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        saVar = saVar2;
+                    }
+                    i14 = i8;
+                    i13 = 1;
+                } else {
+                    saVar = saVar2;
+                    laVar = laVar2;
+                    try {
+                        saVar.b = 0;
+                        saVar.c = DnsModel.MSG_OK;
+                        return;
+                    } catch (UnsupportedOperationException e17) {
+                        e = e17;
+                        i12 = R.string.obfuscated_res_0x7f0f0e4f;
+                        if (i11 >= i7) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
+                        this.a.c().c = -14;
+                        oa c32 = this.a.c();
+                        c32.g = e.getMessage() + Log.getStackTraceString(e);
+                        laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(i12);
+                        this.a.e(laVar);
+                        saVar.b = -14;
+                        saVar.c = Log.getStackTraceString(e);
+                        if (this.d <= 0) {
+                            iaVar2 = this.b;
+                        }
+                        laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                        this.a.e(laVar);
+                        saVar.a();
+                        z6 = z3;
+                        i14 = i8;
+                        i13 = 1;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        this.a.c().c = -10;
+                        oa c42 = this.a.c();
+                        c42.g = th.getMessage() + Log.getStackTraceString(th);
+                        if (i11 >= i7) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
+                        laVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e4f);
+                        BdLog.e(th.getMessage());
+                        this.a.e(laVar);
+                        saVar.b = -10;
+                        saVar.c = Log.getStackTraceString(th);
+                        if (this.d <= 0) {
+                            iaVar2 = this.b;
+                        }
+                        laVar.f = System.currentTimeMillis() - currentTimeMillis;
+                        this.a.e(laVar);
+                        saVar.a();
+                        z6 = z3;
+                        i14 = i8;
+                        i13 = 1;
+                    }
+                }
+            }
+        }
+    }
+
+    public void m(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048588, this, i, i2, i3) == null) {
+            if (this.a.b().l()) {
+                o(i, i2, i3);
+            } else {
+                n(i, i2, i3);
+            }
+        }
     }
 }

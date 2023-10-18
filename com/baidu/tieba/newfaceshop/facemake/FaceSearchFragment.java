@@ -26,11 +26,11 @@ import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.face.view.AutoLineWrapLayout;
 import com.baidu.tieba.face.view.SearchEditView;
-import com.baidu.tieba.fg9;
-import com.baidu.tieba.hg9;
-import com.baidu.tieba.n47;
 import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
 import com.baidu.tieba.newfaceshop.facemake.GetHotWordsModel;
+import com.baidu.tieba.sa9;
+import com.baidu.tieba.ua9;
+import com.baidu.tieba.wy6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
     public View f;
     public AutoLineWrapLayout g;
     public BdListView h;
-    public hg9 i;
+    public ua9 i;
     public List<EmotionImageData> j;
     public SearchEmotionModel k;
     public GetHotWordsModel l;
@@ -61,7 +61,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
     public int n;
     public boolean o;
     public String p;
-    public fg9 q;
+    public sa9 q;
     public Activity r;
     public final SearchEmotionModel.b s;
     public final BdListView.p t;
@@ -207,22 +207,22 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.b
-        public void a(String str, n47 n47Var) {
+        public void a(String str, wy6 wy6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, n47Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, wy6Var) == null) {
                 this.a.getBaseFragmentActivity().hideProgressBar();
-                if (n47Var != null && n47Var.a() != null && !n47Var.a().isEmpty()) {
-                    this.a.n = n47Var.c();
+                if (wy6Var != null && wy6Var.a() != null && !wy6Var.a().isEmpty()) {
+                    this.a.n = wy6Var.c();
                     boolean z = true;
                     if (this.a.n == 1) {
                         this.a.j.clear();
                     }
                     FaceSearchFragment faceSearchFragment = this.a;
-                    if (n47Var.b() == 0) {
+                    if (wy6Var.b() == 0) {
                         z = false;
                     }
                     faceSearchFragment.o = z;
-                    this.a.j.addAll(n47Var.a());
+                    this.a.j.addAll(wy6Var.a());
                     this.a.i.notifyDataSetChanged();
                     this.a.A2();
                     BdUtilHelper.hideSoftKeyPad(this.a.getActivity(), this.a.a);
@@ -312,9 +312,9 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            hg9 hg9Var = this.i;
-            if (hg9Var != null) {
-                hg9Var.k();
+            ua9 ua9Var = this.i;
+            if (ua9Var != null) {
+                ua9Var.k();
             }
             this.k.cancelLoadData();
             this.l.cancelLoadData();
@@ -325,9 +325,9 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            hg9 hg9Var = this.i;
-            if (hg9Var != null) {
-                return hg9Var.i();
+            ua9 ua9Var = this.i;
+            if (ua9Var != null) {
+                return ua9Var.i();
             }
             return null;
         }
@@ -336,10 +336,10 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
 
     public final void v2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.l = new GetHotWordsModel();
             this.m = new ArrayList();
-            this.l.N(new b(this));
+            this.l.O(new b(this));
         }
     }
 
@@ -360,25 +360,25 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
     }
 
     @Override // com.baidu.tieba.face.view.SearchEditView.d
-    public void w0(String str) {
+    public void v0(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && str.length() == 0) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && str.length() == 0) {
             this.j.clear();
-            hg9 hg9Var = this.i;
-            if (hg9Var != null) {
-                hg9Var.notifyDataSetChanged();
+            ua9 ua9Var = this.i;
+            if (ua9Var != null) {
+                ua9Var.notifyDataSetChanged();
             }
             y2();
         }
     }
 
-    public void x2(fg9 fg9Var) {
+    public void x2(sa9 sa9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, fg9Var) == null) {
-            this.q = fg9Var;
-            hg9 hg9Var = this.i;
-            if (hg9Var != null) {
-                hg9Var.l(fg9Var);
+        if (interceptable == null || interceptable.invokeL(1048588, this, sa9Var) == null) {
+            this.q = sa9Var;
+            ua9 ua9Var = this.i;
+            if (ua9Var != null) {
+                ua9Var.l(sa9Var);
             }
         }
     }
@@ -440,22 +440,22 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
             FaceImageLayout faceImageLayout = (FaceImageLayout) view2.findViewById(R.id.layout_content);
             this.d = faceImageLayout;
             faceImageLayout.setListener(new a(this));
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f09297f);
-            SearchEditView searchEditView = (SearchEditView) view2.findViewById(R.id.obfuscated_res_0x7f090984);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f092971);
+            SearchEditView searchEditView = (SearchEditView) view2.findViewById(R.id.obfuscated_res_0x7f09099f);
             this.a = searchEditView;
             searchEditView.setCallback(this);
-            this.g = (AutoLineWrapLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914a4);
+            this.g = (AutoLineWrapLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914bd);
             this.b = (TextView) view2.findViewById(R.id.tv_tips);
             SkinManager.setBackgroundResource(this.c, R.color.CAM_X0201);
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
-            BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f091553);
+            BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f09156e);
             this.h = bdListView;
             bdListView.setOnSrollToBottomListener(this.t);
             this.j = new ArrayList();
-            hg9 hg9Var = new hg9(this.j, 10);
-            this.i = hg9Var;
-            hg9Var.l(this.q);
+            ua9 ua9Var = new ua9(this.j, 10);
+            this.i = ua9Var;
+            ua9Var.l(this.q);
             this.h.setAdapter((ListAdapter) this.i);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -475,10 +475,10 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                showToast(R.string.obfuscated_res_0x7f0f0e42);
+                showToast(R.string.obfuscated_res_0x7f0f0e4f);
             } else if (this.o) {
                 getBaseFragmentActivity().showProgressBar();
-                this.k.N(this.p, this.n + 1, 40, this.s);
+                this.k.O(this.p, this.n + 1, 40, this.s);
             }
         }
     }
@@ -505,20 +505,20 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
             return;
         }
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            showToast(R.string.obfuscated_res_0x7f0f0e42);
+            showToast(R.string.obfuscated_res_0x7f0f0e4f);
             return;
         }
         getBaseFragmentActivity().showProgressBar();
         this.n = 0;
         this.p = str;
-        this.k.N(str, 0 + 1, 40, this.s);
+        this.k.O(str, 0 + 1, 40, this.s);
     }
 
     public final void z2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (this.e == null) {
-                NoDataView a2 = NoDataViewFactory.a(this.r, this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdUtilHelper.getDimens(this.r, R.dimen.obfuscated_res_0x7f0703c0)), NoDataViewFactory.e.c(this.r.getText(R.string.obfuscated_res_0x7f0f0706).toString()), null);
+                NoDataView a2 = NoDataViewFactory.a(this.r, this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdUtilHelper.getDimens(this.r, R.dimen.obfuscated_res_0x7f0703bc)), NoDataViewFactory.e.c(this.r.getText(R.string.obfuscated_res_0x7f0f070c).toString()), null);
                 this.e = a2;
                 a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }

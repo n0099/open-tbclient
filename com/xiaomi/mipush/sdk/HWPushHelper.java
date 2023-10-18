@@ -3,6 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.mobads.sdk.internal.bj;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -14,7 +15,7 @@ public class HWPushHelper {
     }
 
     public static boolean hasNetwork(Context context) {
-        return i.m250a(context);
+        return i.m249a(context);
     }
 
     public static boolean isHmsTokenSynced(Context context) {
@@ -117,7 +118,7 @@ public class HWPushHelper {
     public static synchronized boolean shouldGetToken(Context context) {
         boolean z;
         synchronized (HWPushHelper.class) {
-            z = Math.abs(System.currentTimeMillis() - context.getSharedPreferences("mipush_extra", 0).getLong("last_get_token_time", -1L)) > 172800000;
+            z = Math.abs(System.currentTimeMillis() - context.getSharedPreferences("mipush_extra", 0).getLong("last_get_token_time", -1L)) > bj.e;
         }
         return z;
     }
@@ -131,6 +132,6 @@ public class HWPushHelper {
     }
 
     public static void uploadToken(Context context, String str) {
-        i.m249a(context, e.ASSEMBLE_PUSH_HUAWEI, str);
+        i.m248a(context, e.ASSEMBLE_PUSH_HUAWEI, str);
     }
 }

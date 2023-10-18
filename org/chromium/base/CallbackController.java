@@ -2,7 +2,7 @@ package org.chromium.base;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.qac;
+import com.baidu.tieba.n4c;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
@@ -54,7 +54,7 @@ public final class CallbackController {
 
         @Override // org.chromium.base.Callback
         public /* synthetic */ Runnable bind(T t) {
-            return qac.$default$bind(this, t);
+            return n4c.$default$bind(this, t);
         }
 
         public CancelableCallback(@NonNull Callback<T> callback) {

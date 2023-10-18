@@ -15,15 +15,15 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tieba.aa3;
-import com.baidu.tieba.ba3;
-import com.baidu.tieba.gb3;
-import com.baidu.tieba.pr1;
-import com.baidu.tieba.v93;
-import com.baidu.tieba.w93;
-import com.baidu.tieba.x93;
-import com.baidu.tieba.y93;
-import com.baidu.tieba.z93;
+import com.baidu.tieba.e43;
+import com.baidu.tieba.f43;
+import com.baidu.tieba.g43;
+import com.baidu.tieba.h43;
+import com.baidu.tieba.i43;
+import com.baidu.tieba.j43;
+import com.baidu.tieba.k43;
+import com.baidu.tieba.p53;
+import com.baidu.tieba.zl1;
 import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -53,7 +53,7 @@ public class WheelView3d extends View {
     public float S;
 
     /* renamed from: T  reason: collision with root package name */
-    public Drawable f1073T;
+    public Drawable f1074T;
     public Drawable U;
     public Paint V;
     public int W;
@@ -61,7 +61,7 @@ public class WheelView3d extends View {
     public Context b;
     public Handler c;
     public GestureDetector d;
-    public y93 e;
+    public h43 e;
     public boolean f;
     public boolean g;
     public ScheduledExecutorService h;
@@ -69,7 +69,7 @@ public class WheelView3d extends View {
     public Paint j;
     public Paint k;
     public Paint l;
-    public v93 m;
+    public e43 m;
     public String n;
     public int o;
     public int p;
@@ -104,9 +104,9 @@ public class WheelView3d extends View {
 
         @Override // java.lang.Runnable
         public void run() {
-            y93 y93Var = WheelView3d.this.e;
+            h43 h43Var = WheelView3d.this.e;
             WheelView3d wheelView3d = WheelView3d.this;
-            y93Var.a(wheelView3d, wheelView3d.getCurrentItem());
+            h43Var.a(wheelView3d, wheelView3d.getCurrentItem());
         }
     }
 
@@ -119,7 +119,7 @@ public class WheelView3d extends View {
         }
     }
 
-    public final v93 getAdapter() {
+    public final e43 getAdapter() {
         return this.m;
     }
 
@@ -141,9 +141,9 @@ public class WheelView3d extends View {
     }
 
     public int getItemsCount() {
-        v93 v93Var = this.m;
-        if (v93Var != null) {
-            return v93Var.getItemsCount();
+        e43 e43Var = this.m;
+        if (e43Var != null) {
+            return e43Var.getItemsCount();
         }
         return 0;
     }
@@ -188,12 +188,12 @@ public class WheelView3d extends View {
     public final void q(float f) {
         b();
         synchronized (WheelView3d.class) {
-            this.i = this.h.scheduleWithFixedDelay(new z93(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new i43(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
         }
     }
 
-    public final void setAdapter(v93 v93Var) {
-        this.m = v93Var;
+    public final void setAdapter(e43 e43Var) {
+        this.m = e43Var;
         p();
         invalidate();
     }
@@ -249,8 +249,8 @@ public class WheelView3d extends View {
         }
     }
 
-    public final void setOnItemSelectedListener(y93 y93Var) {
-        this.e = y93Var;
+    public final void setOnItemSelectedListener(h43 h43Var) {
+        this.e = h43Var;
     }
 
     public final void setOuterTextSize(int i) {
@@ -323,7 +323,7 @@ public class WheelView3d extends View {
             }
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pr1.swan_pickerview, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zl1.swan_pickerview, 0, 0);
             this.P = obtainStyledAttributes.getInt(0, 17);
             this.u = obtainStyledAttributes.getColor(4, -5723992);
             this.v = obtainStyledAttributes.getColor(3, -14013910);
@@ -345,8 +345,8 @@ public class WheelView3d extends View {
         if (obj == null) {
             return "";
         }
-        if (obj instanceof w93) {
-            return ((w93) obj).getPickerViewText();
+        if (obj instanceof f43) {
+            return ((f43) obj).getPickerViewText();
         }
         if (obj instanceof Integer) {
             return String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue()));
@@ -356,14 +356,14 @@ public class WheelView3d extends View {
 
     public final void g(Context context) {
         this.b = context;
-        this.c = new aa3(this);
-        GestureDetector gestureDetector = new GestureDetector(context, new x93(this));
+        this.c = new j43(this);
+        GestureDetector gestureDetector = new GestureDetector(context, new g43(this));
         this.d = gestureDetector;
         gestureDetector.setIsLongpressEnabled(false);
         this.y = true;
         this.C = 0.0f;
         this.D = -1;
-        this.f1073T = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, a0);
+        this.f1074T = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, a0);
         this.U = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, a0);
         h();
     }
@@ -393,7 +393,7 @@ public class WheelView3d extends View {
             }
         }
         synchronized (WheelView3d.class) {
-            this.i = this.h.scheduleWithFixedDelay(new ba3(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new k43(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
         }
     }
 
@@ -420,11 +420,11 @@ public class WheelView3d extends View {
 
     public final int getCurrentItem() {
         int i;
-        v93 v93Var = this.m;
-        if (v93Var == null) {
+        e43 e43Var = this.m;
+        if (e43Var == null) {
             return 0;
         }
-        if (this.y && ((i = this.E) < 0 || i >= v93Var.getItemsCount())) {
+        if (this.y && ((i = this.E) < 0 || i >= e43Var.getItemsCount())) {
             return Math.max(0, Math.min(Math.abs(Math.abs(this.E) - this.m.getItemsCount()), this.m.getItemsCount() - 1));
         }
         return Math.max(0, Math.min(this.E, this.m.getItemsCount() - 1));
@@ -559,7 +559,7 @@ public class WheelView3d extends View {
         try {
             this.F = min + (i3 % this.m.getItemsCount());
         } catch (ArithmeticException unused) {
-            if (gb3.v) {
+            if (p53.v) {
                 Log.e("WheelView", "出错了！adapter.getItemsCount() == 0，联动数据不匹配");
             }
         }
@@ -700,7 +700,7 @@ public class WheelView3d extends View {
                 canvas.restore();
             }
         }
-        c(this.f1073T, canvas, 0, (int) this.z);
+        c(this.f1074T, canvas, 0, (int) this.z);
         c(this.U, canvas, (int) this.A, this.I);
     }
 

@@ -1,56 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.cache.CacheManager;
-import com.baidu.tieba.danmu.data.ItemState;
-import com.baidu.tieba.danmu.data.state.DrawState;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.kt;
+import com.baidu.tieba.vt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import kotlin.Unit;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class ww6 extends aw6 {
+public class ww6 extends lh<py4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int i;
-    public int j;
-    public a k;
-    public final CacheManager l;
-    public ex6 m;
-
-    @Override // com.baidu.tieba.aw6
-    public void l(i0 entity, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity, f) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-        }
-    }
+    public BdUniqueId a;
+    public String b;
+    public TbPageContext<?> c;
+    public boolean d;
+    public ei e;
+    public bk6<ThreadData> f;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public class a extends bk6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
+        public final /* synthetic */ ww6 b;
 
-        public final void c(List<? extends Object> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                Intrinsics.checkNotNullParameter(list, "<set-?>");
-            }
-        }
-
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(ww6 ww6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -66,211 +50,135 @@ public final class ww6 extends aw6 {
                     return;
                 }
             }
-            this.a = -1;
-            CollectionsKt__CollectionsKt.emptyList();
+            this.b = ww6Var;
         }
 
-        public final int a() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bk6
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
-
-        public final void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.a = i;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+                tj6.b().d(true);
+                bv6.a(view2, threadData, this.b.b);
             }
         }
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ww6(vv6 context) {
-        super(context, r3, null, 4, null);
+    /* loaded from: classes8.dex */
+    public class b implements ii {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ww6 a;
+
+        public b(ww6 ww6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ww6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ww6Var;
+        }
+
+        @Override // com.baidu.tieba.ii
+        public void b(View view2, yh yhVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, yhVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (yhVar instanceof py4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ThreadData threadData = ((py4) yhVar).t;
+                threadData.objType = 1;
+                if (this.a.f != null) {
+                    this.a.f.a(threadCardViewHolder.getView(), threadData);
+                }
+                ThreadCardUtils.jumpToPB((jv4) threadData, view2.getContext(), 2, false);
+                threadCardViewHolder.a().q(new vt.a(1));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ww6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((vv6) objArr2[0], (l0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Class<? extends xv6>[] b = vx6.a.b();
-        l0 b2 = l0.d((Class[]) Arrays.copyOf(b, b.length)).b();
-        Intrinsics.checkNotNullExpressionValue(b2, "all(*Families.layoutComponentTypes).get()");
-        this.i = -1;
-        this.j = -1;
-        this.k = new a(this);
-        this.l = context.b();
-        this.m = new fx6();
+        this.d = true;
+        this.f = new a(this);
+        this.c = tbPageContext;
+        this.a = bdUniqueId2;
+        this.b = str;
     }
 
-    @Override // com.baidu.tieba.aw6, com.baidu.tieba.j0
-    public void a(i0 entity) {
-        qv6 a2;
+    public void y(ei eiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            super.a(entity);
-            ex6 ex6Var = this.m;
-            cw6 b = ax6.b(entity);
-            if (b != null && (a2 = b.a()) != null) {
-                ex6Var.b(a2);
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, eiVar) == null) {
+            this.e = eiVar;
         }
     }
 
-    public final void o(ex6 ex6Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: u */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ex6Var) == null) {
-            Intrinsics.checkNotNullParameter(ex6Var, "<set-?>");
-            this.m = ex6Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            kt.b bVar = new kt.b(this.c.getPageActivity(), false);
+            zs zsVar = new zs(this.c.getPageActivity());
+            zsVar.setFrom("index");
+            zsVar.y(this.d);
+            bVar.n(zsVar);
+            kt k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
+            k.t(2);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.i(this.a);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public final qx6 n() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, py4 py4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return zw6.c(this);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py4Var, threadCardViewHolder})) == null) {
+            if (py4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = py4Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().s(i);
+                threadCardViewHolder.e(py4Var.t);
+                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().r(this.f);
+                bv6.b(py4Var, this.b);
+                return threadCardViewHolder.getView();
+            }
+            return null;
         }
-        return (qx6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.aw6, com.baidu.tieba.k0
-    public void update(float f) {
-        boolean z;
-        qv6 a2;
-        boolean z2;
-        dw6 dw6Var;
-        boolean z3;
-        qv6 a3;
-        qv6 a4;
-        boolean z4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            bx6.b("LayoutSystem_update");
-            kv6 c = i().c();
-            if (this.i == c.r() && this.j == c.o()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (zw6.e(this) && !z) {
-                bx6.a();
-                return;
-            }
-            if (this.i != c.r()) {
-                BdLog.v("DanmakuEngine [Layout] RetainerGeneration change, clear retainer.");
-                this.m.c(0, (int) (n().getHeight() * c.u()));
-                this.m.clear();
-                this.i = c.r();
-            }
-            if (this.k.a() != c.l()) {
-                this.k.b(c.l());
-                this.k.c(CollectionsKt___CollectionsKt.toList(c.n()));
-            }
-            long b = zw6.b(this);
-            List<i0> k = k();
-            ArrayList<i0> arrayList = new ArrayList();
-            for (Object obj : k) {
-                bw6 d = ax6.d((i0) obj);
-                if (d == null || d.d()) {
-                    z4 = false;
-                } else {
-                    z4 = true;
-                }
-                if (z4) {
-                    arrayList.add(obj);
-                }
-            }
-            boolean z5 = false;
-            for (i0 i0Var : arrayList) {
-                cw6 b2 = ax6.b(i0Var);
-                if (b2 != null && (a4 = b2.a()) != null && a4.i() != ItemState.Measuring) {
-                    boolean z6 = !a4.f().r(c.p());
-                    if (a4.i().compareTo(ItemState.Measuring) < 0 || z6) {
-                        if (z6 && a4.i().compareTo(ItemState.Measuring) >= 0) {
-                            BdLog.v("DanmakuEngine [Layout] re-measure " + a4.e());
-                        }
-                        a4.p(ItemState.Measuring);
-                        this.l.o(a4, n(), c);
-                        z5 = true;
-                    }
-                }
-            }
-            ArrayList<i0> arrayList2 = new ArrayList();
-            for (Object obj2 : arrayList) {
-                cw6 b3 = ax6.b((i0) obj2);
-                if (b3 != null && (a3 = b3.a()) != null && a3.i().compareTo(ItemState.Measured) >= 0) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                if (z3) {
-                    arrayList2.add(obj2);
-                }
-            }
-            boolean z7 = z5;
-            for (i0 i0Var2 : arrayList2) {
-                cw6 b4 = ax6.b(i0Var2);
-                if (b4 != null && (a2 = b4.a()) != null) {
-                    DrawState f2 = a2.f();
-                    dw6 e = ax6.e(i0Var2);
-                    if (e != null || (e = (dw6) zw6.a(this, dw6.class, i0Var2, a2)) != null) {
-                        dw6 dw6Var2 = e;
-                        if (f2.e() != c.o()) {
-                            z2 = true;
-                        } else {
-                            z2 = false;
-                        }
-                        if (z2) {
-                            f2.H(false);
-                            dw6Var = dw6Var2;
-                            dw6Var.e(this.m.d(a2, b, n(), c));
-                        } else {
-                            dw6Var = dw6Var2;
-                        }
-                        if (dw6Var.d()) {
-                            synchronized (a2.i()) {
-                                if (a2.i().compareTo(ItemState.Rendering) < 0) {
-                                    a2.p(ItemState.Rendering);
-                                    this.l.m(a2, n(), c);
-                                    z7 = true;
-                                }
-                                Unit unit = Unit.INSTANCE;
-                            }
-                            this.m.a(a2, b, n(), c);
-                            f2.y(c.o());
-                        }
-                        dw6Var.c().set(f2.g(), f2.h());
-                    }
-                }
-            }
-            if (zw6.e(this)) {
-                if (z7) {
-                    this.l.n();
-                } else {
-                    c.H();
-                    this.j = c.o();
-                }
-            }
-            bx6.a();
-        }
+        return (View) invokeCommon.objValue;
     }
 }

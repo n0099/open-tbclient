@@ -1,15 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bz0 implements cz0 {
+public abstract class bz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract Column[] c();
+
+    public abstract ty0[] d();
+
+    public abstract ty0[][] e();
+
+    public abstract ty0[] f();
+
+    public abstract String g();
 
     public bz0() {
         Interceptable interceptable = $ic;
@@ -25,14 +35,21 @@ public class bz0 implements cz0 {
         }
     }
 
-    @Override // com.baidu.tieba.cz0
-    @NonNull
-    public vy0 create(@NonNull String str) {
-        InterceptResult invokeL;
+    public static ty0 a(int i, String str, String str2, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return new az0();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) {
+            return b(i, str, str2, i2, 0);
         }
-        return (vy0) invokeL.objValue;
+        return (ty0) invokeCommon.objValue;
+    }
+
+    public static ty0 b(int i, String str, String str2, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            return new ty0(i, str, str2, i2, i3);
+        }
+        return (ty0) invokeCommon.objValue;
     }
 }

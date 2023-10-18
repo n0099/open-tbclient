@@ -1,32 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class aa4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile z94 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public Object data;
-    @V8JavascriptField
-    public Object header;
-    @V8JavascriptField
-    public int statusCode;
 
-    public aa4() {
+    public static synchronized z94 a() {
+        InterceptResult invokeV;
+        z94 z94Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (aa4.class) {
+                if (a == null) {
+                    a = new z94();
+                }
+                z94Var = a;
             }
+            return z94Var;
         }
+        return (z94) invokeV.objValue;
     }
 }

@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
-import com.baidu.tieba.lx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.ShortUserInfo;
 /* loaded from: classes6.dex */
-public final class hx6 extends cx6 {
+public class hx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ShortUserInfo> a;
+    public String b;
+    public String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public hx6() {
-        super(new AkTopRetainer(0.0f, 0.0f, 3, null), new kx6());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,11 +22,8 @@ public final class hx6 extends cx6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((lx6) objArr[0], (lx6.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }

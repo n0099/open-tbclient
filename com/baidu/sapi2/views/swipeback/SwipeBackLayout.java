@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-import com.baidu.tieba.uf1;
+import com.baidu.tieba.ea1;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes3.dex */
@@ -296,7 +296,7 @@ public class SwipeBackLayout extends ViewGroup {
     }
 
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, uf1.sapi_sdk_SwipeBackLayout);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ea1.sapi_sdk_SwipeBackLayout);
         setDirectionMode(obtainStyledAttributes.getInt(0, this.a));
         setSwipeBackFactor(obtainStyledAttributes.getFloat(3, this.h));
         setMaskAlpha(obtainStyledAttributes.getInteger(2, this.j));

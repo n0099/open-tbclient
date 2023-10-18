@@ -1,34 +1,165 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tieba.ye4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.io.IOException;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class so3 {
+public class so3 extends we4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ye4.a a;
 
-    public static void a(@NonNull Context context, @NonNull File file) {
+    public so3(ye4.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, context, file) != null) || !file.exists()) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        Intent intent = new Intent();
-        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-        intent.setAction("android.intent.action.SEND");
-        intent.setTypeAndNormalize(ap3.s(file));
-        if (Build.VERSION.SDK_INT >= 24) {
-            intent.putExtra("android.intent.extra.STREAM", dp3.a(context, file));
-            intent.addFlags(1);
-        } else {
-            intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
+        this.a = aVar;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            return false;
         }
-        context.startActivity(intent);
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ye4.a
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && a()) {
+            this.a.onStart();
+        }
+    }
+
+    @Override // com.baidu.tieba.ye4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
+            this.a.b(str, str2, jSONObject);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: c */
+    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
+        InterceptResult invokeLIL;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i, networkStatRecord)) == null) {
+            if (response != null && response.body() != null) {
+                ro3 l = ro3.l();
+                if (TextUtils.equals(response.headers().get("Bdtls"), com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
+                    l.m().s(0);
+                    return com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY;
+                }
+                if (l.k()) {
+                    string = l.d.g(response.body().bytes());
+                    if (lo3.a) {
+                        Log.d("BDTLS", "BdtlsPmsRequest parseResponse=" + string);
+                    }
+                } else {
+                    string = response.body().string();
+                }
+                b(String.valueOf(response.request().url()), string, networkStatRecord.toUBCJson());
+                return string;
+            }
+            return "";
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    public void onFail(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
+            if (lo3.a) {
+                Log.d("BDTLS", "BdtlsPmsRequest onFail = " + exc.getMessage());
+            }
+            if (a()) {
+                this.a.onFail(exc);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    public void onSuccess(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
+            if (lo3.a) {
+                Log.d("BDTLS", "BdtlsPmsRequest onSuccess=" + str);
+            }
+            if (this.a == null) {
+                return;
+            }
+            ro3 l = ro3.l();
+            if (TextUtils.equals(str, com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
+                if (l.m().b()) {
+                    l.m().a();
+                    l.d.i(true);
+                    fp3 fp3Var = l.d;
+                    if (fp3Var instanceof dp3) {
+                        ((dp3) fp3Var).j();
+                        return;
+                    }
+                    return;
+                }
+                this.a.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                return;
+            }
+            l.m().k();
+            fp3 fp3Var2 = l.d;
+            if (fp3Var2 instanceof dp3) {
+                dp3 dp3Var = (dp3) fp3Var2;
+                if (l.k()) {
+                    if (l.d.b == 1) {
+                        qo3.a(MimeTypes.BASE_TYPE_APPLICATION);
+                        this.a.onSuccess(str, i);
+                        dp3Var.h = 0;
+                        return;
+                    }
+                    int i2 = dp3Var.h;
+                    dp3Var.h = i2 + 1;
+                    if (i2 < 3) {
+                        dp3Var.j();
+                        return;
+                    }
+                    ye4.a aVar = this.a;
+                    aVar.onFail(new IOException("request fail : " + str));
+                    dp3Var.h = 0;
+                    return;
+                }
+                this.a.onSuccess(str, i);
+                dp3Var.h = 0;
+            }
+        }
     }
 }

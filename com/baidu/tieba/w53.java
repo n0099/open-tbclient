@@ -6,22 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class w53 implements y53 {
+public final class w53 extends n53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Long> a;
-    public long b;
-
-    @Override // com.baidu.tieba.y53
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageUpdateRender" : (String) invokeV.objValue;
-    }
 
     public w53() {
         Interceptable interceptable = $ic;
@@ -33,41 +21,27 @@ public class w53 implements y53 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = -1L;
     }
 
-    @Override // com.baidu.tieba.y53
-    public long a() {
+    @Override // com.baidu.tieba.n53, com.baidu.tieba.o53
+    public ye4 I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Long> list = this.a;
-            if (list != null && list.size() > 0 && this.b >= 0) {
-                return this.b - ((Long) Collections.min(this.a)).longValue();
-            }
-            return -1L;
+            return new c92(this);
         }
-        return invokeV.longValue;
+        return (ye4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y53
-    public void b(long j) {
+    @Override // com.baidu.tieba.n53, com.baidu.tieba.o53
+    public z73 J() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.b = j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new b83(this);
         }
-    }
-
-    @Override // com.baidu.tieba.y53
-    public void c(long j) {
-        List<Long> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && (list = this.a) != null) {
-            list.add(Long.valueOf(j));
-        }
+        return (z73) invokeV.objValue;
     }
 }

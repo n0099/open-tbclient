@@ -8,11 +8,9 @@ import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al8;
-import com.baidu.tieba.cp5;
-import com.baidu.tieba.fl8;
-import com.baidu.tieba.gl8;
-import com.baidu.tieba.ik8;
+import com.baidu.tieba.cf8;
+import com.baidu.tieba.fa8;
+import com.baidu.tieba.ij5;
 import com.baidu.tieba.im.base.core.inputtool.InputDelegate;
 import com.baidu.tieba.im.base.core.inputtool.InputToolFragment;
 import com.baidu.tieba.im.base.core.repo.MsgProcessor;
@@ -23,16 +21,17 @@ import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
-import com.baidu.tieba.lo5;
-import com.baidu.tieba.oo8;
-import com.baidu.tieba.sk8;
-import com.baidu.tieba.uf8;
+import com.baidu.tieba.kf8;
+import com.baidu.tieba.pf8;
+import com.baidu.tieba.qf8;
+import com.baidu.tieba.ri5;
+import com.baidu.tieba.se8;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -41,7 +40,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000l\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\u0018\u00002\u00020\u0001:\u0001*B\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ \u0010\u0017\u001a\u00020\u00182\u000e\u0010\u0019\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u001b0\u001a2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J,\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020!2\u0010\u0010\u0019\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u001b\u0018\u00010\u001a2\b\u0010\"\u001a\u0004\u0018\u00010#H\u0016J \u0010$\u001a\u00020\u001f2\u000e\u0010\u0019\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u001b0\u001a2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\b\u0010%\u001a\u00020\u001fH\u0002J \u0010&\u001a\u00020'2\u000e\u0010\u0019\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u001b0\u001a2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\b\u0010(\u001a\u00020)H\u0016R\u000e\u0010\t\u001a\u00020\nX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\nX\u0082D¢\u0006\u0002\n\u0000R\u0011\u0010\u0006\u001a\u00020\u0007¢\u0006\b\n\u0000\u001a\u0004\b\f\u0010\rR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\nX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\nX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0011X\u0082D¢\u0006\u0002\n\u0000¨\u0006+"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendEmojiMsgHandler;", "Lcom/baidu/tieba/im/base/core/uilist/BaseAbilityHandler;", "context", "Landroid/content/Context;", "repo", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/GroupChatRepo;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Landroid/content/Context;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/GroupChatRepo;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "addReact", "", "cancelReact", "getChatPage", "()Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "getContext", "()Landroid/content/Context;", "lastSendTime", "", "mVibrator", "Landroid/os/Vibrator;", "replyEmojiDeadLineCode", "sendTimeInterval", "vibratorTime", "buildEmojiReplySysMsg", "Lcom/baidu/tieba/im/lib/socket/msg/TbEmojiReplySysMsg;", "oriMsg", "Lcom/baidu/tieba/im/base/core/uilist/BaseItem;", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "conf", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendEmojiMsgHandler$Conf;", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "payload", "", "executeOptionEmojiStrategy", "executeVibratorEffect", "isCanSendEmojiReply", "", "provideType", "", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class SendEmojiMsgHandler extends uf8 {
+public final class SendEmojiMsgHandler extends fa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context b;
@@ -55,14 +54,14 @@ public final class SendEmojiMsgHandler extends uf8 {
     public Vibrator j;
     public final long k;
 
-    @Override // com.baidu.tieba.uf8
+    @Override // com.baidu.tieba.fa8
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "send_emoji_msg" : (String) invokeV.objValue;
     }
 
-    @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0082\b\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\t\u0010\n\u001a\u00020\u0003HÆ\u0003J\t\u0010\u000b\u001a\u00020\u0005HÆ\u0003J\u001d\u0010\f\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0005HÆ\u0001J\u0013\u0010\r\u001a\u00020\u00052\b\u0010\u000e\u001a\u0004\u0018\u00010\u000fHÖ\u0003J\t\u0010\u0010\u001a\u00020\u0011HÖ\u0001J\t\u0010\u0012\u001a\u00020\u0003HÖ\u0001R\u0016\u0010\u0002\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u0016\u0010\u0004\u001a\u00020\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0004\u0010\t¨\u0006\u0013"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendEmojiMsgHandler$Conf;", "Ljava/io/Serializable;", "emojiContent", "", "isReplyOp", "", "(Ljava/lang/String;Z)V", "getEmojiContent", "()Ljava/lang/String;", "()Z", "component1", "component2", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "other", "", TTDownloadField.TT_HASHCODE, "", "toString", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0082\b\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\t\u0010\n\u001a\u00020\u0003HÆ\u0003J\t\u0010\u000b\u001a\u00020\u0005HÆ\u0003J\u001d\u0010\f\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0005HÆ\u0001J\u0013\u0010\r\u001a\u00020\u00052\b\u0010\u000e\u001a\u0004\u0018\u00010\u000fHÖ\u0003J\t\u0010\u0010\u001a\u00020\u0011HÖ\u0001J\t\u0010\u0012\u001a\u00020\u0003HÖ\u0001R\u0016\u0010\u0002\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u0016\u0010\u0004\u001a\u00020\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0004\u0010\t¨\u0006\u0013"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendEmojiMsgHandler$Conf;", "Ljava/io/Serializable;", "emojiContent", "", "isReplyOp", "", "(Ljava/lang/String;Z)V", "getEmojiContent", "()Ljava/lang/String;", "()Z", "component1", "component2", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "other", "", "hashCode", "", "toString", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes6.dex */
     public static final class Conf implements Serializable {
         public static /* synthetic */ Interceptable $ic;
@@ -186,7 +185,7 @@ public final class SendEmojiMsgHandler extends uf8 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements cp5 {
+    public static final class a implements ij5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SendEmojiMsgHandler a;
@@ -213,7 +212,7 @@ public final class SendEmojiMsgHandler extends uf8 {
             this.c = conf;
         }
 
-        @Override // com.baidu.tieba.cp5
+        @Override // com.baidu.tieba.ij5
         public void a(String emojiContent, ChatMsg originMsg) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, emojiContent, originMsg) == null) {
@@ -225,7 +224,7 @@ public final class SendEmojiMsgHandler extends uf8 {
             }
         }
 
-        @Override // com.baidu.tieba.cp5
+        @Override // com.baidu.tieba.ij5
         public void b(int i, String errorMsg, String emojiContent, ChatMsg originMsg) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), errorMsg, emojiContent, originMsg}) == null) {
@@ -233,9 +232,9 @@ public final class SendEmojiMsgHandler extends uf8 {
                 Intrinsics.checkNotNullParameter(emojiContent, "emojiContent");
                 Intrinsics.checkNotNullParameter(originMsg, "originMsg");
                 if (i == this.a.g) {
-                    this.a.n().v1(R.string.obfuscated_res_0x7f0f0637);
+                    this.a.n().w1(R.string.obfuscated_res_0x7f0f063d);
                 } else {
-                    this.a.n().v1(R.string.obfuscated_res_0x7f0f0638);
+                    this.a.n().w1(R.string.obfuscated_res_0x7f0f063e);
                 }
             }
         }
@@ -269,9 +268,9 @@ public final class SendEmojiMsgHandler extends uf8 {
         this.k = 50L;
     }
 
-    @Override // com.baidu.tieba.uf8
+    @Override // com.baidu.tieba.fa8
     public void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj) {
-        al8<?, ?> b;
+        kf8<?, ?> b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseItem, obj) == null) {
             Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
@@ -281,54 +280,16 @@ public final class SendEmojiMsgHandler extends uf8 {
             TbBaseMsg tbMsg = baseItem.getTbMsg();
             long userId = tbMsg.getUserId();
             Conf conf = (Conf) DataExt.toEntity(abilityItem.getConfMap(), Conf.class);
-            if (!o(baseItem, conf) || (b = ik8.c.b(tbMsg.getClass())) == null) {
+            if (!o(baseItem, conf) || (b = se8.c.b(tbMsg.getClass())) == null) {
                 return;
             }
-            Object a2 = gl8.a(b, sk8.a, tbMsg);
+            Object a2 = qf8.a(b, cf8.a, tbMsg);
             if (a2 != null) {
-                lo5.b().b(this.b, conf.getEmojiContent(), userId, (ChatMsg) a2, conf.isReplyOp(), new a(this, baseItem, conf));
+                ri5.b().b(this.b, conf.getEmojiContent(), userId, (ChatMsg) a2, conf.isReplyOp(), new a(this, baseItem, conf));
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type com.baidu.android.imsdk.chatmessage.messages.ChatMsg");
         }
-    }
-
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final void m() {
-        Vibrator vibrator;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.j == null) {
-                Object systemService = this.b.getSystemService("vibrator");
-                if (systemService instanceof Vibrator) {
-                    vibrator = (Vibrator) systemService;
-                } else {
-                    vibrator = null;
-                }
-                this.j = vibrator;
-            }
-            Vibrator vibrator2 = this.j;
-            if (vibrator2 != null) {
-                vibrator2.vibrate(this.k);
-            }
-        }
-    }
-
-    public final ChatPage n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (ChatPage) invokeV.objValue;
     }
 
     public final TbEmojiReplySysMsg k(BaseItem<? extends TbBaseMsg> baseItem, Conf conf) {
@@ -336,7 +297,7 @@ public final class SendEmojiMsgHandler extends uf8 {
         ArrayList arrayList;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, baseItem, conf)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseItem, conf)) == null) {
             TbBaseMsg tbMsg = baseItem.getTbMsg();
             if (tbMsg.getEmojiList() != null) {
                 List<EmojiData> emojiList = tbMsg.getEmojiList();
@@ -355,7 +316,7 @@ public final class SendEmojiMsgHandler extends uf8 {
             } else {
                 i = this.i;
             }
-            TbEmojiReplySysMsg create = TbEmojiReplySysMsg.create(i, fl8.b(tbMsg.getUserId()), tbMsg.getMsgId(), tbMsg.getMsgKey(), 1, arrayList2);
+            TbEmojiReplySysMsg create = TbEmojiReplySysMsg.create(i, pf8.b(tbMsg.getUserId()), tbMsg.getMsgId(), tbMsg.getMsgKey(), 1, arrayList2);
             Intrinsics.checkNotNullExpressionValue(create, "create(if (conf.isReplyO…kService.PACKAGE_ID, ext)");
             return create;
         }
@@ -364,12 +325,12 @@ public final class SendEmojiMsgHandler extends uf8 {
 
     public final void l(BaseItem<? extends TbBaseMsg> baseItem, Conf conf) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, baseItem, conf) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, baseItem, conf) == null) {
             TbBaseMsg tbMsg = baseItem.getTbMsg();
             List<EmojiData> emojiList = tbMsg.getEmojiList();
             if (conf.isReplyOp()) {
                 if (emojiList != null && !emojiList.isEmpty()) {
-                    EmojiData b = oo8.b(conf.getEmojiContent(), emojiList);
+                    EmojiData b = yi8.b(conf.getEmojiContent(), emojiList);
                     if (b != null) {
                         b.setAllNum(b.getAllNum() + 1);
                         b.setReplied(1);
@@ -391,7 +352,7 @@ public final class SendEmojiMsgHandler extends uf8 {
             }
             String emojiContent = conf.getEmojiContent();
             Intrinsics.checkNotNull(emojiList);
-            EmojiData b2 = oo8.b(emojiContent, emojiList);
+            EmojiData b2 = yi8.b(emojiContent, emojiList);
             if (b2 != null) {
                 b2.setAllNum(b2.getAllNum() - 1);
                 b2.setReplied(0);
@@ -405,32 +366,61 @@ public final class SendEmojiMsgHandler extends uf8 {
         }
     }
 
+    public final void m() {
+        Vibrator vibrator;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.j == null) {
+                Object systemService = this.b.getSystemService("vibrator");
+                if (systemService instanceof Vibrator) {
+                    vibrator = (Vibrator) systemService;
+                } else {
+                    vibrator = null;
+                }
+                this.j = vibrator;
+            }
+            Vibrator vibrator2 = this.j;
+            if (vibrator2 != null) {
+                vibrator2.vibrate(this.k);
+            }
+        }
+    }
+
+    public final ChatPage n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (ChatPage) invokeV.objValue;
+    }
+
     public final boolean o(BaseItem<? extends TbBaseMsg> baseItem, Conf conf) {
         InterceptResult invokeLL;
         List<EmojiData> emojiList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, baseItem, conf)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, baseItem, conf)) == null) {
             if (System.currentTimeMillis() - this.e <= this.f) {
-                this.d.v1(R.string.obfuscated_res_0x7f0f0639);
+                this.d.w1(R.string.obfuscated_res_0x7f0f063f);
                 return false;
             }
             this.e = System.currentTimeMillis();
-            if (this.d.J0().M2() != null) {
-                InputToolFragment M2 = this.d.J0().M2();
+            if (this.d.K0().M2() != null) {
+                InputToolFragment M2 = this.d.K0().M2();
                 Intrinsics.checkNotNull(M2);
-                if (M2.r2() != null) {
-                    InputToolFragment M22 = this.d.J0().M2();
+                if (M2.x2() != null) {
+                    InputToolFragment M22 = this.d.K0().M2();
                     Intrinsics.checkNotNull(M22);
-                    InputDelegate r2 = M22.r2();
-                    Intrinsics.checkNotNull(r2);
-                    if (!oo8.c(r2)) {
-                        this.d.v1(R.string.obfuscated_res_0x7f0f063a);
+                    InputDelegate x2 = M22.x2();
+                    Intrinsics.checkNotNull(x2);
+                    if (!yi8.c(x2)) {
+                        this.d.w1(R.string.obfuscated_res_0x7f0f0640);
                         return false;
                     }
                 }
             }
-            if (conf.isReplyOp() && (emojiList = baseItem.getTbMsg().getEmojiList()) != null && oo8.b(conf.getEmojiContent(), emojiList) == null && emojiList.size() > 10) {
-                this.d.v1(R.string.obfuscated_res_0x7f0f063b);
+            if (conf.isReplyOp() && (emojiList = baseItem.getTbMsg().getEmojiList()) != null && yi8.b(conf.getEmojiContent(), emojiList) == null && emojiList.size() > 10) {
+                this.d.w1(R.string.obfuscated_res_0x7f0f0641);
                 return false;
             }
             return true;

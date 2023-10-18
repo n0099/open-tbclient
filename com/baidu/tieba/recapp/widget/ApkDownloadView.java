@@ -15,40 +15,40 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g7a;
-import com.baidu.tieba.hl0;
-import com.baidu.tieba.l66;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.t1a;
+import com.baidu.tieba.u06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ApkDownloadView extends FrameLayout implements l66 {
+public class ApkDownloadView extends FrameLayout implements u06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g7a a;
-    public l66.a b;
+    public t1a a;
+    public u06.a b;
 
-    @Override // com.baidu.tieba.am0
-    public void c(@NonNull ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.xg0
+    public void d(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
         }
     }
 
     public View getActionBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.am0
+    @Override // com.baidu.tieba.xg0
     @NonNull
     public View getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,7 +70,7 @@ public class ApkDownloadView extends FrameLayout implements l66 {
             }
         }
         getResources().getString(R.string.install_app);
-        d(context);
+        e(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -93,7 +93,7 @@ public class ApkDownloadView extends FrameLayout implements l66 {
             }
         }
         getResources().getString(R.string.install_app);
-        d(context);
+        e(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -116,15 +116,15 @@ public class ApkDownloadView extends FrameLayout implements l66 {
             }
         }
         getResources().getString(R.string.install_app);
-        d(context);
+        e(context);
     }
 
-    @Override // com.baidu.tieba.l66
+    @Override // com.baidu.tieba.u06
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            l66.a aVar = this.b;
+            u06.a aVar = this.b;
             if (aVar != null) {
                 return aVar.a(view2);
             }
@@ -133,113 +133,113 @@ public class ApkDownloadView extends FrameLayout implements l66 {
         return invokeL.booleanValue;
     }
 
-    public final void d(Context context) {
+    public final void e(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.a = (g7a) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d012b, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090af2);
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            this.a = (t1a) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0128, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090b0d);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.l66
+    @Override // com.baidu.tieba.u06
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.a.onChangeSkinType();
         }
     }
 
     public void setBackgroundSkin(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            g7a g7aVar = this.a;
-            if (g7aVar instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) g7aVar).setBackgroundSkin(i);
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            t1a t1aVar = this.a;
+            if (t1aVar instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) t1aVar).setBackgroundSkin(i);
             }
         }
     }
 
     public void setForegroundSkin(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            g7a g7aVar = this.a;
-            if (g7aVar instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) g7aVar).setForeground(i);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            t1a t1aVar = this.a;
+            if (t1aVar instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) t1aVar).setForeground(i);
             }
         }
     }
 
     public void setInitText(String str) {
-        g7a g7aVar;
+        t1a t1aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !TextUtils.isEmpty(str) && (g7aVar = this.a) != null) {
-            g7aVar.setInitText(str);
+        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && !TextUtils.isEmpty(str) && (t1aVar = this.a) != null) {
+            t1aVar.setInitText(str);
         }
     }
 
-    @Override // com.baidu.tieba.l66
-    public void setOnClickInterceptListener(l66.a aVar) {
+    @Override // com.baidu.tieba.u06
+    public void setOnClickInterceptListener(u06.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
             this.b = aVar;
         }
     }
 
     public void setRatio(int i) {
-        g7a g7aVar;
+        t1a t1aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && (g7aVar = this.a) != null) {
-            g7aVar.setRatio(i);
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (t1aVar = this.a) != null) {
+            t1aVar.setRatio(i);
         }
     }
 
     public void setStrokeWidth(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            g7a g7aVar = this.a;
-            if (g7aVar instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) g7aVar).setStrokeWidth(i);
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            t1a t1aVar = this.a;
+            if (t1aVar instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) t1aVar).setStrokeWidth(i);
             }
         }
     }
 
     public void setTextColor(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.a.setButtonTextColor(i);
         }
     }
 
     public void setTextColorInitSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            g7a g7aVar = this.a;
-            if (g7aVar instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) g7aVar).setTextColorInitSkin(i);
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            t1a t1aVar = this.a;
+            if (t1aVar instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) t1aVar).setTextColorInitSkin(i);
             }
         }
     }
 
     public void setTextColorSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            g7a g7aVar = this.a;
-            if (g7aVar instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) g7aVar).setTextColorSkin(i);
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            t1a t1aVar = this.a;
+            if (t1aVar instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) t1aVar).setTextColorSkin(i);
             }
         }
     }
 
     public void setTextNightColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             this.a.setButtonTextNightColor(i);
         }
     }
 
     public void setTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             this.a.setButtonTextSize(i);
         }
     }
@@ -251,9 +251,9 @@ public class ApkDownloadView extends FrameLayout implements l66 {
         }
     }
 
-    public final void e() {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             setOnClickInterceptListener(null);
         }
     }
@@ -261,7 +261,7 @@ public class ApkDownloadView extends FrameLayout implements l66 {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
         }
     }
@@ -269,17 +269,17 @@ public class ApkDownloadView extends FrameLayout implements l66 {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDetachedFromWindow();
-            e();
+            f();
         }
     }
 
-    @Override // com.baidu.tieba.am0
-    public void update(String str, @NonNull hl0 hl0Var) {
+    @Override // com.baidu.tieba.xg0
+    public void c(String str, @NonNull eg0 eg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, str, hl0Var) == null) {
-            this.a.setButtonText(str, (int) Math.max(hl0Var.i * 100.0f, hl0Var.j * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, eg0Var) == null) {
+            this.a.setButtonText(str, (int) Math.max(eg0Var.i * 100.0f, eg0Var.j * 100.0f));
         }
     }
 }

@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c6a;
-import com.baidu.tieba.n6a;
+import com.baidu.tieba.a1a;
+import com.baidu.tieba.p0a;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -87,7 +87,7 @@ public final class NadTagController {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f090155);
+                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f090158);
                 }
                 return (EMTextView) invokeV.objValue;
             }
@@ -125,7 +125,7 @@ public final class NadTagController {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f091e8c);
+                    return (EMTextView) this.$rootView.findViewById(R.id.obfuscated_res_0x7f091eab);
                 }
                 return (EMTextView) invokeV.objValue;
             }
@@ -165,7 +165,7 @@ public final class NadTagController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     Resources resources = this.$rootView.getResources();
-                    i3 = c6a.b;
+                    i3 = p0a.b;
                     return Integer.valueOf((int) resources.getDimension(i3));
                 }
                 return (Integer) invokeV.objValue;
@@ -206,7 +206,7 @@ public final class NadTagController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     Resources resources = this.$rootView.getResources();
-                    i3 = c6a.c;
+                    i3 = p0a.c;
                     return Integer.valueOf((int) resources.getDimension(i3));
                 }
                 return (Integer) invokeV.objValue;
@@ -247,7 +247,7 @@ public final class NadTagController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     Resources resources = this.$rootView.getResources();
-                    i3 = c6a.d;
+                    i3 = p0a.d;
                     return Integer.valueOf((int) resources.getDimension(i3));
                 }
                 return (Integer) invokeV.objValue;
@@ -310,7 +310,7 @@ public final class NadTagController {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             SkinManager.setViewTextColor(e(), c());
             EMTextView d = d();
-            i = c6a.a;
+            i = p0a.a;
             SkinManager.setViewTextColor(d, i);
         }
     }
@@ -330,12 +330,12 @@ public final class NadTagController {
                 adCard = null;
             }
             if (adCard == null || TextUtils.isEmpty(adCard.recommendReasonColor)) {
-                i = c6a.a;
+                i = p0a.a;
                 return i;
             }
             Resources resources = e().getContext().getResources();
             if (resources == null) {
-                i2 = c6a.a;
+                i2 = p0a.a;
                 return i2;
             }
             return resources.getIdentifier(adCard.recommendReasonColor, "color", e().getContext().getPackageName());
@@ -362,7 +362,7 @@ public final class NadTagController {
         return invokeCommon.intValue;
     }
 
-    public final void update(AdCard card, int i, boolean z, View.OnClickListener tagListener) {
+    public final void i(AdCard card, int i, boolean z, View.OnClickListener tagListener) {
         boolean z2;
         boolean z3;
         String str;
@@ -417,7 +417,7 @@ public final class NadTagController {
                 e().setVisibility(0);
             } else {
                 e().setVisibility(8);
-                d().setText(n6a.e(str2, StringsKt__StringsKt.trim((CharSequence) str).toString(), f, d().getPaint()));
+                d().setText(a1a.e(str2, StringsKt__StringsKt.trim((CharSequence) str).toString(), f, d().getPaint()));
             }
             d().setOnClickListener(tagListener);
         }

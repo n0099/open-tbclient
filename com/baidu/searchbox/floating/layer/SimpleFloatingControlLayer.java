@@ -94,7 +94,7 @@ public class SimpleFloatingControlLayer extends ElementLayer<ConstraintLayout, A
     @Override // com.baidu.searchbox.player.layer.ElementLayer
     public void initContainer() {
         ConstraintLayout constraintLayout = new ConstraintLayout(this.mContext);
-        constraintLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vn1
+        constraintLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fi1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

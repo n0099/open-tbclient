@@ -1,78 +1,49 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class p74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oi2 a;
+    @V8JavascriptField
+    @JvmField
+    public final String address;
+    @V8JavascriptField
+    @JvmField
+    public final String family;
+    @V8JavascriptField
+    @JvmField
+    public final int port;
+    @V8JavascriptField
+    @JvmField
+    public final int size;
 
-    public p74() {
+    public p74(String address, int i, int i2, String family) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {address, Integer.valueOf(i), Integer.valueOf(i2), family};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public boolean a(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            oi2 oi2Var = this.a;
-            boolean z = false;
-            if (oi2Var == null) {
-                return false;
-            }
-            boolean f = q74.f(oi2Var.m());
-            boolean f2 = q74.f(this.a.v());
-            JSEvent jSEvent = null;
-            if (f || f2) {
-                jSEvent = q74.j(motionEvent);
-            }
-            if (f) {
-                z = this.a.dispatchEvent(jSEvent);
-            }
-            if (f2 && this.a.t0()) {
-                this.a.v().dispatchEvent(jSEvent);
-            }
-            q74.g(true);
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            q74.m(i, i2);
-        }
-    }
-
-    public void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            q74.l(i, i2);
-        }
-    }
-
-    public void c(oi2 oi2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oi2Var) == null) {
-            this.a = oi2Var;
-        }
+        Intrinsics.checkNotNullParameter(address, "address");
+        Intrinsics.checkNotNullParameter(family, "family");
+        this.address = address;
+        this.size = i;
+        this.port = i2;
+        this.family = family;
     }
 }

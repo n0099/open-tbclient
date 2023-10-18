@@ -10,7 +10,6 @@ import com.baidu.android.pushservice.p.k;
 import com.baidu.android.pushservice.p.m;
 import com.baidu.android.pushservice.p.n;
 import com.baidu.android.pushservice.util.Utility;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -123,7 +122,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
             com.baidu.android.pushservice.p.i iVar = new com.baidu.android.pushservice.p.i(intent);
-            String stringExtra = intent.getStringExtra(TaskProcess.keyTags);
+            String stringExtra = intent.getStringExtra("tags");
             com.baidu.android.pushservice.u.a.a("RegistrationService", "<<< ACTION_GBIND ", this.a);
             a(new com.baidu.android.pushservice.p.h(iVar, this.a, stringExtra));
         }
@@ -191,7 +190,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, intent) == null) {
             com.baidu.android.pushservice.p.i iVar = new com.baidu.android.pushservice.p.i(intent);
-            String stringExtra = intent.getStringExtra(TaskProcess.keyTags);
+            String stringExtra = intent.getStringExtra("tags");
             com.baidu.android.pushservice.u.a.a("RegistrationService", "<<< ACTION_SET_TAGS ", this.a);
             a(new m(iVar, this.a, stringExtra));
         }

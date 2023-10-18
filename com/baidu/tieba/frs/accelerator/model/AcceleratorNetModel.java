@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AcceleratorNetModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,11 +23,11 @@ public class AcceleratorNetModel extends BdBaseModel {
     public boolean b;
     public HttpMessageListener c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(AcceleratorData acceleratorData);
 
-        void b();
+        void fail();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -50,7 +50,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class AcceleratorNetModel extends BdBaseModel {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003524 || !(httpResponsedMessage instanceof GetAcceleratorInfoRespondedMessage)) {
                     this.a.b = false;
                 } else if (httpResponsedMessage.getError() != 0 && this.a.a != null) {
-                    this.a.a.b();
+                    this.a.a.fail();
                     this.a.b = false;
                 } else {
                     if (this.a.a != null) {
@@ -125,7 +125,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         }
     }
 
-    public void O(int i) {
+    public void P(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.b) {
             return;
@@ -136,7 +136,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         this.b = true;
     }
 
-    public void P(b bVar) {
+    public void Q(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.a = bVar;

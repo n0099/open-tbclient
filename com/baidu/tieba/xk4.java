@@ -7,136 +7,78 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xk4 extends vk4<il4> implements el4 {
+public class xk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile il4 b;
+    public final String a;
+    public final int b;
+    public final int c;
+    public long d;
+    public int e;
 
-    public xk4() {
+    public xk4(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = i;
+        this.c = i2;
     }
 
-    public synchronized il4 g() {
+    public String a() {
         InterceptResult invokeV;
-        il4 il4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                il4Var = (il4) super.c();
+            int i = this.e;
+            if (i != 0 && i == this.c) {
+                return true;
             }
-            return il4Var;
+            return false;
         }
-        return (il4) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public synchronized il4 i() {
+    public boolean b() {
         InterceptResult invokeV;
-        il4 il4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                il4Var = (il4) super.d();
-            }
-            return il4Var;
-        }
-        return (il4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.el4
-    public <T> void a(il4<T> il4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, il4Var) == null) {
-            this.b = il4Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.el4
-    public <T> void b(il4<T> il4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, il4Var) == null) {
-            if (this.b == il4Var) {
-                this.b = null;
-            }
-            k(il4Var);
-        }
-    }
-
-    public final void k(il4 il4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, il4Var) != null) || !il4Var.k()) {
-            return;
-        }
-        il4Var.r(true);
-        this.a.add(0, il4Var);
-    }
-
-    public synchronized void h(il4 il4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, il4Var) == null) {
-            synchronized (this) {
-                if (il4Var == null) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b != 0 && this.c != 0) {
+                long currentTimeMillis = System.currentTimeMillis();
+                long j = this.d;
+                if (j != 0 && (currentTimeMillis - j) / 1000 <= this.b && this.e >= this.c) {
+                    return true;
                 }
-                if (this.b != null && this.b.d(il4Var)) {
-                    il4Var.e().f(il4Var.f());
-                    return;
+                long j2 = this.d;
+                if (j2 == 0) {
+                    this.d = currentTimeMillis;
+                } else if ((currentTimeMillis - j2) / 1000 > this.b) {
+                    this.d = currentTimeMillis;
+                    this.e = 0;
                 }
-                il4 e = e(il4Var);
-                if (e != null) {
-                    il4Var.e().f(il4Var.f());
-                    if (il4Var.g() <= e.g()) {
-                        return;
-                    }
-                }
-                int g = il4Var.g();
-                if (g != 200) {
-                    if (g != 300) {
-                        if (e == null) {
-                            this.a.add(il4Var);
-                        }
-                    } else {
-                        j(il4Var);
-                        if (e != null) {
-                            this.a.remove(e);
-                            this.a.add(0, e);
-                        } else {
-                            this.a.add(0, il4Var);
-                        }
-                    }
-                } else if (e != null) {
-                    this.a.remove(e);
-                    this.a.add(0, e);
-                } else {
-                    this.a.add(0, il4Var);
-                }
-                notifyAll();
+                this.e++;
             }
+            return false;
         }
-    }
-
-    public final void j(il4 il4Var) {
-        il4 il4Var2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, il4Var) != null) || il4Var.g() != 300 || (il4Var2 = this.b) == null || il4Var2.g() == 300) {
-            return;
-        }
-        il4Var2.o();
-        for (int i = 0; i < 500 && this.b != null; i++) {
-            try {
-                Thread.sleep(10L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

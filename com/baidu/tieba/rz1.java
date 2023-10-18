@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public abstract class rz1 {
+import org.json.JSONArray;
+/* loaded from: classes8.dex */
+public class rz1 extends wy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a();
-
-        void b(int i);
+    @Override // com.baidu.tieba.wy1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
     }
-
-    public abstract void a(a aVar);
-
-    public abstract void b(int i);
 
     public rz1() {
         Interceptable interceptable = $ic;
@@ -30,6 +29,21 @@ public abstract class rz1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wy1
+    public void a(xy1 xy1Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, xy1Var, canvas) == null) {
+            try {
+                xy1Var.f();
+                canvas.save();
+            } catch (CloneNotSupportedException e) {
+                if (am1.a) {
+                    e.printStackTrace();
+                }
             }
         }
     }

@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,15 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ah2 extends bh2 {
+public class ah2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
+    public static final boolean c;
+    public static ah2 d;
+    public static ah2 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,8 +38,7 @@ public class ah2 extends bh2 {
                 return;
             }
         }
-        b = qr1.a;
-        c = "swan_preset" + File.separator + "preset_list.json";
+        c = am1.a;
     }
 
     public ah2() {
@@ -53,53 +55,88 @@ public class ah2 extends bh2 {
         }
     }
 
-    @Override // com.baidu.tieba.bh2
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return rn3.b(nu2.c(), c);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bh2
-    public boolean e(ch2 ch2Var) {
+    @NonNull
+    public static ah2 a(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ch2Var)) == null) {
-            if (ch2Var == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (d == null) {
+                d = d(e(str));
             }
-            Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + ch2Var.g + File.separator + ch2Var.q;
+            return d;
+        }
+        return (ah2) invokeL.objValue;
+    }
+
+    @NonNull
+    public static ah2 b(@NonNull yg2 yg2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yg2Var)) == null) {
+            if (yg2Var.c() == 1) {
+                return c(yg2Var.d());
+            }
+            return a(yg2Var.d());
+        }
+        return (ah2) invokeL.objValue;
+    }
+
+    @NonNull
+    public static ah2 c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (e == null) {
+                e = d(e(str));
+            }
+            return e;
+        }
+        return (ah2) invokeL.objValue;
+    }
+
+    @NonNull
+    public static ah2 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
+            ah2 ah2Var = new ah2();
+            if (jSONObject != null) {
+                ah2Var.a = jSONObject.optString("extension-core-version-name");
+                ah2Var.b = jSONObject.optLong("extension-core-version-code");
+            }
+            return ah2Var;
+        }
+        return (ah2) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static JSONObject e(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (c) {
+                Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
+            }
+            String D = sl4.D(AppRuntime.getAppContext(), str);
+            if (TextUtils.isEmpty(D)) {
+                if (c) {
+                    Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
+                }
+                return null;
+            }
             try {
-                File j = j(ch2Var.h, ch2Var.g, ch2Var.i);
-                if (j == null) {
-                    if (b) {
-                        Log.e("AssetPresetController", "获取解压路径失败");
-                    }
-                    return false;
+                JSONObject jSONObject = new JSONObject(D);
+                if (c) {
+                    Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
                 }
-                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
-            } catch (IOException e) {
-                if (b) {
-                    e.printStackTrace();
+                return jSONObject;
+            } catch (JSONException e2) {
+                if (!c) {
+                    return null;
                 }
-                return false;
+                throw new RuntimeException(e2);
             }
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bh2
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Application c2 = nu2.c();
-            return rn3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
-        }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

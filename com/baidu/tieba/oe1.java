@@ -1,80 +1,55 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.ISignatureVerifier;
-import com.baidu.nps.interfa.ISignatureVerifier_SignatureVerifier_Provider;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class oe1 {
+public abstract class oe1 {
     public static /* synthetic */ Interceptable $ic;
-    public static oe1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public nk1<ISignatureVerifier> a;
 
-    public void c() {
+    public void a(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            lk1 b2 = lk1.b();
-            this.a = b2;
-            b2.a(new ISignatureVerifier_SignatureVerifier_Provider());
+        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948029262, "Lcom/baidu/tieba/oe1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948029262, "Lcom/baidu/tieba/oe1;");
-                return;
-            }
-        }
-        b = new oe1();
-    }
+    public abstract boolean c(Context context, qe1 qe1Var, ke1 ke1Var);
 
     public oe1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        c();
     }
 
-    public static oe1 a() {
-        InterceptResult invokeV;
+    public boolean b(Context context, qe1 qe1Var, ke1 ke1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, qe1Var, ke1Var)) == null) {
+            return d(context, qe1Var, ke1Var);
         }
-        return (oe1) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public ISignatureVerifier b() {
-        InterceptResult invokeV;
+    public final boolean d(Context context, qe1 qe1Var, ke1 ke1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, qe1Var, ke1Var)) == null) {
+            return c(context, qe1Var, ke1Var);
         }
-        return (ISignatureVerifier) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 }

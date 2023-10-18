@@ -1,332 +1,218 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.db.TableDefine;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.base.BdBaseView;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.recapp.activity.AdVideoBrowserConfig;
-import com.baidu.tieba.recapp.activity.AdVideoWebBrowserActivity;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.ShakeAdSwitchData;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.setting.more.AdSettingActivity;
+import com.baidu.tieba.setting.more.MsgSettingItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class i5a implements d5a {
+public class i5a extends BdBaseView<AdSettingActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AdvertAppInfo> a;
-
-    @Override // com.baidu.tieba.d5a
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
+    public AdSettingActivity a;
+    public View b;
+    public NavigationBar c;
+    public MsgSettingItemView d;
+    public TextView e;
+    public ImageView f;
+    public ShakeAdSwitchData g;
+    public MsgSettingItemView h;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements BdSwitchView.b {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-764313257, "Lcom/baidu/tieba/i5a$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-764313257, "Lcom/baidu/tieba/i5a$a;");
-                    return;
+        public a(i5a i5aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i5aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            int[] iArr = new int[IAdBaseAsyncController.Type.values().length];
-            a = iArr;
-            try {
-                iArr[IAdBaseAsyncController.Type.PIC_PAGE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[IAdBaseAsyncController.Type.VIDEO_FLOW.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+        }
+
+        @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
+        public void z(View view2, BdSwitchView.SwitchState switchState) {
+            boolean z;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
+                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                if (BdSwitchView.SwitchState.ON == switchState) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                sharedPrefHelper.putBoolean("key_splash_shake_ad_open", z);
+                TbLog defaultLog = DefaultLog.getInstance();
+                StringBuilder sb = new StringBuilder();
+                sb.append("手动更改开屏摇一摇开关的状态:开关为");
+                if (BdSwitchView.SwitchState.ON == switchState) {
+                    str = YYOption.IsLive.VALUE_TRUE;
+                } else {
+                    str = "false";
+                }
+                sb.append(str);
+                defaultLog.i("AdSettingView", sb.toString());
             }
         }
     }
 
-    public i5a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i5a(AdSettingActivity adSettingActivity) {
+        super(adSettingActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {adSettingActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = adSettingActivity;
+        t();
     }
 
-    @Override // com.baidu.tieba.d5a
-    public y4a b() {
-        InterceptResult invokeV;
+    public final void f() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return n4a.t();
-        }
-        return (y4a) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d5a
-    public t4a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return b66.l();
-        }
-        return (t4a) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d5a
-    public List<AdvertAppInfo> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d5a
-    public a5a j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return n4a.t();
-        }
-        return (a5a) invokeV.objValue;
-    }
-
-    public static void m(IntentConfig intentConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, intentConfig) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, intentConfig));
-        }
-    }
-
-    @Override // com.baidu.tieba.d5a
-    public void k(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, advertAppInfo) == null) {
-            AdWebVideoActivity.b bVar = new AdWebVideoActivity.b();
-            AdVideoWebBrowserActivity.P = bVar;
-            bVar.a = advertAppInfo;
-            bVar.c = "DETAIL";
-            bVar.b = 0;
-            AdWebVideoActivity.P = bVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.d5a
-    public om<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.A) {
-                return new o5a(baseFragmentActivity, bdUniqueId);
-            }
-            if (bdUniqueId != AdvertAppInfo.y) {
-                return null;
-            }
-            return new n5a(baseFragmentActivity, bdUniqueId);
-        }
-        return (om) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.d5a
-    public om<?, ?> e(c5a c5aVar, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, c5aVar, bdUniqueId)) == null) {
-            if (c5aVar == null || bdUniqueId == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.x) {
-                return new l5a(c5aVar, bdUniqueId);
-            }
-            return new m5a(c5aVar, bdUniqueId, null);
-        }
-        return (om) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.d5a
-    @Nullable
-    public IAdBaseAsyncController i(IAdBaseAsyncController.Type type, IAdBaseAsyncController.a aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, type, aVar)) == null) {
-            int i = a.a[type.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return null;
-                }
-                return new c7a(aVar);
-            }
-            return new s6a(aVar);
-        }
-        return (IAdBaseAsyncController) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.d5a
-    public void c(AdvertAppInfo advertAppInfo, b59<?> b59Var, String str, String str2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{advertAppInfo, b59Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            o6a.e(advertAppInfo, b59Var, str, str2, i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.d5a
-    public om<?, ?> h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, tbPageContext, bdUniqueId, str)) == null) {
-            if (bdUniqueId == AdvertAppInfo.z) {
-                return new j5a(tbPageContext, bdUniqueId, str);
-            }
-            if (bdUniqueId != null) {
-                return new k5a(tbPageContext, bdUniqueId, str);
-            }
-            return null;
-        }
-        return (om) invokeLLL.objValue;
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0131  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0144  */
-    /* JADX WARN: Type inference failed for: r13v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r5v14 */
-    @Override // com.baidu.tieba.d5a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void l(@NonNull HashMap<String, String> hashMap, Context context) {
-        IntentConfig adWebVideoActivityConfig;
-        JSONObject jSONObject;
-        JSONObject jSONObject2;
-        JSONObject jSONObject3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, hashMap, context) == null) {
-            Bundle bundle = new Bundle();
-            JSONObject jSONObject4 = null;
-            try {
-                if (hashMap.get(WriteActivityConfig.VIDEO_INFO) != null) {
-                    jSONObject = new JSONObject(hashMap.get(WriteActivityConfig.VIDEO_INFO));
-                } else {
-                    jSONObject = null;
-                }
-                if (jSONObject != null) {
-                    bundle.putString("video_url", jSONObject.optString("video_url", ""));
-                    bundle.putString(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL, jSONObject.optString("poster_image", ""));
-                    float floatValue = Float.valueOf(jSONObject.optString("video_aspect_ratio", "1")).floatValue();
-                    bundle.putFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, floatValue);
-                    if (floatValue < 1.0f) {
-                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 14);
-                    } else {
-                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
-                    }
-                    bundle.putInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, jSONObject.optInt("duration", 0));
-                    bundle.putString(WebViewActivityConfig.TAG_AD_DEEPLINK_URL, jSONObject.optString("page_url", ""));
-                    String str = hashMap.get("url");
-                    try {
-                        if (TextUtils.isEmpty(str)) {
-                            str = jSONObject.optString("page_url", "");
-                        }
-                        if (jSONObject.get(AdWebVideoActivityConfig.KEY_TAIL_FRAME) != null) {
-                            jSONObject2 = new JSONObject(jSONObject.optString(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
-                        } else {
-                            jSONObject2 = null;
-                        }
-                        if (hashMap.get("download") != null) {
-                            jSONObject3 = new JSONObject(hashMap.get("download"));
-                        } else {
-                            jSONObject3 = null;
-                        }
-                        if (jSONObject3 != null) {
-                            bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, jSONObject3.optString("key", ""));
-                            jSONObject4 = new JSONObject();
-                            jSONObject4.put("pkgname", jSONObject3.optString("key", ""));
-                            jSONObject4.put("download_url", jSONObject3.optString("download_url", ""));
-                        }
-                        if (jSONObject2 != null) {
-                            jSONObject2.put("style", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                            jSONObject2.put("button_scheme", jSONObject2.optString("button_scheme", ""));
-                            jSONObject2.put("scheme", jSONObject.optString("page_url", ""));
-                            jSONObject2.put("ext_data", jSONObject4);
-                            if (jSONObject3 != null) {
-                                jSONObject2.put("pkgname", jSONObject3.optString("key", ""));
-                                jSONObject2.put("style", "apk_download");
-                            }
-                        }
-                        m6a m6aVar = new m6a();
-                        m6aVar.b(jSONObject2);
-                        bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, m6aVar.d());
-                        jSONObject4 = str;
-                    } catch (JSONException e) {
-                        e = e;
-                        jSONObject4 = str;
-                        e.printStackTrace();
-                        ?? r13 = jSONObject4;
-                        bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get(MigrateStatisticUtils.EXT_INFO));
-                        if (!tm6.e("https://ad-tmp/")) {
-                        }
-                        m(adWebVideoActivityConfig);
-                    }
-                }
-            } catch (JSONException e2) {
-                e = e2;
-            }
-            ?? r132 = jSONObject4;
-            bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get(MigrateStatisticUtils.EXT_INFO));
-            if (!tm6.e("https://ad-tmp/")) {
-                adWebVideoActivityConfig = new AdVideoBrowserConfig(context, "", r132, true, true, true, bundle);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.setText(R.string.obfuscated_res_0x7f0f0c87);
+            this.d.setOnSwitchStateChangeListener(this.a);
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            int i2 = 0;
+            if (currentAccountObj != null) {
+                i2 = currentAccountObj.getMemberCloseAdIsOpen();
+                i = currentAccountObj.getMemberCloseAdVipClose();
             } else {
-                adWebVideoActivityConfig = new AdWebVideoActivityConfig(context, "", r132, true, true, true, bundle);
+                i = 0;
             }
-            m(adWebVideoActivityConfig);
+            if (i2 == 0) {
+                this.d.setVisibility(8);
+                this.e.setVisibility(8);
+            } else if (i == 0) {
+                this.d.e();
+            } else {
+                this.d.g();
+            }
+        }
+    }
+
+    public final void g() {
+        MsgSettingItemView msgSettingItemView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (msgSettingItemView = this.h) == null) {
+            return;
+        }
+        ShakeAdSwitchData shakeAdSwitchData = this.g;
+        if (shakeAdSwitchData != null && shakeAdSwitchData.isShow != 0) {
+            msgSettingItemView.setVisibility(0);
+            this.h.setTextStr(this.g.title);
+            this.h.setTipTextStr(this.g.desc);
+            if (SharedPrefHelper.getInstance().getBoolean("key_splash_shake_ad_open", true)) {
+                this.h.g();
+                DefaultLog.getInstance().i("AdSettingView", "初始化开屏摇一摇开关:开关为打开状态");
+            } else {
+                this.h.e();
+                DefaultLog.getInstance().i("AdSettingView", "初始化开屏摇一摇开关:开关为关闭状态");
+            }
+            this.h.setOnSwitchStateChangeListener(new a(this));
+            return;
+        }
+        this.h.setVisibility(8);
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0074);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+            this.c = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f00d5));
+            this.d = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f09172e);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09172f);
+            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0902cf);
+            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091a84);
+            this.h = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f0921c8);
+            f();
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            BDLayoutMode layoutMode = this.a.getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            layoutMode.setNightMode(z);
+            this.a.getLayoutMode().onModeChanged(this.b);
+            this.c.onChangeSkinType(getPageContext(), i);
+            this.d.c(this.a.getPageContext(), i);
+            this.h.c(this.a.getPageContext(), i);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.d.e();
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d.g();
+        }
+    }
+
+    public void y(ShakeAdSwitchData shakeAdSwitchData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, shakeAdSwitchData) == null) {
+            this.g = shakeAdSwitchData;
+            g();
         }
     }
 }

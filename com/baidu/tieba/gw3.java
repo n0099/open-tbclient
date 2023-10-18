@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class gw3 {
     public static /* synthetic */ Interceptable $ic;
-    public static Method a;
     public transient /* synthetic */ FieldHolder $fh;
+    public DownloadState a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
 
     static {
         InterceptResult invokeClinit;
@@ -27,25 +32,51 @@ public class gw3 {
                 return;
             }
         }
-        try {
-            a = kf4.i(kf4.b(CountryCodeBean.ANDRIOD_SYSTEMPROP, true), CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class);
-        } catch (Throwable unused) {
-        }
+        boolean z = am1.a;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public gw3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Method method = a;
-            if (method != null) {
-                try {
-                    return (String) method.invoke(null, str);
-                } catch (Throwable unused) {
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeL.objValue;
+        this.a = DownloadState.NOT_START;
+        this.d = Integer.parseInt("0");
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static gw3 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            gw3 gw3Var = new gw3();
+            gw3Var.b = str;
+            gw3Var.c = str2;
+            return gw3Var;
+        }
+        return (gw3) invokeLL.objValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.e = str;
+        }
     }
 }

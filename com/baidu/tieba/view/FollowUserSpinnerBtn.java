@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tb5;
+import com.baidu.tieba.b65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class FollowUserSpinnerBtn extends LinearLayout implements tb5 {
+public class FollowUserSpinnerBtn extends LinearLayout implements b65 {
     public static /* synthetic */ Interceptable $ic;
     public static final int p;
     public static final int q;
@@ -56,14 +56,14 @@ public class FollowUserSpinnerBtn extends LinearLayout implements tb5 {
         void a(boolean z, boolean z2);
     }
 
-    @Override // com.baidu.tieba.tb5
+    @Override // com.baidu.tieba.b65
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.tb5
+    @Override // com.baidu.tieba.b65
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -201,7 +201,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements tb5 {
         g(context);
     }
 
-    @Override // com.baidu.tieba.tb5
+    @Override // com.baidu.tieba.b65
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
@@ -231,7 +231,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements tb5 {
         }
     }
 
-    @Override // com.baidu.tieba.tb5
+    @Override // com.baidu.tieba.b65
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -239,7 +239,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements tb5 {
         }
     }
 
-    @Override // com.baidu.tieba.tb5
+    @Override // com.baidu.tieba.b65
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -270,10 +270,10 @@ public class FollowUserSpinnerBtn extends LinearLayout implements tb5 {
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
             setOrientation(0);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914d2);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091f22);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09259d);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902cb);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914ec);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091f42);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0925a7);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902cf);
             Paint paint = new Paint(1);
             this.e = paint;
             paint.setStyle(Paint.Style.STROKE);
@@ -293,11 +293,11 @@ public class FollowUserSpinnerBtn extends LinearLayout implements tb5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f076a);
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f0770);
                 this.f = R.color.CAM_X0101;
                 this.g = R.color.CAM_X0904;
             } else {
-                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f02ea);
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f02ec);
                 this.f = R.color.CAM_X0105;
                 this.g = R.color.CAM_X0901;
             }

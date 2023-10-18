@@ -18,14 +18,14 @@ public class AdView extends RelativeLayout {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void b(int i, int i2);
-
         void onAttachedToWindow();
 
         @SuppressLint({"MissingSuperCall"})
         void onDetachedFromWindow();
 
         boolean onKeyDown(int i, KeyEvent keyEvent);
+
+        void onLayoutComplete(int i, int i2);
 
         void onWindowFocusChanged(boolean z);
 
@@ -98,7 +98,7 @@ public class AdView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
             if (z && (aVar = this.a) != null) {
-                aVar.b(getWidth(), getHeight());
+                aVar.onLayoutComplete(getWidth(), getHeight());
             }
         }
     }

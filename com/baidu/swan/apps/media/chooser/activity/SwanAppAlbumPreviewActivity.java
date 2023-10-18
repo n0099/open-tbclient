@@ -35,22 +35,22 @@ import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.view.DragView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap3;
-import com.baidu.tieba.ez2;
-import com.baidu.tieba.fo3;
-import com.baidu.tieba.qr1;
-import com.baidu.tieba.r93;
-import com.baidu.tieba.ty2;
-import com.baidu.tieba.wy2;
-import com.baidu.tieba.xy2;
-import com.baidu.tieba.ya3;
-import com.baidu.tieba.zy2;
+import com.baidu.tieba.a43;
+import com.baidu.tieba.am1;
+import com.baidu.tieba.ct2;
+import com.baidu.tieba.ft2;
+import com.baidu.tieba.gt2;
+import com.baidu.tieba.h53;
+import com.baidu.tieba.it2;
+import com.baidu.tieba.jj3;
+import com.baidu.tieba.nt2;
+import com.baidu.tieba.oi3;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements DragView.b, View.OnClickListener, zy2, ez2 {
-    public static final boolean J = qr1.a;
+public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements DragView.b, View.OnClickListener, it2, nt2 {
+    public static final boolean J = am1.a;
     public SwanAppThumbnailAdapter A;
     public int C;
     public String F;
@@ -67,7 +67,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     public TextView v;
     public View w;
     public View x;
-    public r93 y;
+    public a43 y;
     public SwanAppAlbumPreviewAdapter z;
     public boolean B = true;
     public boolean D = true;
@@ -84,8 +84,8 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
 
         /* renamed from: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0199a extends LinearSmoothScroller {
-            public C0199a(Context context) {
+        public class C0201a extends LinearSmoothScroller {
+            public C0201a(Context context) {
                 super(context);
             }
 
@@ -106,21 +106,21 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
 
         @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
         public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int i) {
-            C0199a c0199a = new C0199a(recyclerView.getContext());
-            c0199a.setTargetPosition(i);
-            startSmoothScroll(c0199a);
+            C0201a c0201a = new C0201a(recyclerView.getContext());
+            c0201a.setTargetPosition(i);
+            startSmoothScroll(c0201a);
         }
     }
 
     /* loaded from: classes4.dex */
     public class b extends SwanAppThumbnailClickListener {
-        public final /* synthetic */ ty2 c;
+        public final /* synthetic */ ct2 c;
         public final /* synthetic */ ItemTouchHelper d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(RecyclerView recyclerView, ty2 ty2Var, ItemTouchHelper itemTouchHelper) {
+        public b(RecyclerView recyclerView, ct2 ct2Var, ItemTouchHelper itemTouchHelper) {
             super(recyclerView);
-            this.c = ty2Var;
+            this.c = ct2Var;
             this.d = itemTouchHelper;
         }
 
@@ -167,7 +167,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             SwanAppAlbumPreviewActivity.this.C = i;
-            SwanAppAlbumPreviewActivity.this.X();
+            SwanAppAlbumPreviewActivity.this.Y();
             SwanAppAlbumPreviewActivity.this.T();
         }
     }
@@ -261,7 +261,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         window.setAttributes(attributes);
     }
 
-    @Override // com.baidu.tieba.zy2
+    @Override // com.baidu.tieba.it2
     public void f() {
         if (!this.E && this.D) {
             c();
@@ -273,7 +273,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     @Override // com.baidu.swan.apps.view.DragView.b
     public void onClose() {
         finish();
-        overridePendingTransition(R.anim.obfuscated_res_0x7f010176, R.anim.obfuscated_res_0x7f01001d);
+        overridePendingTransition(R.anim.obfuscated_res_0x7f010175, R.anim.obfuscated_res_0x7f01001d);
     }
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
@@ -291,22 +291,22 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
     }
 
-    public final ty2 O(ViewPager viewPager) {
-        ty2 ty2Var = new ty2(viewPager.getContext());
+    public final ct2 O(ViewPager viewPager) {
+        ct2 ct2Var = new ct2(viewPager.getContext());
         try {
             Field declaredField = ViewPager.class.getDeclaredField("mScroller");
             declaredField.setAccessible(true);
-            declaredField.set(viewPager, ty2Var);
+            declaredField.set(viewPager, ct2Var);
         } catch (Exception e2) {
             if (J) {
                 e2.printStackTrace();
             }
         }
-        return ty2Var;
+        return ct2Var;
     }
 
     public final String P(MediaModel mediaModel) {
-        return String.valueOf(xy2.c(mediaModel) + 1);
+        return String.valueOf(gt2.c(mediaModel) + 1);
     }
 
     public final void U(int i) {
@@ -341,7 +341,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         return super.onKeyDown(i, keyEvent);
     }
 
-    @Override // com.baidu.tieba.ez2
+    @Override // com.baidu.tieba.nt2
     public void onMove(int i, int i2) {
         ArrayList<MediaModel> arrayList = this.H;
         if (arrayList != null && this.C < arrayList.size()) {
@@ -351,27 +351,27 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
 
     public final void Q() {
         ArrayList<MediaModel> e2;
-        this.p = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09254e);
-        this.q = findViewById(R.id.obfuscated_res_0x7f09026d);
+        this.p = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092558);
+        this.q = findViewById(R.id.obfuscated_res_0x7f090270);
         a aVar = new a(this);
         aVar.setOrientation(0);
         this.p.setLayoutManager(aVar);
         SwanAppThumbnailAdapter swanAppThumbnailAdapter = new SwanAppThumbnailAdapter(this);
         this.A = swanAppThumbnailAdapter;
         this.p.setAdapter(swanAppThumbnailAdapter);
-        if (xy2.e() == null) {
+        if (gt2.e() == null) {
             e2 = null;
         } else {
-            e2 = xy2.e();
+            e2 = gt2.e();
         }
         this.A.q(e2);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwanAppThumbnailTouchCallback(this, this.A));
         itemTouchHelper.attachToRecyclerView(this.p);
-        ty2 O = O(this.n);
+        ct2 O = O(this.n);
         RecyclerView recyclerView = this.p;
         recyclerView.addOnItemTouchListener(new b(recyclerView, O, itemTouchHelper));
+        Z();
         Y();
-        X();
     }
 
     public final void T() {
@@ -386,35 +386,35 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         if (mediaModel == null) {
             return;
         }
-        if (xy2.g(mediaModel)) {
+        if (gt2.g(mediaModel)) {
             this.v.setVisibility(0);
             this.v.setText(P(this.H.get(this.C)));
-            this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f081473);
+            this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f081470);
             return;
         }
         this.v.setVisibility(8);
-        if (wy2.f(wy2.d, mediaModel)) {
-            this.r.setImageResource(R.drawable.obfuscated_res_0x7f081475);
+        if (ft2.f(ft2.d, mediaModel)) {
+            this.r.setImageResource(R.drawable.obfuscated_res_0x7f081472);
         } else {
-            this.r.setImageResource(R.drawable.obfuscated_res_0x7f081474);
+            this.r.setImageResource(R.drawable.obfuscated_res_0x7f081471);
         }
     }
 
     public final void R() {
         String string;
-        this.m = findViewById(R.id.obfuscated_res_0x7f090268);
-        DragView dragView = (DragView) findViewById(R.id.obfuscated_res_0x7f090953);
+        this.m = findViewById(R.id.obfuscated_res_0x7f09026b);
+        DragView dragView = (DragView) findViewById(R.id.obfuscated_res_0x7f09096e);
         this.o = dragView;
         dragView.setOnCloseListener(this);
         this.o.setBackgroundColor(-16777216);
-        this.n = (ViewPager) findViewById(R.id.obfuscated_res_0x7f090271);
-        this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f09026f);
-        this.t = findViewById(R.id.obfuscated_res_0x7f090266);
-        this.s = findViewById(R.id.obfuscated_res_0x7f090270);
-        this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f090269);
-        this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09026e);
-        this.w = findViewById(R.id.obfuscated_res_0x7f090267);
-        this.x = findViewById(R.id.obfuscated_res_0x7f09026a);
+        this.n = (ViewPager) findViewById(R.id.obfuscated_res_0x7f090274);
+        this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f090272);
+        this.t = findViewById(R.id.obfuscated_res_0x7f090269);
+        this.s = findViewById(R.id.obfuscated_res_0x7f090273);
+        this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09026c);
+        this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f090271);
+        this.w = findViewById(R.id.obfuscated_res_0x7f09026a);
+        this.x = findViewById(R.id.obfuscated_res_0x7f09026d);
         this.t.setOnClickListener(this);
         this.u.setOnClickListener(this);
         this.n.setOnPageChangeListener(this.I);
@@ -424,12 +424,12 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         this.z.x(this);
         this.n.setCurrentItem(this.C);
         this.s.setOnClickListener(this);
-        this.u.setBackgroundResource(R.drawable.obfuscated_res_0x7f081472);
+        this.u.setBackgroundResource(R.drawable.obfuscated_res_0x7f08146f);
         this.u.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060b02));
-        if (xy2.d() != 0) {
-            string = getString(R.string.obfuscated_res_0x7f0f1534) + "(" + xy2.d() + SmallTailInfo.EMOTION_SUFFIX;
+        if (gt2.d() != 0) {
+            string = getString(R.string.obfuscated_res_0x7f0f1545) + "(" + gt2.d() + SmallTailInfo.EMOTION_SUFFIX;
         } else {
-            string = getString(R.string.obfuscated_res_0x7f0f1534);
+            string = getString(R.string.obfuscated_res_0x7f0f1545);
         }
         this.u.setText(string);
     }
@@ -466,7 +466,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         mutate2.setAlpha(i3);
     }
 
-    public final void X() {
+    public final void Y() {
         int p;
         if (this.A != null && this.C < this.H.size() && (p = this.A.p(this.H.get(this.C))) >= 0) {
             int i = p + 1;
@@ -479,10 +479,10 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
     }
 
-    public final void Y() {
-        ArrayList<MediaModel> e2 = xy2.e();
+    public final void Z() {
+        ArrayList<MediaModel> e2 = gt2.e();
         ViewGroup.LayoutParams layoutParams = this.w.getLayoutParams();
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07085e);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070859);
         if (e2 != null && e2.size() > 0) {
             this.p.setVisibility(0);
             this.q.setVisibility(0);
@@ -491,10 +491,10 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
         this.p.setVisibility(8);
         this.q.setVisibility(8);
-        layoutParams.height = (dimensionPixelSize - getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070848)) - getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070869);
+        layoutParams.height = (dimensionPixelSize - getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070843)) - getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070864);
     }
 
-    @Override // com.baidu.tieba.zy2
+    @Override // com.baidu.tieba.it2
     public void c() {
         if (!this.D) {
             return;
@@ -513,7 +513,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         ofFloat2.start();
     }
 
-    @Override // com.baidu.tieba.zy2
+    @Override // com.baidu.tieba.it2
     public void d() {
         if (this.D) {
             return;
@@ -569,83 +569,83 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         if (arrayList2 != null && this.C < arrayList2.size()) {
             MediaModel mediaModel = this.H.get(this.C);
             if (view2 == this.s) {
-                if (xy2.f(mediaModel)) {
-                    this.A.notifyItemRemoved(xy2.c(mediaModel));
-                    xy2.h(mediaModel);
-                    if (xy2.d() == 0) {
+                if (gt2.f(mediaModel)) {
+                    this.A.notifyItemRemoved(gt2.c(mediaModel));
+                    gt2.h(mediaModel);
+                    if (gt2.d() == 0) {
                         this.A.q(null);
                     }
                     this.v.setVisibility(8);
-                    this.r.setImageResource(R.drawable.obfuscated_res_0x7f081474);
-                    if (xy2.d() > 0) {
-                        string = getString(R.string.obfuscated_res_0x7f0f1534) + "(" + xy2.d() + SmallTailInfo.EMOTION_SUFFIX;
+                    this.r.setImageResource(R.drawable.obfuscated_res_0x7f081471);
+                    if (gt2.d() > 0) {
+                        string = getString(R.string.obfuscated_res_0x7f0f1545) + "(" + gt2.d() + SmallTailInfo.EMOTION_SUFFIX;
                     } else {
-                        string = getString(R.string.obfuscated_res_0x7f0f1534);
+                        string = getString(R.string.obfuscated_res_0x7f0f1545);
                     }
                     this.u.setText(string);
-                    Y();
+                    Z();
                     return;
                 }
-                int d2 = xy2.d();
-                if (d2 == wy2.c) {
-                    wy2.j(wy2.d);
-                } else if (d2 > 0 && TextUtils.equals(wy2.d, "single") && !TextUtils.equals(xy2.b(), mediaModel.getType())) {
-                    ya3.f(this, R.string.obfuscated_res_0x7f0f1523).G();
+                int d2 = gt2.d();
+                if (d2 == ft2.c) {
+                    ft2.j(ft2.d);
+                } else if (d2 > 0 && TextUtils.equals(ft2.d, "single") && !TextUtils.equals(gt2.b(), mediaModel.getType())) {
+                    h53.f(this, R.string.obfuscated_res_0x7f0f1534).G();
                 } else if (mediaModel.getSize() > 52428800 && TextUtils.equals(mediaModel.getType(), "image")) {
-                    ya3.f(this, R.string.obfuscated_res_0x7f0f1522).G();
+                    h53.f(this, R.string.obfuscated_res_0x7f0f1533).G();
                 } else {
-                    int d3 = xy2.d();
+                    int d3 = gt2.d();
                     this.A.notifyItemInserted(d3);
-                    xy2.i(mediaModel);
+                    gt2.i(mediaModel);
                     if (this.A.m() == null) {
-                        this.A.q(xy2.e());
+                        this.A.q(gt2.e());
                     }
                     this.p.smoothScrollToPosition(d3);
                     this.v.setVisibility(0);
                     this.v.setText(P(mediaModel));
-                    this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f081473);
-                    this.u.setText(getString(R.string.obfuscated_res_0x7f0f1534) + "(" + xy2.d() + SmallTailInfo.EMOTION_SUFFIX);
+                    this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f081470);
+                    this.u.setText(getString(R.string.obfuscated_res_0x7f0f1545) + "(" + gt2.d() + SmallTailInfo.EMOTION_SUFFIX);
                     this.u.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060b02));
-                    Y();
+                    Z();
                 }
             } else if (view2 == this.u) {
-                if (xy2.d() == 0 && (arrayList = this.H) != null && arrayList.size() > 0 && this.C < this.H.size()) {
-                    xy2.i(mediaModel);
+                if (gt2.d() == 0 && (arrayList = this.H) != null && arrayList.size() > 0 && this.C < this.H.size()) {
+                    gt2.i(mediaModel);
                 }
                 Bundle bundle = new Bundle();
-                bundle.putBoolean("compressed", wy2.e);
-                bundle.putString("swanAppId", wy2.f);
-                bundle.putParcelableArrayList("mediaModels", xy2.e());
-                bundle.putString("swanTmpPath", wy2.j);
-                wy2.g(this, bundle);
+                bundle.putBoolean("compressed", ft2.e);
+                bundle.putString("swanAppId", ft2.f);
+                bundle.putParcelableArrayList("mediaModels", gt2.e());
+                bundle.putString("swanTmpPath", ft2.j);
+                ft2.g(this, bundle);
             }
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.wo4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.ej4, android.app.Activity
     public void onCreate(Bundle bundle) {
         ArrayList<MediaModel> parcelableArrayList;
-        int c0 = ap3.c0(this);
+        int c0 = jj3.c0(this);
         super.onCreate(bundle);
-        ap3.g(this, c0);
+        jj3.g(this, c0);
         W();
-        r93 r93Var = new r93(this);
-        this.y = r93Var;
-        r93Var.b(false);
+        a43 a43Var = new a43(this);
+        this.y = a43Var;
+        a43Var.b(false);
         getWindow().setFlags(1024, 1024);
         if (!Fresco.hasBeenInitialized()) {
             Fresco.initialize(getApplicationContext());
         }
-        setContentView(R.layout.obfuscated_res_0x7f0d093e);
+        setContentView(R.layout.obfuscated_res_0x7f0d0930);
         if (getIntent() != null) {
-            Bundle e2 = fo3.e(getIntent(), "launchParams");
-            this.C = fo3.f(e2, "previewPosition", 0);
-            String g = fo3.g(e2, "previewFrom");
+            Bundle e2 = oi3.e(getIntent(), "launchParams");
+            this.C = oi3.f(e2, "previewPosition", 0);
+            String g = oi3.g(e2, "previewFrom");
             this.F = g;
             if (TextUtils.equals(g, "bottomPreview")) {
                 ArrayList<MediaModel> arrayList = new ArrayList<>();
                 this.H = arrayList;
-                arrayList.addAll(xy2.e());
+                arrayList.addAll(gt2.e());
             } else if (TextUtils.equals(this.F, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
                 if (e2 == null) {
                     parcelableArrayList = null;
@@ -654,7 +654,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                 }
                 this.H = parcelableArrayList;
             } else {
-                this.H = wy2.c();
+                this.H = ft2.c();
             }
             if (this.H == null) {
                 this.H = new ArrayList<>();

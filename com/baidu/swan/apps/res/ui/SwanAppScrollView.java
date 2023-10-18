@@ -9,10 +9,10 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.ext.widget.dialog.BoxScrollView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qr1;
+import com.baidu.tieba.am1;
 /* loaded from: classes4.dex */
 public class SwanAppScrollView extends ScrollView {
-    public static final boolean b = qr1.a;
+    public static final boolean b = am1.a;
     public int a;
 
     public SwanAppScrollView(Context context) {
@@ -39,8 +39,8 @@ public class SwanAppScrollView extends ScrollView {
         if (2 == getContext().getResources().getConfiguration().orientation) {
             i = getContext().getResources().getDisplayMetrics().widthPixels;
         }
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070130);
-        return ((i - (dimensionPixelSize * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070134)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012c);
+        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012e);
+        return ((i - (dimensionPixelSize * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070132)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012a);
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View

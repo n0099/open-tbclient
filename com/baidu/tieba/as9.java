@@ -1,155 +1,74 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes5.dex */
-public class as9 implements pf5 {
+public class as9 extends lh<lt9, CardViewHolder<pu9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public LikeModel b;
 
-    public as9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public as9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), lt9.l);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
+        this.b = new LikeModel(tbPageContext);
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: s */
+    public CardViewHolder<pu9> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_floor", 5);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            pu9 pu9Var = new pu9(this.a);
+            pu9Var.A(this.b);
+            return new CardViewHolder<>(pu9Var);
         }
-        return invokeV.intValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lt9 lt9Var, CardViewHolder<pu9> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_new_post_num", 100);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lt9Var, cardViewHolder})) == null) {
+            cardViewHolder.a().j(lt9Var);
+            cardViewHolder.a().k(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
         }
-        return invokeV.intValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_time", 10);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_visit_day", 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_no_followed_floor", 8);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_no_followed_time", 30);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int e(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
-            if (z) {
-                return a();
-            }
-            return f();
-        }
-        return invokeZ.intValue;
-    }
-
-    public static int h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65544, null, z)) == null) {
-            if (z) {
-                return c();
-            }
-            return g();
-        }
-        return invokeZ.intValue;
-    }
-
-    @Override // com.baidu.tieba.pf5
-    public void parseJson(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            i(jSONObject.optJSONObject("sprite_pb_guide"));
-        }
-    }
-
-    public static void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65545, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        JSONObject optJSONObject = jSONObject.optJSONObject("followed");
-        if (optJSONObject != null) {
-            int optInt = optJSONObject.optInt("waiting_floor");
-            if (optInt > 0) {
-                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_floor", optInt);
-            }
-            int optInt2 = optJSONObject.optInt("waiting_time");
-            if (optInt2 > 0) {
-                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_time", optInt2);
-            }
-            int optInt3 = optJSONObject.optInt("visit_day");
-            if (optInt3 > 0) {
-                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_visit_day", optInt3);
-            }
-            int optInt4 = optJSONObject.optInt("new_post_num");
-            if (optInt4 > 0) {
-                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_new_post_num", optInt4);
-            }
-        }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("unfollowed");
-        if (optJSONObject2 != null) {
-            int optInt5 = optJSONObject2.optInt("waiting_floor");
-            if (optInt5 > 0) {
-                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_no_followed_floor", optInt5);
-            }
-            int optInt6 = optJSONObject2.optInt("waiting_time");
-            if (optInt6 > 0) {
-                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_no_followed_time", optInt6);
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -15,11 +15,11 @@ import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.stub.ModuleInit;
 import com.baidu.nps.utils.Constant;
 import com.baidu.nps.utils.ContextHolder;
-import com.baidu.tieba.cf1;
-import com.baidu.tieba.kf1;
-import com.baidu.tieba.lf1;
-import com.baidu.tieba.nf1;
-import com.baidu.tieba.pe1;
+import com.baidu.tieba.m91;
+import com.baidu.tieba.u91;
+import com.baidu.tieba.v91;
+import com.baidu.tieba.x91;
+import com.baidu.tieba.z81;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class Bundle {
     public transient /* synthetic */ FieldHolder $fh;
     public BundleInfo mBundleInfo;
     public IInvoker mInvoker;
-    public cf1 mRuntime;
+    public m91 mRuntime;
 
     public Bundle(BundleInfo bundleInfo) {
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class Bundle {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resources)) == null) {
-            return this.mRuntime.getResources(resources);
+            return this.mRuntime.d(resources);
         }
         return (Resources) invokeL.objValue;
     }
@@ -121,7 +121,7 @@ public class Bundle {
                 }
                 return true;
             } catch (Exception e) {
-                pe1.a().b().recordException(3, e.toString(), packageInfo.packageName);
+                z81.a().b().recordException(3, e.toString(), packageInfo.packageName);
                 return true;
             }
         }
@@ -136,13 +136,13 @@ public class Bundle {
                 if (this.mRuntime != null) {
                     return true;
                 }
-                cf1 b = cf1.b(this.mBundleInfo);
+                m91 b = m91.b(this.mBundleInfo);
                 this.mRuntime = b;
                 if (b == null) {
                     return false;
                 }
                 Application applicationContext = ContextHolder.getApplicationContext();
-                PackageInfo a = nf1.a(lf1.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
+                PackageInfo a = x91.a(v91.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
                 initBundle(a);
                 bindProviders(a);
                 return true;
@@ -179,7 +179,7 @@ public class Bundle {
     public void loadOnly() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (kf1.a() && this.mBundleInfo != null) {
+            if (u91.a() && this.mBundleInfo != null) {
                 Log.d("Bundle", "loadOnly pkg=" + this.mBundleInfo.getPackageName());
             }
             initIfNeed();
@@ -237,13 +237,13 @@ public class Bundle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, cls)) == null) {
             initIfNeed();
-            cf1 cf1Var = this.mRuntime;
-            if (cf1Var != null) {
+            m91 m91Var = this.mRuntime;
+            if (m91Var != null) {
                 try {
                     if (cls == null) {
-                        return cf1Var.c().loadClass(str);
+                        return m91Var.c().loadClass(str);
                     }
-                    return cf1Var.c().loadClass(str).asSubclass(cls);
+                    return m91Var.c().loadClass(str).asSubclass(cls);
                 } catch (ClassNotFoundException e) {
                     throw new InvokeException(18, Log.getStackTraceString(e));
                 }

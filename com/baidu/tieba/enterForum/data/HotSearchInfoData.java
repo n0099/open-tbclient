@@ -14,7 +14,6 @@ public class HotSearchInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public long b;
 
     public HotSearchInfoData() {
         Interceptable interceptable = $ic;
@@ -30,7 +29,7 @@ public class HotSearchInfoData extends OrmObject {
         }
     }
 
-    public String M() {
+    public String N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -39,16 +38,7 @@ public class HotSearchInfoData extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public long getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public void N(HotSearch hotSearch) {
+    public void O(HotSearch hotSearch) {
         SearchValue searchValue;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hotSearch) == null) && hotSearch != null && (searchValue = hotSearch.search_value) != null) {
@@ -56,11 +46,11 @@ public class HotSearchInfoData extends OrmObject {
             searchValue.id.longValue();
             SearchValue searchValue2 = hotSearch.search_value;
             String str = searchValue2.name;
-            this.b = searchValue2.type.longValue();
+            searchValue2.type.longValue();
         }
     }
 
-    public void O(String str) {
+    public void P(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.a = str;

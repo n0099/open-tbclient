@@ -9,36 +9,36 @@ import androidx.annotation.StringRes;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao3;
-import com.baidu.tieba.ap3;
-import com.baidu.tieba.ei2;
-import com.baidu.tieba.g32;
-import com.baidu.tieba.g82;
-import com.baidu.tieba.gb3;
-import com.baidu.tieba.hz1;
-import com.baidu.tieba.ii3;
-import com.baidu.tieba.jz1;
-import com.baidu.tieba.nu2;
-import com.baidu.tieba.oj3;
-import com.baidu.tieba.tz1;
-import com.baidu.tieba.uj3;
-import com.baidu.tieba.zh3;
+import com.baidu.tieba.de3;
+import com.baidu.tieba.du1;
+import com.baidu.tieba.ic3;
+import com.baidu.tieba.ji3;
+import com.baidu.tieba.jj3;
+import com.baidu.tieba.nc2;
+import com.baidu.tieba.p22;
+import com.baidu.tieba.p53;
+import com.baidu.tieba.qx1;
+import com.baidu.tieba.rc3;
+import com.baidu.tieba.rt1;
+import com.baidu.tieba.tt1;
+import com.baidu.tieba.wo2;
+import com.baidu.tieba.xd3;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ShowFavoriteGuideApi extends jz1 implements tz1.j {
+public class ShowFavoriteGuideApi extends tt1 implements du1.j {
     public String f;
     public long g;
     public long h;
     public long i;
 
-    @Override // com.baidu.tieba.jz1
+    @Override // com.baidu.tieba.tt1
     public String h() {
         return "Favorite";
     }
 
-    @Override // com.baidu.tieba.jz1
-    public String j() {
+    @Override // com.baidu.tieba.tt1
+    public String k() {
         return "ShowFavoriteGuideApi";
     }
 
@@ -46,57 +46,57 @@ public class ShowFavoriteGuideApi extends jz1 implements tz1.j {
     public class a implements Runnable {
         public final /* synthetic */ String a;
         public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ gb3 c;
+        public final /* synthetic */ p53 c;
         public final /* synthetic */ Activity d;
 
         /* renamed from: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0196a implements Runnable {
+        public class RunnableC0198a implements Runnable {
             public final /* synthetic */ GuideType a;
             public final /* synthetic */ String b;
 
-            public RunnableC0196a(GuideType guideType, String str) {
+            public RunnableC0198a(GuideType guideType, String str) {
                 this.a = guideType;
                 this.b = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                tz1 l = tz1.l();
+                du1 l = du1.l();
                 a aVar = a.this;
                 ShowFavoriteGuideApi showFavoriteGuideApi = ShowFavoriteGuideApi.this;
                 Activity activity = aVar.d;
-                gb3 gb3Var = aVar.c;
-                l.p(showFavoriteGuideApi, activity, gb3Var, this.a, this.b, gb3Var.W().Q(), ShowFavoriteGuideApi.this.g);
+                p53 p53Var = aVar.c;
+                l.p(showFavoriteGuideApi, activity, p53Var, this.a, this.b, p53Var.X().R(), ShowFavoriteGuideApi.this.g);
             }
         }
 
-        public a(String str, JSONObject jSONObject, gb3 gb3Var, Activity activity) {
+        public a(String str, JSONObject jSONObject, p53 p53Var, Activity activity) {
             this.a = str;
             this.b = jSONObject;
-            this.c = gb3Var;
+            this.c = p53Var;
             this.d = activity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (nu2.y0().d()) {
+            if (wo2.y0().d()) {
                 return;
             }
-            oj3 a = uj3.a();
+            xd3 a = de3.a();
             GuideType parse = GuideType.parse(this.a);
-            String string = ShowFavoriteGuideApi.this.getContext().getString(parse.defaultText);
+            String string = ShowFavoriteGuideApi.this.i().getString(parse.defaultText);
             ShowFavoriteGuideApi.this.f = this.b.optString("cb");
             String str = this.c.b;
             String str2 = "favorite_guide_count_" + str;
-            if (ei2.n(str)) {
-                g82.i("ShowFavoriteGuideApi", "favorite already");
-                uj3.a().putString(str2, "-1");
+            if (nc2.n(str)) {
+                p22.i("ShowFavoriteGuideApi", "favorite already");
+                de3.a().putString(str2, "-1");
                 return;
             }
-            String string2 = uj3.a().getString(str2, "");
+            String string2 = de3.a().getString(str2, "");
             if (TextUtils.equals("-1", string2)) {
-                g82.i("ShowFavoriteGuideApi", "favorite at one time");
+                p22.i("ShowFavoriteGuideApi", "favorite at one time");
                 return;
             }
             String[] split = string2.split("#");
@@ -111,13 +111,13 @@ public class ShowFavoriteGuideApi extends jz1 implements tz1.j {
             ShowFavoriteGuideApi.this.g = a.getLong("swan_favorite_guide_duration", 3L);
             ShowFavoriteGuideApi.this.h = a.getLong("swan_favorite_guide_intervalDays", 3L);
             ShowFavoriteGuideApi.this.i = a.getLong("swan_favorite_guide_maxTimes", 3L);
-            g82.i("ShowFavoriteGuideApi", "duration=" + ShowFavoriteGuideApi.this.g + ", mIntervalDays=" + ShowFavoriteGuideApi.this.h + ", mMaxTimes=" + ShowFavoriteGuideApi.this.i + " ,storageValue=" + string2);
+            p22.i("ShowFavoriteGuideApi", "duration=" + ShowFavoriteGuideApi.this.g + ", mIntervalDays=" + ShowFavoriteGuideApi.this.h + ", mMaxTimes=" + ShowFavoriteGuideApi.this.i + " ,storageValue=" + string2);
             if (i2 < ShowFavoriteGuideApi.this.i && currentTimeMillis - j > ShowFavoriteGuideApi.this.h * 86400000) {
-                uj3.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                ap3.e0(new RunnableC0196a(parse, string));
+                de3.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
+                jj3.e0(new RunnableC0198a(parse, string));
                 return;
             }
-            g82.i("ShowFavoriteGuideApi", "Not satisfying display conditions");
+            p22.i("ShowFavoriteGuideApi", "Not satisfying display conditions");
         }
     }
 
@@ -139,11 +139,11 @@ public class ShowFavoriteGuideApi extends jz1 implements tz1.j {
         }
     }
 
-    public ShowFavoriteGuideApi(@NonNull hz1 hz1Var) {
-        super(hz1Var);
+    public ShowFavoriteGuideApi(@NonNull rt1 rt1Var) {
+        super(rt1Var);
     }
 
-    @Override // com.baidu.tieba.tz1.j
+    @Override // com.baidu.tieba.du1.j
     @AnyThread
     public void e(boolean z) {
         int i;
@@ -159,15 +159,15 @@ public class ShowFavoriteGuideApi extends jz1 implements tz1.j {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            d(this.f, new g32(0, "success", jSONObject));
+            d(this.f, new qx1(0, "success", jSONObject));
         }
     }
 
     /* loaded from: classes4.dex */
     public enum GuideType {
-        NORMAL("bar", -1, 992, R.string.obfuscated_res_0x7f0f018b),
-        WEAK("bar-autohide", -1, 865, R.string.obfuscated_res_0x7f0f018b),
-        TIPS("tip", 18, -1, R.string.obfuscated_res_0x7f0f018c);
+        NORMAL("bar", -1, 992, R.string.obfuscated_res_0x7f0f018d),
+        WEAK("bar-autohide", -1, 865, R.string.obfuscated_res_0x7f0f018d),
+        TIPS("tip", 18, -1, R.string.obfuscated_res_0x7f0f018e);
         
         @StringRes
         public int defaultText;
@@ -195,10 +195,10 @@ public class ShowFavoriteGuideApi extends jz1 implements tz1.j {
         }
     }
 
-    public static void F(GuideType guideType, String str, String str2) {
+    public static void G(GuideType guideType, String str, String str2) {
         String str3;
-        String g0 = gb3.g0();
-        ii3 ii3Var = new ii3();
+        String h0 = p53.h0();
+        rc3 rc3Var = new rc3();
         if (guideType == null) {
             str3 = ApkCheckUBCManagerKt.VALUE_WINDOW;
         } else {
@@ -213,39 +213,39 @@ public class ShowFavoriteGuideApi extends jz1 implements tz1.j {
                 str3 = "TIPS";
             }
         }
-        ii3Var.b = str3;
-        ii3Var.c = str;
-        ii3Var.e = str2;
-        ii3Var.a("appkey", g0);
-        zh3.x("923", ii3Var);
+        rc3Var.b = str3;
+        rc3Var.c = str;
+        rc3Var.e = str2;
+        rc3Var.a("appkey", h0);
+        ic3.x("923", rc3Var);
     }
 
-    public g32 G(String str) {
-        q("#showFavoriteGuide", false);
-        gb3 b0 = gb3.b0();
-        if (b0 == null) {
-            return new g32(1001, "SwanApp is null");
+    public qx1 H(String str) {
+        r("#showFavoriteGuide", false);
+        p53 c0 = p53.c0();
+        if (c0 == null) {
+            return new qx1(1001, "SwanApp is null");
         }
-        SwanAppActivity w = b0.w();
+        SwanAppActivity w = c0.w();
         if (w == null) {
-            g82.c("ShowFavoriteGuideApi", "null activity");
-            return new g32(1001, "null activity");
-        } else if (!ap3.G()) {
-            g82.i("ShowFavoriteGuideApi", "not support outside baiduboxapp");
-            return new g32(1001, "not support outside baiduboxapp");
+            p22.c("ShowFavoriteGuideApi", "null activity");
+            return new qx1(1001, "null activity");
+        } else if (!jj3.G()) {
+            p22.i("ShowFavoriteGuideApi", "not support outside baiduboxapp");
+            return new qx1(1001, "not support outside baiduboxapp");
         } else {
-            Pair<g32, JSONObject> s = s(str);
-            g32 g32Var = (g32) s.first;
-            if (!g32Var.isSuccess()) {
-                return g32Var;
+            Pair<qx1, JSONObject> t = t(str);
+            qx1 qx1Var = (qx1) t.first;
+            if (!qx1Var.isSuccess()) {
+                return qx1Var;
             }
-            JSONObject jSONObject = (JSONObject) s.second;
+            JSONObject jSONObject = (JSONObject) t.second;
             String optString = jSONObject.optString("type");
-            if (tz1.l().n(optString)) {
-                return new g32(202);
+            if (du1.l().n(optString)) {
+                return new qx1(202);
             }
-            ao3.g().execute(new a(optString, jSONObject, b0, w), "ShowFavoriteGuideApi");
-            return g32.f();
+            ji3.g().execute(new a(optString, jSONObject, c0, w), "ShowFavoriteGuideApi");
+            return qx1.f();
         }
     }
 }

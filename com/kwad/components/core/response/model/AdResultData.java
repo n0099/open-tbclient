@@ -71,7 +71,7 @@ public class AdResultData extends BaseResultData implements b {
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public AdResultData m177clone() {
+    public AdResultData m176clone() {
         AdResultData adResultData = new AdResultData();
         try {
             adResultData.parseJson(new JSONObject(toJson().toString()));

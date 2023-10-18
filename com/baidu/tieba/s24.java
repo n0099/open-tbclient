@@ -1,43 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class s24 {
+import java.net.MalformedURLException;
+@Service
+/* loaded from: classes8.dex */
+public class s24 implements xm1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final s24 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-482132905, "Lcom/baidu/tieba/s24$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-482132905, "Lcom/baidu/tieba/s24$a;");
-                    return;
-                }
-            }
-            a = new s24();
-        }
-    }
 
     public s24() {
         Interceptable interceptable = $ic;
@@ -53,73 +28,41 @@ public class s24 {
         }
     }
 
-    public static s24 b() {
+    @Override // com.baidu.tieba.xm1
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return lz3.g();
         }
-        return (s24) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void a(@NonNull JSONObject jSONObject, @NonNull z24 z24Var) {
+    @Override // com.baidu.tieba.xm1
+    public boolean b() {
+        InterceptResult invokeV;
+        v42 m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, z24Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                z24Var.a(new a34(31008, "download is not exist"));
-            } else {
-                x74.c().c(optString);
-            }
-        }
-    }
-
-    public void c(@NonNull JSONObject jSONObject, @NonNull z24 z24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, z24Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                z24Var.a(new a34(31008, "download is not exist"));
-            } else {
-                x74.c().e(optString);
-            }
-        }
-    }
-
-    public void e(@NonNull JSONObject jSONObject, @NonNull z24 z24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, z24Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                z24Var.a(new a34(31008, "download is not exist"));
-            } else {
-                x74.c().f(optString);
-            }
-        }
-    }
-
-    public void d(@NonNull JSONObject jSONObject, @NonNull z24 z24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, z24Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            if (!optBoolean) {
-                z24Var.a(new a34(31008, "download is not exist"));
-                return;
-            }
-            String optString = jSONObject.optString("packageName");
-            String optString2 = jSONObject.optString("apkId");
-            String optString3 = jSONObject.optString("url");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                if (!x74.c().a(optString3, optString, optString2, optBoolean, new u24(z24Var))) {
-                    z24Var.a(new a34(31006, "is not in main process"));
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (p53.M() != null && p53.M().x0()) {
+                y42 W = cr2.V().W();
+                if (W == null || (m = W.m()) == null || !(m instanceof m14)) {
+                    return true;
                 }
-                return;
+                return ((m14) m).K3();
             }
-            z24Var.a(new a34(31007, "invalid params"));
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xm1
+    public String c(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return lz3.d(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

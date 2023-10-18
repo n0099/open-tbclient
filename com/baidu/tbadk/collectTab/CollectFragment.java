@@ -20,9 +20,9 @@ public abstract class CollectFragment extends BaseFragment {
     public boolean a;
     public final CustomMessageListener b;
 
-    public abstract boolean c2();
+    public abstract int c2();
 
-    public abstract int getType();
+    public abstract boolean d2();
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -59,10 +59,10 @@ public abstract class CollectFragment extends BaseFragment {
                 return;
             }
             CollectFragment collectFragment = this.a;
-            collectFragment.e2(collectFragment.getType());
+            collectFragment.f2(collectFragment.c2());
             CollectFragment collectFragment2 = this.a;
             if (!collectFragment2.a) {
-                collectFragment2.f2(false, collectFragment2.getType());
+                collectFragment2.g2(false, collectFragment2.c2());
             }
         }
     }
@@ -84,10 +84,10 @@ public abstract class CollectFragment extends BaseFragment {
         this.b = new a(this, 2000994);
     }
 
-    public boolean d2() {
+    public boolean e2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
         return invokeV.booleanValue;
@@ -111,12 +111,12 @@ public abstract class CollectFragment extends BaseFragment {
         }
     }
 
-    public void e2(int i) {
+    public void f2(int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             Bundle bundle = new Bundle();
-            if (!c2() && BdNetTypeUtil.isNetWorkAvailable()) {
+            if (!d2() && BdNetTypeUtil.isNetWorkAvailable()) {
                 z = true;
             } else {
                 z = false;
@@ -128,9 +128,9 @@ public abstract class CollectFragment extends BaseFragment {
         }
     }
 
-    public void f2(boolean z, int i) {
+    public void g2(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             Bundle bundle = new Bundle();
             bundle.putBoolean("is_edit_state", z);
             bundle.putInt("fragment_type", i);

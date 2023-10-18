@@ -1,175 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewParent;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lg3;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class w12 extends m12 {
+public final class w12 extends b12<TextView, x12> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
-
-    @Override // com.baidu.tieba.jz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ShowSMSPanelApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements zp3<jg3<lg3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ w12 d;
-
-        public a(w12 w12Var, String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w12Var, str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = w12Var;
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zp3
-        /* renamed from: b */
-        public void a(jg3<lg3.e> jg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jg3Var) == null) {
-                if (!eg3.h(jg3Var)) {
-                    int b = jg3Var.b();
-                    this.d.d(this.a, new g32(b, eg3.f(b)));
-                    return;
-                }
-                this.d.z(this.b, this.c);
-                this.d.d(this.a, new g32(0));
-            }
-        }
-    }
+    public SwanAppComponentContainerView i;
+    public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w12(@NonNull hz1 hz1Var) {
-        super(hz1Var);
+    public w12(@NonNull Context context, @NonNull x12 x12Var) {
+        super(context, x12Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hz1Var};
+            Object[] objArr = {context, x12Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((hz1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (c12) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        g(4);
+        this.i = new SwanAppComponentContainerView(context);
+        this.j = new TextView(context);
     }
 
-    public g32 A(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.b12, com.baidu.tieba.d12, com.baidu.tieba.f12
+    @NonNull
+    /* renamed from: b0 */
+    public h22 k(@NonNull x12 x12Var, @NonNull x12 x12Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, x12Var, x12Var2)) == null) {
+            h22 k = super.k(x12Var, x12Var2);
+            if (!TextUtils.equals(x12Var.E, x12Var2.E) && (TextUtils.equals(x12Var.E, "scroll") || TextUtils.equals(x12Var2.E, "scroll"))) {
+                k.b(7);
+            }
+            if (!TextUtils.equals(x12Var.E, x12Var2.E) || (TextUtils.equals(x12Var2.E, "scroll") && x12Var.D != x12Var2.D)) {
+                k.b(8);
+            }
+            return k;
+        }
+        return (h22) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.d12
+    /* renamed from: e0 */
+    public void S(@NonNull TextView textView, @NonNull x12 x12Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, textView, x12Var) == null) {
+            if (f12.h) {
+                Log.d("Component-CoverView", "renderBackground");
+            }
+            if (x12Var.j == null) {
+                return;
+            }
+            SwanAppComponentContainerView m = m();
+            if (m != null) {
+                m.setModel(x12Var);
+            }
+            ViewParent parent = textView.getParent();
+            if (!(parent instanceof View)) {
+                return;
+            }
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(x12Var.k);
+            gradientDrawable.setCornerRadius(x12Var.n);
+            gradientDrawable.setStroke(x12Var.l, x12Var.m);
+            ((View) parent).setBackground(gradientDrawable);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.d12
+    /* renamed from: d0 */
+    public void R(@NonNull View view2, @NonNull x12 x12Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, x12Var) == null) {
+            if (f12.h) {
+                Log.d("Component-CoverView", "renderAlpha");
+            }
+            if (x12Var.j == null) {
+                return;
+            }
+            ViewParent parent = view2.getParent();
+            if (!(parent instanceof View)) {
+                return;
+            }
+            super.R((View) parent, x12Var);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.f12
+    @NonNull
+    /* renamed from: c0 */
+    public TextView v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#openSystemSMSPanel", false);
-            Pair<g32, JSONObject> s = s(str);
-            g32 g32Var = (g32) s.first;
-            if (!g32Var.isSuccess()) {
-                return g32Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            g82.b("ShowSMSPanelApi", "params: ", jSONObject);
-            String optString = jSONObject.optString("content");
-            JSONArray optJSONArray = jSONObject.optJSONArray("recipients");
-            if (optJSONArray == null) {
-                return new g32(202);
-            }
-            String y = y(optJSONArray);
-            if (!TextUtils.isEmpty(y) && !TextUtils.isEmpty(optString)) {
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new g32(202);
-                }
-                fb3.K().q().e0().g(getContext(), "scope_show_sms_panel", new a(this, optString2, y, optString));
-                return g32.f();
-            }
-            return new g32(202);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return this.j;
         }
-        return (g32) invokeL.objValue;
+        return (TextView) invokeL.objValue;
     }
 
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ji3 ji3Var = new ji3();
-            ji3Var.b = "sms_panel";
-            ji3Var.e = String.valueOf(this.f);
-            ji3Var.a("appid", fb3.K().getAppId());
-            zh3.x("1639", ji3Var);
-        }
-    }
-
-    public final String y(JSONArray jSONArray) {
+    @Override // com.baidu.tieba.f12
+    @NonNull
+    public SwanAppComponentContainerView u(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            if (jSONArray == null || jSONArray.length() <= 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            this.f = jSONArray.length();
-            for (int i = 0; i < this.f; i++) {
-                String optString = jSONArray.optString(i);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                sb.append(optString);
-                if (i != this.f - 1) {
-                    sb.append(ParamableElem.DIVIDE_PARAM);
-                }
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
+            return this.i;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public void z(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            Intent intent = new Intent();
-            intent.setAction("android.intent.action.SENDTO");
-            intent.setData(Uri.parse("smsto:" + str));
-            intent.putExtra("sms_body", str2);
-            getContext().startActivity(intent);
-            x();
-        }
+        return (SwanAppComponentContainerView) invokeL.objValue;
     }
 }

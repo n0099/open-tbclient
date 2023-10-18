@@ -3,7 +3,7 @@ package com.baidu.adp.framework.message;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.of;
+import com.baidu.tieba.ma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,9 +26,9 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
 
-    public void logStatInBackground(int i, of ofVar) {
+    public void logStatInBackground(int i, ma maVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, ofVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, maVar) == null) {
         }
     }
 

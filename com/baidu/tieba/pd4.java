@@ -1,130 +1,107 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class pd4 {
+public abstract class pd4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nd4 a;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
+    public abstract ContentValues c(T t);
 
-        public a(pd4 pd4Var, SwanAppActivity swanAppActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pd4Var, swanAppActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swanAppActivity;
-        }
+    public abstract T d(Cursor cursor) throws SQLException;
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                oo3.a(this.a);
-            }
-        }
-    }
+    public abstract List<T> e(Cursor cursor) throws SQLException;
 
-    public pd4(JsObject jsObject) {
+    public pd4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = nd4.d(n32.F(jsObject));
-        md4.a().f(this);
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
-        if (r1.equals("checkForUpdate") != false) goto L16;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(od4 od4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, od4Var) == null) && this.a != null && JSEvent.isValid(od4Var)) {
-            char c = 0;
-            g82.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", od4Var.type, Boolean.valueOf(od4Var.hasUpdate)));
-            String str = od4Var.type;
-            int hashCode = str.hashCode();
-            if (hashCode != -1330233754) {
-                if (hashCode != -1317168438) {
-                    if (hashCode == -585906598 && str.equals("updateReady")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str.equals("updateFailed")) {
-                    c = 2;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        this.a.b();
-                        return;
-                    }
-                    return;
-                }
-                this.a.c();
-                return;
-            }
-            this.a.a(od4Var);
         }
     }
 
-    @JavascriptInterface
-    public boolean applyUpdate() {
-        InterceptResult invokeV;
+    public ContentValues a(ne4 ne4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            SwanAppActivity activity = tw2.T().getActivity();
-            if (activity == null) {
-                g82.c("UpdateManagerApi", "applyUpdate activity is null");
-                return false;
-            } else if (activity.isDestroyed() || activity.getIntent() == null) {
-                return false;
-            } else {
-                ap3.e0(new a(this, activity));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ne4Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("bundle_id", ne4Var.g);
+            contentValues.put("category", Integer.valueOf(ne4Var.h));
+            contentValues.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ne4Var.j);
+            contentValues.put("version_code", Long.valueOf(ne4Var.i));
+            contentValues.put("size", Long.valueOf(ne4Var.k));
+            contentValues.put(PackageTable.MD5, ne4Var.l);
+            contentValues.put("sign", ne4Var.m);
+            contentValues.put("downloadUrl", ne4Var.n);
+            contentValues.put(PackageTable.FILE_PATH, ne4Var.a);
+            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(ne4Var.b));
+            contentValues.put("create_time", Long.valueOf(ne4Var.c));
+            contentValues.put("update_time", Long.valueOf(ne4Var.d));
+            contentValues.put("state", Integer.valueOf(ne4Var.e));
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public boolean b(Cursor cursor, ne4 ne4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor, ne4Var)) == null) {
+            if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("bundle_id");
+                int columnIndex2 = cursor.getColumnIndex("category");
+                int columnIndex3 = cursor.getColumnIndex(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
+                int columnIndex4 = cursor.getColumnIndex("version_code");
+                int columnIndex5 = cursor.getColumnIndex("size");
+                int columnIndex6 = cursor.getColumnIndex(PackageTable.MD5);
+                int columnIndex7 = cursor.getColumnIndex("sign");
+                int columnIndex8 = cursor.getColumnIndex("downloadUrl");
+                int columnIndex9 = cursor.getColumnIndex("_id");
+                int columnIndex10 = cursor.getColumnIndex(PackageTable.FILE_PATH);
+                int columnIndex11 = cursor.getColumnIndex(PackageTable.CURRENT_SIZE);
+                int columnIndex12 = cursor.getColumnIndex("create_time");
+                int columnIndex13 = cursor.getColumnIndex("update_time");
+                int columnIndex14 = cursor.getColumnIndex("state");
+                String string = cursor.getString(columnIndex);
+                if (TextUtils.isEmpty(string)) {
+                    return false;
+                }
+                ne4Var.g = string;
+                ne4Var.h = cursor.getInt(columnIndex2);
+                ne4Var.j = cursor.getString(columnIndex3);
+                ne4Var.i = cursor.getLong(columnIndex4);
+                ne4Var.k = cursor.getLong(columnIndex5);
+                ne4Var.l = cursor.getString(columnIndex6);
+                ne4Var.m = cursor.getString(columnIndex7);
+                ne4Var.n = cursor.getString(columnIndex8);
+                ne4Var.a = cursor.getString(columnIndex10);
+                ne4Var.b = cursor.getLong(columnIndex11);
+                ne4Var.c = cursor.getLong(columnIndex12);
+                ne4Var.d = cursor.getLong(columnIndex13);
+                ne4Var.f = cursor.getLong(columnIndex9);
+                ne4Var.e = cursor.getInt(columnIndex14);
                 return true;
             }
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 }

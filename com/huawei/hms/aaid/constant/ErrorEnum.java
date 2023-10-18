@@ -16,7 +16,7 @@ import com.huawei.hms.support.api.client.Status;
 import com.huawei.hms.support.api.entity.auth.AuthCode;
 import com.huawei.hms.support.api.entity.core.CommonCode;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ErrorEnum {
     public static final /* synthetic */ ErrorEnum[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

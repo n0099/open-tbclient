@@ -1,67 +1,46 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.data.TopNotifyData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.pb.PbNewEditorTool;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class gf5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final gf5 a;
-    public static String b = "";
-    public static boolean c;
-    public static b d;
-    public static a e;
+public class gf5 extends if5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947792019, "Lcom/baidu/tieba/gf5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947792019, "Lcom/baidu/tieba/gf5;");
-                return;
-            }
-        }
-        a = new gf5();
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b extends BdAsyncTask<Object, Integer, String> {
+    public class a implements dd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public volatile NetWork a;
+        public final /* synthetic */ hf5 a;
+        public final /* synthetic */ EditorTools b;
+        public final /* synthetic */ gf5 c;
 
-        public b(String urlPath) {
+        public a(gf5 gf5Var, hf5 hf5Var, EditorTools editorTools) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {urlPath};
+                Object[] objArr = {gf5Var, hf5Var, editorTools};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -71,73 +50,66 @@ public final class gf5 {
                     return;
                 }
             }
-            Intrinsics.checkNotNullParameter(urlPath, "urlPath");
-            this.a = new NetWork(TbConfig.SERVER_ADDRESS + urlPath);
-            NetWork netWork = this.a;
-            Intrinsics.checkNotNull(netWork);
-            netWork.addPostData(IntentConfig.CALL_FROM, gf5.a.f(gf5.b));
-            NetWork netWork2 = this.a;
-            Intrinsics.checkNotNull(netWork2);
-            netWork2.addPostData("chatroom_at_msg_id", gf5.a.g(gf5.b));
-            NetWork netWork3 = this.a;
-            Intrinsics.checkNotNull(netWork3);
-            netWork3.setNeedBdussForGet(true);
-            NetWork netWork4 = this.a;
-            Intrinsics.checkNotNull(netWork4);
-            netWork4.getNetContext().getRequest().mIsNeedTbs = true;
+            this.c = gf5Var;
+            this.a = hf5Var;
+            this.b = editorTools;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public String doInBackground(Object... params) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.dd5
+        public void O(cd5 cd5Var) {
+            hf5 hf5Var;
+            int size;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
-                Intrinsics.checkNotNullParameter(params, "params");
-                try {
-                    NetWork netWork = this.a;
-                    Intrinsics.checkNotNull(netWork);
-                    String postNetData = netWork.postNetData();
-                    NetWork netWork2 = this.a;
-                    Intrinsics.checkNotNull(netWork2);
-                    if (netWork2.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        return postNetData;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, cd5Var) != null) || (hf5Var = this.a) == null || hf5Var.a() == null || cd5Var == null) {
+                return;
+            }
+            int i = cd5Var.a;
+            if (i != 4) {
+                if (i != 5) {
+                    if (i != 7) {
+                        if (i != 8) {
+                            if (i != 14) {
+                                if (i == 15) {
+                                    int intValue = ((Integer) cd5Var.c).intValue();
+                                    if (this.a.w() != null && this.a.w().getChosedFiles() != null && (size = this.a.w().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.q().getPageActivity(), CyberPlayerManager.MEDIA_INFO_MEDIA_FILE_PATH, this.a.w(), intValue)));
+                                        return;
+                                    }
+                                    return;
+                                }
+                                return;
+                            }
+                            if (this.a.w() != null) {
+                                this.a.w().setMaxImagesAllowed(1);
+                            }
+                            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.a.q().getPageActivity(), this.a.w().toJsonString(), true, true);
+                            if (!StringUtils.isNull(this.c.m(), true)) {
+                                albumActivityConfig.getIntent().putExtra("from", this.c.m());
+                            }
+                            if (this.c.l() != null && !StringUtils.isNull(this.c.l().getId(), true)) {
+                                albumActivityConfig.getIntent().putExtra("forum_id", this.c.l().getId());
+                            }
+                            albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+                            BdUtilHelper.hideSoftKeyPad(this.a.q().getPageActivity(), this.a.q().getPageActivity().getCurrentFocus());
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
+                            return;
+                        } else if (!this.c.k(this.a.q(), 11001)) {
+                            return;
+                        } else {
+                            this.a.I(null, null);
+                            return;
+                        }
                     }
-                    return "";
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    return "";
+                    this.a.q().showToast(R.string.over_limit_tip);
+                    return;
+                } else if (!this.b.x()) {
+                    TiebaStatic.eventStat(this.b.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                    return;
+                } else {
+                    return;
                 }
             }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.a != null) {
-                    NetWork netWork = this.a;
-                    Intrinsics.checkNotNull(netWork);
-                    netWork.cancelNetConnect();
-                    this.a = null;
-                }
-                super.cancel(true);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                gf5.a.i(str);
-                a aVar = gf5.e;
-                if (aVar != null) {
-                    aVar.a();
-                }
-            }
+            this.a.g0(cd5Var.c.toString());
         }
     }
 
@@ -145,86 +117,87 @@ public final class gf5 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final String h() {
-        InterceptResult invokeV;
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean k(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return f(b);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                return true;
+            }
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLI.booleanValue;
     }
 
-    public final String f(String str) {
+    @Override // com.baidu.tieba.if5, com.baidu.tieba.ed5
+    public gd5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String queryParameter = Uri.parse(str).getQueryParameter(IntentConfig.CALL_FROM);
-            if (queryParameter == null) {
-                return "";
-            }
-            return queryParameter;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setIsFromPb(true);
+            editorTools.setBarMaxLauCount(5);
+            editorTools.setBarLauncherType(5);
+            editorTools.setBackgroundColorId(0);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0201);
+            editorTools.G(false);
+            editorTools.setMoreButtonAtEnd(true);
+            hf5 hf5Var = new hf5(editorTools);
+            hf5Var.d0(n());
+            hf5Var.t = true;
+            return hf5Var;
         }
-        return (String) invokeL.objValue;
+        return (gd5) invokeL.objValue;
     }
 
-    public final String g(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.if5, com.baidu.tieba.ed5
+    public void c(gd5 gd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            String queryParameter = Uri.parse(str).getQueryParameter("chatroom_at_msg_id");
-            if (queryParameter == null) {
-                return "";
-            }
-            return queryParameter;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void i(String str) {
-        TopNotifyData a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || StringUtils.isNull(str)) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gd5Var) != null) || !(gd5Var instanceof hf5)) {
             return;
         }
-        Intrinsics.checkNotNull(str);
-        String optString = new JSONObject(str).optString("data");
-        if (!StringUtils.isNull(optString) && StringHelper.isJSONObject(optString)) {
-            JSONObject jSONObject = new JSONObject(optString);
-            if (jSONObject.length() == 0) {
-                return;
-            }
-            String optString2 = jSONObject.optString(f(b));
-            if (!StringUtils.isNull(optString2) && (a2 = TopNotifyData.Companion.a()) != null) {
-                a2.parsJson(new JSONObject(optString2));
-            }
-        }
+        EditorTools a2 = gd5Var.a();
+        a aVar = new a(this, (hf5) gd5Var, a2);
+        a2.setActionListener(5, aVar);
+        a2.setActionListener(4, aVar);
+        a2.setActionListener(7, aVar);
+        a2.setActionListener(14, aVar);
+        a2.setActionListener(15, aVar);
+        a2.setActionListener(8, aVar);
+        a2.setActionListener(32, aVar);
+        a2.setActionListener(45, aVar);
     }
 
-    public final void j(String urlPath, a callBack) {
+    @Override // com.baidu.tieba.if5, com.baidu.tieba.ed5
+    public void d(gd5 gd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, urlPath, callBack) == null) {
-            Intrinsics.checkNotNullParameter(urlPath, "urlPath");
-            Intrinsics.checkNotNullParameter(callBack, "callBack");
-            if (!c && !StringUtils.isNull(f(urlPath)) && !StringUtils.isNull(g(urlPath))) {
-                b = urlPath;
-                e = callBack;
-                b bVar = new b(urlPath);
-                d = bVar;
-                if (bVar != null) {
-                    bVar.execute(new Object[0]);
-                }
-                c = false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gd5Var) == null) {
+            EditorTools a2 = gd5Var.a();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            a2.d(new zd5(a2.getContext(), 1));
+            a2.d(new PbNewEditorTool(a2.getContext(), true, false, 12004));
+            a2.h(arrayList);
+            od5 p = a2.p(5);
+            if (p != null) {
+                p.l = 2;
+                p.f(false);
             }
+            a2.f();
+            a2.D(new cd5(35, 5, Boolean.FALSE));
         }
     }
 }

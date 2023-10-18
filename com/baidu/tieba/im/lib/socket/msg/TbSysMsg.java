@@ -6,8 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fl8;
 import com.baidu.tieba.im.lib.socket.msg.data.ChatEggRainData;
+import com.baidu.tieba.pf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -348,7 +348,7 @@ public abstract class TbSysMsg extends TbNormalMsg {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return fl8.a(this.bduk);
+                return pf8.a(this.bduk);
             }
             return invokeV.longValue;
         }

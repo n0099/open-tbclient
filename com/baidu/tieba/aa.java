@@ -1,34 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.task.MessageTask;
+import android.graphics.Rect;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.guide.MaskView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class aa<M extends Message<?>, T extends MessageTask> implements x9<M, T> {
+public class aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MessageManager a;
 
-    public aa(MessageManager messageManager) {
+    public static View a(LayoutInflater layoutInflater, ba baVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {messageManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, layoutInflater, baVar)) == null) {
+            View c = baVar.c(layoutInflater);
+            MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
+            layoutParams.c = baVar.getXOffset();
+            layoutParams.d = baVar.getYOffset();
+            layoutParams.a = baVar.a();
+            layoutParams.b = baVar.b();
+            ViewGroup.LayoutParams layoutParams2 = c.getLayoutParams();
+            if (layoutParams2 != null) {
+                ((ViewGroup.LayoutParams) layoutParams).width = layoutParams2.width;
+                ((ViewGroup.LayoutParams) layoutParams).height = layoutParams2.height;
             }
+            c.setLayoutParams(layoutParams);
+            return c;
         }
-        this.a = null;
-        this.a = messageManager;
+        return (View) invokeLL.objValue;
+    }
+
+    public static Rect b(View view2, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, view2, i, i2)) == null) {
+            int[] iArr = new int[2];
+            view2.getLocationInWindow(iArr);
+            Rect rect = new Rect();
+            rect.set(iArr[0], iArr[1], iArr[0] + view2.getMeasuredWidth(), iArr[1] + view2.getMeasuredHeight());
+            rect.offset(-i, -i2);
+            return rect;
+        }
+        return (Rect) invokeLII.objValue;
     }
 }

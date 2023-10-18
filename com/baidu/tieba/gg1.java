@@ -1,30 +1,11 @@
 package com.baidu.tieba;
-
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface gg1 {
-    void a(Activity activity, String str, String str2);
+    void b();
 
-    void aLiAuth(Activity activity, String str, ng1<JSONObject> ng1Var);
+    void e();
 
-    boolean b(Context context);
+    void f(String str);
 
-    void c(Activity activity, String str, bg1 bg1Var);
-
-    void d(Context context, JSONObject jSONObject, bg1 bg1Var);
-
-    void e(Activity activity, String str, bg1 bg1Var);
-
-    void f(Context context, JSONObject jSONObject);
-
-    void g(Bundle bundle);
-
-    void h(String str);
-
-    void i(Activity activity, JSONObject jSONObject, bg1 bg1Var);
-
-    String j(Context context);
+    void onAdError(String str);
 }

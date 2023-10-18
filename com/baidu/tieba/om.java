@@ -1,418 +1,364 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ListView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Arrays;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class om<T, V extends TypeAdapter.ViewHolder> {
+public final class om {
     public static /* synthetic */ Interceptable $ic;
+    public static final a i;
     public transient /* synthetic */ FieldHolder $fh;
-    public gn<bn> mAdapter;
-    public ln mAdapterItemClickListener;
-    public mn mAdapterItemLongClickListener;
-    public Context mContext;
-    public km mImagePreloadSizeData;
-    public BdUniqueId mPageId;
-    public BdUniqueId mType;
-    public V viewholder;
+    public byte[] a;
+    public byte[] b;
+    public byte c;
+    public byte d;
+    public short e;
+    public int f;
+    public byte[] g;
+    public byte[] h;
 
-    public BdUniqueId getBottomId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public BdUniqueId getContentId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public BdUniqueId getExtendId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public BdUniqueId getHeaderId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public V onCreateBottomViewHolder(ViewGroup viewGroup, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, viewGroup, t)) == null) {
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public V onCreateContentViewHolder(ViewGroup viewGroup, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, viewGroup, t)) == null) {
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public V onCreateExtendViewHolder(ViewGroup viewGroup, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, viewGroup, t)) == null) {
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public V onCreateHeaderViewHolder(ViewGroup viewGroup, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, viewGroup, t)) == null) {
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public abstract V onCreateViewHolder(ViewGroup viewGroup);
-
-    public abstract View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v);
-
-    public void onFillViewHolder(int i, ViewGroup viewGroup, V v, T t, @NonNull List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i), viewGroup, v, t, list}) == null) {
-        }
-    }
-
-    public void setMulDel(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-        }
-    }
-
-    public om(Context context, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448313231, "Lcom/baidu/tieba/om;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448313231, "Lcom/baidu/tieba/om;");
                 return;
             }
         }
-        this.mContext = context;
-        this.mType = bdUniqueId;
-        this.mImagePreloadSizeData = new km();
+        i = new a(null);
     }
 
-    public om(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public om() {
+        this(null, null, (byte) 0, (byte) 0, (short) 0, 0, null, null, 255, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((byte[]) objArr[0], (byte[]) objArr[1], ((Byte) objArr[2]).byteValue(), ((Byte) objArr[3]).byteValue(), ((Short) objArr[4]).shortValue(), ((Integer) objArr[5]).intValue(), (byte[]) objArr[6], (byte[]) objArr[7], ((Integer) objArr[8]).intValue(), (DefaultConstructorMarker) objArr[9]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mContext = context;
-        this.mType = bdUniqueId;
-        this.mPageId = bdUniqueId2;
-        this.mImagePreloadSizeData = new km();
     }
 
-    private boolean needCreateNewHolder(View view2) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
-        V v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == null || !v.getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(this.viewholder.getClass())) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof om) {
+                    om omVar = (om) obj;
+                    if (Intrinsics.areEqual(this.a, omVar.a) && Intrinsics.areEqual(this.b, omVar.b)) {
+                        if (this.c == omVar.c) {
+                            if (this.d == omVar.d) {
+                                if (this.e == omVar.e) {
+                                    if (!(this.f == omVar.f) || !Intrinsics.areEqual(this.g, omVar.g) || !Intrinsics.areEqual(this.h, omVar.h)) {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return false;
             }
-            return false;
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public ViewGroup.LayoutParams generateLayoutParamsByParent(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            if (viewGroup instanceof ListView) {
-                return new AbsListView.LayoutParams(-1, -2);
-            }
-            if (viewGroup instanceof RecyclerView) {
-                return new RecyclerView.LayoutParams(-1, -2);
-            }
-            return new ViewGroup.LayoutParams(-1, -2);
-        }
-        return (ViewGroup.LayoutParams) invokeL.objValue;
-    }
-
-    public bn getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            gn<bn> gnVar = this.mAdapter;
-            if (gnVar != null) {
-                return gnVar.getItem(i);
-            }
-            return null;
-        }
-        return (bn) invokeI.objValue;
-    }
-
-    public int getPositionByType(int i) {
-        InterceptResult invokeI;
-        BdUniqueId bdUniqueId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            gn<bn> gnVar = this.mAdapter;
-            if (gnVar != null && (bdUniqueId = this.mType) != null) {
-                return gnVar.g(i, bdUniqueId.getId());
-            }
-            return -1;
-        }
-        return invokeI.intValue;
-    }
-
-    public mm getPreloadSize(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            return this.mImagePreloadSizeData.a(i);
-        }
-        return (mm) invokeI.objValue;
-    }
-
-    public boolean isPreloadSizeReady(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            return this.mImagePreloadSizeData.b(i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void notifyItemChanged(int i) {
-        gn<bn> gnVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (gnVar = this.mAdapter) != null) {
-            gnVar.notifyItemChanged(i);
-        }
-    }
-
-    public void setAdapter(gn<bn> gnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, gnVar) == null) {
-            this.mAdapter = gnVar;
-        }
-    }
-
-    public void setOnAdapterItemClickListener(ln lnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, lnVar) == null) {
-            this.mAdapterItemClickListener = lnVar;
-        }
-    }
-
-    public void setOnAdapterItemLongClickListener(mn mnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, mnVar) == null) {
-            this.mAdapterItemLongClickListener = mnVar;
-        }
-    }
-
-    public void setPageId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, bdUniqueId) == null) {
-            this.mPageId = bdUniqueId;
-        }
-    }
-
-    public void setType(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, bdUniqueId) == null) {
-            this.mType = bdUniqueId;
-        }
-    }
-
-    public int getCount() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            gn<bn> gnVar = this.mAdapter;
-            if (gnVar != null) {
-                return gnVar.getCount();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            byte[] bArr = this.a;
+            int hashCode = (bArr != null ? Arrays.hashCode(bArr) : 0) * 31;
+            byte[] bArr2 = this.b;
+            int hashCode2 = (((((((((hashCode + (bArr2 != null ? Arrays.hashCode(bArr2) : 0)) * 31) + this.c) * 31) + this.d) * 31) + this.e) * 31) + this.f) * 31;
+            byte[] bArr3 = this.g;
+            int hashCode3 = (hashCode2 + (bArr3 != null ? Arrays.hashCode(bArr3) : 0)) * 31;
+            byte[] bArr4 = this.h;
+            return hashCode3 + (bArr4 != null ? Arrays.hashCode(bArr4) : 0);
         }
         return invokeV.intValue;
     }
 
-    public ln getOnAdapterItemClickListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mAdapterItemClickListener;
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (ln) invokeV.objValue;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final om a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                om omVar = new om(null, null, (byte) 0, (byte) 0, (short) 0, 0, null, null, 255, null);
+                omVar.d(new byte[2]);
+                byte[] e = omVar.e();
+                if (e != null) {
+                    e[0] = 0;
+                }
+                byte[] e2 = omVar.e();
+                if (e2 != null) {
+                    e2[1] = 2;
+                }
+                omVar.g(new byte[2]);
+                byte[] h = omVar.h();
+                if (h != null) {
+                    h[0] = -27;
+                }
+                byte[] h2 = omVar.h();
+                if (h2 != null) {
+                    h2[1] = -89;
+                }
+                return omVar;
+            }
+            return (om) invokeV.objValue;
+        }
     }
 
-    public mn getOnAdapterItemLongClickListener() {
+    public om(byte[] bArr, byte[] bArr2, byte b, byte b2, short s, int i2, byte[] bArr3, byte[] bArr4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, bArr2, Byte.valueOf(b), Byte.valueOf(b2), Short.valueOf(s), Integer.valueOf(i2), bArr3, bArr4};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = bArr;
+        this.b = bArr2;
+        this.c = b;
+        this.d = b2;
+        this.e = s;
+        this.f = i2;
+        this.g = bArr3;
+        this.h = bArr4;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ om(byte[] bArr, byte[] bArr2, byte b, byte b2, short s, int i2, byte[] bArr3, byte[] bArr4, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r1, r2, r3, r5, r6, r4, r7, (i3 & 128) == 0 ? bArr4 : null);
+        byte[] bArr5;
+        byte[] bArr6;
+        byte b3;
+        byte b4;
+        short s2;
+        byte[] bArr7;
+        if ((i3 & 1) != 0) {
+            bArr5 = new byte[2];
+        } else {
+            bArr5 = bArr;
+        }
+        if ((i3 & 2) != 0) {
+            bArr6 = new byte[2];
+        } else {
+            bArr6 = bArr2;
+        }
+        if ((i3 & 4) != 0) {
+            b3 = 0;
+        } else {
+            b3 = b;
+        }
+        if ((i3 & 8) != 0) {
+            b4 = 0;
+        } else {
+            b4 = b2;
+        }
+        if ((i3 & 16) != 0) {
+            s2 = 0;
+        } else {
+            s2 = s;
+        }
+        int i4 = (i3 & 32) == 0 ? i2 : 0;
+        if ((i3 & 64) != 0) {
+            bArr7 = null;
+        } else {
+            bArr7 = bArr3;
+        }
+    }
+
+    public final void a(byte b) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeB(1048576, this, b) == null) {
+            this.c = b;
+        }
+    }
+
+    public final void b(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f = i2;
+        }
+    }
+
+    public final void c(short s) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Short.valueOf(s)}) == null) {
+            this.e = s;
+        }
+    }
+
+    public final void d(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            this.a = bArr;
+        }
+    }
+
+    public final void f(byte b) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeB(1048582, this, b) == null) {
+            this.d = b;
+        }
+    }
+
+    public final void g(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            this.b = bArr;
+        }
+    }
+
+    public final void j(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bArr) == null) {
+            this.g = bArr;
+        }
+    }
+
+    public final void l(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bArr) == null) {
+            this.h = bArr;
+        }
+    }
+
+    public final byte[] e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public final byte[] h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mAdapterItemLongClickListener;
+            return this.b;
         }
-        return (mn) invokeV.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public BdUniqueId getType() {
+    public final byte i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.mType;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.byteValue;
     }
 
-    public void notifyDataSetChanged() {
-        gn<bn> gnVar;
+    public final byte k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (gnVar = this.mAdapter) != null) {
-            gnVar.notifyDataSetChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.d;
         }
+        return invokeV.byteValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: com.baidu.tieba.om<T, V extends com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public View getView(int i, View view2, ViewGroup viewGroup, T t) {
-        InterceptResult invokeCommon;
+    public final short m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t})) == null) {
-            if (needCreateNewHolder(view2)) {
-                V v = (V) onCreateViewHolder(viewGroup, t);
-                this.viewholder = v;
-                view2 = v.getView();
-                if (BdBaseApplication.getInst().isDebugMode()) {
-                    BdLog.i("convertView is creating" + this.viewholder.getClass().getName());
-                }
-            }
-            View view3 = view2;
-            return onFillViewHolder(i, view3, viewGroup, (ViewGroup) t, (T) ((TypeAdapter.ViewHolder) view3.getTag()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.e;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.shortValue;
     }
 
-    public void notifyItemChanged(int i, @Nullable Object obj) {
-        gn<bn> gnVar;
+    public final int n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048592, this, i, obj) == null) && (gnVar = this.mAdapter) != null) {
-            gnVar.notifyItemChanged(i, obj);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.f;
         }
+        return invokeV.intValue;
     }
 
-    public V onCreateViewHolder(ViewGroup viewGroup, T t) {
-        InterceptResult invokeLL;
+    public final byte[] o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, viewGroup, t)) == null) {
-            return onCreateViewHolder(viewGroup);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.g;
         }
-        return (V) invokeLL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public View onFillBottomViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
+    public final byte[] p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.h;
         }
-        return (View) invokeCommon.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public View onFillContentViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return "RecordParams(protocolVersion=" + Arrays.toString(this.a) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeType=" + ((int) this.c) + ", schemeExtType=" + ((int) this.d) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeLen=" + ((int) this.e) + ", contentLen=" + this.f + StringUtil.ARRAY_ELEMENT_SEPARATOR + "scheme=" + Arrays.toString(this.g) + ')';
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public View onFillExtendViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public View onFillHeaderViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void onFillViewHolder(int i, ViewGroup viewGroup, V v, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), viewGroup, v, t}) == null) {
-            onFillViewHolder(i, v.getView(), viewGroup, (ViewGroup) t, (T) v);
-        }
-    }
-
-    public boolean setPreloadSize(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048611, this, i, i2, i3)) == null) {
-            return this.mImagePreloadSizeData.c(i, i2, i3);
-        }
-        return invokeIII.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -1,7 +1,14 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,36 +16,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.facebook.common.internal.Sets;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import rx.schedulers.Schedulers;
 /* loaded from: classes6.dex */
-public class h54 {
+public class h54 extends p13 implements m23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean g;
+    public static final Set<String> h;
+    public static long i;
     public transient /* synthetic */ FieldHolder $fh;
-    public n94 a;
-    public String b;
-    public String c;
-    public f54 d;
+    public int f;
 
     /* loaded from: classes6.dex */
-    public class a implements Callback {
+    public class a implements v6c<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h54 a;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ Bundle b;
+        public final /* synthetic */ h54 c;
 
-        public a(h54 h54Var) {
+        public a(h54 h54Var, boolean z, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h54Var};
+                Object[] objArr = {h54Var, Boolean.valueOf(z), bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,130 +54,37 @@ public class h54 {
                     return;
                 }
             }
-            this.a = h54Var;
+            this.c = h54Var;
+            this.a = z;
+            this.b = bundle;
         }
 
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.v6c
+        /* renamed from: a */
+        public void call(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (h54.e) {
-                    Log.e("AudioDownloader", this.a.b + " load failed");
-                    iOException.printStackTrace();
-                }
-                if (this.a.d != null) {
-                    this.a.d.fail(-1, this.a.b);
-                }
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) {
-            FileOutputStream fileOutputStream;
-            File file;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                byte[] bArr = new byte[2048];
-                InputStream inputStream = null;
-                try {
-                    InputStream byteStream = response.body().byteStream();
-                    try {
-                        try {
-                            String d = c54.d(this.a.b);
-                            String str = this.a.c + d.substring(0, d.lastIndexOf("/"));
-                            File file2 = new File(str);
-                            if (!file2.exists() || !file2.isDirectory()) {
-                                file2.mkdirs();
-                            }
-                            String substring = d.substring(d.lastIndexOf("/") + 1);
-                            file = new File(str, substring + ".bddownload");
-                            try {
-                                fileOutputStream = new FileOutputStream(file);
-                                while (true) {
-                                    try {
-                                        int read = byteStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        fileOutputStream.write(bArr, 0, read);
-                                    } catch (Exception e) {
-                                        e = e;
-                                        inputStream = byteStream;
-                                        try {
-                                            if (h54.e) {
-                                                Log.e("AudioDownloader", this.a.b + " load failed", e);
-                                            }
-                                            if (file != null) {
-                                                file.delete();
-                                            }
-                                            if (this.a.d != null) {
-                                                this.a.d.fail(-1, this.a.b);
-                                            }
-                                            kr4.d(inputStream);
-                                            kr4.d(fileOutputStream);
-                                            kr4.d(response);
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            kr4.d(inputStream);
-                                            kr4.d(fileOutputStream);
-                                            kr4.d(response);
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        inputStream = byteStream;
-                                        kr4.d(inputStream);
-                                        kr4.d(fileOutputStream);
-                                        kr4.d(response);
-                                        throw th;
-                                    }
-                                }
-                                fileOutputStream.flush();
-                                File file3 = new File(str, substring);
-                                if (file3.exists() && !file3.isDirectory()) {
-                                    file3.delete();
-                                }
-                                String absolutePath = file3.getAbsolutePath();
-                                if (file.renameTo(file3)) {
-                                    if (h54.e) {
-                                        Log.e("AudioDownloader", this.a.b + " load rename success path = " + absolutePath);
-                                    }
-                                    if (this.a.d != null) {
-                                        this.a.d.a(this.a.b, absolutePath);
-                                    }
-                                } else {
-                                    if (h54.e) {
-                                        Log.e("AudioDownloader", this.a.b + " load rename error path = " + absolutePath);
-                                    }
-                                    file.delete();
-                                    if (this.a.d != null) {
-                                        this.a.d.fail(-1, absolutePath);
-                                    }
-                                }
-                                kr4.d(byteStream);
-                            } catch (Exception e2) {
-                                e = e2;
-                                fileOutputStream = null;
-                            }
-                        } catch (Exception e3) {
-                            e = e3;
-                            file = null;
-                            fileOutputStream = null;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        fileOutputStream = null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (this.a) {
+                    if (h54.g) {
+                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + h54.i);
                     }
-                } catch (Exception e4) {
-                    e = e4;
-                    file = null;
-                    fileOutputStream = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    fileOutputStream = null;
+                    q23.k().c(this.c, h54.i);
                 }
-                kr4.d(fileOutputStream);
-                kr4.d(response);
+                zd2 d = be2.c().d();
+                if (d != null) {
+                    List<String> singletonList = Collections.singletonList(this.b.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
+                    kf2 l = kf2.l();
+                    l.i(6);
+                    d.h(singletonList, true, l.k());
+                }
+                if (h54.g) {
+                    Log.i("SwanGameReloadDelegate", "execCall: addCallback purge finish = " + d);
+                }
+                if (this.a) {
+                    return;
+                }
+                this.c.h();
             }
         }
     }
@@ -189,36 +102,75 @@ public class h54 {
                 return;
             }
         }
-        e = qr1.a;
+        g = am1.a;
+        h = Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline");
+        i = TimeUnit.SECONDS.toMillis(10L);
     }
 
-    public void e() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.call(new Request.Builder().url(this.b).build(), new a(this));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            String string = this.a.getString("scheme");
+            if (g) {
+                Log.i("SwanGameReloadDelegate", "invoke: scheme = " + string);
+            }
+            if (!TextUtils.isEmpty(string)) {
+                SchemeRouter.invoke(AppRuntime.getAppContext(), string);
+            }
         }
     }
 
-    public h54(n94 n94Var, String str, String str2, f54 f54Var) {
+    public h54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {n94Var, str, str2, f54Var};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = "";
-        this.c = "";
-        this.a = n94Var;
-        this.c = str;
-        this.b = str2;
-        this.d = f54Var;
+        this.f = SwanAppProcessInfo.UNKNOWN.index;
+    }
+
+    @Override // com.baidu.tieba.m23
+    public void timeout() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (g) {
+                Log.i("SwanGameReloadDelegate", "timeout");
+            }
+            h();
+        }
+    }
+
+    @Override // com.baidu.tieba.m23
+    public void a(String str, o23 o23Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, o23Var) == null) && o23Var.b.index == this.f && h.contains(str)) {
+            q23.k().h(this);
+            if (g) {
+                Log.i("SwanGameReloadDelegate", "onEvent: event = " + str);
+            }
+            h();
+        }
+    }
+
+    @Override // com.baidu.tieba.p13
+    public void b(@NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            int i2 = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
+            this.f = i2;
+            boolean checkProcessId = SwanAppProcessInfo.checkProcessId(i2);
+            if (g) {
+                Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
+                Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
+            }
+            h6c.n("").s(Schedulers.io()).H(new a(this, checkProcessId, bundle));
+        }
     }
 }

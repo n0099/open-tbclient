@@ -1,9 +1,13 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.widget.refresh.IRefreshable$State;
 /* loaded from: classes7.dex */
 public interface ri {
-    void b(int i);
+    void a(IRefreshable$State iRefreshable$State);
 
-    void c(String str, int i);
+    void b();
 
-    void error(int i, String str);
+    void c();
+
+    void d();
 }

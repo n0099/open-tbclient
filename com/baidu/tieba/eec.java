@@ -1,39 +1,33 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ncc;
-import com.baidu.tieba.occ;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public final class eec<T> implements occ.c<T> {
+public class eec {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final occ.c<T> a;
-    public final long b;
-    public final TimeUnit c;
-    public final ncc d;
+    public bdc a;
+    public qcc b;
 
     /* loaded from: classes5.dex */
-    public static final class a<T> extends pcc<T> implements xcc {
+    public class a implements bdc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final pcc<? super T> b;
-        public final ncc.a c;
-        public final long d;
-        public final TimeUnit e;
-        public T f;
-        public Throwable g;
+        public final /* synthetic */ eec a;
 
-        public a(pcc<? super T> pccVar, ncc.a aVar, long j, TimeUnit timeUnit) {
+        public a(eec eecVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pccVar, aVar, Long.valueOf(j), timeUnit};
+                Object[] objArr = {eecVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,57 +37,52 @@ public final class eec<T> implements occ.c<T> {
                     return;
                 }
             }
-            this.b = pccVar;
-            this.c = aVar;
-            this.d = j;
-            this.e = timeUnit;
+            this.a = eecVar;
         }
 
-        @Override // com.baidu.tieba.pcc
-        public void b(Throwable th) {
+        @Override // com.baidu.tieba.bdc
+        public void a(PayFlowType payFlowType) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.g = th;
-                this.c.c(this, this.d, this.e);
+            if (interceptable != null && interceptable.invokeL(1048576, this, payFlowType) != null) {
+                return;
             }
+            this.a.g(payFlowType);
         }
 
-        @Override // com.baidu.tieba.pcc
-        public void c(T t) {
+        @Override // com.baidu.tieba.bdc
+        public void b(PayFlowType payFlowType, PayDialogType payDialogType) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.f = t;
-                this.c.c(this, this.d, this.e);
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType, payDialogType) != null) {
+                return;
             }
+            this.a.f(payFlowType, payDialogType);
         }
 
-        @Override // com.baidu.tieba.xcc
-        public void call() {
+        @Override // com.baidu.tieba.bdc
+        public void c(String str, PayFlowType payFlowType) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    Throwable th = this.g;
-                    if (th != null) {
-                        this.g = null;
-                        this.b.b(th);
-                    } else {
-                        T t = this.f;
-                        this.f = null;
-                        this.b.c(t);
-                    }
-                } finally {
-                    this.c.unsubscribe();
-                }
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, payFlowType) != null) {
+                return;
             }
+            this.a.i(str, payFlowType);
+        }
+
+        @Override // com.baidu.tieba.bdc
+        public void d(String str, PayFlowType payFlowType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(1048579, this, str, payFlowType) != null) {
+                return;
+            }
+            this.a.h(str, payFlowType);
         }
     }
 
-    public eec(occ.c<T> cVar, long j, TimeUnit timeUnit, ncc nccVar) {
+    public eec(qcc qccVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, Long.valueOf(j), timeUnit, nccVar};
+            Object[] objArr = {qccVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -103,25 +92,102 @@ public final class eec<T> implements occ.c<T> {
                 return;
             }
         }
-        this.a = cVar;
-        this.d = nccVar;
-        this.b = j;
-        this.c = timeUnit;
+        this.b = qccVar;
+        j();
     }
 
-    public void call(pcc<? super T> pccVar) {
+    public bdc e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pccVar) == null) {
-            ncc.a createWorker = this.d.createWorker();
-            a aVar = new a(pccVar, createWorker, this.b, this.c);
-            pccVar.a(createWorker);
-            pccVar.a(aVar);
-            this.a.call(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (bdc) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            RLog.info("ViewLifecycleManager", "preparePayFlowLifecycle");
+            this.a = new a(this);
         }
     }
 
-    @Override // com.baidu.tieba.occ.c, com.baidu.tieba.ycc
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((pcc) ((pcc) obj));
+    public final void f(PayFlowType payFlowType, PayDialogType payDialogType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType, payDialogType) == null) {
+            RLog.info("ViewLifecycleManager", "notifyPayDialogTypeChange payFlowType:" + payFlowType.name() + " payDialogType:" + payDialogType + " mYYPayController:" + this.b.getCurPayController());
+            if (payDialogType == PayDialogType.PAY_NONE_DIALOG) {
+                l(payFlowType);
+            }
+        }
+    }
+
+    public final synchronized void h(String str, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, payFlowType) == null) {
+            synchronized (this) {
+                RLog.info("ViewLifecycleManager", "payActivityDestroyRecord name:" + str + " payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+                if (this.b.getCurPayController() != null) {
+                    this.b.getCurPayController().l(str, payFlowType);
+                }
+                l(payFlowType);
+            }
+        }
+    }
+
+    public final synchronized void i(String str, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, payFlowType) == null) {
+            synchronized (this) {
+                RLog.info("ViewLifecycleManager", "payActivityVisitRecord name:" + str + " payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+                if (this.b.getCurPayController() != null) {
+                    this.b.getCurPayController().d(str, payFlowType);
+                }
+            }
+        }
+    }
+
+    public final void g(PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, payFlowType) == null) {
+            RLog.info("ViewLifecycleManager", "notifyPayFlowWork payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+        }
+    }
+
+    public final void k(PayFlowType payFlowType) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, payFlowType) == null) {
+            if (this.b.getCurPayController() != null && this.b.getCurPayController().e()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            RLog.info("ViewLifecycleManager", "tryReleasePayController payFlowType:" + payFlowType.name() + " release:" + z + " mYYPayController:" + this.b.getCurPayController());
+            if (z) {
+                this.b.releasePayController(true);
+                this.b.cancelAllRequest();
+            }
+        }
+    }
+
+    public final synchronized void l(PayFlowType payFlowType) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, payFlowType) == null) {
+            synchronized (this) {
+                if (this.b.getCurPayController() != null && this.b.getCurPayController().k(payFlowType)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                RLog.info("ViewLifecycleManager", "tryReleasePayFlow payFlowType:" + payFlowType.name() + " release:" + z + " mYYPayController:" + this.b.getCurPayController());
+                if (z) {
+                    this.b.getCurPayController().c(payFlowType, true);
+                }
+                k(payFlowType);
+            }
+        }
     }
 }

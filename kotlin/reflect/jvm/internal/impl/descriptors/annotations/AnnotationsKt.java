@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.annotations;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class AnnotationsKt {
     public static final Annotations composeAnnotations(Annotations annotations, Annotations annotations2) {
         if (annotations.isEmpty()) {

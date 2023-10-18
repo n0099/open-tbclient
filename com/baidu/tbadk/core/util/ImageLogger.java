@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
-import com.baidu.tieba.be;
-import com.baidu.tieba.di;
-import com.baidu.tieba.ex5;
-import com.baidu.tieba.lf;
-import com.baidu.tieba.nf;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.ja;
+import com.baidu.tieba.la;
+import com.baidu.tieba.mr5;
+import com.baidu.tieba.wb;
+import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +109,7 @@ public class ImageLogger {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return TbImageMemoryCache.A().N();
+            return TbImageMemoryCache.B().O();
         }
         return (String) invokeV.objValue;
     }
@@ -118,7 +118,7 @@ public class ImageLogger {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return be.e().z();
+            return z8.e().z();
         }
         return (String) invokeV.objValue;
     }
@@ -210,7 +210,7 @@ public class ImageLogger {
         return (String) invokeV.objValue;
     }
 
-    public static void imagePerfNetLog(String str, boolean z, String str2, Boolean bool, nf nfVar, String str3, long j, boolean z2, int i) {
+    public static void imagePerfNetLog(String str, boolean z, String str2, Boolean bool, la laVar, String str3, long j, boolean z2, int i) {
         boolean z3;
         boolean z4;
         String str4;
@@ -219,9 +219,9 @@ public class ImageLogger {
         String str7;
         String str8;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Boolean.valueOf(z), str2, bool, nfVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && BdUtilHelper.isNetOk() && nfVar != null) {
+        if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Boolean.valueOf(z), str2, bool, laVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && BdUtilHelper.isNetOk() && laVar != null) {
             String str9 = "";
-            boolean a = ex5.a(str2);
+            boolean a = mr5.a(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();
@@ -242,7 +242,7 @@ public class ImageLogger {
                 } else {
                     str9 = ImageLoggerHelper.getInstance().getTiebaIp();
                     if (!TextUtils.isEmpty(str9)) {
-                        ICDNProblemUploader.getInstance().insertErrorData(nfVar.i, str);
+                        ICDNProblemUploader.getInstance().insertErrorData(laVar.i, str);
                     }
                 }
             }
@@ -252,7 +252,7 @@ public class ImageLogger {
                 } else if (BdNetTypeUtil.isNetWorkAvailable()) {
                     int i2 = mCWImgFialedCnt + 1;
                     mCWImgFialedCnt = i2;
-                    if (i2 >= zg.o().q("alert_img", 5)) {
+                    if (i2 >= wb.o().q("alert_img", 5)) {
                         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
                         bdStatisticsManager.alert("alert_img", "imgFailedCnt_" + String.valueOf(mCWImgFialedCnt) + "_url=" + str2);
                     }
@@ -282,16 +282,16 @@ public class ImageLogger {
             }
             logItem.append("result", str4);
             logItem.append("requrl", str2);
-            if (nfVar.v == 0) {
+            if (laVar.v == 0) {
                 str5 = "Apache";
             } else {
                 str5 = "HttpManager";
             }
             logItem.append("netlib", str5);
             logItem.append("costTime", String.valueOf(j));
-            logItem.append("connTime", String.valueOf(nfVar.c));
-            logItem.append("rspTime", String.valueOf(nfVar.d));
-            logItem.append(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(nfVar.e));
+            logItem.append("connTime", String.valueOf(laVar.c));
+            logItem.append("rspTime", String.valueOf(laVar.d));
+            logItem.append(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(laVar.e));
             logItem.append("clientIp", CommonHelper.getIp());
             logItem.append("tiebaIp", str9);
             String domainIp = ImageLoggerHelper.getInstance().getDomainIp(str);
@@ -299,15 +299,15 @@ public class ImageLogger {
                 logItem.append("domainIp", domainIp);
             }
             logItem.append("wifiDnsIp", "");
-            long j2 = nfVar.c;
+            long j2 = laVar.c;
             if (j2 > 1500 || j2 < 0) {
                 logItem.append("connBaidu", String.valueOf(connBaidu()));
             }
             logItem.append("memory", memoryUsage());
             logItem.append(DownloadStatisticConstants.UBC_VALUE_TASK, taskStatus());
-            logItem.append("status", String.valueOf(nfVar.j));
-            logItem.append(MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, String.valueOf(nfVar.a));
-            logItem.append("down", String.valueOf(nfVar.b));
+            logItem.append("status", String.valueOf(laVar.j));
+            logItem.append(MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, String.valueOf(laVar.a));
+            logItem.append("down", String.valueOf(laVar.b));
             if (a) {
                 str6 = "1";
             } else {
@@ -326,32 +326,32 @@ public class ImageLogger {
                 str8 = "0";
             }
             logItem.append("isMobileProxy", str8);
-            logItem.append("exception", nfVar.h);
+            logItem.append("exception", laVar.h);
             logItem.append("reason", str3);
             if (i != 0) {
                 logItem.append("procType", Integer.valueOf(i));
             }
-            String str10 = nfVar.t;
+            String str10 = laVar.t;
             if (str10 != null) {
                 logItem.append("tracecode1", str10);
             }
-            String str11 = nfVar.u;
+            String str11 = laVar.u;
             if (str11 != null) {
                 logItem.append("tracecode2", str11);
             }
-            if (!di.isEmpty(nfVar.k)) {
-                logItem.append("httpDnsIp", nfVar.k);
+            if (!ad.isEmpty(laVar.k)) {
+                logItem.append("httpDnsIp", laVar.k);
             } else {
-                logItem.append("httpDnsIp", nfVar.l);
+                logItem.append("httpDnsIp", laVar.l);
             }
-            logItem.append("ipIndex", Integer.valueOf(nfVar.q));
-            logItem.append("dnsSwitch1", Boolean.valueOf(lf.e));
+            logItem.append("ipIndex", Integer.valueOf(laVar.q));
+            logItem.append("dnsSwitch1", Boolean.valueOf(ja.e));
             logItem.append("dnsSwitch2", Boolean.valueOf(UseHttpdnsSdkSwitch.isOn()));
-            logItem.append("httpDnsIpList", nfVar.p);
-            logItem.append("dnsResolveType", nfVar.m);
-            logItem.append("dnsResolveStatus", nfVar.o);
-            logItem.append("isUseIpDirectConnect", Boolean.valueOf(nfVar.n));
-            logItem.append("redirectUrl", nfVar.r);
+            logItem.append("httpDnsIpList", laVar.p);
+            logItem.append("dnsResolveType", laVar.m);
+            logItem.append("dnsResolveStatus", laVar.o);
+            logItem.append("isUseIpDirectConnect", Boolean.valueOf(laVar.n));
+            logItem.append("redirectUrl", laVar.r);
             BdStatisticsManager.getInstance().debug("img", logItem);
         }
     }

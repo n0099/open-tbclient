@@ -1,37 +1,124 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import okhttp3.RequestBody;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpOptions;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpTrace;
 /* loaded from: classes8.dex */
 public class uc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(int i, long j, long j2);
-
-        void b(int i);
-
-        void success();
+    public static HttpRequestBuilder a(@NonNull sc4 sc4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sc4Var)) == null) {
+            return b(sc4Var, null);
+        }
+        return (HttpRequestBuilder) invokeL.objValue;
     }
 
-    public static void a(String str, a aVar) {
-        gb3 M;
+    @NonNull
+    public static HttpRequestBuilder b(@NonNull sc4 sc4Var, @Nullable tc4 tc4Var) {
+        InterceptResult invokeLL;
+        HttpCommonRequestBuilder o;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, aVar) != null) || aVar == null || TextUtils.isEmpty(str) || (M = gb3.M()) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, sc4Var, tc4Var)) == null) {
+            if (tc4Var == null) {
+                tc4Var = tc4.g();
+            }
+            String str = sc4Var.b;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -531492226:
+                    if (str.equals(HttpOptions.METHOD_NAME)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 70454:
+                    if (str.equals("GET")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 79599:
+                    if (str.equals(HttpPut.METHOD_NAME)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 2213344:
+                    if (str.equals("HEAD")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 2461856:
+                    if (str.equals("POST")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 80083237:
+                    if (str.equals(HttpTrace.METHOD_NAME)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 1669334218:
+                    if (str.equals("CONNECT")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 2012838315:
+                    if (str.equals(HttpDelete.METHOD_NAME)) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    return tc4Var.getRequest();
+                case 1:
+                    return tc4Var.headerRequest();
+                case 2:
+                    o = tc4Var.o();
+                    break;
+                case 3:
+                    o = tc4Var.postRequest();
+                    break;
+                case 4:
+                    o = tc4Var.putRequest();
+                    break;
+                case 5:
+                    o = tc4Var.deleteRequest();
+                    break;
+                case 6:
+                    o = tc4Var.y();
+                    break;
+                case 7:
+                    o = tc4Var.a();
+                    break;
+                default:
+                    return tc4Var.getRequest();
+            }
+            RequestBody requestBody = sc4Var.d;
+            if (requestBody != null) {
+                o.requestBody(requestBody);
+            }
+            return o;
         }
-        if (tc4.b().d(str)) {
-            aVar.success();
-            return;
-        }
-        String a2 = tc4.b().a(str);
-        if (TextUtils.isEmpty(a2)) {
-            aVar.b(2112);
-        } else {
-            qi4.h(new lm4(M.b, M.k0(), a2, 1), new xc4(M.b, M.k0(), tc4.b().c(str, 2), aVar));
-        }
+        return (HttpRequestBuilder) invokeLL.objValue;
     }
 }

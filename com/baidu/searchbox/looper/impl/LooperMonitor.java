@@ -5,22 +5,22 @@ import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 import com.baidu.searchbox.track.Track;
-import com.baidu.tieba.dwb;
-import com.baidu.tieba.ewb;
-import com.baidu.tieba.fwb;
+import com.baidu.tieba.aqb;
+import com.baidu.tieba.bqb;
+import com.baidu.tieba.cqb;
 @Singleton
 @Service
 /* loaded from: classes4.dex */
 public class LooperMonitor implements ILooperMonitor {
     public static volatile boolean sIsStartTrack;
     public static LooperContextDispatcher sLooperContextDispatcher;
-    public ewb mBlockCanaryCore;
+    public bqb mBlockCanaryCore;
     public boolean mMonitorStarted = false;
 
     private void startLooperPrint() {
         if (!this.mMonitorStarted) {
             this.mMonitorStarted = true;
-            sLooperContextDispatcher.addLooperPrinter(this.mBlockCanaryCore.g());
+            sLooperContextDispatcher.addLooperPrinter(this.mBlockCanaryCore.h());
         }
     }
 
@@ -38,9 +38,9 @@ public class LooperMonitor implements ILooperMonitor {
     public void stopLooperMonitor() {
         if (this.mMonitorStarted) {
             this.mMonitorStarted = false;
-            sLooperContextDispatcher.removeLooperPrinter(this.mBlockCanaryCore.g());
-            this.mBlockCanaryCore.j().d();
-            this.mBlockCanaryCore.d().d();
+            sLooperContextDispatcher.removeLooperPrinter(this.mBlockCanaryCore.h());
+            this.mBlockCanaryCore.k().d();
+            this.mBlockCanaryCore.e().d();
         }
     }
 
@@ -51,9 +51,9 @@ public class LooperMonitor implements ILooperMonitor {
         }
     }
 
-    public void addBlockInterceptor(fwb fwbVar) {
-        if (fwbVar != null) {
-            this.mBlockCanaryCore.b(fwbVar);
+    public void addBlockInterceptor(cqb cqbVar) {
+        if (cqbVar != null) {
+            this.mBlockCanaryCore.b(cqbVar);
         }
     }
 
@@ -62,11 +62,11 @@ public class LooperMonitor implements ILooperMonitor {
         if (sLooperContextDispatcher == null) {
             sLooperContextDispatcher = new LooperContextDispatcher();
         }
-        dwb.init(context, sLooperContextDispatcher, i);
-        ewb.k(dwb.get());
-        ewb e = ewb.e();
-        this.mBlockCanaryCore = e;
-        e.b(dwb.get());
+        aqb.init(context, sLooperContextDispatcher, i);
+        bqb.l(aqb.get());
+        bqb f = bqb.f();
+        this.mBlockCanaryCore = f;
+        f.b(aqb.get());
         startLooperPrint();
         startTrack(context);
     }

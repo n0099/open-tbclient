@@ -1,40 +1,107 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
+import android.database.Cursor;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tieba.database.FrsVisitedInfoManager;
+import com.baidu.tieba.ss6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.io.CloseableKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__IndentKt;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes8.dex */
-public class us6 implements ma7<l87> {
+public final class us6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public us6() {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final Map<String, Map<String, maa>> c(ss6.a aVar, List<String> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, list)) == null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            String replace$default = StringsKt__StringsJVMKt.replace$default(StringsKt__StringsJVMKt.replace$default(list.toString(), PreferencesUtil.LEFT_MOUNT, "(", false, 4, (Object) null), PreferencesUtil.RIGHT_MOUNT, SmallTailInfo.EMOTION_SUFFIX, false, 4, (Object) null);
+            Cursor g = aVar.g(StringsKt__IndentKt.trimIndent("\n            SELECT * FROM forum_visited_info \n            WHERE fid IN " + replace$default + " \n            ORDER BY fid, date \n            DESC"), new String[0]);
+            try {
+                if (g.moveToFirst()) {
+                    do {
+                        String fid = g.getString(0);
+                        String date = g.getString(1);
+                        long j = g.getLong(2);
+                        long j2 = g.getLong(3);
+                        maa maaVar = new maa();
+                        maaVar.g(fid);
+                        maaVar.f(date);
+                        maaVar.e(j);
+                        maaVar.h(j2);
+                        if (linkedHashMap.get(fid) == null) {
+                            Intrinsics.checkNotNullExpressionValue(fid, "fid");
+                            linkedHashMap.put(fid, new LinkedHashMap());
+                        }
+                        Map map = (Map) linkedHashMap.get(fid);
+                        if (map != null) {
+                            Intrinsics.checkNotNullExpressionValue(date, "date");
+                            map.put(date, maaVar);
+                        }
+                        zy0.f(g, new Column[]{ss6.a.d(0), ss6.a.d(1), ss6.a.c(2), ss6.a.c(3)});
+                    } while (g.moveToNext());
+                    Unit unit = Unit.INSTANCE;
+                    CloseableKt.closeFinally(g, null);
+                    return linkedHashMap;
+                }
+                Unit unit2 = Unit.INSTANCE;
+                CloseableKt.closeFinally(g, null);
+                return linkedHashMap;
+            } finally {
             }
+        } else {
+            return (Map) invokeLL.objValue;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ma7
-    /* renamed from: a */
-    public yc7<?> b(@NonNull l87 l87Var) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final List<String> d(ss6.a aVar, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l87Var)) == null) {
-            return new zc7(new BrowseLocationUiState(l87Var), "browse_location");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aVar, i)) == null) {
+            String curDate = FrsVisitedInfoManager.d.b().format(new Date());
+            String fifteenAgoDate = FrsVisitedInfoManager.d.b().format(TimeHelper.getNDaysAgoDate(-14));
+            Intrinsics.checkNotNullExpressionValue(fifteenAgoDate, "fifteenAgoDate");
+            Intrinsics.checkNotNullExpressionValue(curDate, "curDate");
+            Cursor g = aVar.g("SELECT fid, sum(custom_count) as sum_counts \nFROM forum_visited_info \nWHERE date BETWEEN ? AND ? \nGROUP BY fid \nORDER BY sum_counts \nDESC \nLIMIT ?", fifteenAgoDate, curDate, String.valueOf(i));
+            try {
+                ArrayList arrayList = new ArrayList();
+                if (g.moveToFirst()) {
+                    do {
+                        String fid = g.getString(0);
+                        Intrinsics.checkNotNullExpressionValue(fid, "fid");
+                        arrayList.add(fid);
+                        zy0.f(g, new Column[]{ss6.a.d(0), ss6.a.b(1)});
+                    } while (g.moveToNext());
+                    Unit unit = Unit.INSTANCE;
+                    CloseableKt.closeFinally(g, null);
+                    return arrayList;
+                }
+                Unit unit2 = Unit.INSTANCE;
+                CloseableKt.closeFinally(g, null);
+                return arrayList;
+            } finally {
+            }
+        } else {
+            return (List) invokeLI.objValue;
         }
-        return (yc7) invokeL.objValue;
     }
 }

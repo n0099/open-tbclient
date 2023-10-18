@@ -1,36 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.ChatRoomEntranceData;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.data.LevePopData;
-import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tbadk.data.MemberBroadcastData;
-import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
-import java.util.List;
-import tbclient.AlaLiveInfo;
+import android.app.Activity;
+import android.app.Dialog;
+import android.view.ViewGroup;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes5.dex */
 public interface c95 {
-    MemberBroadcastData getActivityBroadcastData();
+    boolean a();
 
-    ChatRoomEntranceData getChatRoomEntranceData();
+    int b();
 
-    nh5 getFestivalConfigData();
+    void c();
 
-    IconPopData getIconPopData();
+    Dialog d(int i, TbPageContext tbPageContext, OnTimeSelectListener onTimeSelectListener, boolean z);
 
-    LevePopData getLevePopData();
+    NavigationBarCoverTip e(Activity activity, ViewGroup viewGroup);
 
-    List<AlaLiveInfo> getLiveFollowSecondFloor();
+    void f(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z);
 
-    List<AlaLiveInfo> getLiveIndexSecondFloor();
+    int g();
 
-    List<AlaLiveInfo> getLivePicSecondFloor();
+    void h(boolean z, long j);
 
-    LiveRemindData getLiveRemindData();
-
-    MemberBroadcastData getMemberBroadcastData();
-
-    SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg();
-
-    String getUniqueId();
+    void i(boolean z, int i, int i2);
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.launch.stats;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SpeedStatsMainTable {
     public static final String ACTIVITY_END_2_ATTACH_GAP = "activity2attach";
     public static final String ACTIVITY_STAGE = "activity";

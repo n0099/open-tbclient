@@ -2,7 +2,6 @@ package com.google.zxing.oned;
 
 import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.baidu.searchbox.live.interfaces.player.VideoInfoConstants;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
@@ -27,7 +26,7 @@ public final class Code93Reader extends OneDReader {
     public final int[] counters = new int[6];
 
     static {
-        int[] iArr = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, TTAdConstant.DEEPLINK_FALL_BACK_CODE, 404, 402, 394, 360, 356, VideoInfoConstants.VIDEO_PREFERRED_CLARITY_RANK, 308, 282, 344, 332, 326, 300, 278, RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, 294, 474, FloatingActionButton.AUTO_MINI_LARGEST_SCREEN_WIDTH, 306, 350};
+        int[] iArr = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, 418, 404, 402, 394, 360, 356, VideoInfoConstants.VIDEO_PREFERRED_CLARITY_RANK, 308, 282, 344, 332, 326, 300, 278, RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, 294, 474, FloatingActionButton.AUTO_MINI_LARGEST_SCREEN_WIDTH, 306, 350};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[47];
     }

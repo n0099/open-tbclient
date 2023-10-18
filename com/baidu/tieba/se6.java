@@ -1,98 +1,153 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsGameLiveDoubleView;
+import android.net.Uri;
+import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.util.WebviewHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class se6 extends om<lf6, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+/* loaded from: classes8.dex */
+public class se6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public jb6 b;
-    public String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public se6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948148581, "Lcom/baidu/tieba/se6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948148581, "Lcom/baidu/tieba/se6;");
                 return;
             }
         }
-        this.a = tbPageContext;
+        a = new HashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: s */
-    public AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @NonNull
+    public static Map<String, String> a(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView = new AlaGameFrsGameLiveDoubleView(this.a);
-            alaGameFrsGameLiveDoubleView.t(this.c);
-            return new AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder(alaGameFrsGameLiveDoubleView);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
+            HashMap hashMap = new HashMap();
+            Set<String> queryParameterNames = uri.getQueryParameterNames();
+            if (!zh6.a(queryParameterNames)) {
+                for (String str : queryParameterNames) {
+                    hashMap.put("{" + str + "}", uri.getQueryParameter(str));
+                }
+            }
+            hashMap.putAll(b());
+            return hashMap;
         }
-        return (AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder) invokeL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public void u(jb6 jb6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jb6Var) == null) {
-            this.b = jb6Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lf6 lf6Var, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder alaGameFrsGameLiveDoubleViewHolder) {
-        InterceptResult invokeCommon;
+    public static Map<String, String> b() {
+        InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lf6Var, alaGameFrsGameLiveDoubleViewHolder})) == null) {
-            alaGameFrsGameLiveDoubleViewHolder.a.i(lf6Var);
-            alaGameFrsGameLiveDoubleViewHolder.a.u(this.b);
-            String str2 = "";
-            if (StringUtils.isNull(lf6Var.a.getThreadAlaInfo().appId)) {
-                str = "";
-            } else {
-                str = lf6Var.a.getThreadAlaInfo().appId;
-            }
-            ib6.b().a(new StatisticItem("c12115").param("obj_id", lf6Var.a.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, str));
-            ThreadData threadData = lf6Var.b;
-            if (threadData != null) {
-                if (!StringUtils.isNull(threadData.getThreadAlaInfo().appId)) {
-                    str2 = lf6Var.b.getThreadAlaInfo().appId;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (zh6.b(a)) {
+                TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+                a.put("{device.cuid}", inst.getCuid());
+                a.put("{device.imei}", inst.getImei());
+                a.put("{device.shoubaiCuid}", inst.getCuidGalaxy2());
+                a.put("{device.brand}", Build.BRAND);
+                a.put("{device.platform}", "Android");
+                a.put("{device.clientVersion}", TbConfig.getVersion());
+                a.put("{device.zid}", inst.getZid());
+                a.put("{device.sign}", "tiebaclient!!!");
+                a.put("{device.clientType}", "2");
+                HashMap<String, String> hashMap = a;
+                String str2 = "1";
+                if (TbSingleton.getInstance().getSyncYYSwitch()) {
+                    str = "1";
+                } else {
+                    str = "0";
                 }
-                ib6.b().a(new StatisticItem("c12115").param("obj_id", lf6Var.b.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, str2));
+                hashMap.put("{device.is_yy_user}", str);
+                a.put("{device.androidId}", inst.getAndroidId());
+                a.put("{device.imsi}", inst.getIMsi());
+                a.put("{device.model}", DeviceInfoHelper.getModel());
+                a.put("{device.pkgName}", inst.getPackageName());
+                HashMap<String, String> hashMap2 = a;
+                hashMap2.put("{device.network}", BdNetTypeUtil.netType() + "");
+                HashMap<String, String> hashMap3 = a;
+                hashMap3.put("{device.carrier}", BdNetTypeUtil.curOperatorType() + "");
+                a.put("{device.manufacturer}", DeviceInfoUtil.getDevicesManufacturer());
+                a.put("{device.hardware}", Build.HARDWARE);
+                a.put("{device.board}", Build.BOARD);
+                HashMap<String, String> hashMap4 = a;
+                if (!DeviceInfoUtil.isSupportGyroScope(inst)) {
+                    str2 = "0";
+                }
+                hashMap4.put("{device.imu}", str2);
+                a.put("{baiduId}", TbSingleton.getInstance().getBaiduIdForAnti());
+                a.put("{user.tbs}", inst.getTbs());
+                a.put("{client_version}", TbConfig.getVersion());
+                a.put("{client_type}", "2");
+                a.put("{User-Agent}", WebviewHelper.getGlobalUserAgent());
             }
-            return alaGameFrsGameLiveDoubleViewHolder.getView();
+            return a;
         }
-        return (View) invokeCommon.objValue;
+        return (Map) invokeV.objValue;
+    }
+
+    public static String c(Map<String, String> map, String str) {
+        InterceptResult invokeLL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, str)) == null) {
+            String str3 = "";
+            if (map != null) {
+                try {
+                    if (Build.VERSION.SDK_INT >= 24) {
+                        str2 = map.getOrDefault(str, "");
+                    } else if (map.containsKey(str)) {
+                        str2 = map.get(str);
+                    }
+                    str3 = str2;
+                } catch (Exception unused) {
+                    return str3;
+                }
+            }
+            return Uri.encode(str3);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d(Map<String, String> map, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, str)) == null) {
+            if (map == null) {
+                return "";
+            }
+            if (Build.VERSION.SDK_INT >= 24) {
+                return map.getOrDefault(str, "");
+            }
+            if (!map.containsKey(str)) {
+                return "";
+            }
+            return map.get(str);
+        }
+        return (String) invokeLL.objValue;
     }
 }

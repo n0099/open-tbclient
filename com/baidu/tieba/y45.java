@@ -1,351 +1,161 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.idlehelp.IdleHandlerManager;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Rect;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class y45 extends CustomMessageListener {
+public class y45 {
     public static /* synthetic */ Interceptable $ic;
-    public static y45 a;
-    public static ConcurrentHashMap<String, Integer> b;
-    public static ArrayList<String> c;
-    public static ConcurrentHashMap<String, oe<byte[]>> d;
-    public static ConcurrentHashMap<String, oe<String>> e;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout a;
+    public int b;
+    public int c;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 2;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001012));
-            }
-        }
+        return invokeV.intValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948280207, "Lcom/baidu/tieba/y45;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948280207, "Lcom/baidu/tieba/y45;");
-                return;
-            }
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 32;
         }
-        ConcurrentHashMap<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
-        b = concurrentHashMap;
-        concurrentHashMap.put("tb.pb_mark", 50);
-        b.put("tb.pb_history", 300);
-        b.put("tb.pb_pendant", 300);
-        b.put("tb.pb_normal", 1);
-        b.put("tb.pb_editor", 50);
-        b.put("tb.live_hotlist", 20);
-        b.put("tb.live_hotlist", 20);
-        b.put("tb.my_pages", 5);
-        b.put("tb.my_forums", 3);
-        b.put("tb.my_bookmarks", 3);
-        b.put("tb.my_posts", 3);
-        b.put("tb.eva_posts", 50);
-        b.put("tb.im_frsgroup", 50);
-        b.put("tb.im_hotgroup", 30);
-        b.put("tb.im_groupinfo", 50);
-        b.put("tb.im_groupactivity", 50);
-        b.put("tb.im_entergroup", 10);
-        b.put("tb.im_enterforum_groupinfo", 10);
-        b.put("tb.im_group_setting", 3);
-        b.put("tb.im_personal_chat_setting", 3);
-        b.put("tb.im_official_chat_setting", 3);
-        b.put("tb.im_official_history", 50);
-        b.put("tb.im_recommend_detail", 10);
-        b.put("tb.square", 1);
-        b.put("tb.first_dir", 1);
-        b.put("tb.forum_rank", 20);
-        b.put("tb.pic_gif", 50);
-        b.put("tb.official_bar_menu", 1000);
-        b.put("tb.friend_feed", 20);
-        b.put("net_err_record", 30);
-        b.put("tb_face_package", 30);
-        b.put("tb.recommend_friend", 10);
-        b.put("tb.searchperson_history", 5);
-        b.put("tb.game_center_home", 20);
-        b.put("tb.game_center_list", 20);
-        b.put("tb.person_wallet_new", 10);
-        b.put("tb.frs_hottopic", 100);
-        ArrayList<String> arrayList = new ArrayList<>();
-        c = arrayList;
-        arrayList.add("tb.dialog_strategies_data");
-        c.add("tb.ala.gift_list");
-        c.add("tb.square");
-        c.add("tb.first_dir");
-        c.add("tb.forum_rank");
-        c.add("tb.im_group_setting");
-        c.add("tb.im_personal_chat_setting");
-        c.add("tb.im_official_chat_setting");
-        c.add("net_err_record");
-        c.add("tb_user_profile");
-        c.add("tb_forum_recommend");
-        c.add("tb.ad_killer_tags");
-        c.add("tb.manga.settings");
-        c.add("tb.share_add_experienced");
-        c.add("tb.write_privacy_state_space");
-        c.add("tb.concern_page_all");
-        c.add("tb.im_group_chat_http");
-        e = new ConcurrentHashMap<>();
-        d = new ConcurrentHashMap<>();
-        IdleHandlerManager.getInstance().addOrRunTask("cmd2001012", new a());
+        return invokeV.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y45() {
-        super(2000998);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        MessageManager.getInstance().registerListenerFromBackground(this);
+        this.b = 0;
+        this.c = 0;
     }
 
-    public static synchronized void g(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            synchronized (y45.class) {
-                if (str == null) {
-                    return;
-                }
-                if (str2 != null) {
-                    str = str + str2;
-                }
-                oe<byte[]> oeVar = d.get(str);
-                if (oeVar != null) {
-                    BdCacheService.n().k(oeVar, true);
-                    d.remove(str);
-                }
-            }
-        }
-    }
-
-    public static synchronized void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            synchronized (y45.class) {
-                if (str == null) {
-                    return;
-                }
-                if (str2 != null) {
-                    str = str + str2;
-                }
-                oe<String> oeVar = e.get(str);
-                if (oeVar != null) {
-                    try {
-                        BdCacheService.n().l(oeVar);
-                        e.remove(str);
-                    } catch (Exception e2) {
-                        BdLog.detailException(e2);
-                    }
-                }
-            }
-        }
-    }
-
-    public static synchronized oe<byte[]> i(String str) {
-        InterceptResult invokeL;
-        oe<byte[]> j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            synchronized (y45.class) {
-                j = j(str, null);
-            }
-            return j;
-        }
-        return (oe) invokeL.objValue;
-    }
-
-    public static synchronized oe<String> l(String str) {
-        InterceptResult invokeL;
-        oe<String> m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            synchronized (y45.class) {
-                m = m(str, null);
-            }
-            return m;
-        }
-        return (oe) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-            synchronized (y45.class) {
-                d.clear();
-                e.clear();
-            }
-        }
-    }
-
-    public static synchronized oe<byte[]> j(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            synchronized (y45.class) {
-                if (str == null) {
-                    return null;
-                }
-                if (str2 != null) {
-                    str3 = str + str2;
-                } else {
-                    str3 = str;
-                }
-                oe<byte[]> oeVar = d.get(str3);
-                if (oeVar != null && (oeVar instanceof oe)) {
-                    return oeVar;
-                }
-                BdCacheService n = BdCacheService.n();
-                Integer num = b.get(str);
-                num = (num == null || num.intValue() == 0) ? 20 : 20;
-                BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-                if (c.contains(str)) {
-                    cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
-                }
-                try {
-                    oeVar = n.b(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
-                } catch (Exception e2) {
-                    BdLog.detailException(e2);
-                }
-                d.put(str3, oeVar);
-                return oeVar;
-            }
-        }
-        return (oe) invokeLL.objValue;
-    }
-
-    public static synchronized oe<String> m(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-            synchronized (y45.class) {
-                if (str == null) {
-                    return null;
-                }
-                if (str2 != null) {
-                    str3 = str + str2;
-                } else {
-                    str3 = str;
-                }
-                oe<String> oeVar = e.get(str3);
-                BdCacheService n = BdCacheService.n();
-                Integer num = b.get(str);
-                num = (num == null || num.intValue() == 0) ? 20 : 20;
-                BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-                if (c.contains(str)) {
-                    cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
-                }
-                try {
-                    oeVar = n.d(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
-                } catch (Exception e2) {
-                    BdLog.detailException(e2);
-                }
-                return oeVar;
-            }
-        }
-        return (oe) invokeLL.objValue;
-    }
-
-    @Deprecated
-    public static synchronized y45 k() {
+    public View e() {
         InterceptResult invokeV;
-        y45 y45Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            synchronized (y45.class) {
-                if (a == null) {
-                    a = new y45();
-                }
-                y45Var = a;
-            }
-            return y45Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
-        return (y45) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public static synchronized oe<String> n(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        String str4;
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, str3)) == null) {
-            synchronized (y45.class) {
-                if (str != null && str3 != null) {
-                    if (str2 != null) {
-                        str4 = str + str2;
-                    } else {
-                        str4 = str;
-                    }
-                    oe<String> oeVar = e.get(str4);
-                    BdCacheService j = BdCacheService.j(str3);
-                    Integer num = b.get(str);
-                    num = (num == null || num.intValue() == 0) ? 20 : 20;
-                    BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-                    if (c.contains(str)) {
-                        cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
-                    }
-                    try {
-                        oeVar = j.d(str4, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
-                    } catch (Exception e2) {
-                        BdLog.detailException(e2);
-                    }
-                    return oeVar;
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
         }
-        return (oe) invokeLLL.objValue;
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void a(int i, int i2, Rect rect, x45 x45Var) {
+        LinearLayout.LayoutParams layoutParams;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, x45Var}) == null) {
+            if (x45Var.getView().getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                layoutParams = (LinearLayout.LayoutParams) x45Var.getView().getLayoutParams();
+            } else {
+                layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            }
+            int dimens = (i / 2) - BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X017);
+            boolean z2 = false;
+            if (rect.centerX() >= dimens) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getContext()) - rect.centerX() >= dimens) {
+                z2 = true;
+            }
+            if (z && z2) {
+                layoutParams.gravity = 1;
+            } else if (z) {
+                layoutParams.gravity = 5;
+                this.b = (-(i - i2)) / 2;
+            } else {
+                layoutParams.gravity = 3;
+                this.b = (i - i2) / 2;
+            }
+            this.a.addView(x45Var.getView(), layoutParams);
+        }
+    }
+
+    public final void b(int i, int i2, Rect rect, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, view2}) == null) {
+            if (i > rect.centerY() - (i2 / 2)) {
+                this.a.addView(view2);
+                this.c = ((rect.height() + i2) / 2) + i;
+                return;
+            }
+            this.a.addView(view2, 0);
+            this.c = (rect.height() + i2) / 2;
+        }
+    }
+
+    public void h(BreatheTipView breatheTipView, x45 x45Var, View view2) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, breatheTipView, x45Var, view2) == null) {
+            LinearLayout linearLayout = new LinearLayout(breatheTipView.getContext());
+            this.a = linearLayout;
+            linearLayout.setOrientation(1);
+            Rect rect = new Rect();
+            if (view2 != null) {
+                view2.getGlobalVisibleRect(rect);
+            }
+            int i3 = 0;
+            if (breatheTipView.getLayoutParams() != null) {
+                i = breatheTipView.getLayoutParams().height;
+            } else {
+                i = 0;
+            }
+            if (breatheTipView.getLayoutParams() != null) {
+                i2 = breatheTipView.getLayoutParams().width;
+            } else {
+                i2 = 0;
+            }
+            if (x45Var.getView().getLayoutParams() != null) {
+                i3 = x45Var.getView().getLayoutParams().width;
+            }
+            a(i2, i3, rect, x45Var);
+            b(i, i3, rect, breatheTipView);
+        }
     }
 }

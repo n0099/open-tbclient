@@ -1,30 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.TbMusicData;
-import com.baidu.tieba.external.music.data.MusicData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface e47 {
-    void a(float f);
+public class e47 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<h77<?>> a;
+    public n47 b;
 
-    void b();
-
-    String c();
-
-    void d(MusicData musicData, Object obj);
-
-    void e();
-
-    void f(TbMusicData tbMusicData);
-
-    void g(String str, String str2);
-
-    boolean h();
-
-    void onPause();
-
-    void onResume();
-
-    void pause();
-
-    void reset();
+    public e47() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+    }
 }

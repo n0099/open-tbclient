@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.util.VideoAudioHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
-import com.baidu.tieba.m9;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.k4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,7 +103,7 @@ public final class VoicePlayBtn extends RelativeLayout implements VoiceManager.I
                 formatVoiceTime = VoiceManager.formatVoiceTime(this.d.getDuration());
                 Intrinsics.checkNotNullExpressionValue(formatVoiceTime, "{\n            VoiceManag….getDuration())\n        }");
             }
-            String charSequence2String = di.charSequence2String(this.c.getText(), null);
+            String charSequence2String = ad.charSequence2String(this.c.getText(), null);
             if (charSequence2String == null || !Intrinsics.areEqual(charSequence2String, formatVoiceTime)) {
                 this.c.setText(formatVoiceTime);
             }
@@ -341,8 +341,8 @@ public final class VoicePlayBtn extends RelativeLayout implements VoiceManager.I
             if (context instanceof VoiceManager.i) {
                 return ((VoiceManager.i) context).N0();
             }
-            if (m9.a(getContext()) != null) {
-                BdPageContext<?> a2 = m9.a(getContext());
+            if (k4.a(getContext()) != null) {
+                BdPageContext<?> a2 = k4.a(getContext());
                 if (a2 != null) {
                     TbPageContext tbPageContext = (TbPageContext) a2;
                     if (tbPageContext.getOrignalPage() instanceof VoiceManager.i) {

@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.NetWorkState;
 import com.baidu.tbadk.core.util.TBAlertBuilderHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.nf;
-import com.baidu.tieba.of;
+import com.baidu.tieba.la;
+import com.baidu.tieba.ma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,18 +89,18 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, of ofVar) {
+    public void logStatInBackground(int i, ma maVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, ofVar) == null) && ofVar.d().size() > 0) {
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, maVar) == null) && maVar.d().size() > 0) {
             int i2 = 1;
-            nf nfVar = ofVar.d().get(ofVar.d().size() - 1);
-            NetWorkState.mErrorNums.addAndGet(ofVar.d().size() - 1);
+            la laVar = maVar.d().get(maVar.d().size() - 1);
+            NetWorkState.mErrorNums.addAndGet(maVar.d().size() - 1);
             NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
             statisticsData.mMode = getMode(BdNetTypeUtil.netType());
-            statisticsData.mSize = nfVar.b;
-            statisticsData.mTime = nfVar.f;
-            statisticsData.mTimesNum = nfVar.e;
-            if (ofVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
+            statisticsData.mSize = laVar.b;
+            statisticsData.mTime = laVar.f;
+            statisticsData.mTimesNum = laVar.e;
+            if (maVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
                 i2 = 2;
             }
             statisticsData.mMethod = i2;

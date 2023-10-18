@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,73 +7,55 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class iw2<ValueT> {
+public class iw2 extends gw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ValueT a;
+    public final boolean e;
+    public final zr1 f;
 
-    public abstract ValueT c(Bundle bundle, String str, ValueT valuet);
-
-    public abstract void e(Bundle bundle, String str, ValueT valuet);
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public iw2() {
-        this(null);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iw2(zr1 zr1Var, boolean z) {
+        super(6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zr1Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this(newInitContext.callArgs[0]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = z;
+        this.f = zr1Var;
     }
 
-    public iw2(ValueT valuet) {
+    @Override // com.baidu.tieba.gw2
+    public String d() {
+        InterceptResult invokeV;
+        n93 params;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {valuet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            zr1 zr1Var = this.f;
+            if (zr1Var != null && (params = zr1Var.getParams()) != null) {
+                return params.c;
             }
+            return null;
         }
-        this.a = valuet;
+        return (String) invokeV.objValue;
     }
 
-    public ValueT a(jw2 jw2Var, String str) {
-        InterceptResult invokeLL;
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jw2Var, str)) == null) {
-            return b(jw2Var, str, this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
-        return (ValueT) invokeLL.objValue;
-    }
-
-    public ValueT b(jw2 jw2Var, String str, ValueT valuet) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jw2Var, str, valuet)) == null) {
-            return c(jw2Var.C(), str, valuet);
-        }
-        return (ValueT) invokeLLL.objValue;
-    }
-
-    public void d(jw2 jw2Var, String str, ValueT valuet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, jw2Var, str, valuet) == null) {
-            e(jw2Var.C(), str, valuet);
-        }
+        return invokeV.booleanValue;
     }
 }

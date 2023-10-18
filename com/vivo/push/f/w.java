@@ -2,6 +2,7 @@ package com.vivo.push.f;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,7 +44,7 @@ public final class w implements u.a {
             }
             HashMap hashMap = new HashMap();
             hashMap.put("srt", "1");
-            hashMap.put("message_id", String.valueOf(this.a.b.f()));
+            hashMap.put(ForbidActivityConfig.CHAT_MSG_ID, String.valueOf(this.a.b.f()));
             String a = com.vivo.push.d.a.a().e().a();
             if (!TextUtils.isEmpty(a)) {
                 hashMap.put("app_id", a);

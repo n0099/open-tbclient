@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q7;
+import com.baidu.tieba.a3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,10 +13,10 @@ public class m0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public s0<i0> a;
-    public q7<l0, u6<i0>> b;
-    public q7<l0, s0<i0>> c;
-    public a8<c> d;
-    public q7<l0, x6> e;
+    public a3<l0, r2<i0>> b;
+    public a3<l0, s0<i0>> c;
+    public g3<c> d;
+    public a3<l0, s2> e;
     public b f;
     public boolean g;
 
@@ -27,7 +27,7 @@ public class m0 {
     }
 
     /* loaded from: classes7.dex */
-    public static class b extends t7<x6> {
+    public static class b extends c3<s2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,15 +46,15 @@ public class m0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t7
+        @Override // com.baidu.tieba.c3
         /* renamed from: g */
-        public x6 d() {
+        public s2 d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new x6();
+                return new s2();
             }
-            return (x6) invokeV.objValue;
+            return (s2) invokeV.objValue;
         }
 
         public /* synthetic */ b(a aVar) {
@@ -103,10 +103,10 @@ public class m0 {
                 return;
             }
         }
-        this.b = new q7<>();
-        this.c = new q7<>();
-        this.d = new a8<>(true, 16);
-        this.e = new q7<>();
+        this.b = new a3<>();
+        this.c = new a3<>();
+        this.d = new g3<>(true, 16);
+        this.e = new a3<>();
         this.f = new b(null);
         this.g = false;
         this.a = s0Var;
@@ -116,20 +116,20 @@ public class m0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, l0Var)) == null) {
-            s0<i0> c2 = this.c.c(l0Var);
-            if (c2 == null) {
-                u6<i0> u6Var = new u6<>(false, 16);
-                s0<i0> s0Var = new s0<>(u6Var);
-                this.b.i(l0Var, u6Var);
-                this.c.i(l0Var, s0Var);
-                this.e.i(l0Var, new x6());
+            s0<i0> b2 = this.c.b(l0Var);
+            if (b2 == null) {
+                r2<i0> r2Var = new r2<>(false, 16);
+                s0<i0> s0Var = new s0<>(r2Var);
+                this.b.h(l0Var, r2Var);
+                this.c.h(l0Var, s0Var);
+                this.e.h(l0Var, new s2());
                 Iterator<i0> it = this.a.iterator();
                 while (it.hasNext()) {
                     f(it.next());
                 }
                 return s0Var;
             }
-            return c2;
+            return b2;
         }
         return (s0) invokeL.objValue;
     }
@@ -139,13 +139,13 @@ public class m0 {
         if (interceptable == null || interceptable.invokeL(1048580, this, j0Var) == null) {
             int i = 0;
             while (true) {
-                a8<c> a8Var = this.d;
-                if (i < a8Var.b) {
-                    if (a8Var.get(i).a == j0Var) {
-                        q7.e<x6> n = this.e.n();
-                        n.c();
-                        while (n.hasNext()) {
-                            x6 next = n.next();
+                g3<c> g3Var = this.d;
+                if (i < g3Var.b) {
+                    if (g3Var.get(i).a == j0Var) {
+                        a3.e<s2> m = this.e.m();
+                        m.c();
+                        while (m.hasNext()) {
+                            s2 next = m.next();
                             int h = next.h();
                             int i2 = i;
                             while (i2 < h) {
@@ -158,7 +158,7 @@ public class m0 {
                                 i2 = i3;
                             }
                         }
-                        this.d.h(i);
+                        this.d.f(i);
                         i--;
                     }
                     i++;
@@ -175,16 +175,16 @@ public class m0 {
             d(l0Var);
             int i2 = 0;
             while (true) {
-                a8<c> a8Var = this.d;
-                if (i2 >= a8Var.b || a8Var.get(i2).b > i) {
+                g3<c> g3Var = this.d;
+                if (i2 >= g3Var.b || g3Var.get(i2).b > i) {
                     break;
                 }
                 i2++;
             }
-            q7.e<x6> n = this.e.n();
-            n.c();
-            while (n.hasNext()) {
-                x6 next = n.next();
+            a3.e<s2> m = this.e.m();
+            m.c();
+            while (m.hasNext()) {
+                s2 next = m.next();
                 for (int h = next.h(); h > i2; h--) {
                     if (next.e(h - 1)) {
                         next.k(h);
@@ -194,11 +194,11 @@ public class m0 {
                 }
                 next.c(i2);
             }
-            this.e.c(l0Var).k(i2);
+            this.e.b(l0Var).k(i2);
             c cVar = new c(null);
             cVar.a = j0Var;
             cVar.b = i;
-            this.d.insert(i2, cVar);
+            this.d.d(i2, cVar);
         }
     }
 
@@ -223,51 +223,51 @@ public class m0 {
     public void f(i0 i0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, i0Var) == null) {
-            x6 e = this.f.e();
-            x6 e2 = this.f.e();
-            q7.c<l0> f = this.e.f();
-            f.c();
+            s2 e = this.f.e();
+            s2 e2 = this.f.e();
+            a3.c<l0> e3 = this.e.e();
+            e3.c();
             while (true) {
                 boolean z = false;
-                if (!f.hasNext()) {
+                if (!e3.hasNext()) {
                     break;
                 }
-                l0 next = f.next();
+                l0 next = e3.next();
                 int g = next.g();
-                x6 f2 = i0Var.f();
-                boolean e3 = f2.e(g);
+                s2 f = i0Var.f();
+                boolean e4 = f.e(g);
                 if (next.h(i0Var) && !i0Var.d) {
                     z = true;
                 }
-                if (e3 != z) {
-                    x6 c2 = this.e.c(next);
-                    u6<i0> c3 = this.b.c(next);
+                if (e4 != z) {
+                    s2 b2 = this.e.b(next);
+                    r2<i0> b3 = this.b.b(next);
                     if (z) {
-                        e.j(c2);
-                        c3.a(i0Var);
-                        f2.k(g);
+                        e.j(b2);
+                        b3.a(i0Var);
+                        f.k(g);
                     } else {
-                        e2.j(c2);
-                        c3.i(i0Var, true);
-                        f2.c(g);
+                        e2.j(b2);
+                        b3.g(i0Var, true);
+                        f.c(g);
                     }
                 }
             }
             this.g = true;
-            c[] o = this.d.o();
+            c[] i = this.d.i();
             try {
-                for (int i = e2.i(0); i >= 0; i = e2.i(i + 1)) {
-                    o[i].a.a(i0Var);
+                for (int i2 = e2.i(0); i2 >= 0; i2 = e2.i(i2 + 1)) {
+                    i[i2].a.a(i0Var);
                 }
-                for (int i2 = e.i(0); i2 >= 0; i2 = e.i(i2 + 1)) {
-                    o[i2].a.b(i0Var);
+                for (int i3 = e.i(0); i3 >= 0; i3 = e.i(i3 + 1)) {
+                    i[i3].a.b(i0Var);
                 }
             } finally {
                 e.b();
                 e2.b();
                 this.f.c(e);
                 this.f.c(e2);
-                this.d.p();
+                this.d.j();
                 this.g = false;
             }
         }

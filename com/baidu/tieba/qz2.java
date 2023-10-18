@@ -1,75 +1,49 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapRegionDecoder;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class qz2 implements oz2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+public class qz2 implements tq2 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Boolean c = null;
+    public static int d = -1;
+    public static int e = -1;
+    public static int f = -1;
+    public static int g = -1;
+    public static int h = -1;
+    public static int i = -1;
+    public static int j = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public BitmapRegionDecoder a;
-    public final Object b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948109056, "Lcom/baidu/tieba/qz2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948109056, "Lcom/baidu/tieba/qz2;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948109056, "Lcom/baidu/tieba/qz2;")) == null) {
+            return;
         }
-        c = qr1.a;
-    }
-
-    public qz2() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = new Object();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948109056, "Lcom/baidu/tieba/qz2;");
+        }
     }
 
-    @Override // com.baidu.tieba.oz2
-    public boolean isReady() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BitmapRegionDecoder bitmapRegionDecoder = this.a;
-            if (bitmapRegionDecoder != null && !bitmapRegionDecoder.isRecycled()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == -1) {
+                f = b("swanswitch_file_res_cache_option");
+            }
+            if (f == 1) {
                 return true;
             }
             return false;
@@ -77,128 +51,161 @@ public class qz2 implements oz2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oz2
-    public void recycle() {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.recycle();
-        }
-    }
-
-    @Override // com.baidu.tieba.oz2
-    public Point a(Context context, Bitmap bitmap) throws Exception {
-        InputStream inputStream;
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bitmap)) == null) {
-            try {
-                inputStream = b(bitmap);
-                try {
-                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
-                    kr4.d(inputStream);
-                    return new Point(this.a.getWidth(), this.a.getHeight());
-                } catch (Throwable th) {
-                    th = th;
-                    kr4.d(inputStream);
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (i == -1) {
+                i = b("swan_http_interceptor_opt");
             }
-        } else {
-            return (Point) invokeLL.objValue;
-        }
-    }
-
-    @Override // com.baidu.tieba.oz2
-    @SuppressLint({"BDThrowableCheck"})
-    public Bitmap decodeRegion(Rect rect, int i) {
-        InterceptResult invokeLI;
-        Bitmap decodeRegion;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, rect, i)) == null) {
-            synchronized (this.b) {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = i;
-                options.inPreferredConfig = Bitmap.Config.RGB_565;
-                decodeRegion = this.a.decodeRegion(rect, options);
-                if (decodeRegion == null) {
-                    if (!c) {
-                        g82.k("SkiaImageRegionDecoder", "bitmap is null");
-                    } else {
-                        throw new RuntimeException("Skia image decoder returned null bitmap - image format may not be supported");
-                    }
-                }
+            if (i > 0) {
+                return true;
             }
-            return decodeRegion;
+            return false;
         }
-        return (Bitmap) invokeLI.objValue;
+        return invokeV.booleanValue;
     }
 
-    public InputStream b(Bitmap bitmap) {
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (f() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (j == -1) {
+                j = b("swan_js_thread_opt");
+            }
+            return j;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (h == -1) {
+                h = b("swan_preload_slave_opt");
+            }
+            return h;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (d == -1) {
+                d = b("swan_http_thread_opt");
+            }
+            if (d > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (d == -1) {
+                d = b("swan_http_thread_opt");
+            }
+            int i2 = d;
+            if (i2 > 0 && i2 != 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (g == -1) {
+                g = b("swan_ubc_samping_opt");
+            }
+            return g;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (j() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (c == null) {
+                c = Boolean.valueOf(d("swan_js_thread_dispatch"));
+            }
+            return c.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (e == -1) {
+                e = b("swan_webview_ssl_opt");
+            }
+            if (e > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
-            if (bitmap == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            wo2.g0().getSwitch(str, 0);
+            if (tq2.a) {
+                Log.d("SwanPerformance", "packing[" + str + " = 0" + PreferencesUtil.RIGHT_MOUNT);
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;
-            if (bitmap.hasAlpha()) {
-                compressFormat = Bitmap.CompressFormat.PNG;
-            }
-            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
-            return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+            return 0;
         }
-        return (InputStream) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.oz2
-    public Point init(Context context, Uri uri) throws Exception {
-        InterceptResult invokeLL;
-        Resources resourcesForApplication;
-        int i;
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, uri)) == null) {
-            String uri2 = uri.toString();
-            if (uri2.startsWith("android.resource://")) {
-                String authority = uri.getAuthority();
-                if (context.getPackageName().equals(authority)) {
-                    resourcesForApplication = context.getResources();
-                } else {
-                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
-                }
-                List<String> pathSegments = uri.getPathSegments();
-                int size = pathSegments.size();
-                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
-                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
-                } else {
-                    if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
-                        try {
-                            i = Integer.parseInt(pathSegments.get(0));
-                        } catch (NumberFormatException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    i = 0;
-                }
-                this.a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i), false);
-            } else if (uri2.startsWith("file:///android_asset/")) {
-                this.a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
-            } else if (uri2.startsWith("file://")) {
-                this.a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
-            } else {
-                InputStream inputStream = null;
-                try {
-                    inputStream = context.getContentResolver().openInputStream(uri);
-                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
-                } finally {
-                    kr4.d(inputStream);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (b(str) != 0) {
+                return true;
             }
-            return new Point(this.a.getWidth(), this.a.getHeight());
+            return false;
         }
-        return (Point) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -663,7 +663,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
         public final void show() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048660, this) == null) {
-                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tieba.go
+                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tieba.dj
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -1986,7 +1986,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
             LinearLayout linearLayout = this.button;
             if (linearLayout != null) {
                 final BdDialog bdDialog = this.this$0;
-                linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vn
+                linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.si
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -2192,23 +2192,23 @@ public final class BdDialog extends Activity implements BdDialogInterface {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, this, bottomItem, linearLayout, i, i2)) == null) {
-            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0467, (ViewGroup) linearLayout, false);
+            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0462, (ViewGroup) linearLayout, false);
             if (inflate != null) {
                 LinearLayout linearLayout2 = (LinearLayout) inflate;
                 if (i2 == 1) {
-                    linearLayout2.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080235, null), 0, 4, null));
+                    linearLayout2.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080234, null), 0, 4, null));
                 } else if (i2 == 2) {
                     if (i == 0) {
-                        linearLayout2.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080238, null), 0, 4, null));
+                        linearLayout2.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080237, null), 0, 4, null));
                     }
                     if (i == 1) {
-                        linearLayout2.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08023b, null), 0, 4, null));
+                        linearLayout2.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08023a, null), 0, 4, null));
                     }
                 } else if (i2 >= 2) {
                     if (i == i2 - 1) {
-                        linearLayout2.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080235, null), 0, 4, null));
+                        linearLayout2.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080234, null), 0, 4, null));
                     } else {
-                        linearLayout2.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08023e, null), 0, 4, null));
+                        linearLayout2.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08023d, null), 0, 4, null));
                     }
                 }
                 new ViewHelper(this, linearLayout2, this).onBindView(bottomItem, i);
@@ -2337,7 +2337,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
             }
             TextView textView2 = this.mTitle;
             if (textView2 != null) {
-                FontSizeTextViewExtKt.setScaledSizeRes$default(textView2, 0, R.dimen.obfuscated_res_0x7f0701bf, 0, 4, null);
+                FontSizeTextViewExtKt.setScaledSizeRes$default(textView2, 0, R.dimen.obfuscated_res_0x7f0701ba, 0, 4, null);
             }
         }
     }
@@ -2346,19 +2346,19 @@ public final class BdDialog extends Activity implements BdDialogInterface {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, this, bottomItem, linearLayout, i, i2)) == null) {
-            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0483, (ViewGroup) linearLayout, false);
+            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d047e, (ViewGroup) linearLayout, false);
             if (inflate != null) {
                 LinearLayout linearLayout2 = (LinearLayout) inflate;
-                TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f0922f3);
+                TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f0922fd);
                 FontSizeTextViewExtKt.setScaledSizeRes$default(textView, 0, R.dimen.bd_dialog_stress_button_size, 0, 4, null);
                 if (i2 == 1) {
-                    textView.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080246, null), 0, 4, null));
+                    textView.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080245, null), 0, 4, null));
                     if (textView != null) {
                         textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060379));
                     }
                 } else if (i2 == 2) {
                     if (i == 0) {
-                        textView.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080247, null), 0, 4, null));
+                        textView.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080246, null), 0, 4, null));
                         if (textView != null) {
                             textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06037b));
                         }
@@ -2366,7 +2366,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                             ViewGroup.LayoutParams layoutParams = linearLayout2.getLayoutParams();
                             if (layoutParams != null) {
                                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) layoutParams;
-                                layoutParams2.rightMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701bc);
+                                layoutParams2.rightMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b8);
                                 linearLayout2.setLayoutParams(layoutParams2);
                             } else {
                                 throw new NullPointerException("null cannot be cast to non-null type android.widget.LinearLayout.LayoutParams");
@@ -2374,7 +2374,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                         }
                     }
                     if (i == 1) {
-                        textView.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080246, null), 0, 4, null));
+                        textView.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080245, null), 0, 4, null));
                         if (textView != null) {
                             textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060379));
                         }
@@ -2382,7 +2382,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                             ViewGroup.LayoutParams layoutParams3 = linearLayout2.getLayoutParams();
                             if (layoutParams3 != null) {
                                 LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) layoutParams3;
-                                layoutParams4.leftMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701bc);
+                                layoutParams4.leftMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b8);
                                 linearLayout2.setLayoutParams(layoutParams4);
                             } else {
                                 throw new NullPointerException("null cannot be cast to non-null type android.widget.LinearLayout.LayoutParams");
@@ -2391,7 +2391,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                     }
                 } else if (i2 >= 2) {
                     if (i == 0) {
-                        textView.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080246, null), 0, 4, null));
+                        textView.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080245, null), 0, 4, null));
                         if (textView != null) {
                             textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060379));
                         }
@@ -2407,7 +2407,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                         ViewGroup.LayoutParams layoutParams5 = textView.getLayoutParams();
                         if (layoutParams5 != null) {
                             LinearLayout.LayoutParams layoutParams6 = (LinearLayout.LayoutParams) layoutParams5;
-                            layoutParams6.bottomMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701bb);
+                            layoutParams6.bottomMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b7);
                             textView.setLayoutParams(layoutParams6);
                         } else {
                             throw new NullPointerException("null cannot be cast to non-null type android.widget.LinearLayout.LayoutParams");
@@ -2428,7 +2428,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                     textView.setTypeface(Typeface.defaultFromStyle(1));
                 }
                 if (textView != null) {
-                    textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.do
+                    textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aj
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -2680,7 +2680,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onAttachedToWindow();
-            NightModeHelper.subscribeNightModeChangeEvent(this, new NightModeChangeListener() { // from class: com.baidu.tieba.xn
+            NightModeHelper.subscribeNightModeChangeEvent(this, new NightModeChangeListener() { // from class: com.baidu.tieba.ui
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2761,7 +2761,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                 iDialogLifecycle.onStart();
             }
             if (Build.VERSION.SDK_INT >= 24 && isInMultiWindowMode() && (frameLayout = this.mDialogRootLayout) != null) {
-                frameLayout.post(new Runnable() { // from class: com.baidu.tieba.io
+                frameLayout.post(new Runnable() { // from class: com.baidu.tieba.fj
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -2818,20 +2818,20 @@ public final class BdDialog extends Activity implements BdDialogInterface {
     public final void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0925bf);
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b7);
-            this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f0908ac);
-            this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908ad);
-            this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908a2);
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908a6);
-            this.mDialogRootLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908b3);
+            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0925c9);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d2);
+            this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f0908c7);
+            this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908c8);
+            this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908bd);
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908c1);
+            this.mDialogRootLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908ce);
             this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090378);
-            this.mDialogCustomPanel = (RoundAngleFrameLayout) findViewById(R.id.obfuscated_res_0x7f0908a1);
-            this.mBtnContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090fe4);
-            this.mBottomClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f090459);
-            this.mRightClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f091f34);
-            this.mDivider = findViewById(R.id.obfuscated_res_0x7f090fe8);
-            this.mBtnHeight = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702db);
+            this.mDialogCustomPanel = (RoundAngleFrameLayout) findViewById(R.id.obfuscated_res_0x7f0908bc);
+            this.mBtnContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090fff);
+            this.mBottomClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f09045a);
+            this.mRightClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f091f55);
+            this.mDivider = findViewById(R.id.obfuscated_res_0x7f091003);
+            this.mBtnHeight = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d7);
             BdBaseImageView bdBaseImageView = this.mRightClose;
             if (bdBaseImageView != null) {
                 FontSizeViewExtKt.setScaledSizeRes$default(bdBaseImageView, 0, R.dimen.bd_dialog_right_close, R.dimen.bd_dialog_right_close, 0, 8, null);
@@ -2917,7 +2917,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
             super.onCreate(bundle);
             y.a(this, d);
             overridePendingTransition(R.anim.obfuscated_res_0x7f0100a1, R.anim.obfuscated_res_0x7f0100a2);
-            setContentView(R.layout.obfuscated_res_0x7f0d015c);
+            setContentView(R.layout.obfuscated_res_0x7f0d015a);
             Intent intent = getIntent();
             Intrinsics.checkNotNullExpressionValue(intent, "intent");
             String stringExtra = intent.getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER");
@@ -3089,7 +3089,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                     }
                     BdBaseImageView bdBaseImageView9 = this.mRightClose;
                     if (bdBaseImageView9 != null) {
-                        bdBaseImageView9.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bo
+                        bdBaseImageView9.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yi
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -3117,7 +3117,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
             }
             BdBaseImageView bdBaseImageView12 = this.mBottomClose;
             if (bdBaseImageView12 != null) {
-                bdBaseImageView12.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ho
+                bdBaseImageView12.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ej
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -3148,7 +3148,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
             }
             TextView textView4 = this.mMessage;
             if (textView4 != null) {
-                FontSizeTextViewExtKt.setScaledSizeRes$default(textView4, 0, R.dimen.obfuscated_res_0x7f0701b7, 0, 4, null);
+                FontSizeTextViewExtKt.setScaledSizeRes$default(textView4, 0, R.dimen.obfuscated_res_0x7f0701b3, 0, 4, null);
             }
             if (bool != null && bool.booleanValue() && (textView2 = this.mMessage) != null) {
                 textView2.setTypeface(Typeface.defaultFromStyle(1));
@@ -3183,8 +3183,8 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                     }
                     if (layoutParams2 != null) {
                         RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) layoutParams2;
-                        layoutParams3.topMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b5);
-                        layoutParams3.bottomMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b4);
+                        layoutParams3.topMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b0);
+                        layoutParams3.bottomMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701af);
                         LinearLayout linearLayout3 = this.mMessageContent;
                         if (linearLayout3 != null) {
                             linearLayout3.setLayoutParams(layoutParams3);
@@ -3340,7 +3340,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                         }
                         if (layoutParams2 != null) {
                             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) layoutParams2;
-                            layoutParams3.addRule(3, R.id.obfuscated_res_0x7f0908a1);
+                            layoutParams3.addRule(3, R.id.obfuscated_res_0x7f0908bc);
                             FrameLayout frameLayout5 = this.mBtnContainer;
                             if (frameLayout5 != null) {
                                 frameLayout5.setLayoutParams(layoutParams3);
@@ -3349,7 +3349,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                             throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
                         }
                     }
-                    float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0701b0);
+                    float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0701ac);
                     RoundAngleFrameLayout roundAngleFrameLayout = this.mDialogCustomPanel;
                     if (roundAngleFrameLayout != null) {
                         roundAngleFrameLayout.setTopRadius(dimension);
@@ -3381,7 +3381,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
             int color2 = resources.getColor(R.color.obfuscated_res_0x7f060374);
             RelativeLayout relativeLayout = this.mDialogLayout;
             if (relativeLayout != null) {
-                relativeLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080233, null));
+                relativeLayout.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080232, null));
             }
             TextView textView = this.mTitle;
             if (textView != null) {
@@ -3393,11 +3393,11 @@ public final class BdDialog extends Activity implements BdDialogInterface {
             }
             BdBaseImageView bdBaseImageView = this.mRightClose;
             if (bdBaseImageView != null) {
-                bdBaseImageView.setBackground(ResourcesCompat.getDrawable(resources, R.drawable.obfuscated_res_0x7f080245, null));
+                bdBaseImageView.setBackground(ResourcesCompat.getDrawable(resources, R.drawable.obfuscated_res_0x7f080244, null));
             }
             BdBaseImageView bdBaseImageView2 = this.mBottomClose;
             if (bdBaseImageView2 != null) {
-                bdBaseImageView2.setBackground(ResourcesCompat.getDrawable(resources, R.drawable.obfuscated_res_0x7f080234, null));
+                bdBaseImageView2.setBackground(ResourcesCompat.getDrawable(resources, R.drawable.obfuscated_res_0x7f080233, null));
             }
             View view2 = this.mDivider;
             if (view2 != null) {

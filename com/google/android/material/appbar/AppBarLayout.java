@@ -51,7 +51,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class AppBarLayout extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
-    public static final int DEF_STYLE_RES = 2131755853;
+    public static final int DEF_STYLE_RES = 2131755845;
     public static final int INVALID_SCROLL_RANGE = -1;
     public static final int PENDING_ACTION_ANIMATE_ENABLED = 4;
     public static final int PENDING_ACTION_COLLAPSED = 2;
@@ -1518,7 +1518,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
     private void startLiftOnScrollElevationOverlayAnimation(@NonNull final MaterialShapeDrawable materialShapeDrawable, boolean z) {
         float f;
-        float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0702a9);
+        float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0702a5);
         if (z) {
             f = 0.0f;
         } else {

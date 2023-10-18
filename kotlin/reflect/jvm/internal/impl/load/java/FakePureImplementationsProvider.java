@@ -7,7 +7,7 @@ import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.builtins.KotlinBuiltIns;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class FakePureImplementationsProvider {
     public static final FakePureImplementationsProvider INSTANCE;
     public static final HashMap<FqName, FqName> pureImplementations;

@@ -1,94 +1,94 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Point;
-import android.widget.ImageView;
-import com.baidu.mapapi.map.MapViewLayoutParams;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.do3;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fg4 {
+public class fg4 extends ve4<lg4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements do3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yx2 a;
-        public final /* synthetic */ qg4 b;
-        public final /* synthetic */ mg4 c;
+    @Override // com.baidu.tieba.ve4
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getplugin" : (String) invokeV.objValue;
+    }
 
-        public a(yx2 yx2Var, qg4 qg4Var, mg4 mg4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yx2Var, qg4Var, mg4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yx2Var;
-            this.b = qg4Var;
-            this.c = mg4Var;
-        }
-
-        @Override // com.baidu.tieba.do3.b
-        public void a(String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-                if (bitmap == null) {
-                    g82.o("map", " icon is null ");
-                }
-                if (bitmap != null) {
-                    int i = this.a.d.c;
-                    if (i == -1) {
-                        i = bitmap.getWidth();
-                    }
-                    int i2 = this.a.d.d;
-                    if (i2 == -1) {
-                        i2 = bitmap.getHeight();
-                    }
-                    MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-                    builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
-                    builder.width(i);
-                    builder.height(i2);
-                    builder.align(1, 8);
-                    dy2 dy2Var = this.a.d;
-                    builder.point(new Point(dy2Var.a, dy2Var.b));
-                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                    imageView.setImageBitmap(bitmap);
-                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    this.b.l.addView(imageView, builder.build());
-                    imageView.setOnClickListener(this.c);
-                    imageView.setClickable(this.a.c);
-                    og4 og4Var = new og4();
-                    og4Var.a = this.a;
-                    og4Var.b = imageView;
-                    this.b.o.add(og4Var);
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fg4(kd4 kd4Var, vg4 vg4Var) {
+        super(kd4Var, vg4Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kd4Var, vg4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((kd4) objArr2[0], (vg4) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static void a(qg4 qg4Var, yx2 yx2Var, mg4 mg4Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ve4
+    /* renamed from: u */
+    public boolean e(lg4 lg4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, qg4Var, yx2Var, mg4Var) == null) {
-            g82.i("map", "createControl start");
-            if (yx2Var != null && yx2Var.isValid()) {
-                do3.e(yx2Var.b, new a(yx2Var, qg4Var, mg4Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, lg4Var)) == null) {
+            if (lg4Var == null) {
+                return false;
             }
-            g82.i("map", "createControl end");
+            qe4 qe4Var = lg4Var.a;
+            if (qe4Var != null && !qe4Var.a()) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ve4
+    /* renamed from: w */
+    public lg4 t(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+            return wi4.h(jSONObject);
+        }
+        return (lg4) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ve4
+    /* renamed from: v */
+    public je4 s(lg4 lg4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, lg4Var)) == null) {
+            this.a.E();
+            xi4 xi4Var = new xi4();
+            p(lg4Var.a, xi4Var);
+            if (xi4Var.n() == 0) {
+                this.a.F();
+                return null;
+            }
+            this.a.G(xi4Var);
+            af4.c(lg4Var, this.a);
+            return null;
+        }
+        return (je4) invokeL.objValue;
     }
 }

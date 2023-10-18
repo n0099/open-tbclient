@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.digest4util.Sha2Crypt;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class VerticalScrollNumberView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class VerticalScrollNumberView extends LinearLayout {
             this.b = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070201);
             this.c = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070225);
             this.d = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f0701d4);
-            this.e = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070420);
+            this.e = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f07041c);
         }
     }
 

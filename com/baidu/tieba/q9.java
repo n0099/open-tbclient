@@ -1,156 +1,112 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.safe.BdCloseHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n9;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes7.dex */
-public abstract class q9 implements n9 {
+public class q9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n9.a callback;
-    public SQLiteDatabase database;
-    public final String dbFileFullPath;
-    public int mVersion;
+    public final m4 a;
 
-    public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
-
-    public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
-
-    public q9(String str, int i) {
+    public q9(Context context, m4 m4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
+            Object[] objArr = {context, m4Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mVersion = 1;
-        this.database = null;
-        this.mVersion = i;
-        this.dbFileFullPath = str;
+        this.a = m4Var;
     }
 
-    private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        n9.a aVar;
+    public void a(i9 i9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) && (aVar = this.callback) != null) {
-            aVar.onDatabaseCreated(sQLiteDatabase);
-        }
-    }
-
-    private void onCreateDatabase(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, sQLiteDatabase) == null) {
-            onCreate(sQLiteDatabase);
-            exeCallback(sQLiteDatabase);
-        }
-    }
-
-    @Override // com.baidu.tieba.n9
-    public boolean dropDatabase(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            File file = new File(this.dbFileFullPath);
-            if (file.exists()) {
-                return file.delete();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            createAllTables(sQLiteDatabase);
-        }
-    }
-
-    @Override // com.baidu.tieba.n9
-    public void setOnCreateCallback(n9.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.callback = aVar;
-        }
-    }
-
-    private void onUpdateDatabase(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65539, this, sQLiteDatabase, i, i2) == null) {
-            if (i2 > i) {
-                onUpgrade(sQLiteDatabase, i, i2);
-            } else {
-                onDowngrade(sQLiteDatabase, i, i2);
-            }
-            exeCallback(sQLiteDatabase);
-        }
-    }
-
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i, i2) == null) {
-            clearAllTables(sQLiteDatabase);
-            createAllTables(sQLiteDatabase);
-        }
-    }
-
-    public boolean executeDDLSqlIgnoreAnyErrors(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, sQLiteDatabase, str)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, i9Var) == null) {
             try {
-                sQLiteDatabase.execSQL(str);
-                return true;
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("nameSpace", i9Var.a);
+                contentValues.put("tableName", i9Var.b);
+                contentValues.put("maxSize", Integer.valueOf(i9Var.c));
+                contentValues.put("cacheVersion", Integer.valueOf(i9Var.e));
+                contentValues.put("cacheType", i9Var.d);
+                contentValues.put("lastActiveTime", Long.valueOf(i9Var.f));
+                SQLiteDatabase f = this.a.f();
+                if (f != null && f.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{i9Var.a}) == 0) {
+                    f.insert("cache_meta_info", null, contentValues);
+                }
             } catch (Throwable th) {
-                BdLog.e(str + ":" + th);
-                return false;
+                this.a.h(th, "addOrUpdate");
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.n9
-    public SQLiteDatabase getWritableDatabase() {
-        InterceptResult invokeV;
+    public i9 c(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            File file = new File(this.dbFileFullPath);
-            if (file.getParentFile() != null && (file.getParentFile().exists() || file.getParentFile().mkdirs())) {
-                boolean exists = file.exists();
-                SQLiteDatabase openOrCreateDatabase = SQLiteDatabase.openOrCreateDatabase(this.dbFileFullPath, (SQLiteDatabase.CursorFactory) null);
-                this.database = openOrCreateDatabase;
-                if (openOrCreateDatabase != null) {
-                    if (!exists) {
-                        onCreateDatabase(openOrCreateDatabase);
-                        this.database.setVersion(this.mVersion);
-                    } else {
-                        int version = openOrCreateDatabase.getVersion();
-                        int i = this.mVersion;
-                        if (version != i) {
-                            onUpdateDatabase(this.database, version, i);
-                            this.database.setVersion(this.mVersion);
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                cursor = this.a.f().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            try {
+                if (cursor.moveToNext()) {
+                    i9 i9Var = new i9();
+                    i9Var.a = cursor.getString(0);
+                    i9Var.b = cursor.getString(1);
+                    i9Var.c = cursor.getInt(2);
+                    i9Var.d = cursor.getString(3);
+                    i9Var.e = cursor.getInt(4);
+                    i9Var.f = cursor.getLong(5);
+                    return i9Var;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    this.a.h(th, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE);
+                    return null;
+                } finally {
+                    BdCloseHelper.close(cursor);
                 }
             }
-            return this.database;
+            return null;
         }
-        return (SQLiteDatabase) invokeV.objValue;
+        return (i9) invokeL.objValue;
+    }
+
+    public int b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                if (c(str) == null) {
+                    return 0;
+                }
+                return this.a.f().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+            } catch (Throwable th) {
+                this.a.h(th, "delete");
+                return 0;
+            }
+        }
+        return invokeL.intValue;
     }
 }

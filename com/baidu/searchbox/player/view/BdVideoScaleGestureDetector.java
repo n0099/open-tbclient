@@ -25,7 +25,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public final Lazy scaleGestureDetector$delegate;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1066view;
+    public final View f1067view;
 
     @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\bf\u0018\u00002\u00020\u0001J\u0010\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H&J\u0010\u0010\u0006\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H&¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "", "onScaleBegin", "", "detector", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;", "onScaleEnd", "framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes4.dex */
@@ -74,7 +74,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
 
     public BdVideoScaleGestureDetector(View view2) {
         Intrinsics.checkNotNullParameter(view2, "view");
-        this.f1066view = view2;
+        this.f1067view = view2;
         this.scaleGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new Function0<ScaleGestureDetector>() { // from class: com.baidu.searchbox.player.view.BdVideoScaleGestureDetector$scaleGestureDetector$2
             {
                 super(0);
@@ -132,8 +132,8 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     }
 
     public final void setScale(float f) {
-        this.f1066view.setScaleX(f);
-        this.f1066view.setScaleY(f);
+        this.f1067view.setScaleX(f);
+        this.f1067view.setScaleY(f);
     }
 
     public final void setScaleDetected(boolean z) {
@@ -149,7 +149,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     }
 
     public final View getView() {
-        return this.f1066view;
+        return this.f1067view;
     }
 
     public final boolean isScaleDetected() {
@@ -159,7 +159,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public float computeScale(ScaleGestureDetector detector) {
         Intrinsics.checkNotNullParameter(detector, "detector");
         float scaleFactor = detector.getScaleFactor();
-        float scaleX = this.f1066view.getScaleX();
+        float scaleX = this.f1067view.getScaleX();
         if (scaleFactor < 1.0f && scaleX > getMinScale()) {
             float f = scaleX * scaleFactor;
             if (f < getMinScale()) {
@@ -178,9 +178,9 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     }
 
     public void setPivot(float f, float f2) {
-        View view2 = this.f1066view;
+        View view2 = this.f1067view;
         float f3 = 1;
-        BdGestureHelper.fixScaleTranslate(view2, view2.getTranslationX() + ((this.f1066view.getPivotX() - f) * (f3 - this.f1066view.getScaleX())), this.f1066view.getTranslationY() + ((this.f1066view.getPivotY() - f2) * (f3 - this.f1066view.getScaleY())));
+        BdGestureHelper.fixScaleTranslate(view2, view2.getTranslationX() + ((this.f1067view.getPivotX() - f) * (f3 - this.f1067view.getScaleX())), this.f1067view.getTranslationY() + ((this.f1067view.getPivotY() - f2) * (f3 - this.f1067view.getScaleY())));
         view2.setPivotX(f);
         view2.setPivotY(f2);
     }

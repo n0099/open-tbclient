@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a36;
-import com.baidu.tieba.p26;
-import com.baidu.tieba.r26;
+import com.baidu.tieba.ax5;
+import com.baidu.tieba.jx5;
+import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,22 +21,22 @@ public class DatePickerHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity mActivity;
-    public a36 mTimePickerView;
+    public jx5 mTimePickerView;
 
     /* loaded from: classes5.dex */
-    public class a implements r26 {
+    public class a implements ax5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DatePickerHelper a;
 
         /* renamed from: com.baidu.tbadk.widget.timepicker.DatePickerHelper$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0218a implements View.OnClickListener {
+        public class View$OnClickListenerC0220a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0218a(a aVar) {
+            public View$OnClickListenerC0220a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,13 +115,13 @@ public class DatePickerHelper {
             this.a = datePickerHelper;
         }
 
-        @Override // com.baidu.tieba.r26
+        @Override // com.baidu.tieba.ax5
         public void a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 SkinManager.setBackgroundResource(view2, R.drawable.person_birthday_select_top_bg);
                 TextView textView = (TextView) view2.findViewById(R.id.person_constellation_cancle);
-                textView.setOnClickListener(new View$OnClickListenerC0218a(this));
+                textView.setOnClickListener(new View$OnClickListenerC0220a(this));
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
                 TextView textView2 = (TextView) view2.findViewById(R.id.person_constellation_birthday_complete);
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());
@@ -148,13 +148,13 @@ public class DatePickerHelper {
         this.mActivity = activity;
     }
 
-    private r26 getCustomListener() {
+    private ax5 getCustomListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             return new a(this);
         }
-        return (r26) invokeV.objValue;
+        return (ax5) invokeV.objValue;
     }
 
     public void showTimePicker(OnTimeSelectListener onTimeSelectListener) {
@@ -162,20 +162,20 @@ public class DatePickerHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, onTimeSelectListener) == null) && (activity = this.mActivity) != null && !activity.isFinishing()) {
             if (this.mTimePickerView == null) {
-                p26 p26Var = new p26(this.mActivity, onTimeSelectListener);
-                p26Var.k(R.layout.person_birthday_select_layout, getCustomListener());
-                p26Var.p(new boolean[]{true, true, true, false, false, false});
-                p26Var.j(this.mActivity.getString(R.string.pickerview_year), this.mActivity.getString(R.string.pickerview_month), this.mActivity.getString(R.string.pickerview_day), this.mActivity.getString(R.string.pickerview_hours), this.mActivity.getString(R.string.pickerview_minutes), this.mActivity.getString(R.string.pickerview_seconds));
-                p26Var.l(2.0f);
-                p26Var.b(false);
-                p26Var.i(SkinManager.getColor(R.color.CAM_X0206));
-                p26Var.m(SkinManager.getColor(R.color.CAM_X0105));
-                p26Var.n(SkinManager.getColor(R.color.CAM_X0109));
-                p26Var.d(SkinManager.getColor(R.color.black_alpha30));
-                p26Var.e(SkinManager.getColor(R.color.CAM_X0201));
-                p26Var.c(false);
-                p26Var.h((ViewGroup) this.mActivity.findViewById(16908290));
-                this.mTimePickerView = p26Var.a();
+                yw5 yw5Var = new yw5(this.mActivity, onTimeSelectListener);
+                yw5Var.k(R.layout.person_birthday_select_layout, getCustomListener());
+                yw5Var.p(new boolean[]{true, true, true, false, false, false});
+                yw5Var.j(this.mActivity.getString(R.string.pickerview_year), this.mActivity.getString(R.string.pickerview_month), this.mActivity.getString(R.string.pickerview_day), this.mActivity.getString(R.string.pickerview_hours), this.mActivity.getString(R.string.pickerview_minutes), this.mActivity.getString(R.string.pickerview_seconds));
+                yw5Var.l(2.0f);
+                yw5Var.b(false);
+                yw5Var.i(SkinManager.getColor(R.color.CAM_X0206));
+                yw5Var.m(SkinManager.getColor(R.color.CAM_X0105));
+                yw5Var.n(SkinManager.getColor(R.color.CAM_X0109));
+                yw5Var.d(SkinManager.getColor(R.color.black_alpha30));
+                yw5Var.e(SkinManager.getColor(R.color.CAM_X0201));
+                yw5Var.c(false);
+                yw5Var.h((ViewGroup) this.mActivity.findViewById(16908290));
+                this.mTimePickerView = yw5Var.a();
             }
             this.mTimePickerView.u();
         }

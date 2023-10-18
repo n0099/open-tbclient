@@ -1,53 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import com.baidu.tbadk.data.ImShareCardCommonData;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes7.dex */
 public class nna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public CurrencySwitchTDouYBeanDialog b;
 
-    public nna(MainTabActivity mainTabActivity, qma qmaVar) {
+    public static String a(BdPageContext bdPageContext, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, qmaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bdPageContext, str)) == null) {
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    sb.append(jSONArray.optJSONObject(i).optString("src"));
+                }
+                return sb.toString();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return bdPageContext.getString(R.string.pic_str);
             }
         }
-        this.a = mainTabActivity;
+        return (String) invokeLL.objValue;
     }
 
-    public void a() {
+    public static String b(BdPageContext bdPageContext, ChatMessage chatMessage) {
+        InterceptResult invokeLL;
+        String string;
+        ImShareCardCommonData d;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b == null && TbadkCoreApplication.isLogin() && CurrencySwitchUtil.isNeedConfirmTDouToYBeanSwitchOpen()) {
-            CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog = new CurrencySwitchTDouYBeanDialog(this.a.getPageContext());
-            this.b = currencySwitchTDouYBeanDialog;
-            currencySwitchTDouYBeanDialog.showDialog();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bdPageContext, chatMessage)) == null) {
+            int msgType = chatMessage.getMsgType();
+            String str = "";
+            if (msgType != 1) {
+                if (msgType != 2) {
+                    if (msgType != 3) {
+                        if (msgType != 30) {
+                            if (msgType != 32) {
+                                if (msgType != 33) {
+                                    if (msgType != 37) {
+                                        if (msgType == 38 && (d = lj8.d(chatMessage)) != null) {
+                                            if (d.getType() == 1) {
+                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_topic_share);
+                                            } else if (d.getType() == 2) {
+                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_compilation_share);
+                                            } else if (d.getType() == 3) {
+                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_active_share);
+                                            }
+                                        }
+                                    } else {
+                                        str = bdPageContext.getString(R.string.last_msg_chatroom_share);
+                                    }
+                                } else {
+                                    str = bdPageContext.getString(R.string.last_msg_forum_share);
+                                }
+                            } else {
+                                str = bdPageContext.getString(R.string.last_msg_thread_share);
+                            }
+                        }
+                    } else {
+                        str = bdPageContext.getString(R.string.voice_str);
+                    }
+                } else {
+                    str = a(bdPageContext, chatMessage.getContent());
+                }
+                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
+                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+                        string = bdPageContext.getString(R.string.private_message_report_person);
+                    } else {
+                        string = bdPageContext.getString(R.string.private_message_is_report_name);
+                    }
+                    return string + chatMessage.getToUserInfo().getUserName() + bdPageContext.getString(R.string.private_message_report_content) + str;
+                }
+                return bdPageContext.getString(R.string.private_message_is_report_name);
+            }
+            str = chatMessage.getContent();
+            if (chatMessage == null) {
+            }
+            return bdPageContext.getString(R.string.private_message_is_report_name);
         }
-    }
-
-    public void b() {
-        CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (currencySwitchTDouYBeanDialog = this.b) != null) {
-            currencySwitchTDouYBeanDialog.onDestroy();
-        }
+        return (String) invokeLL.objValue;
     }
 }

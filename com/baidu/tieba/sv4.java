@@ -1,86 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.SparseArray;
-import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.AppCode;
 /* loaded from: classes8.dex */
 public class sv4 {
     public static /* synthetic */ Interceptable $ic;
-    public static sv4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<uv4> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948164856, "Lcom/baidu/tieba/sv4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948164856, "Lcom/baidu/tieba/sv4;");
-        }
-    }
+    public String a;
 
     public sv4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new SparseArray<>();
     }
 
-    public static sv4 b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (sv4.class) {
-                    if (b == null) {
-                        b = new sv4();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (sv4) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public View a(Context context, int i) {
-        InterceptResult invokeLI;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (this.a.get(i) != null) {
-                return this.a.get(i).a(context);
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (View) invokeLI.objValue;
+        try {
+            jSONObject.optString("game_icon");
+            this.a = jSONObject.optString("post_url");
+            jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
     }
 
-    public void c(int i, uv4 uv4Var) {
+    public void c(AppCode appCode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, uv4Var) == null) {
-            this.a.put(i, uv4Var);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, appCode) != null) || appCode == null) {
+            return;
         }
+        String str = appCode.game_icon;
+        this.a = appCode.post_url;
+        String str2 = appCode.button_text;
     }
 }

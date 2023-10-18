@@ -98,13 +98,13 @@ public final class JYNativeAdView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onFinishInflate();
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ae);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900bf);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900c3);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             PBMediaView pBMediaView = new PBMediaView(getContext());
             this.c = pBMediaView;
             this.b.addView(pBMediaView, layoutParams);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090111);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b7);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090114);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b8);
             this.f = (Button) findViewById(R.id.obfuscated_res_0x7f0900aa);
         }
     }

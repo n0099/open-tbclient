@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.URLUtil;
-import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,30 +7,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qo6 {
+public final class qo6 extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public final String c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public boolean h;
-    public boolean i;
-    public List<Pair<String, Long>> j;
-    public final Map<String, Pair<Long, Long>> k;
+    public final ro6<byte[]> a;
+    public ByteArrayInputStream b;
 
-    public qo6() {
+    public qo6(ro6<byte[]> future) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {future};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,183 +33,136 @@ public class qo6 {
                 return;
             }
         }
-        this.h = false;
-        this.i = false;
-        this.k = new ConcurrentHashMap();
-        this.d = System.currentTimeMillis();
-        this.c = UUID.randomUUID().toString();
-        this.e = System.currentTimeMillis();
+        Intrinsics.checkNotNullParameter(future, "future");
+        this.a = future;
     }
 
-    public static boolean l(String str) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b == null) {
+            byte[] a = this.a.a();
+            if (a == null) {
+                a = new byte[0];
             }
-            if (URLUtil.isAssetUrl(str) || URLUtil.isFileUrl(str)) {
-                return true;
-            }
-            if (!URLUtil.isHttpUrl(str) && !URLUtil.isHttpsUrl(str)) {
-                return false;
-            }
-            if (!str.contains("tieba.baidu.com") && !str.contains("tieba.baidu-int.com")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void a(String str, String str2, Long l) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, l) == null) {
-            try {
-                this.k.put(str, Pair.create(Long.valueOf(Long.parseLong(str2)), l));
-            } catch (Exception unused) {
-            }
+            this.b = new ByteArrayInputStream(a);
         }
     }
 
-    public long b() {
+    @Override // java.io.InputStream
+    public int available() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            return byteArrayInputStream.available();
         }
-        return invokeV.longValue;
+        return invokeV.intValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            byteArrayInputStream.close();
         }
-        return (String) invokeV.objValue;
     }
 
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public String e() {
+    @Override // java.io.InputStream
+    public boolean markSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<Pair<String, Long>> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.j;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public Map<String, Pair<Long, Long>> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.k;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.h;
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            if (byteArrayInputStream != null) {
+                return byteArrayInputStream.markSupported();
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void m(boolean z) {
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.h = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            return byteArrayInputStream.read();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public synchronized void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
+                a();
+                ByteArrayInputStream byteArrayInputStream = this.b;
+                Intrinsics.checkNotNull(byteArrayInputStream);
+                byteArrayInputStream.reset();
+            }
         }
     }
 
-    public void n(long j) {
+    @Override // java.io.InputStream
+    public synchronized void mark(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.d = j;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            synchronized (this) {
+                ByteArrayInputStream byteArrayInputStream = this.b;
+                if (byteArrayInputStream != null) {
+                    byteArrayInputStream.mark(i);
+                }
+            }
         }
     }
 
-    public void o(String str) {
+    @Override // java.io.InputStream
+    public int read(byte[] b) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, b)) == null) {
+            Intrinsics.checkNotNullParameter(b, "b");
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            return byteArrayInputStream.read(b);
         }
+        return invokeL.intValue;
     }
 
-    public void p(List<Pair<String, Long>> list) {
+    @Override // java.io.InputStream
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
-            this.j = list;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            return byteArrayInputStream.skip(j);
         }
+        return invokeJ.longValue;
     }
 
-    public void q(long j) {
+    @Override // java.io.InputStream
+    public int read(byte[] b, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.f = j;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, b, i, i2)) == null) {
+            Intrinsics.checkNotNullParameter(b, "b");
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            return byteArrayInputStream.read(b, i, i2);
         }
-    }
-
-    public void r(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.e = j;
-        }
-    }
-
-    public void s(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && l(str)) {
-            this.g = System.currentTimeMillis();
-            this.a = str;
-            kn6.b("newHybrid", "startLoadUrl:" + str);
-        }
+        return invokeLII.intValue;
     }
 }

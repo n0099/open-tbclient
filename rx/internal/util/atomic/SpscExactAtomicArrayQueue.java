@@ -1,6 +1,6 @@
 package rx.internal.util.atomic;
 
-import com.baidu.tieba.rfc;
+import com.baidu.tieba.q9c;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Queue;
@@ -15,7 +15,7 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     public final AtomicLong producerIndex;
 
     public SpscExactAtomicArrayQueue(int i) {
-        super(rfc.b(i));
+        super(q9c.b(i));
         int length = length();
         this.mask = length - 1;
         this.capacitySkip = length - i;

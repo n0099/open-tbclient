@@ -1,90 +1,93 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.zl2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class ck2 extends ProviderDelegation {
+public class ck2 extends kj2<zl2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947677567, "Lcom/baidu/tieba/ck2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements zl2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ck2 ck2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947677567, "Lcom/baidu/tieba/ck2;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ck2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        nu2.g0().getSwitch("swan_recovery_enable", true);
-        a = true;
     }
 
-    public ck2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ck2(@NonNull zl2 zl2Var) {
+        super(zl2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zl2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((mj2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        e();
+        this.a.a(new kk2());
+        this.a.a(new lk2());
+        this.a.a(new mk2());
+        this.a.a(new nk2());
+        this.a.a(new ok2());
+        this.a.a(new hk2());
+        this.a.a(new pk2());
+        this.a.a(new ik2());
+        this.a.a(new jk2());
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ((zl2) this.c).o(new a(this));
         }
     }
 
-    public static void c(mk2 mk2Var) {
+    @Override // com.baidu.tieba.kj2, com.baidu.webkit.sdk.plugin.ZeusPlugin
+    public void sendCommand(ZeusPlugin.Command command) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, mk2Var) != null) || !a || mk2Var == null) {
-            return;
-        }
-        if (ProcessUtils.isMainProcess()) {
-            dk2.a(mk2Var).b();
-            lk2.b().a(mk2Var.a);
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putInt("recovery_level", mk2Var.a);
-        bundle.putStringArrayList("recovery_app_list", mk2Var.b);
-        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), ck2.class, bundle);
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            if (!a) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
+            if (command == null) {
+                str = "";
+            } else {
+                str = command.what;
             }
-            int i = bundle.getInt("recovery_level", -1);
-            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
-            mk2 mk2Var = new mk2();
-            mk2Var.a = i;
-            if (stringArrayList != null) {
-                mk2Var.b = stringArrayList;
+            if (((zl2) this.c).q()) {
+                p22.i("InlineRtcItemController", "isReleased command：" + str);
+                return;
             }
-            dk2.a(mk2Var).b();
-            lk2.b().a(mk2Var.a);
-            return null;
+            p22.i("InlineRtcItemController", "authorize type：" + ((zl2) this.c).a() + " command：" + str);
+            super.sendCommand(command);
         }
-        return (Bundle) invokeL.objValue;
     }
 }

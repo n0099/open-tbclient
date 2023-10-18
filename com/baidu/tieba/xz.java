@@ -1,59 +1,50 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.CharArrayWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 /* loaded from: classes8.dex */
-public abstract class xz {
+public class xz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tz a;
-    public final int b;
-    public byte[] c;
 
-    public xz(tz tzVar) {
+    public static void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tzVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLI(65536, null, inputStream, outputStream, i) == null) {
+            byte[] bArr = new byte[i];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read > 0) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    return;
+                }
             }
         }
-        this.a = tzVar;
-        this.b = tzVar.a();
     }
 
-    public abstract void a(boolean z, String str, byte[] bArr, byte[] bArr2);
-
-    public abstract void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
-
-    public abstract void c();
-
-    public abstract void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
-
-    public abstract void e();
-
-    public void f(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+    public static String b(InputStream inputStream, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            b(bArr, i, i2, bArr2, i3);
-        }
-    }
-
-    public abstract void g();
-
-    public void h(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            d(bArr, i, i2, bArr2, i3);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, str)) == null) {
+            CharArrayWriter charArrayWriter = new CharArrayWriter();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
+            char[] cArr = new char[8192];
+            while (true) {
+                int read = inputStreamReader.read(cArr);
+                if (read > 0) {
+                    charArrayWriter.write(cArr, 0, read);
+                } else {
+                    return charArrayWriter.toString();
+                }
+            }
+        } else {
+            return (String) invokeLL.objValue;
         }
     }
 }

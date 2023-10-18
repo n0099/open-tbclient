@@ -8,7 +8,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class AdFullTailFrameView extends AdBaseTailFrameView {
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public int f() {
+    public int e() {
         return R.layout.nad_video_tail_frame_full_view;
     }
 
@@ -27,8 +27,8 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public void e(Context context) {
-        super.e(context);
+    public void d(Context context) {
+        super.d(context);
         ((ImageView) findViewById(R.id.immersive_video_ad_tail_frame_full_back_btn)).setOnClickListener(new a());
     }
 

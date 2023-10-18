@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public interface t95<T> {
-    @Nullable
-    T a(@NonNull List<p95<T>> list);
+public interface t95 {
+    void parseJson(JSONObject jSONObject);
 }

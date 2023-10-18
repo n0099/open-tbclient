@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.tts.jni.TtsLogLoad;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
@@ -148,7 +147,7 @@ public class e0 implements Handler.Callback {
             String str2 = s1.g;
             String str3 = "postUrl is " + str2;
             HashMap hashMap = new HashMap();
-            hashMap.put(TtsLogLoad.KEY_OS, "android");
+            hashMap.put("os", "android");
             hashMap.put("clientid", a2.a);
             hashMap.put("appid", a2.b);
             hashMap.put("devid", a2.c);

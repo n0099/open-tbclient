@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pg6;
+import com.baidu.tieba.ya6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public String b;
     public String c;
     public String d;
-    public pg6 e;
+    public ya6 e;
 
     public void c2(String str) {
         Interceptable interceptable = $ic;
@@ -88,9 +88,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.changeSkinType(i);
-            pg6 pg6Var = this.e;
-            if (pg6Var != null) {
-                pg6Var.m(i);
+            ya6 ya6Var = this.e;
+            if (ya6Var != null) {
+                ya6Var.m(i);
             }
         }
     }
@@ -121,9 +121,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            pg6 pg6Var = this.e;
-            if (pg6Var != null) {
-                pg6Var.m(i);
+            ya6 ya6Var = this.e;
+            if (ya6Var != null) {
+                ya6Var.m(i);
             }
         }
     }
@@ -144,9 +144,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             this.a = pageContext;
-            pg6 pg6Var = new pg6(pageContext, true);
-            this.e = pg6Var;
-            pg6Var.s(this.c);
+            ya6 ya6Var = new ya6(pageContext, true);
+            this.e = ya6Var;
+            ya6Var.s(this.c);
             this.e.r(this.b);
             this.e.t(this.d);
             if (getArguments() != null) {

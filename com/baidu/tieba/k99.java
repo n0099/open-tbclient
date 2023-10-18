@@ -1,94 +1,117 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.player.ExtAction;
-import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.event.SystemEvent;
-import com.baidu.searchbox.player.event.VideoEvent;
-import com.baidu.searchbox.player.plugin.AbsPlugin;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class k99 extends AbsPlugin {
+public class k99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    public void onPlayerEventNotify(VideoEvent event) {
+    public static void a(String str, Object obj, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k99(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            if (obj instanceof zx4) {
+                statisticItem.param("fid", ((zx4) obj).f());
+            } else if (obj instanceof ca9) {
+                ca9 ca9Var = (ca9) obj;
+                ThreadData threadData = ca9Var.h;
+                if (threadData != null) {
+                    statisticItem.param("tid", threadData.getTid());
+                }
+                statisticItem.param("obj_locate", ca9Var.a());
             }
+            statisticItem.param("topic_id", str2);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.eventStat();
         }
-        Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
+    public static void b(o99 o99Var, jv4 jv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new int[]{1, 4};
+        if (interceptable == null || interceptable.invokeLL(65537, null, o99Var, jv4Var) == null) {
+            d(o99Var, jv4Var, true);
         }
-        return (int[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    @SuppressLint({"WrongConstant"})
-    public void onSystemEventNotify(VideoEvent event) {
-        boolean z;
+    public static void c(o99 o99Var, jv4 jv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            String action = event.getAction();
-            if (action.hashCode() == 1822725860 && action.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
-                BDVideoPlayer bindPlayer = getBindPlayer();
-                boolean z2 = true;
-                if (bindPlayer != null) {
-                    z = bindPlayer.isStop();
+        if (interceptable == null || interceptable.invokeLL(65538, null, o99Var, jv4Var) == null) {
+            d(o99Var, jv4Var, false);
+        }
+    }
+
+    public static void d(o99 o99Var, jv4 jv4Var, boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65539, null, o99Var, jv4Var, z) == null) && jv4Var != null && jv4Var.getThreadData() != null) {
+            ThreadData threadData = jv4Var.getThreadData();
+            boolean s = o99Var.s();
+            if (z) {
+                if (s) {
+                    str = "c13823";
                 } else {
-                    z = true;
+                    str = "c13822";
                 }
-                if (!z) {
-                    BDVideoPlayer bindPlayer2 = getBindPlayer();
-                    if (bindPlayer2 != null) {
-                        z2 = bindPlayer2.isComplete();
-                    }
-                    if (!z2) {
-                        ExtAction extAction = new ExtAction(event.getAction());
-                        extAction.put(5, Integer.valueOf(event.getIntExtra(4)));
-                        BDVideoPlayer bindPlayer3 = getBindPlayer();
-                        if (bindPlayer3 != null) {
-                            bindPlayer3.onInfo(0, 0, extAction);
-                        }
-                    }
-                }
+            } else if (s) {
+                str = "c13824";
+            } else {
+                str = "c13821";
             }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("tid", threadData.getTid());
+            statisticItem.param("fid", threadData.getFid());
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (o99Var.t().getOrignalPage() instanceof HotTopicDetailActivity) {
+                statisticItem.param("topic_id", ((HotTopicDetailActivity) o99Var.t().getOrignalPage()).Q0());
+            }
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void e(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) != null) || threadData == null) {
+            return;
+        }
+        new StatisticItem("c13022").addParam("tid", threadData.getTid()).addParam("fid", threadData.getFid()).addParam("fname", threadData.getForum_name()).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_TO, 2).eventStat();
+    }
+
+    public static void f(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", tbPageContext.getOrignalPage().Q0());
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", str2);
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void h(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", tbPageContext.getOrignalPage().Q0());
+            statisticItem.eventStat();
         }
     }
 }

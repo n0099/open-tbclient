@@ -1,199 +1,385 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.message.chat.OfficialChatMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.util.CookieHelper;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.data.ShareIMCommonCardData;
+import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class pj8 extends dj8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static dj8 d = null;
-    public static String e = "tb_oficial_msg_";
+public class pj8 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948064075, "Lcom/baidu/tieba/pj8;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ThreadData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
+
+        public a(ThreadData threadData, long j, String str, String str2, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = threadData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948064075, "Lcom/baidu/tieba/pj8;");
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalThreadChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pj8() {
-        super("tb_oficial_msg_", OfficialChatMessage.class);
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ForumData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
+
+        public b(ForumData forumData, long j, String str, String str2, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {forumData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = forumData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalForumChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GroupInfoData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
+
+        public c(GroupInfoData groupInfoData, long j, String str, String str2, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {groupInfoData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = groupInfoData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalGroupChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareIMCommonCardData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
+
+        public d(ShareIMCommonCardData shareIMCommonCardData, long j, String str, String str2, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shareIMCommonCardData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = shareIMCommonCardData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalCommonCardChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+    }
+
+    public static void a(@Nullable ForumData forumData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (Class) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{forumData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalForumChatMessage(forumData, j, str2, str3, str4, z);
                 return;
             }
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            SafeHandler.getInst().postDelayed(new b(forumData, j, str2, str3, str4, z), 500L);
         }
     }
 
-    public static synchronized pj8 w() {
-        InterceptResult invokeV;
-        pj8 pj8Var;
+    public static void b(@Nullable GroupInfoData groupInfoData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (pj8.class) {
-                if (d == null) {
-                    d = new pj8();
-                }
-                pj8Var = (pj8) d;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{groupInfoData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalGroupChatMessage(groupInfoData, j, str2, str3, str4, z);
+                return;
             }
-            return pj8Var;
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            SafeHandler.getInst().postDelayed(new c(groupInfoData, j, str2, str3, str4, z), 500L);
         }
-        return (pj8) invokeV.objValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00b5: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:29:0x00b5 */
-    public static List<tj8> x() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Exception e2;
-        Cursor cursor;
-        Cursor cursor2;
+    public static void c(@Nullable ShareIMCommonCardData shareIMCommonCardData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Cursor cursor3 = null;
-            ArrayList arrayList2 = null;
-            try {
-                try {
-                    cursor = lj8.d().e("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
-                    if (cursor != null) {
-                        try {
-                            arrayList = new ArrayList(cursor.getCount());
-                            while (cursor.moveToNext()) {
-                                try {
-                                    tj8 tj8Var = new tj8();
-                                    tj8Var.h(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
-                                    tj8Var.j(cursor.getInt(cursor.getColumnIndex("unread_count")));
-                                    tj8Var.i(cursor.getString(cursor.getColumnIndex("group_head")));
-                                    tj8Var.g(cursor.getString(cursor.getColumnIndex("group_name")));
-                                    tj8Var.k(cursor.getInt(cursor.getColumnIndex("user_type")));
-                                    int columnIndex = cursor.getColumnIndex("visit_time");
-                                    if (columnIndex >= 0) {
-                                        tj8Var.l(cursor.getLong(columnIndex));
-                                    }
-                                    arrayList.add(tj8Var);
-                                } catch (Exception e3) {
-                                    e2 = e3;
-                                    e2.printStackTrace();
-                                    TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
-                                    ei.a(cursor);
-                                    return arrayList;
-                                }
-                            }
-                            arrayList2 = arrayList;
-                        } catch (Exception e4) {
-                            arrayList = null;
-                            e2 = e4;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{shareIMCommonCardData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalCommonCardChatMessage(shareIMCommonCardData, j, str2, str3, str4, z);
+                return;
+            }
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            SafeHandler.getInst().postDelayed(new d(shareIMCommonCardData, j, str2, str3, str4, z), 500L);
+        }
+    }
+
+    public static void d(@Nullable ThreadData threadData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{threadData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalThreadChatMessage(threadData, j, str2, str3, str4, z);
+                return;
+            }
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            SafeHandler.getInst().postDelayed(new a(threadData, j, str2, str3, str4, z), 500L);
+        }
+    }
+
+    public static void e(String str, GroupInfoData groupInfoData, @Nullable ShareIMCommonCardData shareIMCommonCardData) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, groupInfoData, shareIMCommonCardData) == null) {
+            if (shareIMCommonCardData != null) {
+                int shareType = shareIMCommonCardData.getShareType();
+                if (shareType != 1) {
+                    if (shareType != 2) {
+                        if (shareType == 3) {
+                            i = 6;
                         }
+                    } else {
+                        i = 5;
                     }
-                    ei.a(cursor);
-                    return arrayList2;
-                } catch (Throwable th) {
-                    th = th;
-                    cursor3 = cursor2;
-                    ei.a(cursor3);
-                    throw th;
+                } else {
+                    i = 4;
                 }
-            } catch (Exception e5) {
-                arrayList = null;
-                e2 = e5;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                ei.a(cursor3);
-                throw th;
+                g(str, i, null, null, shareIMCommonCardData, null, groupInfoData);
             }
-        } else {
-            return (List) invokeV.objValue;
+            i = Integer.MAX_VALUE;
+            g(str, i, null, null, shareIMCommonCardData, null, groupInfoData);
         }
     }
 
-    public static List<String> y() {
-        InterceptResult invokeV;
+    public static void f(String str, int i, ThreadData threadData, ForumData forumData, GroupInfoData groupInfoData, GroupInfoData groupInfoData2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Cursor cursor = null;
-            try {
-                try {
-                    lj8 d2 = lj8.d();
-                    cursor = d2.e("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            arrayList.add(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
-                        }
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), threadData, forumData, groupInfoData, groupInfoData2}) == null) {
+            g(str, i, threadData, forumData, null, groupInfoData, groupInfoData2);
+        }
+    }
+
+    public static void g(String str, int i, ThreadData threadData, ForumData forumData, @Nullable ShareIMCommonCardData shareIMCommonCardData, GroupInfoData groupInfoData, GroupInfoData groupInfoData2) {
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Integer.valueOf(i), threadData, forumData, shareIMCommonCardData, groupInfoData, groupInfoData2}) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP);
+            String str8 = "";
+            if (threadData == null) {
+                str2 = "";
+            } else {
+                str2 = threadData.getId();
+            }
+            httpMessage.addParam("thread_id", str2);
+            if (forumData == null) {
+                str3 = "";
+            } else {
+                str3 = forumData.getId();
+            }
+            httpMessage.addParam("fid", str3);
+            httpMessage.addParam(GroupInfoData.SHARE_KEY_TYPE, i);
+            if (shareIMCommonCardData == null) {
+                str4 = "";
+            } else {
+                str4 = shareIMCommonCardData.getJumpLink();
+            }
+            httpMessage.addParam("schema", str4);
+            if (!ShareIMCommonCardData.isValidAlbum(shareIMCommonCardData)) {
+                str5 = "";
+            } else {
+                str5 = shareIMCommonCardData.getId();
+            }
+            httpMessage.addParam(GroupInfoData.SHARE_KEY_ALBUM_ID, str5);
+            if (!ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
+                str6 = "";
+            } else {
+                str6 = shareIMCommonCardData.getId();
+            }
+            httpMessage.addParam("topic_id", str6);
+            if (!ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
+                str7 = "";
+            } else {
+                str7 = shareIMCommonCardData.getTagName();
+            }
+            httpMessage.addParam("topic_name", str7);
+            if (ShareIMCommonCardData.isValidActive(shareIMCommonCardData)) {
+                str8 = shareIMCommonCardData.getId();
+            }
+            httpMessage.addParam("scene_id", str8);
+            long j2 = 0;
+            if (groupInfoData != null) {
+                j = groupInfoData.getGroupId();
+            } else {
+                j = 0;
+            }
+            httpMessage.addParam(GroupInfoData.SHARE_KEY_FROM_GROUP_ID, j);
+            if (groupInfoData2 != null) {
+                j2 = groupInfoData2.getGroupId();
+            }
+            httpMessage.addParam("chatroom_id", j2);
+            Map<String, String> b2 = CookieHelper.b();
+            if (!zh6.b(b2)) {
+                for (Map.Entry<String, String> entry : b2.entrySet()) {
+                    if (entry != null) {
+                        httpMessage.addCookie(entry.getKey(), entry.getValue());
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
                 }
-                return arrayList;
-            } finally {
-                ei.a(cursor);
             }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void A(long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("read_count", Integer.valueOf(i));
-                lj8 d2 = lj8.d();
-                int update = d2.update(e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
-                BdLog.d("updateReadCount result = " + update);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void z(long j, long j2) {
+    public static void h(String str, @Nullable GroupInfoData groupInfoData, @NonNull ForumData forumData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("visit_time", Long.valueOf(j2));
-                contentValues.put("unread_count", (Integer) 0);
-                int update = lj8.d().update("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)});
-                BdLog.d("updateReadCount result = " + update);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, groupInfoData, forumData) == null) {
+            f(str, 2, null, forumData, null, groupInfoData);
+        }
+    }
+
+    public static void i(String str, GroupInfoData groupInfoData, @NonNull GroupInfoData groupInfoData2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, groupInfoData, groupInfoData2) == null) {
+            f(str, 3, null, null, groupInfoData2, groupInfoData);
+        }
+    }
+
+    public static void j(String str, GroupInfoData groupInfoData, @NonNull ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, str, groupInfoData, threadData) == null) {
+            ForumData forumData = new ForumData();
+            if (threadData.getForumData() != null) {
+                forumData.setId(threadData.getForumData().a);
+                forumData.setName(threadData.getForumData().b);
             }
+            if (TextUtils.isEmpty(forumData.getId())) {
+                forumData.setId(threadData.getFid() + "");
+            }
+            if (TextUtils.isEmpty(forumData.getName())) {
+                forumData.setName(threadData.getForum_name());
+            }
+            f(str, 1, threadData, forumData, null, groupInfoData);
         }
     }
 }

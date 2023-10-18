@@ -30,10 +30,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.AutoChangeLineView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fia;
-import com.baidu.tieba.j2b;
+import com.baidu.tieba.eo5;
+import com.baidu.tieba.exa;
+import com.baidu.tieba.vca;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.yt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class SelectTagListView extends LinearLayout implements yt5, View.OnClickListener, AutoChangeLineView.c {
+public class SelectTagListView extends LinearLayout implements eo5, View.OnClickListener, AutoChangeLineView.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<SelectTagActivity> a;
@@ -72,34 +72,34 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
     @Override // com.baidu.tbadk.core.view.AutoChangeLineView.c
     public void a(TextView textView, Object obj, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, obj, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, textView, obj, i2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.yt5
-    public Intent getResultIntent() {
+    @Override // com.baidu.tieba.eo5
+    public boolean g1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yt5
-    public boolean h1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
+    @Override // com.baidu.tieba.eo5
+    public Intent getResultIntent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
         }
     }
 
@@ -279,7 +279,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.n.size() >= this.a.t) {
                     this.a.p.setInputType(0);
-                    new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03cc)).show((ViewGroup) this.a.d);
+                    new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03ce)).show((ViewGroup) this.a.d);
                     return;
                 }
                 this.a.p.setInputType(1);
@@ -323,7 +323,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
                         if (this.a.n.size() < this.a.t) {
                             SelectTagListView selectTagListView = this.a;
                             if (selectTagListView.n.contains(selectTagListView.q)) {
-                                new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03cb)).show((ViewGroup) this.a.d);
+                                new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03cd)).show((ViewGroup) this.a.d);
                             } else {
                                 SelectTagListView selectTagListView2 = this.a;
                                 if (selectTagListView2.o.contains(selectTagListView2.q)) {
@@ -344,7 +344,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
                                 this.a.y();
                             }
                         } else {
-                            new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03cc)).show((ViewGroup) this.a.d);
+                            new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03ce)).show((ViewGroup) this.a.d);
                         }
                     }
                     this.a.setFinishSelectType();
@@ -410,7 +410,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
     }
 
     /* loaded from: classes8.dex */
-    public class g implements j2b.c {
+    public class g implements exa.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectTagListView a;
@@ -433,11 +433,11 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
             this.a = selectTagListView;
         }
 
-        @Override // com.baidu.tieba.j2b.c
+        @Override // com.baidu.tieba.exa.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03c8)).show((ViewGroup) this.a.d);
+                new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03ca)).show((ViewGroup) this.a.d);
             }
         }
     }
@@ -474,7 +474,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
                     if (this.a.n.size() < this.a.t) {
                         SelectTagListView selectTagListView = this.a;
                         if (selectTagListView.n.contains(selectTagListView.q)) {
-                            new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03cb)).show((ViewGroup) this.a.d);
+                            new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03cd)).show((ViewGroup) this.a.d);
                         } else {
                             SelectTagListView selectTagListView2 = this.a;
                             if (selectTagListView2.o.contains(selectTagListView2.q)) {
@@ -495,7 +495,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
                             this.a.y();
                         }
                     } else {
-                        new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03cc)).show((ViewGroup) this.a.d);
+                        new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03ce)).show((ViewGroup) this.a.d);
                     }
                     this.a.setFinishSelectType();
                 }
@@ -580,7 +580,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
                     this.a.n.remove(obj);
                 } else {
                     this.a.l.setSelects(i);
-                    new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03cc)).show((ViewGroup) this.a.d);
+                    new BdTopToast(this.a.getContext()).setIcon(false).setContent(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03ce)).show((ViewGroup) this.a.d);
                 }
                 SelectTagListView selectTagListView = this.a;
                 selectTagListView.m.setLabels(selectTagListView.n, selectTagListView.v);
@@ -623,7 +623,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
         this.b = navigationBar;
         this.n = new ArrayList();
         this.o = new ArrayList<>();
-        LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0a14, (ViewGroup) this.e, true);
+        LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d09fe, (ViewGroup) this.e, true);
         o();
         r();
         q();
@@ -634,7 +634,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
 
     public void setHadSelectTagList(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
             this.n = list;
             this.m.setLabels(list, this.v);
             this.l.setLabels(this.o, this.w);
@@ -646,16 +646,31 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
 
     public final void x(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             this.n.add(str);
         }
     }
 
-    @Override // com.baidu.tieba.yt5
+    @Override // com.baidu.tieba.eo5
+    public void A(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            r();
+            q();
+            t();
+            s();
+            m();
+            EMManager.from(this.p).setTextColor(R.color.CAM_X0105).setBackGroundColor(R.color.CAM_X0209);
+            this.m.setLabels(this.n, this.v);
+            this.l.setLabels(this.o, this.w);
+        }
+    }
+
+    @Override // com.baidu.tieba.eo5
     public boolean M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ScrollView scrollView = this.k;
             if (scrollView != null && scrollView.getScrollY() == 0 && !this.a.getOrignalPage().K1()) {
                 return true;
@@ -668,7 +683,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
     public List<String> getHadSelectTagList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.n;
         }
         return (List) invokeV.objValue;
@@ -676,22 +691,22 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.p.setInputType(0);
         }
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.m = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f090ee1);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.m = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f090efc);
             p();
         }
     }
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.n != null) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.n != null) {
             this.m.setOnLabelClickListener(new a(this));
         }
     }
@@ -699,7 +714,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
     public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             List<String> list = this.n;
             if (list != null && list.size() != 0) {
                 this.s = true;
@@ -714,7 +729,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
 
     public final void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             if (this.n.size() >= this.t) {
                 this.p.setInputType(0);
             } else {
@@ -725,7 +740,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             EMTextView eMTextView = this.f;
             eMTextView.setText("(" + this.n.size() + "/" + this.t + SmallTailInfo.EMOTION_SUFFIX);
         }
@@ -733,17 +748,17 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
 
     public final void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.b.setCenterTextTitle(this.a.getResources().getString(R.string.activity_select_tag_title));
-            this.c = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04b6));
+            this.c = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04ba));
         }
     }
 
     public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.l = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f092404);
-            ScrollView scrollView = (ScrollView) this.e.findViewById(R.id.obfuscated_res_0x7f0923f6);
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.l = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f09240e);
+            ScrollView scrollView = (ScrollView) this.e.findViewById(R.id.obfuscated_res_0x7f092400);
             this.k = scrollView;
             scrollView.setOnTouchListener(new i(this));
             this.l.setOnLabelClickListener(new j(this));
@@ -752,28 +767,28 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
 
     public void setFinishSelectType() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             List<String> list = this.n;
             if (list != null && list.size() != 0) {
                 EMManager.from(this.c).setTextSelectorColor(R.color.CAM_X0302);
             } else {
-                this.c.setTextColor(fia.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.c.setTextColor(vca.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
 
     public final void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.j = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091a42);
-            EditText editText = (EditText) this.e.findViewById(R.id.obfuscated_res_0x7f091141);
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.j = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091a6b);
+            EditText editText = (EditText) this.e.findViewById(R.id.obfuscated_res_0x7f09115b);
             this.p = editText;
             editText.setMaxLines(1);
-            this.r = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f091133);
+            this.r = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f09114d);
             this.p.setOnClickListener(new d(this));
             this.p.setOnEditorActionListener(new e(this));
             this.p.addTextChangedListener(new f(this));
-            this.p.setFilters(new InputFilter[]{new j2b.a(this.u, new g(this))});
+            this.p.setFilters(new InputFilter[]{new exa.a(this.u, new g(this))});
             this.r.setOnClickListener(new h(this));
             EMManager.from(this.j).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0209);
         }
@@ -781,9 +796,9 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
 
     public final void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f092991);
-            EMTextView eMTextView = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f09298f);
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.f = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f092983);
+            EMTextView eMTextView = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f092981);
             this.g = eMTextView;
             EMManager.from(eMTextView).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X06);
             this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
@@ -793,9 +808,9 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
 
     public final void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.h = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090838);
-            this.i = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f091e8e);
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.h = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090854);
+            this.i = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f091ead);
             EMManager.from(this.h).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X06);
             EMManager.from(this.i).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X06);
             this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
@@ -805,7 +820,7 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
 
     public void setRecommendTagList(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, arrayList) == null) {
             this.o = arrayList;
             this.l.setTextBold(false);
             this.l.setLabels(this.o, this.w);
@@ -815,21 +830,6 @@ public class SelectTagListView extends LinearLayout implements yt5, View.OnClick
                 }
             }
             setFinishSelectType();
-        }
-    }
-
-    @Override // com.baidu.tieba.yt5
-    public void z(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            r();
-            q();
-            t();
-            s();
-            m();
-            EMManager.from(this.p).setTextColor(R.color.CAM_X0105).setBackGroundColor(R.color.CAM_X0209);
-            this.m.setLabels(this.n, this.v);
-            this.l.setLabels(this.o, this.w);
         }
     }
 }

@@ -1,173 +1,74 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdptask.bdtls.AES;
-import com.baidu.bdtask.framework.utils.DebugTrace;
+import com.baidu.card.view.CardForumHeadLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bs {
+public class bs extends yr implements qs<ThreadData>, rs {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bs a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CardForumHeadLayout a;
+    public int b;
+    public int c;
+    public int d;
 
-    public static byte[] d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)} : (byte[]) invokeI.objValue;
-    }
-
-    public bs() {
+    public bs(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        this.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
+        this.d = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+        this.a = new CardForumHeadLayout(tbPageContext.getPageActivity());
+        setInsertIndex(-1);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.leftMargin = this.c;
+        layoutParams.topMargin = this.b;
+        layoutParams.bottomMargin = this.d;
+        setLayoutParams(layoutParams);
+        setDecorView(this.a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qs
+    /* renamed from: a */
+    public void onBindDataToView(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+            if (threadData != null && threadData.getAuthor() != null) {
+                this.a.setVisibility(0);
+                this.a.setData(threadData);
+                this.a.setTag(threadData);
+                return;
+            }
+            this.a.setVisibility(8);
         }
     }
 
-    public static bs c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rs
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (bs.class) {
-                    if (a == null) {
-                        a = new bs();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.a.g();
         }
-        return (bs) invokeV.objValue;
-    }
-
-    public static int a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return 0;
-            }
-            int i = 0;
-            for (byte b : bArr) {
-                i = (i << 8) | (b & 255);
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public sr b(tr trVar, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, trVar, bArr)) == null) {
-            sr srVar = new sr();
-            try {
-                rr a2 = wr.a(bArr);
-                byte i = a2.i();
-                if (i != 21) {
-                    if (i == 23) {
-                        srVar.c(new String(AES.aesDecrypt(a2.p(), trVar.q())));
-                        srVar.b(1);
-                    }
-                } else {
-                    hr a3 = hr.a(a2.o());
-                    if (a3 != null) {
-                        String b = a3.b();
-                        DebugTrace debugTrace = DebugTrace.a;
-                        debugTrace.a("bdtls ubc application alert : " + b);
-                        if (1 == a3.d()) {
-                            srVar.b(-2);
-                        } else if (TextUtils.equals(b, "down grade")) {
-                            srVar.b(2);
-                        } else {
-                            srVar.b(-1);
-                        }
-                        if (gr.c.h().c()) {
-                            if (a3.b() != null) {
-                                DebugTrace debugTrace2 = DebugTrace.a;
-                                debugTrace2.a("BdtlsPostRequest response alert message=" + b);
-                            } else {
-                                DebugTrace.a.a("BdtlsPostRequest response alert messag=null");
-                            }
-                        }
-                    } else {
-                        srVar.b(-1);
-                    }
-                }
-            } catch (Exception e) {
-                DebugTrace debugTrace3 = DebugTrace.a;
-                debugTrace3.a("exception=" + e.getMessage());
-                srVar.b(-1);
-            }
-            return srVar;
-        }
-        return (sr) invokeLL.objValue;
-    }
-
-    public byte[] e(tr trVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, trVar)) == null) {
-            if (trVar == null) {
-                return null;
-            }
-            try {
-                byte[] b = vr.b(trVar, new pr());
-                if (b == null) {
-                    return null;
-                }
-                rr a2 = rr.i.a();
-                a2.a((byte) 22);
-                a2.c((short) b.length);
-                a2.j(b);
-                return wr.b(a2);
-            } catch (Exception e) {
-                DebugTrace debugTrace = DebugTrace.a;
-                debugTrace.a("exception=" + e.getMessage());
-                return null;
-            }
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public byte[] f(tr trVar, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, trVar, str)) == null) {
-            if (trVar == null) {
-                return null;
-            }
-            try {
-                rr a2 = rr.i.a();
-                a2.a((byte) 23);
-                byte[] r = trVar.r();
-                if (r != null && r.length > 0 && r.length <= 32767) {
-                    a2.c((short) r.length);
-                    a2.j(r);
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    byte[] aesEncrypt = AES.aesEncrypt(str, trVar.q());
-                    a2.b(aesEncrypt.length);
-                    a2.l(aesEncrypt);
-                }
-                return wr.b(a2);
-            } catch (Exception e) {
-                DebugTrace debugTrace = DebugTrace.a;
-                debugTrace.a("exception=" + e.getMessage());
-                return null;
-            }
-        }
-        return (byte[]) invokeLL.objValue;
     }
 }

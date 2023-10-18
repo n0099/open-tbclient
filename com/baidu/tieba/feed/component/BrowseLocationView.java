@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a77;
+import com.baidu.tieba.b77;
 import com.baidu.tieba.feed.component.BrowseLocationView;
 import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
-import com.baidu.tieba.l87;
-import com.baidu.tieba.rc7;
-import com.baidu.tieba.sc7;
+import com.baidu.tieba.u27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,7 +35,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
 @Metadata(d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u000e\u001a\u00020\u000fH\u0016J\u0012\u0010\u0010\u001a\u00020\u000f2\b\u0010\u0011\u001a\u0004\u0018\u00010\u0012H\u0007R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0013"}, d2 = {"Lcom/baidu/tieba/feed/component/BrowseLocationView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "M_H_X003", "", "mProgressView", "Landroid/widget/TextView;", "mReadHere", "", "onChangeSkin", "", "updateState", "state", "Lcom/baidu/tieba/feed/component/uistate/BrowseLocationUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class BrowseLocationView extends FrameLayout implements rc7 {
+public final class BrowseLocationView extends FrameLayout implements a77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -87,16 +87,16 @@ public final class BrowseLocationView extends FrameLayout implements rc7 {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        View findViewById = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d018b, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f091e3b);
+        View findViewById = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0189, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f091e5a);
         Intrinsics.checkNotNullExpressionValue(findViewById, "view.findViewById(R.id.read_progress)");
         TextView textView = (TextView) findViewById;
         this.b = textView;
         int i3 = this.a;
         textView.setPadding(0, i3, 0, i3);
-        this.c = getResources().getString(R.string.obfuscated_res_0x7f0f038a);
+        this.c = getResources().getString(R.string.obfuscated_res_0x7f0f038c);
         TextView textView2 = this.b;
         StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-        String format = String.format(Locale.getDefault(), "%s%s", Arrays.copyOf(new Object[]{getResources().getString(R.string.obfuscated_res_0x7f0f038b), this.c}, 2));
+        String format = String.format(Locale.getDefault(), "%s%s", Arrays.copyOf(new Object[]{getResources().getString(R.string.obfuscated_res_0x7f0f038d), this.c}, 2));
         Intrinsics.checkNotNullExpressionValue(format, "format(locale, format, *args)");
         textView2.setText(format);
         b();
@@ -106,11 +106,11 @@ public final class BrowseLocationView extends FrameLayout implements rc7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void c(BrowseLocationUiState browseLocationUiState, l87 data, View view2) {
+    public static final void c(BrowseLocationUiState browseLocationUiState, u27 data, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, browseLocationUiState, data, view2) == null) {
             Intrinsics.checkNotNullParameter(data, "$data");
-            Function2<l87, View, Unit> i = browseLocationUiState.i();
+            Function2<u27, View, Unit> i = browseLocationUiState.i();
             Intrinsics.checkNotNullExpressionValue(view2, "view");
             i.invoke(data, view2);
         }
@@ -118,7 +118,7 @@ public final class BrowseLocationView extends FrameLayout implements rc7 {
 
     @SuppressLint({"NotifyDataSetChanged"})
     public final void a(final BrowseLocationUiState browseLocationUiState) {
-        final l87 h;
+        final u27 h;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, browseLocationUiState) == null) && browseLocationUiState != null && (h = browseLocationUiState.h()) != null) {
             String formatTimeShort = StringHelper.getFormatTimeShort(h.d);
@@ -127,7 +127,7 @@ public final class BrowseLocationView extends FrameLayout implements rc7 {
             String format = String.format(Locale.getDefault(), "%s%s", Arrays.copyOf(new Object[]{formatTimeShort, this.c}, 2));
             Intrinsics.checkNotNullExpressionValue(format, "format(locale, format, *args)");
             textView.setText(format);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y67
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.h17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -143,10 +143,10 @@ public final class BrowseLocationView extends FrameLayout implements rc7 {
         }
     }
 
-    @Override // com.baidu.tieba.rc7
+    @Override // com.baidu.tieba.a77
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || sc7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || b77.a(this)) {
             return;
         }
         SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0304);

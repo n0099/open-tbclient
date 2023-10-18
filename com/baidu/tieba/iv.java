@@ -1,16 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ev;
-import com.baidu.tieba.fv;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,425 +9,383 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.DigestException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.MGF1ParameterSpec;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import javax.crypto.BadPaddingException;
+import javax.crypto.spec.OAEPParameterSpec;
+import javax.crypto.spec.PSource;
 /* loaded from: classes6.dex */
-public class iv extends fv {
+public final class iv {
     public static /* synthetic */ Interceptable $ic;
-    public static View a;
-    public static Runnable b;
-    public static View c;
-    public static boolean d;
+    public static final Map<String, byte[]> h;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public SecureRandom c;
+    public final int d;
+    public MessageDigest e;
+    public MessageDigest f;
+    public byte[] g;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448307744, "Lcom/baidu/tieba/iv;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307744, "Lcom/baidu/tieba/iv;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448307744, "Lcom/baidu/tieba/iv;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        h = Collections.synchronizedMap(new HashMap());
+    }
+
+    public iv(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
+        String str;
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), secureRandom, oAEPParameterSpec};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448307744, "Lcom/baidu/tieba/iv;");
+        this.a = i;
+        this.b = i2;
+        this.c = secureRandom;
+        if (i2 < 64) {
+            throw new InvalidKeyException("Padded size must be at least 64");
         }
+        if (i == 1 || i == 2) {
+            i2 -= 11;
+        } else if (i != 3) {
+            if (i != 4) {
+                throw new InvalidKeyException("Invalid padding: " + i);
+            }
+            byte[] bArr = null;
+            String str2 = "SHA-1";
+            if (oAEPParameterSpec != null) {
+                try {
+                    str2 = oAEPParameterSpec.getDigestAlgorithm();
+                    String mGFAlgorithm = oAEPParameterSpec.getMGFAlgorithm();
+                    if (!mGFAlgorithm.equalsIgnoreCase("MGF1")) {
+                        throw new InvalidAlgorithmParameterException("Unsupported MGF algo: " + mGFAlgorithm);
+                    }
+                    String digestAlgorithm = ((MGF1ParameterSpec) oAEPParameterSpec.getMGFParameters()).getDigestAlgorithm();
+                    PSource pSource = oAEPParameterSpec.getPSource();
+                    String algorithm = pSource.getAlgorithm();
+                    if (!algorithm.equalsIgnoreCase("PSpecified")) {
+                        throw new InvalidAlgorithmParameterException("Unsupported pSource algo: " + algorithm);
+                    }
+                    byte[] value = ((PSource.PSpecified) pSource).getValue();
+                    str = digestAlgorithm;
+                    bArr = value;
+                } catch (NoSuchAlgorithmException e) {
+                    throw new InvalidKeyException("Digest SHA-1 not available", e);
+                }
+            } else {
+                str = "SHA-1";
+            }
+            this.e = MessageDigest.getInstance(str2);
+            this.f = MessageDigest.getInstance(str);
+            byte[] e2 = e(this.e, bArr);
+            this.g = e2;
+            int length = (i2 - 2) - (e2.length * 2);
+            this.d = length;
+            if (length > 0) {
+                return;
+            }
+            throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str2 + " and MGF1" + str);
+        }
+        this.d = i2;
     }
 
-    /* loaded from: classes6.dex */
-    public static class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ View b;
+    public static iv b(int i, int i2, SecureRandom secureRandom) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, secureRandom)) == null) ? new iv(i, i2, secureRandom, null) : (iv) invokeIIL.objValue;
+    }
 
-        /* loaded from: classes6.dex */
-        public class a implements Animation.AnimationListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
+    public static iv c(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), secureRandom, oAEPParameterSpec})) == null) ? new iv(i, i2, secureRandom, oAEPParameterSpec) : (iv) invokeCommon.objValue;
+    }
 
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+    public static byte[] e(MessageDigest messageDigest, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, messageDigest, bArr)) == null) {
+            if (bArr == null || bArr.length == 0) {
+                String algorithm = messageDigest.getAlgorithm();
+                byte[] bArr2 = h.get(algorithm);
+                if (bArr2 == null) {
+                    byte[] digest = messageDigest.digest();
+                    h.put(algorithm, digest);
+                    return digest;
                 }
+                return bArr2;
             }
+            return messageDigest.digest(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
 
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                }
-            }
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+    }
 
-            /* renamed from: com.baidu.tieba.iv$e$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class RunnableC0351a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a a;
-
-                public RunnableC0351a(a aVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {aVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
+    public final void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) {
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            byte[] bArr3 = new byte[4];
+            byte[] bArr4 = new byte[20];
+            while (i4 > 0) {
+                this.f.update(bArr, i, i2);
+                this.f.update(bArr3);
+                try {
+                    this.f.digest(bArr4, 0, 20);
+                    for (int i6 = 0; i6 < 20 && i4 > 0; i6++) {
+                        bArr2[i3] = (byte) (bArr4[i6] ^ bArr2[i3]);
+                        i4--;
+                        i3++;
+                    }
+                    if (i4 > 0) {
+                        while (true) {
+                            byte b = (byte) (bArr3[i5] + 1);
+                            bArr3[i5] = b;
+                            i5 = (b == 0 && i5 > 0) ? i5 - 1 : 3;
                         }
                     }
-                    this.a = aVar;
+                } catch (DigestException e) {
+                    throw new BadPaddingException(e.toString());
                 }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.a.getParent() != null) {
-                        ((ViewGroup) this.a.a.a.getParent()).removeView(this.a.a.a);
-                    }
-                }
-            }
-
-            /* loaded from: classes6.dex */
-            public class b implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a a;
-
-                public b(a aVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {aVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = aVar;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    View view2;
-                    Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view2 = this.a.a.b) != null && view2.getParent() != null && (this.a.a.b.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) this.a.a.b.getParent()).removeView(this.a.a.b);
-                    }
-                }
-            }
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation animation) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                    if (this.a.a.getParent() instanceof ViewGroup) {
-                        this.a.a.post(new RunnableC0351a(this));
-                    }
-                    View view2 = this.a.b;
-                    if (view2 != null) {
-                        view2.post(new b(this));
-                    }
-                }
-            }
-        }
-
-        public e(View view2, View view3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, view3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = view3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getContext(), R.anim.sdk_toast_exit);
-                loadAnimation.setAnimationListener(new a(this));
-                this.a.startAnimation(loadAnimation);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ View c;
-        public final /* synthetic */ FrameLayout.LayoutParams d;
-        public final /* synthetic */ Animation e;
-
-        public a(View view2, Context context, View view3, FrameLayout.LayoutParams layoutParams, Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, context, view3, layoutParams, animation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = context;
-            this.c = view3;
-            this.d = layoutParams;
-            this.e = animation;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (iv.d && this.a != null) {
-                    if (iv.c != null && (iv.c.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) iv.c.getParent()).removeView(iv.c);
-                    }
-                    Context context = this.b;
-                    if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
-                        return;
-                    }
-                    FrameLayout frameLayout = new FrameLayout(this.b);
-                    frameLayout.setClickable(true);
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                    layoutParams.topMargin = ev.m(this.b);
-                    View view2 = this.a;
-                    if (view2 instanceof ViewGroup) {
-                        ((ViewGroup) view2).addView(frameLayout, layoutParams);
-                        View unused = iv.c = frameLayout;
-                    }
-                }
-                if (iv.a != null && (iv.a.getParent() instanceof ViewGroup)) {
-                    ((ViewGroup) iv.a.getParent()).removeView(iv.a);
-                }
-                Context context2 = this.b;
-                if ((context2 instanceof Activity) && ((Activity) context2).isFinishing()) {
-                    return;
-                }
-                ((ViewGroup) this.a).addView(this.c, this.d);
-                this.c.startAnimation(this.e);
-                View unused2 = iv.a = this.c;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                iv.f();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements fv.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ View b;
-        public final /* synthetic */ int c;
-
-        public c(int i, View view2, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), view2, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = view2;
-            this.c = i2;
-        }
-
-        @Override // com.baidu.tieba.fv.e
-        public void a(ViewGroup viewGroup) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                layoutParams.gravity = 81;
-                layoutParams.bottomMargin = this.a;
-                iv.k(this.b, viewGroup, this.c, layoutParams, R.anim.sdk_toast_enter);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d implements ev.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ev.a a;
-
-        public d(ev.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        @Override // com.baidu.tieba.ev.a
-        public void onToastClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ev.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onToastClick();
-                }
-                iv.f();
-            }
-        }
-    }
-
-    public static View d(Activity activity) {
+    public byte[] f(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-                return activity.getWindow().getDecorView().findViewById(16908290);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            if (bArr.length > this.d) {
+                throw new BadPaddingException("Data must be shorter than " + (this.d + 1) + " bytes");
             }
-            return null;
+            int i = this.a;
+            if (i == 1 || i == 2) {
+                return i(bArr);
+            }
+            if (i != 3) {
+                if (i == 4) {
+                    return k(bArr);
+                }
+                throw new AssertionError();
+            }
+            return bArr;
         }
-        return (View) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static synchronized void f() {
+    public byte[] g(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (iv.class) {
-                if (a != null) {
-                    a.post(new e(a, c));
-                    a.removeCallbacks(b);
-                    a = null;
-                    b = null;
-                    c = null;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) ? f(ev.d(bArr, i, i2)) : (byte[]) invokeLII.objValue;
+    }
+
+    public byte[] h(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
+            if (bArr.length != this.b) {
+                throw new BadPaddingException("Padded length must be " + this.b);
+            }
+            int i = this.a;
+            if (i == 1 || i == 2) {
+                return j(bArr);
+            }
+            if (i != 3) {
+                if (i == 4) {
+                    return l(bArr);
+                }
+                throw new AssertionError();
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final byte[] i(byte[] bArr) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            int i3 = this.b;
+            byte[] bArr2 = new byte[i3];
+            System.arraycopy(bArr, 0, bArr2, i3 - bArr.length, bArr.length);
+            int length = (this.b - 3) - bArr.length;
+            bArr2[0] = 0;
+            int i4 = this.a;
+            bArr2[1] = (byte) i4;
+            int i5 = -1;
+            int i6 = 2;
+            if (i4 != 1) {
+                if (this.c == null) {
+                    this.c = ev.a;
+                }
+                byte[] bArr3 = new byte[64];
+                while (true) {
+                    int i7 = length - 1;
+                    if (length <= 0) {
+                        break;
+                    }
+                    while (true) {
+                        if (i5 < 0) {
+                            this.c.nextBytes(bArr3);
+                            i5 = 63;
+                        }
+                        i = i5 - 1;
+                        i2 = bArr3[i5] & 255;
+                        if (i2 != 0) {
+                            break;
+                        }
+                        i5 = i;
+                    }
+                    bArr2[i6] = (byte) i2;
+                    i5 = i;
+                    length = i7;
+                    i6++;
+                }
+            } else {
+                while (true) {
+                    int i8 = length - 1;
+                    if (length <= 0) {
+                        break;
+                    }
+                    bArr2[i6] = -1;
+                    i6++;
+                    length = i8;
                 }
             }
+            return bArr2;
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    public static void g(Activity activity, CharSequence charSequence, int i, CharSequence charSequence2, int i2, int i3, String str, String str2, String str3, String str4, String str5, String str6, ev.a aVar, ct ctVar) {
-        View d2;
+    public final byte[] j(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{activity, charSequence, Integer.valueOf(i), charSequence2, Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, str4, str5, str6, aVar, ctVar}) != null) || (d2 = d(activity)) == null) {
-            return;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048582, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-        activity.getResources();
-        Context context = d2.getContext();
-        int dimension = (int) context.getResources().getDimension(R.dimen.sdk_toast_view_margin_bottom);
-        if (ctVar != null) {
-            dimension = ctVar.a();
+        if (bArr[0] != 0) {
+            throw new BadPaddingException("Data must start with zero");
         }
-        fv.b(context, charSequence, i, charSequence2, i2, str, str2, str3, str4, str5, str6, new c(dimension, d2, i3), new d(aVar));
-    }
-
-    public static void i(View view2, View view3, int i, FrameLayout.LayoutParams layoutParams, Animation animation) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{view2, view3, Integer.valueOf(i), layoutParams, animation}) == null) && view2 != null && view3 != null) {
-            Context context = view2.getContext();
-            if (view3.getParent() instanceof ViewGroup) {
-                ((ViewGroup) view3.getParent()).removeView(view3);
-            }
-            view3.setClickable(true);
-            if (view2 instanceof ViewGroup) {
-                view2.post(new a(view2, context, view3, layoutParams, animation));
-                if (b == null) {
-                    b = new b();
+        int i = 2;
+        if (bArr[1] != this.a) {
+            throw new BadPaddingException("Blocktype mismatch: " + ((int) bArr[1]));
+        }
+        while (true) {
+            int i2 = i + 1;
+            int i3 = bArr[i] & 255;
+            if (i3 == 0) {
+                int length = bArr.length - i2;
+                if (length <= this.d) {
+                    byte[] bArr2 = new byte[length];
+                    System.arraycopy(bArr, bArr.length - length, bArr2, 0, length);
+                    return bArr2;
                 }
-                view2.postDelayed(b, i * 1000);
+                throw new BadPaddingException("Padding string too short");
+            } else if (i2 == bArr.length) {
+                throw new BadPaddingException("Padding string not terminated");
+            } else {
+                if (this.a == 1 && i3 != 255) {
+                    throw new BadPaddingException("Padding byte not 0xff: " + i3);
+                }
+                i = i2;
             }
         }
     }
 
-    public static void k(View view2, View view3, int i, FrameLayout.LayoutParams layoutParams, int i2) {
+    public final byte[] k(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{view2, view3, Integer.valueOf(i), layoutParams, Integer.valueOf(i2)}) == null) && view2 != null && view3 != null) {
-            i(view2, view3, i, layoutParams, AnimationUtils.loadAnimation(view2.getContext(), i2));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
+            if (this.c == null) {
+                this.c = ev.a;
+            }
+            int length = this.g.length;
+            byte[] bArr2 = new byte[length];
+            this.c.nextBytes(bArr2);
+            int i = this.b;
+            byte[] bArr3 = new byte[i];
+            System.arraycopy(bArr2, 0, bArr3, 1, length);
+            int i2 = length + 1;
+            int i3 = i - i2;
+            int length2 = this.b - bArr.length;
+            System.arraycopy(this.g, 0, bArr3, i2, length);
+            bArr3[length2 - 1] = 1;
+            System.arraycopy(bArr, 0, bArr3, length2, bArr.length);
+            d(bArr3, 1, length, bArr3, i2, i3);
+            d(bArr3, i2, i3, bArr3, 1, length);
+            return bArr3;
         }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final byte[] l(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr)) == null) {
+            int length = this.g.length;
+            if (bArr[0] == 0) {
+                int i = length + 1;
+                int length2 = bArr.length - i;
+                d(bArr, i, length2, bArr, 1, length);
+                d(bArr, 1, length, bArr, i, length2);
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (this.g[i2] != bArr[i + i2]) {
+                        throw new BadPaddingException("lHash mismatch");
+                    }
+                }
+                int i3 = i + length;
+                while (bArr[i3] == 0) {
+                    i3++;
+                    if (i3 >= bArr.length) {
+                        throw new BadPaddingException("Padding string not terminated");
+                    }
+                }
+                int i4 = i3 + 1;
+                if (bArr[i3] == 1) {
+                    int length3 = bArr.length - i4;
+                    byte[] bArr2 = new byte[length3];
+                    System.arraycopy(bArr, i4, bArr2, 0, length3);
+                    return bArr2;
+                }
+                throw new BadPaddingException("Padding string not terminated by 0x01 byte");
+            }
+            throw new BadPaddingException("Data must start with zero");
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

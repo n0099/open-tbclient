@@ -1,240 +1,115 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gi3 extends ji3 {
+public class gi3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public long C;
-    public long D;
-    public int v;
-    public String w;
-    public String x;
-    public int y;
-    public String z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947794840, "Lcom/baidu/tieba/gi3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947794840, "Lcom/baidu/tieba/gi3;");
-                return;
+            if (!TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str)) {
+                return false;
             }
+            return true;
         }
-        boolean z = qr1.a;
+        return invokeL.booleanValue;
     }
 
-    public long l() {
-        InterceptResult invokeV;
+    public static String b(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.C;
-        }
-        return invokeV.longValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.B;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.w;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = this.h;
-            if (jSONObject != null && TextUtils.equals(jSONObject.optString("requesttype"), "0")) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public gi3(int i, String str, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            String lowerCase = str.toLowerCase();
+            char c = 65535;
+            switch (lowerCase.hashCode()) {
+                case 99640:
+                    if (lowerCase.equals("doc")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 110834:
+                    if (lowerCase.equals("pdf")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 111220:
+                    if (lowerCase.equals("ppt")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 118783:
+                    if (lowerCase.equals("xls")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3088960:
+                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3447940:
+                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 3682393:
+                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
             }
-        }
-        this.v = i;
-        this.w = str;
-        this.x = str2;
-        this.y = i2;
-        this.B = "1";
-    }
-
-    public gi3(int i, String str, String str2, int i2, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            switch (c) {
+                case 0:
+                    str2 = DocumentOpenUtil.PDF_TYPE;
+                    break;
+                case 1:
+                    str2 = DocumentOpenUtil.WORD_TYPE;
+                    break;
+                case 2:
+                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
+                    break;
+                case 3:
+                    str2 = DocumentOpenUtil.EXCEL_TYPE;
+                    break;
+                case 4:
+                    str2 = DocumentOpenUtil.SHEET_TYPE;
+                    break;
+                case 5:
+                    str2 = DocumentOpenUtil.PPT_TYPE;
+                    break;
+                case 6:
+                    str2 = DocumentOpenUtil.PRESENT_TYPE;
+                    break;
+                default:
+                    str2 = "";
+                    break;
             }
-        }
-        this.v = i;
-        this.w = str;
-        this.x = str2;
-        this.y = i2;
-        this.C = j;
-        this.D = j2;
-        if (i == 200 && j2 - j >= 5000) {
-            this.B = "2";
-        } else {
-            this.B = "1";
-        }
-    }
-
-    public gi3(String str, int i, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+            if (!a(str2)) {
+                return "";
             }
+            return str2;
         }
-        this.w = str;
-        this.y = i;
-        this.C = j;
-        this.D = j2;
-        this.B = "0";
-    }
-
-    @Override // com.baidu.tieba.ji3, com.baidu.tieba.ii3
-    public JSONObject f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            try {
-                if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
-                    this.h.put("errorno", this.v);
-                }
-                String b = yh3.b(this.w);
-                this.w = b;
-                this.h.put("url", b);
-                this.h.put("netStatus", this.y);
-                if (!TextUtils.isEmpty(this.x)) {
-                    this.h.put("msg", this.x);
-                }
-                if (!TextUtils.isEmpty(this.z)) {
-                    this.h.put("pagetype", this.z);
-                }
-                if (!TextUtils.isEmpty(this.A)) {
-                    this.h.put("curpage", this.A);
-                }
-                if (!TextUtils.isEmpty(this.B)) {
-                    this.h.put("requesttype", this.B);
-                }
-                if (this.D - this.C > 0) {
-                    this.h.put("startTime", this.C);
-                    this.h.put("endTime", this.D);
-                }
-                ExtensionCore T2 = ai2.U().T();
-                if (T2 != null) {
-                    this.h.put("extension_ver", T2.extensionCoreVersionName);
-                }
-            } catch (JSONException e) {
-                g82.e("SwanAppRequestEvent", "834", "#toJSONObject error", e, false);
-            }
-            return super.f();
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void p(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            try {
-                if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
-                    jSONObject.put("errorno", this.v);
-                }
-                jSONObject.put("url", yh3.b(this.w));
-                jSONObject.put("netStatus", this.y);
-                if (!TextUtils.isEmpty(this.x)) {
-                    jSONObject.put("msg", this.x);
-                }
-                if (!TextUtils.isEmpty(this.B)) {
-                    jSONObject.put("requesttype", this.B);
-                }
-                if (this.D - this.C > 0) {
-                    jSONObject.put("startTime", this.C);
-                    jSONObject.put("endTime", this.D);
-                }
-            } catch (JSONException e) {
-                g82.e("SwanAppRequestEvent", "834", "#mergeRequestInfo error", e, false);
-            }
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.A = str;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.z = str;
-        }
+        return (String) invokeL.objValue;
     }
 }

@@ -6,20 +6,18 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.bg8;
+import com.baidu.tieba.ga8;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter.SelfHolder;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbNormalMsg;
-import com.baidu.tieba.rx5;
-import com.baidu.tieba.vf8;
-import com.baidu.tieba.zf8;
+import com.baidu.tieba.la8;
+import com.baidu.tieba.zr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,11 +26,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends TbNormalMsg>, ChildViewHolder extends BaseViewHolder, ChildExtraHolder extends BaseViewHolder, BaseStyleHolder extends SelfHolder> extends vf8<ChildItemData, Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder>> {
+public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends TbNormalMsg>, ChildViewHolder extends BaseViewHolder, ChildExtraHolder extends BaseViewHolder, BaseStyleHolder extends SelfHolder> extends ga8<ChildItemData, Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public zf8<? extends BaseNormalAdapter, ChildItemData> l;
+    public MsgSender<? extends BaseNormalAdapter, ChildItemData> l;
 
     /* loaded from: classes6.dex */
     public static abstract class NonExtraHolder extends BaseViewHolder {
@@ -41,44 +39,44 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
     }
 
     @Nullable
-    public ChildExtraHolder L(@NonNull ViewGroup viewGroup) {
+    public ChildExtraHolder M(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             return null;
         }
         return (ChildExtraHolder) invokeL.objValue;
     }
 
     @NonNull
-    public abstract ChildViewHolder M(@NonNull ViewGroup viewGroup);
+    public abstract ChildViewHolder N(@NonNull ViewGroup viewGroup);
 
     @Nullable
-    public ChildExtraHolder N(@NonNull ViewGroup viewGroup) {
+    public ChildExtraHolder O(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             return null;
         }
         return (ChildExtraHolder) invokeL.objValue;
     }
 
     @NonNull
-    public abstract ChildViewHolder O(@NonNull ViewGroup viewGroup);
-
-    public abstract BaseStyleHolder P(@NonNull ViewGroup viewGroup);
+    public abstract ChildViewHolder P(@NonNull ViewGroup viewGroup);
 
     public abstract BaseStyleHolder Q(@NonNull ViewGroup viewGroup);
 
-    public void S(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull ChildExtraHolder childextraholder, @NonNull List<Object> list, int i2) {
+    public abstract BaseStyleHolder R(@NonNull ViewGroup viewGroup);
+
+    public void T(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull ChildExtraHolder childextraholder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), viewGroup, childitemdata, childextraholder, list, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), viewGroup, childitemdata, childextraholder, list, Integer.valueOf(i2)}) == null) {
         }
     }
 
-    public abstract void T(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull ChildViewHolder childviewholder, @NonNull List<Object> list, int i2);
+    public abstract void U(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull ChildViewHolder childviewholder, @NonNull List<Object> list, int i2);
 
-    public abstract void U(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull BaseStyleHolder basestyleholder, @NonNull List<Object> list, int i2);
+    public abstract void V(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull BaseStyleHolder basestyleholder, @NonNull List<Object> list, int i2);
 
     /* loaded from: classes6.dex */
     public static class Holder<ChildViewHolder extends BaseViewHolder, ChildExtraHolder extends BaseViewHolder, BaseStyleHolder extends BaseViewHolder> extends BaseViewHolder {
@@ -160,17 +158,17 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
-        public void d(@NonNull bg8 bg8Var) {
+        public void d(@NonNull la8 la8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bg8Var) == null) {
-                super.d(bg8Var);
-                this.a.d(bg8Var);
-                this.b.d(bg8Var);
-                this.c.d(bg8Var);
-                this.d.d(bg8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, la8Var) == null) {
+                super.d(la8Var);
+                this.a.d(la8Var);
+                this.b.d(la8Var);
+                this.c.d(la8Var);
+                this.d.d(la8Var);
                 if (e()) {
-                    this.e.d(bg8Var);
-                    this.f.d(bg8Var);
+                    this.e.d(la8Var);
+                    this.f.d(la8Var);
                 }
             }
         }
@@ -248,26 +246,37 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
         }
     }
 
+    @Override // com.baidu.tieba.ga8
+    @NonNull
+    public Context C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mContext;
+        }
+        return (Context) invokeV.objValue;
+    }
+
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter<ChildItemData extends com.baidu.tieba.im.base.core.uilist.BaseItem<? extends com.baidu.tieba.im.lib.socket.msg.TbNormalMsg>, ChildViewHolder extends com.baidu.tieba.im.base.core.uilist.BaseViewHolder, ChildExtraHolder extends com.baidu.tieba.im.base.core.uilist.BaseViewHolder, BaseStyleHolder extends com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter$SelfHolder> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.om
+    @Override // com.baidu.tieba.lh
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        V(i, view2, viewGroup, (BaseItem) obj, (Holder) viewHolder);
+        W(i, view2, viewGroup, (BaseItem) obj, (Holder) viewHolder);
         return view2;
     }
 
-    public <T extends BaseNormalAdapter> void K(@NonNull zf8<T, ChildItemData> zf8Var) {
+    public <T extends BaseNormalAdapter> void L(@NonNull MsgSender<T, ChildItemData> msgSender) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zf8Var) == null) {
-            this.l = zf8Var;
-            zf8Var.f(this);
-            this.a.c(zf8Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, msgSender) == null) {
+            this.l = msgSender;
+            msgSender.f(this);
+            this.a.c(msgSender);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: R */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: S */
     public final Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         boolean z;
@@ -275,66 +284,66 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
         ChildExtraHolder childextraholder;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, viewGroup)) == null) {
             FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
             frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            BaseStyleHolder P = P(viewGroup);
             BaseStyleHolder Q = Q(viewGroup);
-            ChildViewHolder M = M(P.e());
-            ChildViewHolder O = O(Q.e());
+            BaseStyleHolder R = R(viewGroup);
+            ChildViewHolder N = N(Q.e());
+            ChildViewHolder P = P(R.e());
             boolean z4 = true;
-            if (M.itemView.getParent() == null) {
+            if (N.itemView.getParent() == null) {
                 z = true;
             } else {
                 z = false;
             }
-            rx5.e(z, "子类视图不需要手动添加到父布局中");
-            if (O.itemView.getParent() == null) {
+            zr5.e(z, "子类视图不需要手动添加到父布局中");
+            if (P.itemView.getParent() == null) {
                 z2 = true;
             } else {
                 z2 = false;
             }
-            rx5.e(z2, "子类视图不需要手动添加到父布局中");
-            P.e().addView(M.itemView);
-            Q.e().addView(O.itemView);
-            ViewGroup f = P.f();
-            ViewGroup f2 = Q.f();
+            zr5.e(z2, "子类视图不需要手动添加到父布局中");
+            Q.e().addView(N.itemView);
+            R.e().addView(P.itemView);
+            ViewGroup f = Q.f();
+            ViewGroup f2 = R.f();
             ChildExtraHolder childextraholder2 = null;
             if (f != null && f2 != null) {
-                ChildExtraHolder L = L(f);
-                ChildExtraHolder N = N(f2);
-                if (L != null && N != null) {
-                    if (L.itemView.getParent() == null) {
+                ChildExtraHolder M = M(f);
+                ChildExtraHolder O = O(f2);
+                if (M != null && O != null) {
+                    if (M.itemView.getParent() == null) {
                         z3 = true;
                     } else {
                         z3 = false;
                     }
-                    rx5.e(z3, "子类扩展区视图不需要手动添加到父布局中");
-                    if (N.itemView.getParent() != null) {
+                    zr5.e(z3, "子类扩展区视图不需要手动添加到父布局中");
+                    if (O.itemView.getParent() != null) {
                         z4 = false;
                     }
-                    rx5.e(z4, "子类扩展区视图不需要手动添加到父布局中");
-                    f.addView(L.itemView);
-                    f2.addView(N.itemView);
+                    zr5.e(z4, "子类扩展区视图不需要手动添加到父布局中");
+                    f.addView(M.itemView);
+                    f2.addView(O.itemView);
                 }
-                childextraholder = L;
-                childextraholder2 = N;
+                childextraholder = M;
+                childextraholder2 = O;
             } else {
                 childextraholder = null;
             }
-            frameLayout.addView(P.itemView);
             frameLayout.addView(Q.itemView);
-            Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder> holder = new Holder<>(frameLayout, P, Q, M, O, childextraholder, childextraholder2);
-            I(holder);
+            frameLayout.addView(R.itemView);
+            Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder> holder = new Holder<>(frameLayout, Q, R, N, P, childextraholder, childextraholder2);
+            J(holder);
             return holder;
         }
         return (Holder) invokeL.objValue;
     }
 
-    public View V(int i, View view2, ViewGroup viewGroup, ChildItemData childitemdata, Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder> holder) {
+    public View W(int i, View view2, ViewGroup viewGroup, ChildItemData childitemdata, Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder> holder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), view2, viewGroup, childitemdata, holder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), view2, viewGroup, childitemdata, holder})) == null) {
             onFillViewHolder(i, viewGroup, holder, childitemdata, Collections.EMPTY_LIST);
             return view2;
         }
@@ -342,14 +351,14 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vf8, com.baidu.tieba.om
-    /* renamed from: W */
+    @Override // com.baidu.tieba.ga8, com.baidu.tieba.lh
+    /* renamed from: Y */
     public void onFillViewHolder(int i, ViewGroup viewGroup, Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder> holder, ChildItemData childitemdata, @NonNull List<Object> list) {
         BaseStyleHolder basestyleholder;
         ChildViewHolder childviewholder;
         ChildExtraHolder childextraholder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), viewGroup, holder, childitemdata, list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), viewGroup, holder, childitemdata, list}) == null) {
             super.onFillViewHolder(i, viewGroup, holder, childitemdata, list);
             boolean isLeft = childitemdata.isLeft();
             int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -366,14 +375,14 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
                 basestyleholder = holder.b;
             }
             BaseStyleHolder basestyleholder2 = basestyleholder;
-            U(i, (ViewGroup) holder.itemView, childitemdata, basestyleholder2, list, skinType);
+            V(i, (ViewGroup) holder.itemView, childitemdata, basestyleholder2, list, skinType);
             ViewGroup e = basestyleholder2.e();
             if (isLeft) {
                 childviewholder = holder.c;
             } else {
                 childviewholder = holder.d;
             }
-            T(i, e, childitemdata, childviewholder, list, skinType);
+            U(i, e, childitemdata, childviewholder, list, skinType);
             ViewGroup f = basestyleholder2.f();
             if (isLeft) {
                 childextraholder = holder.e;
@@ -382,23 +391,12 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
             }
             ChildExtraHolder childextraholder2 = childextraholder;
             if (f != null && childextraholder2 != null) {
-                S(i, f, childitemdata, childextraholder2, list, skinType);
+                T(i, f, childitemdata, childextraholder2, list, skinType);
             }
-            rx5.c(this.l, "必须绑定消费发送帮助器");
+            zr5.c(this.l, "必须绑定消费发送帮助器");
             if (childitemdata.getSendStatus() == 0) {
-                this.l.n(childitemdata, i);
+                this.l.m(childitemdata, i);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.vf8
-    @NonNull
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.mContext;
-        }
-        return (Context) invokeV.objValue;
     }
 }

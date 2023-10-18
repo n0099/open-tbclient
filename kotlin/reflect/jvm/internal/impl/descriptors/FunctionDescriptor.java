@@ -8,10 +8,10 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public interface FunctionDescriptor extends CallableMemberDescriptor {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public interface CopyBuilder<D extends FunctionDescriptor> {
         D build();
 

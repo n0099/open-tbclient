@@ -1,14 +1,12 @@
 package com.baidu.searchbox.task.async.privacy;
 
 import android.text.TextUtils;
-import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.uh;
+import com.baidu.tieba.ib;
 import java.io.File;
 import java.io.FileFilter;
 /* loaded from: classes4.dex */
@@ -56,33 +54,12 @@ public class DeleteApkTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        kg.a().b(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
+        ib.a().b(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
             @Override // java.lang.Runnable
             public void run() {
                 DeleteApkTask.this.deleteApkFile();
                 DeleteApkTask.deleteH5File();
-                DeleteApkTask.deleteSoFile();
             }
         });
-    }
-
-    public static void deleteSoFile() {
-        String str;
-        StringBuilder sb = new StringBuilder();
-        sb.append(BdBaseApplication.getInst().getFilesDir());
-        sb.append(File.separator);
-        if (uh.a()) {
-            str = "so_64_cache";
-        } else {
-            str = "so_cache";
-        }
-        sb.append(str);
-        sb.append(File.separator);
-        sb.append("libturbonet");
-        String sb2 = sb.toString();
-        File file = new File(sb2);
-        if (file.exists() && file.isDirectory()) {
-            FileHelper.deleteFileOrDir(new File(sb2));
-        }
     }
 }

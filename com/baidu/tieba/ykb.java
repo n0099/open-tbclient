@@ -1,147 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.mobads.sdk.api.ExpressResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class ykb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDHelper";
-    public static boolean c;
-    public static ykb d;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.lang.reflect.Field;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class ykb extends BaseAdRipper {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948334457, "Lcom/baidu/tieba/ykb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948334457, "Lcom/baidu/tieba/ykb;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements glb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xkb a;
-
-        public a(ykb ykbVar, xkb xkbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ykbVar, xkbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xkbVar;
-        }
-
-        @Override // com.baidu.tieba.glb
-        public void a(hlb hlbVar) {
-            wkb wkbVar;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, hlbVar) == null) {
-                if (ykb.c) {
-                    String str = ykb.b;
-                    Log.d(str, "异步回调 结果:" + hlbVar);
-                    String str2 = ykb.b;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("异步回调 (listener != null):");
-                    if (this.a != null) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    Log.d(str2, sb.toString());
-                }
-                xkb xkbVar = this.a;
-                if (xkbVar != null) {
-                    if (hlbVar == null) {
-                        wkbVar = null;
-                    } else {
-                        wkbVar = new wkb(hlbVar.c(), hlbVar.isSupport(), hlbVar.getOAID(), hlbVar.getAAID(), hlbVar.getVAID(), hlbVar.getStatusCode());
-                    }
-                    xkbVar.a(0, wkbVar);
-                }
-            }
-        }
-    }
-
-    public ykb(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ykb(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
     }
 
-    public static ykb c(Context context) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        ExpressResponse expressResponse;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (d == null) {
-                synchronized (ykb.class) {
-                    if (d == null) {
-                        d = new ykb(context);
-                        alb.c(context);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                if (!(obj instanceof vkb) || (expressResponse = ((vkb) obj).a) == null) {
+                    return null;
                 }
+                Field declaredField = expressResponse.getClass().getDeclaredField("f");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(expressResponse);
+                if (obj2 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj2.getClass().getSuperclass().getDeclaredField("n");
+                declaredField2.setAccessible(true);
+                String str = (String) declaredField2.get(obj2);
+                if (!TextUtils.isEmpty(str) && (optJSONArray = new JSONObject(str).optJSONArray("ad")) != null && optJSONArray.length() > 0) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(0);
+                    String optString = optJSONObject.optString("tit");
+                    String optString2 = optJSONObject.optString("desc");
+                    String optString3 = optJSONObject.optString("icon");
+                    String optString4 = optJSONObject.optString("curl");
+                    String optString5 = optJSONObject.optString("vurl");
+                    String optString6 = optJSONObject.optString("w_picurl");
+                    String optString7 = optJSONObject.optString("appname");
+                    String optString8 = optJSONObject.optString("publisher");
+                    RippedAd.Builder builder = new RippedAd.Builder();
+                    builder.setCorporation(optString8).setTitle(optString).setDescription(optString2).setIconUrl(optString3).setClickUrl(optString4).setVideoUrl(optString5).setImageUrl(optString6).setAppName(optString7);
+                    return builder.build();
+                }
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e.getMessage(), new Object[0]);
+                return null;
             }
-            return d;
         }
-        return (ykb) invokeL.objValue;
-    }
-
-    public void e(xkb xkbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xkbVar) == null) {
-            zkb zkbVar = new zkb();
-            zkbVar.b(1);
-            zkbVar.a(false);
-            d(zkbVar, xkbVar, Looper.getMainLooper());
-        }
-    }
-
-    public void d(zkb zkbVar, xkb xkbVar, Looper looper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, zkbVar, xkbVar, looper) == null) {
-            elb.o().i(this.a, looper, new a(this, xkbVar));
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

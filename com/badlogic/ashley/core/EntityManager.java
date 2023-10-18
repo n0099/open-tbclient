@@ -1,12 +1,12 @@
 package com.badlogic.ashley.core;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.b3;
+import com.baidu.tieba.c3;
 import com.baidu.tieba.i0;
 import com.baidu.tieba.j0;
-import com.baidu.tieba.r7;
+import com.baidu.tieba.r2;
 import com.baidu.tieba.s0;
-import com.baidu.tieba.t7;
-import com.baidu.tieba.u6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,14 +20,14 @@ public class EntityManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public j0 a;
-    public u6<i0> b;
-    public r7<i0> c;
+    public r2<i0> b;
+    public b3<i0> c;
     public s0<i0> d;
-    public u6<EntityOperation> e;
+    public r2<EntityOperation> e;
     public b f;
 
     /* loaded from: classes.dex */
-    public static class EntityOperation implements t7.a {
+    public static class EntityOperation implements c3.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Type a;
@@ -115,7 +115,7 @@ public class EntityManager {
             }
         }
 
-        @Override // com.baidu.tieba.t7.a
+        @Override // com.baidu.tieba.c3.a
         public void reset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -165,7 +165,7 @@ public class EntityManager {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends t7<EntityOperation> {
+    public static class b extends c3<EntityOperation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -184,7 +184,7 @@ public class EntityManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t7
+        @Override // com.baidu.tieba.c3
         /* renamed from: g */
         public EntityOperation d() {
             InterceptResult invokeV;
@@ -215,10 +215,10 @@ public class EntityManager {
                 return;
             }
         }
-        this.b = new u6<>(false, 16);
-        this.c = new r7<>();
+        this.b = new r2<>(false, 16);
+        this.c = new b3<>();
         this.d = new s0<>(this.b);
-        this.e = new u6<>(false, 16);
+        this.e = new r2<>(false, 16);
         this.f = new b(null);
         this.a = j0Var;
     }
@@ -282,9 +282,9 @@ public class EntityManager {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int i = 0;
             while (true) {
-                u6<EntityOperation> u6Var = this.e;
-                if (i < u6Var.b) {
-                    EntityOperation entityOperation = u6Var.get(i);
+                r2<EntityOperation> r2Var = this.e;
+                if (i < r2Var.b) {
+                    EntityOperation entityOperation = r2Var.get(i);
                     int i2 = a.a[entityOperation.a.ordinal()];
                     if (i2 != 1) {
                         if (i2 != 2) {
@@ -292,9 +292,9 @@ public class EntityManager {
                                 throw new AssertionError("Unexpected EntityOperation type");
                             }
                             while (true) {
-                                u6<i0> u6Var2 = this.b;
-                                if (u6Var2.b > 0) {
-                                    f(u6Var2.first());
+                                r2<i0> r2Var2 = this.b;
+                                if (r2Var2.b > 0) {
+                                    f(r2Var2.first());
                                 }
                             }
                         } else {
@@ -306,7 +306,7 @@ public class EntityManager {
                     this.f.c(entityOperation);
                     i++;
                 } else {
-                    u6Var.clear();
+                    r2Var.clear();
                     return;
                 }
             }
@@ -318,7 +318,7 @@ public class EntityManager {
         if ((interceptable == null || interceptable.invokeL(1048581, this, i0Var) == null) && this.c.remove(i0Var)) {
             i0Var.c = false;
             i0Var.d = true;
-            this.b.i(i0Var, true);
+            this.b.g(i0Var, true);
             this.a.a(i0Var);
             i0Var.d = false;
         }

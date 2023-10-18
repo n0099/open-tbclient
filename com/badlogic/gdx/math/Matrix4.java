@@ -79,7 +79,7 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (d.e(this.val[0], 1.0f) && d.e(this.val[5], 1.0f) && d.e(this.val[10], 1.0f) && d.h(this.val[4]) && d.h(this.val[8]) && d.h(this.val[1]) && d.h(this.val[9]) && d.h(this.val[2]) && d.h(this.val[6])) {
+            if (b.e(this.val[0], 1.0f) && b.e(this.val[5], 1.0f) && b.e(this.val[10], 1.0f) && b.g(this.val[4]) && b.g(this.val[8]) && b.g(this.val[1]) && b.g(this.val[9]) && b.g(this.val[2]) && b.g(this.val[6])) {
                 return false;
             }
             return true;
@@ -112,7 +112,7 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (d.h(this.val[4]) && d.h(this.val[8])) {
+            if (b.g(this.val[4]) && b.g(this.val[8])) {
                 return Math.abs(this.val[0]);
             }
             return (float) Math.sqrt(getScaleXSquared());
@@ -124,7 +124,7 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (d.h(this.val[1]) && d.h(this.val[9])) {
+            if (b.g(this.val[1]) && b.g(this.val[9])) {
                 return Math.abs(this.val[5]);
             }
             return (float) Math.sqrt(getScaleYSquared());
@@ -136,7 +136,7 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (d.h(this.val[2]) && d.h(this.val[6])) {
+            if (b.g(this.val[2]) && b.g(this.val[6])) {
                 return Math.abs(this.val[10]);
             }
             return (float) Math.sqrt(getScaleZSquared());

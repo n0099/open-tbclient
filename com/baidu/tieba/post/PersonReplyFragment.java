@@ -28,15 +28,15 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao5;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.d2a;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.e2a;
-import com.baidu.tieba.ea5;
-import com.baidu.tieba.g2a;
-import com.baidu.tieba.h2a;
+import com.baidu.tieba.gi5;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.m45;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.tieba.qw9;
+import com.baidu.tieba.rw9;
+import com.baidu.tieba.tw9;
+import com.baidu.tieba.uw9;
+import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,24 +45,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes7.dex */
-public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, d2a {
+public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, qw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public BdListView b;
     public NavigationBarShadowView c;
-    public h2a d;
+    public uw9 d;
     public boolean e;
     public NoDataView f;
-    public ao5 g;
-    public ea5 h;
+    public gi5 g;
+    public m45 h;
     public PbListView i;
     public View j;
     public boolean k;
     public int l;
     public int m;
     public boolean n;
-    public e2a o;
+    public rw9 o;
     public View.OnClickListener p;
     public PersonPostModel.c q;
 
@@ -95,9 +95,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 PersonReplyFragment personReplyFragment = this.a;
-                ao5 ao5Var = personReplyFragment.g;
-                if (ao5Var != null) {
-                    ao5Var.dettachView(personReplyFragment.a);
+                gi5 gi5Var = personReplyFragment.g;
+                if (gi5Var != null) {
+                    gi5Var.dettachView(personReplyFragment.a);
                     this.a.g = null;
                 }
                 if (this.a.o != null) {
@@ -108,7 +108,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     }
 
     /* loaded from: classes7.dex */
-    public class b implements da5.g {
+    public class b implements l45.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonReplyFragment a;
@@ -131,7 +131,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             this.a = personReplyFragment;
         }
 
-        @Override // com.baidu.tieba.da5.g
+        @Override // com.baidu.tieba.l45.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -165,7 +165,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
 
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-        public void J0(PersonPostModel personPostModel, boolean z) {
+        public void I0(PersonPostModel personPostModel, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLZ(1048576, this, personPostModel, z) != null) || !this.a.isAdded()) {
                 return;
@@ -287,7 +287,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             }
             hideLoadingView(this.a);
             o2(false);
-            g2a.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0e42), true);
+            tw9.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0e4f), true);
             this.b.setVisibility(8);
         }
     }
@@ -300,10 +300,10 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
     }
 
-    public void t2(e2a e2aVar) {
+    public void t2(rw9 rw9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, e2aVar) == null) {
-            this.o = e2aVar;
+        if (interceptable == null || interceptable.invokeL(1048591, this, rw9Var) == null) {
+            this.o = rw9Var;
         }
     }
 
@@ -315,7 +315,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
     }
 
-    public static int q2(List<bn> list) {
+    public static int q2(List<yh> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, list)) == null) {
@@ -356,12 +356,12 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
     }
 
-    @Override // com.baidu.tieba.d2a
-    public void g1() {
-        h2a h2aVar;
+    @Override // com.baidu.tieba.qw9
+    public void f1() {
+        uw9 uw9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (h2aVar = this.d) != null) {
-            h2aVar.f(true);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (uw9Var = this.d) != null) {
+            uw9Var.f(true);
         }
     }
 
@@ -370,9 +370,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            h2a h2aVar = this.d;
-            if (h2aVar != null) {
-                h2aVar.e();
+            uw9 uw9Var = this.d;
+            if (uw9Var != null) {
+                uw9Var.e();
                 this.d.i(null);
             }
         }
@@ -443,11 +443,11 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             if (pbListView != null) {
                 pbListView.e(i);
             }
-            this.h.C(i);
+            this.h.D(i);
             SkinManager.setBackgroundColor(this.a, this.m, i);
-            h2a h2aVar = this.d;
-            if (h2aVar != null) {
-                h2aVar.notifyDataSetChanged();
+            uw9 uw9Var = this.d;
+            if (uw9Var != null) {
+                uw9Var.notifyDataSetChanged();
             }
         }
     }
@@ -457,11 +457,11 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d080d, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0800, viewGroup, false);
             this.a = inflate;
-            this.b = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091558);
-            this.c = (NavigationBarShadowView) this.a.findViewById(R.id.obfuscated_res_0x7f0918e8);
-            this.f = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07035e)), NoDataViewFactory.e.d(null, getArguments().getString("key_empty_view_text")), null);
+            this.b = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091573);
+            this.c = (NavigationBarShadowView) this.a.findViewById(R.id.obfuscated_res_0x7f091913);
+            this.f = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07035a)), NoDataViewFactory.e.d(null, getArguments().getString("key_empty_view_text")), null);
             return this.a;
         }
         return (View) invokeLLL.objValue;
@@ -488,11 +488,11 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, view2, bundle) == null) {
-            ea5 ea5Var = new ea5(getPageContext());
-            this.h = ea5Var;
-            this.b.setPullRefresh(ea5Var);
+            m45 m45Var = new m45(getPageContext());
+            this.h = m45Var;
+            this.b.setPullRefresh(m45Var);
             TextView textView = new TextView(getActivity());
-            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070387)));
+            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070383)));
             this.b.w(textView, 0);
             this.h.a(new b(this));
             this.b.setOnScrollListener(this);
@@ -510,9 +510,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public final void r2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            h2a h2aVar = new h2a(getPageContext(), getArguments().getString("key_uid"), getArguments().getString("key_portrait_url"), getUniqueId());
-            this.d = h2aVar;
-            h2aVar.i(this.q);
+            uw9 uw9Var = new uw9(getPageContext(), getArguments().getString("key_uid"), getArguments().getString("key_portrait_url"), getUniqueId());
+            this.d = uw9Var;
+            uw9Var.i(this.q);
             this.b.setAdapter((ListAdapter) this.d);
             this.b.setOnItemClickListener(new d(this));
         }

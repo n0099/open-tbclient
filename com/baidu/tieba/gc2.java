@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.ob2;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,76 +12,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import java.util.TreeMap;
 /* loaded from: classes6.dex */
-public class gc2 {
+public final class gc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ob2 a;
-    public final xb2 b;
-    public final lb2 c;
-    public SceneType d;
-
-    /* loaded from: classes6.dex */
-    public class a implements ob2.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zb2 a;
-        public final /* synthetic */ nb2 b;
-        public final /* synthetic */ gc2 c;
-
-        public a(gc2 gc2Var, zb2 zb2Var, nb2 nb2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gc2Var, zb2Var, nb2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = gc2Var;
-            this.a = zb2Var;
-            this.b = nb2Var;
-        }
-
-        @Override // com.baidu.tieba.ob2.b
-        public void a(NetworkStatus networkStatus) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                hb2.e(this.c.d.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                boolean m0 = ai2.U().m0();
-                long n = nu2.g0().n();
-                if (n >= LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION || m0) {
-                    this.c.f(networkStatus, this.b, this.a);
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.c.d.getScene());
-                sb.append(String.format(Locale.getDefault(), "%d秒截屏；", Long.valueOf(n / 1000)));
-                if (m0) {
-                    str = "框架预加载：已完成；";
-                } else {
-                    str = "框架预加载：未完成；";
-                }
-                sb.append(str);
-                sb.append(this.b.a());
-                sb.append(this.a.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
-                if (gc2.e) {
-                    Log.d("SceneWhiteScreenTips", ">> " + sb.toString());
-                }
-                ib2.g(sb.toString());
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public boolean m;
 
     static {
         InterceptResult invokeClinit;
@@ -99,7 +45,7 @@ public class gc2 {
                 return;
             }
         }
-        e = qr1.a;
+        n = am1.a;
     }
 
     public gc2() {
@@ -112,64 +58,73 @@ public class gc2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.d = SceneType.SCENE_WHITE_SCREEN_L1;
-        this.c = lb2.d();
-        this.a = new ob2();
-        this.b = xb2.d();
     }
 
-    public void e(SceneType sceneType) {
+    public static qf2 a(gc2 gc2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sceneType) == null) {
-            this.d = sceneType;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (vb2.b().c()) {
-                if (e) {
-                    Log.d("SceneWhiteScreenTips", ">> start to recheck white screen.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, gc2Var)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, gc2Var.a);
+            treeMap.put("pagePath", gc2Var.b);
+            treeMap.put("pageType", gc2Var.c);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, gc2Var.e);
+            if (!TextUtils.isEmpty(gc2Var.f)) {
+                if (n) {
+                    Log.d("PageReadyEvent", "add initData: " + gc2Var.f);
                 }
-                vb2.b().h(tb2.b(str, 3000L));
-                vb2.b().f();
-                return;
+                treeMap.put("initData", gc2Var.f);
             }
-            if (e) {
-                Log.d("SceneWhiteScreenTips", ">> no need to recheck white screen.");
+            if (!TextUtils.isEmpty(gc2Var.d)) {
+                treeMap.put("onReachBottomDistance", gc2Var.d);
             }
-            if (e) {
-                Log.d("SceneWhiteScreenTips", ">> start handle white screen tips.");
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(gc2Var.g));
+            if (!TextUtils.isEmpty(gc2Var.h)) {
+                treeMap.put("routeId", gc2Var.h);
             }
-            xb2.d().j();
-            lb2.d().j();
-            vb2.b().j(true);
-            nb2 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(gc2Var.i));
+            if (!TextUtils.isEmpty(gc2Var.j)) {
+                treeMap.put("slavePreload", gc2Var.j);
+            }
+            treeMap.put("root", gc2Var.k);
+            n13.a(treeMap, "page ready event");
+            h93.a(gc2Var.b, treeMap);
+            String f = hj3.f(h93.b(gc2Var.b));
+            p22.k("PageReadyEvent", "#createPageReadyMessage pagePath=" + ((String) treeMap.get("pagePath")));
+            String c = z53.c(gc2Var.a, f);
+            gc2Var.l = c;
+            if (!TextUtils.isEmpty(c)) {
+                treeMap.put("pageConfig", gc2Var.l);
+            }
+            l72 X = jc2.V().X();
+            if (X != null) {
+                treeMap.put("masterId", X.a());
+            }
+            if (gc2Var.m) {
+                treeMap.put("isFirstPage", YYOption.IsLive.VALUE_TRUE);
+            }
+            if (t42.c()) {
+                treeMap.put("offlinePerfTool", String.valueOf(1));
+            }
+            if (nb3.d()) {
+                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
+            }
+            if (nb3.f()) {
+                treeMap.put("performanceType", "stabilityProfile");
+            }
+            return new qf2("PageReady", treeMap);
         }
+        return (qf2) invokeL.objValue;
     }
 
-    public final void f(@NonNull NetworkStatus networkStatus, @NonNull nb2 nb2Var, @NonNull zb2 zb2Var) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, networkStatus, nb2Var, zb2Var) == null) {
-            boolean b = nb2Var.b();
-            int i = R.string.obfuscated_res_0x7f0f159e;
-            if (b) {
-                i = R.string.obfuscated_res_0x7f0f15a3;
-            } else if (zb2Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
-                i = R.string.obfuscated_res_0x7f0f15a1;
-            } else if (zb2Var.e() != RequestStatus.STATUS_FAILED) {
-                if (zb2Var.e() == RequestStatus.STATUS_SLOW) {
-                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f15a2 : R.string.obfuscated_res_0x7f0f159f;
-                } else if (zb2Var.e() != RequestStatus.STATUS_CORE_FAILED) {
-                    i = R.string.obfuscated_res_0x7f0f15a0;
-                }
-            }
-            gb2.f(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PageReadyEvent{appPath='" + this.a + "', pagePath='" + this.b + "', pageType='" + this.c + "', onReachBottomDistance='" + this.d + "', sConsole='" + this.e + "', initData='" + this.f + "', showPerformancePanel=" + this.g + ", routeId='" + this.h + "', isT7Available=" + this.i + ", preloadFile='" + this.j + "', rootPath='" + this.k + "', pageConfig='" + this.l + "'}";
         }
+        return (String) invokeV.objValue;
     }
 }

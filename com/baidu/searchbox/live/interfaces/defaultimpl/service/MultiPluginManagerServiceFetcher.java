@@ -1,14 +1,14 @@
 package com.baidu.searchbox.live.interfaces.defaultimpl.service;
 
 import com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService;
-import com.baidu.tieba.al1;
+import com.baidu.tieba.kf1;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0003\u001a\u00020\u0002H\u0014¢\u0006\u0004\b\u0003\u0010\u0004¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/MultiPluginManagerServiceFetcher;", "Lcom/baidu/tieba/al1;", "Lcom/baidu/searchbox/live/interfaces/service/MultiPluginManagerService;", "createService", "()Lcom/baidu/searchbox/live/interfaces/service/MultiPluginManagerService;", "<init>", "()V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
-public final class MultiPluginManagerServiceFetcher extends al1<MultiPluginManagerService> {
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0003\u001a\u00020\u0002H\u0014¢\u0006\u0004\b\u0003\u0010\u0004¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/MultiPluginManagerServiceFetcher;", "Lcom/baidu/tieba/kf1;", "Lcom/baidu/searchbox/live/interfaces/service/MultiPluginManagerService;", "createService", "()Lcom/baidu/searchbox/live/interfaces/service/MultiPluginManagerService;", "<init>", "()V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes4.dex */
+public final class MultiPluginManagerServiceFetcher extends kf1<MultiPluginManagerService> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.al1
+    @Override // com.baidu.tieba.kf1
     public MultiPluginManagerService createService() {
         return new MultiPluginManagerServiceImpl();
     }

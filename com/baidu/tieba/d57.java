@@ -1,92 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.faceshop.EmotionGroupData;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.mj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.FeedKV;
 /* loaded from: classes5.dex */
-public class d57 extends mj5 {
+public final class d57 {
     public static /* synthetic */ Interceptable $ic;
-    public static d57 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<pj5> a;
 
-    @Override // com.baidu.tieba.mj5
-    public int c() {
-        InterceptResult invokeV;
+    public static final String a(List<FeedKV> list, String key) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.mj5
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public d57() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new LinkedList<>();
-    }
-
-    public static d57 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (d57.class) {
-                    if (b == null) {
-                        b = new d57();
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            for (FeedKV feedKV : list) {
+                if (Intrinsics.areEqual(feedKV.key, key)) {
+                    return feedKV.value;
                 }
             }
-            return b;
+            return null;
         }
-        return (d57) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.mj5
-    public void b(mj5.a aVar) {
+    public static final List<n47> b(List<FeedKV> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
-            List<MyEmotionGroupData> h = q47.c().h(TbadkCoreApplication.getCurrentAccount());
-            this.a.clear();
-            for (MyEmotionGroupData myEmotionGroupData : h) {
-                EmotionGroupData n = y47.o().n(myEmotionGroupData.getGroupId());
-                if (n != null) {
-                    s47 s47Var = new s47(n);
-                    if (s47Var.d() != null) {
-                        this.a.add(s47Var);
-                        if (aVar != null) {
-                            aVar.a(s47Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            ArrayList arrayList = new ArrayList();
+            for (FeedKV feedKV : list) {
+                String str = feedKV.key;
+                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
+                n47 n47Var = new n47(str, null, null, null, null, 30, null);
+                Map<String, String> d = n47Var.d();
+                try {
+                    JSONObject jSONObject = new JSONObject(feedKV.value);
+                    if (d instanceof HashMap) {
+                        Iterator<String> keys = jSONObject.keys();
+                        Intrinsics.checkNotNullExpressionValue(keys, "jsonObject.keys()");
+                        while (keys.hasNext()) {
+                            String key = keys.next();
+                            if (!Intrinsics.areEqual(key, "position_name")) {
+                                Intrinsics.checkNotNullExpressionValue(key, "key");
+                                String optString = jSONObject.optString(key);
+                                Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(key)");
+                                d.put(key, optString);
+                            }
                         }
                     }
+                    String optString2 = jSONObject.optString("position_name");
+                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObject.optString(\"position_name\")");
+                    n47Var.g(optString2);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+                arrayList.add(n47Var);
             }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 }

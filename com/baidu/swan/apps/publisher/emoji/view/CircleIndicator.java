@@ -9,7 +9,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s83;
+import com.baidu.tieba.b33;
 /* loaded from: classes4.dex */
 public class CircleIndicator extends View {
     public int a;
@@ -33,7 +33,7 @@ public class CircleIndicator extends View {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
-            s83.g(CircleIndicator.this.getContext().getApplicationContext()).k();
+            b33.g(CircleIndicator.this.getContext().getApplicationContext()).k();
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -121,7 +121,7 @@ public class CircleIndicator extends View {
         paint.setAntiAlias(true);
         this.k = getResources().getColor(R.color.obfuscated_res_0x7f060b0d);
         this.l = getResources().getColor(R.color.obfuscated_res_0x7f060b0e);
-        this.c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07010f);
+        this.c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07010d);
     }
 
     @Override // android.view.View

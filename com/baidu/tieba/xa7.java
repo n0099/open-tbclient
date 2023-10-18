@@ -1,130 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.forumMember.member.FrsEmpertyItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedContentResource;
-import tbclient.FeedItem;
-import tbclient.FeedOriginComponent;
-import tbclient.FeedOriginPic;
-import tbclient.PicInfo;
-import tbclient.VideoField;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class xa7 {
+public class xa7 extends yc7<bd7, FrsEmpertyItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x011c  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x011e  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final void a(FeedOriginComponent feedOriginComponent, List<yc7<?>> dataList, b97 feedExtraData) {
-        q77 q77Var;
-        x77 x77Var;
-        m77 m77Var;
-        i77 i77Var;
-        String str;
-        String str2;
-        String str3;
-        boolean z;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xa7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedOriginComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedOriginComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            List<FeedContentResource> _abstract = feedOriginComponent._abstract;
-            Intrinsics.checkNotNullExpressionValue(_abstract, "_abstract");
-            h77 a = qa7.a(spannableStringBuilder, _abstract, new b97());
-            if (a.i()) {
-                FeedOriginPic feedOriginPic = feedOriginComponent.pic_info;
-                if (feedOriginPic != null && feedOriginPic.pics != null) {
-                    String str4 = feedOriginPic.schema;
-                    if (str4 == null) {
-                        str4 = "";
-                    } else {
-                        Intrinsics.checkNotNullExpressionValue(str4, "pic_info.schema ?: \"\"");
-                    }
-                    List<PicInfo> list = feedOriginComponent.pic_info.pics;
-                    Intrinsics.checkNotNullExpressionValue(list, "pic_info.pics");
-                    q77Var = za7.b(list, str4, new b97());
-                } else {
-                    q77Var = null;
-                }
-                if (feedOriginComponent.video != null) {
-                    ia7 ia7Var = new ia7();
-                    String schema = feedOriginComponent.schema;
-                    Intrinsics.checkNotNullExpressionValue(schema, "schema");
-                    ia7Var.j(schema);
-                    VideoField video = feedOriginComponent.video;
-                    Intrinsics.checkNotNullExpressionValue(video, "video");
-                    x77Var = fb7.b(video, ia7Var, new b97());
-                } else {
-                    x77Var = null;
-                }
-                FeedItem feedItem = feedOriginComponent.item;
-                if (feedItem != null) {
-                    HashMap<String, String> a2 = dc7.a.a(feedItem.business_info);
-                    String str5 = a2.get("apk_detail");
-                    String str6 = feedExtraData.a().a().get("origin_thread_id");
-                    if (str6 == null) {
-                        str3 = "";
-                    } else {
-                        str3 = str6;
-                    }
-                    long j = JavaTypesHelper.toLong(a2.get("item_id"), 0L);
-                    if (str5 == null) {
-                        String str7 = feedOriginComponent.item.name;
-                        if (str7 != null && str7.length() != 0) {
-                            z = false;
-                        } else {
-                            z = true;
-                        }
-                        if (!z) {
-                            FeedItem item = feedOriginComponent.item;
-                            Intrinsics.checkNotNullExpressionValue(item, "item");
-                            m77 b = ta7.b(item, j, str3, "", "");
-                            b.a().j = R.color.CAM_X0205;
-                            b.d(false);
-                            m77Var = b;
-                            i77Var = null;
-                            ea7 d = c97.d(feedExtraData, "origin_card_click", null, 2, null);
-                            str = feedOriginComponent.schema;
-                            if (str == null) {
-                                str2 = "";
-                            } else {
-                                str2 = str;
-                            }
-                            dataList.add(new zc7(new o77(a, q77Var, x77Var, m77Var, i77Var, str2, d, null, 128, null), "origin_card"));
-                        }
-                    } else {
-                        FeedItem item2 = feedOriginComponent.item;
-                        Intrinsics.checkNotNullExpressionValue(item2, "item");
-                        i77 a3 = ta7.a(item2, str5, j, str3, "", "");
-                        a3.a().j = R.color.CAM_X0205;
-                        a3.d(false);
-                        i77Var = a3;
-                        m77Var = null;
-                        ea7 d2 = c97.d(feedExtraData, "origin_card_click", null, 2, null);
-                        str = feedOriginComponent.schema;
-                        if (str == null) {
-                        }
-                        dataList.add(new zc7(new o77(a, q77Var, x77Var, m77Var, i77Var, str2, d2, null, 128, null), "origin_card"));
-                    }
-                }
-                m77Var = null;
-                i77Var = null;
-                ea7 d22 = c97.d(feedExtraData, "origin_card_click", null, 2, null);
-                str = feedOriginComponent.schema;
-                if (str == null) {
-                }
-                dataList.add(new zc7(new o77(a, q77Var, x77Var, m77Var, i77Var, str2, d22, null, 128, null), "origin_card"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: G */
+    public FrsEmpertyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new FrsEmpertyItemViewHolder(new View(this.mContext));
+        }
+        return (FrsEmpertyItemViewHolder) invokeL.objValue;
+    }
+
+    public View H(int i, View view2, ViewGroup viewGroup, bd7 bd7Var, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bd7Var, frsEmpertyItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) bd7Var, (bd7) frsEmpertyItemViewHolder);
+            frsEmpertyItemViewHolder.b(bd7Var.b());
+            frsEmpertyItemViewHolder.a(bd7Var.a());
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.yc7, com.baidu.tieba.lh
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        H(i, view2, viewGroup, (bd7) obj, (FrsEmpertyItemViewHolder) viewHolder);
+        return view2;
     }
 }

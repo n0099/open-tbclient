@@ -1,137 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.frs.FrsPrivateCommonDialogView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.z45;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PrivateForumInfo;
+import tbclient.GetGiftList.PresentNumInfo;
 /* loaded from: classes5.dex */
-public class bu7 extends g65 {
+public class bu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public int a;
     public String b;
-    public String c;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ z45 b;
-        public final /* synthetic */ bu7 c;
-
-        public a(bu7 bu7Var, TbPageContext tbPageContext, z45 z45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bu7Var, tbPageContext, z45Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = bu7Var;
-            this.a = tbPageContext;
-            this.b = z45Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                boolean booleanValue = ((Boolean) view2.getTag(R.id.is_forum_owner_check)).booleanValue();
-                PrivateForumPopInfoData privateForumPopInfoData = (PrivateForumPopInfoData) view2.getTag(R.id.private_pop_info);
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{privateForumPopInfoData.Q()});
-                vt7.f(privateForumPopInfoData, booleanValue, this.c.b, this.c.c, true);
-                this.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements z45.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(bu7 bu7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bu7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.z45.e
-        public void onClick(z45 z45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
-                z45Var.dismiss();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921682, 3));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921588));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(bu7 bu7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bu7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                YunDialogManager.unMarkShowingDialogName("frsExam");
-            }
-        }
-    }
 
     public bu7() {
         Interceptable interceptable = $ic;
@@ -143,72 +24,34 @@ public class bu7 extends g65 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
     }
 
-    @Override // com.baidu.tieba.g65
-    public void a(@NonNull Context context, @NonNull u55 u55Var) {
-        boolean z;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, u55Var) == null) {
-            if (!(context instanceof TbPageContextSupport)) {
-                YunDialogManager.unMarkShowingDialogName("frsExam");
-                return;
-            }
-            TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) context;
-            if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
-                pia frsResponseData = TbSingleton.getInstance().getFrsResponseData();
-                FrsViewData frsViewData = new FrsViewData();
-                frsViewData.receiveData(frsResponseData);
-                if (frsViewData.getForum() != null) {
-                    this.c = frsViewData.getForum().getName();
-                    this.b = frsViewData.getForum().getId();
-                }
-                if (!StringUtils.isNull(this.c) && !StringUtils.isNull(this.b)) {
-                    if ((frsViewData.getPrivateForumTotalInfo() == null || frsViewData.getPrivateForumTotalInfo().a() == null || frsViewData.getUserData().getIs_manager() != 1) && frsViewData.getPrivateForumPopInfo() == null) {
-                        YunDialogManager.unMarkShowingDialogName("frsExam");
-                        return;
-                    }
-                    PrivateForumPopInfoData privateForumPopInfoData = new PrivateForumPopInfoData();
-                    privateForumPopInfoData.R(frsViewData.getPrivateForumTotalInfo().c());
-                    FrsPrivateCommonDialogView frsPrivateCommonDialogView = new FrsPrivateCommonDialogView(tbPageContextSupport.getPageContext().getPageActivity());
-                    PrivateForumInfo a2 = frsViewData.getPrivateForumTotalInfo().a();
-                    if (a2 != null && a2.private_forum_status.intValue() == 1 && (di.isEmpty(privateForumPopInfoData.P()) || privateForumPopInfoData.O() != JavaTypesHelper.toInt(this.b, 0))) {
-                        privateForumPopInfoData.U("create_success");
-                        privateForumPopInfoData.V(String.format(au7.a, this.b, this.c));
-                        privateForumPopInfoData.T(JavaTypesHelper.toInt(this.b, -1));
-                        privateForumPopInfoData.setTitle(context.getString(R.string.obfuscated_res_0x7f0f171a));
-                        privateForumPopInfoData.S(context.getString(R.string.obfuscated_res_0x7f0f171b));
-                        z = frsPrivateCommonDialogView.c(privateForumPopInfoData, false);
-                    } else if (privateForumPopInfoData.O() == JavaTypesHelper.toInt(this.b, 0)) {
-                        z = frsPrivateCommonDialogView.c(privateForumPopInfoData, false);
-                    } else {
-                        z = false;
-                    }
-                    if (!z && (privateForumPopInfoData = frsViewData.getPrivateForumPopInfo()) != null && privateForumPopInfoData.O() == JavaTypesHelper.toInt(this.b, 0)) {
-                        this.a = true;
-                        frsPrivateCommonDialogView.c(privateForumPopInfoData, true);
-                    }
-                    TbPageContext pageContext = tbPageContextSupport.getPageContext();
-                    z45 z45Var = new z45(pageContext.getPageActivity());
-                    z45Var.setContentViewSize(10);
-                    z45Var.setContentView(frsPrivateCommonDialogView);
-                    z45Var.setCanceledOnTouchOutside(false);
-                    frsPrivateCommonDialogView.setConfirmButton(new a(this, pageContext, z45Var));
-                    z45Var.setCloseButton(new b(this));
-                    z45Var.setOnDismissListener(new c(this));
-                    z45Var.create(pageContext).show();
-                    FrsPrivateCommonDialogView.setDialogShown(privateForumPopInfoData, this.a);
-                    vt7.f(privateForumPopInfoData, this.a, this.b, this.c, false);
-                    return;
-                }
-                YunDialogManager.unMarkShowingDialogName("frsExam");
-                return;
-            }
-            YunDialogManager.unMarkShowingDialogName("frsExam");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(PresentNumInfo presentNumInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, presentNumInfo) != null) || presentNumInfo == null) {
+            return;
+        }
+        this.a = presentNumInfo.num.intValue();
+        this.b = presentNumInfo.name;
     }
 }

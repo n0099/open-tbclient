@@ -1,92 +1,50 @@
 package com.baidu.tieba;
 
-import android.media.MediaFormat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.h6c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.NativeFfmpeg;
-import java.lang.ref.WeakReference;
-import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
-public final class l7c extends s7c implements NativeFfmpeg.a {
+/* loaded from: classes7.dex */
+public final class l7c<T, R> implements h6c.a<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final h6c.a<T> a;
+    public final h6c.b<? extends R, ? super T> b;
 
-    @Override // com.baidu.tieba.n7c
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public l7c(int i, w6c w6cVar) {
+    public l7c(h6c.a<T> aVar, h6c.b<? extends R, ? super T> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), w6cVar};
+            Object[] objArr = {aVar, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = new WeakReference<>(w6cVar);
-        this.w = false;
-        this.b = i;
-        this.A.i(i);
-        this.o = 3;
+        this.a = aVar;
+        this.b = bVar;
     }
 
-    public void M(MediaInfo mediaInfo) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v6c
+    /* renamed from: a */
+    public void call(n6c<? super R> n6cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
-            TLog.g(this, mediaInfo.toString());
-            if (this.q.e(mediaInfo)) {
-                this.q.c(mediaInfo);
+        if (interceptable == null || interceptable.invokeL(1048576, this, n6cVar) == null) {
+            try {
+                n6c<? super T> call = xac.n(this.b).call(n6cVar);
+                call.d();
+                this.a.call(call);
+            } catch (Throwable th) {
+                t6c.e(th);
+                n6cVar.onError(th);
             }
-            if (this.E == 0 || this.B == null) {
-                this.E = 32768;
-                this.B = ByteBuffer.allocateDirect(32768);
-                this.C = ByteBuffer.allocateDirect(this.E);
-            }
-            this.p.setInteger("samples", mediaInfo.g);
-            this.p.setInteger("channel-count", mediaInfo.h);
-            this.p.setInteger("sample-rate", mediaInfo.j);
-            synchronized (this.k) {
-                if (this.d != null) {
-                    this.d.d("setFormat", this.p, this.a, false);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.n7c
-    public void z(MediaFormat mediaFormat, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
-            TLog.g(this, "[audio][decoder] AudioSwDecodeFilter handleCreateDecoder taskID " + i);
-            L();
-            this.w = false;
-            this.a = i;
-            this.A.p(this);
-            this.A.h(this.a);
-            if (this.A.j(5, mediaFormat) != 0) {
-                m(50);
-            }
-            MediaInfo b = MediaInfo.b(1, mediaFormat.getInteger("sample-rate"), mediaFormat.getInteger("channel-count"));
-            if (mediaFormat.containsKey("samples")) {
-                b.g = mediaFormat.getInteger("samples");
-            }
-            this.p = mediaFormat;
-            M(b);
         }
     }
 }

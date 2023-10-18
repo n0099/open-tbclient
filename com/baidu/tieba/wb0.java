@@ -1,116 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public final class wb0 {
+public class wb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public HashMap<Integer, String> c;
-    public HashMap<String, Object> d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public wb0() {
-        this(null, 0, null, null, 15, null);
+    public static MediaOneAEffect a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], ((Integer) objArr[1]).intValue(), (HashMap) objArr[2], (HashMap) objArr[3], ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
+            MediaOneAEffect mediaOneAEffect = new MediaOneAEffect();
+            mediaOneAEffect.start = 0L;
+            mediaOneAEffect.end = j;
+            ArrayList arrayList = new ArrayList();
+            mediaOneAEffect.aParams = arrayList;
+            arrayList.add(c());
+            return mediaOneAEffect;
         }
+        return (MediaOneAEffect) invokeJ.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static MediaAEffect b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof wb0) {
-                    wb0 wb0Var = (wb0) obj;
-                    return Intrinsics.areEqual(this.a, wb0Var.a) && this.b == wb0Var.b && Intrinsics.areEqual(this.c, wb0Var.c) && Intrinsics.areEqual(this.d, wb0Var.d);
-                }
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            MediaAEffect mediaAEffect = new MediaAEffect();
+            mediaAEffect.name = "defaultScene";
+            mediaAEffect.duration = j;
+            mediaAEffect.repeatMode = MediaAEffect.AE_ANIM_ONCE;
+            mediaAEffect.effectType = "scene";
+            mediaAEffect.shaderConfigKey = xb0.b;
+            ArrayList arrayList = new ArrayList();
+            mediaAEffect.mediaOneAEffects = arrayList;
+            arrayList.add(a(j));
+            return mediaAEffect;
         }
-        return invokeL.booleanValue;
+        return (MediaAEffect) invokeJ.objValue;
     }
 
-    public int hashCode() {
+    public static ShaderParams c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.a;
-            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.b) * 31;
-            HashMap<Integer, String> hashMap = this.c;
-            int hashCode2 = (hashCode + (hashMap != null ? hashMap.hashCode() : 0)) * 31;
-            HashMap<String, Object> hashMap2 = this.d;
-            return hashCode2 + (hashMap2 != null ? hashMap2.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ShaderParams shaderParams = new ShaderParams();
+            shaderParams.name = "scale";
+            shaderParams.type = ShaderParams.VALUE_TYPE_ANIMATOR;
+            shaderParams.values = new float[]{1.0f, 1.2f};
+            return shaderParams;
         }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "MediaSource(roomId=" + this.a + ", mediaSourceType=" + this.b + ", videoInfo=" + this.c + ", launchInfo=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmOverloads
-    public wb0(String str, int i, HashMap<Integer, String> hashMap, HashMap<String, Object> hashMap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), hashMap, hashMap2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = i;
-        this.c = hashMap;
-        this.d = hashMap2;
-    }
-
-    public /* synthetic */ wb0(String str, int i, HashMap hashMap, HashMap hashMap2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? null : str, (i2 & 2) != 0 ? 0 : i, (i2 & 4) != 0 ? null : hashMap, (i2 & 8) != 0 ? null : hashMap2);
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (ShaderParams) invokeV.objValue;
     }
 }

@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
-import com.baidu.tieba.qw5;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
+import com.baidu.tieba.yq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class LikeModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -171,7 +171,7 @@ public class LikeModel extends BdBaseModel {
                 attentionBarData.likeNum = likeReturnData.getLikeNum();
                 if (likeReturnData != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(JavaTypesHelper.toLong(likeReturnData.getFid(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new qw5.a(this.b.a, likeReturnData.getUserLevel())));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new yq5.a(this.b.a, likeReturnData.getUserLevel())));
                     TbadkCoreApplication.getInst().addLikeForum(this.b.a);
                     attentionBarData.isSuccess = true;
                     attentionBarData.errorMessage = this.b.getErrorString();
@@ -230,7 +230,7 @@ public class LikeModel extends BdBaseModel {
         this.h = tbPageContext;
     }
 
-    public void d0(int i) {
+    public void e0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.f = i;
@@ -244,7 +244,7 @@ public class LikeModel extends BdBaseModel {
         }
     }
 
-    public void a0() {
+    public void b0() {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.i) != null) {
@@ -253,7 +253,7 @@ public class LikeModel extends BdBaseModel {
         }
     }
 
-    public BlockPopInfoData b0() {
+    public BlockPopInfoData c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -262,10 +262,10 @@ public class LikeModel extends BdBaseModel {
         return (BlockPopInfoData) invokeV.objValue;
     }
 
-    public boolean c0() {
+    public boolean d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.i != null) {
                 return true;
             }
@@ -290,12 +290,12 @@ public class LikeModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            a0();
+            b0();
             this.h = null;
         }
     }
 
-    public void e0(String str, String str2) {
+    public void f0(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) && str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.i == null) {
             this.a = str;
@@ -307,10 +307,10 @@ public class LikeModel extends BdBaseModel {
         }
     }
 
-    public void f0(String str, String str2, String str3) {
+    public void g0(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
-            e0(str, str2);
+            f0(str, str2);
             this.c = str3;
         }
     }

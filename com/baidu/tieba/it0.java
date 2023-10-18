@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.app.Application;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class it0 {
+public class it0 implements zi0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public it0() {
-        this(sj0.b());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,118 +25,27 @@ public class it0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zi0
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c() == 1) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || ff0.a().a()) {
+            return;
         }
-        return invokeV.booleanValue;
+        gx0.a();
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zi0
+    public void b(@NonNull Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = this.a;
-            if (i != 0) {
-                if (i == 1) {
-                    return 1;
-                }
-                return 0;
-            }
-            return b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) {
+            AppRuntimeInit.onApplicationattachBaseContext(application);
+            df1.b(application);
         }
-        return invokeV.intValue;
-    }
-
-    public it0(Context context) {
-        ConnectivityManager connectivityManager;
-        int type;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        NetworkInfo networkInfo = null;
-        if (context != null && context.getApplicationContext() != null) {
-            connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-        } else {
-            connectivityManager = null;
-        }
-        if (connectivityManager != null) {
-            try {
-                networkInfo = connectivityManager.getActiveNetworkInfo();
-            } catch (Exception unused) {
-            }
-        }
-        if (networkInfo == null) {
-            type = -1;
-        } else {
-            type = networkInfo.getType();
-        }
-        this.a = type;
-        if (networkInfo != null && type == 0) {
-            i = networkInfo.getSubtype();
-        } else {
-            i = 0;
-        }
-        this.b = i;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            switch (this.b) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return 2;
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return 3;
-                case 13:
-                case 18:
-                case 19:
-                default:
-                    return 4;
-                case 20:
-                    return 5;
-            }
-        }
-        return invokeV.intValue;
     }
 }

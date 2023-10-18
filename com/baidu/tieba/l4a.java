@@ -1,5 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+
+import android.content.Context;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public interface l4a {
-    <T> void a(T t);
+    void dispatch(JSONObject jSONObject, Context context);
 }

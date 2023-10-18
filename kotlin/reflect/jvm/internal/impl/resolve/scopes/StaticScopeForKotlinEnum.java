@@ -68,7 +68,7 @@ public final class StaticScopeForKotlinEnum extends MemberScopeImpl {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ ClassifierDescriptor mo2109getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public /* bridge */ /* synthetic */ ClassifierDescriptor mo2108getContributedClassifier(Name name, LookupLocation lookupLocation) {
         return (ClassifierDescriptor) getContributedClassifier(name, lookupLocation);
     }
 

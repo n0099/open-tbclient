@@ -1,52 +1,77 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.base.core.repo.MsgProcessor;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.BubbleInfo;
-import com.baidu.tieba.im.lib.socket.msg.data.EnableDegradeUserData;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbTextToSpeechMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.Pair;
-import kotlin.jvm.JvmOverloads;
+import java.util.Map;
+import kotlin.Triple;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.random.Random;
 /* loaded from: classes9.dex */
-public abstract class ze8 {
+public final class ze8 extends te8<TbTextMsg, TextMsg> {
     public static /* synthetic */ Interceptable $ic;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MsgProcessor a;
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948357180, "Lcom/baidu/tieba/ze8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948357180, "Lcom/baidu/tieba/ze8;");
+                return;
+            }
         }
+        f = new a(null);
     }
 
-    public abstract BubbleInfo g();
+    public /* synthetic */ ze8(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
 
-    public abstract List<EnableDegradeUserData> j();
+    /* loaded from: classes9.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract TbBaseMsg.c k();
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
-    public abstract List<EnableDegradeUserData> n();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    public abstract long o();
-
-    public abstract int p();
-
-    @JvmOverloads
-    public final <T extends TbBaseMsg> void v(T tbMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, tbMsg) == null) {
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            A(this, tbMsg, null, 2, null);
+        public final Triple<Class<TbTextMsg>, Class<TextMsg>, ze8> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new Triple<>(TbTextMsg.class, TextMsg.class, new ze8(null));
+            }
+            return (Triple) invokeV.objValue;
         }
     }
 
@@ -54,102 +79,49 @@ public abstract class ze8 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new MsgProcessor();
+        j(1, TbTextMsg.class);
+        j(103, TbTextToSpeechMsg.class);
     }
 
-    public final MsgProcessor b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.te8
+    /* renamed from: n */
+    public TextMsg g(TbTextMsg tbMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (MsgProcessor) invokeV.objValue;
-    }
-
-    public static /* synthetic */ void A(ze8 ze8Var, TbBaseMsg tbBaseMsg, MsgProcessor.d dVar, int i, Object obj) {
-        if (obj == null) {
-            if ((i & 2) != 0) {
-                dVar = MsgProcessor.d.a.d(MsgProcessor.d.g, false, 0, 3, null);
-            }
-            ze8Var.w(tbBaseMsg, dVar);
-            return;
-        }
-        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: sendMsg");
-    }
-
-    public final void B(MsgProcessor.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.a.K(bVar);
-        }
-    }
-
-    public final void C(MsgProcessor.e<? extends TbSysMsg> eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            this.a.L(eVar);
-        }
-    }
-
-    public final void r(Pair<? extends Object, ? extends Class<? extends BaseItem<? extends TbBaseMsg>>> pair) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, pair) == null) {
-            Intrinsics.checkNotNullParameter(pair, "pair");
-            this.a.G(pair);
-        }
-    }
-
-    public final String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return fl8.b(el8.a()) + TbBaseMsg.Companion.a() + Random.Default.nextLong();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmOverloads
-    public final <T extends TbBaseMsg> void w(T tbMsg, MsgProcessor.d source) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, tbMsg, source) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
             Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            Intrinsics.checkNotNullParameter(source, "source");
-            tbMsg.setSessionId(o());
-            tbMsg.setMsgId(TbBaseMsg.Companion.a());
-            tbMsg.setMsgKey(l());
-            if (tbMsg.isMockSender()) {
-                this.a.C(tbMsg, source);
-                return;
-            }
-            o05 t = o05.t();
-            tbMsg.setUserId(t.j());
-            String m = t.m();
-            Intrinsics.checkNotNullExpressionValue(m, "am.currentAccountNameShow");
-            tbMsg.setUserName(m);
-            String r = t.r();
-            Intrinsics.checkNotNullExpressionValue(r, "am.currentPortrait");
-            tbMsg.setPortrait(r);
-            tbMsg.setRole(p());
-            tbMsg.setSendClient("android");
-            tbMsg.setForumExt(k());
-            BubbleInfo g = g();
-            if (g != null && !g.isExpired()) {
-                tbMsg.setBubbleInfo(g);
-            }
-            tbMsg.setEnableDegradeUserDataList(j());
-            tbMsg.setSecondDegradeUserDataList(n());
-            tbMsg.setLocalMsgId(true);
-            c();
-            this.a.C(tbMsg, source);
+            TextMsg textMsg = new TextMsg();
+            textMsg.setText(tbMsg.getText());
+            return textMsg;
         }
+        return (TextMsg) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.te8
+    /* renamed from: o */
+    public TbTextMsg h(int i, TextMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, sdkMsg, sdkMsgMap)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Intrinsics.checkNotNullParameter(sdkMsgMap, "sdkMsgMap");
+            TbTextMsg tbTextMsg = (TbTextMsg) DataExt.toEntity(sdkMsgMap, l(i));
+            String str = sdkMsg.text;
+            Intrinsics.checkNotNullExpressionValue(str, "sdkMsg.text");
+            tbTextMsg.setText(str);
+            return tbTextMsg;
+        }
+        return (TbTextMsg) invokeILL.objValue;
     }
 }

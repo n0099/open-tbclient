@@ -1,42 +1,21 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.se4;
+import okhttp3.Callback;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class dp1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface dp1 {
+    void d(byte[] bArr);
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && a) {
-            Log.d("SsoOneKey", str);
-        }
-    }
+    <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
 
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
-        }
-    }
+    void f(String str, String str2, se4.c cVar);
 
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && a) {
-            Log.e("SsoOneKey", str);
-        }
-    }
+    boolean g(String str);
 
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
+    boolean h();
+
+    boolean i(@NonNull p53 p53Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, ik3<String> ik3Var);
 }

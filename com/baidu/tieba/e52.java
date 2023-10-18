@@ -1,19 +1,35 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class e52 extends m42 {
+public class e52 implements f52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
+
+    @Override // com.baidu.tieba.f52
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.f52
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.f52
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
     public e52() {
         Interceptable interceptable = $ic;
@@ -25,33 +41,6 @@ public class e52 extends m42 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.m42
-    public void a(n42 n42Var, Canvas canvas) {
-        RectF rectF;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, n42Var, canvas) == null) && (rectF = this.a) != null) {
-            n42Var.f.addRect(rectF, Path.Direction.CW);
-        }
-    }
-
-    @Override // com.baidu.tieba.m42
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = xo3.g((float) jSONArray.optDouble(0));
-                    int g2 = xo3.g((float) jSONArray.optDouble(1));
-                    this.a = new RectF(g, g2, g + xo3.g((float) jSONArray.optDouble(2)), g2 + xo3.g((float) jSONArray.optDouble(3)));
-                }
-            } catch (Exception e) {
-                if (qr1.a) {
-                    e.printStackTrace();
-                }
             }
         }
     }

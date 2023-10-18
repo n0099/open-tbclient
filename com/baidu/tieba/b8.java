@@ -1,63 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class b8 {
+public class b8 implements e8 {
     public static /* synthetic */ Interceptable $ic;
-    public static b8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public f8 a;
-    public a7 b;
+    public char a;
 
-    public b8() {
+    public b8(char c) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Character.valueOf(c)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = c;
     }
 
-    public static b8 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e8
+    public Object a(u8 u8Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                c = new b8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u8Var)) == null) {
+            Class<?> a = u8Var.a();
+            if (a != Byte.class && a != Byte.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        boolean z = false;
+                                        if (a != Boolean.class && a != Boolean.TYPE) {
+                                            if (a == String.class) {
+                                                return String.valueOf(this.a);
+                                            }
+                                            if (a == char[].class) {
+                                                return String.valueOf(this.a).toCharArray();
+                                            }
+                                            if (a == byte[].class) {
+                                                try {
+                                                    return tc.e(String.valueOf(this.a), 0);
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                    return null;
+                                                }
+                                            }
+                                            return null;
+                                        }
+                                        if (((byte) this.a) == 0) {
+                                            z = true;
+                                        }
+                                        return Boolean.valueOf(z);
+                                    }
+                                    return Character.valueOf(this.a);
+                                }
+                                return Double.valueOf(this.a);
+                            }
+                            return Float.valueOf(this.a);
+                        }
+                        return Long.valueOf(this.a);
+                    }
+                    return Integer.valueOf(this.a);
+                }
+                return Short.valueOf((short) this.a);
             }
-            return c;
+            return Byte.valueOf((byte) this.a);
         }
-        return (b8) invokeV.objValue;
-    }
-
-    public void b(Object[] objArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048576, this, objArr, i, i2) == null) {
-            if (this.b == null) {
-                this.b = new a7();
-            }
-            this.b.c(objArr, i, i2);
-        }
-    }
-
-    public <T> void c(T[] tArr, Comparator<? super T> comparator, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr, comparator, i, i2) == null) {
-            if (this.a == null) {
-                this.a = new f8();
-            }
-            this.a.c(tArr, comparator, i, i2);
-        }
+        return invokeL.objValue;
     }
 }

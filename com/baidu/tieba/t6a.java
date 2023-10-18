@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
+import android.util.ArrayMap;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 /* loaded from: classes8.dex */
 public class t6a {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Set<bn>> a;
+    public static final Map<String, Long> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,30 +30,23 @@ public class t6a {
                 return;
             }
         }
-        a = new HashMap();
+        a = new ArrayMap();
     }
 
-    public static Set<bn> a(String str) {
-        InterceptResult invokeL;
+    public static void a(String str, boolean z) {
+        Long remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return a.get(str);
+        if ((interceptable != null && interceptable.invokeLZ(65537, null, str, z) != null) || (remove = a.remove(str)) == null) {
+            return;
         }
-        return (Set) invokeL.objValue;
+        StatisticItem addParam = new StatisticItem("shoubai_http_net_test").addParam("obj_name", str).addParam("obj_type", BdNetTypeUtil.getNetType()).addParam("obj_source", "true false");
+        TiebaStatic.log(addParam.addParam("obj_param1", z + "").addParam(TiebaStatic.Params.OBJ_PARAM2, SpeedStatsManager.getInstance().getDurationWithoutAD(remove.longValue(), System.currentTimeMillis())));
     }
 
-    public static void c(String str) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && a.get(str) != null) {
-            a.get(str).clear();
-            a.remove(str);
-        }
-    }
-
-    public static void b(String str, Set<bn> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, set) == null) {
-            a.put(str, set);
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            a.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 }

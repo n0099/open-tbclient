@@ -1,6 +1,5 @@
 package com.xiaomi.push;
 
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes10.dex */
@@ -12,8 +11,8 @@ public class x {
         a = hashMap;
         hashMap.put("FFD8FF", "jpg");
         a.put("89504E47", "png");
-        a.put("47494638", NativeConstants.TYPE_GIF);
-        a.put("474946", NativeConstants.TYPE_GIF);
+        a.put("47494638", "gif");
+        a.put("474946", "gif");
         a.put("424D", "bmp");
     }
 

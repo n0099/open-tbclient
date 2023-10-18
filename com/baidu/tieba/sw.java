@@ -1,23 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.boxdownload.IBoxDownloadDbOperator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-import com.baidu.webkit.sdk.Log;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class sw {
+public final class sw implements lf1<IBoxDownloadDbOperator> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tw a;
-    public JSONObject b;
-    public JSONObject c;
-    public boolean d;
 
     public sw() {
         Interceptable interceptable = $ic;
@@ -33,50 +25,15 @@ public final class sw {
         }
     }
 
-    public final void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lf1
+    /* renamed from: a */
+    public IBoxDownloadDbOperator getService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new tw();
         }
-        SessionMonitorEngine.getInstance().recordImmediately("t7_init", this.c.toString());
-        this.c = null;
-    }
-
-    public final void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            try {
-                if (this.b == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    this.b = jSONObject;
-                    jSONObject.put("type", MonitorType.MONITOR_TYPE_INIT_WEBKIT);
-                }
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.b.put(str, str2);
-            } catch (Exception unused) {
-                Log.e("staticWebkitInit JSON error");
-            }
-        }
-    }
-
-    public final void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            try {
-                if (this.c == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    this.c = jSONObject;
-                    jSONObject.put("type", MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT);
-                }
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.c.put(str, str2);
-            } catch (Exception unused) {
-                Log.e("mWebkitDownloadStatics JSON error");
-            }
-        }
+        return (IBoxDownloadDbOperator) invokeV.objValue;
     }
 }

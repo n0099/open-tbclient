@@ -27,6 +27,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.statistics.YalogWrap;
 import com.baidu.cyberplayer.sdk.utils.MD5Utils;
+import com.baidu.mobads.sdk.internal.cl;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.webkit.internal.monitor.MonitorType;
@@ -693,7 +694,7 @@ public class Utils {
         }
         new File(str).mkdirs();
         if (!isMainProcess()) {
-            str = str + File.separator + "remote";
+            str = str + File.separator + cl.b;
         }
         CyberLog.i(TAG, "getVideoStatisticsPath folder:" + str);
         return str;

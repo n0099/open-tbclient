@@ -2,22 +2,14 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class h15 {
+public class h15 implements ue1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
 
     public h15() {
         Interceptable interceptable = $ic;
@@ -29,17 +21,32 @@ public class h15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = 1;
-        this.d = 1;
-        this.e = 0;
-        this.f = 0;
-        this.g = 1;
-        this.h = 0;
-        this.i = 0;
+    }
+
+    @Override // com.baidu.tieba.ue1
+    public Object get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new fu6());
+            arrayList.add(new oo7());
+            arrayList.add(new so7());
+            arrayList.add(new wo7());
+            arrayList.add(new ap7());
+            arrayList.add(new ep7());
+            arrayList.add(new ip7());
+            arrayList.add(new mp7());
+            arrayList.add(new qp7());
+            arrayList.add(new qd9());
+            arrayList.add(new vd9());
+            arrayList.add(new ae9());
+            arrayList.add(new faa());
+            arrayList.add(new dka());
+            return arrayList;
+        }
+        return invokeV.objValue;
     }
 }

@@ -26,8 +26,8 @@ public class b {
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0137a implements Runnable {
-            public RunnableC0137a() {
+        public class RunnableC0139a implements Runnable {
+            public RunnableC0139a() {
             }
 
             @Override // java.lang.Runnable
@@ -44,7 +44,7 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            this.a.post(new RunnableC0137a());
+            this.a.post(new RunnableC0139a());
         }
     }
 
@@ -52,7 +52,7 @@ public class b {
         View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
         Button button = (Button) inflate.findViewById(R.id.btn_retry);
         if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-            ((LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092090)).setBackgroundColor(context.getResources().getColor(R.color.sapi_sdk_dark_mode_color));
+            ((LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09209b)).setBackgroundColor(context.getResources().getColor(R.color.sapi_sdk_dark_mode_color));
             ((TextView) inflate.findViewById(R.id.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(R.color.sapi_sdk_dark_mode_no_network_tv_color));
             ((ImageView) inflate.findViewById(R.id.sapi_sdk_loading_timeout_iv)).setImageResource(R.drawable.sapi_sdk_icon_connection_failed_dark);
             button.setBackgroundResource(R.drawable.sapi_sdk_btn_gray);

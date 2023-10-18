@@ -8,17 +8,17 @@ import android.widget.AbsListView;
 import android.widget.RelativeLayout;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jy8;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.BaseCardView;
 import com.baidu.tieba.lego.card.view.ButtonCardView;
-import com.baidu.tieba.y39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class LegoBottomView extends RelativeLayout implements y39 {
+/* loaded from: classes7.dex */
+public class LegoBottomView extends RelativeLayout implements jy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ObjectAnimator a;
@@ -26,7 +26,7 @@ public class LegoBottomView extends RelativeLayout implements y39 {
     public boolean c;
     public boolean d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class LegoBottomView extends RelativeLayout implements y39 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,7 +208,7 @@ public class LegoBottomView extends RelativeLayout implements y39 {
     public void b(BaseCardView baseCardView, ICardInfo iCardInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, baseCardView, iCardInfo) == null) {
-            baseCardView.update(iCardInfo);
+            baseCardView.h(iCardInfo);
             if (baseCardView instanceof ButtonCardView) {
                 ((ButtonCardView) baseCardView).setBackgroundAlpha(0.3f);
             }
@@ -245,7 +245,7 @@ public class LegoBottomView extends RelativeLayout implements y39 {
         }
     }
 
-    @Override // com.baidu.tieba.y39
+    @Override // com.baidu.tieba.jy8
     public void onScrollStateChanged(AbsListView absListView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, absListView, i) == null) {

@@ -25,9 +25,9 @@ public class DisplayInfoView extends LinearLayout {
 
     /* loaded from: classes3.dex */
     public interface d {
-        void b();
+        void a();
 
-        void c();
+        void onPrivacyClick();
     }
 
     /* loaded from: classes3.dex */
@@ -58,7 +58,7 @@ public class DisplayInfoView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.g != null) {
-                this.a.g.c();
+                this.a.g.onPrivacyClick();
             }
         }
     }
@@ -91,7 +91,7 @@ public class DisplayInfoView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.g != null) {
-                this.a.g.b();
+                this.a.g.a();
             }
         }
     }

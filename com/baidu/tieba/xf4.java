@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Iterator;
+import java.util.Vector;
 /* loaded from: classes8.dex */
-public class xf4 extends sf4<sx2> {
+public class xf4 implements nf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ri4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Vector<nf4> a;
+    public Object b;
 
     static {
         InterceptResult invokeClinit;
@@ -30,73 +31,85 @@ public class xf4 extends sf4<sx2> {
                 return;
             }
         }
-        boolean z = qr1.a;
+        c = ri4.e();
     }
 
-    public xf4() {
+    public xf4(nf4 nf4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nf4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = new Object();
+        this.a = new Vector<>();
+        c(nf4Var);
     }
 
-    public static xf4 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.nf4
+    public <T> void a(rf4<T> rf4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new xf4();
-        }
-        return (xf4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sf4
-    public boolean b(Context context, sx2 sx2Var, px2 px2Var, gb3 gb3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, sx2Var, px2Var, gb3Var, jSONObject)) == null) {
-            return e(context, sx2Var, px2Var, gb3Var, jSONObject);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, sx2 sx2Var, px2 px2Var, gb3 gb3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sx2Var, px2Var, gb3Var, jSONObject)) == null) {
-            g82.i("map", "GetRegionAction start");
-            ox1 A = tw2.T().A(sx2Var.c);
-            if (!(A instanceof mx1)) {
-                g82.c("map", "WebViewManager is null");
-                return false;
-            }
-            qg4 d = pf4.b().c((mx1) A).d(sx2Var.b);
-            if (d == null) {
-                g82.c("map", "can not find map by id " + sx2Var.b);
-                return false;
-            }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
+        if (interceptable == null || interceptable.invokeL(1048576, this, rf4Var) == null) {
             try {
-                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
-                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
-                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
-                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
-                jSONObject.put("southwest", jSONObject3);
-                jSONObject.put("northeast", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                synchronized (this.b) {
+                    Iterator<nf4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        it.next().a(rf4Var);
+                    }
+                }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
             }
-            g82.i("map", "GetRegionAction end");
-            return true;
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nf4
+    public <T> void b(rf4<T> rf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rf4Var) == null) {
+            Vector vector = new Vector();
+            try {
+                synchronized (this.b) {
+                    Iterator<nf4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        vector.add(it.next());
+                    }
+                }
+                Iterator it2 = vector.iterator();
+                while (it2.hasNext()) {
+                    ((nf4) it2.next()).b(rf4Var);
+                }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
+            }
+        }
+    }
+
+    public void c(nf4 nf4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nf4Var) == null) && nf4Var != null) {
+            synchronized (this.b) {
+                this.a.add(nf4Var);
+            }
+        }
+    }
+
+    public void d(nf4 nf4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, nf4Var) == null) && nf4Var != null) {
+            synchronized (this.b) {
+                if (!this.a.remove(nf4Var)) {
+                    this.a.remove(this.a.indexOf(nf4Var));
+                }
+            }
+        }
     }
 }

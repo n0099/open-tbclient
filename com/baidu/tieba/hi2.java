@@ -1,42 +1,46 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
-import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class hi2 {
     public static /* synthetic */ Interceptable $ic;
-    public static Uri a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    @V8JavascriptField
+    public String errMsg;
+    @V8JavascriptField
+    public vh2 stats;
 
-    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
+    public hi2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
-            } catch (Exception e) {
-                g82.d("SwanLaunchBehaviorTable", "createTable", e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.a = 0 + 1;
+        this.b = 0;
     }
 
-    @NonNull
-    public static synchronized Uri b() {
+    public String toString() {
         InterceptResult invokeV;
-        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (hi2.class) {
-                if (a == null) {
-                    a = fi2.c.buildUpon().appendPath("user_behavior").build();
-                }
-                uri = a;
-            }
-            return uri;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "StatCallBack" + this.b;
         }
-        return (Uri) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

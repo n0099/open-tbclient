@@ -1,29 +1,42 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.HashSet;
+@Autowired
 /* loaded from: classes6.dex */
 public class kp3 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    @SafeVarargs
-    public static <E> HashSet<E> a(E... eArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, eArr)) == null) {
-            if (eArr != null && eArr.length > 0) {
-                HashSet<E> hashSet = new HashSet<>(eArr.length);
-                Collections.addAll(hashSet, eArr);
-                return hashSet;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920731, "Lcom/baidu/tieba/kp3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return new HashSet<>();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947920731, "Lcom/baidu/tieba/kp3;");
+                return;
+            }
         }
-        return (HashSet) invokeL.objValue;
+        a = a().isDebug();
+    }
+
+    @Inject
+    public static ip3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return ip2.a();
+        }
+        return (ip3) invokeV.objValue;
     }
 }

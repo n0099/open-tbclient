@@ -21,11 +21,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.data.ImShareCardCommonData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap8;
-import com.baidu.tieba.bp8;
-import com.baidu.tieba.c35;
-import com.baidu.tieba.di;
-import com.baidu.tieba.dm8;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.eg8;
+import com.baidu.tieba.gg8;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.data.MsgLocalData;
@@ -44,9 +42,11 @@ import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.baidu.tieba.im.message.chat.SystemMessage;
 import com.baidu.tieba.im.message.chat.YYMessage;
-import com.baidu.tieba.kl8;
-import com.baidu.tieba.ul8;
-import com.baidu.tieba.wl8;
+import com.baidu.tieba.kj8;
+import com.baidu.tieba.kx4;
+import com.baidu.tieba.lj8;
+import com.baidu.tieba.ng8;
+import com.baidu.tieba.uf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,7 +93,7 @@ public class MessageUtils {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{list, linkedList, hashMap, hashMap2, chatMessage, msgInfo, groupMsgData, l}) == null) && list != null && linkedList != null && hashMap != null && hashMap2 != null && chatMessage != null && msgInfo != null) {
-            long a = ap8.a(msgInfo.msgId.longValue());
+            long a = kj8.a(msgInfo.msgId.longValue());
             chatMessage.setMsgId(a);
             chatMessage.setSid(msgInfo.sid.longValue());
             chatMessage.setGroupId(String.valueOf(msgInfo.groupId));
@@ -137,9 +137,9 @@ public class MessageUtils {
             chatMessage.setToUserId(msgInfo.toUid.longValue());
             chatMessage.setContent(msgInfo.content);
             if (msgInfo.msgType.intValue() == 3) {
-                VoiceMsgData s = bp8.s(chatMessage);
+                VoiceMsgData s = lj8.s(chatMessage);
                 if (s != null) {
-                    if (bp8.A(chatMessage)) {
+                    if (lj8.A(chatMessage)) {
                         s.setHas_read(1);
                     } else {
                         s.setHas_read(0);
@@ -148,28 +148,28 @@ public class MessageUtils {
                     chatMessage.setContent(PreferencesUtil.LEFT_MOUNT + jsonStrWithObject + PreferencesUtil.RIGHT_MOUNT);
                 }
             } else if (msgInfo.msgType.intValue() == 33) {
-                ShareForumMsgData f = bp8.f(chatMessage);
+                ShareForumMsgData f = lj8.f(chatMessage);
                 if (f != null) {
-                    f.setHasRead(bp8.A(chatMessage));
+                    f.setHasRead(lj8.A(chatMessage));
                     chatMessage.setContent(OrmObject.jsonStrWithObject(f));
                     chatMessage.setEncodeContent(f.toEncodeContent());
                 }
             } else if (msgInfo.msgType.intValue() == 32) {
-                ShareThreadMsgData g = bp8.g(chatMessage);
+                ShareThreadMsgData g = lj8.g(chatMessage);
                 if (g != null) {
-                    g.setHasRead(bp8.A(chatMessage));
+                    g.setHasRead(lj8.A(chatMessage));
                     chatMessage.setContent(OrmObject.jsonStrWithObject(g));
                     chatMessage.setEncodeContent(g.toEncodeContent());
                 }
             } else if (msgInfo.msgType.intValue() == 37) {
-                ShareChatroomMsgData e = bp8.e(chatMessage);
+                ShareChatroomMsgData e = lj8.e(chatMessage);
                 if (e != null) {
-                    e.setHasRead(bp8.A(chatMessage) ? 1 : 0);
+                    e.setHasRead(lj8.A(chatMessage) ? 1 : 0);
                     chatMessage.setContent(OrmObject.jsonStrWithObject(e));
                     chatMessage.setEncodeContent(e.toEncodeContent());
                 }
-            } else if (msgInfo.msgType.intValue() == 38 && (d = bp8.d(chatMessage)) != null) {
-                d.setHasRead(bp8.A(chatMessage) ? 1 : 0);
+            } else if (msgInfo.msgType.intValue() == 38 && (d = lj8.d(chatMessage)) != null) {
+                d.setHasRead(lj8.A(chatMessage) ? 1 : 0);
                 chatMessage.setContent(OrmObject.jsonStrWithObject(d));
                 chatMessage.setEncodeContent(d.toEncodeContent());
             }
@@ -216,19 +216,19 @@ public class MessageUtils {
                     if (groupMsgData != null && groupMsgData.getGroupInfo() != null && l != null) {
                         groupMsgData.getGroupInfo().setGroupId(l.longValue());
                     }
-                    if (wl8.e().c(chatMessage.getMsgId())) {
+                    if (gg8.e().c(chatMessage.getMsgId())) {
                         return;
                     }
-                    long d2 = wl8.e().d();
+                    long d2 = gg8.e().d();
                     Long l2 = msgInfo.groupId;
                     if (l2 != null) {
-                        if (d2 == 0 || l2.longValue() == wl8.e().d()) {
-                            Long f2 = wl8.e().f();
+                        if (d2 == 0 || l2.longValue() == gg8.e().d()) {
+                            Long f2 = gg8.e().f();
                             if (f2 != null && msgInfo.msgId != null && f2.longValue() >= msgInfo.msgId.longValue()) {
                                 return;
                             }
                             chatMessage.setIsPushForOperateAccount(true);
-                            wl8.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
+                            gg8.e().a(msgInfo.groupId.longValue(), chatMessage.getMsgId());
                         } else {
                             return;
                         }
@@ -304,7 +304,7 @@ public class MessageUtils {
         createPersonalChatMessageByToUser.setObjContent(a);
         createPersonalChatMessageByToUser.setMsgType(38);
         createPersonalChatMessageByToUser.setEncodeContent(a.toEncodeContent());
-        dm8.k().t(createPersonalChatMessageByToUser);
+        ng8.k().t(createPersonalChatMessageByToUser);
     }
 
     public static void createAndSendPersonalGroupChatMessage(@Nullable GroupInfoData groupInfoData, long j, String str, String str2, String str3, boolean z) {
@@ -318,7 +318,7 @@ public class MessageUtils {
         createPersonalChatMessageByToUser.setObjContent(a);
         createPersonalChatMessageByToUser.setMsgType(37);
         createPersonalChatMessageByToUser.setEncodeContent(a.toEncodeContent());
-        dm8.k().t(createPersonalChatMessageByToUser);
+        ng8.k().t(createPersonalChatMessageByToUser);
     }
 
     public static void createAndSendPersonalTextChatMessage(@Nullable String str, long j, String str2, String str3, String str4, boolean z) {
@@ -329,7 +329,7 @@ public class MessageUtils {
         PersonalChatMessage createPersonalChatMessageByToUser = createPersonalChatMessageByToUser(j, str2, str3, str4, z);
         createPersonalChatMessageByToUser.setContent(str);
         createPersonalChatMessageByToUser.setMsgType(1);
-        dm8.k().t(createPersonalChatMessageByToUser);
+        ng8.k().t(createPersonalChatMessageByToUser);
     }
 
     public static void createAndSendPersonalThreadChatMessage(@Nullable ThreadData threadData, long j, String str, String str2, String str3, boolean z) {
@@ -343,13 +343,13 @@ public class MessageUtils {
         createPersonalChatMessageByToUser.setObjContent(ofThreadData);
         createPersonalChatMessageByToUser.setMsgType(32);
         createPersonalChatMessageByToUser.setEncodeContent(ofThreadData.toEncodeContent());
-        dm8.k().t(createPersonalChatMessageByToUser);
+        ng8.k().t(createPersonalChatMessageByToUser);
     }
 
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, str3, str4}) == null) {
-            createPersonalChatMessage(kl8.n().s(String.valueOf(j), 2), i, str, j, str2, str3, str4);
+            createPersonalChatMessage(uf8.n().s(String.valueOf(j), 2), i, str, j, str2, str3, str4);
         }
     }
 
@@ -362,7 +362,7 @@ public class MessageUtils {
             createPersonalChatMessageByToUser.setObjContent(ofForumData);
             createPersonalChatMessageByToUser.setMsgType(33);
             createPersonalChatMessageByToUser.setEncodeContent(ofForumData.toEncodeContent());
-            dm8.k().t(createPersonalChatMessageByToUser);
+            ng8.k().t(createPersonalChatMessageByToUser);
         }
     }
 
@@ -383,9 +383,9 @@ public class MessageUtils {
             hashMap.put("meme_type", str3);
         }
         PersonalChatMessage createPersonalChatMessageByToUser = createPersonalChatMessageByToUser(j, str4, str5, str6, z);
-        createPersonalChatMessageByToUser.setContent(dm8.g(str2, str2, i, i2, hashMap));
+        createPersonalChatMessageByToUser.setContent(ng8.g(str2, str2, i, i2, hashMap));
         createPersonalChatMessageByToUser.setMsgType(2);
-        dm8.k().t(createPersonalChatMessageByToUser);
+        ng8.k().t(createPersonalChatMessageByToUser);
     }
 
     public static void createAndSendPersonalReactionsPicChatMessage(@Nullable String str, String str2, int i, int i2, long j, String str3, String str4, String str5, boolean z) {
@@ -409,7 +409,7 @@ public class MessageUtils {
             } else {
                 createPersonalChatMessageByToUser.setMsgType(i);
             }
-            dm8.k().t(createPersonalChatMessageByToUser);
+            ng8.k().t(createPersonalChatMessageByToUser);
             return createPersonalChatMessageByToUser.getMsgId();
         }
         return invokeCommon.longValue;
@@ -454,7 +454,7 @@ public class MessageUtils {
         msgLocalData.setRetry(0L);
         msgLocalData.setUpload_offset(null);
         personalChatMessage.setLocalData(msgLocalData);
-        dm8.k().t(personalChatMessage);
+        ng8.k().t(personalChatMessage);
     }
 
     public static PersonalChatMessage createPersonalChatMessageByToUser(long j, String str, String str2, String str3, boolean z) {
@@ -462,7 +462,7 @@ public class MessageUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)})) == null) {
             PersonalChatMessage personalChatMessage = new PersonalChatMessage();
-            long s = kl8.n().s(String.valueOf(j), 2);
+            long s = uf8.n().s(String.valueOf(j), 2);
             personalChatMessage.setRecordId(s);
             personalChatMessage.setMsgId(s);
             personalChatMessage.setBornTime(System.currentTimeMillis());
@@ -533,7 +533,7 @@ public class MessageUtils {
         }
     }
 
-    public static c35 generatePushNotifyData(MsgInfo msgInfo) {
+    public static kx4 generatePushNotifyData(MsgInfo msgInfo) {
         InterceptResult invokeL;
         String str;
         String str2;
@@ -543,7 +543,7 @@ public class MessageUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, msgInfo)) == null) {
             String str5 = "";
-            if (msgInfo != null && !di.isEmpty(msgInfo.content)) {
+            if (msgInfo != null && !ad.isEmpty(msgInfo.content)) {
                 try {
                     JSONArray jSONArray = new JSONArray(msgInfo.content);
                     if (jSONArray.length() != 1) {
@@ -564,8 +564,8 @@ public class MessageUtils {
                                 str5 = TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{msgInfo.userInfo.userName}) + ZeusCrashHandler.NAME_SEPERATOR + str5;
                             }
                             str3 = str5;
-                            if (!di.isEmpty(str3)) {
-                                return new c35(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
+                            if (!ad.isEmpty(str3)) {
+                                return new kx4(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
                             }
                             return null;
                         }
@@ -576,17 +576,17 @@ public class MessageUtils {
                     str = "";
                 }
                 userInfo = msgInfo.userInfo;
-                if (userInfo != null && !di.isEmpty(userInfo.userName)) {
+                if (userInfo != null && !ad.isEmpty(userInfo.userName)) {
                     str5 = TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{msgInfo.userInfo.userName}) + ZeusCrashHandler.NAME_SEPERATOR + str5;
                 }
                 str3 = str5;
-                if (!di.isEmpty(str3) && !di.isEmpty(str2)) {
-                    return new c35(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
+                if (!ad.isEmpty(str3) && !ad.isEmpty(str2)) {
+                    return new kx4(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
                 }
             }
             return null;
         }
-        return (c35) invokeL.objValue;
+        return (kx4) invokeL.objValue;
     }
 
     public static GroupMsgData obtainGroupData(int i) {
@@ -684,7 +684,7 @@ public class MessageUtils {
             if (longSparseArray != null && longSparseArray.size() != 0) {
                 NewpushRepair.Builder builder = new NewpushRepair.Builder();
                 for (int i = 0; i < longSparseArray.size(); i++) {
-                    NewpushGroupRepair j = ul8.i().j(longSparseArray.keyAt(i));
+                    NewpushGroupRepair j = eg8.i().j(longSparseArray.keyAt(i));
                     if (j != null) {
                         if (builder.groups == null) {
                             builder.groups = new ArrayList();
@@ -739,7 +739,7 @@ public class MessageUtils {
             imMessageCenterPojo.setCustomGroupType(i);
             imMessageCenterPojo.setGid(String.valueOf(j));
             if (bundle.containsKey(LAST_MID)) {
-                imMessageCenterPojo.setPulled_msgId(ap8.a(bundle.getLong(LAST_MID) - 1));
+                imMessageCenterPojo.setPulled_msgId(kj8.a(bundle.getLong(LAST_MID) - 1));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
         }
@@ -837,12 +837,12 @@ public class MessageUtils {
     public static void sendHasReadMessage(String str, int i) {
         ImMessageCenterPojo h;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65559, null, str, i) != null) || StringUtils.isNull(str) || i != 2 || (h = kl8.n().h(str, 2)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(65559, null, str, i) != null) || StringUtils.isNull(str) || i != 2 || (h = uf8.n().h(str, 2)) == null) {
             return;
         }
         long pulled_msgId = h.getPulled_msgId();
         if (pulled_msgId > h.getSent_msgId()) {
-            RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(ap8.c(pulled_msgId), Long.parseLong(str));
+            RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(kj8.c(pulled_msgId), Long.parseLong(str));
             if (MessageManager.getInstance().getSocketClient().n(requestPersonalMsgReadMessage)) {
                 return;
             }

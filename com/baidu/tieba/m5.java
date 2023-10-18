@@ -1,97 +1,107 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.utils.BufferUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import java.nio.ShortBuffer;
+import java.security.PublicKey;
+import javax.crypto.SecretKey;
 /* loaded from: classes7.dex */
-public class m5 implements n5 {
+public class m5 {
     public static /* synthetic */ Interceptable $ic;
+    public static m5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ShortBuffer a;
-    public final ByteBuffer b;
-    public final boolean c;
-    public int d;
-    public final boolean e;
+    public SecretKey a;
+    public byte[] b;
 
-    public m5(boolean z, int i) {
-        boolean z2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448309573, "Lcom/baidu/tieba/m5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448309573, "Lcom/baidu/tieba/m5;");
+        }
+    }
+
+    public m5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (i == 0) {
-            z2 = true;
-        } else {
-            z2 = false;
-        }
-        this.e = z2;
-        ByteBuffer e = BufferUtils.e((z2 ? 1 : i) * 2);
-        this.b = e;
-        ShortBuffer asShortBuffer = e.asShortBuffer();
-        this.a = asShortBuffer;
-        this.c = true;
-        asShortBuffer.flip();
-        this.b.flip();
-        this.d = y0.f.n();
+        this.a = null;
+        this.b = null;
     }
 
-    @Override // com.baidu.tieba.n5, com.baidu.tieba.b7
-    public void dispose() {
+    public static m5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            y0.f.E(34963, 0);
-            y0.f.b(this.d);
-            this.d = 0;
-            if (this.c) {
-                BufferUtils.b(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (m5.class) {
+                    if (c == null) {
+                        c = new m5();
+                    }
+                }
             }
+            return c;
         }
+        return (m5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.n5
-    public int e() {
+    public SecretKey b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (SecretKey) invokeV.objValue;
+    }
+
+    public byte[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.e) {
-                return 0;
+            return this.b;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public void d(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
+            try {
+                PublicKey e = hd.e(bArr);
+                String g = hd.g(32);
+                byte[] bArr2 = new byte[g.length()];
+                for (int i = 0; i < g.length(); i++) {
+                    bArr2[i] = (byte) g.charAt(i);
+                }
+                this.a = hd.f(g);
+                this.b = hd.d(e, bArr2);
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+                this.a = null;
+                this.b = new byte[0];
             }
-            return this.a.limit();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.n5
-    public ShortBuffer getBuffer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (ShortBuffer) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.n5
-    public void invalidate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = y0.f.n();
         }
     }
 }

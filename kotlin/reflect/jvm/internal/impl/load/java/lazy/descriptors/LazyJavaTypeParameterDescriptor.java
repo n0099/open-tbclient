@@ -19,7 +19,7 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.KotlinTypeFactory;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class LazyJavaTypeParameterDescriptor extends AbstractLazyTypeParameterDescriptor {
     public final LazyJavaAnnotations annotations;
     public final LazyJavaResolverContext c;
@@ -27,7 +27,7 @@ public final class LazyJavaTypeParameterDescriptor extends AbstractLazyTypeParam
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.impl.AbstractTypeParameterDescriptor
     /* renamed from: reportSupertypeLoopError */
-    public void mo2110reportSupertypeLoopError(KotlinType kotlinType) {
+    public void mo2109reportSupertypeLoopError(KotlinType kotlinType) {
     }
 
     public LazyJavaTypeParameterDescriptor(LazyJavaResolverContext lazyJavaResolverContext, JavaTypeParameter javaTypeParameter, int i, DeclarationDescriptor declarationDescriptor) {

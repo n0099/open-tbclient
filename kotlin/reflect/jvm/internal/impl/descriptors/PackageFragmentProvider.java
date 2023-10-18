@@ -5,7 +5,7 @@ import java.util.List;
 import kotlin.jvm.functions.Function1;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public interface PackageFragmentProvider {
     List<PackageFragmentDescriptor> getPackageFragments(FqName fqName);
 

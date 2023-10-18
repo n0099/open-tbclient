@@ -10,29 +10,23 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g31;
-import com.baidu.tieba.mr0;
-import com.baidu.tieba.n71;
-import com.baidu.tieba.p61;
-import com.baidu.tieba.sj0;
-import com.baidu.tieba.yr0;
+import com.baidu.tieba.a21;
+import com.baidu.tieba.c11;
+import com.baidu.tieba.pe0;
+import com.baidu.tieba.tx0;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NadExpressBottomView extends ViewGroup {
-    public static final int l = p61.c.a(sj0.b(), 3.0f);
-    public static final int m = p61.c.a(sj0.b(), 0.0f);
-    public static final int n = e(R.dimen.NAD_F_M_W_X007);
-    public static final int o = e(R.dimen.nad_label_source_max_width);
-    public static final int p = e(R.dimen.nad_ad_label_source_max_width);
-    public static final int q = e(R.dimen.nad_label_tag_max_width) - (l * 2);
-    public static final int r = e(R.dimen.NAD_F_T_X033);
-    public static final int s = e(R.dimen.NAD_F_T_X033);
-    public static final int t = e(R.dimen.nad_tag_height);
-    public static final int u = d(R.color.NAD_FC2);
-    public static final int v = d(R.color.NAD_FC1);
+    public static final int l = c11.c.a(pe0.b(), 3.0f);
+    public static final int m = c11.c.a(pe0.b(), 0.0f);
+    public static final int n = d(R.dimen.NAD_F_M_W_X007);
+    public static final int o;
+    public static final int p;
+    public static final int q;
+    public static final int r;
+    public static final int s;
     public AdImageView a;
     public String b;
     public String c;
@@ -45,41 +39,30 @@ public class NadExpressBottomView extends ViewGroup {
     public int j;
     public String k;
 
-    public final void i() {
-        AdImageView adImageView = new AdImageView(getContext());
-        this.a = adImageView;
-        adImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.a.setImageDrawable(getResources().getDrawable(R.drawable.nad_unlike_btn_icon));
-        this.a.setId(R.id.nad_base_delete_id);
-        this.a.setContentDescription("不感兴趣");
-        n71.a(getContext(), this.a, 15.0f);
-        setWillNotDraw(false);
-        TextPaint textPaint = new TextPaint();
-        this.e = textPaint;
-        textPaint.setAntiAlias(true);
-        this.e.setTextSize(r);
-        this.e.setColor(u);
-        TextPaint textPaint2 = new TextPaint();
-        this.f = textPaint2;
-        textPaint2.setAntiAlias(true);
-        this.f.setTextSize(s);
-        this.f.setColor(v);
-        addView(this.a);
+    static {
+        d(R.dimen.nad_label_source_max_width);
+        d(R.dimen.nad_ad_label_source_max_width);
+        d(R.dimen.nad_label_tag_max_width);
+        o = d(R.dimen.NAD_F_T_X033);
+        p = d(R.dimen.NAD_F_T_X033);
+        q = d(R.dimen.nad_tag_height);
+        r = c(R.color.NAD_FC2);
+        s = c(R.color.NAD_FC1);
     }
 
     public NadExpressBottomView(Context context) {
         this(context, null);
     }
 
+    public static int c(int i) {
+        return ContextCompat.getColor(pe0.b(), i);
+    }
+
     public static int d(int i) {
-        return ContextCompat.getColor(sj0.b(), i);
+        return pe0.b().getResources().getDimensionPixelSize(i);
     }
 
-    public static int e(int i) {
-        return sj0.b().getResources().getDimensionPixelSize(i);
-    }
-
-    public final float g(TextPaint textPaint) {
+    public final float f(TextPaint textPaint) {
         return textPaint.getFontMetrics().bottom - textPaint.getFontMetrics().top;
     }
 
@@ -87,7 +70,7 @@ public class NadExpressBottomView extends ViewGroup {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.save();
-        c(canvas);
+        b(canvas);
         canvas.restore();
     }
 
@@ -107,15 +90,15 @@ public class NadExpressBottomView extends ViewGroup {
         this(context, attributeSet, 0);
     }
 
-    public final float f(TextPaint textPaint, int i) {
-        return ((i - g(textPaint)) / 2.0f) - textPaint.getFontMetrics().top;
+    public final float e(TextPaint textPaint, int i) {
+        return ((i - f(textPaint)) / 2.0f) - textPaint.getFontMetrics().top;
     }
 
-    public final float h(String str, TextPaint textPaint) {
+    public final float g(String str, TextPaint textPaint) {
         return textPaint.measureText(str);
     }
 
-    public final void k(int i, int i2) {
+    public final void i(int i, int i2) {
         for (int i3 = 0; i3 < getChildCount(); i3++) {
             View childAt = getChildAt(i3);
             if (childAt != null && childAt.getVisibility() != 8) {
@@ -130,7 +113,7 @@ public class NadExpressBottomView extends ViewGroup {
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         this.i = View.MeasureSpec.getSize(i);
-        k(i, i2);
+        i(i, i2);
         setMeasuredDimension(this.i, this.j);
     }
 
@@ -139,12 +122,8 @@ public class NadExpressBottomView extends ViewGroup {
         this.g = new ArrayList<>(4);
         this.h = 0;
         this.i = 0;
-        this.j = s;
-        i();
-    }
-
-    public final String a(String str, float f, TextPaint textPaint) {
-        return TextUtils.ellipsize(str, textPaint, f, TextUtils.TruncateAt.END).toString();
+        this.j = p;
+        h();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:29:0x00b2 A[LOOP:0: B:10:0x001e->B:29:0x00b2, LOOP_END] */
@@ -152,9 +131,9 @@ public class NadExpressBottomView extends ViewGroup {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void b() {
+    public final void a() {
         int i;
-        float h;
+        float g;
         int i2;
         int i3 = 0;
         if (this.a.getVisibility() != 8) {
@@ -167,25 +146,25 @@ public class NadExpressBottomView extends ViewGroup {
             return;
         }
         while (i3 < this.g.size()) {
-            if (TextUtils.equals((CharSequence) g31.d(this.g, i3), this.c)) {
-                i = (int) (i + h((String) g31.d(this.g, i3), this.f) + n);
+            if (TextUtils.equals((CharSequence) tx0.d(this.g, i3), this.c)) {
+                i = (int) (i + g((String) tx0.d(this.g, i3), this.f) + n);
                 i2 = l * 2;
             } else {
-                if (!TextUtils.isEmpty(this.b) && TextUtils.equals((CharSequence) g31.d(this.g, i3), this.k)) {
+                if (!TextUtils.isEmpty(this.b) && TextUtils.equals((CharSequence) tx0.d(this.g, i3), this.k)) {
                     i2 = this.i - i;
-                    float h2 = h((String) g31.d(this.g, i3), this.e) + n;
+                    float g2 = g((String) tx0.d(this.g, i3), this.e) + n;
                     float f = i2;
-                    if (f > h2) {
-                        h = i + h2;
+                    if (f > g2) {
+                        g = i + g2;
                     } else {
-                        String b = n71.b(this.d, this.b, f, this.e);
+                        String b = a21.b(this.d, this.b, f, this.e);
                         this.k = b;
-                        g31.a(this.g, b, i3);
+                        tx0.a(this.g, b, i3);
                     }
                 } else {
-                    h = i + h((String) g31.d(this.g, i3), this.e) + n;
+                    g = i + g((String) tx0.d(this.g, i3), this.e) + n;
                 }
-                i = (int) h;
+                i = (int) g;
                 if (i <= this.i) {
                     break;
                 }
@@ -198,60 +177,64 @@ public class NadExpressBottomView extends ViewGroup {
         this.h = i3;
     }
 
-    public final void c(Canvas canvas) {
+    public final void b(Canvas canvas) {
         float f;
-        float h;
+        float g;
         int i;
         int i2;
         int min = Math.min(this.h, this.g.size());
         int i3 = 0;
         for (int i4 = 0; i4 < min; i4++) {
             int measuredHeight = getMeasuredHeight();
-            if (TextUtils.equals((CharSequence) g31.d(this.g, i4), this.c)) {
-                canvas.drawText(this.c, l + i3, ((((measuredHeight - i2) / 2.0f) + (t / 2.0f)) - ((this.f.getFontMetrics().top + this.f.getFontMetrics().bottom) / 2.0f)) - 1.0f, this.f);
+            if (TextUtils.equals((CharSequence) tx0.d(this.g, i4), this.c)) {
+                canvas.drawText(this.c, l + i3, ((((measuredHeight - i2) / 2.0f) + (q / 2.0f)) - ((this.f.getFontMetrics().top + this.f.getFontMetrics().bottom) / 2.0f)) - 1.0f, this.f);
                 f = i3;
-                h = h(this.c, this.f) + l;
+                g = g(this.c, this.f) + l;
                 i = n;
             } else {
-                String str = (String) g31.d(this.g, i4);
+                String str = (String) tx0.d(this.g, i4);
                 if (!TextUtils.isEmpty(str)) {
                     f = i3;
-                    canvas.drawText(str, f, f(this.e, measuredHeight), this.e);
-                    h = h(str, this.e);
+                    canvas.drawText(str, f, e(this.e, measuredHeight), this.e);
+                    g = g(str, this.e);
                     i = n;
                 }
             }
-            i3 = (int) (f + h + i);
+            i3 = (int) (f + g + i);
         }
     }
 
-    public final void j() {
-        this.g.clear();
-        if (!TextUtils.isEmpty(this.c)) {
-            String a = a(this.c, q, this.f);
-            this.c = a;
-            g31.b(this.g, a);
-        }
-        if (!TextUtils.isEmpty(this.b)) {
-            String b = n71.b(this.d, this.b, p, this.e);
-            this.k = b;
-            g31.b(this.g, b);
-        } else if (!TextUtils.isEmpty(this.d)) {
-            String a2 = a(this.d, o, this.e);
-            this.d = a2;
-            g31.b(this.g, a2);
-        }
+    public final void h() {
+        AdImageView adImageView = new AdImageView(getContext());
+        this.a = adImageView;
+        adImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.a.setImageDrawable(getResources().getDrawable(R.drawable.nad_unlike_btn_icon));
+        this.a.setId(R.id.nad_base_delete_id);
+        this.a.setContentDescription("不感兴趣");
+        a21.a(getContext(), this.a, 15.0f);
+        setWillNotDraw(false);
+        TextPaint textPaint = new TextPaint();
+        this.e = textPaint;
+        textPaint.setAntiAlias(true);
+        this.e.setTextSize(o);
+        this.e.setColor(r);
+        TextPaint textPaint2 = new TextPaint();
+        this.f = textPaint2;
+        textPaint2.setAntiAlias(true);
+        this.f.setTextSize(p);
+        this.f.setColor(s);
+        addView(this.a);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        n71.a(getContext(), this.a, 15.0f);
+        a21.a(getContext(), this.a, 15.0f);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        b();
+        a();
         int i5 = i3 - i;
         if (this.a.getVisibility() != 8) {
             int measuredHeight = this.a.getMeasuredHeight();
@@ -260,36 +243,5 @@ public class NadExpressBottomView extends ViewGroup {
             int i7 = (i5 - m) - measuredWidth;
             this.a.layout(i7, i6, measuredWidth + i7, measuredHeight + i6);
         }
-    }
-
-    public void update(AdBaseModel adBaseModel) {
-        yr0.a aVar;
-        if (adBaseModel == null) {
-            return;
-        }
-        mr0 mr0Var = adBaseModel.f;
-        this.b = mr0Var.h;
-        this.d = mr0Var.e;
-        this.c = mr0Var.i;
-        setNeedShowUnlikeIcon(true);
-        j();
-        this.j = s;
-        yr0 yr0Var = adBaseModel.p;
-        if (yr0Var != null && (aVar = yr0Var.j) != null) {
-            int i = aVar.f;
-            int i2 = aVar.g;
-            int i3 = aVar.i;
-            if (i != 0) {
-                this.e.setTextSize(e(i));
-                this.j = e(i);
-            }
-            if (i2 != 0) {
-                this.e.setColor(d(i2));
-            }
-            if (i3 != 0) {
-                this.a.setImageDrawable(getResources().getDrawable(i3));
-            }
-        }
-        requestLayout();
     }
 }

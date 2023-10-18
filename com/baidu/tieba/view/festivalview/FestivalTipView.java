@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iya;
-import com.baidu.tieba.jta;
-import com.baidu.tieba.jya;
-import com.baidu.tieba.lya;
-import com.baidu.tieba.m06;
+import com.baidu.tieba.ata;
+import com.baidu.tieba.boa;
+import com.baidu.tieba.bta;
+import com.baidu.tieba.dta;
+import com.baidu.tieba.uu5;
 import com.baidu.tieba.view.festivalview.FestivalTipView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,9 +41,9 @@ public final class FestivalTipView extends LinearLayout {
     public static final int i;
     public static final int j;
     public transient /* synthetic */ FieldHolder $fh;
-    public jya a;
-    public lya b;
-    public iya c;
+    public bta a;
+    public dta b;
+    public ata c;
     public final TbImage d;
     public final TextView e;
 
@@ -152,15 +152,15 @@ public final class FestivalTipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            iya iyaVar = this$0.c;
-            if (iyaVar != null) {
+            ata ataVar = this$0.c;
+            if (ataVar != null) {
                 Intrinsics.checkNotNullExpressionValue(view2, "view");
-                iyaVar.onClick(view2);
+                ataVar.onClick(view2);
             }
         }
     }
 
-    private final void setIconUrl(jya.b bVar) {
+    private final void setIconUrl(bta.b bVar) {
         String b;
         boolean z;
         Interceptable interceptable = $ic;
@@ -188,16 +188,16 @@ public final class FestivalTipView extends LinearLayout {
 
     @JvmOverloads
     public final void b(boolean z) {
-        jya jyaVar;
+        bta btaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            lya lyaVar = this.b;
-            if (lyaVar != null) {
-                EMManager.from(this).setCorner(R.string.J_X01).setBackGroundRealColor(jta.b(lyaVar.b()));
-                this.e.setTextColor(jta.b(lyaVar.c()));
+            dta dtaVar = this.b;
+            if (dtaVar != null) {
+                EMManager.from(this).setCorner(R.string.J_X01).setBackGroundRealColor(boa.b(dtaVar.b()));
+                this.e.setTextColor(boa.b(dtaVar.c()));
             }
-            if (z && (jyaVar = this.a) != null) {
-                setIconUrl(jyaVar.b());
+            if (z && (btaVar = this.a) != null) {
+                setIconUrl(btaVar.b());
             }
         }
     }
@@ -205,10 +205,10 @@ public final class FestivalTipView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jya jyaVar = this.a;
-            if (jyaVar != null) {
-                this.e.setText(jyaVar.d());
-                setIconUrl(jyaVar.b());
+            bta btaVar = this.a;
+            if (btaVar != null) {
+                this.e.setText(btaVar.d());
+                setIconUrl(btaVar.b());
             } else {
                 setVisibility(8);
             }
@@ -219,7 +219,7 @@ public final class FestivalTipView extends LinearLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hya
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zsa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -242,31 +242,31 @@ public final class FestivalTipView extends LinearLayout {
         }
     }
 
-    public final iya getFestivalTipViewClickCallBack() {
+    public final ata getFestivalTipViewClickCallBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.c;
         }
-        return (iya) invokeV.objValue;
+        return (ata) invokeV.objValue;
     }
 
-    public final jya getFestivalTipViewData() {
+    public final bta getFestivalTipViewData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.a;
         }
-        return (jya) invokeV.objValue;
+        return (bta) invokeV.objValue;
     }
 
-    public final lya getFestivalTipViewStyle() {
+    public final dta getFestivalTipViewStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.b;
         }
-        return (lya) invokeV.objValue;
+        return (dta) invokeV.objValue;
     }
 
     public final void h() {
@@ -290,7 +290,7 @@ public final class FestivalTipView extends LinearLayout {
             int i4 = i;
             layoutParams.setMargins(i3, i4, h, i4);
             this.d.setLayoutParams(layoutParams);
-            this.d.setPlaceHolderDrawable(m06.a.a());
+            this.d.setPlaceHolderDrawable(uu5.a.a());
             addView(this.d);
         }
     }
@@ -308,24 +308,24 @@ public final class FestivalTipView extends LinearLayout {
         }
     }
 
-    public final void setFestivalTipViewClickCallBack(iya iyaVar) {
+    public final void setFestivalTipViewClickCallBack(ata ataVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, iyaVar) == null) {
-            this.c = iyaVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ataVar) == null) {
+            this.c = ataVar;
         }
     }
 
-    public final void setFestivalTipViewData(jya jyaVar) {
+    public final void setFestivalTipViewData(bta btaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, jyaVar) == null) {
-            this.a = jyaVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, btaVar) == null) {
+            this.a = btaVar;
         }
     }
 
-    public final void setFestivalTipViewStyle(lya lyaVar) {
+    public final void setFestivalTipViewStyle(dta dtaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, lyaVar) == null) {
-            this.b = lyaVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, dtaVar) == null) {
+            this.b = dtaVar;
         }
     }
 }

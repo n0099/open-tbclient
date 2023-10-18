@@ -24,32 +24,32 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.UserPendantData;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.cj7;
-import com.baidu.tieba.di;
-import com.baidu.tieba.e35;
-import com.baidu.tieba.e46;
-import com.baidu.tieba.fi7;
-import com.baidu.tieba.gi7;
-import com.baidu.tieba.h45;
-import com.baidu.tieba.hi7;
-import com.baidu.tieba.iia;
-import com.baidu.tieba.jia;
-import com.baidu.tieba.kz7;
-import com.baidu.tieba.m46;
-import com.baidu.tieba.mia;
-import com.baidu.tieba.mq6;
-import com.baidu.tieba.nia;
-import com.baidu.tieba.or5;
-import com.baidu.tieba.pia;
-import com.baidu.tieba.ria;
-import com.baidu.tieba.ry7;
-import com.baidu.tieba.sia;
-import com.baidu.tieba.tia;
-import com.baidu.tieba.tya;
-import com.baidu.tieba.uia;
-import com.baidu.tieba.wya;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.cda;
+import com.baidu.tieba.ct7;
+import com.baidu.tieba.dda;
+import com.baidu.tieba.fda;
+import com.baidu.tieba.hda;
+import com.baidu.tieba.ida;
+import com.baidu.tieba.jda;
+import com.baidu.tieba.jx4;
+import com.baidu.tieba.kda;
+import com.baidu.tieba.ld7;
+import com.baidu.tieba.mx4;
+import com.baidu.tieba.nta;
+import com.baidu.tieba.ny5;
+import com.baidu.tieba.oc7;
+import com.baidu.tieba.pc7;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.qc7;
+import com.baidu.tieba.tta;
+import com.baidu.tieba.ul5;
+import com.baidu.tieba.vk6;
+import com.baidu.tieba.vt7;
+import com.baidu.tieba.vy5;
+import com.baidu.tieba.yca;
+import com.baidu.tieba.yh;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,13 +66,13 @@ import tbclient.FrsTabInfo;
 import tbclient.SmartApp;
 import tbclient.User;
 /* loaded from: classes8.dex */
-public class FrsViewData extends pia implements or5, Serializable {
+public class FrsViewData extends fda implements ul5, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumActiveInfo forumActiveInfo;
     public int frsCurrentTabId;
     public BdUniqueId frsFragmentTag;
-    public ry7 funAdController;
+    public ct7 funAdController;
     public boolean isBrandForum;
     public boolean isFrsVideoAutoPlay;
     public boolean isLoadMore;
@@ -145,7 +145,7 @@ public class FrsViewData extends pia implements or5, Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.pia
+    @Override // com.baidu.tieba.fda
     public List<RecmForumInfo> getRecm_forum_list() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class FrsViewData extends pia implements or5, Serializable {
         return (SignData) invokeV.objValue;
     }
 
-    public List<bn> getTopThreadList() {
+    public List<yh> getTopThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
@@ -216,14 +216,14 @@ public class FrsViewData extends pia implements or5, Serializable {
     public void removeAlaInsertLiveData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            removeTopSameClassDataFromList(iia.class, getThreadList());
+            removeTopSameClassDataFromList(yca.class, getThreadList());
         }
     }
 
     public void removeAlaStageLiveDat() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            removeTopSameClassDataFromList(jia.class, getThreadList());
+            removeTopSameClassDataFromList(zca.class, getThreadList());
         }
     }
 
@@ -245,31 +245,31 @@ public class FrsViewData extends pia implements or5, Serializable {
         return invokeII.intValue;
     }
 
-    public void addRecommendAppToThreadList(e46 e46Var, ArrayList<bn> arrayList) {
+    public void addRecommendAppToThreadList(ny5 ny5Var, ArrayList<yh> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, e46Var, arrayList) == null) {
-            addRecommendAppToThreadList(e46Var, false, arrayList, null, false);
+        if (interceptable == null || interceptable.invokeLL(1048585, this, ny5Var, arrayList) == null) {
+            addRecommendAppToThreadList(ny5Var, false, arrayList, null, false);
         }
     }
 
-    private List<bn> getHeadLineDataInThreadList() {
+    private List<yh> getHeadLineDataInThreadList() {
         InterceptResult invokeV;
-        e35 e35Var;
-        ArrayList<bn> arrayList;
+        mx4 mx4Var;
+        ArrayList<yh> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             ArrayList arrayList2 = new ArrayList();
-            ArrayList<bn> arrayList3 = this.threadList;
-            if (arrayList3 != null && arrayList3.size() > 0 && (e35Var = this.page) != null && e35Var.a() == 1 && (arrayList = this.threadList) != null && arrayList.size() > 0) {
+            ArrayList<yh> arrayList3 = this.threadList;
+            if (arrayList3 != null && arrayList3.size() > 0 && (mx4Var = this.page) != null && mx4Var.a() == 1 && (arrayList = this.threadList) != null && arrayList.size() > 0) {
                 int size = this.threadList.size();
                 for (int i = 0; i < size; i++) {
-                    bn bnVar = this.threadList.get(i);
-                    if (bnVar instanceof h45) {
-                        if (((h45) bnVar).t.isHeadLinePost) {
-                            arrayList2.add(bnVar);
+                    yh yhVar = this.threadList.get(i);
+                    if (yhVar instanceof py4) {
+                        if (((py4) yhVar).t.isHeadLinePost) {
+                            arrayList2.add(yhVar);
                         }
-                    } else if ((bnVar instanceof ThreadData) && ((ThreadData) bnVar).isHeadLinePost) {
-                        arrayList2.add(bnVar);
+                    } else if ((yhVar instanceof ThreadData) && ((ThreadData) yhVar).isHeadLinePost) {
+                        arrayList2.add(yhVar);
                     }
                 }
             }
@@ -287,9 +287,9 @@ public class FrsViewData extends pia implements or5, Serializable {
         }
         int i = 0;
         for (int i2 = 0; i2 < this.threadList.size(); i2++) {
-            bn bnVar = this.threadList.get(i2);
-            if (bnVar instanceof h45) {
-                ThreadData threadData = ((h45) bnVar).t;
+            yh yhVar = this.threadList.get(i2);
+            if (yhVar instanceof py4) {
+                ThreadData threadData = ((py4) yhVar).t;
                 if (threadData == null || (!threadData.isTop() && threadData.getIsLive() != 1)) {
                     break;
                 }
@@ -297,25 +297,25 @@ public class FrsViewData extends pia implements or5, Serializable {
             }
         }
         if (this.threadList.size() - i > 7 && (feedForumList = this.forum.getBannerListData().getFeedForumList()) != null && feedForumList.size() > 0) {
-            nia niaVar = new nia();
-            niaVar.d(this.forum.getId());
-            niaVar.c(feedForumList);
-            this.threadList.add(i + 6, niaVar);
+            dda ddaVar = new dda();
+            ddaVar.d(this.forum.getId());
+            ddaVar.c(feedForumList);
+            this.threadList.add(i + 6, ddaVar);
         }
     }
 
     public boolean addHotTopicDataToThreadList() {
         InterceptResult invokeV;
         ForumData forumData;
-        mq6 recomTopicData;
+        vk6 recomTopicData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.threadList != null && (forumData = this.forum) != null && forumData.getBannerListData() != null) {
                 int i = 0;
                 for (int i2 = 0; i2 < this.threadList.size(); i2++) {
-                    bn bnVar = this.threadList.get(i2);
-                    if (bnVar instanceof h45) {
-                        ThreadData threadData = ((h45) bnVar).t;
+                    yh yhVar = this.threadList.get(i2);
+                    if (yhVar instanceof py4) {
+                        ThreadData threadData = ((py4) yhVar).t;
                         if (threadData == null || (!threadData.isTop() && threadData.getIsLive() != 1)) {
                             break;
                         }
@@ -335,10 +335,10 @@ public class FrsViewData extends pia implements or5, Serializable {
 
     public void addNoticeThreadToThreadList() {
         TopNoticeData top_notice_data;
-        bn bnVar;
+        yh yhVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && getForum() != null && this.threadList != null && (top_notice_data = getForum().getTop_notice_data()) != null && top_notice_data.getTitle() != null) {
-            while (!this.threadList.isEmpty() && (bnVar = this.threadList.get(0)) != null && (bnVar instanceof h45) && ((ThreadData) bnVar).getIs_top() == 2) {
+            while (!this.threadList.isEmpty() && (yhVar = this.threadList.get(0)) != null && (yhVar instanceof py4) && ((ThreadData) yhVar).getIs_top() == 2) {
                 this.threadList.remove(0);
             }
             ThreadData threadData = new ThreadData();
@@ -346,9 +346,9 @@ public class FrsViewData extends pia implements or5, Serializable {
             threadData.setTid(top_notice_data.getTitle_link());
             threadData.setIs_top(2);
             threadData.parser_title();
-            h45 h45Var = new h45();
-            h45Var.t = threadData;
-            this.threadList.add(0, h45Var);
+            py4 py4Var = new py4();
+            py4Var.t = threadData;
+            this.threadList.add(0, py4Var);
         }
     }
 
@@ -357,18 +357,18 @@ public class FrsViewData extends pia implements or5, Serializable {
         if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || getForum() == null) {
             return;
         }
-        List<bn> cardShipinNew = getCardShipinNew();
+        List<yh> cardShipinNew = getCardShipinNew();
         List<Integer> cardShipinPos = getCardShipinPos();
-        ArrayList<bn> threadList = getThreadList();
+        ArrayList<yh> threadList = getThreadList();
         if (cardShipinPos != null && cardShipinPos.size() > 0 && cardShipinNew != null && cardShipinNew.size() > 0 && threadList != null) {
             int size = cardShipinPos.size();
             int size2 = threadList.size();
             for (int i = 0; i < size; i++) {
                 if (i < cardShipinNew.size()) {
-                    bn bnVar = cardShipinNew.get(i);
+                    yh yhVar = cardShipinNew.get(i);
                     int videoThreadInserPos = getVideoThreadInserPos(cardShipinPos.get(i).intValue(), size2);
-                    Log.e("FrsActivity", "addVideoInfoToThreadListInTenAndFifteenFloor  insertPos:" + videoThreadInserPos + "  Title:" + bnVar.getType());
-                    threadList.add(videoThreadInserPos, bnVar);
+                    Log.e("FrsActivity", "addVideoInfoToThreadListInTenAndFifteenFloor  insertPos:" + videoThreadInserPos + "  Title:" + yhVar.getType());
+                    threadList.add(videoThreadInserPos, yhVar);
                 }
             }
         }
@@ -383,10 +383,10 @@ public class FrsViewData extends pia implements or5, Serializable {
         return invokeI.intValue;
     }
 
-    public void addRecommendAppToThreadList(e46 e46Var) {
+    public void addRecommendAppToThreadList(ny5 ny5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, e46Var) == null) {
-            addRecommendAppToThreadList(e46Var, false, this.threadList, null, false);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ny5Var) == null) {
+            addRecommendAppToThreadList(ny5Var, false, this.threadList, null, false);
         }
     }
 
@@ -404,14 +404,14 @@ public class FrsViewData extends pia implements or5, Serializable {
         }
     }
 
-    public void setFunAdController(ry7 ry7Var) {
+    public void setFunAdController(ct7 ct7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, ry7Var) == null) {
-            this.funAdController = ry7Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, ct7Var) == null) {
+            this.funAdController = ct7Var;
         }
     }
 
-    public void setTopThreadList(List<bn> list) {
+    public void setTopThreadList(List<yh> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, list) == null) {
             this.topThreadList = list;
@@ -434,7 +434,7 @@ public class FrsViewData extends pia implements or5, Serializable {
         this.forum.setSignData(signData);
     }
 
-    private void removeTopSameClassDataFromList(Class cls, ArrayList<bn> arrayList) {
+    private void removeTopSameClassDataFromList(Class cls, ArrayList<yh> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65541, this, cls, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
             ArrayList arrayList2 = new ArrayList();
@@ -444,9 +444,9 @@ public class FrsViewData extends pia implements or5, Serializable {
                 if (i >= size) {
                     break;
                 }
-                bn bnVar = arrayList.get(i);
-                if (bnVar.getClass() == cls) {
-                    arrayList2.add(bnVar);
+                yh yhVar = arrayList.get(i);
+                if (yhVar.getClass() == cls) {
+                    arrayList2.add(yhVar);
                     break;
                 }
                 i++;
@@ -462,7 +462,7 @@ public class FrsViewData extends pia implements or5, Serializable {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getForum() != null && (cardVideoInfo = getCardVideoInfo()) != null) {
             Log.e("FrsActivity", "addCardVideoInfoToThreadList cardVideoInfo:" + cardVideoInfo.getTid());
-            ArrayList<bn> threadList = getThreadList();
+            ArrayList<yh> threadList = getThreadList();
             if (threadList != null && threadList.size() > 0) {
                 threadList.add(getPhotoliveCardInsertPos(threadList.size()), cardVideoInfo);
             }
@@ -472,30 +472,30 @@ public class FrsViewData extends pia implements or5, Serializable {
     public void addHeaderCardToThreadList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            tya tyaVar = new tya();
-            tyaVar.e(this.headerCard);
-            if (wya.i(tyaVar, true)) {
-                wya wyaVar = new wya();
-                wyaVar.g(2);
+            nta ntaVar = new nta();
+            ntaVar.f(this.headerCard);
+            if (tta.p(ntaVar, true)) {
+                tta ttaVar = new tta();
+                ttaVar.m(2);
                 ForumData forumData = this.forum;
                 if (forumData != null) {
-                    wyaVar.e(forumData.getId());
-                    wyaVar.f(this.forum.getName());
+                    ttaVar.i(forumData.getId());
+                    ttaVar.l(this.forum.getName());
                 }
-                wyaVar.d(tyaVar);
-                if (ListUtils.add(this.threadList, wyaVar.getPosition(), wyaVar)) {
-                    wyaVar.position = wyaVar.getPosition();
+                ttaVar.h(ntaVar);
+                if (ListUtils.add(this.threadList, ttaVar.getPosition(), ttaVar)) {
+                    ttaVar.position = ttaVar.getPosition();
                 }
             }
         }
     }
 
     public void addStageLiveDataToThreadList() {
-        jia frsStageLiveData;
+        zca frsStageLiveData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.threadList != null && getForum() != null && MessageManager.getInstance().findTask(2911003) != null && (frsStageLiveData = getFrsStageLiveData()) != null) {
-            ArrayList<bn> threadList = getThreadList();
-            removeTopSameClassDataFromList(jia.class, threadList);
+            ArrayList<yh> threadList = getThreadList();
+            removeTopSameClassDataFromList(zca.class, threadList);
             if (!ListUtils.isEmpty(frsStageLiveData.a)) {
                 threadList.add(getAlaLiveThreadCardInsertPos(1, threadList.size()), frsStageLiveData);
             }
@@ -505,13 +505,13 @@ public class FrsViewData extends pia implements or5, Serializable {
     public void addVideoActivityToTop() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && getFrsVideoActivityData() != null && !ListUtils.isEmpty(this.threadList)) {
-            Iterator<bn> it = this.threadList.iterator();
+            Iterator<yh> it = this.threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                bn next = it.next();
-                if (next != null && next.getType() == uia.c) {
+                yh next = it.next();
+                if (next != null && next.getType() == kda.c) {
                     this.threadList.remove(next);
                     break;
                 }
@@ -521,7 +521,7 @@ public class FrsViewData extends pia implements or5, Serializable {
     }
 
     public void removeAlaLiveThreadData() {
-        ArrayList<bn> arrayList;
+        ArrayList<yh> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048611, this) == null) && (arrayList = this.threadList) != null && arrayList.size() > 0) {
             for (int i = 0; i < this.threadList.size(); i++) {
@@ -551,9 +551,9 @@ public class FrsViewData extends pia implements or5, Serializable {
         boolean z3 = false;
         int i = 0;
         for (int i2 = 0; i2 < this.threadList.size(); i2++) {
-            bn bnVar = this.threadList.get(i2);
-            if (bnVar instanceof h45) {
-                ThreadData threadData = ((h45) bnVar).t;
+            yh yhVar = this.threadList.get(i2);
+            if (yhVar instanceof py4) {
+                ThreadData threadData = ((py4) yhVar).t;
                 if (threadData == null || (!threadData.isTop() && threadData.getIsLive() != 1)) {
                     break;
                 }
@@ -598,11 +598,11 @@ public class FrsViewData extends pia implements or5, Serializable {
     }
 
     public void addInsertLiveDataToThreadList() {
-        iia frsInsertLiveData;
+        yca frsInsertLiveData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.threadList != null && getForum() != null && MessageManager.getInstance().findTask(2911003) != null && (frsInsertLiveData = getFrsInsertLiveData()) != null) {
-            ArrayList<bn> threadList = getThreadList();
-            removeTopSameClassDataFromList(iia.class, threadList);
+            ArrayList<yh> threadList = getThreadList();
+            removeTopSameClassDataFromList(yca.class, threadList);
             threadList.add(getAlaLiveThreadCardInsertPos(frsInsertLiveData.b, threadList.size()), frsInsertLiveData);
         }
     }
@@ -622,7 +622,7 @@ public class FrsViewData extends pia implements or5, Serializable {
         int a;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && getUserRecommend() != null) {
-            cj7 userRecommend = getUserRecommend();
+            ld7 userRecommend = getUserRecommend();
             if (ListUtils.getCount(userRecommend.c()) < 3 || (a = userRecommend.a()) <= 0) {
                 return;
             }
@@ -639,12 +639,12 @@ public class FrsViewData extends pia implements or5, Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            ArrayList<bn> arrayList = this.threadList;
+            ArrayList<yh> arrayList = this.threadList;
             int i = 0;
             if (arrayList != null && arrayList.size() > 0) {
-                Iterator<bn> it = this.threadList.iterator();
+                Iterator<yh> it = this.threadList.iterator();
                 while (it.hasNext()) {
-                    bn next = it.next();
+                    yh next = it.next();
                     if (next instanceof ThreadData) {
                         if (((ThreadData) next).getIs_top() == 0) {
                             break;
@@ -664,7 +664,7 @@ public class FrsViewData extends pia implements or5, Serializable {
         FrsTabInfo frsTabInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            ria entelechyTabInfo = getEntelechyTabInfo();
+            hda entelechyTabInfo = getEntelechyTabInfo();
             if (entelechyTabInfo == null || (list = entelechyTabInfo.a) == null || list.size() <= 0 || (frsTabInfo = list.get(0)) == null || frsTabInfo.tab_id.intValue() != 1) {
                 return false;
             }
@@ -676,10 +676,10 @@ public class FrsViewData extends pia implements or5, Serializable {
     public void removeGameRankListFromThreadList() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048613, this) == null) && !ListUtils.isEmpty(this.threadList)) {
-            Iterator<bn> it = this.threadList.iterator();
+            Iterator<yh> it = this.threadList.iterator();
             while (it.hasNext()) {
-                bn next = it.next();
-                if (next != null && next.getType() == kz7.e) {
+                yh next = it.next();
+                if (next != null && next.getType() == vt7.e) {
                     it.remove();
                 }
             }
@@ -692,9 +692,9 @@ public class FrsViewData extends pia implements or5, Serializable {
             return;
         }
         boolean z = false;
-        Iterator<bn> it = this.threadList.iterator();
+        Iterator<yh> it = this.threadList.iterator();
         while (it.hasNext()) {
-            if (it.next() instanceof cj7) {
+            if (it.next() instanceof ld7) {
                 if (z) {
                     it.remove();
                 } else {
@@ -704,23 +704,23 @@ public class FrsViewData extends pia implements or5, Serializable {
         }
     }
 
-    public void addMyNewThread(b35 b35Var) {
+    public void addMyNewThread(jx4 jx4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, b35Var) == null) && b35Var != null && !StringUtils.isNull(b35Var.getId()) && this.threadList != null) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, jx4Var) == null) && jx4Var != null && !StringUtils.isNull(jx4Var.getId()) && this.threadList != null) {
             int topThreadSize = getTopThreadSize();
-            ArrayList<bn> threadList = getThreadList();
+            ArrayList<yh> threadList = getThreadList();
             if (threadList != null && threadList.size() > 0) {
                 int size = threadList.size();
                 for (int i = 0; i < size; i++) {
-                    bn bnVar = threadList.get(i);
-                    if ((bnVar instanceof h45) && b35Var.getId().equals(((h45) bnVar).t.getId()) && b35Var.getType() != ThreadData.TYPE_FAKE_VIDEO) {
+                    yh yhVar = threadList.get(i);
+                    if ((yhVar instanceof py4) && jx4Var.getId().equals(((py4) yhVar).t.getId()) && jx4Var.getType() != ThreadData.TYPE_FAKE_VIDEO) {
                         return;
                     }
                 }
             }
-            b35Var.isFromBrandForum = this.isBrandForum;
+            jx4Var.isFromBrandForum = this.isBrandForum;
             this.postThreadCount++;
-            this.threadList.add(topThreadSize, b35Var);
+            this.threadList.add(topThreadSize, jx4Var);
         }
     }
 
@@ -731,24 +731,24 @@ public class FrsViewData extends pia implements or5, Serializable {
             if (StringUtils.isNull(currentAccount)) {
                 return;
             }
-            Iterator<bn> it = this.threadList.iterator();
+            Iterator<yh> it = this.threadList.iterator();
             while (it.hasNext()) {
-                bn next = it.next();
-                if (next != null && (next instanceof h45)) {
-                    h45 h45Var = (h45) next;
-                    if (h45Var.t.getAuthor() != null && currentAccount.equals(h45Var.t.getAuthor().getUserId()) && h45Var.t.getAuthor().getPendantData() != null) {
-                        h45Var.t.getAuthor().getPendantData().setPropsId(userPendantData.getPropsId());
-                        h45Var.t.getAuthor().getPendantData().setImgUrl(userPendantData.getImgUrl());
+                yh next = it.next();
+                if (next != null && (next instanceof py4)) {
+                    py4 py4Var = (py4) next;
+                    if (py4Var.t.getAuthor() != null && currentAccount.equals(py4Var.t.getAuthor().getUserId()) && py4Var.t.getAuthor().getPendantData() != null) {
+                        py4Var.t.getAuthor().getPendantData().setPropsId(userPendantData.getPropsId());
+                        py4Var.t.getAuthor().getPendantData().setImgUrl(userPendantData.getImgUrl());
                     }
                 }
             }
         }
     }
 
-    public void addRecommendAppToThreadList(e46 e46Var, boolean z, ArrayList<bn> arrayList, ArrayList<bn> arrayList2, boolean z2) {
+    public void addRecommendAppToThreadList(ny5 ny5Var, boolean z, ArrayList<yh> arrayList, ArrayList<yh> arrayList2, boolean z2) {
         BannerListData bannerListData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{e46Var, Boolean.valueOf(z), arrayList, arrayList2, Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{ny5Var, Boolean.valueOf(z), arrayList, arrayList2, Boolean.valueOf(z2)}) == null) {
             if (!this.isLoadMore) {
                 ForumData forumData = this.forum;
                 if (forumData == null) {
@@ -760,7 +760,7 @@ public class FrsViewData extends pia implements or5, Serializable {
             }
             this.isLoadMore = false;
             if (bannerListData != null && bannerListData.getAllAdvertList() != null && arrayList != null && arrayList.size() > 0) {
-                m46 m46Var = new m46(e46Var, 2);
+                vy5 vy5Var = new vy5(ny5Var, 2);
                 ArrayList arrayList3 = new ArrayList();
                 Iterator<AdvertAppInfo> it = bannerListData.getAllAdvertList().iterator();
                 while (it.hasNext()) {
@@ -769,44 +769,44 @@ public class FrsViewData extends pia implements or5, Serializable {
                     next.setSortType(getSortType());
                     arrayList3.add(next);
                 }
-                m46Var.s(arrayList3);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, m46Var));
-                m46 m46Var2 = new m46(e46Var, 3);
-                m46Var2.z(z);
-                m46Var2.G(arrayList);
-                m46Var2.D(arrayList2);
-                m46Var2.y(z2);
-                m46Var2.t(getPage().a());
+                vy5Var.s(arrayList3);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, vy5Var));
+                vy5 vy5Var2 = new vy5(ny5Var, 3);
+                vy5Var2.z(z);
+                vy5Var2.G(arrayList);
+                vy5Var2.D(arrayList2);
+                vy5Var2.y(z2);
+                vy5Var2.t(getPage().a());
                 int i = this.frsCurrentTabId;
                 if (i == 1) {
-                    m46Var2.x("frs_hot_tab");
+                    vy5Var2.x("frs_hot_tab");
                 } else if (i == 503) {
-                    m46Var2.x("frs_new_tab");
+                    vy5Var2.x("frs_new_tab");
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, m46Var2));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, vy5Var2));
             }
         }
     }
 
     public void checkLiveStageInThreadList() {
-        ArrayList<bn> arrayList;
-        e35 e35Var;
-        ArrayList<bn> arrayList2;
+        ArrayList<yh> arrayList;
+        mx4 mx4Var;
+        ArrayList<yh> arrayList2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (arrayList = this.threadList) != null && arrayList.size() > 0 && (e35Var = this.page) != null && e35Var.a() == 1 && (arrayList2 = this.threadList) != null && arrayList2.size() > 0) {
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (arrayList = this.threadList) != null && arrayList.size() > 0 && (mx4Var = this.page) != null && mx4Var.a() == 1 && (arrayList2 = this.threadList) != null && arrayList2.size() > 0) {
             int i = -1;
             int size = this.threadList.size();
             for (int i2 = 0; i2 < size; i2++) {
-                bn bnVar = this.threadList.get(i2);
-                if (bnVar instanceof h45) {
-                    h45 h45Var = (h45) bnVar;
-                    if (h45Var.t.getType() == ThreadData.TYPE_VIDEO_ALA_ONLIVE && h45Var.t.getThreadAlaInfo() != null && h45Var.t.getThreadAlaInfo().user_info != null && h45Var.t.getThreadAlaInfo().user_info.is_official == 2 && h45Var.t.getThreadAlaInfo().liveStageForceTop) {
+                yh yhVar = this.threadList.get(i2);
+                if (yhVar instanceof py4) {
+                    py4 py4Var = (py4) yhVar;
+                    if (py4Var.t.getType() == ThreadData.TYPE_VIDEO_ALA_ONLIVE && py4Var.t.getThreadAlaInfo() != null && py4Var.t.getThreadAlaInfo().user_info != null && py4Var.t.getThreadAlaInfo().user_info.is_official == 2 && py4Var.t.getThreadAlaInfo().liveStageForceTop) {
                         i = i2;
                         break;
                     }
                 } else {
-                    if (bnVar instanceof ThreadData) {
-                        ThreadData threadData = (ThreadData) bnVar;
+                    if (yhVar instanceof ThreadData) {
+                        ThreadData threadData = (ThreadData) yhVar;
                         if (threadData.getType() == ThreadData.TYPE_VIDEO_ALA_ONLIVE && threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().user_info != null && threadData.getThreadAlaInfo().user_info.is_official == 2 && threadData.getThreadAlaInfo().liveStageForceTop) {
                             i = i2;
                             break;
@@ -818,14 +818,14 @@ public class FrsViewData extends pia implements or5, Serializable {
             }
             if (i < 0) {
                 for (int i3 = 0; i3 < size; i3++) {
-                    bn bnVar2 = this.threadList.get(i3);
-                    if (bnVar2 instanceof h45) {
-                        if (((h45) bnVar2).t.getType() == ThreadData.TYPE_STAR_INTERVIEW) {
+                    yh yhVar2 = this.threadList.get(i3);
+                    if (yhVar2 instanceof py4) {
+                        if (((py4) yhVar2).t.getType() == ThreadData.TYPE_STAR_INTERVIEW) {
                             i = i3;
                             break;
                         }
                     } else {
-                        if ((bnVar2 instanceof ThreadData) && ((ThreadData) bnVar2).getType() == ThreadData.TYPE_STAR_INTERVIEW) {
+                        if ((yhVar2 instanceof ThreadData) && ((ThreadData) yhVar2).getType() == ThreadData.TYPE_STAR_INTERVIEW) {
                             i = i3;
                             break;
                         }
@@ -836,7 +836,7 @@ public class FrsViewData extends pia implements or5, Serializable {
             if (i > topThreadSize) {
                 this.threadList.add(topThreadSize, this.threadList.remove(i));
             }
-            List<bn> headLineDataInThreadList = getHeadLineDataInThreadList();
+            List<yh> headLineDataInThreadList = getHeadLineDataInThreadList();
             if (!ListUtils.isEmpty(headLineDataInThreadList)) {
                 this.threadList.removeAll(headLineDataInThreadList);
                 if (topThreadSize >= 0 && topThreadSize <= this.threadList.size()) {
@@ -846,12 +846,12 @@ public class FrsViewData extends pia implements or5, Serializable {
         }
     }
 
-    public void filterEnterList(List<mia> list) {
+    public void filterEnterList(List<cda> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048594, this, list) == null) && list != null && list.size() != 0) {
-            Iterator<mia> it = list.iterator();
+            Iterator<cda> it = list.iterator();
             while (it.hasNext()) {
-                mia next = it.next();
+                cda next = it.next();
                 if (next == null) {
                     it.remove();
                 } else if (StringUtils.isNull(next.f()) || StringUtils.isNull(next.d())) {
@@ -863,9 +863,9 @@ public class FrsViewData extends pia implements or5, Serializable {
         }
     }
 
-    public List<bn> getShowTopThreadList() {
+    public List<yh> getShowTopThreadList() {
         InterceptResult invokeV;
-        List<mia> list;
+        List<cda> list;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
@@ -889,24 +889,24 @@ public class FrsViewData extends pia implements or5, Serializable {
             }
             ForumData forum = getForum();
             if (forum != null && getForum().getIsShowRule() && this.forumRule != null && (getUserData().getIs_manager() == 1 || this.forumRule.has_forum_rule.intValue() == 1)) {
-                arrayList.add(new tia(forum, this.forumRule));
+                arrayList.add(new jda(forum, this.forumRule));
             }
-            if (forum != null && !di.isEmpty(forum.getRiskTipNotice())) {
-                arrayList.add(new sia(forum, false));
+            if (forum != null && !ad.isEmpty(forum.getRiskTipNotice())) {
+                arrayList.add(new ida(forum, false));
             } else if (forum != null && !ListUtils.isEmpty(forum.getTipInfos())) {
-                arrayList.add(new sia(forum, true));
+                arrayList.add(new ida(forum, true));
             }
             int i3 = 3 - i;
             int size = arrayList.size();
-            List<bn> topThreadList = getTopThreadList();
+            List<yh> topThreadList = getTopThreadList();
             if (topThreadList != null) {
                 boolean z = false;
                 for (int i4 = 0; i4 < ListUtils.getCount(topThreadList) && arrayList.size() < size + i3; i4++) {
-                    bn bnVar = (bn) ListUtils.getItem(topThreadList, i4);
-                    if (bnVar instanceof h45) {
-                        h45 h45Var = (h45) bnVar;
-                        arrayList.add(h45Var.t);
-                        if (h45Var.t.getIsMemberTop() != 1 || z) {
+                    yh yhVar = (yh) ListUtils.getItem(topThreadList, i4);
+                    if (yhVar instanceof py4) {
+                        py4 py4Var = (py4) yhVar;
+                        arrayList.add(py4Var.t);
+                        if (py4Var.t.getIsMemberTop() != 1 || z) {
                             if (getForum() != null && getForum().isShowAllTopThread == 0 && arrayList.size() >= 1) {
                                 break;
                             }
@@ -914,9 +914,9 @@ public class FrsViewData extends pia implements or5, Serializable {
                         i3++;
                         z = true;
                     } else {
-                        if (bnVar instanceof ThreadData) {
-                            arrayList.add(bnVar);
-                            if (((ThreadData) bnVar).getIsMemberTop() != 1 || z) {
+                        if (yhVar instanceof ThreadData) {
+                            arrayList.add(yhVar);
+                            if (((ThreadData) yhVar).getIsMemberTop() != 1 || z) {
                                 if (getForum() != null && getForum().isShowAllTopThread == 0 && arrayList.size() >= 1) {
                                     break;
                                 }
@@ -945,17 +945,17 @@ public class FrsViewData extends pia implements or5, Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            ArrayList<bn> arrayList = this.threadList;
+            ArrayList<yh> arrayList = this.threadList;
             if (arrayList == null) {
                 return null;
             }
-            Iterator<bn> it = arrayList.iterator();
+            Iterator<yh> it = arrayList.iterator();
             while (it.hasNext()) {
-                bn next = it.next();
-                if (next != null && (next instanceof h45)) {
-                    h45 h45Var = (h45) next;
-                    if (TextUtils.equals(str, h45Var.t.getId())) {
-                        return h45Var.t;
+                yh next = it.next();
+                if (next != null && (next instanceof py4)) {
+                    py4 py4Var = (py4) next;
+                    if (TextUtils.equals(str, py4Var.t.getId())) {
+                        return py4Var.t;
                     }
                 }
             }
@@ -965,15 +965,15 @@ public class FrsViewData extends pia implements or5, Serializable {
     }
 
     public void removeThread(String str) {
-        ArrayList<bn> arrayList;
+        ArrayList<yh> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048615, this, str) != null) || (arrayList = this.threadList) == null) {
             return;
         }
-        Iterator<bn> it = arrayList.iterator();
+        Iterator<yh> it = arrayList.iterator();
         while (it.hasNext()) {
-            bn next = it.next();
-            if (next != null && (next instanceof h45) && TextUtils.equals(str, ((h45) next).t.getId())) {
+            yh next = it.next();
+            if (next != null && (next instanceof py4) && TextUtils.equals(str, ((py4) next).t.getId())) {
                 it.remove();
             }
         }
@@ -991,120 +991,120 @@ public class FrsViewData extends pia implements or5, Serializable {
         this.forum.setLevelName(likeReturnData.getLevelName());
     }
 
-    public boolean receiveData(pia piaVar) {
+    public boolean receiveData(fda fdaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, piaVar)) == null) {
-            if (piaVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, fdaVar)) == null) {
+            if (fdaVar == null) {
                 return false;
             }
-            this.isFromCache = piaVar.isFromCache;
-            setBaWuNoticeNum(piaVar.getBaWuNoticeNum());
-            setSortType(piaVar.getSortType());
-            setAnti(piaVar.getAnti());
-            setChatGroup(piaVar.getChatGroup());
-            setFortuneBag(piaVar.isFortuneBag());
-            setFortuneDesc(piaVar.getFortuneDesc());
-            setForum(piaVar.getForum());
-            setGameName(piaVar.getGameName());
-            setGameUrl(piaVar.getGameUrl());
-            setGconAccount(piaVar.getGconAccount());
-            setHasGame(piaVar.isHasGame());
-            setIsNewUrl(piaVar.getIsNewUrl());
-            setPhotoLivePos(piaVar.getPhotoLivePos());
-            setPage(piaVar.getPage());
-            setStar(piaVar.getStar());
-            setStarEnter(piaVar.getStarEnter());
-            setThreadList(piaVar.threadList);
-            setThreadListIds(piaVar.getThreadListIds());
-            setUserData(piaVar.getUserData());
-            setUserMap(piaVar.getUserMap());
-            setActivityHeadData(piaVar.getActivityHeadData());
-            setFrsDefaultTabId(piaVar.getFrsDefaultTabId());
-            this.defaultShowTab = piaVar.defaultShowTab;
-            setCategoryInfos(piaVar.getCategoryInfos());
-            setBawuCenterUrl(piaVar.getBawuCenterUrl());
-            setCardVideoInfo(piaVar.getCardVideoInfo());
-            setHeadSdkData(piaVar.getHeadSdkData());
-            setSchoolRecommendPos(piaVar.getSchoolRecommendPos());
-            setSchoolRecommendInfo(piaVar.getSchoolRecommendUserInfo());
-            setEntelechyTabInfo(piaVar.getEntelechyTabInfo());
-            setAlaLiveCount(piaVar.getAlaLiveCount());
-            setCarrierEnterData(piaVar.getCarrierEnterData());
-            setForumState(piaVar.getForumState());
-            setAccessFlag(piaVar.getAccessFlag());
-            this.needLog = piaVar.needLog;
-            this.recommendBookData = piaVar.recommendBookData;
-            this.presentInfoData = piaVar.presentInfoData;
-            setBookInfo(piaVar.getBookInfo());
-            setMangaReadRecordChapterId(piaVar.getMangaReadRecordChapterId());
-            setHeadlineImgInfoData(piaVar.getHeadlineImgInfoData());
-            setCardShipinPos(piaVar.getCardShipinPos());
-            setCardShipinNew(piaVar.getCardShipinNew());
-            this.enterFrsDialogInfo = piaVar.enterFrsDialogInfo;
-            setGameRankListData(piaVar.getGameRankListData());
-            setAgreeBanner(piaVar.getAgreeBanner());
-            setLiveNotify(piaVar.getLiveNotify());
-            setGameTabInfo(piaVar.getGameTabInfo());
-            setGameDefaultTabId(piaVar.getGameDefaultTabId());
-            setForumHeadIcon(piaVar.getForumHeadIcon());
-            setUserRecommend(piaVar.getUserRecommend());
-            setFrsVideoActivityData(piaVar.getFrsVideoActivityData());
-            this.mNewChapterInfo = piaVar.mNewChapterInfo;
-            setFrsInsertLiveData(piaVar.getFrsInsertLiveData());
-            this.recm_forum_list = piaVar.getRecm_forum_list();
-            setFrsStageLiveData(piaVar.getFrsStageLiveData());
-            this.forumArIno = piaVar.forumArIno;
-            this.starRank = piaVar.starRank;
-            this.postTopic = piaVar.postTopic;
-            this.mWindowToast = piaVar.mWindowToast;
-            this.activityConfig = piaVar.activityConfig;
-            setIsShowRedTip(piaVar.isShowRedTip());
-            this.isBrandForum = piaVar.isBrandForum;
-            this.brandAdData = piaVar.brandAdData;
-            this.oriForumInfoList = piaVar.oriForumInfoList;
-            this.bottomMenuList = piaVar.bottomMenuList;
-            this.adMixFloor = piaVar.adMixFloor;
-            this.adShowSelect = piaVar.adShowSelect;
-            this.adSampleMapKey = piaVar.adSampleMapKey;
-            gi7.f().n(getAnti());
-            gi7.f().q(piaVar.getForum().getId());
-            gi7.f().r(piaVar.getForum().getName());
-            fi7.h().q(piaVar.getForum().getId());
-            if (piaVar.getEntelechyTabInfo() != null) {
-                fi7.h().r(piaVar.getEntelechyTabInfo().a);
+            this.isFromCache = fdaVar.isFromCache;
+            setBaWuNoticeNum(fdaVar.getBaWuNoticeNum());
+            setSortType(fdaVar.getSortType());
+            setAnti(fdaVar.getAnti());
+            setChatGroup(fdaVar.getChatGroup());
+            setFortuneBag(fdaVar.isFortuneBag());
+            setFortuneDesc(fdaVar.getFortuneDesc());
+            setForum(fdaVar.getForum());
+            setGameName(fdaVar.getGameName());
+            setGameUrl(fdaVar.getGameUrl());
+            setGconAccount(fdaVar.getGconAccount());
+            setHasGame(fdaVar.isHasGame());
+            setIsNewUrl(fdaVar.getIsNewUrl());
+            setPhotoLivePos(fdaVar.getPhotoLivePos());
+            setPage(fdaVar.getPage());
+            setStar(fdaVar.getStar());
+            setStarEnter(fdaVar.getStarEnter());
+            setThreadList(fdaVar.threadList);
+            setThreadListIds(fdaVar.getThreadListIds());
+            setUserData(fdaVar.getUserData());
+            setUserMap(fdaVar.getUserMap());
+            setActivityHeadData(fdaVar.getActivityHeadData());
+            setFrsDefaultTabId(fdaVar.getFrsDefaultTabId());
+            this.defaultShowTab = fdaVar.defaultShowTab;
+            setCategoryInfos(fdaVar.getCategoryInfos());
+            setBawuCenterUrl(fdaVar.getBawuCenterUrl());
+            setCardVideoInfo(fdaVar.getCardVideoInfo());
+            setHeadSdkData(fdaVar.getHeadSdkData());
+            setSchoolRecommendPos(fdaVar.getSchoolRecommendPos());
+            setSchoolRecommendInfo(fdaVar.getSchoolRecommendUserInfo());
+            setEntelechyTabInfo(fdaVar.getEntelechyTabInfo());
+            setAlaLiveCount(fdaVar.getAlaLiveCount());
+            setCarrierEnterData(fdaVar.getCarrierEnterData());
+            setForumState(fdaVar.getForumState());
+            setAccessFlag(fdaVar.getAccessFlag());
+            this.needLog = fdaVar.needLog;
+            this.recommendBookData = fdaVar.recommendBookData;
+            this.presentInfoData = fdaVar.presentInfoData;
+            setBookInfo(fdaVar.getBookInfo());
+            setMangaReadRecordChapterId(fdaVar.getMangaReadRecordChapterId());
+            setHeadlineImgInfoData(fdaVar.getHeadlineImgInfoData());
+            setCardShipinPos(fdaVar.getCardShipinPos());
+            setCardShipinNew(fdaVar.getCardShipinNew());
+            this.enterFrsDialogInfo = fdaVar.enterFrsDialogInfo;
+            setGameRankListData(fdaVar.getGameRankListData());
+            setAgreeBanner(fdaVar.getAgreeBanner());
+            setLiveNotify(fdaVar.getLiveNotify());
+            setGameTabInfo(fdaVar.getGameTabInfo());
+            setGameDefaultTabId(fdaVar.getGameDefaultTabId());
+            setForumHeadIcon(fdaVar.getForumHeadIcon());
+            setUserRecommend(fdaVar.getUserRecommend());
+            setFrsVideoActivityData(fdaVar.getFrsVideoActivityData());
+            this.mNewChapterInfo = fdaVar.mNewChapterInfo;
+            setFrsInsertLiveData(fdaVar.getFrsInsertLiveData());
+            this.recm_forum_list = fdaVar.getRecm_forum_list();
+            setFrsStageLiveData(fdaVar.getFrsStageLiveData());
+            this.forumArIno = fdaVar.forumArIno;
+            this.starRank = fdaVar.starRank;
+            this.postTopic = fdaVar.postTopic;
+            this.mWindowToast = fdaVar.mWindowToast;
+            this.activityConfig = fdaVar.activityConfig;
+            setIsShowRedTip(fdaVar.isShowRedTip());
+            this.isBrandForum = fdaVar.isBrandForum;
+            this.brandAdData = fdaVar.brandAdData;
+            this.oriForumInfoList = fdaVar.oriForumInfoList;
+            this.bottomMenuList = fdaVar.bottomMenuList;
+            this.adMixFloor = fdaVar.adMixFloor;
+            this.adShowSelect = fdaVar.adShowSelect;
+            this.adSampleMapKey = fdaVar.adSampleMapKey;
+            pc7.f().n(getAnti());
+            pc7.f().q(fdaVar.getForum().getId());
+            pc7.f().r(fdaVar.getForum().getName());
+            oc7.h().q(fdaVar.getForum().getId());
+            if (fdaVar.getEntelechyTabInfo() != null) {
+                oc7.h().r(fdaVar.getEntelechyTabInfo().a);
             }
-            if (piaVar.getUserData() != null) {
-                hi7.c().e(piaVar.getUserData().bawuThrones);
+            if (fdaVar.getUserData() != null) {
+                qc7.c().e(fdaVar.getUserData().bawuThrones);
             }
-            setPrivateForumTotalInfo(piaVar.getPrivateForumTotalInfo());
-            setPrivateForumPopInfoData(piaVar.getPrivateForumPopInfo());
+            setPrivateForumTotalInfo(fdaVar.getPrivateForumTotalInfo());
+            setPrivateForumPopInfoData(fdaVar.getPrivateForumPopInfo());
             this.isFrsVideoAutoPlay = TbadkCoreApplication.getInst().canAutoPlaySwitch();
-            this.smartAppAvatar = piaVar.smartAppAvatar;
-            this.smartApp = piaVar.smartApp;
-            this.nebulaHotThreads = piaVar.nebulaHotThreads;
-            this.forumActiveInfo = piaVar.forumActiveInfo;
-            this.userList = piaVar.userList;
-            setBusinessPromot(piaVar.getBusinessPromot());
-            this.serviceAreaData = piaVar.serviceAreaData;
-            setHotUserRankData(piaVar.getHotUserRankData());
-            this.itemInfo = piaVar.itemInfo;
-            this.toLoadHorseData = piaVar.toLoadHorseData;
-            this.forumRule = piaVar.forumRule;
-            this.mSignActivityInfo = piaVar.mSignActivityInfo;
-            this.showAdsense = piaVar.showAdsense;
-            setVoiceRoomConfig(piaVar.getVoiceRoomConfig());
-            setVoiceRoomData(piaVar.getVoiceRoomData());
-            this.serviceAreaFlutterData = piaVar.serviceAreaFlutterData;
-            this.liveFuseForumDataList = piaVar.liveFuseForumDataList;
-            this.frsGameRankInfoData = piaVar.frsGameRankInfoData;
-            this.frsBannerHeaderData = piaVar.frsBannerHeaderData;
-            this.forumTagInfo = piaVar.forumTagInfo;
-            this.firstCategory = piaVar.firstCategory;
-            this.frsForumGroup = piaVar.frsForumGroup;
-            this.headerCard = piaVar.headerCard;
-            this.frsSpriteNewUserGuide = piaVar.frsSpriteNewUserGuide;
-            this.bountyTaskData = piaVar.bountyTaskData;
+            this.smartAppAvatar = fdaVar.smartAppAvatar;
+            this.smartApp = fdaVar.smartApp;
+            this.nebulaHotThreads = fdaVar.nebulaHotThreads;
+            this.forumActiveInfo = fdaVar.forumActiveInfo;
+            this.userList = fdaVar.userList;
+            setBusinessPromot(fdaVar.getBusinessPromot());
+            this.serviceAreaData = fdaVar.serviceAreaData;
+            setHotUserRankData(fdaVar.getHotUserRankData());
+            this.itemInfo = fdaVar.itemInfo;
+            this.toLoadHorseData = fdaVar.toLoadHorseData;
+            this.forumRule = fdaVar.forumRule;
+            this.mSignActivityInfo = fdaVar.mSignActivityInfo;
+            this.showAdsense = fdaVar.showAdsense;
+            setVoiceRoomConfig(fdaVar.getVoiceRoomConfig());
+            setVoiceRoomData(fdaVar.getVoiceRoomData());
+            this.serviceAreaFlutterData = fdaVar.serviceAreaFlutterData;
+            this.liveFuseForumDataList = fdaVar.liveFuseForumDataList;
+            this.frsGameRankInfoData = fdaVar.frsGameRankInfoData;
+            this.frsBannerHeaderData = fdaVar.frsBannerHeaderData;
+            this.forumTagInfo = fdaVar.forumTagInfo;
+            this.firstCategory = fdaVar.firstCategory;
+            this.frsForumGroup = fdaVar.frsForumGroup;
+            this.headerCard = fdaVar.headerCard;
+            this.frsSpriteNewUserGuide = fdaVar.frsSpriteNewUserGuide;
+            this.bountyTaskData = fdaVar.bountyTaskData;
             return true;
         }
         return invokeL.booleanValue;

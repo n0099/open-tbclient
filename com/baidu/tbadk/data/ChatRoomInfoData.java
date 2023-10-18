@@ -18,7 +18,7 @@ import tbclient.Loop.ChatRoomAtInfo;
 import tbclient.Loop.ChatroomInfoBasic;
 import tbclient.Loop.ChatroomList;
 import tbclient.Loop.ChatroomMEMsgInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChatRoomInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BTN_TYPE_DEFAULT = 0;
@@ -33,7 +33,7 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
     public String jumpUrl;
     public long roomId;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class AtInfoData extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +132,7 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class AtMsgBaseData extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,7 +180,7 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ChatroomInfoBasicData extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ChatroomMEMsgInfoData extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

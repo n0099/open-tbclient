@@ -1,8 +1,8 @@
 package com.baidu.swan.game.ad.downloader.model;
 
 import androidx.annotation.Nullable;
+import com.baidu.mobads.sdk.internal.ap;
 import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -25,7 +25,7 @@ public class DownloadParams {
         TYPE_START_DOWNLOAD("startDownload"),
         TYPE_PAUSE_DOWNLOAD("pauseDownload"),
         TYPE_CANCEL_DOWNLOAD("cancelDownload"),
-        TYPE_RESUME_DOWNLOAD("resumeDownload"),
+        TYPE_RESUME_DOWNLOAD(ap.d),
         TYPE_INSTALL_APP("installApp"),
         TYPE_STOP_SERVICE("stopService"),
         TYPE_OTHER("#");
@@ -61,7 +61,7 @@ public class DownloadParams {
         try {
             jSONObject.put("url", this.a);
             jSONObject.put("name", this.b);
-            jSONObject.put(TTDownloadField.TT_USERAGENT, this.c);
+            jSONObject.put("userAgent", this.c);
             jSONObject.put("contentDisposition", this.d);
             jSONObject.put(DownloadCenterFunConstants.MIME_TYPE, this.e);
             jSONObject.put("contentLength", this.f);

@@ -1,49 +1,54 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public class lz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public b e;
-    public Handler.Callback f;
-    public Handler g;
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void a(int i, int i2);
+    public interface c {
+        void J();
 
-        void b(int i, int i2);
-
-        void c(int i, int i2);
-
-        void d(int i, int i2);
+        void u(List<String> list);
     }
 
     /* loaded from: classes7.dex */
-    public class a implements Handler.Callback {
+    public interface d {
+        void a(ImageUploadResult imageUploadResult);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz6 a;
+        public final /* synthetic */ AtomicInteger a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ c c;
 
-        public a(lz6 lz6Var) {
+        public a(lz6 lz6Var, AtomicInteger atomicInteger, List list, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lz6Var};
+                Object[] objArr = {lz6Var, atomicInteger, list, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,36 +58,83 @@ public class lz6 {
                     return;
                 }
             }
-            this.a = lz6Var;
+            this.a = atomicInteger;
+            this.b = list;
+            this.c = cVar;
         }
 
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.lz6.d
+        public void a(ImageUploadResult imageUploadResult) {
+            ImageUploadResult.picInfo picinfo;
+            ImageUploadResult.PicDetailedInfo picDetailedInfo;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i = message.arg1;
-                int i2 = message.arg2;
-                int i3 = message.what;
-                if (i3 != 0) {
-                    if (i3 != 1) {
-                        if (i3 != 2) {
-                            if (i3 != 3) {
-                                return false;
-                            }
-                            this.a.e.c(i, i2);
-                            return true;
-                        }
-                        this.a.e.d(i, i2);
-                        return true;
-                    }
-                    this.a.e.b(i, i2);
-                    return true;
+            if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
+                this.a.decrementAndGet();
+                if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
+                    this.b.add(imageUploadResult.picInfo.bigPic.picUrl);
                 }
-                this.a.e.a(i, i2);
-                return true;
+                if (this.a.get() == 0) {
+                    if (!ListUtils.isEmpty(this.b)) {
+                        this.c.u(this.b);
+                    } else {
+                        this.c.J();
+                    }
+                }
             }
-            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageFileInfo a;
+        public final /* synthetic */ d b;
+
+        public b(lz6 lz6Var, ImageFileInfo imageFileInfo, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lz6Var, imageFileInfo, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = imageFileInfo;
+            this.b = dVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String filePath = this.a.getFilePath();
+                ImageUploader imageUploader = new ImageUploader("from_user_collect");
+                if (this.a.isGif()) {
+                    this.b.a(imageUploader.uploadInBackground(filePath, true, false));
+                    return;
+                }
+                Bitmap b = oa9.b(this.a);
+                if (b == null) {
+                    this.b.a(null);
+                    return;
+                }
+                String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b, 60);
+                b.recycle();
+                if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
+                    this.b.a(null);
+                    return;
+                }
+                ImageUploadResult uploadInBackground = imageUploader.uploadInBackground(saveBitmapByAbsolutelyPath, false, false);
+                FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
+                this.b.a(uploadInBackground);
+            }
         }
     }
 
@@ -96,132 +148,28 @@ public class lz6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = new a(this);
-        this.g = new Handler(this.f);
-    }
-
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public final void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            this.g.removeMessages(2);
-            if (!this.g.hasMessages(2)) {
-                Message message = new Message();
-                message.what = 2;
-                message.arg1 = i;
-                message.arg2 = i2;
-                this.g.sendMessageDelayed(message, 60L);
             }
         }
     }
 
-    public final void e(int i, int i2) {
+    public void a(ArrayList<ImageFileInfo> arrayList, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            this.g.removeMessages(0);
-            if (!this.g.hasMessages(1)) {
-                Message message = new Message();
-                message.what = 1;
-                message.arg1 = i;
-                message.arg2 = i2;
-                this.g.sendMessageDelayed(message, 60L);
-            }
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, arrayList, cVar) != null) || ListUtils.isEmpty(arrayList)) {
+            return;
+        }
+        AtomicInteger atomicInteger = new AtomicInteger();
+        atomicInteger.set(arrayList.size());
+        ArrayList arrayList2 = new ArrayList();
+        Iterator<ImageFileInfo> it = arrayList.iterator();
+        while (it.hasNext()) {
+            b(it.next(), new a(this, atomicInteger, arrayList2, cVar));
         }
     }
 
-    public final void f(int i, int i2) {
+    public final void b(ImageFileInfo imageFileInfo, d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            this.g.removeMessages(3);
-            if (!this.g.hasMessages(3)) {
-                Message message = new Message();
-                message.what = 3;
-                message.arg1 = i;
-                message.arg2 = i2;
-                this.g.sendMessageDelayed(message, 60L);
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
+            ea9.b().a(new b(this, imageFileInfo, dVar));
         }
-    }
-
-    public final void g(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.g.removeMessages(1);
-            if (!this.g.hasMessages(0)) {
-                Message message = new Message();
-                message.what = 0;
-                message.arg1 = i;
-                message.arg2 = i2;
-                this.g.sendMessageDelayed(message, 60L);
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0012, code lost:
-        if (r0 != 3) goto L11;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean c(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 2) {
-                        float rawX = motionEvent.getRawX();
-                        float rawY = motionEvent.getRawY();
-                        if (this.c == 0.0f || this.d == 0.0f) {
-                            this.c = motionEvent.getRawX();
-                            float rawY2 = motionEvent.getRawY();
-                            this.d = rawY2;
-                            this.a = this.c;
-                            this.b = rawY2;
-                        }
-                        int i = (int) (rawY - this.b);
-                        int i2 = (int) (rawY - this.d);
-                        if (this.e != null) {
-                            if (i > 0) {
-                                e(i2, i);
-                            } else {
-                                g(i2, i);
-                            }
-                        }
-                        this.a = rawX;
-                        this.b = rawY;
-                    }
-                }
-                if (this.e != null) {
-                    int i3 = (int) (this.a - this.c);
-                    int i4 = (int) (this.b - this.d);
-                    if (Math.abs(i3) >= Math.abs(i4)) {
-                        f(i3, (int) this.c);
-                    } else {
-                        b(i3, i4);
-                    }
-                }
-                this.c = 0.0f;
-                this.d = 0.0f;
-            } else {
-                this.c = motionEvent.getRawX();
-                float rawY3 = motionEvent.getRawY();
-                this.d = rawY3;
-                this.a = this.c;
-                this.b = rawY3;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

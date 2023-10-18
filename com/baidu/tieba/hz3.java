@@ -1,17 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface hz3 {
-    void a(int i);
-
-    void b();
-
-    void c(DownloadState downloadState, int i);
-
-    void d(String str);
-
-    String e();
-
-    void f(boolean z);
+    void p(String str, JSONObject jSONObject);
 }

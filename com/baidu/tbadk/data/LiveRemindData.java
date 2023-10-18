@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Loop.LiveRes;
 import tbclient.Loop.YyLiveInfoSimple;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LiveRemindData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3547090251629832025L;

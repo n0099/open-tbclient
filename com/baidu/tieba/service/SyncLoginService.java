@@ -16,12 +16,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.j56;
-import com.baidu.tieba.kd9;
-import com.baidu.tieba.m05;
-import com.baidu.tieba.uh;
-import com.baidu.tieba.xe5;
-import com.baidu.tieba.y2a;
+import com.baidu.tieba.f95;
+import com.baidu.tieba.lx9;
+import com.baidu.tieba.rc;
+import com.baidu.tieba.sz5;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.x79;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SyncLoginService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public static String mStatistics;
@@ -64,7 +64,7 @@ public class SyncLoginService extends BdBaseService {
         return (IBinder) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,8 +97,8 @@ public class SyncLoginService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<String, Integer, kd9> {
+    /* loaded from: classes8.dex */
+    public class b extends BdAsyncTask<String, Integer, x79> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -126,10 +126,10 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(kd9 kd9Var) {
+        public void onPostExecute(x79 x79Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kd9Var) == null) {
-                super.onPostExecute(kd9Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x79Var) == null) {
+                super.onPostExecute(x79Var);
                 this.b.mSyncTask = null;
             }
         }
@@ -141,21 +141,21 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public kd9 doInBackground(String... strArr) {
+        public x79 doInBackground(String... strArr) {
             InterceptResult invokeL;
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                kd9 kd9Var = null;
+                x79 x79Var = null;
                 try {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
-                    if (y2a.b()) {
+                    if (lx9.b()) {
                         this.a.addPostData(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
                     } else {
-                        this.a.addPostData(HttpRequest.NEED_DECRYPT, y2a.c());
-                        String g = y2a.g(HttpRequest.OS_VERSION);
+                        this.a.addPostData(HttpRequest.NEED_DECRYPT, lx9.c());
+                        String g = lx9.g(HttpRequest.OS_VERSION);
                         if (!TextUtils.isEmpty(g)) {
-                            this.a.addPostData(g, y2a.j());
+                            this.a.addPostData(g, lx9.j());
                         }
                     }
                     StringBuffer stringBuffer = new StringBuffer(15);
@@ -167,7 +167,7 @@ public class SyncLoginService extends BdBaseService {
                     this.a.addPostData("scr_h", String.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
                     this.a.addPostData("scr_dip", String.valueOf(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst().getApp())));
                     String str2 = "0";
-                    if (xe5.d().f() > 0) {
+                    if (f95.e().g() > 0) {
                         this.a.addPostData("_msg_status", "0");
                     } else {
                         this.a.addPostData("_msg_status", "1");
@@ -179,7 +179,7 @@ public class SyncLoginService extends BdBaseService {
                         }
                         this.a.addPostData("_active", str2);
                     }
-                    this.a.addPostData("_pic_quality", String.valueOf(m05.c().e()));
+                    this.a.addPostData("_pic_quality", String.valueOf(uu4.c().e()));
                     if (SyncLoginService.mStatistics != null) {
                         this.a.addPostData("_msg_type", SyncLoginService.mStatistics);
                     }
@@ -189,17 +189,17 @@ public class SyncLoginService extends BdBaseService {
                     NetWork netWork = this.a;
                     netWork.addPostData("versioncode", versionCode + "");
                     this.a.addPostData("signmd5", TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                    this.a.addPostData(PackageTable.MD5, j56.a());
+                    this.a.addPostData(PackageTable.MD5, sz5.a());
                     NetWork netWork2 = this.a;
                     String str3 = "64";
-                    if (uh.a()) {
+                    if (rc.a()) {
                         str = "64";
                     } else {
                         str = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
                     }
                     netWork2.addPostData("running_abi", str);
                     NetWork netWork3 = this.a;
-                    if (!uh.b()) {
+                    if (!rc.b()) {
                         str3 = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
                     }
                     netWork3.addPostData("support_abi", str3);
@@ -207,22 +207,22 @@ public class SyncLoginService extends BdBaseService {
                     if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                         return null;
                     }
-                    kd9 kd9Var2 = new kd9();
+                    x79 x79Var2 = new x79();
                     try {
-                        kd9Var2.a(postNetData);
+                        x79Var2.a(postNetData);
                         String unused = SyncLoginService.mStatistics = null;
-                        return kd9Var2;
+                        return x79Var2;
                     } catch (Exception e) {
                         e = e;
-                        kd9Var = kd9Var2;
+                        x79Var = x79Var2;
                         BdLog.e(e.getMessage());
-                        return kd9Var;
+                        return x79Var;
                     }
                 } catch (Exception e2) {
                     e = e2;
                 }
             } else {
-                return (kd9) invokeL.objValue;
+                return (x79) invokeL.objValue;
             }
         }
 

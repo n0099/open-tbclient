@@ -1,168 +1,321 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.os.Message;
-import android.view.Surface;
-import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.k6c;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.internal.schedulers.ScheduledAction;
+import rx.internal.util.RxThreadFactory;
 /* loaded from: classes7.dex */
-public class q8c extends m8c implements TextureView.SurfaceTextureListener {
+public class q8c extends k6c.a implements o6c {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static final int d;
+    public static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> e;
+    public static final AtomicReference<ScheduledExecutorService> f;
+    public static volatile Object g;
+    public static final Object h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface K;
-    public int L;
+    public final ScheduledExecutorService a;
+    public volatile boolean b;
 
-    public q8c(Context context, e8c e8cVar, int i, int i2, w6c w6cVar) {
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                q8c.f();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        boolean z;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948047149, "Lcom/baidu/tieba/q8c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948047149, "Lcom/baidu/tieba/q8c;");
+                return;
+            }
+        }
+        h = new Object();
+        e = new ConcurrentHashMap<>();
+        f = new AtomicReference<>();
+        d = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
+        boolean z2 = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
+        int a2 = y8c.a();
+        if (!z2 && (a2 == 0 || a2 >= 21)) {
+            z = true;
+        } else {
+            z = false;
+        }
+        c = z;
+    }
+
+    public q8c(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, e8cVar, Integer.valueOf(i), Integer.valueOf(i2), w6cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {threadFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.K = null;
-        this.L = 0;
-        A(context, e8cVar, i, i2, w6cVar);
-    }
-
-    @Override // com.baidu.tieba.m8c
-    public void A(Context context, Object obj, int i, int i2, w6c w6cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), w6cVar}) == null) {
-            super.A(context, obj, i, i2, w6cVar);
-            if (obj != null && (obj instanceof e8c)) {
-                ((e8c) obj).a(this);
-            }
+        ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
+        if (!k(newScheduledThreadPool) && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
+            g((ScheduledThreadPoolExecutor) newScheduledThreadPool);
         }
+        this.a = newScheduledThreadPool;
     }
 
-    public final void Y() {
+    public static Method e(ScheduledExecutorService scheduledExecutorService) {
+        InterceptResult invokeL;
+        Method[] methods;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            X(false);
-            if (this.d != null && this.a.available()) {
-                this.d.g(2402);
-                this.d.f(2402);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.j8c
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.c != null) {
-            TLog.g(this, "OutputExternalSurfaceRender destroyWindow");
-        }
-    }
-
-    @Override // com.baidu.tieba.j8c
-    public Object getWindow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.K;
-        }
-        return invokeV.objValue;
-    }
-
-    public final void Z(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture) == null) {
-            X(true);
-            if (this.d != null) {
-                if (this.a.available()) {
-                    this.d.g(2402);
-                    this.d.f(2402);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, scheduledExecutorService)) == null) {
+            for (Method method : scheduledExecutorService.getClass().getMethods()) {
+                if (method.getName().equals("setRemoveOnCancelPolicy")) {
+                    Class<?>[] parameterTypes = method.getParameterTypes();
+                    if (parameterTypes.length == 1 && parameterTypes[0] == Boolean.TYPE) {
+                        return method;
+                    }
                 }
-                TLog.g(this, "do send surfaceCreated, playerUID:" + this.r);
-                this.d.g(2401);
-                this.d.sendMessage(Message.obtain(null, 2401, surfaceTexture));
             }
+            return null;
         }
+        return (Method) invokeL.objValue;
     }
 
-    public final void a0(SurfaceTexture surfaceTexture, int i, int i2) {
-        e6c e6cVar;
+    public static void d(ScheduledExecutorService scheduledExecutorService) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) && (e6cVar = this.d) != null) {
-            e6cVar.g(2404);
-            this.d.sendMessage(Message.obtain(null, 2404, i, i2, surfaceTexture));
-            TLog.g(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
+        if (interceptable == null || interceptable.invokeL(65538, null, scheduledExecutorService) == null) {
+            e.remove(scheduledExecutorService);
         }
     }
 
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i, i2) == null) {
-            if (this.L % 100 == 0) {
-                TLog.g(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-            }
-            this.L++;
-            D();
-            this.I.set(true);
-            U();
-            a0(surfaceTexture, i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.j8c
-    public void d(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, surfaceTexture) == null) {
-            this.K = new Surface(surfaceTexture);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, surfaceTexture) == null) && this.d != null && this.a.available()) {
-            this.d.g(2405);
-            this.d.f(2405);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, surfaceTexture, i, i2) == null) {
-            TLog.g(this, "onSurfaceTextureAvailable() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-            this.I.set(true);
-            Z(surfaceTexture);
-            if (i > 0 && i2 > 0) {
-                a0(surfaceTexture, i, i2);
-            }
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+    @Override // com.baidu.tieba.k6c.a
+    public o6c b(u6c u6cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceTexture)) == null) {
-            TLog.g(this, "onSurfaceTextureDestroyed playerUID:" + this.r);
-            D();
-            this.I.set(false);
-            U();
-            Y();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u6cVar)) == null) {
+            return c(u6cVar, 0L, null);
+        }
+        return (o6c) invokeL.objValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            try {
+                Iterator<ScheduledThreadPoolExecutor> it = e.keySet().iterator();
+                while (it.hasNext()) {
+                    ScheduledThreadPoolExecutor next = it.next();
+                    if (!next.isShutdown()) {
+                        next.purge();
+                    } else {
+                        it.remove();
+                    }
+                }
+            } catch (Throwable th) {
+                t6c.e(th);
+                xac.j(th);
+            }
+        }
+    }
+
+    public static void g(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, scheduledThreadPoolExecutor) == null) {
+            while (true) {
+                if (f.get() != null) {
+                    break;
+                }
+                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
+                if (f.compareAndSet(null, newScheduledThreadPool)) {
+                    a aVar = new a();
+                    int i = d;
+                    newScheduledThreadPool.scheduleAtFixedRate(aVar, i, i, TimeUnit.MILLISECONDS);
+                    break;
+                }
+                newScheduledThreadPool.shutdownNow();
+            }
+            e.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
+        }
+    }
+
+    public static boolean k(ScheduledExecutorService scheduledExecutorService) {
+        InterceptResult invokeL;
+        Method e2;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, scheduledExecutorService)) == null) {
+            if (c) {
+                if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
+                    Object obj2 = g;
+                    if (obj2 == h) {
+                        return false;
+                    }
+                    if (obj2 == null) {
+                        e2 = e(scheduledExecutorService);
+                        if (e2 != null) {
+                            obj = e2;
+                        } else {
+                            obj = h;
+                        }
+                        g = obj;
+                    } else {
+                        e2 = (Method) obj2;
+                    }
+                } else {
+                    e2 = e(scheduledExecutorService);
+                }
+                if (e2 != null) {
+                    try {
+                        e2.invoke(scheduledExecutorService, Boolean.TRUE);
+                        return true;
+                    } catch (IllegalAccessException e3) {
+                        xac.j(e3);
+                    } catch (IllegalArgumentException e4) {
+                        xac.j(e4);
+                    } catch (InvocationTargetException e5) {
+                        xac.j(e5);
+                    }
+                }
+            }
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.k6c.a
+    public o6c c(u6c u6cVar, long j, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{u6cVar, Long.valueOf(j), timeUnit})) == null) {
+            if (this.b) {
+                return nbc.c();
+            }
+            return h(u6cVar, j, timeUnit);
+        }
+        return (o6c) invokeCommon.objValue;
+    }
+
+    public ScheduledAction h(u6c u6cVar, long j, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Future<?> schedule;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{u6cVar, Long.valueOf(j), timeUnit})) == null) {
+            ScheduledAction scheduledAction = new ScheduledAction(xac.q(u6cVar));
+            if (j <= 0) {
+                schedule = this.a.submit(scheduledAction);
+            } else {
+                schedule = this.a.schedule(scheduledAction, j, timeUnit);
+            }
+            scheduledAction.add(schedule);
+            return scheduledAction;
+        }
+        return (ScheduledAction) invokeCommon.objValue;
+    }
+
+    public ScheduledAction i(u6c u6cVar, long j, TimeUnit timeUnit, b9c b9cVar) {
+        InterceptResult invokeCommon;
+        Future<?> schedule;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{u6cVar, Long.valueOf(j), timeUnit, b9cVar})) == null) {
+            ScheduledAction scheduledAction = new ScheduledAction(xac.q(u6cVar), b9cVar);
+            b9cVar.a(scheduledAction);
+            if (j <= 0) {
+                schedule = this.a.submit(scheduledAction);
+            } else {
+                schedule = this.a.schedule(scheduledAction, j, timeUnit);
+            }
+            scheduledAction.add(schedule);
+            return scheduledAction;
+        }
+        return (ScheduledAction) invokeCommon.objValue;
+    }
+
+    public ScheduledAction j(u6c u6cVar, long j, TimeUnit timeUnit, kbc kbcVar) {
+        InterceptResult invokeCommon;
+        Future<?> schedule;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{u6cVar, Long.valueOf(j), timeUnit, kbcVar})) == null) {
+            ScheduledAction scheduledAction = new ScheduledAction(xac.q(u6cVar), kbcVar);
+            kbcVar.a(scheduledAction);
+            if (j <= 0) {
+                schedule = this.a.submit(scheduledAction);
+            } else {
+                schedule = this.a.schedule(scheduledAction, j, timeUnit);
+            }
+            scheduledAction.add(schedule);
+            return scheduledAction;
+        }
+        return (ScheduledAction) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.o6c
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.o6c
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = true;
+            this.a.shutdownNow();
+            d(this.a);
+        }
     }
 }

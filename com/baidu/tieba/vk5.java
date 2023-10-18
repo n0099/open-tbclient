@@ -1,23 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.FriendBotPostConfigData;
-import com.baidu.tbadk.util.DataExt;
+import com.baidu.tbadk.mutiprocess.aiApply.AICapacityStatusUpdateEvent;
+import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes8.dex */
-public final class vk5 implements mf5 {
+public final class vk5 implements lk5<AICapacityStatusUpdateEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
     public vk5() {
         Interceptable interceptable = $ic;
@@ -29,33 +22,23 @@ public final class vk5 implements mf5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "wl_config";
     }
 
-    @Override // com.baidu.tieba.mf5
-    public void parseJson(JSONObject json) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lk5
+    /* renamed from: a */
+    public boolean onEvent(AICapacityStatusUpdateEvent aICapacityStatusUpdateEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            try {
-                JSONObject optJSONObject = json.optJSONObject(this.a);
-                if (optJSONObject != null) {
-                    String botConfigStr = optJSONObject.optString("friend_bot_post_config");
-                    if (!TextUtils.isEmpty(botConfigStr)) {
-                        Intrinsics.checkNotNullExpressionValue(botConfigStr, "botConfigStr");
-                        TbSingleton.getInstance().setFriendBotPostConfigData((FriendBotPostConfigData) DataExt.toEntity(botConfigStr, FriendBotPostConfigData.class));
-                    }
-                }
-            } catch (Exception e) {
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    e.printStackTrace();
-                    return;
-                }
-                throw e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aICapacityStatusUpdateEvent)) == null) {
+            if (aICapacityStatusUpdateEvent == null) {
+                return false;
             }
+            AICapacityApplyHelper.e.a().g(aICapacityStatusUpdateEvent.getAiCapacityPermission());
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

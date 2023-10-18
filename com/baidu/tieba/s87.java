@@ -1,113 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class s87 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class s87 implements y67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final int c;
-    public final String d;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof s87) {
-                s87 s87Var = (s87) obj;
-                return Intrinsics.areEqual(this.a, s87Var.a) && Intrinsics.areEqual(this.b, s87Var.b) && this.c == s87Var.c && Intrinsics.areEqual(this.d, s87Var.d);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c) * 31;
-            String str = this.d;
-            return hashCode + (str == null ? 0 : str.hashCode());
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CardVirtualHeadImageData(imgUrl=" + this.a + ", bgValue=" + this.b + ", bgType=" + this.c + ", cornerUrl=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public s87(String imgUrl, String bgValue, int i, String str) {
+    public s87() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {imgUrl, bgValue, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(imgUrl, "imgUrl");
-        Intrinsics.checkNotNullParameter(bgValue, "bgValue");
-        this.a = imgUrl;
-        this.b = bgValue;
-        this.c = i;
-        this.d = str;
     }
 
-    public final int a() {
+    @Override // com.baidu.tieba.y67
+    public List<g77<?, ?>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new s77("abstract"));
+            arrayList.add(new h87("video"));
+            arrayList.add(new l87("common_card"));
+            arrayList.add(new w77("live"));
+            arrayList.add(new x77("mount"));
+            arrayList.add(new p87("sideway_card"));
+            arrayList.add(new t77("mount_app"));
+            arrayList.add(new u77("feed_entrybar"));
+            arrayList.add(new k87("card_vote"));
+            arrayList.add(new q87("recommend_card_person_attention"));
+            arrayList.add(new v77("feed_head"));
+            arrayList.add(new g87("video_ad"));
+            arrayList.add(new f87("title"));
+            arrayList.add(new o87("live_card"));
+            arrayList.add(new a87("pei_wan"));
+            arrayList.add(new j87("feed_voice"));
+            arrayList.add(new n87("img_text"));
+            arrayList.add(new r87("social_bar"));
+            arrayList.add(new c87("recommend_info"));
+            arrayList.add(new t87("video_card"));
+            arrayList.add(new r77("browse_location"));
+            arrayList.add(new z77("origin_card"));
+            arrayList.add(new d87("reply"));
+            arrayList.add(new m87("delegate-layout"));
+            arrayList.add(new b87("pic"));
+            arrayList.add(new y77("card_multi_link"));
+            arrayList.add(new i87("virtual_head"));
+            arrayList.add(new e87("card_single_link"));
+            return arrayList;
         }
-        return invokeV.intValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 }

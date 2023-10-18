@@ -8,7 +8,6 @@ import androidx.core.provider.FontsContractCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.gesture.GestureAR;
-import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.searchbox.account.contants.AccountConstants;
@@ -22,8 +21,8 @@ import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.eob;
-import com.baidu.tieba.fob;
+import com.baidu.tieba.iib;
+import com.baidu.tieba.jib;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -441,7 +440,7 @@ public class SVGParser {
             }
             svg = new SVGElem("svg", 0);
             a = new SVGElem("a", 1);
-            circle = new SVGElem(Config.TRACE_CIRCLE, 2);
+            circle = new SVGElem("circle", 2);
             clipPath = new SVGElem("clipPath", 3);
             defs = new SVGElem("defs", 4);
             desc = new SVGElem("desc", 5);
@@ -1441,7 +1440,7 @@ public class SVGParser {
         public String a;
         public int b;
         public int c;
-        public fob d;
+        public jib d;
 
         public boolean j(int i) {
             InterceptResult invokeI;
@@ -1472,7 +1471,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new fob();
+            this.d = new jib();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -4062,7 +4061,7 @@ public class SVGParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             int i = 5;
             if (str.charAt(0) == '#') {
-                eob b2 = eob.b(str, 1, str.length());
+                iib b2 = iib.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 != 4) {
@@ -4585,7 +4584,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new fob().b(str, i, i2);
+            float b2 = new jib().b(str, i, i2);
             if (!Float.isNaN(b2)) {
                 return b2;
             }

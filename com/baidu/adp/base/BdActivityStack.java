@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j9;
+import com.baidu.tieba.h4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -212,9 +212,9 @@ public final class BdActivityStack {
             SoftReference<Activity> softReference = sActivityStack.get(i);
             if (softReference != null && (activity = softReference.get()) != null && activity.getWindow() != null) {
                 if (this.mActivityGreySwitch) {
-                    j9.b(activity.getWindow().getDecorView());
+                    h4.b(activity.getWindow().getDecorView());
                 } else {
-                    j9.a(activity.getWindow().getDecorView());
+                    h4.a(activity.getWindow().getDecorView());
                 }
             }
         }
@@ -297,7 +297,7 @@ public final class BdActivityStack {
             sActivityStack.add(new SoftReference<>(activity));
             checkAndMaintainActivityStack(this.mActivityStackMaxSize);
             if (this.mActivityGreySwitch && activity.getWindow() != null) {
-                j9.b(activity.getWindow().getDecorView());
+                h4.b(activity.getWindow().getDecorView());
             }
         }
     }

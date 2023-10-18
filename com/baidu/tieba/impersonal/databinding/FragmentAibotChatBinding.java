@@ -67,20 +67,20 @@ public final class FragmentAibotChatBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090488;
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090488);
+            int i = R.id.obfuscated_res_0x7f090489;
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090489);
             if (linearLayout != null) {
-                i = R.id.obfuscated_res_0x7f0906d2;
-                FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906d2);
+                i = R.id.obfuscated_res_0x7f0906ef;
+                FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ef);
                 if (frameLayout != null) {
-                    i = R.id.obfuscated_res_0x7f091132;
-                    FragmentContainerView fragmentContainerView = (FragmentContainerView) view2.findViewById(R.id.obfuscated_res_0x7f091132);
+                    i = R.id.obfuscated_res_0x7f09114c;
+                    FragmentContainerView fragmentContainerView = (FragmentContainerView) view2.findViewById(R.id.obfuscated_res_0x7f09114c);
                     if (fragmentContainerView != null) {
-                        i = R.id.obfuscated_res_0x7f0918ce;
-                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918ce);
+                        i = R.id.obfuscated_res_0x7f0918f9;
+                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918f9);
                         if (frameLayout2 != null) {
-                            i = R.id.obfuscated_res_0x7f092322;
-                            FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092322);
+                            i = R.id.obfuscated_res_0x7f09232c;
+                            FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09232c);
                             if (frameLayout3 != null) {
                                 i = R.id.view_bg;
                                 FrameLayout frameLayout4 = (FrameLayout) view2.findViewById(R.id.view_bg);
@@ -103,7 +103,7 @@ public final class FragmentAibotChatBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0324, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0325, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

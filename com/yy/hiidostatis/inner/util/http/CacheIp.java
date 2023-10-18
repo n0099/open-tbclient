@@ -1,6 +1,4 @@
 package com.yy.hiidostatis.inner.util.http;
-
-import com.fun.ad.sdk.channel.CsjForbidStrategy;
 /* loaded from: classes10.dex */
 public class CacheIp {
     public String lastIP = null;
@@ -16,7 +14,7 @@ public class CacheIp {
     }
 
     public boolean isValid() {
-        if (this.lastIP == null || this.lastIPTimes >= 1000 || this.cacheTime == 0 || System.currentTimeMillis() - this.cacheTime >= CsjForbidStrategy.FORBID_TIME_ANTI_SPAM) {
+        if (this.lastIP == null || this.lastIPTimes >= 1000 || this.cacheTime == 0 || System.currentTimeMillis() - this.cacheTime >= 21600000) {
             return false;
         }
         return true;

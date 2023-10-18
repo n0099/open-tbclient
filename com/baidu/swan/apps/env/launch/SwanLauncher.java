@@ -17,42 +17,42 @@ import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.ak2;
-import com.baidu.tieba.ap3;
-import com.baidu.tieba.aw2;
-import com.baidu.tieba.b63;
-import com.baidu.tieba.bk2;
-import com.baidu.tieba.d83;
-import com.baidu.tieba.dj4;
-import com.baidu.tieba.e82;
-import com.baidu.tieba.e83;
-import com.baidu.tieba.ew2;
-import com.baidu.tieba.f73;
-import com.baidu.tieba.f83;
-import com.baidu.tieba.fb3;
-import com.baidu.tieba.g82;
-import com.baidu.tieba.gw2;
-import com.baidu.tieba.h83;
-import com.baidu.tieba.hn3;
-import com.baidu.tieba.i32;
-import com.baidu.tieba.icc;
-import com.baidu.tieba.ih2;
-import com.baidu.tieba.jcc;
-import com.baidu.tieba.jr4;
-import com.baidu.tieba.kh2;
-import com.baidu.tieba.lk3;
-import com.baidu.tieba.ng2;
-import com.baidu.tieba.nk3;
-import com.baidu.tieba.nu2;
-import com.baidu.tieba.nw2;
-import com.baidu.tieba.pl2;
-import com.baidu.tieba.qr1;
-import com.baidu.tieba.rcc;
-import com.baidu.tieba.tl2;
-import com.baidu.tieba.ucc;
-import com.baidu.tieba.xv2;
-import com.baidu.tieba.zm3;
-import com.baidu.tieba.zp3;
+import com.baidu.tieba.am1;
+import com.baidu.tieba.cg2;
+import com.baidu.tieba.f6c;
+import com.baidu.tieba.g6c;
+import com.baidu.tieba.gq2;
+import com.baidu.tieba.ih3;
+import com.baidu.tieba.ik3;
+import com.baidu.tieba.je2;
+import com.baidu.tieba.jj3;
+import com.baidu.tieba.jq2;
+import com.baidu.tieba.k03;
+import com.baidu.tieba.ke2;
+import com.baidu.tieba.m23;
+import com.baidu.tieba.md4;
+import com.baidu.tieba.n22;
+import com.baidu.tieba.n23;
+import com.baidu.tieba.nq2;
+import com.baidu.tieba.o13;
+import com.baidu.tieba.o23;
+import com.baidu.tieba.o53;
+import com.baidu.tieba.o6c;
+import com.baidu.tieba.p22;
+import com.baidu.tieba.pq2;
+import com.baidu.tieba.q23;
+import com.baidu.tieba.qh3;
+import com.baidu.tieba.r6c;
+import com.baidu.tieba.rb2;
+import com.baidu.tieba.rl4;
+import com.baidu.tieba.sx1;
+import com.baidu.tieba.tb2;
+import com.baidu.tieba.ue3;
+import com.baidu.tieba.wa2;
+import com.baidu.tieba.we3;
+import com.baidu.tieba.wo2;
+import com.baidu.tieba.wq2;
+import com.baidu.tieba.yf2;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -60,7 +60,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class SwanLauncher {
-    public static final boolean a = qr1.a;
+    public static final boolean a = am1.a;
     public static final f b = new h(0);
     public static final f c = new h(1);
 
@@ -114,15 +114,15 @@ public final class SwanLauncher {
         public final int b;
 
         /* loaded from: classes4.dex */
-        public class a implements zp3<Exception> {
-            public final /* synthetic */ jcc a;
+        public class a implements ik3<Exception> {
+            public final /* synthetic */ g6c a;
 
-            public a(jcc jccVar) {
-                this.a = jccVar;
+            public a(g6c g6cVar) {
+                this.a = g6cVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.zp3
+            @Override // com.baidu.tieba.ik3
             /* renamed from: b */
             public void a(Exception exc) {
                 if (exc == null) {
@@ -130,8 +130,8 @@ public final class SwanLauncher {
                     this.a.onCompleted();
                     return;
                 }
-                jcc jccVar = this.a;
-                jccVar.onError(new Exception("SwanJsUpdater fail frame type = " + h.this.b, exc));
+                g6c g6cVar = this.a;
+                g6cVar.onError(new Exception("SwanJsUpdater fail frame type = " + h.this.b, exc));
             }
         }
 
@@ -141,12 +141,13 @@ public final class SwanLauncher {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.swan.apps.env.launch.SwanLauncher.f, com.baidu.tieba.icc.f, com.baidu.tieba.ycc
-        public void call(jcc jccVar) {
+        @Override // com.baidu.tieba.v6c
+        /* renamed from: c */
+        public void call(g6c g6cVar) {
             if (a()) {
-                jccVar.onCompleted();
+                g6cVar.onCompleted();
             } else {
-                tl2.d().c(new a(jccVar), this.b);
+                cg2.d().c(new a(g6cVar), this.b);
             }
         }
     }
@@ -157,25 +158,25 @@ public final class SwanLauncher {
         public final e b;
 
         /* loaded from: classes4.dex */
-        public class a implements ih2 {
-            public final /* synthetic */ kh2 a;
-            public final /* synthetic */ jcc b;
+        public class a implements rb2 {
+            public final /* synthetic */ tb2 a;
+            public final /* synthetic */ g6c b;
 
-            public a(kh2 kh2Var, jcc jccVar) {
-                this.a = kh2Var;
-                this.b = jccVar;
+            public a(tb2 tb2Var, g6c g6cVar) {
+                this.a = tb2Var;
+                this.b = g6cVar;
             }
 
-            @Override // com.baidu.tieba.ih2
+            @Override // com.baidu.tieba.rb2
             public void onFail() {
                 if (this.a.b) {
                     this.b.onError(new T7CheckException(null));
                 }
             }
 
-            @Override // com.baidu.tieba.ih2
+            @Override // com.baidu.tieba.rb2
             public void onSuccess() {
-                i.this.f();
+                i.this.g();
                 if (this.a.b) {
                     i.this.b();
                     this.b.onCompleted();
@@ -190,7 +191,7 @@ public final class SwanLauncher {
 
         @Override // com.baidu.swan.apps.env.launch.SwanLauncher.f
         public boolean a() {
-            if (!c && !nu2.w0().c()) {
+            if (!c && !wo2.w0().c()) {
                 return false;
             }
             return true;
@@ -201,84 +202,85 @@ public final class SwanLauncher {
             c = true;
         }
 
-        public final void f() {
-            Bundle bundle = this.b.c;
-            if (bundle != null) {
-                bundle.putLong("t7_loading_end", System.currentTimeMillis());
-                g82.k("SwanLauncher", "swanSailor loadingEnd");
-            }
-        }
-
         public final void g() {
             Bundle bundle = this.b.c;
             if (bundle != null) {
+                bundle.putLong("t7_loading_end", System.currentTimeMillis());
+                p22.k("SwanLauncher", "swanSailor loadingEnd");
+            }
+        }
+
+        public final void h() {
+            Bundle bundle = this.b.c;
+            if (bundle != null) {
                 bundle.putLong("t7_loading_start", System.currentTimeMillis());
-                g82.k("SwanLauncher", "swanSailor loadingStart");
+                p22.k("SwanLauncher", "swanSailor loadingStart");
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.swan.apps.env.launch.SwanLauncher.f, com.baidu.tieba.icc.f, com.baidu.tieba.ycc
-        public void call(jcc jccVar) {
-            nu2.G().c();
+        @Override // com.baidu.tieba.v6c
+        /* renamed from: d */
+        public void call(g6c g6cVar) {
+            wo2.G().c();
             if (a()) {
-                jccVar.onCompleted();
-            } else if (nu2.w0().c()) {
+                g6cVar.onCompleted();
+            } else if (wo2.w0().c()) {
                 b();
-                jccVar.onCompleted();
+                g6cVar.onCompleted();
             } else {
                 e eVar = this.b;
                 if (eVar.b != 1) {
-                    jccVar.onError(new T7CheckException(null));
+                    g6cVar.onError(new T7CheckException(null));
                     return;
                 }
                 if (eVar.a == 0 && !BdZeusUtil.isZeusSupported()) {
                     b();
-                    jccVar.onCompleted();
+                    g6cVar.onCompleted();
                 }
-                e(jccVar);
+                f(g6cVar);
             }
         }
 
-        public final kh2 d(e eVar, boolean z) {
-            kh2 kh2Var = new kh2();
-            kh2Var.a = "by_click";
+        public final tb2 e(e eVar, boolean z) {
+            tb2 tb2Var = new tb2();
+            tb2Var.a = "by_click";
             int i = this.b.a;
-            kh2Var.b = z;
+            tb2Var.b = z;
             Bundle bundle = eVar.c;
             if (bundle != null) {
                 bundle.getString("mFrom", "unknown");
             }
-            return kh2Var;
+            return tb2Var;
         }
 
-        public final void e(jcc jccVar) {
+        public final void f(g6c g6cVar) {
             Bundle bundle = this.b.c;
             if (bundle == null) {
-                jccVar.onError(new T7CheckException(null));
+                g6cVar.onError(new T7CheckException(null));
                 return;
             }
             String string = bundle.getString("launchScheme");
             if (TextUtils.isEmpty(string)) {
-                jccVar.onError(new T7CheckException(null));
+                g6cVar.onError(new T7CheckException(null));
                 return;
             }
             Uri build = Uri.parse(string).buildUpon().build();
             if (build == null) {
-                jccVar.onError(new T7CheckException(null));
+                g6cVar.onError(new T7CheckException(null));
                 return;
             }
             boolean z = true;
-            if (!"1".equals(build.getQueryParameter("dependOnT7")) && this.b.a != 1 && !nu2.A().a()) {
+            if (!"1".equals(build.getQueryParameter("dependOnT7")) && this.b.a != 1 && !wo2.A().a()) {
                 z = false;
             }
             if (!z) {
                 b();
-                jccVar.onCompleted();
+                g6cVar.onCompleted();
             }
-            g();
-            kh2 d = d(this.b, z);
-            nu2.w0().b(d, new a(d, jccVar));
+            h();
+            tb2 e = e(this.b, z);
+            wo2.w0().b(e, new a(e, g6cVar));
         }
     }
 
@@ -293,45 +295,45 @@ public final class SwanLauncher {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements jcc {
-        public final /* synthetic */ f83 a;
+    public class a implements g6c {
+        public final /* synthetic */ o23 a;
         public final /* synthetic */ Bundle b;
         public final /* synthetic */ int c;
         public final /* synthetic */ String d;
 
-        @Override // com.baidu.tieba.jcc
-        public void onSubscribe(rcc rccVar) {
+        @Override // com.baidu.tieba.g6c
+        public void onSubscribe(o6c o6cVar) {
         }
 
-        public a(f83 f83Var, Bundle bundle, int i, String str) {
-            this.a = f83Var;
+        public a(o23 o23Var, Bundle bundle, int i, String str) {
+            this.a = o23Var;
             this.b = bundle;
             this.c = i;
             this.d = str;
         }
 
-        @Override // com.baidu.tieba.jcc
+        @Override // com.baidu.tieba.g6c
         public void onCompleted() {
             SwanLauncher.this.o(this.a, this.b, this.c);
-            fb3.K().p("event_launch_swan");
+            o53.K().p("event_launch_swan");
         }
 
-        @Override // com.baidu.tieba.jcc
+        @Override // com.baidu.tieba.g6c
         public void onError(Throwable th) {
-            if (ap3.G() && (th instanceof T7CheckException)) {
+            if (jj3.G() && (th instanceof T7CheckException)) {
                 return;
             }
-            fb3.K().p("event_launch_swan");
+            o53.K().p("event_launch_swan");
             SwanLauncher.this.k(th, this.c, this.d, this.b);
         }
     }
 
     /* loaded from: classes4.dex */
     public class b implements Runnable {
-        public final /* synthetic */ f83 a;
+        public final /* synthetic */ o23 a;
 
-        public b(SwanLauncher swanLauncher, f83 f83Var) {
-            this.a = f83Var;
+        public b(SwanLauncher swanLauncher, o23 o23Var) {
+            this.a = o23Var;
         }
 
         @Override // java.lang.Runnable
@@ -341,75 +343,72 @@ public final class SwanLauncher {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements d83 {
-        public final /* synthetic */ f83 a;
+    public class c implements m23 {
+        public final /* synthetic */ o23 a;
         public final /* synthetic */ String b;
 
-        public c(SwanLauncher swanLauncher, f83 f83Var, String str) {
-            this.a = f83Var;
+        public c(SwanLauncher swanLauncher, o23 o23Var, String str) {
+            this.a = o23Var;
             this.b = str;
         }
 
-        @Override // com.baidu.tieba.d83
-        public void a(String str, f83 f83Var) {
-            if (f83Var != this.a) {
+        @Override // com.baidu.tieba.m23
+        public void a(String str, o23 o23Var) {
+            if (o23Var != this.a) {
                 return;
             }
-            if ("event_puppet_fmp_launch_finish".equals(str) && f83Var.E() && TextUtils.equals(this.b, f83Var.getAppId())) {
-                h83.k().h(this);
-                xv2.l(this.b);
+            if ("event_puppet_fmp_launch_finish".equals(str) && o23Var.E() && TextUtils.equals(this.b, o23Var.getAppId())) {
+                q23.k().h(this);
+                gq2.l(this.b);
             } else if ("event_puppet_unload_app".equals(str) || "event_puppet_offline".equals(str)) {
-                h83.k().h(this);
-                xv2.k(this.b);
+                q23.k().h(this);
+                gq2.k(this.b);
             }
         }
 
-        @Override // com.baidu.tieba.d83
+        @Override // com.baidu.tieba.m23
         public void timeout() {
-            xv2.k(this.b);
+            gq2.k(this.b);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements jcc {
-        public final /* synthetic */ zp3 a;
+    public class d implements g6c {
+        public final /* synthetic */ ik3 a;
 
-        public d(SwanLauncher swanLauncher, zp3 zp3Var) {
-            this.a = zp3Var;
+        public d(SwanLauncher swanLauncher, ik3 ik3Var) {
+            this.a = ik3Var;
         }
 
-        @Override // com.baidu.tieba.jcc
+        @Override // com.baidu.tieba.g6c
         public void onCompleted() {
             SwanLauncher.p("SwanLauncher", "#initEnv 初始化环境完成");
-            zp3 zp3Var = this.a;
-            if (zp3Var != null) {
-                zp3Var.a(null);
+            ik3 ik3Var = this.a;
+            if (ik3Var != null) {
+                ik3Var.a(null);
             }
         }
 
-        @Override // com.baidu.tieba.jcc
+        @Override // com.baidu.tieba.g6c
         public void onError(Throwable th) {
             SwanLauncher.p("SwanLauncher", "#initEnv 初始化环境失败 " + Log.getStackTraceString(th));
-            zp3 zp3Var = this.a;
-            if (zp3Var != null) {
-                zp3Var.a(new Exception("initEnv failed", th));
+            ik3 ik3Var = this.a;
+            if (ik3Var != null) {
+                ik3Var.a(new Exception("initEnv failed", th));
             }
         }
 
-        @Override // com.baidu.tieba.jcc
-        public void onSubscribe(rcc rccVar) {
+        @Override // com.baidu.tieba.g6c
+        public void onSubscribe(o6c o6cVar) {
             if (SwanLauncher.a) {
-                Log.i("SwanLauncher", "init onSubscribe: " + rccVar);
+                Log.i("SwanLauncher", "init onSubscribe: " + o6cVar);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static abstract class f implements icc.f {
+    public static abstract class f implements f6c.f {
         public boolean a;
-
-        @Override // com.baidu.tieba.icc.f, com.baidu.tieba.ycc
-        public abstract /* synthetic */ void call(T t);
 
         public f() {
             this.a = false;
@@ -470,29 +469,29 @@ public final class SwanLauncher {
         appContext.startActivity(intent);
     }
 
-    public void l(zp3<Exception> zp3Var) {
+    public void l(ik3<Exception> ik3Var) {
         e.a aVar = new e.a();
         aVar.b(-1);
         aVar.d(0);
-        e(new d(this, zp3Var), new i(aVar.a()), b, c);
+        e(new d(this, ik3Var), new i(aVar.a()), b, c);
     }
 
     public static void p(String str, String str2) {
-        g82.j(str, "SwanLaunch", str2, false);
+        p22.j(str, "SwanLaunch", str2, false);
     }
 
-    public final void d(String str, f83 f83Var) {
+    public final void d(String str, o23 o23Var) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        h83.k().c(new c(this, f83Var, str), TimeUnit.SECONDS.toMillis(10L));
+        q23.k().c(new c(this, o23Var, str), TimeUnit.SECONDS.toMillis(10L));
     }
 
-    public void n(gw2 gw2Var, Bundle bundle) {
-        if (gw2Var != null && !TextUtils.isEmpty(gw2Var.H())) {
+    public void n(pq2 pq2Var, Bundle bundle) {
+        if (pq2Var != null && !TextUtils.isEmpty(pq2Var.I())) {
             Bundle bundle2 = new Bundle();
-            bundle2.putString("mAppId", gw2Var.H());
-            bundle2.putAll(gw2Var.D());
+            bundle2.putString("mAppId", pq2Var.I());
+            bundle2.putAll(pq2Var.D());
             if (bundle != null) {
                 bundle2.putAll(bundle);
             }
@@ -500,7 +499,7 @@ public final class SwanLauncher {
         }
     }
 
-    public final void e(@NonNull jcc jccVar, f... fVarArr) {
+    public final void e(@NonNull g6c g6cVar, f... fVarArr) {
         if (a) {
             Log.i("SwanLauncher", "checkEnv: checkers=" + fVarArr);
         }
@@ -514,21 +513,21 @@ public final class SwanLauncher {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    arrayList.add(icc.b(fVar));
+                    arrayList.add(f6c.b(fVar));
                 }
             }
             if (a) {
                 Log.i("SwanLauncher", "checkEnv: list=" + arrayList);
             }
             if (arrayList != null && !arrayList.isEmpty()) {
-                icc.a(arrayList).h(ucc.b()).d(ucc.b()).g(jccVar);
+                f6c.a(arrayList).h(r6c.b()).d(r6c.b()).g(g6cVar);
                 return;
             } else {
-                jccVar.onCompleted();
+                g6cVar.onCompleted();
                 return;
             }
         }
-        jccVar.onCompleted();
+        g6cVar.onCompleted();
     }
 
     public final void k(Throwable th, int i2, String str, Bundle bundle) {
@@ -537,26 +536,26 @@ public final class SwanLauncher {
         String str2;
         boolean z = th instanceof T7CheckException;
         p("SwanLauncher", "#handleError 进入错误页 isT7Error=" + z);
-        zm3 zm3Var = new zm3();
+        ih3 ih3Var = new ih3();
         if (z) {
             j = 15;
         } else {
             j = 9;
         }
-        zm3Var.k(j);
+        ih3Var.k(j);
         if (z) {
             j2 = 42;
         } else {
             j2 = 25;
         }
-        zm3Var.i(j2);
+        ih3Var.i(j2);
         if (z) {
             str2 = "Sailor安装失败";
         } else {
             str2 = "Swan core 更新出错";
         }
-        zm3Var.d(str2);
-        aw2.f(AppRuntime.getAppContext(), zm3Var, i2, str, bundle);
+        ih3Var.d(str2);
+        jq2.f(AppRuntime.getAppContext(), ih3Var, i2, str, bundle);
     }
 
     public void m(Bundle bundle) {
@@ -565,8 +564,8 @@ public final class SwanLauncher {
             return;
         }
         bundle.putLong("launch_time", System.currentTimeMillis());
-        bundle.putLong("box_cold_launch", nu2.o().E());
-        bundle.putInt("host_launch_type", hn3.c());
+        bundle.putLong("box_cold_launch", wo2.o().E());
+        bundle.putInt("host_launch_type", qh3.c());
         String string = bundle.getString("mAppId");
         if (TextUtils.isEmpty(string)) {
             return;
@@ -575,24 +574,24 @@ public final class SwanLauncher {
             f(bundle);
             return;
         }
-        b63.b().d(string);
+        k03.b().d(string);
         int i2 = i(bundle);
         if (i2 < 0) {
             i2 = 0;
         }
-        f83 r = h83.k().r(string);
+        o23 r = q23.k().r(string);
         r.U(string);
         String string2 = bundle.getString("mPage");
-        if (bk2.b(string, string2)) {
-            bundle.putLong("launch_interval", bk2.a());
-            bk2.c();
-            bk2.d(bundle);
+        if (ke2.b(string, string2)) {
+            bundle.putLong("launch_interval", ke2.a());
+            ke2.c();
+            ke2.d(bundle);
             return;
         }
-        bk2.e(string, string2);
-        bk2.c();
-        g82.i("SwanLauncher", "launch appId: " + string);
-        bundle.putBoolean("console_switch", e82.b(i32.a(string)));
+        ke2.e(string, string2);
+        ke2.c();
+        p22.i("SwanLauncher", "launch appId: " + string);
+        bundle.putBoolean("console_switch", n22.b(sx1.a(string)));
         String g2 = g(bundle);
         bundle.putLong("launch_time_on_main", System.currentTimeMillis());
         bundle.putInt("main_pid", Process.myPid());
@@ -612,22 +611,22 @@ public final class SwanLauncher {
         }
         fVarArr[1] = fVar;
         e(aVar2, fVarArr);
-        ak2.c(i2);
+        je2.c(i2);
     }
 
     @UiThread
-    public final void o(f83 f83Var, Bundle bundle, int i2) {
+    public final void o(o23 o23Var, Bundle bundle, int i2) {
         JSONObject jSONObject;
         JSONObject jSONObject2;
-        if (lk3.j()) {
-            nk3.e();
+        if (ue3.j()) {
+            we3.e();
         }
-        SwanCoreVersion e2 = lk3.e(i2);
+        SwanCoreVersion e2 = ue3.e(i2);
         bundle.putParcelable("swanCoreVersion", e2);
-        ExtensionCore c2 = pl2.c(i2);
+        ExtensionCore c2 = yf2.c(i2);
         bundle.putParcelable("extensionCore", c2);
         p("SwanLauncher", "#launchSwanActivity swanCoreVersion=" + e2 + " ExtensionCore=" + c2);
-        Bundle I = f73.I(ew2.f1(bundle));
+        Bundle I = o13.I(nq2.g1(bundle));
         if (I != null) {
             bundle.putAll(I);
         }
@@ -640,7 +639,7 @@ public final class SwanLauncher {
         bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
         String string = bundle2.getString("ubc");
         if (TextUtils.isEmpty(string)) {
-            jSONObject2 = jr4.b(bundle.getString("mFrom"), null);
+            jSONObject2 = rl4.b(bundle.getString("mFrom"), null);
         } else {
             try {
                 jSONObject = new JSONObject(string);
@@ -653,10 +652,10 @@ public final class SwanLauncher {
             jSONObject2 = jSONObject;
         }
         bundle2.putString("ubc", jSONObject2.toString());
-        e83.j(bundle);
+        n23.j(bundle);
         Context appContext = AppRuntime.getAppContext();
-        int q = q(f83Var, bundle);
-        Intent intent = new Intent(appContext, f83Var.O().activity);
+        int q = q(o23Var, bundle);
+        Intent intent = new Intent(appContext, o23Var.O().activity);
         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtras(bundle);
         intent.putExtra("start_activity_time", System.currentTimeMillis());
@@ -667,26 +666,26 @@ public final class SwanLauncher {
             p("SwanLauncher", "#launchSwanActivity startActivity error " + Log.getStackTraceString(e4));
         }
         if (i2 == 0) {
-            nu2.d0().a(bundle.getString("mAppId"), f83Var);
-            d(bundle.getString("mAppId"), f83Var);
+            wo2.d0().a(bundle.getString("mAppId"), o23Var);
+            d(bundle.getString("mAppId"), o23Var);
         }
-        fb3.M().post(new b(this, f83Var));
+        o53.M().post(new b(this, o23Var));
     }
 
-    public final int q(@NonNull f83 f83Var, @NonNull Bundle bundle) {
+    public final int q(@NonNull o23 o23Var, @NonNull Bundle bundle) {
         int i2;
         boolean e2;
         long currentTimeMillis = System.currentTimeMillis();
-        PMSAppInfo u = dj4.i().u(f83Var.c);
+        PMSAppInfo u = md4.i().u(o23Var.c);
         if (u != null && !u.isMaxAgeExpires()) {
-            if (ng2.a.b()) {
-                e2 = nw2.b(u, bundle);
+            if (wa2.a.b()) {
+                e2 = wq2.b(u, bundle);
             } else {
-                e2 = nw2.e(u);
+                e2 = wq2.e(u);
             }
             if (e2) {
                 bundle.putParcelable("pms_db_info_onload", u);
-                ng2.b(f83Var, bundle);
+                wa2.b(o23Var, bundle);
                 i2 = 5;
             } else {
                 i2 = 4;
@@ -700,7 +699,7 @@ public final class SwanLauncher {
         }
         if (a) {
             long currentTimeMillis2 = System.currentTimeMillis();
-            Log.d("SwanPerformance", "sendAppLaunch cost " + (currentTimeMillis2 - currentTimeMillis) + "ms, is cold boot = " + f83Var.R());
+            Log.d("SwanPerformance", "sendAppLaunch cost " + (currentTimeMillis2 - currentTimeMillis) + "ms, is cold boot = " + o23Var.R());
         }
         return i2;
     }

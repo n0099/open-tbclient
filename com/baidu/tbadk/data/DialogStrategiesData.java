@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DialogStrategiesData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class DialogStrategiesData extends OrmObject implements Serializable {
     @SerializedName("dialogUrl")
     public String dialogUrl;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class StrategiesConfigData extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class DialogStrategiesData extends OrmObject implements Serializable {
             }
         }
 
-        public static StrategiesConfigData M() {
+        public static StrategiesConfigData N() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -59,7 +59,7 @@ public class DialogStrategiesData extends OrmObject implements Serializable {
             return (StrategiesConfigData) invokeV.objValue;
         }
 
-        public Map<String, Object> N() {
+        public Map<String, Object> O() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

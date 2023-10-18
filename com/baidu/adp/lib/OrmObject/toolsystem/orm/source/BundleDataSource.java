@@ -5,11 +5,11 @@ import android.os.IBinder;
 import android.os.Parcelable;
 import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ae;
-import com.baidu.tieba.dc;
-import com.baidu.tieba.gd;
-import com.baidu.tieba.wd;
-import com.baidu.tieba.yc;
+import com.baidu.tieba.b7;
+import com.baidu.tieba.e8;
+import com.baidu.tieba.u8;
+import com.baidu.tieba.w7;
+import com.baidu.tieba.y8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Set;
 /* loaded from: classes.dex */
-public class BundleDataSource implements yc {
+public class BundleDataSource implements w7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle bundle;
@@ -52,7 +52,7 @@ public class BundleDataSource implements yc {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.yc
+    @Override // com.baidu.tieba.w7
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,17 +62,17 @@ public class BundleDataSource implements yc {
         return (Set) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yc
+    @Override // com.baidu.tieba.w7
     public Object getObjectByType(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
             Object object = getObject(str);
             if (object != null) {
-                wd wdVar = new wd(type);
-                gd a = ae.a(object);
+                u8 u8Var = new u8(type);
+                e8 a = y8.a(object);
                 if (a != null) {
-                    return a.a(wdVar);
+                    return a.a(u8Var);
                 }
                 return null;
             }
@@ -81,7 +81,7 @@ public class BundleDataSource implements yc {
         return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.yc
+    @Override // com.baidu.tieba.w7
     public void set(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
@@ -139,7 +139,7 @@ public class BundleDataSource implements yc {
                     this.bundle.putShortArray(str, (short[]) obj);
                 } else if (componentType == String.class) {
                     this.bundle.putStringArray(str, (String[]) obj);
-                } else if (dc.e(componentType, Parcelable.class)) {
+                } else if (b7.e(componentType, Parcelable.class)) {
                     this.bundle.putParcelableArray(str, (Parcelable[]) obj);
                 }
             } else if (obj instanceof CharSequence) {

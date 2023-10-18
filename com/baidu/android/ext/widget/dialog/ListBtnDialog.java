@@ -333,7 +333,7 @@ public class ListBtnDialog extends BoxAlertDialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ListBtnDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f100151);
+        super(context, R.style.obfuscated_res_0x7f10014f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

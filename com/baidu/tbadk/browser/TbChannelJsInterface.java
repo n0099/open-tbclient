@@ -8,6 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.internal.a;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.TbChannelJsInterface;
@@ -86,7 +87,7 @@ public final class TbChannelJsInterface {
     private void addDelayReportRunnable(final String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && !this.isAlreadyReport && this.delayReportRunnable == null) {
-            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.sw4
+            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.ar4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -245,7 +246,7 @@ public final class TbChannelJsInterface {
                 jSONObject3.put("isLogin", i);
                 jSONObject3.put("portrait", TbadkCoreApplication.getCurrentPortrait());
                 jSONObject3.put("uid", TbadkCoreApplication.getCurrentAccount());
-                jSONObject3.put("hybrid", "old");
+                jSONObject3.put(a.g, "old");
                 jSONObject.put("baseData", jSONObject3);
             } catch (Exception e) {
                 BdLog.e(e);

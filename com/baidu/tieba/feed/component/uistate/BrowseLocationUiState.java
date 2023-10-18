@@ -3,8 +3,8 @@ package com.baidu.tieba.feed.component.uistate;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.l87;
-import com.baidu.tieba.v77;
+import com.baidu.tieba.e27;
+import com.baidu.tieba.u27;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.JvmOverloads;
@@ -20,13 +19,13 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0086\b\u0018\u0000 \u00182\u00020\u0001:\u0001\u0018B-\b\u0007\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\u001a\b\u0002\u0010\u0004\u001a\u0014\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0005¢\u0006\u0002\u0010\bJ\u000b\u0010\r\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u001b\u0010\u000e\u001a\u0014\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0005HÆ\u0003J1\u0010\u000f\u001a\u00020\u00002\n\b\u0002\u0010\u0002\u001a\u0004\u0018\u00010\u00032\u001a\b\u0002\u0010\u0004\u001a\u0014\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0005HÆ\u0001J\u0013\u0010\u0010\u001a\u00020\u00112\b\u0010\u0012\u001a\u0004\u0018\u00010\u0013HÖ\u0003J\t\u0010\u0014\u001a\u00020\u0015HÖ\u0001J\t\u0010\u0016\u001a\u00020\u0017HÖ\u0001R\u0013\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR#\u0010\u0004\u001a\u0014\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\f¨\u0006\u0019"}, d2 = {"Lcom/baidu/tieba/feed/component/uistate/BrowseLocationUiState;", "Lcom/baidu/tieba/feed/component/uistate/CardUiState;", "data", "Lcom/baidu/tieba/feed/data/BrowseLocationData;", "onFeedBackClick", "Lkotlin/Function2;", "Landroid/view/View;", "", "(Lcom/baidu/tieba/feed/data/BrowseLocationData;Lkotlin/jvm/functions/Function2;)V", "getData", "()Lcom/baidu/tieba/feed/data/BrowseLocationData;", "getOnFeedBackClick", "()Lkotlin/jvm/functions/Function2;", "component1", "component2", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "", TTDownloadField.TT_HASHCODE, "", "toString", "", "Companion", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0086\b\u0018\u0000 \u00182\u00020\u0001:\u0001\u0018B-\b\u0007\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\u001a\b\u0002\u0010\u0004\u001a\u0014\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0005¢\u0006\u0002\u0010\bJ\u000b\u0010\r\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u001b\u0010\u000e\u001a\u0014\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0005HÆ\u0003J1\u0010\u000f\u001a\u00020\u00002\n\b\u0002\u0010\u0002\u001a\u0004\u0018\u00010\u00032\u001a\b\u0002\u0010\u0004\u001a\u0014\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0005HÆ\u0001J\u0013\u0010\u0010\u001a\u00020\u00112\b\u0010\u0012\u001a\u0004\u0018\u00010\u0013HÖ\u0003J\t\u0010\u0014\u001a\u00020\u0015HÖ\u0001J\t\u0010\u0016\u001a\u00020\u0017HÖ\u0001R\u0013\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR#\u0010\u0004\u001a\u0014\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\f¨\u0006\u0019"}, d2 = {"Lcom/baidu/tieba/feed/component/uistate/BrowseLocationUiState;", "Lcom/baidu/tieba/feed/component/uistate/CardUiState;", "data", "Lcom/baidu/tieba/feed/data/BrowseLocationData;", "onFeedBackClick", "Lkotlin/Function2;", "Landroid/view/View;", "", "(Lcom/baidu/tieba/feed/data/BrowseLocationData;Lkotlin/jvm/functions/Function2;)V", "getData", "()Lcom/baidu/tieba/feed/data/BrowseLocationData;", "getOnFeedBackClick", "()Lkotlin/jvm/functions/Function2;", "component1", "component2", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "", "hashCode", "", "toString", "", "Companion", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class BrowseLocationUiState extends v77 {
+public final class BrowseLocationUiState extends e27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final l87 d;
-    public final Function2<l87, View, Unit> e;
+    public final u27 d;
+    public final Function2<u27, View, Unit> e;
 
     static {
         InterceptResult invokeClinit;
@@ -45,19 +44,19 @@ public final class BrowseLocationUiState extends v77 {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
-    public BrowseLocationUiState(l87 l87Var) {
-        this(l87Var, null, 2, null);
+    public BrowseLocationUiState(u27 u27Var) {
+        this(u27Var, null, 2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l87Var};
+            Object[] objArr = {u27Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((l87) objArr2[0], (Function2) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                this((u27) objArr2[0], (Function2) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -85,8 +84,8 @@ public final class BrowseLocationUiState extends v77 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            l87 l87Var = this.d;
-            return ((l87Var == null ? 0 : l87Var.hashCode()) * 31) + this.e.hashCode();
+            u27 u27Var = this.d;
+            return ((u27Var == null ? 0 : u27Var.hashCode()) * 31) + this.e.hashCode();
         }
         return invokeV.intValue;
     }
@@ -102,13 +101,13 @@ public final class BrowseLocationUiState extends v77 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
-    public BrowseLocationUiState(l87 l87Var, Function2<? super l87, ? super View, Unit> onFeedBackClick) {
+    public BrowseLocationUiState(u27 u27Var, Function2<? super u27, ? super View, Unit> onFeedBackClick) {
         super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l87Var, onFeedBackClick};
+            Object[] objArr = {u27Var, onFeedBackClick};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -121,24 +120,24 @@ public final class BrowseLocationUiState extends v77 {
             }
         }
         Intrinsics.checkNotNullParameter(onFeedBackClick, "onFeedBackClick");
-        this.d = l87Var;
+        this.d = u27Var;
         this.e = onFeedBackClick;
     }
 
-    public /* synthetic */ BrowseLocationUiState(l87 l87Var, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(l87Var, (i & 2) != 0 ? AnonymousClass1.INSTANCE : function2);
+    public /* synthetic */ BrowseLocationUiState(u27 u27Var, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(u27Var, (i & 2) != 0 ? AnonymousClass1.INSTANCE : function2);
     }
 
-    public final l87 h() {
+    public final u27 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.d;
         }
-        return (l87) invokeV.objValue;
+        return (u27) invokeV.objValue;
     }
 
-    public final Function2<l87, View, Unit> i() {
+    public final Function2<u27, View, Unit> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

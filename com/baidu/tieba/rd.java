@@ -1,85 +1,72 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.os.Build;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes7.dex */
-public class rd implements gd {
-    public static /* synthetic */ Interceptable $ic;
+public class rd {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 0;
+    public static int b = 3;
+    public static final String[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Short a;
 
-    public rd(short s) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Short.valueOf(s)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448315835, "Lcom/baidu/tieba/rd;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448315835, "Lcom/baidu/tieba/rd;");
                 return;
             }
         }
-        this.a = Short.valueOf(s);
+        c = new String[]{"meizu"};
     }
 
-    @Override // com.baidu.tieba.gd
-    public Object a(wd wdVar) {
-        InterceptResult invokeL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wdVar)) == null) {
-            Class<?> a = wdVar.a();
-            if (a != Byte.class && a != Byte.TYPE) {
-                if (a != Short.class && a != Short.TYPE) {
-                    if (a != Integer.class && a != Integer.TYPE) {
-                        if (a != Long.class && a != Long.TYPE) {
-                            if (a != Float.class && a != Float.TYPE) {
-                                if (a != Double.class && a != Double.TYPE) {
-                                    if (a != Character.class && a != Character.TYPE) {
-                                        boolean z = false;
-                                        if (a != Boolean.class && a != Boolean.TYPE) {
-                                            if (a == String.class) {
-                                                return String.valueOf(this.a);
-                                            }
-                                            if (a == char[].class) {
-                                                return String.valueOf(this.a).toCharArray();
-                                            }
-                                            if (a == byte[].class) {
-                                                try {
-                                                    return wh.e(String.valueOf(this.a), 0);
-                                                } catch (IOException e) {
-                                                    e.printStackTrace();
-                                                    return null;
-                                                }
-                                            }
-                                            return null;
-                                        }
-                                        if (this.a.byteValue() == 0) {
-                                            z = true;
-                                        }
-                                        return Boolean.valueOf(z);
-                                    }
-                                    return Character.valueOf((char) this.a.intValue());
-                                }
-                                return Double.valueOf(this.a.doubleValue());
-                            }
-                            return Float.valueOf(this.a.floatValue());
-                        }
-                        return Long.valueOf(this.a.longValue());
-                    }
-                    return Integer.valueOf(this.a.intValue());
-                }
-                return Short.valueOf(this.a.shortValue());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = Build.BRAND;
+            if (str == null) {
+                return false;
             }
-            return Byte.valueOf(this.a.byteValue());
+            String lowerCase = str.toLowerCase();
+            int i = 0;
+            while (true) {
+                String[] strArr = c;
+                if (i >= strArr.length) {
+                    return false;
+                }
+                if (strArr[i].equals(lowerCase)) {
+                    return true;
+                }
+                i++;
+            }
+        } else {
+            return invokeV.booleanValue;
         }
-        return invokeL.objValue;
+    }
+
+    public static String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            Application app = BdBaseApplication.getInst().getApp();
+            if (app == null) {
+                return "";
+            }
+            return app.getString(i);
+        }
+        return (String) invokeI.objValue;
     }
 }

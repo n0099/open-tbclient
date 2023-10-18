@@ -10,8 +10,8 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cif;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ga;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +53,7 @@ public class BdLocationMananger {
     public boolean mLastAddressIsAccuracy;
     public ArrayList<SoftReference<LocationCallBack>> mLocationCallBacks;
     public c mLocationProviderCallback;
-    public ArrayList<Cif> mLocationProviders;
+    public ArrayList<ga> mLocationProviders;
     public long mTimeOutValue;
     @NonNull
     public d whiteList;
@@ -121,16 +121,16 @@ public class BdLocationMananger {
                     if (i != 2) {
                         if (i != 3) {
                             if (i == 4 && StringUtils.isNull(str)) {
-                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1c);
+                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c29);
                             }
                         } else if (StringUtils.isNull(str)) {
-                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
+                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c22);
                         }
                     } else if (StringUtils.isNull(str)) {
-                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1b);
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c28);
                     }
                 } else if (StringUtils.isNull(str)) {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c19);
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c26);
                 }
                 this.a.doCallBacks(i, str, address);
             }
@@ -177,19 +177,19 @@ public class BdLocationMananger {
                         if (i != 3) {
                             if (i != 4) {
                                 if (i == 6) {
-                                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1c);
+                                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c29);
                                 }
                             } else {
-                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1c);
+                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c29);
                             }
                         } else {
-                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
+                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c22);
                         }
                     } else {
-                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1b);
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c28);
                     }
                 } else {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c19);
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c26);
                 }
                 BdLocationMananger bdLocationMananger = this.a;
                 bdLocationMananger.doCallBacks(bdLocationMananger.errorCode, str, null);
@@ -303,13 +303,13 @@ public class BdLocationMananger {
         return (Address) invokeZ.objValue;
     }
 
-    public void registerProvider(Cif cif) {
+    public void registerProvider(ga gaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, cif) == null) && cif != null) {
+        if ((interceptable == null || interceptable.invokeL(1048586, this, gaVar) == null) && gaVar != null) {
             synchronized (this.mLocationProviders) {
-                if (!this.mLocationProviders.contains(cif)) {
-                    cif.b(this.mLocationProviderCallback);
-                    this.mLocationProviders.add(cif);
+                if (!this.mLocationProviders.contains(gaVar)) {
+                    gaVar.b(this.mLocationProviderCallback);
+                    this.mLocationProviders.add(gaVar);
                 }
             }
         }
@@ -329,12 +329,12 @@ public class BdLocationMananger {
         }
     }
 
-    public void unRegiserProvider(Cif cif) {
+    public void unRegiserProvider(ga gaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, cif) == null) && cif != null) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, gaVar) == null) && gaVar != null) {
             synchronized (this.mLocationProviders) {
-                cif.destroy();
-                this.mLocationProviders.remove(cif);
+                gaVar.destroy();
+                this.mLocationProviders.remove(gaVar);
             }
         }
     }
@@ -399,9 +399,9 @@ public class BdLocationMananger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             stopLocationServer();
-            Iterator<Cif> it = this.mLocationProviders.iterator();
+            Iterator<ga> it = this.mLocationProviders.iterator();
             while (it.hasNext()) {
-                Cif next = it.next();
+                ga next = it.next();
                 if (next != null) {
                     next.destroy();
                 }
@@ -445,7 +445,7 @@ public class BdLocationMananger {
             this.errorCode = 4;
             this.mCurrentLocationIsAccurcy = z;
             this.mIsExecLocationTask = true;
-            ArrayList<Cif> arrayList = this.mLocationProviders;
+            ArrayList<ga> arrayList = this.mLocationProviders;
             if (arrayList != null && !arrayList.isEmpty()) {
                 if (!this.whiteList.b()) {
                     this.errorCode = 7;
@@ -456,9 +456,9 @@ public class BdLocationMananger {
                     }
                     return;
                 }
-                Iterator<Cif> it = this.mLocationProviders.iterator();
+                Iterator<ga> it = this.mLocationProviders.iterator();
                 while (it.hasNext()) {
-                    Cif next = it.next();
+                    ga next = it.next();
                     if (next != null) {
                         try {
                             next.a(z);
@@ -491,9 +491,9 @@ public class BdLocationMananger {
                 this.handler.removeMessages(0);
             }
             this.mIsExecLocationTask = false;
-            Iterator<Cif> it = this.mLocationProviders.iterator();
+            Iterator<ga> it = this.mLocationProviders.iterator();
             while (it.hasNext()) {
-                Cif next = it.next();
+                ga next = it.next();
                 if (next != null) {
                     try {
                         next.c();

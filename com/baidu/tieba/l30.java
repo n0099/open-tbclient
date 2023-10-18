@@ -1,136 +1,96 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.searchbox.security.WarmTipsManager;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
-public class l30<T> implements p20<T> {
+/* loaded from: classes7.dex */
+public class l30 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static long b;
+    public static long c;
+    public static volatile String d;
+    public static volatile long e;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public final CountDownLatch b;
-    public b<T> c;
-    public a d;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Bundle a;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891808, "Lcom/baidu/tieba/l30;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public Bundle b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public l30() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947891808, "Lcom/baidu/tieba/l30;");
                 return;
             }
         }
-        this.a = false;
-        this.b = new CountDownLatch(1);
-        this.c = null;
-        this.d = null;
+        a = AppConfig.isDebug();
+        b = -1L;
+        c = -1L;
+        d = "";
+        e = -1L;
     }
 
-    public b<T> a() {
+    public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (b) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return invokeV.longValue;
     }
 
-    public boolean b(int i) {
-        InterceptResult invokeI;
+    public static long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            try {
-                this.b.await(i, TimeUnit.MILLISECONDS);
-                if (this.d == null) {
-                    this.d = new a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return invokeV.longValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a() != -1 && !TextUtils.isEmpty(str)) {
+            if (System.currentTimeMillis() - e < 10000) {
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "set source too often，ignore this set source " + str);
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } else if (!TextUtils.equals("push", str) && !TextUtils.equals(PbModel.WISE, str) && !TextUtils.equals("scheme", str) && !TextUtils.equals(CommandUBCHelper.COMMAND_UBC_SHARE_TOKEN, str) && !TextUtils.equals(WarmTipsManager.WIDGET_SOURCE_VALUE, str)) {
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "cannot distinguish the source: " + str);
+                }
+            } else {
+                e = System.currentTimeMillis();
+                d = str;
+                if (!TextUtils.equals(k30.e(), str)) {
+                    k30.g(str);
+                }
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "set external transfer source: " + str);
+                }
             }
-            return this.a;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public a c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (a) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p20
-    public void onError(int i, Throwable th, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, th, bundle) == null) {
-            a aVar = new a();
-            this.d = aVar;
-            aVar.a = bundle;
-            this.a = false;
-            this.b.countDown();
-        }
-    }
-
-    @Override // com.baidu.tieba.p20
-    public void onResult(T t, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, t, bundle) == null) {
-            b<T> bVar = new b<>();
-            this.c = bVar;
-            bVar.a = t;
-            bVar.b = bundle;
-            this.a = true;
-            this.b.countDown();
         }
     }
 }

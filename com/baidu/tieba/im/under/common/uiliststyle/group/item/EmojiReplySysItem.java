@@ -10,7 +10,7 @@ import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.TbEmojiReplySysMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
-import com.baidu.tieba.oo8;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -185,7 +185,7 @@ public final class EmojiReplySysItem extends BaseItem<TbEmojiReplySysMsg> {
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.bn
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.yh
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -222,14 +222,14 @@ public final class EmojiReplySysItem extends BaseItem<TbEmojiReplySysMsg> {
                     Iterator it = arrayList3.iterator();
                     while (it.hasNext()) {
                         EmojiData emojiData = (EmojiData) it.next();
-                        EmojiData b2 = oo8.b(emojiData.getContent(), list);
+                        EmojiData b2 = yi8.b(emojiData.getContent(), list);
                         if (b2 != null) {
                             emojiData.setAllNum(b2.getAllNum());
                         }
                     }
                     ArrayList arrayList4 = new ArrayList();
                     for (EmojiData emojiData2 : list) {
-                        if (oo8.b(emojiData2.getContent(), arrayList3) == null) {
+                        if (yi8.b(emojiData2.getContent(), arrayList3) == null) {
                             arrayList4.add(emojiData2);
                         }
                     }
@@ -239,7 +239,7 @@ public final class EmojiReplySysItem extends BaseItem<TbEmojiReplySysMsg> {
                     while (it2.hasNext()) {
                         Object next = it2.next();
                         Intrinsics.checkNotNullExpressionValue(next, "iterator.next()");
-                        if (oo8.b(((EmojiData) next).getContent(), list) == null) {
+                        if (yi8.b(((EmojiData) next).getContent(), list) == null) {
                             it2.remove();
                         }
                     }

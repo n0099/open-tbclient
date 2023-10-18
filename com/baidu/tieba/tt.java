@@ -1,72 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.model.ui.TaskUIData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class tt {
+public class tt extends wr<jv4> {
     public static /* synthetic */ Interceptable $ic;
-    public static final tt a;
     public transient /* synthetic */ FieldHolder $fh;
+    public nj6 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318253, "Lcom/baidu/tieba/tt;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448318253, "Lcom/baidu/tieba/tt;");
-                return;
-            }
-        }
-        a = new tt();
-    }
-
-    public tt() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tt(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f = new nj6(tbPageContext, bdUniqueId);
+    }
+
+    @Override // com.baidu.tieba.wr
+    public View k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f.e();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qs
+    /* renamed from: t */
+    public void onBindDataToView(jv4 jv4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, jv4Var) == null) && (jv4Var instanceof tk6)) {
+            this.f.onBindDataToView((tk6) jv4Var);
         }
     }
 
-    public final st a(TaskStatus taskStatus, TaskInfo taskInfo) {
-        InterceptResult invokeLL;
-        int i;
-        TaskUIData taskUIData;
+    @Override // com.baidu.tieba.rs
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskStatus, taskInfo)) == null) {
-            if (taskStatus.isFinished()) {
-                taskUIData = taskInfo.getResponse().getUi();
-                i = taskInfo.getResponse().getUiType();
-            } else if (taskStatus.isRunning()) {
-                taskUIData = taskInfo.getTaskMeter().getUi();
-                i = taskInfo.getTaskMeter().getUiType();
-            } else if (taskStatus.isInited() | taskStatus.isRegistered()) {
-                taskUIData = taskInfo.getTaskGuide().getUi();
-                i = taskInfo.getTaskGuide().getUiType();
-            } else {
-                i = -1;
-                taskUIData = null;
-            }
-            return new st(i, taskUIData);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
-        return (st) invokeLL.objValue;
     }
 }

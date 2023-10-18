@@ -11,7 +11,7 @@ public class n {
     public static int a = -1;
 
     public static ag a(Context context) {
-        return m255a(context) ? ag.HUAWEI : c(context) ? ag.OPPO : d(context) ? ag.VIVO : ag.OTHER;
+        return m254a(context) ? ag.HUAWEI : c(context) ? ag.OPPO : d(context) ? ag.VIVO : ag.OTHER;
     }
 
     public static boolean a() {
@@ -29,7 +29,7 @@ public class n {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m255a(Context context) {
+    public static boolean m254a(Context context) {
         try {
             if (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) != null) {
                 if (a()) {

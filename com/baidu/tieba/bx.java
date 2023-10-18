@@ -1,101 +1,93 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View decorView;
-    public int insertIndex;
-    public RelativeLayout.LayoutParams layoutParams;
-    public ny threadCard;
 
-    public void onAttachCard() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void onDetachCard() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public bx() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public View getDecorView() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.decorView;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return ax.a().a("expInfo.txt");
         }
-        return (View) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int getInsertIndex() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.insertIndex;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return ax.a().a("sapFile.txt");
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public RelativeLayout.LayoutParams getLayoutParams() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.layoutParams;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return ax.a().a("v1_.txt");
         }
-        return (RelativeLayout.LayoutParams) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void setDecorView(View view2) {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            this.decorView = view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return ax.a().a("v2_.txt");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return ax.a().a("v3_" + i + "_.txt");
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) && jSONObject != null) {
+            ax.a().b("expInfo.txt", jSONObject.toString());
         }
     }
 
-    public void setInsertIndex(int i) {
+    public static void g(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.insertIndex = i;
+        if ((interceptable == null || interceptable.invokeL(65542, null, jSONObject) == null) && jSONObject != null) {
+            ax.a().b("sapFile.txt", jSONObject.toString());
         }
     }
 
-    public void setLayoutParams(RelativeLayout.LayoutParams layoutParams) {
+    public static void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, layoutParams) == null) {
-            this.layoutParams = layoutParams;
+        if ((interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) && jSONObject != null) {
+            ax.a().b("v1_.txt", jSONObject.toString());
         }
     }
 
-    public void setThreadCard(ny nyVar) {
+    public static void i(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nyVar) == null) {
-            this.threadCard = nyVar;
+        if ((interceptable == null || interceptable.invokeL(65544, null, jSONObject) == null) && jSONObject != null) {
+            ax.a().b("v2_.txt", jSONObject.toString());
+        }
+    }
+
+    public static void j(JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65545, null, jSONObject, i) == null) && jSONObject != null) {
+            fx a = ax.a();
+            a.b("v3_" + i + "_.txt", jSONObject.toString());
         }
     }
 }

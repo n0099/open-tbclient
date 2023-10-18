@@ -29,14 +29,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public CommonHeaderLoadingLayout(Context context) {
         super(context);
         this.mRefreshingViewSizeInPixel = 0;
-        this.mRefreshingView = (RefreshingAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091eb0);
+        this.mRefreshingView = (RefreshingAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ed0);
         int dp2px = DeviceUtil.ScreenInfo.dp2px(getContext(), 29.0f);
         this.mRefreshingViewSizeInPixel = dp2px;
         this.mTriggerRefreshLength = (int) (dp2px * 2.4f);
         int i = (int) (dp2px * 1.5f);
         this.mRefreshingHeight = i;
         this.mScrollStartLength = i;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ead);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ecd);
         this.mRefreshOverTip = headerRefreshIndicator;
         headerRefreshIndicator.initIfNeed();
     }
@@ -141,7 +141,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         if (z) {
             this.mRefreshingView.setAlpha(0.0f);
             if (TextUtils.isEmpty(str)) {
-                this.mRefreshOverTip.setText(getResources().getText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f119b));
+                this.mRefreshOverTip.setText(getResources().getText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11aa));
             } else {
                 this.mRefreshOverTip.setText(str);
             }

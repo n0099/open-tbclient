@@ -1,25 +1,41 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import com.baidu.tieba.dj3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ei3 extends ji3 {
+public class ei3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ei3() {
+    @Nullable
+    public static File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            List<dj3.a> d = hq2.d();
+            if (d != null && d.size() > 0) {
+                File file = new File(d.get(0).a, "/debug/");
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                return file;
             }
+            return null;
         }
+        return (File) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new File(hq2.d().get(0).a, "/debug/").getAbsolutePath();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -26,7 +26,8 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushManager;
-import com.baidu.tieba.y70;
+import com.baidu.mobads.sdk.internal.bx;
+import com.baidu.tieba.v20;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -683,7 +684,7 @@ public class AccountManagerImpl {
                 this.mToken = str2;
                 Utility.writeAccessToken(mContext, str2);
                 try {
-                    y70.e(mContext).d(mContext, creatMethodIntent);
+                    v20.e(mContext).d(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "startService", e);
                 }
@@ -715,10 +716,10 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
             try {
-                Intent intent = new Intent(mContext, y70.class);
-                intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
+                Intent intent = new Intent(mContext, v20.class);
+                intent.putExtra(Constants.EXTRA_ALARM_ALERT, bx.k);
                 intent.setPackage(mContext.getPackageName());
-                y70.e(context).d(mContext, intent);
+                v20.e(context).d(mContext, intent);
             } catch (Exception unused) {
                 LogUtils.e(TAG, "tryConnection failed......");
             }
@@ -794,11 +795,11 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             try {
-                Intent intent = new Intent(mContext, y70.class);
+                Intent intent = new Intent(mContext, v20.class);
                 intent.putExtra(Constants.EXTRA_LISTENER_ID, str);
                 intent.putExtra(Constants.EXTRA_DISCONNECT, "1");
                 intent.setPackage(mContext.getPackageName());
-                y70.e(mContext).d(mContext, intent);
+                v20.e(mContext).d(mContext, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "disconnect", e);
                 IMListener removeListener = ListenerManager.getInstance().removeListener(str);
@@ -830,10 +831,10 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
             try {
-                Intent intent = new Intent(mContext, y70.class);
+                Intent intent = new Intent(mContext, v20.class);
                 intent.setPackage(mContext.getPackageName());
                 intent.setAction(Constants.ACTION_STOP);
-                y70.e(mContext).d(mContext, intent);
+                v20.e(mContext).d(mContext, intent);
                 return true;
             } catch (Exception unused) {
                 LogUtils.e(TAG, "Stop Service SecurityException");
@@ -1081,7 +1082,7 @@ public class AccountManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CLEAR_AFTER_LOGOUT, i);
                 creatMethodIntent.putExtra("event_list", jSONArray.toString());
                 try {
-                    y70.e(mContext).d(mContext, creatMethodIntent);
+                    v20.e(mContext).d(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
                     onLogoutResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, i);

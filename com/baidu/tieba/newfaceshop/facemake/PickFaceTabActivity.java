@@ -25,7 +25,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.fg9;
+import com.baidu.tieba.sa9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements fg9 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements sa9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -176,7 +176,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements fg9 {
         this.k = new b(this);
     }
 
-    @Override // com.baidu.tieba.fg9
+    @Override // com.baidu.tieba.sa9
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -188,7 +188,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements fg9 {
         }
     }
 
-    @Override // com.baidu.tieba.fg9
+    @Override // com.baidu.tieba.sa9
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,10 +201,10 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements fg9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.fg9
+    @Override // com.baidu.tieba.sa9
     public void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.i++;
             B1();
         }
@@ -224,7 +224,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements fg9 {
                 this.c.setTitle(this.j.getText(R.string.album_all).toString());
                 return;
             }
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0709).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f070f).toString());
         }
     }
 
@@ -258,15 +258,15 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements fg9 {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
-            setContentView(R.layout.obfuscated_res_0x7f0d0817);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092386);
+            setContentView(R.layout.obfuscated_res_0x7f0d080a);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092390);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);
             this.e.setShouldDrawIndicatorLine(false);
             this.e.q(true);
             z1();
-            x1();
+            y1();
         }
     }
 
@@ -283,7 +283,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements fg9 {
         }
     }
 
-    public final void t1(Fragment fragment, int i, String str) {
+    public final void w1(Fragment fragment, int i, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLIL(1048582, this, fragment, i, str) != null) || fragment == null) {
             return;
@@ -299,10 +299,10 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements fg9 {
         this.e.b(cVar);
     }
 
-    public final void x1() {
+    public final void y1() {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             FaceSearchFragment faceSearchFragment = new FaceSearchFragment();
             this.f = faceSearchFragment;
             faceSearchFragment.x2(this);
@@ -330,12 +330,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements fg9 {
                     B1();
                 }
             }
-            t1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f0705).toString());
-            t1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f0701).toString());
-            t1(this.g, 2, this.j.getText(R.string.my_mark).toString());
+            w1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f070b).toString());
+            w1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f0707).toString());
+            w1(this.g, 2, this.j.getText(R.string.my_mark).toString());
             this.e.j(1);
             this.e.setCurrentTab(0);
-            this.e.getFragmentTabWidget().getLayoutParams().height = BdUtilHelper.getDimens(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070362);
+            this.e.getFragmentTabWidget().getLayoutParams().height = BdUtilHelper.getDimens(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07035e);
             this.e.getFragmentTabWidget().setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d_alpha90));
         }
     }

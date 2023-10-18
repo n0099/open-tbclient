@@ -1,78 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.rewardvideo.RewardVideoAD;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class otb extends jtb<RewardVideoAD> {
+public class otb {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public otb(RewardVideoAD rewardVideoAD) {
-        super(rewardVideoAD);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rewardVideoAD};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948045196, "Lcom/baidu/tieba/otb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948045196, "Lcom/baidu/tieba/otb;");
                 return;
             }
         }
-        this.b = "";
+        a = "0123456789ABCDEF".toCharArray();
     }
 
-    @Override // com.baidu.tieba.jtb
-    public String e() {
-        InterceptResult invokeV;
+    public static byte[] a(char[] cArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((RewardVideoAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jtb
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jtb
-    public void b(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            ((RewardVideoAD) this.a).sendLossNotification(map);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
+            if ((cArr.length & 1) == 0) {
+                byte[] bArr = new byte[cArr.length >> 1];
+                int i = 0;
+                int i2 = 0;
+                while (i < cArr.length) {
+                    int digit = Character.digit(cArr[i], 16);
+                    if (digit == -1) {
+                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i);
+                    }
+                    int i3 = i + 1;
+                    int digit2 = Character.digit(cArr[i3], 16);
+                    if (digit2 == -1) {
+                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i3);
+                    }
+                    i = i3 + 1;
+                    bArr[i2] = (byte) (((digit << 4) | digit2) & 255);
+                    i2++;
+                }
+                return bArr;
+            }
+            throw new IllegalArgumentException("Odd number of characters.");
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.jtb
-    public void d(Map<String, Object> map) {
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            ((RewardVideoAD) this.a).sendWinNotification(map);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.jtb
-    public int c() {
-        InterceptResult invokeV;
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((RewardVideoAD) this.a).getECPM();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (byte b : bArr) {
+                sb.append(a[(b >> 4) & 15]);
+                sb.append(a[b & 15]);
+            }
+            return sb.toString();
         }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -4,16 +4,16 @@ import android.content.Context;
 import com.baidu.browser.sailor.BdSailorWebChromeClient;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
-import com.baidu.tieba.uc2;
+import com.baidu.tieba.d72;
 /* loaded from: classes4.dex */
 public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-    public boolean S1() {
+    public boolean R1() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-    public boolean T1() {
+    public boolean S1() {
         return false;
     }
 
@@ -64,15 +64,15 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
 
     public SwanAppSimpleH5Widget(Context context) {
         super(context);
-        W0(new SimpleWebViewClient());
-        V0(new SimpleWebChromeClient());
+        V0(new SimpleWebViewClient());
+        U0(new SimpleWebChromeClient());
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ga2
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.p42
     public boolean n() {
-        uc2 uc2Var = this.U;
-        if (uc2Var != null) {
-            uc2Var.goBack();
+        d72 d72Var = this.U;
+        if (d72Var != null) {
+            d72Var.goBack();
         }
         return super.n();
     }

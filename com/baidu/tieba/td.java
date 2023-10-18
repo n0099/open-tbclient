@@ -1,145 +1,105 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.NetLog;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class td implements gd {
+public class td {
     public static /* synthetic */ Interceptable $ic;
+    public static List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public td(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448317757, "Lcom/baidu/tieba/td;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448317757, "Lcom/baidu/tieba/td;");
                 return;
             }
         }
-        this.a = str;
+        a = Collections.synchronizedList(new ArrayList());
     }
 
-    @Override // com.baidu.tieba.gd
-    public Object a(wd wdVar) {
-        Class<?> a;
+    public static List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static void a(@NonNull String str, int i) throws UnknownHostException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
+            try {
+                a.clear();
+                DnsHelper dnsHelper = new DnsHelper(AppRuntime.getAppContext());
+                dnsHelper.setHttpDnsState(false, null, false, true);
+                List<String> ipList = dnsHelper.getIpList(str);
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                if (ipList != null && !ipList.isEmpty()) {
+                    for (int i2 = 0; i2 < ipList.size(); i2++) {
+                        if (c(ipList.get(i2))) {
+                            TbLog netLog = NetLog.getInstance();
+                            netLog.i("SocketIps", "V4 ： " + ipList.get(i2));
+                            arrayList.add(ipList.get(i2));
+                        } else {
+                            TbLog netLog2 = NetLog.getInstance();
+                            netLog2.i("SocketIps", "V6 ： " + ipList.get(i2));
+                            arrayList2.add(ipList.get(i2));
+                        }
+                    }
+                }
+                int size = arrayList2.size();
+                int size2 = arrayList.size();
+                if (size > 0 && i == 2) {
+                    a.addAll(arrayList2);
+                } else if (size2 > 0 && i == 1) {
+                    a.addAll(arrayList);
+                } else if (i == 3) {
+                    if (size > 0) {
+                        a.addAll(arrayList2);
+                    }
+                    if (size2 > 0) {
+                        a.addAll(arrayList);
+                    }
+                } else {
+                    a.addAll(arrayList);
+                }
+            } catch (NullPointerException e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wdVar)) == null) {
-            try {
-                a = wdVar.a();
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                return str.matches("^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$");
             }
-            if (a != Byte.class && a != Byte.TYPE) {
-                if (a != Short.class && a != Short.TYPE) {
-                    if (a != Integer.class && a != Integer.TYPE) {
-                        if (a != Long.class && a != Long.TYPE) {
-                            if (a != Float.class && a != Float.TYPE) {
-                                if (a != Double.class && a != Double.TYPE) {
-                                    if (a != Character.class && a != Character.TYPE) {
-                                        if (a != Boolean.class && a != Boolean.TYPE) {
-                                            if (a == String.class) {
-                                                return this.a;
-                                            }
-                                            if (a == char[].class) {
-                                                return this.a.toCharArray();
-                                            }
-                                            if (a == byte[].class) {
-                                                try {
-                                                    return wh.e(this.a, 0);
-                                                } catch (IOException e2) {
-                                                    e2.printStackTrace();
-                                                    return null;
-                                                }
-                                            } else if (dc.e(a, OrmObject.class)) {
-                                                return OrmObject.objectWithJsonStr(this.a, a);
-                                            } else {
-                                                if (dc.e(a, List.class)) {
-                                                    try {
-                                                        return new id(new JSONArray(this.a)).a(wdVar);
-                                                    } catch (JSONException e3) {
-                                                        e3.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else if (a.isArray()) {
-                                                    try {
-                                                        return new id(new JSONArray(this.a)).a(wdVar);
-                                                    } catch (JSONException e4) {
-                                                        e4.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else if (dc.e(a, Queue.class)) {
-                                                    try {
-                                                        return new id(new JSONArray(this.a)).a(wdVar);
-                                                    } catch (JSONException e5) {
-                                                        e5.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else if (dc.e(a, Set.class)) {
-                                                    try {
-                                                        return new id(new JSONArray(this.a)).a(wdVar);
-                                                    } catch (JSONException e6) {
-                                                        e6.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else if (dc.e(a, Map.class)) {
-                                                    try {
-                                                        return new jd(new JSONObject(this.a)).a(wdVar);
-                                                    } catch (JSONException e7) {
-                                                        e7.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else if (dc.e(a, SparseArray.class)) {
-                                                    try {
-                                                        return new jd(new JSONObject(this.a)).a(wdVar);
-                                                    } catch (JSONException e8) {
-                                                        e8.printStackTrace();
-                                                        return null;
-                                                    }
-                                                } else {
-                                                    return null;
-                                                }
-                                            }
-                                            e.printStackTrace();
-                                            return null;
-                                        }
-                                        return Boolean.valueOf(Boolean.parseBoolean(this.a));
-                                    }
-                                    return Character.valueOf(this.a.charAt(0));
-                                }
-                                return Double.valueOf(Double.parseDouble(this.a));
-                            }
-                            return Float.valueOf(Float.parseFloat(this.a));
-                        }
-                        return Long.valueOf(Long.parseLong(this.a));
-                    }
-                    return Integer.valueOf(Integer.parseInt(this.a));
-                }
-                return Short.valueOf(Short.parseShort(this.a));
-            }
-            return Byte.valueOf(Byte.parseByte(this.a));
+            return false;
         }
-        return invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,72 +1,161 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.media.ExifInterface;
 import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.mq2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mc3 extends dd3 {
+public class mc3 extends tt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public final String l(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.tt1
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            switch (i) {
-                case 0:
-                case 1:
-                    return MapBundleKey.OfflineMapKey.OFFLINE_UPDATE;
-                case 2:
-                    return "up-mirrored";
-                case 3:
-                    return "down";
-                case 4:
-                    return "down-mirrored";
-                case 5:
-                    return "left-mirrored";
-                case 6:
-                    return "left";
-                case 7:
-                    return "right-mirrored";
-                case 8:
-                    return "right";
-                default:
-                    return "";
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "StatisticEvent" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tt1
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "UbcAndCeresStatisticEventApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ mc3 b;
+
+        public a(mc3 mc3Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mc3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = mc3Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.A(this.a);
             }
         }
-        return (String) invokeI.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+
+        public b(mc3 mc3Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mc3Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (TextUtils.equals(this.a, "671")) {
+                    p22.k("ubcAndCeresStatisticEvent", "671 event=" + this.b);
+                }
+                try {
+                    wb3.m(this.a, new JSONObject(this.b));
+                } catch (JSONException e) {
+                    p22.k("ubcAndCeresStatisticEvent", e.toString());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ JSONObject b;
+
+        public c(mc3 mc3Var, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mc3Var, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                uk4.m(this.a, this.b);
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mc3(dc3 dc3Var) {
-        super(dc3Var, "/swanAPI/getImageInfo");
+    public mc3(@NonNull rt1 rt1Var) {
+        super(rt1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dc3Var};
+            Object[] objArr = {rt1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((rt1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,100 +163,76 @@ public class mc3 extends dd3 {
         }
     }
 
-    @Override // com.baidu.tieba.dd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
-        InterceptResult invokeLLLL;
+    public static void z(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
-            if (gb3Var == null) {
-                g82.c("getImageInfo", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            }
-            String optString = go3.d(unitedSchemeEntity.getParam("params")).optString("src");
-            if (TextUtils.isEmpty(optString)) {
-                g82.c("getImageInfo", "path null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            JSONObject jSONObject = null;
-            if (oi3.s(optString) == PathType.BD_FILE) {
-                jSONObject = k(oi3.M(optString, gb3Var.b), optString);
-            } else if (oi3.s(optString) == PathType.RELATIVE) {
-                jSONObject = k(oi3.L(optString, gb3Var, gb3Var.k0()), optString);
-            }
-            if (jSONObject != null) {
-                g82.i("getImageInfo", "getImgInfo success");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "image not found");
-            return false;
+        if ((interceptable != null && interceptable.invokeL(65538, null, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeLLLL.booleanValue;
+        mq2.a X = o53.K().q().X();
+        pi3.f(jSONObject, "launchId", X.W());
+        pi3.f(jSONObject, "scheme", X.X());
+        pi3.f(jSONObject, "packageVersion", X.x1());
+        hc3.a(jSONObject);
     }
 
-    public final ExifInterface j(String str) {
+    public qx1 B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+            if (!cr2.V().O() && qz2.e()) {
+                iz2.e().d(new a(this, str), "ubcAndCeresStatistic", false);
+                return qx1.f();
             }
-            try {
-                return new ExifInterface(str);
-            } catch (IOException unused) {
-                return null;
-            }
+            return A(str);
         }
-        return (ExifInterface) invokeL.objValue;
+        return (qx1) invokeL.objValue;
     }
 
-    public final JSONObject k(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
+    public final qx1 A(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            g82.i("getImageInfo", "getImgInfo start");
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (bc3.b(str)) {
+                return new qx1(202, "the params is over max limit");
             }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            int i = 1;
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            int i2 = options.outWidth;
-            int i3 = options.outHeight;
-            String str4 = options.outMimeType;
-            if (!TextUtils.isEmpty(str4)) {
-                String[] split = str4.split("/");
-                str3 = split[split.length - 1];
-            } else {
-                str3 = "";
+            Pair<qx1, JSONObject> t = t(str);
+            qx1 qx1Var = (qx1) t.first;
+            if (!qx1Var.isSuccess()) {
+                return qx1Var;
             }
-            if (!TextUtils.equals("png", str3)) {
-                ExifInterface j = j(str);
-                if (j == null) {
-                    return null;
+            JSONObject jSONObject = (JSONObject) t.second;
+            String optString = jSONObject.optString("ubcId");
+            String optString2 = jSONObject.optString("bizId");
+            JSONObject optJSONObject = jSONObject.optJSONObject("content");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && optJSONObject != null) {
+                pi3.f(optJSONObject, "source", o53.K().q().X().U());
+                z(optJSONObject.optJSONObject("ext"));
+                iz2.e().d(new b(this, optString, optJSONObject.toString()), "UbcAndCeresStatisticEventApi", true);
+                cz2.h().g().b(jSONObject);
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("content");
+                String str2 = null;
+                if (optJSONObject2 != null) {
+                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ext");
+                    String optString3 = optJSONObject2.optString("type");
+                    optJSONObject2.remove("type");
+                    optJSONObject2.remove("from");
+                    z(optJSONObject3);
+                    str2 = optString3;
                 }
-                i = j.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", i2);
-                jSONObject.put("height", i3);
-                jSONObject.put("path", str2);
-                jSONObject.put("orientation", l(i));
-                jSONObject.put("type", str3);
-            } catch (JSONException e) {
-                g82.c("getImageInfo", "getImgInfo failed by json exception");
-                if (dd3.b) {
-                    e.printStackTrace();
+                jSONObject.remove("ubcId");
+                try {
+                    jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+                    jSONObject.putOpt("eventType", "0");
+                    jSONObject.putOpt("propagation", pi3.f(jSONObject.optJSONObject("propagation"), "source", o53.K().q().X().U()));
+                    jSONObject.put("eventName", str2);
+                } catch (JSONException unused) {
                 }
+                p22.i("UbcAndCeresStatisticEventApi", "OpenStat : " + jSONObject);
+                iz2.e().d(new c(this, optString2, jSONObject), "OpenStatisticEvent", true);
+                return qx1.f();
             }
-            g82.i("getImageInfo", "getImgInfo end");
-            return jSONObject;
+            return new qx1(202);
         }
-        return (JSONObject) invokeLL.objValue;
+        return (qx1) invokeL.objValue;
     }
 }

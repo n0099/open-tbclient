@@ -1,5 +1,6 @@
 package com.baidu.webkit.logsdk.upload;
 
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.webkit.internal.RC4;
 import com.baidu.webkit.logsdk.d;
 import com.baidu.webkit.logsdk.d.c;
@@ -103,7 +104,7 @@ public class BdLogNetRequest implements INetListener {
             return;
         }
         c.e("BdLogSDK", "onNetTaskComplete2  " + bdNetTask.getUrl());
-        this.mCallback.a(new String("OK").getBytes());
+        this.mCallback.a(new String(bx.k).getBytes());
     }
 
     @Override // com.baidu.webkit.net.INetListener

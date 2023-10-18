@@ -1,41 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.model.info.TaskInfo;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public abstract class uq {
+public final class uq {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, tq> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TaskInfo a;
 
-    public uq(TaskInfo taskInfo) {
+    public static synchronized tq a(String str, Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, context)) == null) {
+            synchronized (uq.class) {
+                if (TextUtils.isEmpty(str)) {
+                    str = context.getPackageName() + "_preferences";
+                }
+                if (a == null) {
+                    a = new HashMap<>();
+                }
+                if (a.get(str) != null) {
+                    return a.get(str);
+                }
+                tq tqVar = new tq(str);
+                a.put(str, tqVar);
+                return tqVar;
             }
         }
-        this.a = taskInfo;
-    }
-
-    public final TaskInfo a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (TaskInfo) invokeV.objValue;
+        return (tq) invokeLL.objValue;
     }
 }

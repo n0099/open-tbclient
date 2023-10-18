@@ -28,9 +28,9 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class dimen {
-        public static final int cardview_compat_inset_shadow = 0x7f070214;
-        public static final int cardview_default_elevation = 0x7f070216;
-        public static final int cardview_default_radius = 0x7f070217;
+        public static final int cardview_compat_inset_shadow = 0x7f070210;
+        public static final int cardview_default_elevation = 0x7f070211;
+        public static final int cardview_default_radius = 0x7f070212;
     }
 
     /* loaded from: classes.dex */

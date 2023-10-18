@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.pay.IyyPayResultCallback;
 import com.baidu.tbadk.pay.YYPayData;
 import com.baidu.tbadk.pay.YYPayResult;
-import com.baidu.tieba.ts5;
-import com.baidu.tieba.us5;
+import com.baidu.tieba.an5;
+import com.baidu.tieba.zm5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -229,11 +229,11 @@ public class YYPayManager {
             }
         }
         IyyPayResultCallback iyyPayResultCallback = yyPayResultCallback;
-        if (iyyPayResultCallback instanceof ts5) {
-            viewParams.viewEventListener = new AbsViewEventHandler((ts5) iyyPayResultCallback) { // from class: com.baidu.tieba.wallet.YYPayManager.1
+        if (iyyPayResultCallback instanceof zm5) {
+            viewParams.viewEventListener = new AbsViewEventHandler((zm5) iyyPayResultCallback) { // from class: com.baidu.tieba.wallet.YYPayManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ts5 val$absPayAllResult;
+                public final /* synthetic */ zm5 val$absPayAllResult;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -332,7 +332,7 @@ public class YYPayManager {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);
             }
             if (TbSingleton.getInstance().isUserBan()) {
-                us5.a(null);
+                an5.a(null);
             }
         }
     }

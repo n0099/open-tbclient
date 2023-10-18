@@ -29,16 +29,16 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.b19;
 import com.baidu.tieba.location.data.LocationSearchHttpResponsedMessage;
 import com.baidu.tieba.location.data.LocationSearchNetRequestMessage;
 import com.baidu.tieba.location.data.LocationSearchResponseMessage;
-import com.baidu.tieba.n69;
-import com.baidu.tieba.q69;
+import com.baidu.tieba.ofa;
 import com.baidu.tieba.selectpoi.NavigationBarActivity;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
-import com.baidu.tieba.yka;
+import com.baidu.tieba.y09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,8 +50,8 @@ import java.util.List;
 public class SearchLocationActivity extends NavigationBarActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n69 f;
-    public q69 g;
+    public y09 f;
+    public b19 g;
     public BdListView h;
     public LinearLayout i;
     public EditText j;
@@ -112,7 +112,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 return;
             }
             if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e42);
+                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e4f);
             } else {
                 errorString = responsedMessage.getErrorString();
             }
@@ -243,7 +243,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 } else if (StringUtils.isNull(this.a.V0())) {
                     return false;
                 } else {
-                    this.a.W0();
+                    this.a.Z0();
                     return true;
                 }
             }
@@ -283,7 +283,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                     this.a.showToast(R.string.no_network_guide);
                 } else if (StringUtils.isNull(this.a.V0())) {
                 } else {
-                    this.a.W0();
+                    this.a.Z0();
                 }
             }
         }
@@ -361,7 +361,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.g != null && this.a.g.c()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002013));
                 MessageManager messageManager = MessageManager.getInstance();
-                n69.a aVar = (n69.a) this.a.g.getItem(i);
+                y09.a aVar = (y09.a) this.a.g.getItem(i);
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, aVar.a(), aVar.a(), aVar.b()));
                 LocationEvent locationEvent = new LocationEvent();
                 locationEvent.setType(1);
@@ -397,8 +397,8 @@ public class SearchLocationActivity extends NavigationBarActivity {
     public void initData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f = new n69();
-            LocationData b2 = yka.a().b();
+            this.f = new y09();
+            LocationData b2 = ofa.a().b();
             if (b2 != null) {
                 this.f.c(b1(b2.getPoi_info(), b2.getFormatted_address(), b2.getSn()));
             }
@@ -414,7 +414,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             super.onCreate(bundle);
             registerListener(this.m);
             SearchLocationActivityStatic.a();
-            setContentView(R.layout.obfuscated_res_0x7f0d089a);
+            setContentView(R.layout.obfuscated_res_0x7f0d088c);
             a1();
             initData();
         }
@@ -428,12 +428,12 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if (editText == null) {
                 return null;
             }
-            return di.charSequence2String(editText.getText(), null);
+            return ad.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }
 
-    public void W0() {
+    public void Z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LocationSearchNetRequestMessage locationSearchNetRequestMessage = new LocationSearchNetRequestMessage();
@@ -447,27 +447,27 @@ public class SearchLocationActivity extends NavigationBarActivity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
-            LinearLayout linearLayout = (LinearLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0899, (View.OnClickListener) null);
+            LinearLayout linearLayout = (LinearLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d088b, (View.OnClickListener) null);
             this.i = linearLayout;
-            this.l = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092118);
-            EditText editText = (EditText) this.i.findViewById(R.id.obfuscated_res_0x7f09213b);
+            this.l = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092123);
+            EditText editText = (EditText) this.i.findViewById(R.id.obfuscated_res_0x7f092146);
             this.j = editText;
             editText.addTextChangedListener(new c(this));
             this.j.setOnEditorActionListener(new d(this));
-            TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09213a);
+            TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092145);
             this.k = textView;
             textView.setEnabled(false);
             this.k.setOnClickListener(new e(this));
-            this.h = (BdListView) findViewById(R.id.obfuscated_res_0x7f09213f);
-            q69 q69Var = new q69(this);
-            this.g = q69Var;
-            this.h.setAdapter((ListAdapter) q69Var);
+            this.h = (BdListView) findViewById(R.id.obfuscated_res_0x7f09214a);
+            b19 b19Var = new b19(this);
+            this.g = b19Var;
+            this.h.setAdapter((ListAdapter) b19Var);
             this.h.setOnItemClickListener(this.o);
             this.h.setOnScrollListener(this.n);
         }
     }
 
-    public final ArrayList<n69.a> b1(List<LocationData.NearByAddressData> list, String str, String str2) {
+    public final ArrayList<y09.a> b1(List<LocationData.NearByAddressData> list, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, list, str, str2)) == null) {
@@ -475,13 +475,13 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if (list == null || list.size() <= 0) {
                 return null;
             }
-            ArrayList<n69.a> arrayList = new ArrayList<>();
+            ArrayList<y09.a> arrayList = new ArrayList<>();
             for (LocationData.NearByAddressData nearByAddressData2 : list) {
                 if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
                     if (TextUtils.equals(nearByAddressData2.getName(), str)) {
                         nearByAddressData = nearByAddressData2;
                     } else {
-                        n69.a aVar = new n69.a();
+                        y09.a aVar = new y09.a();
                         aVar.d(nearByAddressData2.getName());
                         aVar.e(nearByAddressData2.getSn());
                         arrayList.add(aVar);
@@ -489,12 +489,12 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 }
             }
             if (nearByAddressData != null) {
-                n69.a aVar2 = new n69.a();
+                y09.a aVar2 = new y09.a();
                 aVar2.d(nearByAddressData.getName());
                 aVar2.e(nearByAddressData.getSn());
                 arrayList.add(0, aVar2);
             } else {
-                n69.a aVar3 = new n69.a();
+                y09.a aVar3 = new y09.a();
                 aVar3.d(str);
                 aVar3.e(str2);
                 arrayList.add(0, aVar3);

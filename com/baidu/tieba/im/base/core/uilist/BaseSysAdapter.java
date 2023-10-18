@@ -10,11 +10,11 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.bg8;
+import com.baidu.tieba.ga8;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
-import com.baidu.tieba.vf8;
+import com.baidu.tieba.la8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,14 +23,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends TbSysMsg>, ChildViewHolder extends BaseViewHolder> extends vf8<ChildItemData, Holder<ChildViewHolder>> {
+public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends TbSysMsg>, ChildViewHolder extends BaseViewHolder> extends ga8<ChildItemData, Holder<ChildViewHolder>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public abstract ChildViewHolder K(@NonNull ViewGroup viewGroup);
+    public abstract ChildViewHolder L(@NonNull ViewGroup viewGroup);
 
-    public abstract void M(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull ChildViewHolder childviewholder, @NonNull List<Object> list, int i2);
+    public abstract void N(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull ChildViewHolder childviewholder, @NonNull List<Object> list, int i2);
 
     /* loaded from: classes6.dex */
     public static class Holder<ChildViewHolder extends BaseViewHolder> extends BaseViewHolder {
@@ -80,11 +80,11 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends Tb
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
-        public void d(@NonNull bg8 bg8Var) {
+        public void d(@NonNull la8 la8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bg8Var) == null) {
-                super.d(bg8Var);
-                this.a.d(bg8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, la8Var) == null) {
+                super.d(la8Var);
+                this.a.d(la8Var);
             }
         }
     }
@@ -112,31 +112,31 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends Tb
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.im.base.core.uilist.BaseSysAdapter<ChildItemData extends com.baidu.tieba.im.base.core.uilist.BaseItem<? extends com.baidu.tieba.im.lib.socket.msg.TbSysMsg>, ChildViewHolder extends com.baidu.tieba.im.base.core.uilist.BaseViewHolder> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.om
+    @Override // com.baidu.tieba.lh
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        N(i, view2, viewGroup, (BaseItem) obj, (Holder) viewHolder);
+        O(i, view2, viewGroup, (BaseItem) obj, (Holder) viewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: L */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: M */
     public final Holder<ChildViewHolder> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
             frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            ChildViewHolder K = K(frameLayout);
-            frameLayout.addView(K.itemView);
-            Holder<ChildViewHolder> holder = new Holder<>(frameLayout, K);
-            I(holder);
+            ChildViewHolder L = L(frameLayout);
+            frameLayout.addView(L.itemView);
+            Holder<ChildViewHolder> holder = new Holder<>(frameLayout, L);
+            J(holder);
             return holder;
         }
         return (Holder) invokeL.objValue;
     }
 
-    public final View N(int i, View view2, ViewGroup viewGroup, ChildItemData childitemdata, Holder<ChildViewHolder> holder) {
+    public final View O(int i, View view2, ViewGroup viewGroup, ChildItemData childitemdata, Holder<ChildViewHolder> holder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, childitemdata, holder})) == null) {
@@ -147,13 +147,13 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends Tb
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vf8, com.baidu.tieba.om
-    /* renamed from: O */
+    @Override // com.baidu.tieba.ga8, com.baidu.tieba.lh
+    /* renamed from: P */
     public void onFillViewHolder(int i, ViewGroup viewGroup, Holder<ChildViewHolder> holder, ChildItemData childitemdata, @NonNull List<Object> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), viewGroup, holder, childitemdata, list}) == null) {
             super.onFillViewHolder(i, viewGroup, holder, childitemdata, list);
-            M(i, viewGroup, childitemdata, holder.a, list, TbadkCoreApplication.getInst().getSkinType());
+            N(i, viewGroup, childitemdata, holder.a, list, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

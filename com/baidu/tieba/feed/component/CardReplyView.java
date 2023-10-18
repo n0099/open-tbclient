@@ -15,15 +15,15 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa7;
-import com.baidu.tieba.ea7;
-import com.baidu.tieba.ed7;
+import com.baidu.tieba.a77;
+import com.baidu.tieba.b27;
 import com.baidu.tieba.feed.component.CardReplyView;
 import com.baidu.tieba.feed.widget.HeadImageView;
-import com.baidu.tieba.j67;
-import com.baidu.tieba.oe7;
-import com.baidu.tieba.rc7;
-import com.baidu.tieba.s77;
+import com.baidu.tieba.j47;
+import com.baidu.tieba.n47;
+import com.baidu.tieba.n77;
+import com.baidu.tieba.s07;
+import com.baidu.tieba.x87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,7 +37,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\u001e\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u001c0\u001bH\u0002J\b\u0010\u001d\u001a\u00020\u0017H\u0016J\u000e\u0010\u001e\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0019R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n \f*\u0004\u0018\u00010\u000b0\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/feed/component/CardReplyView;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "agreeContainer", "Landroid/widget/FrameLayout;", "agreeResolver", "Lcom/baidu/tieba/feed/compat/Resolver$IAgreeView;", "kotlin.jvm.PlatformType", "agreeView", "Landroid/view/ViewGroup;", "imgHead", "Lcom/baidu/tieba/feed/widget/HeadImageView;", "imgSignet", "Landroid/widget/ImageView;", "replyContent", "Landroid/widget/TextView;", TbEnum.SystemMessage.KEY_USER_NAME, "doStat", "", "state", "Lcom/baidu/tieba/feed/component/uistate/CardReplyUiState;", "statDataList", "", "Lcom/baidu/tieba/feed/data/StatData;", "onChangeSkin", "updateState", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardReplyView extends RelativeLayout implements rc7 {
+public final class CardReplyView extends RelativeLayout implements a77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HeadImageView a;
@@ -45,7 +45,7 @@ public final class CardReplyView extends RelativeLayout implements rc7 {
     public final TextView c;
     public final FrameLayout d;
     public final ImageView e;
-    public final j67.e f;
+    public final s07.e f;
     public final ViewGroup g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -92,12 +92,12 @@ public final class CardReplyView extends RelativeLayout implements rc7 {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        j67.e e = j67.a().e();
+        s07.e e = s07.a().e();
         this.f = e;
         ViewGroup create = e.create(context);
         Intrinsics.checkNotNullExpressionValue(create, "agreeResolver.create(context)");
         this.g = create;
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e4, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e3, this);
         View findViewById = findViewById(R.id.user_avatar);
         Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.user_avatar)");
         this.a = (HeadImageView) findViewById;
@@ -107,12 +107,12 @@ public final class CardReplyView extends RelativeLayout implements rc7 {
         View findViewById3 = findViewById(R.id.god_reply_content);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.god_reply_content)");
         this.c = (TextView) findViewById3;
-        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090161);
+        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090164);
         Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.agree_container)");
         FrameLayout frameLayout = (FrameLayout) findViewById4;
         this.d = frameLayout;
         frameLayout.addView(this.g);
-        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091102);
+        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f09111c);
         Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.img_signet)");
         this.e = (ImageView) findViewById5;
     }
@@ -121,7 +121,7 @@ public final class CardReplyView extends RelativeLayout implements rc7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void d(s77 state, CardReplyView this$0, View view2) {
+    public static final void d(b27 state, CardReplyView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
@@ -134,7 +134,7 @@ public final class CardReplyView extends RelativeLayout implements rc7 {
         }
     }
 
-    public static final void e(s77 state, CardReplyView this$0, View view2) {
+    public static final void e(b27 state, CardReplyView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
@@ -147,7 +147,7 @@ public final class CardReplyView extends RelativeLayout implements rc7 {
         }
     }
 
-    public static final void f(s77 state, CardReplyView this$0, View view2) {
+    public static final void f(b27 state, CardReplyView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
@@ -160,36 +160,36 @@ public final class CardReplyView extends RelativeLayout implements rc7 {
         }
     }
 
-    public final void a(s77 s77Var, List<ea7> list) {
+    public final void a(b27 b27Var, List<n47> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, s77Var, list) == null) {
-            for (ea7 ea7Var : list) {
-                ed7.a.b(ea7Var, s77Var.g() + 1);
-                s77Var.f().invoke(ea7Var);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, b27Var, list) == null) {
+            for (n47 n47Var : list) {
+                n77.a.b(n47Var, b27Var.g() + 1);
+                b27Var.f().invoke(n47Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.rc7
+    @Override // com.baidu.tieba.a77
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.b();
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            this.f.a(this.g);
+            this.f.b(this.g);
             EMManager.from(this).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
         }
     }
 
-    public final void c(final s77 state) {
+    public final void c(final b27 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            aa7 j = state.j();
+            j47 j = state.j();
             this.a.j(j.d());
             this.a.i(j.c());
-            this.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.x67
+            this.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.g17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -197,12 +197,12 @@ public final class CardReplyView extends RelativeLayout implements rc7 {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardReplyView.d(s77.this, this, view2);
+                        CardReplyView.d(b27.this, this, view2);
                     }
                 }
             });
             this.b.setText(j.f());
-            this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e77
+            this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.n17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,14 +210,14 @@ public final class CardReplyView extends RelativeLayout implements rc7 {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardReplyView.e(s77.this, this, view2);
+                        CardReplyView.e(b27.this, this, view2);
                     }
                 }
             });
             this.c.setText(j.b());
-            this.f.update(this.g, j.a());
-            oe7.a(this.e, state.j().e());
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.m67
+            this.f.j(this.g, j.a());
+            x87.a(this.e, state.j().e());
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.v07
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -225,7 +225,7 @@ public final class CardReplyView extends RelativeLayout implements rc7 {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardReplyView.f(s77.this, this, view2);
+                        CardReplyView.f(b27.this, this, view2);
                     }
                 }
             });

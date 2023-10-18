@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import java.util.List;
 /* loaded from: classes5.dex */
-public interface bz2<T> {
-    void e(String str);
+public interface bz2 {
+    void end(long j);
 
-    void f(List<T> list);
+    void start(long j);
 }

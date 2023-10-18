@@ -1,195 +1,172 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.TextView;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.data.BazhuInfoData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.pb.feedback.AigcFeedbackHelper;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.tbadkCore.data.AgreeMessageData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ig9 extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 3;
+public final class ig9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public List<BazhuInfoData.BaInfo> b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947852686, "Lcom/baidu/tieba/ig9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947852686, "Lcom/baidu/tieba/ig9;");
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
+    public final BdUniqueId a;
+    public final Function0<ArrayList<yh>> b;
+    public final Function0<Unit> c;
+    public final CustomMessageListener d;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public static final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public CheckBox b;
-        public BarImageView c;
-        public int d;
-        public Drawable e;
+        public final /* synthetic */ ig9 a;
 
-        public a(View view2) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ig9 ig9Var) {
+            super(2016530);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {ig9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = 3;
-            if (view2 == null) {
-                return;
-            }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926bc);
-            this.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f0926b9);
-            this.c = (BarImageView) view2.findViewById(R.id.forum_avatar);
+            this.a = ig9Var;
         }
 
-        public void a() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (ig9.c != this.d) {
-                    SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
-                    this.e = SkinManager.getDrawable(R.drawable.transmit_check_box);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof AgreeMessageData)) {
+                Object data = customResponsedMessage.getData();
+                if (data != null) {
+                    AgreeMessageData agreeMessageData = (AgreeMessageData) data;
+                    AgreeData agreeData = agreeMessageData.agreeData;
+                    if (agreeData != null && !TextUtils.isEmpty(agreeData.threadId) && !TextUtils.isEmpty(agreeData.postId)) {
+                        ArrayList arrayList = (ArrayList) this.a.b.invoke();
+                        if (arrayList != null && !arrayList.isEmpty()) {
+                            z = false;
+                        } else {
+                            z = true;
+                        }
+                        if (z) {
+                            return;
+                        }
+                        Object obj = null;
+                        Iterator it = arrayList.iterator();
+                        while (true) {
+                            if (!it.hasNext()) {
+                                break;
+                            }
+                            Object obj2 = (yh) it.next();
+                            if (obj2 instanceof pea) {
+                                pea peaVar = (pea) obj2;
+                                String valueOf = String.valueOf(peaVar.p0());
+                                String U = peaVar.U();
+                                if (Intrinsics.areEqual(agreeData.threadId, valueOf) && Intrinsics.areEqual(agreeData.postId, U)) {
+                                    obj = obj2;
+                                    break;
+                                }
+                            }
+                        }
+                        if (obj != null) {
+                            pea peaVar2 = (pea) obj;
+                            if (peaVar2.y0()) {
+                                AgreeData p = peaVar2.p();
+                                if (p != null) {
+                                    ig9 ig9Var = this.a;
+                                    if (!Intrinsics.areEqual(ig9Var.a, agreeMessageData.uniqueId)) {
+                                        p.agreeType = agreeData.agreeType;
+                                        p.hasAgree = agreeData.hasAgree;
+                                        p.diffAgreeNum = agreeData.diffAgreeNum;
+                                        p.agreeNum = agreeData.agreeNum;
+                                        p.disAgreeNum = agreeData.disAgreeNum;
+                                    } else if (p.isSelectDisagree()) {
+                                        peaVar2.U0(1);
+                                        AigcFeedbackHelper.d(peaVar2);
+                                    } else if (p.isSelectAgree() || ig9Var.e(p)) {
+                                        peaVar2.U0(0);
+                                    }
+                                }
+                                this.a.c.invoke();
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    return;
                 }
-                this.d = ig9.c;
-            }
-        }
-
-        public void b(BazhuInfoData.BaInfo baInfo) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baInfo) == null) && baInfo != null) {
-                this.a.setText(baInfo.forum_name);
-                this.b.setChecked(baInfo.isChecked);
-                this.c.startLoad(baInfo.forum_Avatar, 10, false);
-                this.b.setButtonDrawable(this.e);
+                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.tbadkCore.data.AgreeMessageData");
             }
         }
     }
 
-    public ig9(Context context) {
+    public ig9(BdUniqueId uniqueId, Function0<? extends ArrayList<yh>> dataList, Function0<Unit> afterSync) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {uniqueId, dataList, afterSync};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = context;
+        Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
+        Intrinsics.checkNotNullParameter(dataList, "dataList");
+        Intrinsics.checkNotNullParameter(afterSync, "afterSync");
+        this.a = uniqueId;
+        this.b = dataList;
+        this.c = afterSync;
+        this.d = new a(this);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public final boolean e(AgreeData agreeData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, agreeData)) == null) {
+            Intrinsics.checkNotNullParameter(agreeData, "<this>");
+            if (!agreeData.hasAgree && agreeData.isDisagreeType()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final CustomMessageListener d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return invokeV.intValue;
-    }
-
-    public void b(List<BazhuInfoData.BaInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.b.clear();
-            this.b.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (c != i) {
-                notifyDataSetChanged();
-            }
-            c = i;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            a aVar = null;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05a0, (ViewGroup) null);
-                aVar = new a(view2);
-                view2.setTag(aVar);
-            } else {
-                Object tag = view2.getTag();
-                if (tag instanceof a) {
-                    aVar = (a) tag;
-                }
-            }
-            if (aVar != null) {
-                aVar.a();
-                aVar.b(this.b.get(i));
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (CustomMessageListener) invokeV.objValue;
     }
 }

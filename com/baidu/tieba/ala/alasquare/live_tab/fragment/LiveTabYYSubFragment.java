@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveYYSubTabModel;
-import com.baidu.tieba.ao5;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.ea5;
-import com.baidu.tieba.nb6;
+import com.baidu.tieba.gi5;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.m45;
+import com.baidu.tieba.w56;
+import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,14 +38,14 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
     public View k;
     public BdSwipeRefreshLayout l;
     public BdTypeRecyclerView m;
-    public nb6 n;
-    public ea5 o;
+    public w56 n;
+    public m45 o;
     public PbListView p;
     public AlaLiveYYSubTabModel q;
     public int r;
     public int s;
     public AlaLiveYYSubTabModel.c t;
-    public da5.g u;
+    public l45.g u;
     public BdListView.p v;
     public RecyclerView.OnScrollListener w;
 
@@ -74,7 +74,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveYYSubTabModel.c
-        public void a(boolean z, List<bn> list) {
+        public void a(boolean z, List<yh> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
                 this.a.hideLoadingView();
@@ -113,7 +113,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements da5.g {
+    public class b implements l45.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveTabYYSubFragment a;
@@ -136,7 +136,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
             this.a = liveTabYYSubFragment;
         }
 
-        @Override // com.baidu.tieba.da5.g
+        @Override // com.baidu.tieba.l45.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -289,10 +289,10 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
                 bdTypeRecyclerView.removeOnScrollListener(this.w);
                 this.m.setOnSrollToBottomListener(null);
             }
-            ea5 ea5Var = this.o;
-            if (ea5Var != null) {
-                ea5Var.a(null);
-                this.o.T();
+            m45 m45Var = this.o;
+            if (m45Var != null) {
+                m45Var.a(null);
+                this.o.U();
             }
             AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.q;
             if (alaLiveYYSubTabModel != null) {
@@ -301,18 +301,18 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         }
     }
 
-    public final void u2(List<bn> list) {
+    public final void u2(List<yh> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
             this.n.c(list);
         }
     }
 
-    public final void v2(da5.g gVar) {
-        ea5 ea5Var;
+    public final void v2(l45.g gVar) {
+        m45 m45Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, gVar) == null) && (ea5Var = this.o) != null) {
-            ea5Var.a(gVar);
+        if ((interceptable == null || interceptable.invokeL(1048589, this, gVar) == null) && (m45Var = this.o) != null) {
+            m45Var.a(gVar);
         }
     }
 
@@ -345,7 +345,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.k == null) {
-                this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05fc, (ViewGroup) null);
+                this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05ee, (ViewGroup) null);
                 s2();
                 if (viewGroup != null) {
                     this.r = (((viewGroup.getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - BdUtilHelper.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
@@ -380,7 +380,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
                 this.m.setNextPage(this.p);
             }
             this.p.w(BdUtilHelper.getDimens(this.a, R.dimen.tbds182));
-            this.p.H(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c03));
+            this.p.H(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c10));
             this.p.U();
         }
     }
@@ -390,7 +390,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             this.b.setVisibility(0);
             if (this.mRefreshView == null) {
-                this.mRefreshView = new ao5(getContext(), new e(this));
+                this.mRefreshView = new gi5(getContext(), new e(this));
             }
             this.mRefreshView.o();
             this.mRefreshView.l(null);
@@ -447,9 +447,9 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.b.setVisibility(8);
-            ao5 ao5Var = this.mRefreshView;
-            if (ao5Var != null) {
-                ao5Var.dettachView(this.b);
+            gi5 gi5Var = this.mRefreshView;
+            if (gi5Var != null) {
+                gi5Var.dettachView(this.b);
                 this.mRefreshView = null;
             }
         }
@@ -468,18 +468,18 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            ea5 ea5Var = this.o;
-            if (ea5Var != null) {
-                ea5Var.C(i);
+            m45 m45Var = this.o;
+            if (m45Var != null) {
+                m45Var.D(i);
             }
             PbListView pbListView = this.p;
             if (pbListView != null) {
                 pbListView.J(SkinManager.getColor(R.color.CAM_X0109));
                 this.p.e(i);
             }
-            nb6 nb6Var = this.n;
-            if (nb6Var != null) {
-                nb6Var.b();
+            w56 w56Var = this.n;
+            if (w56Var != null) {
+                w56Var.b();
             }
         }
     }
@@ -508,17 +508,17 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
     public final void s2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.l = (BdSwipeRefreshLayout) this.k.findViewById(R.id.obfuscated_res_0x7f0915d7);
+            this.l = (BdSwipeRefreshLayout) this.k.findViewById(R.id.obfuscated_res_0x7f0915f2);
             this.b = (LinearLayout) this.k.findViewById(R.id.top_container);
-            ea5 ea5Var = new ea5(getPageContext());
-            this.o = ea5Var;
-            this.l.setProgressView(ea5Var);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f0915d4);
+            m45 m45Var = new m45(getPageContext());
+            this.o = m45Var;
+            this.l.setProgressView(m45Var);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f0915ef);
             this.m = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a));
             this.m.setFadingEdgeLength(0);
             this.m.setOverScrollMode(2);
-            this.n = new nb6(getPageContext(), this.m, this.f, this.i, this.g);
+            this.n = new w56(getPageContext(), this.m, this.f, this.i, this.g);
             PbListView pbListView = new PbListView(this.a);
             this.p = pbListView;
             pbListView.a();
@@ -529,7 +529,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
             this.p.J(SkinManager.getColor(R.color.CAM_X0107));
             this.p.F(R.color.CAM_X0110);
             this.p.c().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.o.V(getPageContext().getUniqueId());
+            this.o.W(getPageContext().getUniqueId());
             this.m.addOnScrollListener(this.w);
             v2(this.u);
             w2(this.v);

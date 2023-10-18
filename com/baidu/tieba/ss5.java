@@ -1,238 +1,238 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdPageContextSupport;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.GuildActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import android.text.TextPaint;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.level.TbLevelView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class ss5 {
+public final class ss5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ss5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static StatisticItem a(StatisticItem statisticItem, TbPageTag tbPageTag) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, statisticItem, tbPageTag)) == null) {
-            if (tbPageTag != null && statisticItem != null) {
-                if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
-                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                    }
-                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
-                }
-                statisticItem.param("sort_tab", tbPageTag.sortType);
-                return statisticItem;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948162004, "Lcom/baidu/tieba/ss5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948162004, "Lcom/baidu/tieba/ss5;");
+                return;
+            }
         }
-        return (StatisticItem) invokeLL.objValue;
+        a = new ss5();
     }
 
-    public static StatisticItem h(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
+    public ss5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                TbPageTag l = l(context);
-                if (l != null) {
-                    if (!TextUtils.isEmpty(l.locatePage)) {
-                        if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                            statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                        }
-                        statisticItem.param(TiebaStatic.Params.OBJ_TAB, l.locatePage);
-                    }
-                    statisticItem.param("sort_tab", l.sortType);
-                }
-                return statisticItem;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return null;
         }
-        return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem b(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                return c(statisticItem, j(context));
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem c(StatisticItem statisticItem, rs5 rs5Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, statisticItem, rs5Var)) == null) {
-            if (rs5Var != null && statisticItem != null) {
-                return d(statisticItem, rs5Var.b(), rs5Var.a());
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem e(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                return f(statisticItem, j(context));
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem f(StatisticItem statisticItem, rs5 rs5Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, statisticItem, rs5Var)) == null) {
-            if (rs5Var != null && statisticItem != null) {
-                return g(statisticItem, rs5Var.b(), rs5Var.a());
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem d(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
-            if (statisticItem == null) {
-                return null;
-            }
-            if (tbPageTag2 != null) {
-                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                    }
-                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag2.locatePage);
-                }
-                statisticItem.param("sort_tab", tbPageTag2.sortType);
-            }
-            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-                statisticItem.param(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLLL.objValue;
-    }
-
-    public static StatisticItem g(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
-            if (statisticItem == null) {
-                return null;
-            }
-            if (tbPageTag2 != null) {
-                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PAGE, tbPageTag2.locatePage);
-                }
-                statisticItem.param("sort_tab", tbPageTag2.sortType);
-            }
-            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-                if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                    statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLLL.objValue;
-    }
-
-    public static StatisticItem i(Context context, ThreadData threadData, String str) {
-        InterceptResult invokeLLL;
+    @JvmStatic
+    public static final void c(int i, String str, TextView nickName, TbLevelView levelView, List<? extends View> orderList, UserIconBox userIconBox) {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, threadData, str)) == null) {
-            if (context != null && threadData != null && !StringUtils.isNull(str)) {
-                StatisticItem statisticItem = new StatisticItem(str);
-                statisticItem.param("tid", threadData.getId()).param("fid", threadData.getFid()).param("thread_type", threadData.getThreadType()).param("card_type", threadData.getRecomCardType()).param("nid", threadData.getNid());
-                if (threadData.getBaijiahaoData() != null && !di.isEmpty(threadData.getBaijiahaoData().oriUgcVid)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, nickName, levelView, orderList, userIconBox}) == null) {
+            Intrinsics.checkNotNullParameter(nickName, "nickName");
+            Intrinsics.checkNotNullParameter(levelView, "levelView");
+            Intrinsics.checkNotNullParameter(orderList, "orderList");
+            if (str == null) {
+                str2 = "";
+            } else {
+                str2 = str;
+            }
+            float measureText = nickName.getPaint().measureText(str2) + a.a(nickName);
+            if (levelView.getVisibility() != 8) {
+                levelView.setMode(true);
+                measureText += levelView.b() + a.a(levelView);
+            }
+            Iterator<T> it = orderList.iterator();
+            while (true) {
+                boolean z = false;
+                if (!it.hasNext()) {
+                    break;
                 }
-                StatisticItem param = statisticItem.param("weight", threadData.mRecomWeight).param("ab_tag", threadData.mRecomAbTag).param("extra", threadData.mRecomExtra);
-                if (threadData.isSubPb) {
-                    str2 = "2";
-                } else {
-                    str2 = "1";
+                View view2 = (View) it.next();
+                if (!(view2 instanceof TbLevelView) && view2.getVisibility() != 8) {
+                    if (view2 instanceof TextView) {
+                        TextView textView = (TextView) view2;
+                        String obj = textView.getText().toString();
+                        if (!((obj == null || obj.length() == 0) ? true : true)) {
+                            float measureText2 = textView.getPaint().measureText(obj) + view2.getPaddingLeft();
+                            view2.getPaddingRight();
+                            a.a(view2);
+                            measureText += measureText2;
+                        }
+                    } else {
+                        measureText += a.b(view2);
+                    }
                 }
-                param.param("obj_type", str2).param("source", threadData.mRecomSource);
-                h(context, statisticItem);
-                return statisticItem;
             }
-            return null;
+            if (userIconBox != null && userIconBox.getVisibility() != 8) {
+                int childCount = userIconBox.getChildCount();
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    View childAt = userIconBox.getChildAt(i2);
+                    if (childAt != null) {
+                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
+                        childAt.setVisibility(0);
+                        measureText += a.b(childAt);
+                    }
+                }
+            }
+            float f = i;
+            if (measureText <= f) {
+                nickName.setText(str);
+                return;
+            }
+            float e = a.e(i, measureText, str2, nickName);
+            if (e <= f) {
+                return;
+            }
+            float d = a.d(e, levelView);
+            if (d <= f) {
+                return;
+            }
+            a.f(i, d, orderList, userIconBox);
         }
-        return (StatisticItem) invokeLLL.objValue;
     }
 
-    public static rs5 j(Context context) {
+    public final int a(View view2) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = null;
+            if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
+                layoutParams = null;
             }
-            BdPageContextSupport<?> b = m9.b(context);
-            if (!(b instanceof qs5)) {
-                return null;
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
+            int i2 = 0;
+            if (marginLayoutParams2 != null) {
+                i = marginLayoutParams2.leftMargin;
+            } else {
+                i = 0;
             }
-            return ((qs5) b).getTbPageInfo();
+            ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
+            if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
+                marginLayoutParams = layoutParams2;
+            }
+            ViewGroup.MarginLayoutParams marginLayoutParams3 = marginLayoutParams;
+            if (marginLayoutParams3 != null) {
+                i2 = marginLayoutParams3.rightMargin;
+            }
+            return i + i2;
         }
-        return (rs5) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static TbPageTag k(Context context) {
+    public final int b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            rs5 j = j(context);
-            if (j == null) {
-                return null;
-            }
-            return j.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            return view2.getMeasuredWidth() + a(view2);
         }
-        return (TbPageTag) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static TbPageTag m(Intent intent) {
-        InterceptResult invokeL;
+    public final float d(float f, TbLevelView tbLevelView) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, intent)) == null) {
-            if (intent != null) {
-                return (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
-            }
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), tbLevelView})) == null) {
+            float b = tbLevelView.b();
+            tbLevelView.setMode(false);
+            return f - (b - tbLevelView.b());
         }
-        return (TbPageTag) invokeL.objValue;
+        return invokeCommon.floatValue;
     }
 
-    public static TbPageTag l(Context context) {
-        InterceptResult invokeL;
-        BdPageContextSupport<?> b;
+    public final float e(int i, float f, String str, TextView textView) {
+        InterceptResult invokeCommon;
+        float measureText;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (context != null && (b = m9.b(context)) != null && b.getPageContext() != null && b.getPageContext().getPageActivity() != null) {
-                return m(b.getPageContext().getPageActivity().getIntent());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), str, textView})) == null) {
+            if (ns5.e(str) <= 12) {
+                textView.setText(str);
+                return f;
             }
-            return null;
+            float measureText2 = textView.getPaint().measureText(str);
+            float f2 = f - i;
+            int e = ns5.e(str);
+            do {
+                str = ns5.m(str, e - 1);
+                e = ns5.e(str);
+                TextPaint paint = textView.getPaint();
+                measureText = paint.measureText(str + "...");
+                if (f2 <= measureText2 - measureText) {
+                    break;
+                }
+            } while (e > 10);
+            textView.setText(str + "...");
+            return (f - measureText2) + measureText;
         }
-        return (TbPageTag) invokeL.objValue;
+        return invokeCommon.floatValue;
+    }
+
+    public final float f(int i, float f, List<? extends View> list, UserIconBox userIconBox) {
+        InterceptResult invokeCommon;
+        float b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), list, userIconBox})) == null) {
+            if (userIconBox != null && userIconBox.getVisibility() != 8) {
+                for (int childCount = userIconBox.getChildCount() - 1; -1 < childCount; childCount--) {
+                    View childAt = userIconBox.getChildAt(childCount);
+                    if (childAt != null) {
+                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
+                        childAt.setVisibility(8);
+                        f -= a.b(childAt);
+                        if (f <= i) {
+                            return f;
+                        }
+                    }
+                }
+            }
+            for (int size = list.size() - 1; -1 < size; size--) {
+                if (list.get(size).getVisibility() != 8) {
+                    list.get(size).setVisibility(8);
+                    if (list.get(size) instanceof TbLevelView) {
+                        b = ((TbLevelView) list.get(size)).b() + a(list.get(size));
+                    } else {
+                        b = b(list.get(size));
+                    }
+                    f -= b;
+                    if (f <= i) {
+                        return f;
+                    }
+                }
+            }
+            return f;
+        }
+        return invokeCommon.floatValue;
     }
 }

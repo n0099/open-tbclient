@@ -9,6 +9,11 @@ public class a47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
+    public String b;
+    public String c;
+    public String d;
+    public n47 e;
+    public String f;
 
     public a47() {
         Interceptable interceptable = $ic;

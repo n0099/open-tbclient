@@ -1,53 +1,48 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.coreExtra.view.ImagePagerAdapter;
-import com.baidu.tbadk.data.LiveRemindNormalConfigData;
-import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
-import com.baidu.tieba.image.liveroom.LiveRoomRecommendListAdapter;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
+import com.baidu.tbadk.coreExtra.util.DialogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class cq8 implements ImagePagerAdapter.a {
+public class cq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LiveRoomRecommendListAdapter a;
-    public int b;
-    public TbPageContext c;
-    public LiveRemindNormalConfigData d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-    public List<String> i;
-    public CustomMessageListener j;
+    public BdPageContext a;
+    public View b;
+    public ImageView c;
+    public TextView d;
+    public TextView e;
+    public ImageView f;
+    public b g;
+    public RelativeLayout h;
+    public View.OnClickListener i;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onClose();
+    }
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -77,94 +72,26 @@ public class cq8 implements ImagePagerAdapter.a {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                up8.c(2, this.a.e, this.a.g, TbadkCoreApplication.getCurrentAccount(), this.a.f, null);
-                this.a.h();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends StaggeredGridLayoutManager {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // androidx.recyclerview.widget.StaggeredGridLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
-        public boolean canScrollVertically() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(cq8 cq8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cq8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                if (view2.getId() == this.a.e.getId()) {
+                    DialogUtil.jumpSystemNotificationSetting(this.a.a);
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
+                } else if (view2.getId() == this.a.f.getId()) {
+                    SharedPrefHelper.getInstance().putLong("key_im_open_notification_close_time", System.currentTimeMillis());
+                    if (this.a.g != null) {
+                        this.a.g.onClose();
+                    }
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 2));
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<cq8> a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(cq8 cq8Var) {
-            super(2921733);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cq8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(cq8Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            cq8 cq8Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || (cq8Var = this.a.get()) == null || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921733 || customResponsedMessage.hasError() || customResponsedMessage.getError() != 0) {
-                return;
-            }
-            cq8Var.d = e95.a().b;
-        }
-    }
-
-    public cq8(List<String> list, TbPageContext tbPageContext, String str, String str2, String str3) {
+    public cq8(BdPageContext bdPageContext, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, tbPageContext, str, str2, str3};
+            Object[] objArr = {bdPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -174,108 +101,66 @@ public class cq8 implements ImagePagerAdapter.a {
                 return;
             }
         }
-        this.b = 0;
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.j = new c(this);
-        this.i = list;
-        this.c = tbPageContext;
-        this.a = new LiveRoomRecommendListAdapter(tbPageContext, str, str2, str3);
-        this.d = e95.a().b;
-        this.g = str2;
-        this.e = str;
-        this.f = str3;
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
-    public void c(ViewGroup viewGroup, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i) == null) {
-            MessageManager.getInstance().unRegisterListener(this.j);
+        this.i = new a(this);
+        this.a = bdPageContext;
+        View inflate = LayoutInflater.from(bdPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d075d, (ViewGroup) null);
+        this.b = inflate;
+        this.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a2c);
+        this.c = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0910f4);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a29);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0904e0);
+        this.e = textView;
+        textView.setOnClickListener(this.i);
+        ImageView imageView = (ImageView) this.b.findViewById(R.id.img_close);
+        this.f = imageView;
+        imageView.setOnClickListener(this.i);
+        TiebaStatic.log("c13704");
+        g(TbadkCoreApplication.getInst().getSkinType(), z);
+        if (!z) {
+            e();
         }
     }
 
-    public void i(int i) {
+    public void g(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-            this.a.q(i);
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void k(List<bq8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.a.r(list);
-        }
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
-    public View a(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (!this.h) {
-                return null;
-            }
-            String str = (String) ListUtils.getItem(this.i, i);
-            if (!TextUtils.isEmpty(str) && !str.startsWith("####mLiveRoomPageProvider")) {
-                return null;
-            }
-            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d085c, viewGroup, false);
-            WebPManager.setPureDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0903e8), R.drawable.icon_pure_datuwei_live_more, R.color.CAM_X0101, null);
-            EMManager.from((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903e9)).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X08);
-            inflate.findViewById(R.id.obfuscated_res_0x7f0903e7).setOnClickListener(new a(this));
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0903eb);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
-            layoutParams.topMargin = this.b;
-            linearLayout.setLayoutParams(layoutParams);
-            viewGroup.addView(inflate);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0903ee);
-            bdRecyclerView.setLayoutManager(new b(this, 2, 1));
-            bdRecyclerView.addItemDecoration(new LiveRoomRecommendListAdapter.LiveRoomItemDecoration());
-            bdRecyclerView.setAdapter(this.a);
-            MessageManager.getInstance().registerListener(this.j);
-            return inflate;
-        }
-        return (View) invokeLI.objValue;
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                if (StringUtils.isNull(str)) {
-                    new AlaTabFeedActivityConfig(this.c.getPageActivity()).start();
-                    return;
-                } else {
-                    UrlManager.getInstance().dealOneLink(this.c, new String[]{str}, true);
-                    return;
-                }
-            }
-            LiveStartClickDataEvent liveStartClickDataEvent = new LiveStartClickDataEvent();
-            liveStartClickDataEvent.viewTag = str;
-            MutiProcessManager.publishEvent(liveStartClickDataEvent);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LiveRemindNormalConfigData liveRemindNormalConfigData = this.d;
-            if (liveRemindNormalConfigData != null && !StringUtils.isNull(liveRemindNormalConfigData.getNormalIconScheme())) {
-                g(pe5.a(this.d.getNormalIconScheme(), 4));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (z) {
+                TBSelector.makeDrawableSelector().setShape(0).tlRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds36)).blRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds36)).gradientLinear(DrawableSelector.LEFT_RIGHT, R.color.open_notify_start_color, R.color.open_notify_start_color, R.color.open_notify_end_color).into(this.h);
             } else {
-                g("");
+                SkinManager.setBackgroundResource(this.b, R.color.CAM_X0204);
             }
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0110, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            EMManager.from(this.d).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0107).setTextStyle(R.string.F_X01);
+            EMManager.from(this.e).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0341);
         }
+    }
+
+    public void h(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.g = bVar;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.leftMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X001);
+            layoutParams.rightMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X004);
+            this.h.setLayoutParams(layoutParams);
+            int dimens = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_W_X007);
+            this.f.setLeft(dimens);
+            this.f.setRight(dimens);
+        }
+    }
+
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
     }
 }

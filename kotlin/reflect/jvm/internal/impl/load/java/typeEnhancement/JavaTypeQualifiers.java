@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement;
 
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class JavaTypeQualifiers {
     public static final Companion Companion = new Companion(null);
     public static final JavaTypeQualifiers NONE = new JavaTypeQualifiers(null, null, false, false, 8, null);
@@ -10,7 +10,7 @@ public final class JavaTypeQualifiers {
     public final MutabilityQualifier mutability;
     public final NullabilityQualifier nullability;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

@@ -1,611 +1,384 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.CommonStatisticUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tieba.hi8;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.m47;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.safe.UiUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import org.apache.http.message.BasicNameValuePair;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public abstract class hi8 extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int e = 2;
+public final class hi8 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public List<ImMessageCenterShowItemData> b;
-    public boolean c;
-    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947824786, "Lcom/baidu/tieba/hi8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947824786, "Lcom/baidu/tieba/hi8;");
-        }
-    }
-
-    public abstract boolean g(ImMessageCenterShowItemData imMessageCenterShowItemData);
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static final void a(final String filePath, final int i, final int i2, final fi8 callback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    public abstract boolean h(ImMessageCenterShowItemData imMessageCenterShowItemData);
-
-    public abstract void k(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData);
-
-    public abstract void v(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData);
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
-        }
-    }
-
-    public abstract BasicNameValuePair z(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str);
-
-    /* loaded from: classes6.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ViewGroup a;
-        public HeadImageView b;
-        public ImageView c;
-        public BarImageView d;
-        public TextView e;
-        public EMTextView f;
-        public TextView g;
-        public TextView h;
-        public MessageRedDotView i;
-        public FrameLayout j;
-        public ImageView k;
-        public View l;
-        public LinearLayout m;
-        public ImageView n;
-        public ImageView o;
-
-        public a(hi8 hi8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hi8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = null;
-            this.g = null;
-            this.h = null;
-            this.i = null;
-            this.j = null;
-            this.l = null;
-            this.m = null;
-            this.n = null;
-            this.o = null;
-        }
-    }
-
-    public hi8(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = false;
-        this.d = false;
-        this.a = context;
-    }
-
-    public void l(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, aVar, imMessageCenterShowItemData) == null) {
-            if (imMessageCenterShowItemData.getMarkTopIndex() > 0) {
-                TBSelector.setViewBackgroundColorWithPressedState(aVar.a, R.color.CAM_X0206, R.color.CAM_X0204);
-            } else {
-                TBSelector.setViewBackgroundColorWithPressedState(aVar.a, R.color.CAM_X0205, R.color.CAM_X0204);
-            }
-        }
-    }
-
-    public void m(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, aVar, imMessageCenterShowItemData) == null) {
-            if (TextUtils.isEmpty(imMessageCenterShowItemData.getMsgContent())) {
-                aVar.g.setText("");
-                aVar.g.setVisibility(8);
-                aVar.j.setVisibility(8);
-                return;
-            }
-            i(imMessageCenterShowItemData, aVar);
-        }
-    }
-
-    public final void t(boolean z, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048600, this, z, aVar) == null) {
-            if (z) {
-                aVar.k.setVisibility(0);
-            } else {
-                aVar.k.setVisibility(8);
-            }
-        }
-    }
-
-    public final void A(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, imMessageCenterShowItemData) != null) || imMessageCenterShowItemData == null) {
-            return;
-        }
-        int i2 = 0;
-        int i3 = 2;
-        if (TextUtils.equals("4", imMessageCenterShowItemData.getOwnerName())) {
-            i2 = 1;
-        } else if (TextUtils.equals("7", imMessageCenterShowItemData.getOwnerName())) {
-            i2 = 2;
-        }
-        if (i2 > 0 && e(imMessageCenterShowItemData)) {
-            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_ITEM_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (imMessageCenterShowItemData.getUnReadCount() > 0) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            TiebaStatic.log(param.param("obj_type", i).param("obj_locate", i2).param("obj_param1", imMessageCenterShowItemData.getUnReadCount()));
-        }
-        if (CommonStatisticKey.TbMemberOfficialStatic.TB_MEMBER_OFFICIAL_ID.equals(imMessageCenterShowItemData.getFriendId())) {
-            CommonStatisticUtils.staticTbMemberNotify(CommonStatisticKey.TbMemberOfficialStatic.MEMBER_MSG_CENTER_NOTIFY_SHOW, null, imMessageCenterShowItemData.getFriendName());
-        }
-        if (d(imMessageCenterShowItemData)) {
-            StatisticItem param2 = new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_GROUP_ITEM).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", imMessageCenterShowItemData.getForumId()).param("room_id", imMessageCenterShowItemData.getRoomId()).param("obj_type", 1);
-            if (imMessageCenterShowItemData.getUnReadCount() > 0) {
-                i3 = 1;
-            }
-            TiebaStatic.log(param2.param("obj_source", i3));
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", imMessageCenterShowItemData.getForumId()).param("room_id", imMessageCenterShowItemData.getRoomId()).param("obj_type", e).param("obj_locate", 3));
-        }
-    }
-
-    public final void B(@NonNull a aVar, @NonNull ImMessageCenterShowItemData imMessageCenterShowItemData, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, imMessageCenterShowItemData, z) == null) && imMessageCenterShowItemData.getGroupSetting() != null && e(imMessageCenterShowItemData) && z) {
-            aVar.i.setVisibility(8);
-        }
-    }
-
-    public void y(a aVar, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048605, this, aVar, str, str2) == null) {
-            if (!StringUtils.isNull(str2)) {
-                aVar.e.setText(str2);
-            }
-            if (!StringUtils.isNull(str)) {
-                aVar.f.setText(str);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public ImMessageCenterShowItemData getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            List<ImMessageCenterShowItemData> list = this.b;
-            if (list == null || list.size() == 0 || i < 0 || i >= getCount()) {
-                return null;
-            }
-            return this.b.get(i);
-        }
-        return (ImMessageCenterShowItemData) invokeI.objValue;
-    }
-
-    public final boolean d(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, imMessageCenterShowItemData)) == null) {
-            if (imMessageCenterShowItemData == null || !String.valueOf(9).equals(imMessageCenterShowItemData.getOwnerName())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, imMessageCenterShowItemData)) == null) {
-            if (imMessageCenterShowItemData == null) {
-                return false;
-            }
-            return String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void u(List<ImMessageCenterShowItemData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, list) == null) {
-            if (this.b == null) {
-                this.b = new LinkedList();
-            }
-            this.b.clear();
-            this.b.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void w(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public a b(View view2, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, view2, i)) == null) {
-            a aVar = new a(this);
-            aVar.a = (ViewGroup) view2.findViewById(R.id.chat_item);
-            aVar.c = (ImageView) view2.findViewById(R.id.svg_head);
-            aVar.b = (HeadImageView) view2.findViewById(R.id.chat_head);
-            aVar.d = (BarImageView) view2.findViewById(R.id.forum_head);
-            TextView textView = (TextView) view2.findViewById(R.id.chat_name);
-            aVar.e = textView;
-            EMManager.from(textView).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X05);
-            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.msg_group_name);
-            aVar.f = eMTextView;
-            EMManager.from(eMTextView).setCorner(R.string.J_X04).setTextColor(R.color.CAM_X0302).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X10).setAlpha(R.string.obfuscated_res_0x7f0f000e).setBackGroundColor(R.color.CAM_X0302);
-            TextView textView2 = (TextView) view2.findViewById(R.id.last_chat_content);
-            aVar.g = textView2;
-            EMManager.from(textView2).setTextColor(R.color.CAM_X0109).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X08);
-            TextView textView3 = (TextView) view2.findViewById(R.id.chat_time);
-            aVar.h = textView3;
-            EMManager.from(textView3).setTextColor(R.color.CAM_X0110).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X09);
-            aVar.l = view2.findViewById(R.id.obfuscated_res_0x7f09151e);
-            aVar.i = (MessageRedDotView) view2.findViewById(R.id.new_message);
-            aVar.j = (FrameLayout) view2.findViewById(R.id.new_message_container);
-            aVar.i.setShadowEnabled(false);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.bell_message_icon);
-            aVar.k = imageView;
-            WebPManager.setPureDrawable(imageView, R.drawable.ic_icon_pure_shield_svg, R.color.CAM_X1111, null);
-            aVar.m = (LinearLayout) view2.findViewById(R.id.my_fans);
-            aVar.n = (ImageView) view2.findViewById(R.id.send_status);
-            aVar.o = (ImageView) view2.findViewById(R.id.select_status);
-            aVar.b.setPlaceHolder(1);
-            return aVar;
-        }
-        return (a) invokeLI.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            List<ImMessageCenterShowItemData> list = this.b;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof a)) {
-                aVar = (a) view2.getTag();
-            } else {
-                aVar = null;
-            }
-            if (aVar == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.chat_list_item, viewGroup, false);
-                aVar = b(view2, i);
-                view2.setTag(aVar);
-            }
-            SkinManager.setBackgroundResource(view2, R.drawable.list_item_selector);
-            SkinManager.setBackgroundResource(aVar.l, R.color.CAM_X0205);
-            aVar.a.setVisibility(0);
-            ImMessageCenterShowItemData item = getItem(i);
-            if (item != null) {
-                o(aVar, item);
-                m(aVar, item);
-                q(aVar, item);
-                r(aVar, item);
-                k(aVar, item);
-                s(aVar, item);
-                v(aVar, item);
-                if (this.d) {
-                    n(aVar, item);
-                }
-                j(aVar, item);
-                p(aVar, item);
-                l(aVar, item);
-                A(item);
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    public final void i(ImMessageCenterShowItemData imMessageCenterShowItemData, final a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, imMessageCenterShowItemData, aVar) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (d(imMessageCenterShowItemData)) {
-                if (!StringUtils.isNull(imMessageCenterShowItemData.getSpecialMsgText())) {
-                    SpannableString spannableString = new SpannableString(imMessageCenterShowItemData.getSpecialMsgText());
-                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, imMessageCenterShowItemData.getSpecialMsgText().length(), 33);
-                    spannableStringBuilder.append((CharSequence) spannableString);
-                    spannableStringBuilder.append((CharSequence) imMessageCenterShowItemData.getMsgContent());
-                } else if (imMessageCenterShowItemData.getUnReadCount() > 0) {
-                    String valueOf = String.valueOf(imMessageCenterShowItemData.getUnReadCount());
-                    if (imMessageCenterShowItemData.getUnReadCount() >= 100) {
-                        spannableStringBuilder.append((CharSequence) ("[99+]" + imMessageCenterShowItemData.getMsgContent()));
-                    } else {
-                        spannableStringBuilder.append((CharSequence) (PreferencesUtil.LEFT_MOUNT + valueOf + "条]" + imMessageCenterShowItemData.getMsgContent()));
-                    }
-                } else {
-                    spannableStringBuilder.append((CharSequence) imMessageCenterShowItemData.getMsgContent());
-                }
-            } else {
-                spannableStringBuilder.append((CharSequence) imMessageCenterShowItemData.getMsgContent());
-            }
-            aVar.g.setVisibility(0);
-            aVar.j.setVisibility(0);
-            m47.e(aVar.g.getContext(), spannableStringBuilder, UtilHelper.getDimenPixelSize(R.dimen.T_X06), new m47.i() { // from class: com.baidu.tieba.ei8
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{filePath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(filePath, "filePath");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            UiUtils.runOnBgThread(new Runnable() { // from class: com.baidu.tieba.ai8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m47.i
-                public final void a(SpannableStringBuilder spannableStringBuilder2) {
+                @Override // java.lang.Runnable
+                public final void run() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder2) == null) {
-                        hi8.a.this.g.setText(spannableStringBuilder2);
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        hi8.b(filePath, i, i2, callback);
                     }
                 }
             });
         }
     }
 
-    public void j(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00b8 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x00ba */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:80:0x014c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0073 A[Catch: all -> 0x0126, Exception -> 0x012a, TryCatch #12 {Exception -> 0x012a, all -> 0x0126, blocks: (B:7:0x0039, B:9:0x004f, B:20:0x0073, B:21:0x0079, B:24:0x0089, B:47:0x00d6, B:51:0x00e7, B:53:0x00ee, B:54:0x00f7, B:15:0x0059), top: B:89:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0087  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e5  */
+    /* JADX WARN: Type inference failed for: r7v0 */
+    /* JADX WARN: Type inference failed for: r7v12, types: [int] */
+    /* JADX WARN: Type inference failed for: r7v17 */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v19 */
+    /* JADX WARN: Type inference failed for: r7v2 */
+    /* JADX WARN: Type inference failed for: r7v4, types: [java.io.ByteArrayInputStream] */
+    /* JADX WARN: Type inference failed for: r7v5, types: [java.io.ByteArrayInputStream] */
+    /* JADX WARN: Type inference failed for: r7v6 */
+    /* JADX WARN: Type inference failed for: r7v9 */
+    /* JADX WARN: Type inference failed for: r9v0 */
+    /* JADX WARN: Type inference failed for: r9v1 */
+    /* JADX WARN: Type inference failed for: r9v10 */
+    /* JADX WARN: Type inference failed for: r9v11 */
+    /* JADX WARN: Type inference failed for: r9v14, types: [android.graphics.Bitmap] */
+    /* JADX WARN: Type inference failed for: r9v15 */
+    /* JADX WARN: Type inference failed for: r9v2, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r9v3, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r9v5, types: [android.graphics.Bitmap] */
+    /* JADX WARN: Type inference failed for: r9v6 */
+    /* JADX WARN: Type inference failed for: r9v7 */
+    /* JADX WARN: Type inference failed for: r9v8 */
+    /* JADX WARN: Type inference failed for: r9v9 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final void b(final String filePath, int i, int i2, final fi8 callback) {
+        ByteArrayOutputStream byteArrayOutputStream;
+        ?? r7;
+        Object obj;
+        Bitmap bitmap;
+        BitmapFactory.Options options;
+        int i3;
+        int i4;
+        Bitmap.CompressFormat compressFormat;
+        int ceil;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048590, this, aVar, imMessageCenterShowItemData) != null) || aVar == null) {
-            return;
-        }
-        if (imMessageCenterShowItemData == null) {
-            t(false, aVar);
-        } else if (g(imMessageCenterShowItemData)) {
-            if (d(imMessageCenterShowItemData)) {
-                if (!imMessageCenterShowItemData.isNotify()) {
-                    t(true, aVar);
-                    return;
-                } else {
-                    t(false, aVar);
-                    return;
-                }
-            }
-            ChatSetting groupSetting = imMessageCenterShowItemData.getGroupSetting();
-            if (groupSetting == null) {
-                t(false, aVar);
-                return;
-            }
-            if (!groupSetting.isAcceptNotify()) {
-                t(true, aVar);
-            } else {
-                t(false, aVar);
-            }
-            B(aVar, imMessageCenterShowItemData, !groupSetting.isAcceptNotify());
-        } else {
-            t(false, aVar);
-        }
-    }
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{filePath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            final String str = filePath + "_backup";
+            Bitmap bitmap2 = null;
+            try {
+                byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = false;
+                    bitmap = BitmapFactory.decodeFile(filePath, options);
+                    try {
+                        i3 = options.outWidth;
+                        i4 = options.outHeight;
+                        compressFormat = Bitmap.CompressFormat.JPEG;
+                        String str2 = options.outMimeType;
+                        Intrinsics.checkNotNullExpressionValue(str2, "options.outMimeType");
+                        if (StringsKt__StringsJVMKt.endsWith$default(str2, "png", false, 2, null)) {
+                            compressFormat = Bitmap.CompressFormat.PNG;
+                        }
+                    } catch (Exception e) {
+                        e = e;
+                        obj = null;
+                        bitmap2 = bitmap;
+                        bitmap = obj;
+                        r7 = obj;
+                        try {
+                            e.printStackTrace();
+                            g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.xh8
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
 
-    public void n(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048594, this, aVar, imMessageCenterShowItemData) != null) || aVar == null) {
-            return;
-        }
-        if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.getRelation() == 3) {
-            aVar.m.setVisibility(0);
-            EMManager.from(aVar.m).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0202);
-            SkinManager.setViewTextColor((TextView) aVar.m.findViewById(R.id.my_fans_title), (int) R.color.CAM_X0108);
-            return;
-        }
-        aVar.m.setVisibility(8);
-    }
-
-    public void q(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048597, this, aVar, imMessageCenterShowItemData) == null) && aVar != null && imMessageCenterShowItemData != null && imMessageCenterShowItemData.getOwnerName() != null) {
-            if (h(imMessageCenterShowItemData)) {
-                aVar.n.setVisibility(0);
-                if (imMessageCenterShowItemData.getSendStatus() == 2) {
-                    SkinManager.setBackgroundResource(aVar.n, R.drawable.icon_send_failed_information);
-                    return;
-                } else if (imMessageCenterShowItemData.getSendStatus() == 1) {
-                    SkinManager.setBackgroundResource(aVar.n, R.drawable.icon_send_in_information);
-                    return;
-                } else {
-                    aVar.n.setVisibility(8);
-                    return;
-                }
-            }
-            aVar.n.setVisibility(8);
-        }
-    }
-
-    public void o(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048595, this, aVar, imMessageCenterShowItemData) != null) || imMessageCenterShowItemData == null) {
-            return;
-        }
-        if (d(imMessageCenterShowItemData) && !TextUtils.isEmpty(imMessageCenterShowItemData.getForumName())) {
-            String forumName = imMessageCenterShowItemData.getForumName();
-            String friendNameShow = imMessageCenterShowItemData.getFriendNameShow();
-            if (forumName.length() > 8) {
-                forumName = forumName.substring(0, 7) + "...";
-            }
-            y(aVar, forumName + "吧", friendNameShow);
-            return;
-        }
-        aVar.e.setText(imMessageCenterShowItemData.getFriendNameShow());
-    }
-
-    public void p(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, aVar, imMessageCenterShowItemData) == null) {
-            if (this.c) {
-                aVar.o.setVisibility(0);
-                aVar.h.setVisibility(8);
-                if (imMessageCenterShowItemData.isSelected()) {
-                    aVar.o.setBackgroundResource(R.drawable.btn_bgb_choice_s_new);
-                    WebPManager.setPureDrawable(aVar.o, R.drawable.btn_bgb_choice_s_new, R.color.CAM_X0302, null);
-                } else {
-                    aVar.o.setBackgroundResource(R.drawable.btn_bgb_choice_n_new);
-                    WebPManager.setPureDrawable(aVar.o, R.drawable.btn_bgb_choice_n_new, R.color.CAM_X0111, null);
-                }
-                SkinManager.setBackgroundColor(aVar.a, R.color.CAM_X0205);
-                return;
-            }
-            aVar.o.setVisibility(8);
-            aVar.h.setVisibility(0);
-            TBSelector.setViewBackgroundColorWithPressedState(aVar.a, R.color.CAM_X0205, R.color.CAM_X0204);
-        }
-    }
-
-    public void r(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048598, this, aVar, imMessageCenterShowItemData) == null) && aVar != null && imMessageCenterShowItemData != null) {
-            Date date = new Date();
-            date.setTime(imMessageCenterShowItemData.getServerTime());
-            if (imMessageCenterShowItemData.getServerTime() != 0) {
-                str = StringHelper.getChatTimeString(date);
-            } else {
-                str = "";
-            }
-            aVar.h.setText(str);
-        }
-    }
-
-    public void s(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, aVar, imMessageCenterShowItemData) == null) {
-            int unReadCount = imMessageCenterShowItemData.getUnReadCount();
-            if (d(imMessageCenterShowItemData)) {
-                unReadCount = 0;
-            }
-            if (unReadCount > 0) {
-                if (xe5.d().f() == 0) {
-                    unReadCount = 0;
-                } else {
-                    BasicNameValuePair z = z(imMessageCenterShowItemData, unReadCount, String.valueOf(unReadCount));
-                    if (z != null && z.getName() != null && z.getName().length() > 0) {
-                        unReadCount = JavaTypesHelper.toInt(z.getName(), 0);
+                                @Override // java.lang.Runnable
+                                public final void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        hi8.f(fi8.this, filePath);
+                                    }
+                                }
+                            });
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        r7 = 0;
+                        bitmap2 = bitmap;
+                        bitmap = r7;
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        throw th;
                     }
+                } catch (Exception e2) {
+                    e = e2;
+                    obj = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    r7 = 0;
                 }
-                aVar.i.setThreeDotMode(2);
-                aVar.i.refresh(unReadCount);
-                aVar.i.setVisibility(0);
-            } else if (d(imMessageCenterShowItemData) && imMessageCenterShowItemData.isNotify && imMessageCenterShowItemData.getUnReadCount() > 0) {
-                aVar.i.setThreeDotMode(2);
-                aVar.i.refresh(unReadCount);
-                aVar.i.setVisibility(0);
-            } else {
-                aVar.i.setVisibility(8);
+            } catch (Exception e3) {
+                e = e3;
+                byteArrayOutputStream = null;
+                obj = null;
+            } catch (Throwable th4) {
+                th = th4;
+                byteArrayOutputStream = null;
+                r7 = 0;
             }
-            SkinManager.setViewTextColor(aVar.e, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(aVar.g, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(aVar.h, R.color.CAM_X0110, 1);
+            try {
+                try {
+                    try {
+                        if (i4 <= i && i4 <= i2) {
+                            ceil = 1;
+                            if (ceil > 1) {
+                                options.inSampleSize = ceil;
+                                bitmap = BitmapFactory.decodeFile(filePath, options);
+                            }
+                            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+                            r7 = byteArrayOutputStream.toByteArray().length;
+                            if (r7 > 5242880) {
+                                if (ceil > 1) {
+                                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                                    Bitmap decodeStream = BitmapFactory.decodeStream(byteArrayInputStream);
+                                    FileOutputStream fileOutputStream = new FileOutputStream(new File(str));
+                                    if (decodeStream.compress(compressFormat, 100, fileOutputStream)) {
+                                        fileOutputStream.flush();
+                                    }
+                                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.yh8
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+
+                                        @Override // java.lang.Runnable
+                                        public final void run() {
+                                            Interceptable interceptable2 = $ic;
+                                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                                hi8.c(fi8.this, str);
+                                            }
+                                        }
+                                    });
+                                    g(decodeStream, byteArrayInputStream, byteArrayOutputStream, fileOutputStream);
+                                    g(decodeStream, byteArrayInputStream, byteArrayOutputStream, fileOutputStream);
+                                    return;
+                                }
+                                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.zh8
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    @Override // java.lang.Runnable
+                                    public final void run() {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                            hi8.d(fi8.this, filePath);
+                                        }
+                                    }
+                                });
+                                g(bitmap, null, byteArrayOutputStream, null);
+                                g(bitmap, null, byteArrayOutputStream, null);
+                                return;
+                            }
+                            int i5 = 90;
+                            while (byteArrayOutputStream.toByteArray().length > 5242880) {
+                                byteArrayOutputStream.reset();
+                                bitmap.compress(compressFormat, i5, byteArrayOutputStream);
+                                i5 -= 10;
+                            }
+                            ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                            Bitmap decodeStream2 = BitmapFactory.decodeStream(byteArrayInputStream2);
+                            FileOutputStream fileOutputStream2 = new FileOutputStream(new File(str));
+                            if (decodeStream2.compress(compressFormat, 100, fileOutputStream2)) {
+                                fileOutputStream2.flush();
+                            }
+                            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ci8
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                @Override // java.lang.Runnable
+                                public final void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        hi8.e(fi8.this, str);
+                                    }
+                                }
+                            });
+                            g(decodeStream2, byteArrayInputStream2, byteArrayOutputStream, fileOutputStream2);
+                            g(decodeStream2, byteArrayInputStream2, byteArrayOutputStream, fileOutputStream2);
+                            return;
+                        }
+                        if (r7 > 5242880) {
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
+                        Bitmap bitmap3 = bitmap;
+                        bitmap = 0;
+                        bitmap2 = bitmap3;
+                        r7 = r7;
+                        e.printStackTrace();
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.xh8
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    hi8.f(fi8.this, filePath);
+                                }
+                            }
+                        });
+                        return;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        Bitmap bitmap4 = bitmap;
+                        bitmap = 0;
+                        bitmap2 = bitmap4;
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        throw th;
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    bitmap2 = 1;
+                    r7 = r7;
+                    bitmap = bitmap;
+                    e.printStackTrace();
+                    g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.xh8
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                hi8.f(fi8.this, filePath);
+                            }
+                        }
+                    });
+                    return;
+                } catch (Throwable th6) {
+                    th = th6;
+                    bitmap2 = 1;
+                    g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                    throw th;
+                }
+            } catch (Exception e6) {
+                e = e6;
+                bitmap = 0;
+                bitmap2 = 1;
+                r7 = r7;
+                bitmap = bitmap;
+                e.printStackTrace();
+                g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.xh8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            hi8.f(fi8.this, filePath);
+                        }
+                    }
+                });
+                return;
+            } catch (Throwable th7) {
+                th = th7;
+                bitmap = 0;
+                bitmap2 = 1;
+                g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                throw th;
+            }
+            ceil = (int) Math.ceil(i3 / i);
+            int ceil2 = (int) Math.ceil(i4 / i2);
+            if (ceil <= ceil2) {
+                ceil = ceil2;
+            }
+            if (ceil > 1) {
+            }
+            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+            r7 = byteArrayOutputStream.toByteArray().length;
+        }
+    }
+
+    public static final void c(fi8 callback, String toFilePath) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, callback, toFilePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(toFilePath, "$toFilePath");
+            callback.onFinish(toFilePath);
+        }
+    }
+
+    public static final void d(fi8 callback, String filePath) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, callback, filePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            callback.onFinish(filePath);
+        }
+    }
+
+    public static final void e(fi8 callback, String toFilePath) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callback, toFilePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(toFilePath, "$toFilePath");
+            callback.onFinish(toFilePath);
+        }
+    }
+
+    public static final void f(fi8 callback, String filePath) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, callback, filePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            callback.onFinish(filePath);
+        }
+    }
+
+    public static final void g(Bitmap bitmap, ByteArrayInputStream byteArrayInputStream, ByteArrayOutputStream byteArrayOutputStream, FileOutputStream fileOutputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, bitmap, byteArrayInputStream, byteArrayOutputStream, fileOutputStream) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+            if (byteArrayOutputStream != null) {
+                byteArrayOutputStream.close();
+            }
+            if (byteArrayInputStream != null) {
+                byteArrayInputStream.close();
+            }
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+            }
         }
     }
 }

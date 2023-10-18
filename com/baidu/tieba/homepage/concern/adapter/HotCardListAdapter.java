@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.du4;
 import com.baidu.tieba.homepage.personalize.view.HotCardView;
-import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> 
     public Context a;
     public List<ThreadData> b;
     public ThemeColorInfo c;
-    public vz4 d;
+    public du4 d;
 
     /* loaded from: classes6.dex */
     public class HotCardViewHolder extends RecyclerView.ViewHolder {
@@ -76,10 +76,10 @@ public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> 
         this.a = context;
     }
 
-    public void o(vz4 vz4Var) {
+    public void o(du4 du4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vz4Var) == null) {
-            this.d = vz4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, du4Var) == null) {
+            this.d = du4Var;
         }
     }
 

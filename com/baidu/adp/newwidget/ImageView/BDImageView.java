@@ -21,10 +21,10 @@ import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.tieba.dk;
-import com.baidu.tieba.gk;
-import com.baidu.tieba.hk;
-import com.baidu.tieba.kk;
+import com.baidu.tieba.af;
+import com.baidu.tieba.df;
+import com.baidu.tieba.ef;
+import com.baidu.tieba.hf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes.dex */
-public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, kk {
+public abstract class BDImageView extends ImageView implements ViewTreeObserver.OnPreDrawListener, hf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BORDER_COLOR = 201326592;
     public static final int DEFAULT_BORDER_WIDTH = 1;
@@ -48,10 +48,10 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
     public ImageView.ScaleType mCurrentScaleType;
     public Drawable mDefaultBg;
     public ImageView.ScaleType mDefaultScaleType;
-    public dk mDrawer;
+    public af mDrawer;
     public int mDrawerType;
     public int mHeightMeasureMode;
-    public gk mImage;
+    public df mImage;
     public boolean mIsBitmap;
     public boolean mIsHasFrame;
     public int mMaxHeight;
@@ -95,7 +95,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.mNeedRecomputeMatrix = true;
         this.mMaxWidth = Integer.MAX_VALUE;
         this.mMaxHeight = Integer.MAX_VALUE;
-        this.mImage = new gk();
+        this.mImage = new df();
         init(null);
     }
 
@@ -187,7 +187,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         this.mNeedRecomputeMatrix = true;
         this.mMaxWidth = Integer.MAX_VALUE;
         this.mMaxHeight = Integer.MAX_VALUE;
-        this.mImage = new gk();
+        this.mImage = new df();
         init(attributeSet);
     }
 
@@ -323,9 +323,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
                 this.mImage.c = false;
                 this.mCurBg = this.mBg;
             } else {
-                gk gkVar = this.mImage;
-                gkVar.a = null;
-                gkVar.b = getDefaultBdImage();
+                df dfVar = this.mImage;
+                dfVar.a = null;
+                dfVar.b = getDefaultBdImage();
                 this.mImage.c = true;
                 if (this.mImage.d()) {
                     scaleType = this.mDefaultScaleType;
@@ -432,7 +432,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048595, this, i) == null) && this.mDrawerType != i) {
             this.mDrawerType = i;
-            dk a = hk.b().a(this.mDrawerType);
+            af a = ef.b().a(this.mDrawerType);
             this.mDrawer = a;
             a.r(this.mArgs);
             this.mNeedRecomputeMatrix = true;
@@ -631,7 +631,7 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
                 this.mArgs.d = BdUtilHelper.dip2px(getContext(), 1.0f);
                 this.mArgs.e = DEFAULT_BORDER_COLOR;
             }
-            dk a = hk.b().a(this.mDrawerType);
+            af a = ef.b().a(this.mDrawerType);
             this.mDrawer = a;
             a.r(this.mArgs);
         }

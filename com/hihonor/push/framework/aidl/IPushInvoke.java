@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.hihonor.push.framework.aidl.IPushCallback;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IPushInvoke extends IInterface {
 
     /* loaded from: classes9.dex */
@@ -51,7 +51,7 @@ public interface IPushInvoke extends IInterface {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Stub extends Binder implements IPushInvoke {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.hihonor.push.framework.aidl.IPushInvoke";

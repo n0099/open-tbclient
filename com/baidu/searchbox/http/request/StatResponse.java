@@ -3,7 +3,7 @@ package com.baidu.searchbox.http.request;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class StatResponse {
     public Response realResponse;
     public NetworkStatRecord statRecord;

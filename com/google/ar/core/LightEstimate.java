@@ -3,8 +3,7 @@ package com.google.ar.core;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes9.dex */
 public class LightEstimate {
-    public final Session a;
-    public long b;
+    public long a;
 
     public static native long nativeCreateLightEstimate(long j);
 
@@ -17,12 +16,12 @@ public class LightEstimate {
     private native int nativeGetState(long j, long j2);
 
     public LightEstimate() {
-        this.b = 0L;
-        this.b = 0L;
+        this.a = 0L;
+        this.a = 0L;
     }
 
     public void finalize() {
-        long j = this.b;
+        long j = this.a;
         if (j != 0) {
             nativeDestroyLightEstimate(j);
         }
@@ -52,11 +51,5 @@ public class LightEstimate {
             sb.append(i);
             throw new FatalException(sb.toString());
         }
-    }
-
-    public LightEstimate(Session session) {
-        this.b = 0L;
-        this.a = session;
-        this.b = nativeCreateLightEstimate(session.a);
     }
 }

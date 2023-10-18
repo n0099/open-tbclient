@@ -39,7 +39,7 @@ public final class ContinuationKt {
 
             @Override // kotlin.coroutines.Continuation
             public void resumeWith(Object obj) {
-                resumeWith.invoke(Result.m851boximpl(obj));
+                resumeWith.invoke(Result.m850boximpl(obj));
             }
         };
     }
@@ -56,7 +56,7 @@ public final class ContinuationKt {
     public static final <T> void resume(Continuation<? super T> continuation, T t) {
         Intrinsics.checkNotNullParameter(continuation, "<this>");
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m852constructorimpl(t));
+        continuation.resumeWith(Result.m851constructorimpl(t));
     }
 
     @SinceKotlin(version = "1.3")
@@ -65,7 +65,7 @@ public final class ContinuationKt {
         Intrinsics.checkNotNullParameter(continuation, "<this>");
         Intrinsics.checkNotNullParameter(exception, "exception");
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m852constructorimpl(ResultKt.createFailure(exception)));
+        continuation.resumeWith(Result.m851constructorimpl(ResultKt.createFailure(exception)));
     }
 
     @SinceKotlin(version = "1.3")
@@ -74,7 +74,7 @@ public final class ContinuationKt {
         Intrinsics.checkNotNullParameter(completion, "completion");
         Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(IntrinsicsKt__IntrinsicsJvmKt.createCoroutineUnintercepted(function1, completion));
         Result.Companion companion = Result.Companion;
-        intercepted.resumeWith(Result.m852constructorimpl(Unit.INSTANCE));
+        intercepted.resumeWith(Result.m851constructorimpl(Unit.INSTANCE));
     }
 
     @SinceKotlin(version = "1.3")
@@ -104,7 +104,7 @@ public final class ContinuationKt {
         Intrinsics.checkNotNullParameter(completion, "completion");
         Continuation intercepted = IntrinsicsKt__IntrinsicsJvmKt.intercepted(IntrinsicsKt__IntrinsicsJvmKt.createCoroutineUnintercepted(function2, r, completion));
         Result.Companion companion = Result.Companion;
-        intercepted.resumeWith(Result.m852constructorimpl(Unit.INSTANCE));
+        intercepted.resumeWith(Result.m851constructorimpl(Unit.INSTANCE));
     }
 
     public static final CoroutineContext getCoroutineContext() {

@@ -101,7 +101,7 @@ public final class n extends d implements View.OnClickListener {
         if (this.vM.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = this.vM.getLayoutParams();
             if (cB) {
-                int dimensionPixelSize = this.vM.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e9);
+                int dimensionPixelSize = this.vM.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e4);
                 layoutParams.width = -1;
                 layoutParams.height = dimensionPixelSize;
             } else {
@@ -113,15 +113,15 @@ public final class n extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091329);
-        this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f09132d);
-        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09132c);
-        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091330);
-        this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f09132f);
-        this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09132a);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09132b);
-        this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091328);
-        this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091327);
+        this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091342);
+        this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f091346);
+        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091345);
+        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091349);
+        this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f091348);
+        this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091343);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091344);
+        this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091341);
+        this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091340);
         this.vM.setOnClickListener(this);
         this.vQ.setOnClickListener(this);
         this.vP.setOnClickListener(this);
@@ -171,12 +171,12 @@ public final class n extends d implements View.OnClickListener {
         ViewGroup.LayoutParams layoutParams = this.nC.getLayoutParams();
         int i = 18;
         if (layoutParams != null) {
-            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ea);
+            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e5);
             if (!cB) {
-                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ec);
+                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e7);
                 i = 14;
             } else if (am) {
-                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704eb);
+                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e6);
                 i = 24;
             }
             layoutParams.width = dimensionPixelSize;
@@ -212,7 +212,7 @@ public final class n extends d implements View.OnClickListener {
         ViewGroup.MarginLayoutParams marginLayoutParams = layoutParams instanceof ViewGroup.MarginLayoutParams ? (ViewGroup.MarginLayoutParams) layoutParams : null;
         if (z) {
             if (marginLayoutParams != null) {
-                marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e7);
+                marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e1);
             }
             this.vM.setBackgroundColor(-1);
             this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0607a3));

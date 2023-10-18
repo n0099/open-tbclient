@@ -4,9 +4,7 @@ import java.nio.FloatBuffer;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class Frame {
-    public final Session a;
-    public final LightEstimate b;
-    public long c;
+    public long a;
 
     private native long nativeAcquireCameraImage(long j, long j2);
 
@@ -46,22 +44,15 @@ public class Frame {
     }
 
     public Frame() {
-        this.c = 0L;
-        this.c = 0L;
+        this.a = 0L;
+        this.a = 0L;
     }
 
     public void finalize() {
-        long j = this.c;
+        long j = this.a;
         if (j != 0) {
             nativeDestroyFrame(j);
         }
         super.finalize();
-    }
-
-    public Frame(Session session) {
-        this.c = 0L;
-        this.a = session;
-        this.c = nativeCreateFrame(session.a);
-        this.b = new LightEstimate(session);
     }
 }

@@ -1,137 +1,61 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.m77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.security.MessageDigest;
-/* loaded from: classes7.dex */
-public class rn6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public final class rn6 implements m77 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948127439, "Lcom/baidu/tieba/rn6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948127439, "Lcom/baidu/tieba/rn6;");
-                return;
-            }
-        }
-        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-    }
-
-    public static String a(byte[] bArr) {
+    @Override // com.baidu.tieba.m77
+    public String c(v27 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (byte b : bArr) {
-                sb.append(a[(b & 240) >>> 4]);
-                sb.append(a[b & 15]);
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            return "user_head_click1";
         }
         return (String) invokeL.objValue;
     }
 
-    public static String b(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
+    public rn6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    String c = c(fileInputStream);
-                    un6.a(fileInputStream);
-                    return c;
-                } catch (Exception unused) {
-                    un6.a(fileInputStream);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    un6.a(fileInputStream2);
-                    throw th;
-                }
-            } catch (Exception unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        } else {
-            return (String) invokeL.objValue;
         }
     }
 
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.l77
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            byte[] bArr = new byte[1024];
-            try {
-                try {
-                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            messageDigest.update(bArr, 0, read);
-                        } else {
-                            String a2 = a(messageDigest.digest());
-                            un6.a(inputStream);
-                            return a2;
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    un6.a(inputStream);
-                    return null;
-                }
-            } catch (Throwable th) {
-                un6.a(inputStream);
-                throw th;
-            }
-        } else {
-            return (String) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return m77.a.b(this);
         }
+        return (String) invokeV.objValue;
     }
 
-    public static boolean d(File file, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.l77
+    public Map<String, String> a(v27 v27Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str)) == null) {
-            try {
-                String b = b(file);
-                if (b != null) {
-                    if (TextUtils.equals(b.toLowerCase(), str.toLowerCase())) {
-                        return true;
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v27Var)) == null) {
+            return m77.a.a(this, v27Var);
         }
-        return invokeLL.booleanValue;
+        return (Map) invokeL.objValue;
     }
 }

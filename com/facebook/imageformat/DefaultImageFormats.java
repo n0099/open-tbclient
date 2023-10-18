@@ -1,7 +1,6 @@
 package com.facebook.imageformat;
 
 import com.baidu.android.util.media.WebpUtils;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.facebook.common.internal.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,7 @@ public final class DefaultImageFormats {
     public static ImmutableList<ImageFormat> sAllDefaultFormats;
     public static final ImageFormat JPEG = new ImageFormat("JPEG", "jpeg");
     public static final ImageFormat PNG = new ImageFormat("PNG", "png");
-    public static final ImageFormat GIF = new ImageFormat("GIF", NativeConstants.TYPE_GIF);
+    public static final ImageFormat GIF = new ImageFormat("GIF", "gif");
     public static final ImageFormat BMP = new ImageFormat("BMP", "bmp");
     public static final ImageFormat ICO = new ImageFormat("ICO", "ico");
     public static final ImageFormat WEBP_SIMPLE = new ImageFormat("WEBP_SIMPLE", WebpUtils.TYPE_IMG_WEBP);

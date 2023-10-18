@@ -9,7 +9,7 @@ import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.z45;
+import com.baidu.tieba.hz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
 /* loaded from: classes4.dex */
-public class PermissionRequestDialog extends z45 {
+public class PermissionRequestDialog extends hz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -84,7 +84,7 @@ public class PermissionRequestDialog extends z45 {
             this.mDetailView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
             TextView textView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
             this.mCloseView = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f0474);
+            textView.setText(R.string.obfuscated_res_0x7f0f0476);
             TextView textView2 = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
             this.mContinueView = textView2;
             textView2.setText(R.string.alert_yes_button);
@@ -93,8 +93,8 @@ public class PermissionRequestDialog extends z45 {
         }
     }
 
-    @Override // com.baidu.tieba.z45
-    public z45 create(BdPageContext<?> bdPageContext) {
+    @Override // com.baidu.tieba.hz4
+    public hz4 create(BdPageContext<?> bdPageContext) {
         InterceptResult invokeL;
         char c;
         String string;
@@ -204,7 +204,7 @@ public class PermissionRequestDialog extends z45 {
             });
             return this;
         }
-        return (z45) invokeL.objValue;
+        return (hz4) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

@@ -3,7 +3,7 @@ package com.baidu.ar.mdl;
 public class a {
 
     /* renamed from: tv  reason: collision with root package name */
-    public boolean f1036tv;
+    public boolean f1035tv;
     public String[] tw;
     public int type;
 }

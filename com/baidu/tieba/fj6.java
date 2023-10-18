@@ -1,238 +1,210 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ej6;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class fj6 implements ej6, View.OnClickListener {
+public class fj6 extends cj6<js6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public LinearLayout b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public dj6 h;
-    public ej6.a i;
-    public int j;
-    public Map<Integer, Float> k;
+    public LinearLayout i;
+    public RelativeLayout j;
+    public TbImageView k;
+    public ImageView l;
+    public TextView m;
+    public TextView n;
+    public ClickableHeaderImageView o;
+    public TextView p;
+    public TextView q;
+    public View r;
+    public js6 s;
 
-    public fj6(TbPageContext tbPageContext, dj6 dj6Var, ej6.a aVar) {
+    @Override // com.baidu.tieba.cj6
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b3 : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fj6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, dj6Var, aVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = 0;
-        this.k = new HashMap();
-        this.a = tbPageContext;
-        this.h = dj6Var;
-        this.i = aVar;
-        d();
+        o(i());
     }
 
-    @Override // com.baidu.tieba.ej6
-    public int a() {
-        InterceptResult invokeV;
+    public final void A(ThreadData threadData) {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b.getVisibility();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ej6
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.j != 0) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) && (textView = this.p) != null && threadData != null) {
+            textView.setVisibility(0);
+            if (!StringUtils.isNull(threadData.getAuthor().getName_show())) {
+                this.p.setText(u(threadData.getAuthor().getName_show()));
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ej6
-    public float getSpeed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k.get(Integer.valueOf(this.j)).floatValue();
-        }
-        return invokeV.floatValue;
-    }
-
-    @Override // com.baidu.tieba.ej6
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            f(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.ej6
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b.setVisibility(i);
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            h(this.j, false);
-            this.j = i;
-            h(i, true);
-            dj6 dj6Var = this.h;
-            if (dj6Var != null) {
-                dj6Var.a(getSpeed());
-            }
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.k.put(0, Float.valueOf(1.0f));
-            this.k.put(1, Float.valueOf(0.5f));
-            this.k.put(2, Float.valueOf(0.33333334f));
-            this.k.put(3, Float.valueOf(2.0f));
-            this.k.put(4, Float.valueOf(3.0f));
-            e();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = (LinearLayout) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09056a);
-            this.c = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092286);
-            this.d = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092285);
-            this.e = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092284);
-            this.f = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092281);
-            this.g = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092282);
-            this.c.setOnClickListener(this);
-            this.d.setOnClickListener(this);
-            this.e.setOnClickListener(this);
-            this.f.setOnClickListener(this);
-            this.g.setOnClickListener(this);
-            EMManager.from(this.b).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0214);
-            g(this.e, true);
-            g(this.c, false);
-            g(this.d, false);
-            g(this.f, false);
-            g(this.g, false);
-        }
-    }
-
-    public final void g(TextView textView, boolean z) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, textView, z) == null) {
-            Resources resources = this.a.getResources();
-            if (z) {
-                i = R.color.CAM_X0302;
-            } else {
-                i = R.color.CAM_X0101;
-            }
-            textView.setTextColor(resources.getColor(i));
-            if (z) {
-                i2 = R.dimen.T_X05;
-            } else {
-                i2 = R.dimen.T_X07;
-            }
-            textView.setTextSize(0, UtilHelper.getDimenPixelSize(i2));
-        }
-    }
-
-    public final void h(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i == 4) {
-                                g(this.g, z);
-                                return;
-                            }
-                            return;
-                        }
-                        g(this.f, z);
-                        return;
-                    }
-                    g(this.c, z);
-                    return;
-                }
-                g(this.d, z);
-                return;
-            }
-            g(this.e, z);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f092286) {
-                ej6.a aVar = this.i;
-                if (aVar == null || aVar.a(2)) {
-                    f(2);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && f() != null) {
+            f().a(i(), this.s);
+        }
+    }
+
+    public String u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return StringHelper.cutChineseAndEnglishWithSuffix(str, 14, "...");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void x(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (view2 = this.r) != null) {
+            view2.setVisibility(i);
+        }
+    }
+
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.o.setVisibility(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.cj6
+    public void k(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(i(), R.color.CAM_X0201);
+                SkinManager.setBackgroundResource(this.r, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(this.m, R.color.CAM_X0101, 1);
+                tfa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                if (readThreadHistory != null && readThreadHistory.d(this.s.getThreadData().getId())) {
+                    SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
+                } else {
+                    SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0105);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092285) {
-                ej6.a aVar2 = this.i;
-                if (aVar2 == null || aVar2.a(1)) {
-                    f(1);
+                SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.q, R.color.CAM_X0109, 1);
+            }
+            this.a = i;
+        }
+    }
+
+    public final void o(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0905e1);
+            this.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0905e0);
+            this.k = (TbImageView) view2.findViewById(R.id.img_thumbnail);
+            this.l = (ImageView) view2.findViewById(R.id.img_play);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905e9);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905ea);
+            this.o = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905e7);
+            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905c9);
+            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905c8);
+            this.r = view2.findViewById(R.id.obfuscated_res_0x7f0905c1);
+            this.k.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080a7a);
+            int dimensionPixelSize = this.c.getResources().getDimensionPixelSize(R.dimen.tbds326);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.j.getLayoutParams();
+            layoutParams.width = dimensionPixelSize;
+            layoutParams.height = (dimensionPixelSize * 9) / 16;
+            this.j.setLayoutParams(layoutParams);
+            this.o.setDefaultResource(17170445);
+            this.o.setDefaultBgResource(R.color.CAM_X0205);
+            this.o.setIsRound(true);
+            this.o.setDrawBorder(true);
+            this.o.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.o.setBorderWidth(this.c.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            i().setOnClickListener(this);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cj6
+    /* renamed from: t */
+    public void j(js6 js6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, js6Var) == null) && js6Var != null && js6Var.getThreadData() != null) {
+            this.s = js6Var;
+            String str = null;
+            if (js6Var.getThreadData().isVideoThreadType()) {
+                this.l.setVisibility(0);
+                this.m.setVisibility(0);
+                if (js6Var.getThreadData().getThreadVideoInfo() != null) {
+                    this.m.setText(StringHelper.stringForVideoTime(js6Var.getThreadData().getThreadVideoInfo().video_duration.intValue() * 1000));
+                    str = js6Var.getThreadData().getThreadVideoInfo().thumbnail_url;
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092284) {
-                ej6.a aVar3 = this.i;
-                if (aVar3 == null || aVar3.a(0)) {
-                    f(0);
-                }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092281) {
-                ej6.a aVar4 = this.i;
-                if (aVar4 == null || aVar4.a(3)) {
-                    f(3);
-                }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092282) {
-                ej6.a aVar5 = this.i;
-                if (aVar5 == null || aVar5.a(4)) {
-                    f(4);
+            } else {
+                this.l.setVisibility(8);
+                this.m.setVisibility(8);
+                if (js6Var.getThreadData().getMedias() != null && js6Var.getThreadData().getMedias().size() >= 1) {
+                    str = js6Var.getThreadData().getMedias().get(0).origin_pic;
                 }
             }
+            this.k.startLoad(str, 10, false);
+            this.n.setText(js6Var.getThreadData().getTitle());
+            tfa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            if (readThreadHistory != null && readThreadHistory.d(js6Var.getThreadData().getId())) {
+                SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
+            } else {
+                SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0105);
+            }
+            this.o.setData(js6Var.getThreadData(), false);
+            this.q.setText(StringHelper.getFormatTimeShort(js6Var.getThreadData().getAuditTime()));
+            if (CommonToolbarStatisticConstants.TOOLBAR_MENU_NEW_DETAIL_BROWSER.equals(js6Var.getThreadData().getGameInformationSource())) {
+                this.o.setVisibility(8);
+                this.p.setText(this.b.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(js6Var.getThreadData().getView_num())));
+                return;
+            }
+            this.o.setVisibility(0);
+            A(js6Var.getThreadData());
+        }
+    }
+
+    public void y(int i, int i2, int i3, int i4) {
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) && (linearLayout = this.i) != null) {
+            linearLayout.setPadding(i, i2, i3, i4);
         }
     }
 }

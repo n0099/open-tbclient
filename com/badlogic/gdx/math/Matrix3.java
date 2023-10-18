@@ -653,7 +653,7 @@ public class Matrix3 implements Serializable {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048598, this, vector3, f)) == null) {
-            return setToRotation(vector3, d.d(f), d.p(f));
+            return setToRotation(vector3, b.d(f), b.m(f));
         }
         return (Matrix3) invokeLF.objValue;
     }

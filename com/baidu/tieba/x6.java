@@ -1,277 +1,339 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public class x6 {
+public class x6 extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long[] a;
+    public Bitmap a;
+    public BitmapFactory.Options b;
+    public a c;
+    public boolean d;
 
-    public x6() {
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public void endLog() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static byte d = Byte.MIN_VALUE;
+        public static byte e = Byte.MIN_VALUE;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public long b;
+        public boolean c;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(266265234, "Lcom/baidu/tieba/x6$a;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(266265234, "Lcom/baidu/tieba/x6$a;");
+            }
+        }
+
+        public static int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return 14;
+            }
+            return invokeV.intValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = false;
+            this.b = 0L;
+            this.c = true;
+        }
+
+        public boolean b(byte[] bArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+                if (bArr == null || bArr.length < a()) {
+                    return false;
+                }
+                ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, a());
+                if (wrap.getInt() != 1786600511) {
+                    return false;
+                }
+                if ((wrap.get() & d) != 0) {
+                    this.a = true;
+                }
+                this.b = wrap.getLong();
+                if ((wrap.get() & e) != 0) {
+                    this.c = false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public byte[] c() {
+            InterceptResult invokeV;
+            byte b;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                ByteBuffer allocate = ByteBuffer.allocate(a());
+                allocate.putInt(1786600511);
+                byte b2 = 0;
+                if (this.a) {
+                    b = (byte) (d | 0);
+                } else {
+                    b = 0;
+                }
+                allocate.put(b);
+                allocate.putLong(this.b);
+                if (!this.c) {
+                    b2 = (byte) (e | 0);
+                }
+                allocate.put(b2);
+                allocate.flip();
+                return allocate.array();
+            }
+            return (byte[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x6(String str, String str2, DiskFileOperate.Action action) {
+        super(str, str2, action);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, action};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new long[]{0};
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = true;
+        this.c = new a();
     }
 
-    public void b() {
+    public static int a(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Arrays.fill(this.a, 0L);
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long[] jArr = this.a;
-            int length = jArr.length;
-            for (int i = 0; i < length; i++) {
-                if (jArr[i] != 0) {
-                    return false;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
+                int i7 = i4 / 2;
+                while (i6 / i5 >= i2 && i7 / i5 >= i) {
+                    i5 *= 2;
                 }
             }
-            return true;
+            return i5;
+        }
+        return invokeLII.intValue;
+    }
+
+    public boolean b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            if (bArr == null || !this.c.b(bArr)) {
+                return false;
+            }
+            long j = this.c.b;
+            if (j != 0 && j < System.currentTimeMillis()) {
+                return false;
+            }
+            int a2 = a.a();
+            try {
+                if (this.b == null) {
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    this.b = options;
+                    options.inPreferredConfig = Bitmap.Config.RGB_565;
+                }
+                this.b.inJustDecodeBounds = true;
+                BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.b);
+            } catch (Error e) {
+                BdLog.e(e.getMessage());
+            }
+            if (!this.b.mCancel && this.b.outWidth != -1 && this.b.outHeight != -1) {
+                this.b.inSampleSize = a(this.b, i, i2);
+                this.b.inJustDecodeBounds = false;
+                this.a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.b);
+                if (this.a == null) {
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLII.booleanValue;
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public byte[] buildFormatData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mData != null && this.d) {
+                return this.c.c();
+            }
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public byte[] c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int a2 = a.a();
+            int length = this.mData.length - a2;
+            byte[] bArr = new byte[length];
+            System.arraycopy(this.mData, a2, bArr, 0, length);
+            return bArr;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.c;
         }
         return invokeV.booleanValue;
     }
 
-    public int hashCode() {
+    public Bitmap getBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public boolean isGif() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int h = h() >>> 6;
-            int i = 0;
-            for (int i2 = 0; h >= i2; i2++) {
-                long[] jArr = this.a;
-                i = (i * 127) + ((int) (jArr[i2] ^ (jArr[i2] >>> 32)));
-            }
-            return i;
+            return this.c.a;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public final void a(int i) {
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public void startLog() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            long[] jArr = this.a;
-            if (i >= jArr.length) {
-                long[] jArr2 = new long[i + 1];
-                System.arraycopy(jArr, 0, jArr2, 0, jArr.length);
-                this.a = jArr2;
-            }
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            System.currentTimeMillis();
         }
     }
 
-    public void c(int i) {
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            int i2 = i >>> 6;
-            long[] jArr = this.a;
-            if (i2 >= jArr.length) {
-                return;
-            }
-            jArr[i2] = jArr[i2] & (~(1 << (i & 63)));
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c.c = z;
         }
     }
 
-    public boolean e(int i) {
-        InterceptResult invokeI;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            int i2 = i >>> 6;
-            long[] jArr = this.a;
-            if (i2 >= jArr.length || (jArr[i2] & (1 << (i & 63))) == 0) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.d = z;
         }
-        return invokeI.booleanValue;
     }
 
-    public boolean f(x6 x6Var) {
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public void setData(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bArr) == null) {
+            super.setData(bArr);
+            if (!isGif() && BdUtilHelper.isGif(bArr)) {
+                setGif(true);
+            }
+        }
+    }
+
+    public void setGif(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.c.a = z;
+        }
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public boolean formatData(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, x6Var)) == null) {
-            long[] jArr = this.a;
-            long[] jArr2 = x6Var.a;
-            for (int min = Math.min(jArr.length, jArr2.length) - 1; min >= 0; min--) {
-                if ((jArr[min] & jArr2[min]) != 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
+            if (bArr != null && this.c.b(bArr)) {
+                long j = this.c.b;
+                if (j == 0 || j >= System.currentTimeMillis()) {
+                    if (this.b == null) {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        this.b = options;
+                        options.inPreferredConfig = Bitmap.Config.RGB_565;
+                    }
+                    int a2 = a.a();
+                    try {
+                        this.a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.b);
+                    } catch (Error e) {
+                        BdLog.e(e.getMessage());
+                    }
+                    if (this.a == null) {
+                        return false;
+                    }
                     return true;
                 }
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            int i2 = i >>> 6;
-            a(i2);
-            long[] jArr = this.a;
-            jArr[i2] = jArr[i2] | (1 << (i & 63));
-        }
-    }
-
-    public boolean d(x6 x6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, x6Var)) == null) {
-            long[] jArr = this.a;
-            long[] jArr2 = x6Var.a;
-            int length = jArr2.length;
-            int length2 = jArr.length;
-            for (int i = length2; i < length; i++) {
-                if (jArr2[i] != 0) {
-                    return false;
-                }
-            }
-            for (int min = Math.min(length2, length) - 1; min >= 0; min--) {
-                if ((jArr[min] & jArr2[min]) != jArr2[min]) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void j(x6 x6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, x6Var) == null) {
-            int min = Math.min(this.a.length, x6Var.a.length);
-            for (int i = 0; min > i; i++) {
-                long[] jArr = this.a;
-                jArr[i] = jArr[i] | x6Var.a[i];
-            }
-            long[] jArr2 = x6Var.a;
-            if (min < jArr2.length) {
-                a(jArr2.length);
-                int length = x6Var.a.length;
-                while (length > min) {
-                    this.a[min] = x6Var.a[min];
-                    min++;
-                }
-            }
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || x6.class != obj.getClass()) {
-                return false;
-            }
-            x6 x6Var = (x6) obj;
-            long[] jArr = x6Var.a;
-            int min = Math.min(this.a.length, jArr.length);
-            for (int i = 0; min > i; i++) {
-                if (this.a[i] != jArr[i]) {
-                    return false;
-                }
-            }
-            if (this.a.length == jArr.length || h() == x6Var.h()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0029, code lost:
-        return (r1 << 6) + r15;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int i(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            long[] jArr = this.a;
-            int i3 = i >>> 6;
-            int length = jArr.length;
-            if (i3 >= length) {
-                return -1;
-            }
-            long j = jArr[i3];
-            if (j != 0) {
-                i2 = i & 63;
-                while (i2 < 64) {
-                    if (((1 << (i2 & 63)) & j) != 0) {
-                        break;
-                    }
-                    i2++;
-                }
-            }
-            loop1: while (true) {
-                i3++;
-                if (i3 >= length) {
-                    return -1;
-                }
-                if (i3 != 0) {
-                    long j2 = jArr[i3];
-                    if (j2 != 0) {
-                        i2 = 0;
-                        while (i2 < 64) {
-                            if (((1 << (i2 & 63)) & j2) != 0) {
-                                break loop1;
-                            }
-                            i2++;
-                        }
-                        continue;
-                    } else {
-                        continue;
-                    }
-                }
-            }
-        } else {
-            return invokeI.intValue;
-        }
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long[] jArr = this.a;
-            for (int length = jArr.length - 1; length >= 0; length--) {
-                long j = jArr[length];
-                if (j != 0) {
-                    for (int i = 63; i >= 0; i--) {
-                        if (((1 << (i & 63)) & j) != 0) {
-                            return (length << 6) + i + 1;
-                        }
-                    }
-                    continue;
-                }
-            }
-            return 0;
-        }
-        return invokeV.intValue;
     }
 }

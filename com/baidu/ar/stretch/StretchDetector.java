@@ -64,7 +64,7 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
                 if (strArr == null || strArr.length == 0) {
                     return -1;
                 }
-                return aVar.f1036tv ? ARMdlInterfaceJNI.initBodyKeyPointFromAssetDir(strArr[0]) : ARMdlInterfaceJNI.initBodyKeyPoint(strArr[0]);
+                return aVar.f1035tv ? ARMdlInterfaceJNI.initBodyKeyPointFromAssetDir(strArr[0]) : ARMdlInterfaceJNI.initBodyKeyPoint(strArr[0]);
             }
 
             @Override // com.baidu.ar.c.a

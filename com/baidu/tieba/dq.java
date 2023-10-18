@@ -1,274 +1,369 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.ctrl.model.TaskEnvTag;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.ctrl.model.TaskStatusRuntime;
-import com.baidu.bdtask.model.info.TaskInfo;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.bq;
+import com.baidu.tieba.cq;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public final class dq {
+public final class dq extends cq {
     public static /* synthetic */ Interceptable $ic;
+    public static WeakReference<eq> a;
+    public static Toast b;
+    public static Handler c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dq() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ ViewGroup b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ bq.a d;
 
-    public final com.baidu.bdtask.ctrl.b a(com.baidu.bdtask.ctrl.b bVar, cr crVar) {
-        InterceptResult invokeLL;
-        com.baidu.bdtask.ctrl.b bVar2;
-        TaskStatus taskStatus;
-        TaskStatusRuntime taskStatusRuntime;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, crVar)) == null) {
-            if (bVar == null || (bVar2 = bVar.e()) == null) {
-                bVar2 = new com.baidu.bdtask.ctrl.b();
-            }
-            SubTaskState c = com.baidu.bdtask.ctrl.b.c(bVar2, null, 1, null);
-            if (c != null) {
-                c.processRuleDataMaxValueFix();
-            }
-            SubTaskState c2 = com.baidu.bdtask.ctrl.b.c(bVar2, null, 1, null);
-            if (c2 != null && (taskStatus = c2.getTaskStatus()) != null && (taskStatusRuntime = taskStatus.getTaskStatusRuntime()) != null) {
-                taskStatusRuntime.setCurAction(crVar);
-            }
-            return bVar2;
-        }
-        return (com.baidu.bdtask.ctrl.b) invokeLL.objValue;
-    }
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
 
-    public final com.baidu.bdtask.ctrl.b b(com.baidu.bdtask.ctrl.b bVar, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, str)) == null) {
-            TaskInfo f = bVar.f(str);
-            if (f != null) {
-                if (tv.a.c(f.getTaskRule().getExpireTime())) {
-                    return bVar;
-                }
-                SubTaskState k = bVar.k(str);
-                if (k != null) {
-                    k.updateStatus(22, 103, "task is expired");
-                    k.getTaskStatus().clearProcess();
-                }
-            }
-            return bVar;
-        }
-        return (com.baidu.bdtask.ctrl.b) invokeLL.objValue;
-    }
+            /* renamed from: com.baidu.tieba.dq$b$a$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class View$OnClickListenerC0258a implements View.OnClickListener {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a a;
 
-    public final com.baidu.bdtask.ctrl.b c(cr crVar, com.baidu.bdtask.ctrl.b bVar) {
-        InterceptResult invokeLL;
-        cr crVar2;
-        cr crVar3;
-        cr crVar4;
-        cr crVar5;
-        cr crVar6;
-        cr crVar7;
-        cr crVar8;
-        cr crVar9;
-        cr crVar10;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, crVar, bVar)) == null) {
-            iq iqVar = null;
-            if (!(crVar instanceof nq)) {
-                crVar2 = null;
-            } else {
-                crVar2 = crVar;
-            }
-            if (Intrinsics.areEqual(crVar, (nq) crVar2)) {
-                com.baidu.bdtask.ctrl.b a = a(bVar, crVar);
-                nq nqVar = (nq) crVar;
-                a.h(nqVar.h());
-                a.i(nqVar.h(), nqVar.i());
-                SubTaskState k = a.k(nqVar.f());
-                if (k != null) {
-                    k.setInterceptor(nqVar.j());
-                    k.updateStatus(nqVar.g(), Integer.valueOf(nqVar.a()), nqVar.d());
-                }
-                b(a, nqVar.f());
-                return a;
-            }
-            if (!(crVar instanceof fq)) {
-                crVar3 = null;
-            } else {
-                crVar3 = crVar;
-            }
-            if (Intrinsics.areEqual(crVar, (fq) crVar3)) {
-                com.baidu.bdtask.ctrl.b a2 = a(bVar, crVar);
-                fq fqVar = (fq) crVar;
-                SubTaskState k2 = a2.k(fqVar.f());
-                if (k2 != null) {
-                    k2.updateStatus(fqVar.g(), Integer.valueOf(fqVar.a()), fqVar.d());
-                    k2.updateExtraUnRegisterMsg(fqVar.h());
-                }
-                return a2;
-            }
-            if (!(crVar instanceof mq)) {
-                crVar4 = null;
-            } else {
-                crVar4 = crVar;
-            }
-            if (Intrinsics.areEqual(crVar, (mq) crVar4)) {
-                com.baidu.bdtask.ctrl.b a3 = a(bVar, crVar);
-                mq mqVar = (mq) crVar;
-                SubTaskState k3 = a3.k(mqVar.f());
-                if (k3 != null) {
-                    k3.updateStatus(mqVar.g(), Integer.valueOf(mqVar.a()), mqVar.d()).getTaskStatus().setInterruptErrorNo(mqVar.h());
-                    k3.clearProcess();
-                    k3.cleanDuplicateId();
-                }
-                return a3;
-            }
-            if (!(crVar instanceof eq)) {
-                crVar5 = null;
-            } else {
-                crVar5 = crVar;
-            }
-            if (Intrinsics.areEqual(crVar, (eq) crVar5)) {
-                com.baidu.bdtask.ctrl.b a4 = a(bVar, crVar);
-                eq eqVar = (eq) crVar;
-                SubTaskState k4 = a4.k(eqVar.f());
-                if (k4 != null) {
-                    k4.updateStatus(eqVar.g(), Integer.valueOf(eqVar.a()), eqVar.d());
-                    k4.reset2Running(k4.getTaskInfo().isPassiveTask());
-                }
-                return a4;
-            }
-            if (!(crVar instanceof gq)) {
-                crVar6 = null;
-            } else {
-                crVar6 = crVar;
-            }
-            if (Intrinsics.areEqual(crVar, (gq) crVar6)) {
-                com.baidu.bdtask.ctrl.b a5 = a(bVar, crVar);
-                gq gqVar = (gq) crVar;
-                SubTaskState k5 = a5.k(gqVar.f());
-                if (k5 != null) {
-                    k5.updateStatus(gqVar.g(), Integer.valueOf(gqVar.a()), gqVar.d());
-                    TaskProcess process = k5.getTaskStatus().getProcess();
-                    if (!TextUtils.isEmpty(gqVar.i())) {
-                        process.addEnvTag(TaskEnvTag.a.a(TaskEnvTag.Companion, gqVar.i(), 1L, 0L, 4, null));
-                    }
-                    process.addClickNumber();
-                    if (k5.getTaskInfo().getTaskRule().isNeedUnique()) {
-                        process.cacheDuplicateId(gqVar.h());
-                    }
-                }
-                b(a5, gqVar.f());
-                return a5;
-            }
-            if (!(crVar instanceof hq)) {
-                crVar7 = null;
-            } else {
-                crVar7 = crVar;
-            }
-            if (Intrinsics.areEqual(crVar, (hq) crVar7)) {
-                com.baidu.bdtask.ctrl.b a6 = a(bVar, crVar);
-                hq hqVar = (hq) crVar;
-                SubTaskState k6 = a6.k(hqVar.f());
-                if (k6 != null) {
-                    k6.updateStatus(hqVar.g(), Integer.valueOf(hqVar.a()), hqVar.d());
-                    TaskStatus taskStatus = k6.getTaskStatus();
-                    TaskProcess process2 = taskStatus.getProcess();
-                    process2.addStayTime(hqVar.h());
-                    if (!TextUtils.isEmpty(hqVar.j())) {
-                        process2.addEnvTag(TaskEnvTag.a.a(TaskEnvTag.Companion, hqVar.j(), hqVar.h(), 0L, 4, null));
-                    }
-                    taskStatus.getTaskStatusRuntime().setCurDuplicateId(hqVar.i());
-                }
-                b(a6, hqVar.f());
-                return a6;
-            }
-            if (!(crVar instanceof lq)) {
-                crVar8 = null;
-            } else {
-                crVar8 = crVar;
-            }
-            if (Intrinsics.areEqual(crVar, (lq) crVar8)) {
-                lq lqVar = (lq) crVar;
-                TaskInfo k7 = lqVar.k();
-                com.baidu.bdtask.ctrl.b a7 = a(bVar, crVar);
-                SubTaskState k8 = a7.k(lqVar.f());
-                if (k8 != null) {
-                    if (mv.a.a(lqVar.a()) && k8.getTaskInfo().getTaskRule().isNeedSkipRequestError()) {
-                        k8.updateStatus(lqVar.i(), 0, "");
-                        k8.getTaskStatus().getTaskStatusRuntime().setResponseDataIsCache(true);
-                    } else {
-                        k8.updateStatus(lqVar.i(), Integer.valueOf(lqVar.a()), lqVar.d());
-                        k8.updateTaskInfoByMerge(k7);
-                        k8.updateTaskInfoWithResponse(lqVar.j());
-                        k8.getTaskStatus().getTaskStatusRuntime().setResponseDataIsCache(false);
-                        if (k8.getTaskInfo().getTaskRule().isNeedUnique() && k8.getTaskInfo().isVisitAction()) {
-                            k8.getTaskStatus().getProcess().cacheDuplicateId(lqVar.l());
+                public View$OnClickListenerC0258a(a aVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
                         }
-                        k8.clearProcessTags();
-                        k8.addExitOnce();
+                    }
+                    this.a = aVar;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    bq.a aVar;
+                    Interceptable interceptable = $ic;
+                    if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a.d) != null) {
+                        aVar.onToastClick();
                     }
                 }
-                b(a7, lqVar.f());
-                return a7;
             }
-            if (!(crVar instanceof jq)) {
-                crVar9 = null;
-            } else {
-                crVar9 = crVar;
-            }
-            if (Intrinsics.areEqual(crVar, (jq) crVar9)) {
-                com.baidu.bdtask.ctrl.b a8 = a(bVar, crVar);
-                jq jqVar = (jq) crVar;
-                SubTaskState k9 = a8.k(jqVar.f());
-                if (k9 != null) {
-                    k9.updateStatus(jqVar.g(), Integer.valueOf(jqVar.a()), jqVar.d()).getTaskStatus().getTaskStatusRuntime().setDuplicated(true);
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
                 }
-                return a8;
+                this.a = bVar;
             }
-            if (!(crVar instanceof kq)) {
-                crVar10 = null;
-            } else {
-                crVar10 = crVar;
-            }
-            if (Intrinsics.areEqual(crVar, (kq) crVar10)) {
-                com.baidu.bdtask.ctrl.b a9 = a(bVar, crVar);
-                SubTaskState k10 = a9.k(((kq) crVar).f());
-                if (k10 != null) {
-                    k10.resetExit();
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && lq.q()) {
+                    Toast unused = dq.b = new Toast(this.a.a);
+                    dq.b.setView(this.a.b);
+                    dq.b.setGravity(81, 0, this.a.c);
+                    lq.m(dq.b, R.style.obfuscated_res_0x7f100443);
+                    this.a.b.setOnClickListener(new View$OnClickListenerC0258a(this));
+                    dq.b.show();
                 }
-                return a9;
             }
-            if (crVar instanceof iq) {
-                iqVar = crVar;
-            }
-            if (Intrinsics.areEqual(crVar, iqVar)) {
-                com.baidu.bdtask.ctrl.b a10 = a(bVar, crVar);
-                iq iqVar2 = (iq) crVar;
-                SubTaskState k11 = a10.k(iqVar2.f());
-                if (k11 != null && k11.getTaskInfo().getTaskRule().isNeedUnique() && !TextUtils.isEmpty(iqVar2.g())) {
-                    k11.getTaskStatus().getProcess().cacheDuplicateId(iqVar2.g());
-                }
-                return a10;
-            }
-            return a(bVar, crVar);
         }
-        return (com.baidu.bdtask.ctrl.b) invokeLL.objValue;
+
+        public b(Context context, ViewGroup viewGroup, int i, bq.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, viewGroup, Integer.valueOf(i), aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = viewGroup;
+            this.c = i;
+            this.d = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                dq.c.post(new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ ViewGroup b;
+        public final /* synthetic */ int c;
+
+        /* renamed from: com.baidu.tieba.dq$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0257a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0257a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && lq.q()) {
+                    Toast unused = dq.b = new Toast(this.a.a);
+                    dq.b.setView(this.a.b);
+                    dq.b.setGravity(81, 0, this.a.c);
+                    lq.m(dq.b, R.style.obfuscated_res_0x7f100443);
+                    dq.b.show();
+                }
+            }
+        }
+
+        public a(Context context, ViewGroup viewGroup, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, viewGroup, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = viewGroup;
+            this.c = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                dq.c.post(new RunnableC0257a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements cq.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+
+        public c(Context context, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = i;
+            this.c = i2;
+        }
+
+        @Override // com.baidu.tieba.cq.e
+        public void a(ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
+                eq eqVar = new eq(this.a);
+                dq.j(eqVar);
+                if (lq.d()) {
+                    eqVar.n(2003);
+                }
+                eqVar.f(viewGroup);
+                eqVar.e(81, 0, this.b);
+                eqVar.d(this.c);
+                eqVar.j(R.style.obfuscated_res_0x7f100443);
+                eqVar.c();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d implements bq.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bq.a a;
+
+        public d(bq.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        @Override // com.baidu.tieba.bq.a
+        public void onToastClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                bq.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onToastClick();
+                }
+                dq.e();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448302784, "Lcom/baidu/tieba/dq;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448302784, "Lcom/baidu/tieba/dq;");
+                return;
+            }
+        }
+        c = new Handler(Looper.getMainLooper());
+    }
+
+    public static void e() {
+        eq eqVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            WeakReference<eq> weakReference = a;
+            if (weakReference != null && (eqVar = weakReference.get()) != null) {
+                eqVar.i();
+            }
+            Toast toast = b;
+            if (toast != null) {
+                toast.cancel();
+            }
+        }
+    }
+
+    public static void j(eq eqVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, eqVar) == null) {
+            WeakReference<eq> weakReference = a;
+            if (weakReference != null) {
+                weakReference.clear();
+            }
+            a = new WeakReference<>(eqVar);
+        }
+    }
+
+    public static void f(Context context, CharSequence charSequence, int i, String str, CharSequence charSequence2, int i2, int i3, String str2, String str3, String str4, String str5, String str6, bq.a aVar, zn znVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, charSequence, Integer.valueOf(i), str, charSequence2, Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, str4, str5, str6, aVar, znVar}) == null) {
+            Context applicationContext = context.getApplicationContext();
+            int dimension = (int) context.getResources().getDimension(R.dimen.sdk_toast_view_margin_bottom);
+            if (znVar != null) {
+                dimension = znVar.a();
+            }
+            if (lq.p(context)) {
+                ViewGroup a2 = cq.a(context, charSequence, str2, str3);
+                cq.c(str, a2, new b(applicationContext, a2, dimension, aVar));
+                return;
+            }
+            cq.b(context, charSequence, i, charSequence2, i2, str2, str, str3, str4, str5, str6, new c(applicationContext, dimension, i3), new d(aVar));
+        }
+    }
+
+    public static void g(Context context, CharSequence charSequence, int i, String str, String str2, String str3, zn znVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, charSequence, Integer.valueOf(i), str, str2, str3, znVar}) == null) {
+            Context applicationContext = context.getApplicationContext();
+            int dimension = (int) context.getResources().getDimension(R.dimen.sdk_toast_view_margin_bottom);
+            if (znVar != null) {
+                dimension = znVar.a();
+            }
+            ViewGroup a2 = cq.a(context, charSequence, str, str3);
+            cq.c(str2, a2, new a(applicationContext, a2, dimension));
+        }
     }
 }

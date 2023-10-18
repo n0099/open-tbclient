@@ -1,260 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class n3a {
+public final class n3a implements l77 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public String c;
-    public String d;
-    public final int e;
-    public final int f;
-    public final List<String> g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947952909, "Lcom/baidu/tieba/n3a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947952909, "Lcom/baidu/tieba/n3a;");
-                return;
-            }
-        }
-        h = new a(null);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof n3a) {
-                n3a n3aVar = (n3a) obj;
-                return Intrinsics.areEqual(this.a, n3aVar.a) && Intrinsics.areEqual(this.b, n3aVar.b) && Intrinsics.areEqual(this.c, n3aVar.c) && Intrinsics.areEqual(this.d, n3aVar.d) && this.e == n3aVar.e && this.f == n3aVar.f && Intrinsics.areEqual(this.g, n3aVar.g);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
+    @Override // com.baidu.tieba.l77
+    public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (((((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e) * 31) + this.f) * 31) + this.g.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_LIVE_MERGE_CARD_SHOW : (String) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "PushSceneItem(sceneName=" + this.a + ", style=" + this.b + ", title=" + this.c + ", text=" + this.d + ", period=" + this.e + ", threshold=" + this.f + ", sceneClass=" + this.g + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final n3a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                List<String> b = b(jSONObject.optJSONArray("class"));
-                String optString = jSONObject.optString("scene_name");
-                Intrinsics.checkNotNullExpressionValue(optString, "json.optString(\"scene_name\")");
-                String optString2 = jSONObject.optString("style");
-                Intrinsics.checkNotNullExpressionValue(optString2, "json.optString(\"style\")");
-                String optString3 = jSONObject.optString("title");
-                Intrinsics.checkNotNullExpressionValue(optString3, "json.optString(\"title\")");
-                String optString4 = jSONObject.optString("text");
-                Intrinsics.checkNotNullExpressionValue(optString4, "json.optString(\"text\")");
-                return new n3a(optString, optString2, optString3, optString4, jSONObject.optInt("freq"), jSONObject.optInt("threshold"), b);
-            }
-            return (n3a) invokeL.objValue;
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:14:0x0023, code lost:
-            if (r4 == true) goto L13;
-         */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final List<String> b(JSONArray jSONArray) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-                ArrayList arrayList = new ArrayList();
-                if (jSONArray != null) {
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        String optString = jSONArray.optString(i);
-                        boolean z2 = true;
-                        if (optString != null) {
-                            if (optString.length() > 0) {
-                                z = true;
-                            } else {
-                                z = false;
-                            }
-                        }
-                        z2 = false;
-                        if (z2) {
-                            String optString2 = jSONArray.optString(i);
-                            Intrinsics.checkNotNullExpressionValue(optString2, "array.optString(i)");
-                            arrayList.add(optString2);
-                        }
-                    }
-                }
-                return arrayList;
-            }
-            return (List) invokeL.objValue;
-        }
-    }
-
-    public n3a(String sceneName, String style, String title, String text, int i, int i2, List<String> sceneClass) {
+    public n3a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sceneName, style, title, text, Integer.valueOf(i), Integer.valueOf(i2), sceneClass};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(sceneName, "sceneName");
-        Intrinsics.checkNotNullParameter(style, "style");
-        Intrinsics.checkNotNullParameter(title, "title");
-        Intrinsics.checkNotNullParameter(text, "text");
-        Intrinsics.checkNotNullParameter(sceneClass, "sceneClass");
-        this.a = sceneName;
-        this.b = style;
-        this.c = title;
-        this.d = text;
-        this.e = i;
-        this.f = i2;
-        this.g = sceneClass;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.l77
+    public Map<String, String> a(v27 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            String str = businessInfo.a().get("live_attach_image_type");
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            linkedHashMap.put("obj_name", str);
+            String str3 = businessInfo.a().get(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
+            if (str3 == null) {
+                str3 = "";
+            }
+            linkedHashMap.put("obj_source", str3);
+            String str4 = businessInfo.a().get("live_page_from");
+            if (str4 == null) {
+                str4 = "";
+            }
+            linkedHashMap.put(TiebaStatic.Params.OBJ_TO, str4);
+            String str5 = businessInfo.a().get("live_app_id");
+            if (str5 == null) {
+                str5 = "";
+            }
+            linkedHashMap.put(TiebaStatic.Params.OBJ_PARAM3, str5);
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null) {
+                str2 = currentAccount;
+            }
+            linkedHashMap.put("uid", str2);
+            String hdid = TbadkCoreApplication.getInst().getHdid();
+            Intrinsics.checkNotNullExpressionValue(hdid, "getInst().hdid");
+            linkedHashMap.put("hdid", hdid);
+            return linkedHashMap;
         }
-        return invokeV.intValue;
-    }
-
-    public final List<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.d = str;
-        }
-    }
-
-    public final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.c = str;
-        }
+        return (Map) invokeL.objValue;
     }
 }

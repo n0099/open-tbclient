@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
+import com.baidu.tieba.pra;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.verticalviewpager.fragment.VideoAttentionNotLoginFragment;
-import com.baidu.tieba.xwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000[\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004*\u0001\u0010\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\u0010\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\n\u0010\u0016\u001a\u0004\u0018\u00010\u000eH\u0016J\b\u0010\u0017\u001a\u00020\u0007H\u0016J\u0012\u0010\u0018\u001a\u00020\u00132\b\u0010\u0019\u001a\u0004\u0018\u00010\u001aH\u0016J\u0010\u0010\u001b\u001a\u00020\u00132\u0006\u0010\u001c\u001a\u00020\u0007H\u0016J&\u0010\u001d\u001a\u0004\u0018\u00010\u00152\u0006\u0010\u001e\u001a\u00020\u001f2\b\u0010 \u001a\u0004\u0018\u00010!2\b\u0010\u0019\u001a\u0004\u0018\u00010\u001aH\u0016J\b\u0010\"\u001a\u00020\u0013H\u0016J\u0010\u0010#\u001a\u00020\u00132\u0006\u0010$\u001a\u00020\u0007H\u0016R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0011¨\u0006%"}, d2 = {"Lcom/baidu/tieba/videoplay/verticalviewpager/fragment/VideoAttentionNotLoginFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/videoplay/verticalviewpager/transforms/IVideoFragment;", "()V", "mBackHomeAnimListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mCurrentType", "", "mFragmentIndex", "mFromPage", "", "mNotLoginView", "Lcom/baidu/tbadk/core/view/NoDataView;", "mVideoNoLoginData", "Lcom/baidu/tieba/video/VideoItemModel;", "userChangeListener", "com/baidu/tieba/videoplay/verticalviewpager/fragment/VideoAttentionNotLoginFragment$userChangeListener$1", "Lcom/baidu/tieba/videoplay/verticalviewpager/fragment/VideoAttentionNotLoginFragment$userChangeListener$1;", "createNotLoginView", "", "rooView", "Landroid/view/View;", "getCurrentData", "getFragmentIndex", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "onDestroyView", "setFragmentIndex", "index", "VideoPlay_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class VideoAttentionNotLoginFragment extends BaseFragment implements xwa {
+public final class VideoAttentionNotLoginFragment extends BaseFragment implements pra {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoItemModel a;
@@ -221,8 +221,8 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
         this.e = new d(this);
     }
 
-    @Override // com.baidu.tieba.xwa
-    public void N0(int i) {
+    @Override // com.baidu.tieba.pra
+    public void M0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.b = i;
@@ -275,8 +275,8 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
         return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xwa
-    public int J() {
+    @Override // com.baidu.tieba.pra
+    public int K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -285,11 +285,11 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.xwa
-    public VideoItemModel f1() {
+    @Override // com.baidu.tieba.pra
+    public VideoItemModel e1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
         return (VideoItemModel) invokeV.objValue;
@@ -308,8 +308,8 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
         Resources resources;
         Resources resources2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.twa
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.lra
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -325,14 +325,14 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
             Context context = getContext();
             String str2 = null;
             if (context != null && (resources2 = context.getResources()) != null) {
-                str = resources2.getString(R.string.obfuscated_res_0x7f0f1808);
+                str = resources2.getString(R.string.obfuscated_res_0x7f0f17e4);
             } else {
                 str = null;
             }
             NoDataViewFactory.e d2 = NoDataViewFactory.e.d(null, str);
             Context context2 = getContext();
             if (context2 != null && (resources = context2.getResources()) != null) {
-                str2 = resources.getString(R.string.obfuscated_res_0x7f0f0465);
+                str2 = resources.getString(R.string.obfuscated_res_0x7f0f0467);
             }
             NoDataView a3 = NoDataViewFactory.a(getContext(), view2, a2, d2, NoDataViewFactory.c.a(new NoDataViewFactory.b(str2, onClickListener)));
             this.c = a3;
@@ -368,11 +368,11 @@ public final class VideoAttentionNotLoginFragment extends BaseFragment implement
                 this.a = videoItemModel;
                 arguments.getInt(VideoPlayActivityConfig.CURRENT_TYPE);
             }
-            View rooView = inflater.inflate(R.layout.obfuscated_res_0x7f0d09e4, viewGroup, false);
+            View rooView = inflater.inflate(R.layout.obfuscated_res_0x7f0d09d0, viewGroup, false);
             Intrinsics.checkNotNullExpressionValue(rooView, "rooView");
             e2(rooView);
             final GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getContext(), new c(rooView));
-            rooView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.swa
+            rooView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.kra
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

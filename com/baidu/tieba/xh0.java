@@ -1,159 +1,102 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.business.inserting.NadImageInsertingView;
-import com.baidu.nadcore.business.inserting.NadInsertingBaseView;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
+import com.baidu.tieba.gi0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public class xh0 {
+public class xh0 implements ei0, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentLinkedQueue<gi0.b<?>> a;
+    public final AtomicBoolean b;
 
     /* loaded from: classes8.dex */
-    public interface c {
-        void onFail();
-
-        void onSuccess();
-    }
-
-    /* loaded from: classes8.dex */
-    public interface d {
-        void a(@NonNull NadInsertingBaseView nadInsertingBaseView);
-
-        void onFail();
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements NadRequester.b {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final xh0 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRequester.b a;
 
-        public a(NadRequester.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-289236180, "Lcom/baidu/tieba/xh0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-289236180, "Lcom/baidu/tieba/xh0$a;");
                     return;
                 }
             }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void a(@NonNull NadRequester.Error error) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
-                this.a.a(error);
-            }
-        }
-
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void b(@NonNull List<AdBaseModel> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                if (list.size() > 0 && list.get(0) != null) {
-                    AdBaseModel adBaseModel = (AdBaseModel) g31.d(list, 0);
-                    if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
-                        fr0 fr0Var = (fr0) g31.d(adBaseModel.f.k, 0);
-                        if (fr0Var != null && !TextUtils.isEmpty(fr0Var.a)) {
-                            yb1.a().d(fr0Var.a);
-                        } else {
-                            this.a.a(new NadRequester.Error("大图模版数据校验失败，未下发图片"));
-                            return;
-                        }
-                    }
-                    this.a.b(list);
-                    return;
-                }
-                this.a.a(new NadRequester.Error("返回数据为空"));
-            }
+            a = new xh0();
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-        public final /* synthetic */ NadInsertingBaseView b;
-
-        public b(d dVar, NadInsertingBaseView nadInsertingBaseView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, nadInsertingBaseView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-            this.b = nadInsertingBaseView;
-        }
-
-        @Override // com.baidu.tieba.xh0.c
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onFail();
-            }
-        }
-
-        @Override // com.baidu.tieba.xh0.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.a(this.b);
-            }
-        }
-    }
-
-    public static void a(String str, NadRequester.b bVar) {
+    public xh0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, bVar) == null) {
-            RequestParameters.b bVar2 = new RequestParameters.b();
-            bVar2.q(str);
-            bVar2.p(1);
-            NadRequester.a(bVar2.o(), new a(bVar));
-        }
-    }
-
-    public static void b(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull List<AdBaseModel> list, @NonNull wh0 wh0Var, @NonNull d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, context, viewGroup, list, wh0Var, dVar) == null) {
-            if (g31.l(list) < 1) {
-                dVar.onFail();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            AdBaseModel adBaseModel = (AdBaseModel) g31.d(list, 0);
-            if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
-                NadImageInsertingView nadImageInsertingView = new NadImageInsertingView(context, viewGroup, wh0Var);
-                nadImageInsertingView.setData(adBaseModel, new b(dVar, nadImageInsertingView));
+        }
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
+    }
+
+    public static ei0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (ei0) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
+        }
+        while (true) {
+            gi0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
+                return;
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.ei0
+    public <T extends ci0> void a(hi0 hi0Var, fi0<T> fi0Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, hi0Var, fi0Var, t) == null) {
+            if (ef0.b()) {
+                this.a.offer(new gi0.b<>(hi0Var, fi0Var, t));
+                if (this.b.compareAndSet(false, true)) {
+                    kz0.c(this, "BackgroundDeliver", 3);
+                    return;
+                }
+                return;
+            }
+            fi0Var.onEvent(t);
         }
     }
 }

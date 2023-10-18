@@ -1,10 +1,10 @@
 package com.baidu.adp.lib.OrmObject.toolsystem.orm.source;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ae;
-import com.baidu.tieba.gd;
-import com.baidu.tieba.wd;
-import com.baidu.tieba.yc;
+import com.baidu.tieba.e8;
+import com.baidu.tieba.u8;
+import com.baidu.tieba.w7;
+import com.baidu.tieba.y8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import java.lang.reflect.Type;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
-public class MapDataSource implements yc {
+public class MapDataSource implements w7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, Object> map;
@@ -46,7 +46,7 @@ public class MapDataSource implements yc {
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.yc
+    @Override // com.baidu.tieba.w7
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,17 +56,17 @@ public class MapDataSource implements yc {
         return (Set) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yc
+    @Override // com.baidu.tieba.w7
     public Object getObjectByType(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
             Object object = getObject(str);
             if (object != null) {
-                wd wdVar = new wd(type);
-                gd a = ae.a(object);
+                u8 u8Var = new u8(type);
+                e8 a = y8.a(object);
                 if (a != null) {
-                    return a.a(wdVar);
+                    return a.a(u8Var);
                 }
                 return object;
             }
@@ -75,7 +75,7 @@ public class MapDataSource implements yc {
         return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.yc
+    @Override // com.baidu.tieba.w7
     public void set(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {

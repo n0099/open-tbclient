@@ -1,5 +1,6 @@
 package org.aspectj.runtime.internal;
 
+import com.baidu.mobads.sdk.internal.cj;
 import com.baidu.searchbox.player.model.YYOption;
 import java.util.Stack;
 import org.aspectj.lang.NoAspectBoundException;
@@ -88,7 +89,7 @@ public class CFlowStack {
     public static void selectFactoryForVMVersion() {
         String systemPropertyWithoutSecurityException = getSystemPropertyWithoutSecurityException("aspectj.runtime.cflowstack.usethreadlocal", "unspecified");
         boolean z = false;
-        if (!systemPropertyWithoutSecurityException.equals("unspecified") ? systemPropertyWithoutSecurityException.equals("yes") || systemPropertyWithoutSecurityException.equals(YYOption.IsLive.VALUE_TRUE) : System.getProperty("java.class.version", "0.0").compareTo("46.0") >= 0) {
+        if (!systemPropertyWithoutSecurityException.equals("unspecified") ? systemPropertyWithoutSecurityException.equals("yes") || systemPropertyWithoutSecurityException.equals(YYOption.IsLive.VALUE_TRUE) : System.getProperty("java.class.version", cj.d).compareTo("46.0") >= 0) {
             z = true;
         }
         if (z) {

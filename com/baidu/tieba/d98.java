@@ -1,184 +1,209 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ny;
-import com.baidu.tieba.yy;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.base.core.inputtool.robotfloor.data.RecentlyBotSkillInfoDto;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class d98 extends om<h45, ThreadCardViewHolder<ThreadData>> {
+public class d98 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile d98 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public String b;
-    public TbPageContext<?> c;
-    public boolean d;
-    public hn e;
-    public sp6<ThreadData> f;
 
-    /* loaded from: classes5.dex */
-    public class a extends sp6<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d98 b;
-
-        public a(d98 d98Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d98Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = d98Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sp6
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                kp6.b().d(true);
-                t88.k(view2, threadData, this.b.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements ln {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d98 a;
-
-        public b(d98 d98Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d98Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d98Var;
-        }
-
-        @Override // com.baidu.tieba.ln
-        public void b(View view2, bn bnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, bnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (bnVar instanceof h45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((h45) bnVar).t;
-                threadData.objType = 1;
-                if (this.a.f != null) {
-                    this.a.f.a(threadCardViewHolder.getView(), threadData);
-                }
-                ThreadCardUtils.jumpToPB((b15) threadData, view2.getContext(), 0, false);
-                threadCardViewHolder.a().p(new yy.a(1));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d98(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public d98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = true;
-        this.f = new a(this);
-        this.c = tbPageContext;
-        this.a = bdUniqueId2;
-        this.b = str;
     }
 
-    public void y(hn hnVar) {
+    public static d98 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, hnVar) == null) {
-            this.e = hnVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (d98.class) {
+                    if (a == null) {
+                        a = new d98();
+                    }
+                }
+            }
+            return a;
         }
+        return (d98) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: u */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @NonNull
+    public final String i() {
+        InterceptResult invokeV;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                string = SharedPrefHelper.getInstance().getString("key_group_bot_skill_info", "");
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public final String a(@NonNull List<RecentlyBotSkillInfoDto> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ny.b bVar = new ny.b(this.c.getPageActivity(), false);
-            zx zxVar = new zx(this.c.getPageActivity());
-            zxVar.setFrom("index");
-            zxVar.y(this.d);
-            bVar.n(zxVar);
-            ny k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
-            k.s(2);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.i(this.a);
-            setOnAdapterItemClickListener(new b(this));
-            return threadCardViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return "";
+            }
+            return DataExt.toJson(list);
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: x */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h45 h45Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
+    @NonNull
+    public final List<RecentlyBotSkillInfoDto> b(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h45Var, threadCardViewHolder})) == null) {
-            if (h45Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = h45Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.e(h45Var.t);
-                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().q(this.f);
-                t88.r(h45Var, this.b);
-                return threadCardViewHolder.getView();
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return DataExt.toEntityList(str, RecentlyBotSkillInfoDto.class);
         }
-        return (View) invokeCommon.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    @NonNull
+    public final List<RecentlyBotSkillInfoDto> d(@NonNull List<RecentlyBotSkillInfoDto> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            synchronized (this) {
+                if (10 >= list.size()) {
+                    return list;
+                }
+                return list.subList(0, 10);
+            }
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final void j(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            synchronized (this) {
+                SharedPrefHelper.getInstance().putString("key_group_bot_skill_info", str);
+            }
+        }
+    }
+
+    public RecentlyBotSkillInfoDto c(@NonNull String str, int i, @NonNull String str2, @NonNull String str3, @NonNull String str4, @NonNull String str5, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), str2, str3, str4, str5, Integer.valueOf(i2)})) == null) {
+            RecentlyBotSkillInfoDto recentlyBotSkillInfoDto = new RecentlyBotSkillInfoDto();
+            recentlyBotSkillInfoDto.setBotUk(str);
+            recentlyBotSkillInfoDto.setSkillId(i);
+            recentlyBotSkillInfoDto.setBotName(str2);
+            recentlyBotSkillInfoDto.setSkillName(str3);
+            recentlyBotSkillInfoDto.setAvatar(str4);
+            recentlyBotSkillInfoDto.setDesc(str5);
+            recentlyBotSkillInfoDto.setFuncType(i2);
+            recentlyBotSkillInfoDto.setTimeStamp(System.currentTimeMillis());
+            return recentlyBotSkillInfoDto;
+        }
+        return (RecentlyBotSkillInfoDto) invokeCommon.objValue;
+    }
+
+    public List<RecentlyBotSkillInfoDto> e(List<BotsDTO.BotListDTO> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            String i = i();
+            if (!TextUtils.isEmpty(i) && !ListUtils.isEmpty(list)) {
+                int i2 = 0;
+                ArrayList arrayList = new ArrayList();
+                List<RecentlyBotSkillInfoDto> b = b(i);
+                synchronized (this) {
+                    for (RecentlyBotSkillInfoDto recentlyBotSkillInfoDto : b) {
+                        if (recentlyBotSkillInfoDto != null && i2 < 3) {
+                            for (BotsDTO.BotListDTO botListDTO : list) {
+                                if (i2 < 3 && botListDTO != null && botListDTO.getUser() != null && !TextUtils.isEmpty(botListDTO.getUser().getUk()) && recentlyBotSkillInfoDto.getBotUk().equals(botListDTO.getUser().getUk()) && !ListUtils.isEmpty(botListDTO.getSkill())) {
+                                    for (BotsDTO.BotListDTO.SkillDTO skillDTO : botListDTO.getSkill()) {
+                                        if (i2 < 3 && skillDTO != null && skillDTO.isShow() && skillDTO.getType() == recentlyBotSkillInfoDto.getSkillId()) {
+                                            recentlyBotSkillInfoDto.setDesc(skillDTO.getDesc());
+                                            recentlyBotSkillInfoDto.setSkillName(skillDTO.getName());
+                                            recentlyBotSkillInfoDto.setBotName(botListDTO.getUser().getNameShow());
+                                            recentlyBotSkillInfoDto.setAvatar(botListDTO.getUser().getPortrait());
+                                            recentlyBotSkillInfoDto.setFuncType(skillDTO.getFuncType());
+                                            arrayList.add(recentlyBotSkillInfoDto);
+                                            i2++;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return new ArrayList();
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final Boolean g(@NonNull RecentlyBotSkillInfoDto recentlyBotSkillInfoDto, @NonNull List<RecentlyBotSkillInfoDto> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, recentlyBotSkillInfoDto, list)) == null) {
+            synchronized (this) {
+                if (list.contains(recentlyBotSkillInfoDto)) {
+                    list.remove(recentlyBotSkillInfoDto);
+                    list.add(0, recentlyBotSkillInfoDto);
+                    return Boolean.TRUE;
+                }
+                return Boolean.FALSE;
+            }
+        }
+        return (Boolean) invokeLL.objValue;
+    }
+
+    public void h(@NonNull RecentlyBotSkillInfoDto recentlyBotSkillInfoDto) {
+        List<RecentlyBotSkillInfoDto> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, recentlyBotSkillInfoDto) == null) {
+            String i = i();
+            if (!TextUtils.isEmpty(i)) {
+                list = b(i);
+            } else {
+                list = null;
+            }
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            if (!g(recentlyBotSkillInfoDto, list).booleanValue()) {
+                list.add(0, recentlyBotSkillInfoDto);
+            }
+            String a2 = a(d(list));
+            if (!TextUtils.isEmpty(a2)) {
+                j(a2);
+            }
+        }
     }
 }

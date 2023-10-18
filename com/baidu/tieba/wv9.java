@@ -1,68 +1,57 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.helper.ProgressHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BubbleInfo;
 /* loaded from: classes8.dex */
-public class wv9 {
+public class wv9 extends ProgressHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
+    public final BDVideoPlayer a;
 
-    public wv9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wv9(@NonNull BDVideoPlayer bDVideoPlayer) {
+        super(bDVideoPlayer);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bDVideoPlayer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BDVideoPlayer) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = bDVideoPlayer;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public final void callPlayerBack(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) && i2 > 0) {
+            this.a.getPlayerCallbackManager().onUpdateProgress(i, (i3 * 100) / i2, i2);
         }
-        return invokeV.intValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.player.helper.ProgressHelper, com.baidu.searchbox.player.helper.ITimerTask
+    public void doTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int position = this.a.getPosition();
+            int durationMs = this.a.getDurationMs();
+            int bufferingPosition = this.a.getBufferingPosition();
+            int positionMs = this.a.getPositionMs();
+            this.a.getControlEventTrigger().syncPos(position, positionMs, durationMs, bufferingPosition);
+            callPlayerBack(positionMs, durationMs, bufferingPosition);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(BubbleInfo bubbleInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bubbleInfo) != null) || bubbleInfo == null) {
-            return;
-        }
-        this.a = bubbleInfo.bubble_id.intValue();
-        this.b = bubbleInfo.bubble_text;
-        this.c = bubbleInfo.bubble_pic;
     }
 }

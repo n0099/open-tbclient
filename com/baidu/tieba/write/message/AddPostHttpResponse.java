@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BdToastHelper;
+import com.baidu.tieba.sva;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.tieba.x0b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeL(65537, this, toast) != null) || toast == null) {
             return;
         }
-        BdToastHelper.toast(x0b.a(toast));
+        BdToastHelper.toast(sva.a(toast));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +74,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
             addPostHttpResponse.resultJSON = new JSONObject();
             DataRes dataRes = addPostResIdl.data;
             if (dataRes != null) {
-                BdToastData a = x0b.a(dataRes.toast);
+                BdToastData a = sva.a(dataRes.toast);
                 if (a != null && (json = a.toJson()) != null) {
                     addPostHttpResponse.resultJSON.put("toast", json);
                 }
@@ -151,6 +151,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
                     jSONObject7.put("scheme", addPostResIdl.data.advertisement.scheme);
                     jSONObject7.put("package_name", addPostResIdl.data.advertisement.package_name);
                     jSONObject7.put("display_ad_icon", addPostResIdl.data.advertisement.display_ad_icon);
+                    jSONObject7.put("activity_id", addPostResIdl.data.advertisement.activity_id);
                     addPostHttpResponse.resultJSON.put("advertisement", jSONObject7);
                 }
                 if (addPostResIdl.data.icon_stamp_info != null) {

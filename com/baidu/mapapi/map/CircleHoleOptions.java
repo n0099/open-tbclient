@@ -2,14 +2,13 @@ package com.baidu.mapapi.map;
 
 import android.util.Log;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mobstat.Config;
 /* loaded from: classes3.dex */
 public class CircleHoleOptions extends HoleOptions {
     public LatLng a;
     public int b;
 
     public CircleHoleOptions() {
-        this.mHoleType = Config.TRACE_CIRCLE;
+        this.mHoleType = "circle";
     }
 
     public LatLng getHoleCenter() {

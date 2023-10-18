@@ -1,5 +1,13 @@
 package com.baidu.tieba;
+
+import java.util.Iterator;
 /* loaded from: classes8.dex */
 public interface v5c {
-    void onPlayerStatistics(b6c b6cVar, int i, String str);
+    String d(String str);
+
+    boolean e(String str);
+
+    Iterator<String> g();
+
+    byte[] getContent();
 }

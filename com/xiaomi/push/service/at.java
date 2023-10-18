@@ -29,7 +29,7 @@ public class at {
                 a("isUserLockedChannel:" + i + " " + notificationChannel);
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m184a("NCHelper", "is user locked error" + e);
+            com.xiaomi.channel.commonutils.logger.b.m183a("NCHelper", "is user locked error" + e);
         }
         return i;
     }
@@ -51,18 +51,18 @@ public class at {
 
     @TargetApi(26)
     public static String a(ax axVar, String str, CharSequence charSequence, String str2, int i, int i2, String str3, String str4) {
-        String m787a = axVar.m787a(str);
+        String m786a = axVar.m786a(str);
         if (a) {
-            a("createChannel: appChannelId:" + m787a + " serverChannelId:" + str + " serverChannelName:" + ((Object) charSequence) + " serverChannelDesc:" + str2 + " serverChannelNotifyType:" + i + " serverChannelName:" + ((Object) charSequence) + " serverChannelImportance:" + i2 + " channelSoundStr:" + str3 + " channelPermissions:" + str4);
+            a("createChannel: appChannelId:" + m786a + " serverChannelId:" + str + " serverChannelName:" + ((Object) charSequence) + " serverChannelDesc:" + str2 + " serverChannelNotifyType:" + i + " serverChannelName:" + ((Object) charSequence) + " serverChannelImportance:" + i2 + " channelSoundStr:" + str3 + " channelPermissions:" + str4);
         }
-        NotificationChannel notificationChannel = new NotificationChannel(m787a, charSequence, i2);
+        NotificationChannel notificationChannel = new NotificationChannel(m786a, charSequence, i2);
         notificationChannel.setDescription(str2);
         notificationChannel.enableVibration((i & 2) != 0);
         notificationChannel.enableLights((i & 4) != 0);
         if ((i & 1) == 0) {
             notificationChannel.setSound(null, null);
         } else if (!TextUtils.isEmpty(str3)) {
-            if (str3.startsWith("android.resource://" + axVar.m786a())) {
+            if (str3.startsWith("android.resource://" + axVar.m785a())) {
                 notificationChannel.setSound(Uri.parse(str3), Notification.AUDIO_ATTRIBUTES_DEFAULT);
             }
         }
@@ -70,7 +70,7 @@ public class at {
             a("create channel:" + notificationChannel);
         }
         a(axVar, notificationChannel, str4);
-        return m787a;
+        return m786a;
     }
 
     @SuppressLint({"WrongConstant"})
@@ -115,11 +115,11 @@ public class at {
         }
         axVar.a(a3);
         axVar.a(notificationChannel, true);
-        e.a(axVar.m786a(), notificationChannel.getId(), a2, 0);
+        e.a(axVar.m785a(), notificationChannel.getId(), a2, 0);
     }
 
     public static void a(Context context, String str) {
-        if (!com.xiaomi.push.j.m714a(context) || TextUtils.isEmpty(str)) {
+        if (!com.xiaomi.push.j.m713a(context) || TextUtils.isEmpty(str)) {
             return;
         }
         c(context, str);
@@ -151,7 +151,7 @@ public class at {
         huVar.f543a.remove("channel_name");
         huVar.f543a.remove("channel_description");
         huVar.f543a.remove("channel_perm");
-        com.xiaomi.channel.commonutils.logger.b.m183a("delete channel info by:" + huVar.f543a.get("REMOVE_CHANNEL_MARK"));
+        com.xiaomi.channel.commonutils.logger.b.m182a("delete channel info by:" + huVar.f543a.get("REMOVE_CHANNEL_MARK"));
         huVar.f543a.remove("REMOVE_CHANNEL_MARK");
     }
 
@@ -159,63 +159,63 @@ public class at {
     public static void a(ax axVar, NotificationChannel notificationChannel, String str) {
         int i;
         char c;
-        Context m785a = axVar.m785a();
+        Context m784a = axVar.m784a();
         String id = notificationChannel.getId();
-        String a2 = ax.a(id, axVar.m786a());
+        String a2 = ax.a(id, axVar.m785a());
         if (a) {
             a("appChannelId:" + id + " oldChannelId:" + a2);
         }
         boolean z = true;
-        if (com.xiaomi.push.j.m714a(m785a) && !TextUtils.equals(id, a2)) {
-            NotificationManager notificationManager = (NotificationManager) m785a.getSystemService("notification");
+        if (com.xiaomi.push.j.m713a(m784a) && !TextUtils.equals(id, a2)) {
+            NotificationManager notificationManager = (NotificationManager) m784a.getSystemService("notification");
             NotificationChannel notificationChannel2 = notificationManager.getNotificationChannel(a2);
-            NotificationChannel m784a = axVar.m784a(id);
+            NotificationChannel m783a = axVar.m783a(id);
             if (a) {
                 a("xmsfChannel:" + notificationChannel2);
-                a("appChannel:" + m784a);
+                a("appChannel:" + m783a);
             }
             if (notificationChannel2 != null) {
                 NotificationChannel a3 = a(id, notificationChannel2);
                 if (a) {
                     a("copyXmsf copyXmsfChannel:" + a3);
                 }
-                if (m784a != null) {
-                    i = a(m784a);
+                if (m783a != null) {
+                    i = a(m783a);
                     axVar.a(a3, i == 0);
                     c = 3;
                 } else {
                     int a4 = a(notificationChannel2);
-                    a(m785a, axVar, a3, a4, notificationChannel2.getId());
+                    a(m784a, axVar, a3, a4, notificationChannel2.getId());
                     i = a4;
                     c = 4;
                 }
-                b(m785a, id);
+                b(m784a, id);
                 notificationManager.deleteNotificationChannel(a2);
-            } else if (m784a == null) {
+            } else if (m783a == null) {
                 if (a) {
                     a("appHack createNotificationChannel:" + notificationChannel);
                 }
                 axVar.a(notificationChannel);
                 i = 0;
                 c = 1;
-            } else if (!m776a(m785a, id) && a(notificationChannel, m784a)) {
+            } else if (!m775a(m784a, id) && a(notificationChannel, m783a)) {
                 if (a) {
                     a("appHack updateNotificationChannel:" + notificationChannel);
                 }
-                i = a(m784a);
+                i = a(m783a);
                 axVar.a(notificationChannel, i == 0);
                 c = 2;
             }
             if (c != 1 && c != 4 && c != 3) {
                 z = false;
             }
-            e.a(axVar.m785a(), axVar.m786a(), id, notificationChannel.getImportance(), str, z, i);
+            e.a(axVar.m784a(), axVar.m785a(), id, notificationChannel.getImportance(), str, z, i);
         }
-        NotificationChannel m784a2 = axVar.m784a(id);
+        NotificationChannel m783a2 = axVar.m783a(id);
         if (a) {
-            a("elseLogic getNotificationChannel:" + m784a2);
+            a("elseLogic getNotificationChannel:" + m783a2);
         }
-        if (m784a2 == null) {
+        if (m783a2 == null) {
             axVar.a(notificationChannel);
         }
         i = 0;
@@ -223,11 +223,11 @@ public class at {
         if (c != 1) {
             z = false;
         }
-        e.a(axVar.m785a(), axVar.m786a(), id, notificationChannel.getImportance(), str, z, i);
+        e.a(axVar.m784a(), axVar.m785a(), id, notificationChannel.getImportance(), str, z, i);
     }
 
     public static void a(String str) {
-        com.xiaomi.channel.commonutils.logger.b.m184a("NCHelper", str);
+        com.xiaomi.channel.commonutils.logger.b.m183a("NCHelper", str);
     }
 
     @TargetApi(26)
@@ -287,7 +287,7 @@ public class at {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m776a(Context context, String str) {
+    public static boolean m775a(Context context, String str) {
         if (a) {
             a("checkCopeidChannel:newFullChannelId:" + str + GlideException.IndentedAppendable.INDENT + a(context).getBoolean(str, false));
         }
@@ -307,7 +307,7 @@ public class at {
             Set<String> keySet = a(context).getAll().keySet();
             ArrayList arrayList = new ArrayList();
             for (String str2 : keySet) {
-                if (a2.m789a(str2)) {
+                if (a2.m788a(str2)) {
                     arrayList.add(str2);
                     if (a) {
                         a("delete channel copy record:" + str2);

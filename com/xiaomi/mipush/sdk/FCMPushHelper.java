@@ -23,7 +23,7 @@ public class FCMPushHelper {
 
     public static void a(Context context, id idVar) {
         try {
-            MiPushMessage generateMessage = PushMessageHelper.generateMessage((ik) ai.a(context, idVar), idVar.m627a(), false);
+            MiPushMessage generateMessage = PushMessageHelper.generateMessage((ik) ai.a(context, idVar), idVar.m626a(), false);
             PushMessageReceiver a = i.a(context);
             if (a != null) {
                 a.onNotificationMessageArrived(context, generateMessage);
@@ -40,17 +40,17 @@ public class FCMPushHelper {
     */
     public static void a(Context context, byte[] bArr) {
         String format;
-        boolean m220a = ao.a(context).m220a();
+        boolean m219a = ao.a(context).m219a();
         boolean z = true;
         boolean z2 = !"com.xiaomi.xmsf".equals(context.getPackageName());
-        boolean m196a = m196a(context);
+        boolean m195a = m195a(context);
         boolean z3 = false;
-        if (m220a && z2 && m196a) {
-            bArr = com.xiaomi.push.service.n.a(bArr, b.m227a(context).d());
+        if (m219a && z2 && m195a) {
+            bArr = com.xiaomi.push.service.n.a(bArr, b.m226a(context).d());
             if (bArr != null) {
                 String encodeToString = Base64.encodeToString(bArr, 2);
                 if (TextUtils.isEmpty(encodeToString)) {
-                    com.xiaomi.channel.commonutils.logger.b.m183a("fcm message buf base64 encode failed");
+                    com.xiaomi.channel.commonutils.logger.b.m182a("fcm message buf base64 encode failed");
                     z = false;
                 } else {
                     Intent intent = new Intent(bk.n);
@@ -59,27 +59,27 @@ public class FCMPushHelper {
                     intent.putExtra("ext_fcm_container_buffer", encodeToString);
                     intent.putExtra("mipush_app_package", context.getPackageName());
                     context.startService(intent);
-                    com.xiaomi.channel.commonutils.logger.b.m183a("fcm message reroute to xmsf");
+                    com.xiaomi.channel.commonutils.logger.b.m182a("fcm message reroute to xmsf");
                 }
                 z3 = z;
                 if (z3) {
                     com.xiaomi.channel.commonutils.logger.b.b("fcm message post local");
-                    com.xiaomi.push.service.ak.m764a(context, com.xiaomi.push.service.y.a(bArr), bArr);
+                    com.xiaomi.push.service.ak.m763a(context, com.xiaomi.push.service.y.a(bArr), bArr);
                     return;
                 }
                 return;
             }
             format = "fcm message encrypt failed";
         } else {
-            format = String.format("xmsf can not receive fcm msg - shouldUseMIUIPush=%s;isNotXmsf=%s;xmsfSupport=%s", Boolean.valueOf(m220a), Boolean.valueOf(z2), Boolean.valueOf(m196a));
+            format = String.format("xmsf can not receive fcm msg - shouldUseMIUIPush=%s;isNotXmsf=%s;xmsfSupport=%s", Boolean.valueOf(m219a), Boolean.valueOf(z2), Boolean.valueOf(m195a));
         }
-        com.xiaomi.channel.commonutils.logger.b.m183a(format);
+        com.xiaomi.channel.commonutils.logger.b.m182a(format);
         if (z3) {
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m196a(Context context) {
+    public static boolean m195a(Context context) {
         return ((long) com.xiaomi.push.j.b(context)) >= 50002000 && b(context);
     }
 
@@ -88,7 +88,7 @@ public class FCMPushHelper {
     }
 
     public static void clearToken(Context context) {
-        i.m248a(context, e.ASSEMBLE_PUSH_FCM);
+        i.m247a(context, e.ASSEMBLE_PUSH_FCM);
     }
 
     public static void convertMessage(Intent intent) {
@@ -96,7 +96,7 @@ public class FCMPushHelper {
     }
 
     public static boolean isFCMSwitchOpen(Context context) {
-        return i.m251a(context, e.ASSEMBLE_PUSH_FCM) && MiPushClient.getOpenFCMPush(context);
+        return i.m250a(context, e.ASSEMBLE_PUSH_FCM) && MiPushClient.getOpenFCMPush(context);
     }
 
     public static void notifyFCMNotificationCome(Context context, Map<String, String> map) {
@@ -137,6 +137,6 @@ public class FCMPushHelper {
     }
 
     public static void uploadToken(Context context, String str) {
-        i.m249a(context, e.ASSEMBLE_PUSH_FCM, str);
+        i.m248a(context, e.ASSEMBLE_PUSH_FCM, str);
     }
 }

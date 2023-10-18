@@ -12,6 +12,7 @@ import com.baidu.android.common.logging.Log;
 import com.baidu.android.ext.widget.toast.UniversalToast;
 import com.baidu.android.util.android.ActivityUtils;
 import com.baidu.android.util.concurrent.UiThreadUtil;
+import com.baidu.mobads.sdk.internal.ap;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.appframework.BdBoxActivityManager;
 import com.baidu.searchbox.boxdownload.ICyberInvoker;
@@ -35,7 +36,7 @@ import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.searchbox.videoplayer.interfaces.ICyberVideoDownloadManager;
 import com.baidu.searchbox.videoplayer.interfaces.VideoSourceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e80;
+import com.baidu.tieba.b30;
 /* loaded from: classes3.dex */
 public class DownloadConnectivityChangedReceiver extends BroadcastReceiver {
     public static final boolean DEBUG = AppConfig.isDebug();
@@ -76,7 +77,7 @@ public class DownloadConnectivityChangedReceiver extends BroadcastReceiver {
                             final Activity topActivity = BdBoxActivityManager.getTopActivity();
                             if (topActivity != null) {
                                 boolean checkTopActivityIsFileManagerOrDownloadList = IDownloadDownloadCenter.Impl.get().checkTopActivityIsFileManagerOrDownloadList();
-                                UniversalToast duration = UniversalToast.makeText(topActivity, (int) R.string.obfuscated_res_0x7f0f05fc).setDuration(5);
+                                UniversalToast duration = UniversalToast.makeText(topActivity, (int) R.string.obfuscated_res_0x7f0f0602).setDuration(5);
                                 if (checkTopActivityIsFileManagerOrDownloadList) {
                                     duration.showToastBottom(false);
                                 } else {
@@ -132,7 +133,7 @@ public class DownloadConnectivityChangedReceiver extends BroadcastReceiver {
                             final Activity topActivity = BdBoxActivityManager.getTopActivity();
                             if (topActivity != null) {
                                 boolean checkTopActivityIsFileManagerOrDownloadList = IDownloadDownloadCenter.Impl.get().checkTopActivityIsFileManagerOrDownloadList();
-                                UniversalToast duration = UniversalToast.makeText(topActivity, (int) R.string.obfuscated_res_0x7f0f05fd).setDuration(5);
+                                UniversalToast duration = UniversalToast.makeText(topActivity, (int) R.string.obfuscated_res_0x7f0f0603).setDuration(5);
                                 if (checkTopActivityIsFileManagerOrDownloadList) {
                                     duration.showToastBottom(false);
                                 } else {
@@ -169,7 +170,7 @@ public class DownloadConnectivityChangedReceiver extends BroadcastReceiver {
                 if (activeNetworkInfo.getType() == 1) {
                     long[] resumeDownloadTaskIds = DownloadNetworkHelper.getResumeDownloadTaskIds();
                     PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().remove(DownloadNetworkHelper.APPSEARCH_DOWNLOAD_RESUME_IDS_KEY).apply();
-                    ExecutorUtilsExt.postOnSerial(new AnonymousClass3(resumeDownloadTaskIds, context), "resumeDownload");
+                    ExecutorUtilsExt.postOnSerial(new AnonymousClass3(resumeDownloadTaskIds, context), ap.d);
                     return;
                 }
                 ExecutorUtilsExt.postOnSerial(new AnonymousClass4(context), "pauseDownload");
@@ -183,7 +184,7 @@ public class DownloadConnectivityChangedReceiver extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(final Context context, Intent intent) {
-        e80.a().d("downloadConnectivityChangedReceiver");
+        b30.a().d("downloadConnectivityChangedReceiver");
         if (intent.getAction().equals(NetworkMonitor.NET_CHANGE_ACTION)) {
             NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra("networkInfo");
             if (networkInfo != null && networkInfo.isConnectedOrConnecting()) {
@@ -224,6 +225,6 @@ public class DownloadConnectivityChangedReceiver extends BroadcastReceiver {
             }
         }
         onDownloadNetworkChange(context, intent);
-        e80.a().b("downloadConnectivityChangedReceiver");
+        b30.a().b("downloadConnectivityChangedReceiver");
     }
 }

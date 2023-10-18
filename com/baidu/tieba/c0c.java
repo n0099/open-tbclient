@@ -1,30 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c0c implements wzb {
+public class c0c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
+    public boolean a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
 
-    public c0c(Context context, String str) {
+    public c0c(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,45 +32,52 @@ public class c0c implements wzb {
                 return;
             }
         }
-        this.a = context;
-        this.b = str;
+        this.b = f;
+        this.c = f2;
+        this.d = f3;
+        this.e = f4;
+        this.a = true;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public c0c(float f, float f2, float f3, float f4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return "agc_" + rzb.c(b(str.getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException unused) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.b = f;
+        this.c = f2;
+        this.d = f3;
+        this.e = f4;
+        this.a = z;
     }
 
-    public static byte[] b(byte[] bArr) throws NoSuchAlgorithmException {
+    public static c0c a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? MessageDigest.getInstance("SHA-256").digest(bArr) : (byte[]) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wzb
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        int identifier;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String a = a(str);
-            if (TextUtils.isEmpty(a) || (identifier = this.a.getResources().getIdentifier(a, EMABTest.TYPE_STRING, this.b)) == 0) {
-                return str2;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            c0c c0cVar = new c0c(0.0f, 1.0f, 1.0f, 0.0f);
             try {
-                return this.a.getResources().getString(identifier);
-            } catch (Resources.NotFoundException unused) {
-                return str2;
+                JSONObject jSONObject = new JSONObject(str);
+                c0cVar.b = (float) jSONObject.optDouble("bottomLeftX");
+                c0cVar.c = (float) jSONObject.optDouble("bottomLeftY");
+                c0cVar.d = (float) jSONObject.optDouble("upperRightX");
+                c0cVar.e = (float) jSONObject.optDouble("upperRightY");
+                c0cVar.a = jSONObject.optBoolean("forceEnable");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return c0cVar;
         }
-        return (String) invokeLL.objValue;
+        return (c0c) invokeL.objValue;
     }
 }

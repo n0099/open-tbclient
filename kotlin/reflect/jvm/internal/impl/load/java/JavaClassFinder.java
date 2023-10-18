@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaClass;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaPackage;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public interface JavaClassFinder {
     JavaClass findClass(Request request);
 
@@ -17,7 +17,7 @@ public interface JavaClassFinder {
 
     Set<String> knownClassNamesInPackage(FqName fqName);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class Request {
         public final ClassId classId;
         public final JavaClass outerClass;

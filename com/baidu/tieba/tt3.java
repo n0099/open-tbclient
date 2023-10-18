@@ -1,63 +1,22 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.tieba.kt3;
 /* loaded from: classes8.dex */
-public class tt3 extends st3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface tt3 {
+    void a(DownloadInfo downloadInfo);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948192694, "Lcom/baidu/tieba/tt3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948192694, "Lcom/baidu/tieba/tt3;");
-                return;
-            }
-        }
-        boolean z = qr1.a;
-    }
+    void b(DownloadInfo downloadInfo);
 
-    @Override // com.baidu.tieba.st3
-    @NonNull
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return gr3.a();
-        }
-        return (String) invokeV.objValue;
-    }
+    void c(DownloadInfo downloadInfo);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tt3(dc3 dc3Var) {
-        super(dc3Var, "/swanAPI/recommendProducts");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dc3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((dc3) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
+    void d(DownloadInfo downloadInfo);
+
+    void destroy();
+
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull kt3.d<Boolean> dVar);
+
+    DownloadInfo g(String str);
 }

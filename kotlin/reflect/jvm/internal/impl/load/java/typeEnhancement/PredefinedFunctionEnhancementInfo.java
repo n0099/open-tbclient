@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement;
 import java.util.List;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class PredefinedFunctionEnhancementInfo {
     public final List<TypeEnhancementInfo> parametersInfo;
     public final TypeEnhancementInfo returnTypeInfo;

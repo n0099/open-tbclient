@@ -1,43 +1,85 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 /* loaded from: classes6.dex */
-public class k74 {
+public final class k74 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public q74 a;
+    public volatile boolean b;
 
-    public static void a() {
+    @SuppressLint({"MobilebdThread"})
+    public k74() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File b = b();
-            if (b.exists()) {
-                kr4.j(b);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static File b() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return w74.e("aigames_debug_game_core");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (File) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static File c() {
-        InterceptResult invokeV;
+    public final void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File b = b();
-            if (!b.exists()) {
-                b.mkdirs();
-            }
-            return new File(b, "debugGameCore.zip");
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
         }
-        return (File) invokeV.objValue;
+    }
+
+    public final void c(q74 q74Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q74Var) == null) {
+            this.a = q74Var;
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        DatagramSocket B;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            while (this.b) {
+                try {
+                    DatagramPacket datagramPacket = new DatagramPacket(new byte[4096], 4096);
+                    q74 q74Var = this.a;
+                    if (q74Var != null && (B = q74Var.B()) != null) {
+                        B.receive(datagramPacket);
+                    }
+                    q74 q74Var2 = this.a;
+                    if (q74Var2 != null) {
+                        q74Var2.y(datagramPacket);
+                    }
+                } catch (InterruptedException unused) {
+                    return;
+                } catch (Throwable unused2) {
+                    q74 q74Var3 = this.a;
+                    if (q74Var3 != null) {
+                        q74Var3.C(StatConstants.VALUE_TYPE_RECEIVE, "receive failed");
+                    }
+                }
+            }
+        }
     }
 }

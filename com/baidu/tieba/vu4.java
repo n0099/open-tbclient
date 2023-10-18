@@ -1,147 +1,140 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.utils.ThirdPartyUtil;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public abstract class vu4 implements uu4 {
+public class vu4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, List<String>> a;
+    public static final Map<String, Boolean> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public vu4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                vu4.f();
             }
         }
     }
 
-    public void c(String[] strArr, StringBuilder sb, Map<String, String> map, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(1048576, this, strArr, sb, map, i) == null) && strArr != null && strArr.length > i && map != null && sb != null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            while (i < strArr.length) {
-                String str = "@" + strArr[i];
-                Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        Map.Entry<String, String> next = it.next();
-                        if (str.startsWith(next.getKey())) {
-                            String replace = str.replace(next.getKey(), "");
-                            if ("@p".equals(next.getKey())) {
-                                String d = d(replace);
-                                if (!StringUtils.isNull(d)) {
-                                    linkedHashMap.put(next.getValue(), d);
-                                }
-                            } else {
-                                linkedHashMap.put(next.getValue(), replace);
-                            }
-                        }
-                    }
-                }
-                i++;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948253268, "Lcom/baidu/tieba/vu4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            for (Map.Entry entry : linkedHashMap.entrySet()) {
-                if (!StringUtils.isNull((String) entry.getKey()) && !StringUtils.isNull((String) entry.getValue())) {
-                    String str2 = "?";
-                    if (sb.toString().contains("?")) {
-                        str2 = "&";
-                    }
-                    sb.append(str2);
-                    sb.append((String) entry.getKey());
-                    sb.append("=");
-                    sb.append((String) entry.getValue());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948253268, "Lcom/baidu/tieba/vu4;");
+                return;
+            }
+        }
+        a = new ArrayMap();
+        b = new ArrayMap();
+        c();
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            MessageManager.getInstance().registerListener(new a(2001167));
+        }
+    }
+
+    public static synchronized void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            synchronized (vu4.class) {
+                if (b.get(str) != null && b.get(str).booleanValue()) {
+                    return;
+                }
+                if (a.get(str) == null) {
+                    a.put(str, new ArrayList());
+                }
+                a.get(str).add(str2);
+            }
+        }
+    }
+
+    public static synchronized void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            synchronized (vu4.class) {
+                b.put(str, Boolean.FALSE);
+                a.remove(str);
+            }
+        }
+    }
+
+    public static synchronized void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            synchronized (vu4.class) {
+                if (b.get(str) != null && b.get(str).booleanValue()) {
+                    return;
+                }
+                b.put(str, Boolean.TRUE);
+                List<String> list = a.get(str);
+                if (list != null && list.size() < 100) {
+                    TiebaStatic.log(new StatisticItem("TiebaTracer").param("obj_name", str).param("obj_param1", TextUtils.join("_", list)));
+                    a.remove(str);
                 }
             }
         }
     }
 
-    public final String d(String str) {
-        InterceptResult invokeL;
-        char c;
+    public static synchronized void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != 81) {
-                if (hashCode != 104) {
-                    if (hashCode != 112) {
-                        if (hashCode != 119) {
-                            if (hashCode != 122) {
-                                if (hashCode != 98) {
-                                    if (hashCode == 99 && str.equals("c")) {
-                                        c = 1;
-                                    }
-                                    c = 65535;
-                                } else {
-                                    if (str.equals("b")) {
-                                        c = 2;
-                                    }
-                                    c = 65535;
-                                }
-                            } else {
-                                if (str.equals("z")) {
-                                    c = 5;
-                                }
-                                c = 65535;
-                            }
-                        } else {
-                            if (str.equals("w")) {
-                                c = 0;
-                            }
-                            c = 65535;
-                        }
-                    } else {
-                        if (str.equals("p")) {
-                            c = 4;
-                        }
-                        c = 65535;
-                    }
-                } else {
-                    if (str.equals("h")) {
-                        c = 3;
-                    }
-                    c = 65535;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (vu4.class) {
+                for (Map.Entry<String, List<String>> entry : a.entrySet()) {
+                    e(entry.getKey());
                 }
-            } else {
-                if (str.equals("Q")) {
-                    c = 6;
-                }
-                c = 65535;
-            }
-            switch (c) {
-                case 0:
-                    return PbModel.WISE;
-                case 1:
-                    return ThirdPartyUtil.TYPE_WEIXIN;
-                case 2:
-                    return "shoubai";
-                case 3:
-                    return "tbShareH5";
-                case 4:
-                    return "pc";
-                case 5:
-                    return "zhongjianye";
-                case 6:
-                    return com.tencent.connect.common.Constants.SOURCE_QQ;
-                default:
-                    return null;
             }
         }
-        return (String) invokeL.objValue;
     }
 }

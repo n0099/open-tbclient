@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo8;
-import com.baidu.tieba.hf8;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbTaskInfo;
 import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.adapter.SingleTextImageAdapter;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.TextGenImageItem;
-import com.baidu.tieba.mn8;
+import com.baidu.tieba.oi8;
+import com.baidu.tieba.s98;
+import com.baidu.tieba.wh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
     public String m;
 
     @Override // com.baidu.tieba.im.under.common.uiliststyle.group.adapter.BaseStyleNormalAdapter
-    public boolean e0() {
+    public boolean f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -50,7 +50,7 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
     public static class Holder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final hf8 a;
+        public final s98 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Holder(RecyclerView recyclerView) {
@@ -71,7 +71,7 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
                 }
             }
             Context context = recyclerView.getContext();
-            this.a = mn8.e(context, recyclerView, BdUtilHelper.getDimens(context, R.dimen.M_W_X004));
+            this.a = wh8.e(context, recyclerView, BdUtilHelper.getDimens(context, R.dimen.M_W_X004));
         }
     }
 
@@ -111,9 +111,9 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
         public void onClick(View view2) {
             TbTaskInfo taskInfo;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090e92 && (taskInfo = this.a.getTbMsg().getTaskInfo()) != null && taskInfo.isComplete()) {
-                SingleTextImageAdapter.i0(view2.getContext(), this.a.getTbMsg(), this.b);
-                this.e.l0(this.c, this.d, this.b);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090eac && (taskInfo = this.a.getTbMsg().getTaskInfo()) != null && taskInfo.isComplete()) {
+                SingleTextImageAdapter.j0(view2.getContext(), this.a.getTbMsg(), this.b);
+                this.e.m0(this.c, this.d, this.b);
             }
         }
     }
@@ -149,13 +149,13 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
     @Nullable
-    /* renamed from: f0 */
-    public Holder L(@NonNull ViewGroup viewGroup) {
+    /* renamed from: g0 */
+    public Holder M(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            super.L(viewGroup);
-            return new Holder(eo8.g(this.mContext));
+            super.M(viewGroup);
+            return new Holder(oi8.g(this.mContext));
         }
         return (Holder) invokeL.objValue;
     }
@@ -163,12 +163,12 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
     @NonNull
-    /* renamed from: g0 */
-    public SingleTextImageAdapter.Holder M(@NonNull ViewGroup viewGroup) {
+    /* renamed from: h0 */
+    public SingleTextImageAdapter.Holder N(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, viewGroup)) == null) {
-            SingleTextImageAdapter.Holder holder = new SingleTextImageAdapter.Holder(SingleTextImageAdapter.g0(viewGroup.getContext()));
+            SingleTextImageAdapter.Holder holder = new SingleTextImageAdapter.Holder(SingleTextImageAdapter.h0(viewGroup.getContext()));
             holder.f(viewGroup);
             return holder;
         }
@@ -178,12 +178,12 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
     @Nullable
-    /* renamed from: h0 */
-    public Holder N(@NonNull ViewGroup viewGroup) {
+    /* renamed from: i0 */
+    public Holder O(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) {
-            return new Holder(eo8.g(this.mContext));
+            return new Holder(oi8.g(this.mContext));
         }
         return (Holder) invokeL.objValue;
     }
@@ -191,12 +191,12 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
     @NonNull
-    /* renamed from: i0 */
-    public SingleTextImageAdapter.Holder O(@NonNull ViewGroup viewGroup) {
+    /* renamed from: j0 */
+    public SingleTextImageAdapter.Holder P(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
-            SingleTextImageAdapter.Holder holder = new SingleTextImageAdapter.Holder(SingleTextImageAdapter.g0(viewGroup.getContext()));
+            SingleTextImageAdapter.Holder holder = new SingleTextImageAdapter.Holder(SingleTextImageAdapter.h0(viewGroup.getContext()));
             holder.f(viewGroup);
             return holder;
         }
@@ -205,17 +205,17 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
-    /* renamed from: j0 */
-    public void S(int i, @NonNull ViewGroup viewGroup, @NonNull TextGenImageItem textGenImageItem, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: k0 */
+    public void T(int i, @NonNull ViewGroup viewGroup, @NonNull TextGenImageItem textGenImageItem, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), viewGroup, textGenImageItem, holder, list, Integer.valueOf(i2)}) == null) {
-            super.S(i, viewGroup, textGenImageItem, holder, list, i2);
-            hf8 hf8Var = holder.a;
-            if (hf8Var != null && textGenImageItem.getTbMsg().getSubSkillConfig() != null && !((List) Objects.requireNonNull(textGenImageItem.getTbMsg().getSubSkillConfig().a)).isEmpty()) {
+            super.T(i, viewGroup, textGenImageItem, holder, list, i2);
+            s98 s98Var = holder.a;
+            if (s98Var != null && textGenImageItem.getTbMsg().getSubSkillConfig() != null && !((List) Objects.requireNonNull(textGenImageItem.getTbMsg().getSubSkillConfig().a)).isEmpty()) {
                 viewGroup.setVisibility(0);
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(textGenImageItem.getTbMsg());
-                hf8Var.d(arrayList);
+                s98Var.d(arrayList);
                 return;
             }
             viewGroup.setVisibility(8);
@@ -224,12 +224,12 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
-    /* renamed from: k0 */
-    public void T(int i, @NonNull ViewGroup viewGroup, @NonNull TextGenImageItem textGenImageItem, @NonNull SingleTextImageAdapter.Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: l0 */
+    public void U(int i, @NonNull ViewGroup viewGroup, @NonNull TextGenImageItem textGenImageItem, @NonNull SingleTextImageAdapter.Holder holder, @NonNull List<Object> list, int i2) {
         long a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), viewGroup, textGenImageItem, holder, list, Integer.valueOf(i2)}) == null) {
-            SingleTextImageAdapter.h0(i, viewGroup, textGenImageItem, holder, list, i2, this.mType);
+            SingleTextImageAdapter.i0(i, viewGroup, textGenImageItem, holder, list, i2, this.mType);
             TbTextGenImageMsg tbMsg = textGenImageItem.getTbMsg();
             long sessionId = tbMsg.getSessionId();
             if (tbMsg.getForumExt() == null) {
@@ -239,19 +239,19 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
             }
             long j = a2;
             String str = this.m;
-            m0(sessionId, j, str);
+            n0(sessionId, j, str);
             holder.a(new a(this, textGenImageItem, str, sessionId, j));
         }
     }
 
-    public void l0(long j, long j2, String str) {
+    public void m0(long j, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
             TiebaStatic.log(new StatisticItem("c15135").param("obj_type", 2).param("fid", j2).param("room_id", j).param("fname", str).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
-    public void m0(long j, long j2, String str) {
+    public void n0(long j, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
             TiebaStatic.log(new StatisticItem("c15135").param("obj_type", 1).param("fid", j2).param("room_id", j).param("fname", str).param("uid", TbadkCoreApplication.getCurrentAccount()));

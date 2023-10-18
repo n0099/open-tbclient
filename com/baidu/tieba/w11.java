@@ -1,33 +1,24 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class w11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void a(@Nullable Activity activity, boolean z) {
+    public static boolean a(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65536, null, activity, z) == null) && activity != null) {
-            if (z) {
-                activity.setRequestedOrientation(8);
-            } else {
-                activity.setRequestedOrientation(0);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && !str.startsWith(str2)) {
+                return true;
             }
-            activity.getWindow().setFlags(1024, 1024);
+            return false;
         }
-    }
-
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void b(@Nullable Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, activity) == null) && activity != null) {
-            activity.setRequestedOrientation(1);
-        }
+        return invokeLL.booleanValue;
     }
 }

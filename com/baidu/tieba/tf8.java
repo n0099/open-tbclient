@@ -1,33 +1,24 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public final class tf8 {
+public class tf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, uf8> a;
-    public uf8 b;
-    public long c;
+    public ConcurrentHashMap<String, ImMessageCenterPojo> a;
 
-    @JvmOverloads
-    public final void c(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, abilityItem, baseItem) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            e(this, abilityItem, baseItem, null, 4, null);
-        }
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(Iterator<ImMessageCenterPojo> it);
     }
 
     public tf8() {
@@ -43,67 +34,52 @@ public final class tf8 {
                 return;
             }
         }
-        this.a = new LinkedHashMap();
+        this.a = new ConcurrentHashMap<>();
     }
 
-    public static /* synthetic */ void e(tf8 tf8Var, AbilityItem abilityItem, BaseItem baseItem, Object obj, int i, Object obj2) {
-        if ((i & 4) != 0) {
-            obj = null;
-        }
-        tf8Var.d(abilityItem, baseItem, obj);
-    }
-
-    public final void a(uf8 handler) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
-            Intrinsics.checkNotNullParameter(handler, "handler");
-            if (handler.c()) {
-                this.b = handler;
-            }
-            for (String str : handler.e()) {
-                this.a.put(str, handler);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
         }
     }
 
-    public final void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem) {
+    public void a(ImMessageCenterPojo imMessageCenterPojo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abilityItem, baseItem) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            uf8 uf8Var = this.b;
-            if (uf8Var != null) {
-                uf8Var.b(abilityItem, baseItem, null);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, imMessageCenterPojo) != null) || imMessageCenterPojo == null) {
+            return;
+        }
+        this.a.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+    }
+
+    public ImMessageCenterPojo c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            return this.a.get(str);
+        }
+        return (ImMessageCenterPojo) invokeL.objValue;
+    }
+
+    public void d(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            aVar.a(this.a.values().iterator());
         }
     }
 
-    @JvmOverloads
-    public final void d(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj) {
-        Unit unit;
+    public boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, abilityItem, baseItem, obj) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            try {
-                uf8 uf8Var = this.a.get(abilityItem.getType());
-                if (uf8Var != null) {
-                    uf8Var.b(abilityItem, baseItem, obj);
-                    unit = Unit.INSTANCE;
-                } else {
-                    unit = null;
-                }
-                if (unit == null) {
-                    b(abilityItem, baseItem);
-                }
-            } catch (Exception e) {
-                dg8.g("ability_handle_exception", this.c, e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || this.a.remove(str) == null) {
+                return false;
             }
+            return true;
         }
-    }
-
-    public final void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.c = j;
-        }
+        return invokeL.booleanValue;
     }
 }

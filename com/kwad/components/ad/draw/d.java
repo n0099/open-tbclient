@@ -18,7 +18,7 @@ public final class d {
         boolean a = m.oF().a(ksScene, "loadDrawAd");
         ksScene.setAdStyle(6);
         KsAdLoadManager.ab();
-        KsAdLoadManager.a(new a.C0641a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.draw.d.1
+        KsAdLoadManager.a(new a.C0624a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.draw.d.1
             @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.g
             public final void a(@NonNull AdResultData adResultData) {
                 final ArrayList arrayList = new ArrayList();

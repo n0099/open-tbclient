@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public abstract class ModuleAwareClassDescriptor implements ClassDescriptor {
     public static final Companion Companion = new Companion(null);
 
@@ -14,7 +14,7 @@ public abstract class ModuleAwareClassDescriptor implements ClassDescriptor {
 
     public abstract MemberScope getUnsubstitutedMemberScope(KotlinTypeRefiner kotlinTypeRefiner);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

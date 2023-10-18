@@ -66,6 +66,6 @@ public class MaterialAttributes {
 
     @Px
     public static int resolveMinimumAccessibleTouchTarget(@NonNull Context context) {
-        return resolveDimension(context, R.attr.obfuscated_res_0x7f0404fe, R.dimen.obfuscated_res_0x7f07061c);
+        return resolveDimension(context, R.attr.obfuscated_res_0x7f0404fe, R.dimen.obfuscated_res_0x7f070617);
     }
 }

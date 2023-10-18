@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zra;
+import com.baidu.tieba.rma;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ShareGridLayout extends ViewGroup implements zra {
+public class ShareGridLayout extends ViewGroup implements rma {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,14 +28,14 @@ public class ShareGridLayout extends ViewGroup implements zra {
     public int d;
     public int e;
 
-    @Override // com.baidu.tieba.zra
+    @Override // com.baidu.tieba.rma
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.zra
+    @Override // com.baidu.tieba.rma
     @NonNull
     public View getView() {
         InterceptResult invokeV;
@@ -124,7 +124,7 @@ public class ShareGridLayout extends ViewGroup implements zra {
         c(context);
     }
 
-    @Override // com.baidu.tieba.zra
+    @Override // com.baidu.tieba.rma
     public void b(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
@@ -132,7 +132,7 @@ public class ShareGridLayout extends ViewGroup implements zra {
         }
     }
 
-    @Override // com.baidu.tieba.zra
+    @Override // com.baidu.tieba.rma
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {

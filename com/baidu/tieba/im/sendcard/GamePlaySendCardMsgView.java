@@ -29,11 +29,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tbadk.coreExtra.model.AttentionModel;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GamePlaySendCardMsgData;
 import com.baidu.tieba.tbadkCore.voice.VoicePlayBtn;
-import com.baidu.tieba.ze5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +69,7 @@ public class GamePlaySendCardMsgView extends LinearLayout {
     public String r;
     public String s;
     public boolean t;
-    public ze5 u;
+    public AttentionModel u;
     public CustomMessageListener v;
 
     /* loaded from: classes6.dex */
@@ -284,9 +284,9 @@ public class GamePlaySendCardMsgView extends LinearLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ze5 ze5Var = this.u;
-            if (ze5Var != null) {
-                ze5Var.e();
+            AttentionModel attentionModel = this.u;
+            if (attentionModel != null) {
+                attentionModel.f();
             }
             MessageManager.getInstance().unRegisterListener(this.v);
         }
@@ -379,9 +379,9 @@ public class GamePlaySendCardMsgView extends LinearLayout {
                 return;
             }
             if (this.u == null) {
-                this.u = new ze5(this.b);
+                this.u = new AttentionModel(this.b);
             }
-            this.u.h(true, this.r, this.s, this.a);
+            this.u.k(true, this.r, this.s, this.a);
         }
     }
 

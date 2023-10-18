@@ -1,9 +1,31 @@
 package com.baidu.tieba;
 
-import android.view.SurfaceHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface am1 {
-    void b();
+public class am1 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final boolean b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void surfaceCreated(SurfaceHolder surfaceHolder);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947619876, "Lcom/baidu/tieba/am1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947619876, "Lcom/baidu/tieba/am1;");
+                return;
+            }
+        }
+        a = wo2.o().isDebug();
+        b = wo2.o().J();
+    }
 }

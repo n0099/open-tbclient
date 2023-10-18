@@ -15,8 +15,8 @@ import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iz7;
-import com.baidu.tieba.s71;
+import com.baidu.tieba.f21;
+import com.baidu.tieba.tt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -216,11 +216,11 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
             String stringExtra = intent.getStringExtra("request");
             this.c = intent.getStringArrayExtra("permissions");
             int intExtra = intent.getIntExtra(WebChromeClient.KEY_ARG_CALLBACK, 0);
-            this.a = (PermissionService.IGrantCallback) iz7.a.get(Integer.valueOf(intExtra));
-            iz7.a.remove(Integer.valueOf(intExtra));
+            this.a = (PermissionService.IGrantCallback) tt7.a.get(Integer.valueOf(intExtra));
+            tt7.a.remove(Integer.valueOf(intExtra));
             if (stringExtra != null) {
                 if (stringExtra.equals("requestFloatPermission")) {
-                    p1();
+                    q1();
                 } else if (stringExtra.equals("requestPermissions")) {
                     r1();
                 }
@@ -261,7 +261,7 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
         }
     }
 
-    public void p1() {
+    public void q1() {
         PermissionService.IGrantCallback iGrantCallback;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (iGrantCallback = this.a) == null) {
@@ -304,7 +304,7 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
             this.b.clear();
             if (Build.VERSION.SDK_INT >= 23) {
                 for (String str : this.c) {
-                    if (s71.a(this, str) != 0) {
+                    if (f21.a(this, str) != 0) {
                         this.b.add(str);
                     }
                 }

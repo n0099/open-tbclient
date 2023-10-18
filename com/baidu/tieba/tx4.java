@@ -1,33 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tx4 implements xm6 {
+public class tx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.xm6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        wm6.a(this, webView, str, jSONObject);
-    }
-
-    @Override // com.baidu.tieba.xm6
-    public /* synthetic */ void onDestroy() {
-        wm6.b(this);
-    }
+    public ArrayList<UserData> a;
+    public ArrayList<UserData> b;
+    public mx4 c;
+    public int d;
+    public int e;
+    public boolean f;
+    public String g;
+    public int h;
+    public String i;
+    public int j;
 
     public tx4() {
         Interceptable interceptable = $ic;
@@ -39,46 +37,100 @@ public class tx4 implements xm6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = new mx4();
     }
 
-    @Override // com.baidu.tieba.xm6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public ArrayList<UserData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.IS_DISABLE_GO_BACK.equals(str2)) {
-                jsPromptResult.confirm(c(webView).a());
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeLLLLL.booleanValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public ska c(WebView webView) {
-        InterceptResult invokeL;
+    public ArrayList<UserData> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            ska skaVar = new ska();
-            Activity a = mm6.a(webView.getContext());
-            int i = 1;
-            if (a instanceof BaseWebViewActivity) {
-                ((BaseWebViewActivity) a).isDisableGoBack = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            boolean z = true;
+            if (jSONObject.optJSONObject("page") != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        this.a.add(userData);
+                    }
+                }
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        UserData userData2 = new UserData();
+                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        userData2.mAttentionType = 1;
+                        this.b.add(userData2);
+                    }
+                }
+                this.c.i(jSONObject.optJSONObject("page"));
+                if (this.c != null) {
+                    this.d = this.c.a();
+                    this.e = this.c.f();
+                    if (this.c.b() != 1) {
+                        z = false;
+                    }
+                    this.f = z;
+                }
+                jSONObject.optInt("tafriendnum", 0);
+                jSONObject.optInt("commonfriendnum", 0);
             } else {
-                i = 0;
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
+                if (optJSONArray3 != null) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        UserData userData3 = new UserData();
+                        userData3.parserJson(optJSONArray3.getJSONObject(i3));
+                        this.a.add(userData3);
+                    }
+                }
+                if (optJSONArray4 != null) {
+                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                        UserData userData4 = new UserData();
+                        userData4.parserJson(optJSONArray4.getJSONObject(i4));
+                        userData4.mAttentionType = 1;
+                        userData4.setHave_attention(1);
+                        this.b.add(userData4);
+                    }
+                }
+                this.d = jSONObject.optInt("pn");
+                this.e = jSONObject.optInt(PersonListActivityConfig.TOTLEFOLLOWNUM, 0);
+                if (jSONObject.optInt("has_more", 0) != 1) {
+                    z = false;
+                }
+                this.f = z;
+                this.j = jSONObject.optInt("follow_list_switch", 0);
             }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", i);
-                skaVar.o(jSONObject.toString());
-                return skaVar;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return skaVar;
-            }
+            this.i = jSONObject.optString("tips_text");
+            this.h = jSONObject.optInt("type", 0);
+            this.g = jSONObject.optString("block_text");
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-        return (ska) invokeL.objValue;
     }
 }

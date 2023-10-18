@@ -1,46 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class tpb {
-    public static /* synthetic */ Interceptable $ic;
-    public static Boolean a;
-    public static final /* synthetic */ boolean b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface tpb {
+    void a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948190307, "Lcom/baidu/tieba/tpb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948190307, "Lcom/baidu/tieba/tpb;");
-                return;
-            }
-        }
-        b = !tpb.class.desiredAssertionStatus();
-    }
+    void a(int i, String str);
 
-    public tpb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void a(RippedAd rippedAd, Map<String, String> map);
+
+    void a(Map<String, String> map);
+
+    void a(boolean z, int i, Map<String, String> map);
+
+    void b();
+
+    void b(int i, String str);
+
+    void b(RippedAd rippedAd, Map<String, String> map);
 }

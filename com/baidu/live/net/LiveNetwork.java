@@ -9,11 +9,11 @@ import com.baidu.searchbox.live.interfaces.net.NetResponse;
 import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.ad0;
-import com.baidu.tieba.jd0;
-import com.baidu.tieba.xc0;
-import com.baidu.tieba.yc0;
-import com.baidu.tieba.zc0;
+import com.baidu.tieba.g80;
+import com.baidu.tieba.u70;
+import com.baidu.tieba.v70;
+import com.baidu.tieba.w70;
+import com.baidu.tieba.x70;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.Map;
 import kotlin.LazyKt__LazyJVMKt;
@@ -76,17 +76,17 @@ public final class LiveNetwork {
 
     /* JADX INFO: Add missing generic type declarations: [ResponseDataT] */
     /* loaded from: classes3.dex */
-    public static final class b<T, ResponseDataT> implements zc0<a<ResponseDataT>> {
+    public static final class b<T, ResponseDataT> implements w70<a<ResponseDataT>> {
         public final /* synthetic */ Map b;
-        public final /* synthetic */ xc0 c;
+        public final /* synthetic */ u70 c;
 
-        public b(Map map, xc0 xc0Var) {
+        public b(Map map, u70 u70Var) {
             this.b = map;
-            this.c = xc0Var;
+            this.c = u70Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zc0
+        @Override // com.baidu.tieba.w70
         /* renamed from: b */
         public final a<ResponseDataT> a() {
             INetWork iNetWork = LiveNetwork.this.b;
@@ -96,12 +96,12 @@ public final class LiveNetwork {
             NetResponse res = iNetWork.postSync(this.b);
             Object obj = null;
             try {
-                xc0 xc0Var = this.c;
-                if (xc0Var != null) {
-                    obj = xc0Var.onParseResponseInBackground(res);
+                u70 u70Var = this.c;
+                if (u70Var != null) {
+                    obj = u70Var.onParseResponseInBackground(res);
                 }
             } catch (Exception e) {
-                jd0.e(e);
+                g80.e(e);
             }
             Intrinsics.checkExpressionValueIsNotNull(res, "res");
             return new a<>(res, obj);
@@ -110,20 +110,20 @@ public final class LiveNetwork {
 
     /* JADX INFO: Add missing generic type declarations: [ResponseDataT] */
     /* loaded from: classes3.dex */
-    public static final class c<T, ResponseDataT> implements ad0<a<ResponseDataT>> {
-        public final /* synthetic */ xc0 a;
+    public static final class c<T, ResponseDataT> implements x70<a<ResponseDataT>> {
+        public final /* synthetic */ u70 a;
 
-        public c(xc0 xc0Var) {
-            this.a = xc0Var;
+        public c(u70 u70Var) {
+            this.a = u70Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ad0
+        @Override // com.baidu.tieba.x70
         /* renamed from: a */
         public final void onReturnDataInUI(a<ResponseDataT> aVar) {
             NetResponse netResponse;
-            xc0 xc0Var = this.a;
-            if (xc0Var != null) {
+            u70 u70Var = this.a;
+            if (u70Var != null) {
                 ResponseDataT responsedatat = null;
                 if (aVar != null) {
                     netResponse = aVar.b();
@@ -133,7 +133,7 @@ public final class LiveNetwork {
                 if (aVar != null) {
                     responsedatat = aVar.a();
                 }
-                xc0Var.onNetResponse(netResponse, responsedatat);
+                u70Var.onNetResponse(netResponse, responsedatat);
             }
         }
     }
@@ -179,10 +179,10 @@ public final class LiveNetwork {
         }
     }
 
-    public final <ResponseDataT> void b(Map<String, ? extends Object> map, xc0<ResponseDataT> xc0Var) {
+    public final <ResponseDataT> void b(Map<String, ? extends Object> map, u70<ResponseDataT> u70Var) {
         String str = this.a;
         if (str != null && (!StringsKt__StringsJVMKt.isBlank(str)) && this.b != null) {
-            yc0.a(new b(map, xc0Var), new c(xc0Var));
+            v70.a(new b(map, u70Var), new c(u70Var));
         }
     }
 }

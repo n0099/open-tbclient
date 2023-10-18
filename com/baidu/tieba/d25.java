@@ -1,18 +1,31 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.View;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes5.dex */
-public class d25 {
+public class d25 implements b25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+
+    @Override // com.baidu.tieba.b25
+    public View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
 
     public d25() {
         Interceptable interceptable = $ic;
@@ -28,43 +41,47 @@ public class d25 {
         }
     }
 
-    public String a() {
+    @Override // com.baidu.tieba.b25
+    public e25 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            e25 e25Var = new e25();
+            e25Var.c(R.drawable.icon_banner_n);
+            e25Var.g(R.drawable.icon_banner_s);
+            e25Var.h(R.dimen.obfuscated_res_0x7f070399);
+            e25Var.d(81);
+            e25Var.e(R.dimen.obfuscated_res_0x7f070399);
+            return e25Var;
         }
-        return (String) invokeV.objValue;
+        return (e25) invokeV.objValue;
     }
 
-    public int b() {
+    @Override // com.baidu.tieba.b25
+    public h25 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            h25 h25Var = new h25();
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            if (resources != null) {
+                h25Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c0));
+            }
+            return h25Var;
         }
-        return invokeV.intValue;
+        return (h25) invokeV.objValue;
     }
 
-    public void c(ForumBookInfo forumBookInfo) {
+    @Override // com.baidu.tieba.b25
+    public TbImageView d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumBookInfo) != null) || forumBookInfo == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            TbImageView tbImageView = new TbImageView(context);
+            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            tbImageView.setGifIconSupport(false);
+            return tbImageView;
         }
-        this.a = forumBookInfo.book_id;
-        this.b = forumBookInfo.book_type.intValue();
-        String str = forumBookInfo.book_title;
-        String str2 = forumBookInfo.book_cover;
-        String str3 = forumBookInfo.author;
-        String str4 = forumBookInfo.forum_pic;
-        String str5 = forumBookInfo.show_chapter_id;
-        String str6 = forumBookInfo.show_chapter_no;
-        String str7 = forumBookInfo.show_chapter_title;
-        forumBookInfo.history_page_id.longValue();
-        forumBookInfo.history_paragraph_id.longValue();
-        forumBookInfo.history_word_id.longValue();
-        forumBookInfo.history_percent.longValue();
-        forumBookInfo.show_page_id.longValue();
-        forumBookInfo.show_paragraph_id.longValue();
+        return (TbImageView) invokeL.objValue;
     }
 }

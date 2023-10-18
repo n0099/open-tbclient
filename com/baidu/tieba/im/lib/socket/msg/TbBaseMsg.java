@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.el8;
-import com.baidu.tieba.fl8;
+import com.baidu.tieba.hr5;
+import com.baidu.tieba.if8;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityEffectItem;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.im.lib.socket.msg.data.BubbleInfo;
@@ -17,8 +17,8 @@ import com.baidu.tieba.im.lib.socket.msg.data.EnableDegradeUserData;
 import com.baidu.tieba.im.lib.socket.msg.data.ExcellentInfo;
 import com.baidu.tieba.im.lib.socket.msg.data.UserExtraInfo;
 import com.baidu.tieba.immessagecenter.im.dispatcher.PersonalMsgSettingDispatcher;
-import com.baidu.tieba.yk8;
-import com.baidu.tieba.zw5;
+import com.baidu.tieba.of8;
+import com.baidu.tieba.pf8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ import kotlin.Metadata;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000®\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u000b\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u000b\n\u0002\u0010\u0000\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u001d\n\u0002\u0010$\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0010\u0002\n\u0002\b\u000b\n\u0002\u0010\r\n\u0002\b\n\b&\u0018\u0000 «\u00012\u00020\u00012\b\u0012\u0004\u0012\u00020\u00000\u0002:\u0004«\u0001¬\u0001B\u0005¢\u0006\u0002\u0010\u0003J\u0011\u0010\u0096\u0001\u001a\u00030\u0097\u00012\u0007\u0010\u0098\u0001\u001a\u00020\u0013J\u0016\u0010\u0096\u0001\u001a\u00030\u0097\u00012\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00130\u000bJ\u0007\u0010\u0099\u0001\u001a\u000203J\u0015\u0010\u009a\u0001\u001a\u0002032\t\u0010\u009b\u0001\u001a\u0004\u0018\u00010RH\u0096\u0002J\u0011\u0010\u009c\u0001\u001a\u00030\u0097\u00012\u0007\u0010\u009d\u0001\u001a\u00020\u0000J\u0007\u0010\u009e\u0001\u001a\u00020FJ\u0017\u0010\u009f\u0001\u001a\u0005\u0018\u0001H \u0001\"\u0005\b\u0000\u0010 \u0001¢\u0006\u0003\u0010¡\u0001J\n\u0010¢\u0001\u001a\u00030£\u0001H&J\t\u0010¤\u0001\u001a\u00020?H\u0016J\u0007\u0010¥\u0001\u001a\u000203J\u0007\u0010¦\u0001\u001a\u000203J\u0011\u0010§\u0001\u001a\u00030\u0097\u00012\u0007\u0010¨\u0001\u001a\u00020RJ\u000b\u0010©\u0001\u001a\u0004\u0018\u00010\u0000H\u0016J\u0010\u0010ª\u0001\u001a\u00030\u0097\u00012\u0006\u0010E\u001a\u00020FR \u0010\u0004\u001a\u0004\u0018\u00010\u00058\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\tR&\u0010\n\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R0\u0010\u0014\u001a\n\u0012\u0004\u0012\u00020\u0013\u0018\u00010\u00122\u000e\u0010\u0011\u001a\n\u0012\u0004\u0012\u00020\u0013\u0018\u00010\u00128\u0006@BX\u0087\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u000eR\u0012\u0010\u0016\u001a\u00020\u00178\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R \u0010\u0018\u001a\u0004\u0018\u00010\u00198\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u001b\"\u0004\b\u001c\u0010\u001dR&\u0010\u001e\u001a\n\u0012\u0004\u0012\u00020\u001f\u0018\u00010\u00128\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010\u000e\"\u0004\b!\u0010\u0010R&\u0010\"\u001a\n\u0012\u0004\u0012\u00020#\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b$\u0010\u000e\"\u0004\b%\u0010\u0010R \u0010&\u001a\u0004\u0018\u00010'8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b(\u0010)\"\u0004\b*\u0010+R \u0010,\u001a\u0004\u0018\u00010-8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b.\u0010/\"\u0004\b0\u00101R\u001e\u00102\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b2\u00104\"\u0004\b5\u00106R\u001e\u00107\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b7\u00104\"\u0004\b8\u00106R\u001e\u00109\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b9\u00104\"\u0004\b:\u00106R$\u0010<\u001a\u0002032\u0006\u0010;\u001a\u0002038F@FX\u0086\u000e¢\u0006\f\u001a\u0004\b<\u00104\"\u0004\b=\u00106R\u0012\u0010>\u001a\u00020?8\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R\u001e\u0010@\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bA\u0010B\"\u0004\bC\u0010DR\u001e\u0010E\u001a\u00020F8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bG\u0010H\"\u0004\bI\u0010JR\u001e\u0010K\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bL\u0010B\"\u0004\bM\u0010DR \u0010N\u001a\u0004\u0018\u00010\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bO\u0010B\"\u0004\bP\u0010DR\u0014\u0010Q\u001a\u0004\u0018\u00010R8\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R\u001a\u0010S\u001a\u00020\u0017X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bT\u0010B\"\u0004\bU\u0010DR \u0010V\u001a\u0004\u0018\u00010\u00008\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bW\u0010X\"\u0004\bY\u0010ZR&\u0010[\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\\\u0010\u000e\"\u0004\b]\u0010\u0010R \u0010^\u001a\u0004\u0018\u00010_8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b`\u0010a\"\u0004\bb\u0010cR$\u0010d\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\be\u0010\u0003\u001a\u0004\bf\u0010g\"\u0004\bh\u0010iR \u0010j\u001a\u00020?X\u0086\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bk\u0010\u0003\u001a\u0004\bl\u0010g\"\u0004\bm\u0010iR$\u0010n\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bo\u0010\u0003\u001a\u0004\bp\u0010g\"\u0004\bq\u0010iR&\u0010r\u001a\n\u0012\u0004\u0012\u00020#\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bs\u0010\u000e\"\u0004\bt\u0010\u0010R$\u0010u\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bv\u0010\u0003\u001a\u0004\bw\u0010B\"\u0004\bx\u0010DR\u001e\u0010y\u001a\u00020F8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bz\u0010H\"\u0004\b{\u0010JR2\u0010|\u001a\u0016\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0017\u0012\u0004\u0012\u00020R0}\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b~\u0010\u000e\"\u0004\b\u007f\u0010\u0010R&\u0010\u0080\u0001\u001a\u0005\u0018\u00010\u0081\u00018\u0006@\u0006X\u0087\u000e¢\u0006\u0012\n\u0000\u001a\u0006\b\u0082\u0001\u0010\u0083\u0001\"\u0006\b\u0084\u0001\u0010\u0085\u0001R(\u0010\u0086\u0001\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0017\n\u0000\u0012\u0005\b\u0087\u0001\u0010\u0003\u001a\u0005\b\u0088\u0001\u0010g\"\u0005\b\u0089\u0001\u0010iR&\u0010\u008a\u0001\u001a\u0005\u0018\u00010\u008b\u00018\u0006@\u0006X\u0087\u000e¢\u0006\u0012\n\u0000\u001a\u0006\b\u008c\u0001\u0010\u008d\u0001\"\u0006\b\u008e\u0001\u0010\u008f\u0001R'\u0010\u0090\u0001\u001a\u00020F2\u0006\u0010;\u001a\u00020F8F@FX\u0086\u000e¢\u0006\u000e\u001a\u0005\b\u0091\u0001\u0010H\"\u0005\b\u0092\u0001\u0010JR!\u0010\u0093\u0001\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u0010\n\u0000\u001a\u0005\b\u0094\u0001\u0010B\"\u0005\b\u0095\u0001\u0010D¨\u0006\u00ad\u0001"}, d2 = {"Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "Ljava/io/Serializable;", "Lcom/baidu/tieba/im/lib/socket/listener/ShallowClone;", "()V", "abilityEffectItem", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;", "getAbilityEffectItem", "()Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;", "setAbilityEffectItem", "(Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;)V", "abilityItems", "", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "getAbilityItems", "()Ljava/util/List;", "setAbilityItems", "(Ljava/util/List;)V", "<set-?>", "", "Lcom/baidu/tieba/im/lib/socket/msg/TbAtUserInfo;", "atUserInfoList", "getAtUserInfoList", "bdUk", "", "bubbleInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;", "getBubbleInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;", "setBubbleInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;)V", "emojiList", "Lcom/baidu/tieba/im/lib/socket/msg/data/EmojiData;", "getEmojiList", "setEmojiList", "enableDegradeUserDataList", "Lcom/baidu/tieba/im/lib/socket/msg/data/EnableDegradeUserData;", "getEnableDegradeUserDataList", "setEnableDegradeUserDataList", "excellentInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;", "getExcellentInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;", "setExcellentInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;)V", "forumExt", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;", "getForumExt", "()Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;", "setForumExt", "(Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;)V", "isLocalEmojiReply", "", "()Z", "setLocalEmojiReply", "(Z)V", "isLocalMsgId", "setLocalMsgId", "isMockSender", "setMockSender", "value", "isSysMsg", "setSysMsg", "isSysMsgInt", "", "limitVersion", "getLimitVersion", "()Ljava/lang/String;", "setLimitVersion", "(Ljava/lang/String;)V", "msgId", "", "getMsgId", "()J", "setMsgId", "(J)V", "msgKey", "getMsgKey", "setMsgKey", "originMsgKey", "getOriginMsgKey", "setOriginMsgKey", "originSdkMsg", "", "portrait", "getPortrait", "setPortrait", "preTimestampMsg", "getPreTimestampMsg", "()Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "setPreTimestampMsg", "(Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;)V", "quickOperate", "getQuickOperate", "setQuickOperate", "reMsgInfo", "Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;", "getReMsgInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;", "setReMsgInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;)V", "robotRole", "getRobotRole$annotations", "getRobotRole", "()I", "setRobotRole", "(I)V", "role", "getRole$annotations", "getRole", "setRole", "sdkMsgStatus", "getSdkMsgStatus$annotations", "getSdkMsgStatus", "setSdkMsgStatus", "secondDegradeUserDataList", "getSecondDegradeUserDataList", "setSecondDegradeUserDataList", "sendClient", "getSendClient$annotations", "getSendClient", "setSendClient", "sessionId", "getSessionId", "setSessionId", "structData", "", "getStructData", "setStructData", NextActive.keyTaskInfo, "Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;", "getTaskInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;", "setTaskInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;)V", "type", "getType$annotations", "getType", "setType", "userExtraInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;", "getUserExtraInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;", "setUserExtraInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;)V", "userId", "getUserId", "setUserId", TbEnum.SystemMessage.KEY_USER_NAME, "getUserName", "setUserName", "addAtUserInfo", "", "atUserInfo", "compareVersion", "equals", "other", "fillMsg4Base", "baseMsg", "getMsgTime", "getOriginSdkMsg", "SdkMsg", "()Ljava/lang/Object;", "getThumbnailText", "", TTDownloadField.TT_HASHCODE, "isMaster", "isRobot", "setOriginSdkMsg", "oriSdkMsg", "shallowClone", "syncServerMsgId", "Companion", "ForumExt", "im-lib-socket_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000®\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u000b\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u000b\n\u0002\u0010\u0000\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u001d\n\u0002\u0010$\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0010\u0002\n\u0002\b\u000b\n\u0002\u0010\r\n\u0002\b\n\b&\u0018\u0000 «\u00012\u00020\u00012\b\u0012\u0004\u0012\u00020\u00000\u0002:\u0004«\u0001¬\u0001B\u0005¢\u0006\u0002\u0010\u0003J\u0011\u0010\u0096\u0001\u001a\u00030\u0097\u00012\u0007\u0010\u0098\u0001\u001a\u00020\u0013J\u0016\u0010\u0096\u0001\u001a\u00030\u0097\u00012\f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00130\u000bJ\u0007\u0010\u0099\u0001\u001a\u000203J\u0015\u0010\u009a\u0001\u001a\u0002032\t\u0010\u009b\u0001\u001a\u0004\u0018\u00010RH\u0096\u0002J\u0011\u0010\u009c\u0001\u001a\u00030\u0097\u00012\u0007\u0010\u009d\u0001\u001a\u00020\u0000J\u0007\u0010\u009e\u0001\u001a\u00020FJ\u0017\u0010\u009f\u0001\u001a\u0005\u0018\u0001H \u0001\"\u0005\b\u0000\u0010 \u0001¢\u0006\u0003\u0010¡\u0001J\n\u0010¢\u0001\u001a\u00030£\u0001H&J\t\u0010¤\u0001\u001a\u00020?H\u0016J\u0007\u0010¥\u0001\u001a\u000203J\u0007\u0010¦\u0001\u001a\u000203J\u0011\u0010§\u0001\u001a\u00030\u0097\u00012\u0007\u0010¨\u0001\u001a\u00020RJ\u000b\u0010©\u0001\u001a\u0004\u0018\u00010\u0000H\u0016J\u0010\u0010ª\u0001\u001a\u00030\u0097\u00012\u0006\u0010E\u001a\u00020FR \u0010\u0004\u001a\u0004\u0018\u00010\u00058\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\tR&\u0010\n\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R0\u0010\u0014\u001a\n\u0012\u0004\u0012\u00020\u0013\u0018\u00010\u00122\u000e\u0010\u0011\u001a\n\u0012\u0004\u0012\u00020\u0013\u0018\u00010\u00128\u0006@BX\u0087\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u000eR\u0012\u0010\u0016\u001a\u00020\u00178\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R \u0010\u0018\u001a\u0004\u0018\u00010\u00198\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u001b\"\u0004\b\u001c\u0010\u001dR&\u0010\u001e\u001a\n\u0012\u0004\u0012\u00020\u001f\u0018\u00010\u00128\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010\u000e\"\u0004\b!\u0010\u0010R&\u0010\"\u001a\n\u0012\u0004\u0012\u00020#\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b$\u0010\u000e\"\u0004\b%\u0010\u0010R \u0010&\u001a\u0004\u0018\u00010'8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b(\u0010)\"\u0004\b*\u0010+R \u0010,\u001a\u0004\u0018\u00010-8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b.\u0010/\"\u0004\b0\u00101R\u001e\u00102\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b2\u00104\"\u0004\b5\u00106R\u001e\u00107\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b7\u00104\"\u0004\b8\u00106R\u001e\u00109\u001a\u0002038\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b9\u00104\"\u0004\b:\u00106R$\u0010<\u001a\u0002032\u0006\u0010;\u001a\u0002038F@FX\u0086\u000e¢\u0006\f\u001a\u0004\b<\u00104\"\u0004\b=\u00106R\u0012\u0010>\u001a\u00020?8\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R\u001e\u0010@\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bA\u0010B\"\u0004\bC\u0010DR\u001e\u0010E\u001a\u00020F8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bG\u0010H\"\u0004\bI\u0010JR\u001e\u0010K\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bL\u0010B\"\u0004\bM\u0010DR \u0010N\u001a\u0004\u0018\u00010\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bO\u0010B\"\u0004\bP\u0010DR\u0014\u0010Q\u001a\u0004\u0018\u00010R8\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000R\u001a\u0010S\u001a\u00020\u0017X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bT\u0010B\"\u0004\bU\u0010DR \u0010V\u001a\u0004\u0018\u00010\u00008\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bW\u0010X\"\u0004\bY\u0010ZR&\u0010[\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\\\u0010\u000e\"\u0004\b]\u0010\u0010R \u0010^\u001a\u0004\u0018\u00010_8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b`\u0010a\"\u0004\bb\u0010cR$\u0010d\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\be\u0010\u0003\u001a\u0004\bf\u0010g\"\u0004\bh\u0010iR \u0010j\u001a\u00020?X\u0086\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bk\u0010\u0003\u001a\u0004\bl\u0010g\"\u0004\bm\u0010iR$\u0010n\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bo\u0010\u0003\u001a\u0004\bp\u0010g\"\u0004\bq\u0010iR&\u0010r\u001a\n\u0012\u0004\u0012\u00020#\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bs\u0010\u000e\"\u0004\bt\u0010\u0010R$\u0010u\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bv\u0010\u0003\u001a\u0004\bw\u0010B\"\u0004\bx\u0010DR\u001e\u0010y\u001a\u00020F8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bz\u0010H\"\u0004\b{\u0010JR2\u0010|\u001a\u0016\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0017\u0012\u0004\u0012\u00020R0}\u0018\u00010\u000b8\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b~\u0010\u000e\"\u0004\b\u007f\u0010\u0010R&\u0010\u0080\u0001\u001a\u0005\u0018\u00010\u0081\u00018\u0006@\u0006X\u0087\u000e¢\u0006\u0012\n\u0000\u001a\u0006\b\u0082\u0001\u0010\u0083\u0001\"\u0006\b\u0084\u0001\u0010\u0085\u0001R(\u0010\u0086\u0001\u001a\u00020?8\u0006@\u0006X\u0087\u000e¢\u0006\u0017\n\u0000\u0012\u0005\b\u0087\u0001\u0010\u0003\u001a\u0005\b\u0088\u0001\u0010g\"\u0005\b\u0089\u0001\u0010iR&\u0010\u008a\u0001\u001a\u0005\u0018\u00010\u008b\u00018\u0006@\u0006X\u0087\u000e¢\u0006\u0012\n\u0000\u001a\u0006\b\u008c\u0001\u0010\u008d\u0001\"\u0006\b\u008e\u0001\u0010\u008f\u0001R'\u0010\u0090\u0001\u001a\u00020F2\u0006\u0010;\u001a\u00020F8F@FX\u0086\u000e¢\u0006\u000e\u001a\u0005\b\u0091\u0001\u0010H\"\u0005\b\u0092\u0001\u0010JR!\u0010\u0093\u0001\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e¢\u0006\u0010\n\u0000\u001a\u0005\b\u0094\u0001\u0010B\"\u0005\b\u0095\u0001\u0010D¨\u0006\u00ad\u0001"}, d2 = {"Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "Ljava/io/Serializable;", "Lcom/baidu/tieba/im/lib/socket/listener/ShallowClone;", "()V", "abilityEffectItem", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;", "getAbilityEffectItem", "()Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;", "setAbilityEffectItem", "(Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityEffectItem;)V", "abilityItems", "", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "getAbilityItems", "()Ljava/util/List;", "setAbilityItems", "(Ljava/util/List;)V", "<set-?>", "", "Lcom/baidu/tieba/im/lib/socket/msg/TbAtUserInfo;", "atUserInfoList", "getAtUserInfoList", "bdUk", "", "bubbleInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;", "getBubbleInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;", "setBubbleInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/BubbleInfo;)V", "emojiList", "Lcom/baidu/tieba/im/lib/socket/msg/data/EmojiData;", "getEmojiList", "setEmojiList", "enableDegradeUserDataList", "Lcom/baidu/tieba/im/lib/socket/msg/data/EnableDegradeUserData;", "getEnableDegradeUserDataList", "setEnableDegradeUserDataList", "excellentInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;", "getExcellentInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;", "setExcellentInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/ExcellentInfo;)V", "forumExt", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;", "getForumExt", "()Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;", "setForumExt", "(Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg$ForumExt;)V", "isLocalEmojiReply", "", "()Z", "setLocalEmojiReply", "(Z)V", "isLocalMsgId", "setLocalMsgId", "isMockSender", "setMockSender", "value", "isSysMsg", "setSysMsg", "isSysMsgInt", "", "limitVersion", "getLimitVersion", "()Ljava/lang/String;", "setLimitVersion", "(Ljava/lang/String;)V", "msgId", "", "getMsgId", "()J", "setMsgId", "(J)V", "msgKey", "getMsgKey", "setMsgKey", "originMsgKey", "getOriginMsgKey", "setOriginMsgKey", "originSdkMsg", "", "portrait", "getPortrait", "setPortrait", "preTimestampMsg", "getPreTimestampMsg", "()Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "setPreTimestampMsg", "(Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;)V", "quickOperate", "getQuickOperate", "setQuickOperate", "reMsgInfo", "Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;", "getReMsgInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;", "setReMsgInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/TbReMsgInfo;)V", "robotRole", "getRobotRole$annotations", "getRobotRole", "()I", "setRobotRole", "(I)V", "role", "getRole$annotations", "getRole", "setRole", "sdkMsgStatus", "getSdkMsgStatus$annotations", "getSdkMsgStatus", "setSdkMsgStatus", "secondDegradeUserDataList", "getSecondDegradeUserDataList", "setSecondDegradeUserDataList", "sendClient", "getSendClient$annotations", "getSendClient", "setSendClient", "sessionId", "getSessionId", "setSessionId", "structData", "", "getStructData", "setStructData", NextActive.keyTaskInfo, "Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;", "getTaskInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;", "setTaskInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/TbTaskInfo;)V", "type", "getType$annotations", "getType", "setType", "userExtraInfo", "Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;", "getUserExtraInfo", "()Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;", "setUserExtraInfo", "(Lcom/baidu/tieba/im/lib/socket/msg/data/UserExtraInfo;)V", "userId", "getUserId", "setUserId", TbEnum.SystemMessage.KEY_USER_NAME, "getUserName", "setUserName", "addAtUserInfo", "", "atUserInfo", "compareVersion", "equals", "other", "fillMsg4Base", "baseMsg", "getMsgTime", "getOriginSdkMsg", "SdkMsg", "()Ljava/lang/Object;", "getThumbnailText", "", "hashCode", "isMaster", "isRobot", "setOriginSdkMsg", "oriSdkMsg", "shallowClone", "syncServerMsgId", "Companion", "ForumExt", "im-lib-socket_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -49,16 +48,16 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public static final String FIELD_FORUM_LEVEL = "level";
     public static final String FIELD_MSG_TYPE = "type";
     public transient /* synthetic */ FieldHolder $fh;
-    @zw5(deserialize = false, serialize = false)
+    @hr5(deserialize = false, serialize = false)
     public AbilityEffectItem abilityEffectItem;
-    @zw5(serialize = false)
     @SerializedName("sug_list")
+    @hr5(serialize = false)
     public List<AbilityItem> abilityItems;
     @SerializedName("at_user_info_list")
-    @yk8
+    @if8
     public List<TbAtUserInfo> atUserInfoList;
     @SerializedName("uk")
-    @yk8
+    @if8
     public String bdUk;
     @SerializedName("bubble_info")
     public BubbleInfo bubbleInfo;
@@ -70,33 +69,33 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public ExcellentInfo excellentInfo;
     @SerializedName(FIELD_FORUM_EXT)
     public c forumExt;
-    @zw5(deserialize = false, serialize = false)
+    @hr5(deserialize = false, serialize = false)
     public boolean isLocalEmojiReply;
-    @zw5(serialize = false)
+    @hr5(serialize = false)
     public boolean isLocalMsgId;
-    @zw5(serialize = false)
+    @hr5(serialize = false)
     public boolean isMockSender;
     @SerializedName("is_sys_msg")
     public int isSysMsgInt;
     @SerializedName("version")
     public String limitVersion;
     @SerializedName("msg_id")
-    @yk8
+    @if8
     public long msgId;
     @SerializedName("msg_key")
-    @yk8
+    @if8
     public String msgKey;
     @SerializedName("origin_msg_key")
     public String originMsgKey;
-    @zw5(serialize = false)
+    @hr5(serialize = false)
     public Object originSdkMsg;
     public String portrait;
-    @zw5(serialize = false)
+    @hr5(serialize = false)
     public TbBaseMsg preTimestampMsg;
     @SerializedName("quick_operate")
     public List<AbilityItem> quickOperate;
     @SerializedName("re_msg_info")
-    @yk8
+    @if8
     public TbReMsgInfo reMsgInfo;
     @SerializedName(PersonalMsgSettingDispatcher.PERSONAL_ROBOT_ROLE)
     public int robotRole;
@@ -112,7 +111,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     @SerializedName("struct_data")
     public List<? extends Map<String, ? extends Object>> structData;
     @SerializedName("task_info")
-    @yk8
+    @if8
     public TbTaskInfo taskInfo;
     @SerializedName("type")
     public int type;
@@ -611,7 +610,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return fl8.a(this.bdUk);
+            return pf8.a(this.bdUk);
         }
         return invokeV.longValue;
     }
@@ -657,7 +656,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            return el8.c(getUserId());
+            return of8.c(getUserId());
         }
         return invokeV.booleanValue;
     }
@@ -957,7 +956,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final void setUserId(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048650, this, j) == null) {
-            String b2 = fl8.b(j);
+            String b2 = pf8.b(j);
             Intrinsics.checkNotNullExpressionValue(b2, "value.toUk()");
             this.bdUk = b2;
         }

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
-public interface xl5 {
-    void a();
+public interface xl5 extends wl5 {
+    String getCacheTableName();
 
-    void d();
+    boolean isNeedUid();
 
-    void onLoadSuccess();
+    boolean w();
 }

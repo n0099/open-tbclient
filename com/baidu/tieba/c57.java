@@ -1,175 +1,140 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tbadk.img.ImageUploader;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.searchbox.live.frame.PageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.FeedItem;
 /* loaded from: classes5.dex */
-public class c57 {
+public final class c57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void J();
-
-        void u(List<String> list);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void a(ImageUploadResult imageUploadResult);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicInteger a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ c c;
-
-        public a(c57 c57Var, AtomicInteger atomicInteger, List list, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c57Var, atomicInteger, list, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = atomicInteger;
-            this.b = list;
-            this.c = cVar;
-        }
-
-        @Override // com.baidu.tieba.c57.d
-        public void a(ImageUploadResult imageUploadResult) {
-            ImageUploadResult.picInfo picinfo;
-            ImageUploadResult.PicDetailedInfo picDetailedInfo;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
-                this.a.decrementAndGet();
-                if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
-                    this.b.add(imageUploadResult.picInfo.bigPic.picUrl);
-                }
-                if (this.a.get() == 0) {
-                    if (!ListUtils.isEmpty(this.b)) {
-                        this.c.u(this.b);
-                    } else {
-                        this.c.J();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageFileInfo a;
-        public final /* synthetic */ d b;
-
-        public b(c57 c57Var, ImageFileInfo imageFileInfo, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c57Var, imageFileInfo, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = imageFileInfo;
-            this.b = dVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String filePath = this.a.getFilePath();
-                ImageUploader imageUploader = new ImageUploader("from_user_collect");
-                if (this.a.isGif()) {
-                    this.b.a(imageUploader.uploadInBackground(filePath, true, false));
-                    return;
-                }
-                Bitmap b = bg9.b(this.a);
-                if (b == null) {
-                    this.b.a(null);
-                    return;
-                }
-                String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b, 60);
-                b.recycle();
-                if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
-                    this.b.a(null);
-                    return;
-                }
-                ImageUploadResult uploadInBackground = imageUploader.uploadInBackground(saveBitmapByAbsolutelyPath, false, false);
-                FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
-                this.b.a(uploadInBackground);
-            }
-        }
-    }
-
-    public c57() {
+    public static final r17 a(FeedItem item, String apkDetailStr, long j, String tid, String forumName, String pageFrom) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{item, apkDetailStr, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(apkDetailStr, "apkDetailStr");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(forumName, "forumName");
+            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
+            JSONObject jSONObject = new JSONObject(apkDetailStr);
+            t27 t27Var = new t27();
+            t27Var.l = jSONObject.optString("appid");
+            t27Var.m = item.name;
+            t27Var.b = item.icon_url;
+            Double d = item.icon_ratio;
+            if (d != null) {
+                d.doubleValue();
+                t27Var.c = (float) item.icon_ratio.doubleValue();
             }
+            t27Var.n = jSONObject.optString("apk_name");
+            t27Var.o = jSONObject.optString("version");
+            t27Var.p = jSONObject.optInt("version_code");
+            t27Var.q = jSONObject.optLong("size");
+            t27Var.r = item.button_link;
+            t27Var.e = 1;
+            Double d2 = item.score;
+            if (d2 != null) {
+                d2.doubleValue();
+                t27Var.f = (float) item.score.doubleValue();
+            }
+            t27Var.g = item.tags;
+            t27Var.s = jSONObject.optString("developer");
+            t27Var.t = jSONObject.optString("publisher");
+            t27Var.u = jSONObject.optString("authority_url");
+            t27Var.v = jSONObject.optString("privacy_url");
+            t27Var.w = jSONObject.optInt("pkg_source");
+            t27Var.h = item.button_name;
+            t27Var.a = j;
+            t27Var.k = forumName;
+            e67 e67Var = new e67();
+            e67Var.a = tid;
+            e67Var.b = pageFrom;
+            return new r17(t27Var, e67Var, false, 4, null);
         }
+        return (r17) invokeCommon.objValue;
     }
 
-    public void a(ArrayList<ImageFileInfo> arrayList, c cVar) {
+    public static final v17 b(FeedItem item, long j, String tid, String forumName, String pageFrom) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, arrayList, cVar) != null) || ListUtils.isEmpty(arrayList)) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{item, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(forumName, "forumName");
+            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
+            d47 d47Var = new d47();
+            d47Var.a = j;
+            d47Var.b = item.icon_url;
+            Double d = item.icon_ratio;
+            if (d != null) {
+                d.doubleValue();
+                d47Var.c = (float) item.icon_ratio.doubleValue();
+            }
+            d47Var.d = item.name;
+            d47Var.e = 1;
+            Double d2 = item.score;
+            if (d2 != null) {
+                d2.doubleValue();
+                d47Var.f = (float) item.score.doubleValue();
+            }
+            d47Var.g = item.tags;
+            d47Var.h = item.button_name;
+            d47Var.i = item.button_link;
+            d47Var.k = forumName;
+            f67 f67Var = new f67();
+            f67Var.a = tid;
+            f67Var.b = pageFrom;
+            return new v17(d47Var, f67Var, false, 4, null);
         }
-        AtomicInteger atomicInteger = new AtomicInteger();
-        atomicInteger.set(arrayList.size());
-        ArrayList arrayList2 = new ArrayList();
-        Iterator<ImageFileInfo> it = arrayList.iterator();
-        while (it.hasNext()) {
-            b(it.next(), new a(this, atomicInteger, arrayList2, cVar));
-        }
+        return (v17) invokeCommon.objValue;
     }
 
-    public final void b(ImageFileInfo imageFileInfo, d dVar) {
+    public static final void c(FeedItem feedItem, List<h77<?>> dataList, k37 feedExtraData) {
+        String str;
+        String str2;
+        String str3;
+        Map<String, String> a;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
-            rf9.b().a(new b(this, imageFileInfo, dVar));
+        if (interceptable == null || interceptable.invokeLLL(65538, null, feedItem, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedItem, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            HashMap<String, String> a2 = m67.a.a(feedItem.business_info);
+            String str5 = a2.get("apk_detail");
+            String str6 = feedExtraData.a().a().get("thread_id");
+            if (str6 == null) {
+                str = "";
+            } else {
+                str = str6;
+            }
+            long j = JavaTypesHelper.toLong(a2.get("item_id"), 0L);
+            String str7 = a2.get("forum_name");
+            if (str7 == null) {
+                str2 = "";
+            } else {
+                str2 = str7;
+            }
+            l77 l77Var = feedExtraData.e().get(PageInfo.KEY);
+            if (l77Var == null || (a = l77Var.a(new v27())) == null || (str4 = a.get("page_from")) == null) {
+                str3 = "";
+            } else {
+                str3 = str4;
+            }
+            if (str5 == null) {
+                dataList.add(new i77(b(feedItem, j, str, str2, str3), "mount"));
+            } else {
+                dataList.add(new i77(a(feedItem, str5, j, str, str2, str3), "mount_app"));
+            }
         }
     }
 }

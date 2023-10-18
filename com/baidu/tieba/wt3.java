@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class wt3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public double b;
-    public double c;
+    public DownloadState a;
+    public String b;
+    public int c;
 
     public wt3() {
         Interceptable interceptable = $ic;
@@ -22,7 +24,21 @@ public class wt3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = DownloadState.NOT_START;
+        this.c = Integer.parseInt("0");
+    }
+
+    public static wt3 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            wt3 wt3Var = new wt3();
+            wt3Var.b = str2;
+            return wt3Var;
+        }
+        return (wt3) invokeLL.objValue;
     }
 }

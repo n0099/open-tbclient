@@ -1,28 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes7.dex */
-public class q4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public m3[] a;
-    public float[] b;
-    public r4[] c;
+public interface q4 {
+    @NonNull
+    public static final ServiceReference a;
+    @Nullable
+    public static final q4 b;
 
-    public q4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    void a(int i, @NonNull String str, @Nullable Object obj);
+
+    static {
+        ServiceReference serviceReference = new ServiceReference("DebugProcessor", "DebugService4Adp");
+        a = serviceReference;
+        b = (q4) ServiceManager.getService(serviceReference);
     }
 }

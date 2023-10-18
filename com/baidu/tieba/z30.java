@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Proxy;
-import android.os.Build;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,36 +13,62 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ConectivityUtils;
-import java.util.HashMap;
-/* loaded from: classes8.dex */
-public class z30 implements v30 {
-    public static /* synthetic */ Interceptable $ic;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes9.dex */
+public class z30 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 2;
+    public static List<String> b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a {
+    /* loaded from: classes9.dex */
+    public interface b {
+        void a(String str, boolean z);
+
+        void b(String str, d dVar);
+    }
+
+    /* loaded from: classes9.dex */
+    public interface d {
+        void a(int i, String str, String str2);
+    }
+
+    /* loaded from: classes9.dex */
+    public static class a implements b {
         public static /* synthetic */ Interceptable $ic;
-        public static HashMap<String, Integer> a;
         public static a b;
         public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+
+        @Override // com.baidu.tieba.z30.b
+        public void a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            }
+        }
 
         /* renamed from: com.baidu.tieba.z30$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C0532a {
+        /* loaded from: classes9.dex */
+        public class C0541a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public String a;
-            public String b;
-            public String c;
-            public int d;
+            public final /* synthetic */ AtomicBoolean a;
+            public final /* synthetic */ String b;
+            public final /* synthetic */ d c;
+            public final /* synthetic */ a d;
 
-            public C0532a(Context context) {
+            public C0541a(a aVar, AtomicBoolean atomicBoolean, String str, d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {context};
+                    Object[] objArr = {aVar, atomicBoolean, str, dVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -56,437 +78,524 @@ public class z30 implements v30 {
                         return;
                     }
                 }
-                b(context);
+                this.d = aVar;
+                this.a = atomicBoolean;
+                this.b = str;
+                this.c = dVar;
             }
 
-            public final void a(Context context, NetworkInfo networkInfo) {
-                String lowerCase;
+            @Override // java.util.TimerTask, java.lang.Runnable
+            public void run() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048576, this, context, networkInfo) == null) {
-                    if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
-                        if (lowerCase.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
-                            this.a = lowerCase;
-                            this.b = "10.0.0.172";
-                            return;
-                        } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                            this.a = lowerCase;
-                            this.b = "10.0.0.200";
-                            return;
-                        } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
-                            this.a = lowerCase;
-                            return;
-                        }
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (v40.a) {
+                        w40.a("DNSUrlProvider", "bddns > get IPs too long, bdDnsIps is null");
                     }
-                    String defaultHost = Proxy.getDefaultHost();
-                    int defaultPort = Proxy.getDefaultPort();
-                    if (defaultHost == null || defaultHost.length() <= 0) {
-                        return;
-                    }
-                    this.b = defaultHost;
-                    if ("10.0.0.172".equals(defaultHost.trim()) || "10.0.0.200".equals(this.b.trim())) {
-                        return;
-                    }
-                    Integer.toString(defaultPort);
+                    this.a.set(true);
+                    n30 g = m30.h(this.d.a).g(601110);
+                    g.d("P9", "BDDNS resovle spend more than 10s");
+                    g.d("con_err_code", "P9");
+                    z30.g(3, this.d.a);
+                    z30.a(this.d.a).b(this.b, this.c);
                 }
-            }
-
-            @SuppressLint({"MissingPermission"})
-            public final void b(Context context) {
-                NetworkInfo networkInfo;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-                    try {
-                        networkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-                    } catch (Exception unused) {
-                        networkInfo = null;
-                    }
-                    if (networkInfo != null) {
-                        if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
-                            this.c = "wifi";
-                        } else {
-                            a(context, networkInfo);
-                            this.c = this.a;
-                        }
-                        this.d = networkInfo.getSubtype();
-                        networkInfo.getSubtypeName();
-                    }
-                }
-            }
-
-            public int c() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.intValue;
-            }
-
-            public String d() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
             }
         }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-280924491, "Lcom/baidu/tieba/z30$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-280924491, "Lcom/baidu/tieba/z30$a;");
-                    return;
-                }
-            }
-            HashMap<String, Integer> hashMap = new HashMap<>();
-            a = hashMap;
-            hashMap.put("WIFI", 1);
-            a.put("3GNET", 21);
-            a.put("3GWAP", 22);
-            a.put("CMNET", 31);
-            a.put("UNINET", 32);
-            a.put("CTNET", 33);
-            a.put("CMWAP", 41);
-            a.put("UNIWAP", 42);
-            a.put("CTWAP", 43);
-            b = new a();
-        }
-
-        public a() {
+        public a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static a a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (a) invokeV.objValue;
-        }
-
-        public String b(Context context) {
-            InterceptResult invokeL;
-            StringBuilder sb;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                C0532a c0532a = new C0532a(context);
-                String d = c0532a.d();
-                int c = c0532a.c();
-                if (TextUtils.isEmpty(d)) {
-                    sb = new StringBuilder();
-                } else {
-                    Integer num = a.get(d.toUpperCase());
-                    r3 = num != null ? num : 5;
-                    sb = new StringBuilder();
-                }
-                sb.append(r3);
-                sb.append("_");
-                sb.append(c);
-                return sb.toString();
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static b c;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public DisplayMetrics b;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-280924460, "Lcom/baidu/tieba/z30$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-280924460, "Lcom/baidu/tieba/z30$b;");
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            c = new b();
+            Context applicationContext = context.getApplicationContext();
+            this.a = applicationContext;
+            z30.f(applicationContext);
         }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static b a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (b) invokeV.objValue;
-        }
-
-        public static String d(Context context) {
+        public static synchronized a d(Context context) {
             InterceptResult invokeL;
+            a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+                synchronized (a.class) {
+                    if (b == null) {
+                        b = new a(context);
+                    }
+                    aVar = b;
+                }
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.z30.b
+        public void b(String str, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
                 try {
-                    return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-                } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
-                    return "0.8";
-                }
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public String b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                synchronized (b.class) {
-                    if (TextUtils.isEmpty(this.a)) {
-                        this.a = c(context);
+                    if (v40.a) {
+                        w40.d("DNSUrlProvider", "BDHttpDNSUrlProvider try to getUrlAsync");
                     }
+                    if (z30.b != null && z30.b.size() > 0) {
+                        if (z30.c < z30.b.size()) {
+                            if (dVar != null) {
+                                dVar.a(0, DnsModel.MSG_OK, z30.b.get(z30.c));
+                                if (v40.a) {
+                                    w40.a("DNSUrlProvider", "retry bddns > return ip = " + z30.b.get(z30.c));
+                                }
+                            }
+                            z30.c++;
+                            return;
+                        }
+                        z30.g(3, this.a);
+                        z30.a(this.a).b(str, dVar);
+                        return;
+                    }
+                    Timer timer = new Timer();
+                    if (v40.a) {
+                        w40.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + str);
+                    }
+                    AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+                    timer.schedule(new C0541a(this, atomicBoolean, str, dVar), 3000L);
+                    DnsHelper dnsHelper = new DnsHelper(this.a);
+                    dnsHelper.setHttpDnsState(false, null, false, true);
+                    z30.h(dnsHelper.getIpList(str), this.a);
+                    if (z30.b != null && z30.b.size() > 0) {
+                        if (v40.a) {
+                            w40.a("DNSUrlProvider", "bddns > resolve ips end, bdDnsIps = " + z30.b);
+                        }
+                        String str2 = z30.b.get(0);
+                        if (dVar != null && !atomicBoolean.get()) {
+                            timer.cancel();
+                            if (z30.b.size() > 1) {
+                                z30.c++;
+                                z30.g(1, this.a);
+                            }
+                            if (v40.a) {
+                                w40.a("DNSUrlProvider", "bddns > resolve ips end, return ip = " + str2);
+                            }
+                            dVar.a(0, DnsModel.MSG_OK, str2);
+                        } else if (v40.a) {
+                            w40.a("DNSUrlProvider", "bddns > resolve ips end, but out of time, do nothing");
+                        }
+                        timer.cancel();
+                    }
+                } catch (Throwable unused) {
+                    if (v40.a) {
+                        w40.a("DNSUrlProvider", "bddns > bdDnsIps get exception ");
+                    }
+                    z30.g(3, this.a);
+                    z30.a(this.a).b(str, dVar);
                 }
-                return this.a;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public final String c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                int e = e(context.getApplicationContext());
-                int f = f(context.getApplicationContext());
-                int g = g(context.getApplicationContext());
-                String d = d(context.getApplicationContext());
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(e);
-                stringBuffer.append("_");
-                stringBuffer.append(f);
-                stringBuffer.append("_");
-                stringBuffer.append("android");
-                stringBuffer.append("_");
-                stringBuffer.append(d);
-                stringBuffer.append("_");
-                stringBuffer.append(g);
-                return stringBuffer.toString();
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public final int e(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                h(context);
-                DisplayMetrics displayMetrics = this.b;
-                if (displayMetrics != null) {
-                    return displayMetrics.widthPixels;
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public final int f(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-                h(context);
-                DisplayMetrics displayMetrics = this.b;
-                if (displayMetrics != null) {
-                    return displayMetrics.heightPixels;
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public final int g(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-                h(context);
-                DisplayMetrics displayMetrics = this.b;
-                if (displayMetrics != null) {
-                    return displayMetrics.densityDpi;
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public final void h(Context context) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && context != null && this.b == null) {
-                this.b = context.getResources().getDisplayMetrics();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static class c {
+    /* loaded from: classes9.dex */
+    public static class c implements b {
         public static /* synthetic */ Interceptable $ic;
-        public static c e;
+        public static c b;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
+        public Context a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-280924429, "Lcom/baidu/tieba/z30$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-280924429, "Lcom/baidu/tieba/z30$c;");
-                    return;
-                }
+        @Override // com.baidu.tieba.z30.b
+        public void a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
             }
-            e = new c();
         }
 
-        public c() {
+        public c(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            c();
+            this.a = context.getApplicationContext();
         }
 
-        public static c a() {
-            InterceptResult invokeV;
+        public static synchronized b c(Context context) {
+            InterceptResult invokeL;
+            c cVar;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e : (c) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
-        }
-
-        public final void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                String str = Build.MODEL;
-                this.a = str;
-                if (TextUtils.isEmpty(str)) {
-                    this.a = "NUL";
-                } else {
-                    this.a = this.a.replace("_", "-");
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                synchronized (c.class) {
+                    if (b == null) {
+                        b = new c(context);
+                    }
+                    cVar = b;
                 }
-                String str2 = Build.MANUFACTURER;
-                this.b = str2;
-                if (TextUtils.isEmpty(str2)) {
-                    this.b = "NUL";
-                } else {
-                    this.b = this.b.replace("_", "-");
-                }
-                String str3 = Build.VERSION.RELEASE;
-                this.c = str3;
-                this.c = TextUtils.isEmpty(str3) ? "0.0" : this.c.replace("_", "-");
-                this.d = d();
+                return cVar;
             }
+            return (b) invokeL.objValue;
         }
 
-        public final String d() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.z30.b
+        public void b(String str, d dVar) {
+            Context context;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                String str = this.a;
-                String str2 = this.c;
-                int i = Build.VERSION.SDK_INT;
-                String str3 = this.b;
-                return str + "_" + str2 + "_" + i + "_" + str3;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public z30() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
+                if (v40.a) {
+                    w40.d("DNSUrlProvider", "DefaultUrlProvider try to getUrlAsync");
+                }
+                if (dVar != null && (context = this.a) != null) {
+                    z30.f(context);
+                    dVar.a(0, DnsModel.MSG_OK, str);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.v30
-    public String a() {
+    /* loaded from: classes9.dex */
+    public static class e implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public static e b;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+
+        @Override // com.baidu.tieba.z30.b
+        public void a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            }
+        }
+
+        public e(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context.getApplicationContext();
+        }
+
+        public static synchronized e c(Context context) {
+            InterceptResult invokeL;
+            e eVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                synchronized (e.class) {
+                    if (b == null) {
+                        b = new e(context);
+                    }
+                    eVar = b;
+                }
+                return eVar;
+            }
+            return (e) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.z30.b
+        public void b(String str, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
+                if (v40.a) {
+                    w40.a("DNSUrlProvider", "will getLCPHttpDnsAddress......");
+                }
+                try {
+                    s40 s40Var = new s40(this.a);
+                    s40Var.a(dVar);
+                    r40.d().e(s40Var, s40Var);
+                } catch (Exception unused) {
+                    z30.g(3, this.a);
+                    z30.a(this.a).b(str, dVar);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class f implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public static f b;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+
+        @Override // com.baidu.tieba.z30.b
+        public void a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            }
+        }
+
+        public f(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context.getApplicationContext();
+        }
+
+        public static synchronized b c(Context context) {
+            InterceptResult invokeL;
+            f fVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                synchronized (f.class) {
+                    if (b == null) {
+                        b = new f(context);
+                    }
+                    fVar = b;
+                }
+                return fVar;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.z30.b
+        public void b(String str, d dVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) && dVar != null) {
+                String h = x40.h(this.a);
+                if (!TextUtils.isEmpty(h)) {
+                    if (v40.a) {
+                        w40.a("DNSUrlProvider", "LocalCacheProvider " + h);
+                    }
+                    dVar.a(0, DnsModel.MSG_OK, h);
+                    return;
+                }
+                if (v40.a) {
+                    w40.a("DNSUrlProvider", "else POLICY_BDHTTPDNS " + h);
+                }
+                z30.g(1, this.a);
+                z30.a(this.a).b(str, dVar);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948308882, "Lcom/baidu/tieba/z30;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948308882, "Lcom/baidu/tieba/z30;");
+                return;
+            }
+        }
+        b = Collections.synchronizedList(new ArrayList());
+        c = 0;
+    }
+
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a().b() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            List<String> list = b;
+            if (list != null && c <= list.size()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.v30
-    public String a(Context context) {
+    public static b a(Context context) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Context applicationContext = context.getApplicationContext();
+            int a2 = v40.a(applicationContext);
+            if (a2 != 1 && a2 != 2) {
+                if (v40.a) {
+                    w40.a("DNSUrlProvider", "DNSUrlProviderInternal " + a);
+                }
+                if (!TextUtils.isEmpty(x40.h(applicationContext)) && a == 0) {
+                    if (v40.a) {
+                        w40.a("DNSUrlProvider", "LocalCacheProvider ");
+                    }
+                    return f.c(applicationContext);
+                } else if (x40.c(applicationContext) && ((i = a) == 1 || i == 0)) {
+                    if (v40.a) {
+                        w40.a("DNSUrlProvider", "BDHttpDNSUrlProvider ");
+                    }
+                    return a.d(applicationContext);
+                } else if (a == 2) {
+                    if (v40.a) {
+                        w40.a("DNSUrlProvider", "LCPHttpDNSUrlProvider ");
+                    }
+                    return e.c(applicationContext);
+                } else {
+                    if (v40.a) {
+                        w40.a("DNSUrlProvider", "DefaultUrlProvider ");
+                    }
+                    return c.c(applicationContext);
+                }
+            }
+            a = 3;
+            return c.c(applicationContext);
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? b.a().b(context) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                return str.matches("^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$");
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.v30
-    public long b() {
-        InterceptResult invokeV;
+    public static void d(Context context, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() : invokeV.longValue;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
+            if (v40.a) {
+                w40.a("DNSUrlProvider", "onConnectSuccess currentPolicy：" + a);
+            }
+            e(context, str, true);
+            int i = a;
+            if (i == 0 || i == 1 || i == 2) {
+                if (v40.a) {
+                    w40.a("DNSUrlProvider", "localcache cached: " + str);
+                }
+                x40.E(context, str);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.v30
-    public String b(Context context) {
-        InterceptResult invokeL;
+    public static int g(int i, Context context) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? (context == null || context.getApplicationContext() == null) ? "" : context.getApplicationContext().getPackageName() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65543, null, i, context)) == null) {
+            int a2 = v40.a(context);
+            if (a2 != 1 && a2 != 2) {
+                a = i;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                a = 3;
+                            } else {
+                                a = 3;
+                            }
+                        } else {
+                            a = 2;
+                        }
+                    } else {
+                        a = 1;
+                    }
+                } else {
+                    a = 0;
+                }
+            } else {
+                a = 3;
+            }
+            if (v40.a) {
+                w40.a("DNSUrlProvider", "try to connect ip, now policy =" + a);
+            }
+            return a;
+        }
+        return invokeIL.intValue;
     }
 
-    @Override // com.baidu.tieba.v30
-    public String c(Context context) {
-        InterceptResult invokeL;
+    public static void e(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? n20.f(context).h() : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLLZ(65541, null, context, str, z) == null) {
+            f(context);
+            c.c(context).a(str, true);
+        }
     }
 
-    @Override // com.baidu.tieba.v30
-    public String d(Context context) {
-        InterceptResult invokeL;
+    public static void f(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? a.a().b(context) : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            if (v40.a) {
+                w40.a("DNSUrlProvider", "resetBdDns");
+            }
+            try {
+                c = 0;
+                b.clear();
+                x40.E(context, "");
+                a = 0;
+            } catch (Exception e2) {
+                if (v40.a) {
+                    w40.c("DNSUrlProvider", "resetBdDns exception", e2);
+                }
+            }
+        }
+    }
+
+    public static void h(List<String> list, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, list, context) == null) {
+            b.clear();
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            if (list != null && !list.isEmpty()) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (c(list.get(i))) {
+                        arrayList.add(list.get(i));
+                    } else {
+                        arrayList2.add(list.get(i));
+                    }
+                }
+            }
+            if (arrayList.size() + arrayList2.size() > 0) {
+                int f2 = x40.f(context);
+                if (v40.a) {
+                    w40.b("DNSUrlProvider", "getIpPriority :" + f2 + ", ipv4 :" + arrayList.toString() + ", ipv6 :" + arrayList2.toString());
+                }
+                if (f2 != 1) {
+                    if (f2 != 2) {
+                        if (f2 != 4) {
+                            b.addAll(arrayList);
+                            b.addAll(arrayList2);
+                            return;
+                        }
+                        b.addAll(arrayList);
+                        return;
+                    }
+                    b.addAll(arrayList2);
+                    b.addAll(arrayList);
+                    return;
+                }
+                b.addAll(arrayList2);
+            }
+        }
     }
 }

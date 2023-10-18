@@ -1,0 +1,11 @@
+package com.baidu.tieba;
+
+import com.baidu.tieba.lego.activity.LegoListFragment;
+/* loaded from: classes5.dex */
+public interface ay8 {
+    kz8 R();
+
+    pz8 a1();
+
+    LegoListFragment c0();
+}

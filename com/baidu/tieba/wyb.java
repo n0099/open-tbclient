@@ -1,47 +1,74 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.content.Context;
+import android.os.Process;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.log.TLog;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public class wyb implements Handler.Callback {
+public class wyb {
     public static /* synthetic */ Interceptable $ic;
+    public static AtomicBoolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ xyb a;
 
-    public wyb(xyb xybVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xybVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948288329, "Lcom/baidu/tieba/wyb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948288329, "Lcom/baidu/tieba/wyb;");
                 return;
             }
         }
-        this.a = xybVar;
+        a = new AtomicBoolean(false);
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        InterceptResult invokeL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (message != null && message.what == 1001) {
-                this.a.b(8002003);
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.get();
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public static synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (wyb.class) {
+                if (a.get()) {
+                    return;
+                }
+                TLog.h("[LibraryLoad]", "loadAllLibrary return for this version need dynamic download library!");
+            }
+        }
+    }
+
+    public static synchronized void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            synchronized (wyb.class) {
+                if (a.get()) {
+                    return;
+                }
+                TLog.h("[LibraryLoad]", "loadAllLibrary with context");
+                a0c.d();
+                if (a.compareAndSet(false, true)) {
+                    boolean z = y0c.z(context);
+                    a.set(z);
+                    if (z) {
+                        TLog.h("[LibraryLoad]", "load transvod success, processId:" + Process.myPid());
+                    }
+                }
+            }
+        }
     }
 }

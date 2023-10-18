@@ -8,8 +8,8 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.fr3;
-import com.baidu.tieba.xo3;
+import com.baidu.tieba.gj3;
+import com.baidu.tieba.ol3;
 /* loaded from: classes4.dex */
 public class CommonTagView extends TextView {
     public Context a;
@@ -47,28 +47,28 @@ public class CommonTagView extends TextView {
         int paddingRight;
         int paddingTop;
         int paddingBottom;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, fr3.CommonTagView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ol3.CommonTagView);
         this.b = obtainStyledAttributes.getDimensionPixelOffset(1, 1);
         this.c = obtainStyledAttributes.getColor(0, -16777216);
         this.d = obtainStyledAttributes.getDimensionPixelOffset(2, 3);
         obtainStyledAttributes.recycle();
         if (getPaddingLeft() == 0) {
-            paddingLeft = xo3.f(context, 2.0f);
+            paddingLeft = gj3.f(context, 2.0f);
         } else {
             paddingLeft = getPaddingLeft();
         }
         if (getPaddingRight() == 0) {
-            paddingRight = xo3.f(context, 2.0f);
+            paddingRight = gj3.f(context, 2.0f);
         } else {
             paddingRight = getPaddingRight();
         }
         if (getPaddingTop() == 0) {
-            paddingTop = xo3.f(context, 1.0f);
+            paddingTop = gj3.f(context, 1.0f);
         } else {
             paddingTop = getPaddingTop();
         }
         if (getPaddingBottom() == 0) {
-            paddingBottom = xo3.f(context, 1.0f);
+            paddingBottom = gj3.f(context, 1.0f);
         } else {
             paddingBottom = getPaddingBottom();
         }

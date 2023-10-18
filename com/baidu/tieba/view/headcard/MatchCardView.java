@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uya;
-import com.baidu.tieba.xya;
+import com.baidu.tieba.ota;
+import com.baidu.tieba.uta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,21 +42,21 @@ public class MatchCardView extends LinearLayout {
     public EMTextView g;
     public View h;
     public ImageView i;
-    public uya j;
+    public ota j;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xya a;
+        public final /* synthetic */ uta a;
         public final /* synthetic */ MatchCardView b;
 
-        public a(MatchCardView matchCardView, xya xyaVar) {
+        public a(MatchCardView matchCardView, uta utaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {matchCardView, xyaVar};
+                Object[] objArr = {matchCardView, utaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,7 +67,7 @@ public class MatchCardView extends LinearLayout {
                 }
             }
             this.b = matchCardView;
-            this.a = xyaVar;
+            this.a = utaVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -104,18 +104,18 @@ public class MatchCardView extends LinearLayout {
         }
     }
 
-    public final void b(StatisticItem statisticItem, xya xyaVar) {
+    public final void b(StatisticItem statisticItem, uta utaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, statisticItem, xyaVar) != null) || xyaVar == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, statisticItem, utaVar) != null) || utaVar == null) {
             return;
         }
         int i = 0;
-        if (xyaVar.c() != null && xyaVar.c().g() != null) {
-            i = xyaVar.c().g().intValue();
+        if (utaVar.c() != null && utaVar.c().g() != null) {
+            i = utaVar.c().g().intValue();
         }
-        int d = xyaVar.d();
-        String a2 = xyaVar.a();
-        String b = xyaVar.b();
+        int d = utaVar.d();
+        String a2 = utaVar.a();
+        String b = utaVar.b();
         statisticItem.addParam("obj_locate", i);
         statisticItem.addParam("obj_source", d);
         statisticItem.addParam("fid", a2);
@@ -176,8 +176,8 @@ public class MatchCardView extends LinearLayout {
             this.e.setSkinType(TbadkCoreApplication.getInst().getSkinType());
             EMManager.from(this.f).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
             WebPManager.setPureDrawable(this.i, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0108, WebPManager.ResourceStateType.NORMAL);
-            uya uyaVar = this.j;
-            if (uyaVar == null || uyaVar.g().intValue() != 1) {
+            ota otaVar = this.j;
+            if (otaVar == null || otaVar.g().intValue() != 1) {
                 i = R.dimen.T_X04;
             }
             EMManager.from(this.g).setTextStyle(R.string.F_X02).setTextSize(i).setTextColor(R.color.CAM_X0105);
@@ -210,27 +210,27 @@ public class MatchCardView extends LinearLayout {
         }
     }
 
-    public void setData(xya xyaVar) {
+    public void setData(uta utaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, xyaVar) == null) && xyaVar != null && xyaVar.c() != null) {
-            this.j = xyaVar.c();
-            this.b.setText(xyaVar.c().j());
-            this.c.startLoad(xyaVar.c().h(), 12, false);
-            this.d.setText(xyaVar.c().k());
-            this.e.startLoad(xyaVar.c().i(), 12, false);
-            this.f.setText(xyaVar.c().d());
-            this.f.setOnClickListener(new a(this, xyaVar));
+        if ((interceptable == null || interceptable.invokeL(1048579, this, utaVar) == null) && utaVar != null && utaVar.c() != null) {
+            this.j = utaVar.c();
+            this.b.setText(utaVar.c().j());
+            this.c.startLoad(utaVar.c().h(), 12, false);
+            this.d.setText(utaVar.c().k());
+            this.e.startLoad(utaVar.c().i(), 12, false);
+            this.f.setText(utaVar.c().d());
+            this.f.setOnClickListener(new a(this, utaVar));
             int intValue = this.j.g().intValue();
             if (intValue != 2) {
                 if (intValue != 3) {
-                    this.g.setText(xyaVar.c().f());
+                    this.g.setText(utaVar.c().f());
                 } else {
-                    this.g.setText(String.format("%d - %d", xyaVar.c().m(), xyaVar.c().n()));
+                    this.g.setText(String.format("%d - %d", utaVar.c().m(), utaVar.c().n()));
                 }
             } else {
-                this.g.setText(String.format("%d - %d", xyaVar.c().m(), xyaVar.c().n()));
+                this.g.setText(String.format("%d - %d", utaVar.c().m(), utaVar.c().n()));
             }
-            if (ListUtils.isNotEmpty(xyaVar.c().l())) {
+            if (ListUtils.isNotEmpty(utaVar.c().l())) {
                 this.h.setVisibility(8);
             } else {
                 this.h.setVisibility(0);

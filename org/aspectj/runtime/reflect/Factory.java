@@ -1,6 +1,7 @@
 package org.aspectj.runtime.reflect;
 
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.mobads.sdk.api.IAdInterListener;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Member;
 import java.lang.reflect.Method;
@@ -36,7 +37,7 @@ public final class Factory {
         prims.put("byte", Byte.TYPE);
         prims.put("char", Character.TYPE);
         prims.put("short", Short.TYPE);
-        prims.put("int", Integer.TYPE);
+        prims.put(IAdInterListener.AdProdType.PRODUCT_INTERSTITIAL, Integer.TYPE);
         prims.put("long", Long.TYPE);
         prims.put(ShaderParams.VALUE_TYPE_FLOAT, Float.TYPE);
         prims.put("double", Double.TYPE);

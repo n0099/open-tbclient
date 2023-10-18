@@ -15,7 +15,7 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
-import com.baidu.tieba.hc0;
+import com.baidu.tieba.e70;
 /* loaded from: classes3.dex */
 public abstract class LiveBaseFragment extends Fragment {
     public LiveTabEntity a;
@@ -93,7 +93,7 @@ public abstract class LiveBaseFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         this.b = null;
-        hc0.a().e(this);
+        e70.a().e(this);
     }
 
     public boolean e2(String str, String str2, int i) {

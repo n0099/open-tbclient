@@ -1,28 +1,63 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.view.ViewGroup;
+import android.util.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.tv5;
+import com.baidu.tbadk.widget.multidelmenu.model.MultiDelPostNetModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class rv5 extends pv5<ao5, tv5.b> {
+import java.util.Map;
+/* loaded from: classes8.dex */
+public class rv5 extends pv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> e;
+    public Map<String, sv5> b;
+    public qv5 c;
+    public String d;
+    public String e;
 
-    public rv5(TbPageContext<?> tbPageContext) {
+    /* loaded from: classes8.dex */
+    public class a extends g4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rv5 a;
+
+        public a(rv5 rv5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rv5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rv5Var;
+        }
+
+        @Override // com.baidu.tieba.g4
+        public void c(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof uv5)) {
+                this.a.j((uv5) obj);
+            }
+        }
+    }
+
+    public rv5(qv5 qv5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {qv5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,41 +67,85 @@ public class rv5 extends pv5<ao5, tv5.b> {
                 return;
             }
         }
-        this.e = tbPageContext;
+        this.b = new ArrayMap();
+        this.c = qv5Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.pv5
-    /* renamed from: h */
-    public ao5 f(ViewType viewType, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
+    public qv5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
-            return new ao5(this.e.getPageActivity(), null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (ao5) invokeLL.objValue;
+        return (qv5) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.pv5
-    /* renamed from: g */
-    public void d(ViewType viewType, ao5 ao5Var, tv5.b bVar) {
-        String str;
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, ao5Var, bVar) == null) {
-            if (bVar.b && !TextUtils.isEmpty(bVar.a)) {
-                str = bVar.a;
-            } else {
-                str = bVar.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.pv5
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MultiDelPostNetModel multiDelPostNetModel = new MultiDelPostNetModel();
+            tv5 tv5Var = new tv5();
+            for (sv5 sv5Var : this.b.values()) {
+                tv5Var.d(sv5Var.a());
+                tv5Var.e(sv5Var.c());
+                tv5Var.b(this.d);
+                tv5Var.c(this.e);
+                tv5Var.a(sv5Var.b());
             }
-            ao5Var.l(str);
-            ao5Var.j(bVar.d);
-            ao5Var.h(bVar.c);
-            ao5Var.m(bVar.f);
-            ao5Var.f(bVar.e);
-            ao5Var.o();
-            ao5Var.onChangeSkinType();
-            ao5Var.b().setOnClickListener(bVar.h);
+            multiDelPostNetModel.U(tv5Var);
+            multiDelPostNetModel.setLoadDataCallBack(new a(this));
+            multiDelPostNetModel.loadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.pv5
+    public void f(sv5 sv5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, sv5Var) == null) && sv5Var != null && !TextUtils.isEmpty(sv5Var.b())) {
+            this.b.put(sv5Var.b(), sv5Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.pv5
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.pv5
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.pv5
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.b.remove(str);
+        }
+    }
+
+    public void j(uv5 uv5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, uv5Var) == null) && d() != null) {
+            d().h(uv5Var);
         }
     }
 }

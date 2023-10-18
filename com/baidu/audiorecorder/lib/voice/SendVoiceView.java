@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dp8;
+import com.baidu.tieba.cd5;
 import com.baidu.tieba.im.chat.ISendVoiceView;
-import com.baidu.tieba.jj5;
-import com.baidu.tieba.nh8;
-import com.baidu.tieba.wi5;
+import com.baidu.tieba.nj8;
+import com.baidu.tieba.pd5;
+import com.baidu.tieba.xb8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceView {
+public class SendVoiceView extends LinearLayout implements pd5, xb8, ISendVoiceView {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,37 +44,37 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
     public EditorTools e;
     public FloatNewRecordView f;
     public PopupWindow g;
-    public dp8 h;
+    public nj8 h;
     public boolean i;
     public long j;
     public boolean k;
     public Runnable l;
 
-    @Override // com.baidu.tieba.xi5
-    public void O(wi5 wi5Var) {
+    @Override // com.baidu.tieba.dd5
+    public void O(cd5 cd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wi5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, cd5Var) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onDeletedVoice(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onSendVoice(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048595, this, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048594, this, str, i) == null) {
         }
     }
 
@@ -127,20 +127,10 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
         m = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
     }
 
-    @Override // com.baidu.tieba.nh8
-    public void A() {
-        PopupWindow popupWindow;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (popupWindow = this.g) != null && popupWindow.isShowing()) {
-            this.i = false;
-            this.g.dismiss();
-        }
-    }
-
     public void a() {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null) {
             this.f.b();
         }
     }
@@ -148,16 +138,16 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
     public void b() {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null) {
             this.k = false;
             this.f.c();
-            A();
+            s();
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             PopupWindow popupWindow = new PopupWindow();
             this.g = popupWindow;
             popupWindow.setHeight(-1);
@@ -166,10 +156,10 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
         }
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void display() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921790, Boolean.TRUE));
             setVisibility(0);
         }
@@ -178,7 +168,7 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
     public void e() {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null) {
             this.f.f();
         }
     }
@@ -186,36 +176,36 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
     public void f() {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null) {
             this.k = true;
             this.f.g();
         }
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.d;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921790, Boolean.FALSE));
             setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public boolean isOnCancle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             FloatNewRecordView floatNewRecordView = this.f;
             if (floatNewRecordView != null && floatNewRecordView.getParent() != null) {
                 return this.f.isOnCancle();
@@ -225,11 +215,21 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onStopingRecorder() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && !this.k) {
-            A();
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && !this.k) {
+            s();
+        }
+    }
+
+    @Override // com.baidu.tieba.xb8
+    public void s() {
+        PopupWindow popupWindow;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048601, this) == null) && (popupWindow = this.g) != null && popupWindow.isShowing()) {
+            this.i = false;
+            this.g.dismiss();
         }
     }
 
@@ -262,31 +262,20 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
         this.a = context;
         int i3 = m;
         setPadding(0, i3, 0, i3);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08b8, this);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092492);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09123c);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08aa, this);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09249c);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091252);
         setFocusable(true);
         setFocusableInTouchMode(true);
         c();
     }
 
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (z) {
-                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0ce1));
-            } else {
-                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0ce2));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.jj5
-    public void d0(wi5 wi5Var) {
+    @Override // com.baidu.tieba.pd5
+    public void c0(cd5 cd5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, wi5Var) == null) && (editorTools = this.e) != null) {
-            editorTools.D(wi5Var);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, cd5Var) == null) && (editorTools = this.e) != null) {
+            editorTools.D(cd5Var);
         }
     }
 
@@ -294,7 +283,7 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 2) {
                 super.requestDisallowInterceptTouchEvent(true);
             }
@@ -307,7 +296,7 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, motionEvent)) == null) {
             if (motionEvent.getAction() != 2) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -316,25 +305,25 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onShowRecordTime(int i) {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048597, this, i) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null && i > 500) {
+        if ((interceptable == null || interceptable.invokeI(1048596, this, i) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null && i > 500) {
             this.f.onShowRecordTime(i);
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onShowRecording(int i) {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null) {
+        if ((interceptable == null || interceptable.invokeI(1048597, this, i) == null) && (floatNewRecordView = this.f) != null && floatNewRecordView.getParent() != null) {
             this.f.onShowRecording(i);
         }
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, editorTools) == null) {
@@ -350,7 +339,7 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
         }
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
@@ -359,10 +348,21 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
     }
 
     @Override // com.baidu.tieba.im.chat.ISendVoiceView
-    public void setTouchCallBack(dp8 dp8Var) {
+    public void setTouchCallBack(nj8 nj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, dp8Var) == null) {
-            this.h = dp8Var;
+        if (interceptable == null || interceptable.invokeL(1048605, this, nj8Var) == null) {
+            this.h = nj8Var;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            if (z) {
+                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0cee));
+            } else {
+                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0cef));
+            }
         }
     }
 
@@ -370,7 +370,7 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
         PopupWindow popupWindow;
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && TbadkCoreApplication.getInst().getCurrentActivity() != null && (popupWindow = this.g) != null && (floatNewRecordView = this.f) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && TbadkCoreApplication.getInst().getCurrentActivity() != null && (popupWindow = this.g) != null && (floatNewRecordView = this.f) != null) {
             this.i = true;
             popupWindow.setContentView(floatNewRecordView);
             GreyUtil.grey(this.g);
@@ -379,10 +379,10 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
         }
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             TextView textView = this.b;
             if (textView != null) {
                 EMManager.from(textView).setTextColor(R.color.CAM_X0107);
@@ -395,18 +395,18 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048596, this, i, str) == null) && !StringUtils.isNull(str) && i == 3) {
-            A();
+        if ((interceptable == null || interceptable.invokeIL(1048595, this, i, str) == null) && !StringUtils.isNull(str) && i == 3) {
+            s();
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onStartedRecorder(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             FloatNewRecordView floatNewRecordView = new FloatNewRecordView(getContext());
             this.f = floatNewRecordView;
             floatNewRecordView.setMaxDuring(i);
@@ -418,10 +418,10 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                dp8 dp8Var = this.h;
-                if (dp8Var != null && dp8Var.a()) {
+                nj8 nj8Var = this.h;
+                if (nj8Var != null && nj8Var.a()) {
                     if (this.k) {
                         SafeHandler.getInst().removeCallbacks(this.l);
                         b();
@@ -443,36 +443,36 @@ public class SendVoiceView extends LinearLayout implements jj5, nh8, ISendVoiceV
             } else {
                 if (this.i) {
                     if (motionEvent.getY() < -1.0f && Math.abs(motionEvent.getY()) > BdUtilHelper.dip2px(this.a, 67.0f)) {
-                        dp8 dp8Var2 = this.h;
-                        if (dp8Var2 != null) {
-                            dp8Var2.b();
+                        nj8 nj8Var2 = this.h;
+                        if (nj8Var2 != null) {
+                            nj8Var2.b();
                         }
                         a();
-                        A();
+                        s();
                     } else {
-                        dp8 dp8Var3 = this.h;
-                        if (dp8Var3 != null && !dp8Var3.isForeground()) {
+                        nj8 nj8Var3 = this.h;
+                        if (nj8Var3 != null && !nj8Var3.isForeground()) {
                             this.h.b();
-                            A();
+                            s();
                         } else {
-                            dp8 dp8Var4 = this.h;
-                            if (dp8Var4 != null) {
-                                dp8Var4.stopRecord();
+                            nj8 nj8Var4 = this.h;
+                            if (nj8Var4 != null) {
+                                nj8Var4.stopRecord();
                             }
                             if (System.currentTimeMillis() > 0 && System.currentTimeMillis() - this.j < 1000) {
                                 f();
                                 SafeHandler.getInst().postDelayed(this.l, 2000L);
                             } else {
-                                A();
+                                s();
                             }
                         }
                     }
                 }
                 d(false);
             }
-            dp8 dp8Var5 = this.h;
-            if (dp8Var5 != null) {
-                dp8Var5.setRecoding(this.i);
+            nj8 nj8Var5 = this.h;
+            if (nj8Var5 != null) {
+                nj8Var5.setRecoding(this.i);
             }
             return true;
         }

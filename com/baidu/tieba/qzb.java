@@ -1,20 +1,17 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.InputStream;
-@Deprecated
 /* loaded from: classes7.dex */
-public abstract class qzb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qzb {
+    void onPlayerAudioStalls(yzb yzbVar, boolean z, int i);
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            throw null;
-        }
-    }
+    void onPlayerDecodeBitrate(yzb yzbVar, int i, int i2);
 
-    public abstract InputStream b();
+    void onPlayerDecodeOuputSize(yzb yzbVar, int i, int i2);
+
+    void onPlayerDecodeType(yzb yzbVar, int i);
+
+    void onPlayerReceiveToRenderDelay(yzb yzbVar, int i);
+
+    void onPlayerRenderFramerate(yzb yzbVar, int i);
+
+    void onPlayerVideoStalls(yzb yzbVar, boolean z, int i);
 }

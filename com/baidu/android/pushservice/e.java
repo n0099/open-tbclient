@@ -24,8 +24,9 @@ import com.baidu.android.pushservice.l.d;
 import com.baidu.android.pushservice.pull.ClientEventInfo;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.pzb;
+import com.baidu.tieba.mtb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -90,7 +91,7 @@ public class e {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 e.h(this.c);
                 try {
-                    str = HmsInstanceId.getInstance(this.c).getToken(pzb.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
+                    str = HmsInstanceId.getInstance(this.c).getToken(mtb.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
                 } catch (Throwable unused) {
                     PushSettings.h = 1;
                     com.baidu.android.pushservice.a0.i.b(this.c, "com.baidu.android.pushservice.PushSettings.hw_hms_down_mode", 1);
@@ -410,7 +411,7 @@ public class e {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:17:0x0049, code lost:
-            if (r0 > 172800000) goto L17;
+            if (r0 > com.baidu.mobads.sdk.internal.bj.e) goto L17;
          */
         /* JADX WARN: Code restructure failed: missing block: B:21:0x0059, code lost:
             if (r0 > 86400000) goto L17;
@@ -1068,7 +1069,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, context)) == null) {
             Intent intent = new Intent("com.baidu.android.pushservice.action.receiver.ALARM");
-            intent.putExtra(com.baidu.android.imsdk.internal.Constants.EXTRA_ALARM_ALERT, "OK");
+            intent.putExtra(com.baidu.android.imsdk.internal.Constants.EXTRA_ALARM_ALERT, bx.k);
             intent.setFlags(32);
             intent.setClass(context, PushServiceReceiver.class);
             return intent;

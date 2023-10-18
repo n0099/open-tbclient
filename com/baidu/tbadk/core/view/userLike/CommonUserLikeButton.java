@@ -11,13 +11,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tb5;
+import com.baidu.tieba.b65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class CommonUserLikeButton extends TextView implements tb5 {
+/* loaded from: classes5.dex */
+public class CommonUserLikeButton extends TextView implements b65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -27,7 +27,7 @@ public class CommonUserLikeButton extends TextView implements tb5 {
     public View.OnClickListener e;
     public boolean f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(int i);
     }
@@ -51,7 +51,7 @@ public class CommonUserLikeButton extends TextView implements tb5 {
             }
         }
         this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ea);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec);
         this.c = false;
         this.f = false;
         f();
@@ -68,7 +68,7 @@ public class CommonUserLikeButton extends TextView implements tb5 {
             } else {
                 setClickable(true);
                 setText(this.b);
-                setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035d), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035d), 0);
+                setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070359), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070359), 0);
             }
             g(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -94,7 +94,7 @@ public class CommonUserLikeButton extends TextView implements tb5 {
             }
         }
         this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ea);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec);
         this.c = false;
         this.f = false;
         f();
@@ -120,13 +120,13 @@ public class CommonUserLikeButton extends TextView implements tb5 {
             }
         }
         this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ea);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec);
         this.c = false;
         this.f = false;
         f();
     }
 
-    @Override // com.baidu.tieba.tb5
+    @Override // com.baidu.tieba.b65
     public void a(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class CommonUserLikeButton extends TextView implements tb5 {
         }
     }
 
-    @Override // com.baidu.tieba.tb5
+    @Override // com.baidu.tieba.b65
     public void c(int i) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -144,7 +144,7 @@ public class CommonUserLikeButton extends TextView implements tb5 {
         }
     }
 
-    @Override // com.baidu.tieba.tb5
+    @Override // com.baidu.tieba.b65
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -174,7 +174,7 @@ public class CommonUserLikeButton extends TextView implements tb5 {
         }
     }
 
-    @Override // com.baidu.tieba.tb5
+    @Override // com.baidu.tieba.b65
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {

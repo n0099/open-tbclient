@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class AdSpeedStats extends AbstractSpeedStats {
     public static final String AD_BEAR_LOAD_DURATION = "bearLoad";
     public static final String AD_BEAR_LOAD_RESULT = "bearResult";

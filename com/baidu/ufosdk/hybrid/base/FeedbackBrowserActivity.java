@@ -23,7 +23,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.tts.jni.TtsLogLoad;
 import com.baidu.ufosdk.e0;
 import com.baidu.ufosdk.f;
 import com.baidu.ufosdk.g;
@@ -422,7 +421,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
             c cVar = (c) gVar;
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(TtsLogLoad.KEY_OS, com.baidu.ufosdk.b.e(cVar.a));
+                jSONObject.put("os", com.baidu.ufosdk.b.e(cVar.a));
                 jSONObject.put("appid", e0.a(cVar.a).b);
                 jSONObject.put("devid", e0.a(cVar.a).c);
                 jSONObject.put("clientid", e0.a(cVar.a).a);

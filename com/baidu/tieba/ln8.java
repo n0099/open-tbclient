@@ -1,99 +1,65 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
-import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
-import com.baidu.tieba.im.under.common.tag.item.AbilityTagItemViewHolder;
-import com.baidu.tieba.im.under.common.tag.item.AddEmojiPendantVH;
-import com.baidu.tieba.im.under.common.tag.item.ElementFileItemViewHolder;
-import com.baidu.tieba.im.under.common.tag.item.ElementItemViewHolder;
-import com.baidu.tieba.im.under.common.tag.item.EmojiReplyPendantVH;
-import com.baidu.tieba.im.under.common.tag.item.SkillIconViewHolder;
-import com.baidu.tieba.im.under.common.tag.item.SkillTagItemViewHolder;
-import com.baidu.tieba.im.under.common.tag.item.TagItemViewHolder;
-import com.baidu.tieba.im.under.common.tag.item.TagSugItemViewHolder;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ln8 extends mf8 {
+public class ln8 extends FastRequest.b<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public BotsDTO.BotListDTO.SkillDTO d;
-    @Nullable
-    public BotsDTO.BotListDTO.UserDTO e;
+    public final String d;
+    @NonNull
+    public final ChatPage e;
 
-    public ln8() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.net.FastRequest.b
+    /* renamed from: m */
+    public void i(@NonNull Void r5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
+        }
+    }
+
+    public ln8(@Nullable String str, @NonNull ChatPage chatPage) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, chatPage};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = str;
+        this.e = chatPage;
     }
 
-    @Override // com.baidu.tieba.mf8
-    public BaseTagItemViewHolder b(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.net.FastRequest.b
+    /* renamed from: l */
+    public void f(int i, @NonNull String str, @Nullable Void r7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (i == ao8.b) {
-                return new TagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0970, viewGroup, false), this.a);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, r7) == null) {
+            super.f(i, str, r7);
+            BdLog.d("error: " + i + " " + str);
+            String str2 = this.d;
+            if (str2 != null && !StringUtils.isNull(str2)) {
+                this.e.x1(this.d, false);
             }
-            if (i == pf8.d) {
-                return new ElementItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d096d, viewGroup, false), this.a);
-            }
-            if (i == zn8.c) {
-                return new SkillTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d5, viewGroup, false), this.a);
-            }
-            if (i == yn8.a) {
-                return new SkillIconViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d4, viewGroup, false), this.a);
-            }
-            if (i == qf8.f) {
-                return new ElementFileItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d096f, viewGroup, false), this.a);
-            }
-            if (i == tn8.e) {
-                return new AbilityTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d096c, viewGroup, false), this.b, this.c);
-            }
-            if (i == bo8.b) {
-                TagSugItemViewHolder tagSugItemViewHolder = new TagSugItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d096d, viewGroup, false), this.a, this.c);
-                tagSugItemViewHolder.o(this.d);
-                tagSugItemViewHolder.r(this.e);
-                return tagSugItemViewHolder;
-            } else if (i == wn8.d) {
-                return new EmojiReplyPendantVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0525, viewGroup, false), this.b);
-            } else {
-                if (i == un8.b) {
-                    return new AddEmojiPendantVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0525, viewGroup, false), this.b);
-                }
-                return null;
-            }
-        }
-        return (BaseTagItemViewHolder) invokeLI.objValue;
-    }
-
-    public void e(@Nullable BotsDTO.BotListDTO.SkillDTO skillDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, skillDTO) == null) {
-            this.d = skillDTO;
-        }
-    }
-
-    public void f(@Nullable BotsDTO.BotListDTO.UserDTO userDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, userDTO) == null) {
-            this.e = userDTO;
         }
     }
 }

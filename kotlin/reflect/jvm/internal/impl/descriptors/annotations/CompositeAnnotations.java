@@ -9,7 +9,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.sequences.Sequence;
 import kotlin.sequences.SequencesKt___SequencesKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class CompositeAnnotations implements Annotations {
     public final List<Annotations> delegates;
 
@@ -21,7 +21,7 @@ public final class CompositeAnnotations implements Annotations {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations
     /* renamed from: findAnnotation */
-    public AnnotationDescriptor mo2102findAnnotation(final FqName fqName) {
+    public AnnotationDescriptor mo2101findAnnotation(final FqName fqName) {
         return (AnnotationDescriptor) SequencesKt___SequencesKt.firstOrNull(SequencesKt___SequencesKt.mapNotNull(CollectionsKt___CollectionsKt.asSequence(this.delegates), new Function1<Annotations, AnnotationDescriptor>() { // from class: kotlin.reflect.jvm.internal.impl.descriptors.annotations.CompositeAnnotations$findAnnotation$1
             {
                 super(1);
@@ -30,7 +30,7 @@ public final class CompositeAnnotations implements Annotations {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function1
             public final AnnotationDescriptor invoke(Annotations annotations) {
-                return annotations.mo2102findAnnotation(FqName.this);
+                return annotations.mo2101findAnnotation(FqName.this);
             }
         }));
     }

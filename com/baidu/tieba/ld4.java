@@ -1,74 +1,44 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.LinkedBlockingDeque;
-@SuppressLint({"MobilebdThread"})
-/* loaded from: classes6.dex */
-public final class ld4 extends Thread {
+import java.util.Arrays;
+import java.util.HashSet;
+/* loaded from: classes7.dex */
+public final class ld4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedBlockingDeque<cd4> a;
-    public volatile boolean b;
 
-    public ld4() {
+    @NonNull
+    @SuppressLint({"LambdaLast"})
+    public static Bundle a(@NonNull id4 id4Var, @Nullable Bundle bundle, String... strArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, id4Var, bundle, strArr)) == null) {
+            if (bundle == null) {
+                bundle = new Bundle();
             }
-        }
-        this.a = new LinkedBlockingDeque<>(1024);
-    }
-
-    public final LinkedBlockingDeque<cd4> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (LinkedBlockingDeque) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            while (this.b) {
-                try {
-                    this.a.take().a();
-                } catch (InterruptedException unused) {
-                    return;
-                } catch (Throwable unused2) {
-                }
+            if (bundle.getLong("timestamp", -1L) < 0) {
+                bundle.putLong("timestamp", System.currentTimeMillis());
             }
+            return id4Var.m(bundle, new HashSet(Arrays.asList(strArr)));
         }
+        return (Bundle) invokeLLL.objValue;
     }
 
-    public final void c(boolean z) {
+    @NonNull
+    @SuppressLint({"LambdaLast"})
+    public static Bundle b(@NonNull id4 id4Var, @NonNull String... strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, id4Var, strArr)) == null) {
+            return a(id4Var, null, strArr);
         }
+        return (Bundle) invokeLL.objValue;
     }
 }

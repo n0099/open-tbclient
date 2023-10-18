@@ -10,29 +10,29 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
 import com.baidu.tbadk.coreExtra.message.ChannelConfigResponseMessage;
-import com.baidu.tieba.zc5;
+import com.baidu.tieba.h75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChannelConfigModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b callback;
-    public zc5 mData;
+    public h75 mData;
     public ChannelIconConfigFinalData mFinalData;
     public int mLocalCommonVersion;
     public int mLocalSpecialVersion;
     public HttpMessageListener mNetListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void a(boolean z, zc5 zc5Var);
+        void a(boolean z, h75 h75Var);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,13 +102,13 @@ public class ChannelConfigModel {
         }
     }
 
-    public zc5 getData() {
+    public h75 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mData;
         }
-        return (zc5) invokeV.objValue;
+        return (h75) invokeV.objValue;
     }
 
     public void onDestroy() {
@@ -137,16 +137,16 @@ public class ChannelConfigModel {
                 return null;
             }
             ChannelIconConfigFinalData channelIconConfigFinalData2 = new ChannelIconConfigFinalData();
-            zc5 zc5Var = this.mData;
-            if (zc5Var != null && zc5Var.b() != null && this.mLocalSpecialVersion < this.mData.b().e()) {
+            h75 h75Var = this.mData;
+            if (h75Var != null && h75Var.b() != null && this.mLocalSpecialVersion < this.mData.b().e()) {
                 channelIconConfigFinalData2.setIcon(this.mData.b().a());
                 channelIconConfigFinalData2.setPopText(this.mData.b().b());
                 channelIconConfigFinalData2.setTabCode(this.mData.b().c());
                 channelIconConfigFinalData2.setTid(this.mData.b().d());
                 channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_SPECIAL);
             } else {
-                zc5 zc5Var2 = this.mData;
-                if (zc5Var2 != null && zc5Var2.a() > 0 && this.mLocalCommonVersion < this.mData.a()) {
+                h75 h75Var2 = this.mData;
+                if (h75Var2 != null && h75Var2.a() > 0 && this.mLocalCommonVersion < this.mData.a()) {
                     channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_COMMON);
                 } else {
                     channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_NONE);

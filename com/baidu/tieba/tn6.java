@@ -1,35 +1,63 @@
 package com.baidu.tieba;
 
-import androidx.core.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.m77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class tn6 {
+public final class tn6 implements m77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SafeVarargs
-    public static String a(Pair<String, String>... pairArr) {
-        InterceptResult invokeL;
-        String str;
+    public tn6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pairArr)) == null) {
-            if (!qn6.e(pairArr)) {
-                JSONObject jSONObject = new JSONObject();
-                for (Pair<String, String> pair : pairArr) {
-                    if (pair != null && (str = pair.first) != null) {
-                        try {
-                            jSONObject.put(str, pair.second);
-                        } catch (Exception e) {
-                            kn6.b("newHybrid", "toJsonStr err:" + e);
-                        }
-                    }
-                }
-                return jSONObject.toString();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return "{}";
+        }
+    }
+
+    @Override // com.baidu.tieba.l77
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return m77.a.b(this);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.l77
+    public Map<String, String> a(v27 v27Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v27Var)) == null) {
+            return m77.a.a(this, v27Var);
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m77
+    public String c(v27 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            if (Intrinsics.areEqual(businessInfo.a().get("card_head_type"), "live_user")) {
+                return "live_user_head_click";
+            }
+            return "";
         }
         return (String) invokeL.objValue;
     }

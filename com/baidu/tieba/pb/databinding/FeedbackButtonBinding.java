@@ -51,11 +51,11 @@ public final class FeedbackButtonBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090afe;
-            TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090afe);
+            int i = R.id.obfuscated_res_0x7f090b19;
+            TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090b19);
             if (tbImage != null) {
-                i = R.id.obfuscated_res_0x7f090aff;
-                EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090aff);
+                i = R.id.obfuscated_res_0x7f090b1a;
+                EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b1a);
                 if (eMTextView != null) {
                     return new FeedbackButtonBinding((RelativeLayout) view2, tbImage, eMTextView);
                 }

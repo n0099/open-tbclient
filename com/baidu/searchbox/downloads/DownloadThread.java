@@ -41,7 +41,7 @@ import com.baidu.searchbox.net.DownloadProxyHttpClient;
 import com.baidu.searchbox.net.IProxyHttpClient;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a20;
+import com.baidu.tieba.xw;
 import com.baidu.ubc.UBC;
 import com.baidubce.http.Headers;
 import java.io.File;
@@ -503,10 +503,10 @@ public class DownloadThread extends Thread {
                 }
                 return null;
             }
-            return this.mContext.getString(R.string.obfuscated_res_0x7f0f0597);
+            return this.mContext.getString(R.string.obfuscated_res_0x7f0f059d);
         }
-        a20.u();
-        return this.mContext.getString(R.string.obfuscated_res_0x7f0f05e1);
+        xw.u();
+        return this.mContext.getString(R.string.obfuscated_res_0x7f0f05e7);
     }
 
     private void handleExceptionalStatus(State state, InnerState innerState, HttpResponse httpResponse) throws StopRequest, RetryDownload {
@@ -553,7 +553,7 @@ public class DownloadThread extends Thread {
                 DownloadInfo downloadInfo = this.mInfo;
                 doCloudPauseStatisticJob(downloadInfo.mId, downloadInfo.mFileName, i, downloadInfo.mExtraInfo, state.mRedirectUris);
             }
-            a20.e(this.mInfo.mId, i, str);
+            xw.e(this.mInfo.mId, i, str);
             str2 = this.mInfo.mExtraInfo;
         }
         DownloadMessageSender.logDownloadFail(state.mFilename, state.mMimeType, i, state.mRequestUri, state.mReferer, state.mRedirectCount, state.mCountRetry, str2);
@@ -740,10 +740,10 @@ public class DownloadThread extends Thread {
             state.mMimeType = FileClassifyHelper.guessMimeTypeFromExtension(fileSuffix);
         }
         setMediaFileValues(contentValues, state);
-        Uri a = MediaFileProcessor.a(DownloadMediaHelper.getMediaFileUriSource(state.mFilename, state.mMimeType));
+        Uri c = MediaFileProcessor.c(DownloadMediaHelper.getMediaFileUriSource(state.mFilename, state.mMimeType));
         contentValues.put("is_pending", (Integer) 1);
         ContentResolver contentResolver = this.mContext.getContentResolver();
-        Uri insert = contentResolver.insert(a, contentValues);
+        Uri insert = contentResolver.insert(c, contentValues);
         try {
             if (insert == null) {
                 return;
@@ -802,14 +802,14 @@ public class DownloadThread extends Thread {
                 }
                 try {
                     if (DownloadHelper.getAvailableBytes(DownloadHelper.getFilesystemRoot(state.mFilename)) < i) {
-                        saveErrorRecord(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e3), state, null);
-                        throw new StopRequest(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e3), e);
+                        saveErrorRecord(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e9), state, null);
+                        throw new StopRequest(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e9), e);
                     }
                     saveErrorRecord(Downloads.Impl.STATUS_FILE_ERROR_9, "while writing destination file: " + e.toString(), state, null);
                     throw new StopRequest(Downloads.Impl.STATUS_FILE_ERROR_9, "while writing destination file: " + e.toString(), e);
                 } catch (Exception unused) {
-                    saveErrorRecord(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e3) + "[1]", state, null);
-                    throw new StopRequest(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e3), e);
+                    saveErrorRecord(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e9) + "[1]", state, null);
+                    throw new StopRequest(498, this.mContext.getString(R.string.obfuscated_res_0x7f0f05e9), e);
                 }
             }
         }
@@ -893,7 +893,7 @@ public class DownloadThread extends Thread {
                         Log.v("DownloadManager", "writing " + this.mInfo.mUri + " to " + state.mFilename);
                     }
                     updateDatabaseFromHeaders(state, innerState);
-                    a20.f(this.mInfo.mId);
+                    xw.f(this.mInfo.mId);
                 } catch (FileNotFoundException e2) {
                     saveErrorRecord(Downloads.Impl.STATUS_FILE_ERROR_10, "while opening destination file: " + e2.toString(), state, innerState);
                     throw new StopRequest(Downloads.Impl.STATUS_FILE_ERROR_10, "while opening destination file: " + e2.toString(), e2);

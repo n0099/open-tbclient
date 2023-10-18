@@ -44,14 +44,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.tts.jni.TtsLogLoad;
 import com.baidu.ufosdk.FeedbackManager;
 import com.baidu.ufosdk.IFeedbackMethodCallback;
 import com.baidu.ufosdk.a1;
@@ -1392,14 +1390,14 @@ public class FeedbackReportActivity extends Activity {
             } else if (c2 == 2) {
                 hashMap.put("tel", str4);
             } else if (c2 == 3) {
-                hashMap.put(LoginConstants.QQ_LOGIN, str4);
+                hashMap.put("qq", str4);
             } else {
                 hashMap.put("contact_way", str4);
             }
             hashMap.put("brand", "");
             hashMap.put("model", "");
             hashMap.put("sdkvn", "4.1.9.1");
-            hashMap.put(TtsLogLoad.KEY_OS, "android");
+            hashMap.put("os", "android");
             hashMap.put("appvn", com.baidu.ufosdk.c.b());
             hashMap.put("uid", com.baidu.ufosdk.b.c());
             hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.c());

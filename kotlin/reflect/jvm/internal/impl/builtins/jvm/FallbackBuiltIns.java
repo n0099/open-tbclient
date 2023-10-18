@@ -4,12 +4,12 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.builtins.KotlinBuiltIns;
 import kotlin.reflect.jvm.internal.impl.descriptors.deserialization.PlatformDependentDeclarationFilter;
 import kotlin.reflect.jvm.internal.impl.storage.LockBasedStorageManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class FallbackBuiltIns extends KotlinBuiltIns {
     public static final Companion Companion = new Companion(null);
     public static final KotlinBuiltIns Instance = new FallbackBuiltIns();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

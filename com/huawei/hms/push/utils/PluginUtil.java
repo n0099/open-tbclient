@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -115,7 +116,7 @@ public class PluginUtil {
             Intent intent = new Intent("com.huawei.push.action.MESSAGING_EVENT");
             intent.setPackage(context.getPackageName());
             Bundle bundle = new Bundle();
-            bundle.putString("message_id", str);
+            bundle.putString(ForbidActivityConfig.CHAT_MSG_ID, str);
             bundle.putByteArray(RemoteMessageConst.MSGBODY, str2.getBytes(x.a));
             bundle.putString("message_type", "received_message");
             return new h().a(context, bundle, intent);

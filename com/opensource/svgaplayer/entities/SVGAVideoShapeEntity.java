@@ -7,9 +7,9 @@ import android.graphics.RectF;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.n2c;
-import com.baidu.tieba.p2c;
-import com.baidu.tieba.q2c;
+import com.baidu.tieba.kwb;
+import com.baidu.tieba.mwb;
+import com.baidu.tieba.nwb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -297,8 +297,8 @@ public final class SVGAVideoShapeEntity {
         ShapeEntity.ShapeType shapeType;
         Type type;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, shapeEntity) == null) && (shapeType = shapeEntity.type) != null) {
-            int i = p2c.$EnumSwitchMapping$0[shapeType.ordinal()];
+        if ((interceptable == null || interceptable.invokeL(1048587, this, shapeEntity) == null) && (shapeType = shapeEntity.type) != null) {
+            int i = mwb.$EnumSwitchMapping$0[shapeType.ordinal()];
             if (i != 1) {
                 if (i != 2) {
                     if (i != 3) {
@@ -357,7 +357,7 @@ public final class SVGAVideoShapeEntity {
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e != null) {
             return;
         }
-        q2c.a().reset();
+        nwb.a().reset();
         Type type = this.a;
         String str = null;
         if (type == Type.shape) {
@@ -372,7 +372,7 @@ public final class SVGAVideoShapeEntity {
             }
             String str2 = str;
             if (str2 != null) {
-                new n2c(str2).a(q2c.a());
+                new kwb(str2).a(nwb.a());
             }
         } else if (type == Type.ellipse) {
             Map<String, ? extends Object> map2 = this.b;
@@ -423,7 +423,7 @@ public final class SVGAVideoShapeEntity {
                             float floatValue2 = number2.floatValue();
                             float floatValue3 = number3.floatValue();
                             float floatValue4 = number4.floatValue();
-                            q2c.a().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
+                            nwb.a().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
                         } else {
                             return;
                         }
@@ -497,7 +497,7 @@ public final class SVGAVideoShapeEntity {
                                 float floatValue7 = number7.floatValue();
                                 float floatValue8 = number8.floatValue();
                                 float floatValue9 = number9.floatValue();
-                                q2c.a().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
+                                nwb.a().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
                             } else {
                                 return;
                             }
@@ -517,7 +517,7 @@ public final class SVGAVideoShapeEntity {
         Path path = new Path();
         this.e = path;
         if (path != null) {
-            path.set(q2c.a());
+            path.set(nwb.a());
         }
     }
 
@@ -558,15 +558,6 @@ public final class SVGAVideoShapeEntity {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public final Type getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (Type) invokeV.objValue;
     }
 
     public final void f(ShapeEntity shapeEntity) {
@@ -645,7 +636,7 @@ public final class SVGAVideoShapeEntity {
         float f8;
         float f9;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shapeEntity) == null) && (shapeStyle = shapeEntity.styles) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, shapeEntity) == null) && (shapeStyle = shapeEntity.styles) != null) {
             a aVar = new a();
             ShapeEntity.ShapeStyle.RGBAColor rGBAColor = shapeStyle.fill;
             float f10 = 0.0f;
@@ -721,7 +712,7 @@ public final class SVGAVideoShapeEntity {
             aVar.n(f);
             ShapeEntity.ShapeStyle.LineCap lineCap = shapeStyle.lineCap;
             if (lineCap != null) {
-                int i7 = p2c.$EnumSwitchMapping$1[lineCap.ordinal()];
+                int i7 = mwb.$EnumSwitchMapping$1[lineCap.ordinal()];
                 if (i7 != 1) {
                     if (i7 != 2) {
                         if (i7 == 3) {
@@ -736,7 +727,7 @@ public final class SVGAVideoShapeEntity {
             }
             ShapeEntity.ShapeStyle.LineJoin lineJoin = shapeStyle.lineJoin;
             if (lineJoin != null) {
-                int i8 = p2c.$EnumSwitchMapping$2[lineJoin.ordinal()];
+                int i8 = mwb.$EnumSwitchMapping$2[lineJoin.ordinal()];
                 if (i8 != 1) {
                     if (i8 != 2) {
                         if (i8 == 3) {
@@ -774,7 +765,7 @@ public final class SVGAVideoShapeEntity {
     public final void i(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("styles")) != null) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("styles")) != null) {
             a aVar = new a();
             JSONArray optJSONArray = optJSONObject.optJSONArray("fill");
             if (optJSONArray != null && optJSONArray.length() == 4) {
@@ -815,7 +806,7 @@ public final class SVGAVideoShapeEntity {
         float f5;
         float f6;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, shapeEntity) == null) && (transform = shapeEntity.transform) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, shapeEntity) == null) && (transform = shapeEntity.transform) != null) {
             Matrix matrix = new Matrix();
             float[] fArr = new float[9];
             Float f7 = transform.a;
@@ -871,7 +862,7 @@ public final class SVGAVideoShapeEntity {
     public final void k(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("transform")) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("transform")) != null) {
             Matrix matrix = new Matrix();
             float f = (float) 0.0d;
             matrix.setValues(new float[]{(float) optJSONObject.optDouble("a", 1.0d), (float) optJSONObject.optDouble("c", 0.0d), (float) optJSONObject.optDouble(MapBundleKey.MapObjKey.OBJ_TEXT, 0.0d), (float) optJSONObject.optDouble("b", 0.0d), (float) optJSONObject.optDouble("d", 1.0d), (float) optJSONObject.optDouble("ty", 0.0d), f, f, (float) 1.0d});
@@ -882,7 +873,7 @@ public final class SVGAVideoShapeEntity {
     public final void m(JSONObject jSONObject) {
         String optString;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) && (optString = jSONObject.optString("type")) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) && (optString = jSONObject.optString("type")) != null) {
             if (StringsKt__StringsJVMKt.equals(optString, "shape", true)) {
                 this.a = Type.shape;
             } else if (StringsKt__StringsJVMKt.equals(optString, "rect", true)) {

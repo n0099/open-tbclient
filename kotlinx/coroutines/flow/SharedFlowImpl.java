@@ -238,7 +238,7 @@ public class SharedFlowImpl<T> extends AbstractSharedFlow<SharedFlowSlot> implem
             i++;
             if (continuation != null) {
                 Result.Companion companion = Result.Companion;
-                continuation.resumeWith(Result.m852constructorimpl(Unit.INSTANCE));
+                continuation.resumeWith(Result.m851constructorimpl(Unit.INSTANCE));
             }
         }
         return z;
@@ -254,7 +254,7 @@ public class SharedFlowImpl<T> extends AbstractSharedFlow<SharedFlowSlot> implem
                 sharedFlowSlot.cont = cancellableContinuationImpl;
             } else {
                 Result.Companion companion = Result.Companion;
-                cancellableContinuationImpl.resumeWith(Result.m852constructorimpl(Unit.INSTANCE));
+                cancellableContinuationImpl.resumeWith(Result.m851constructorimpl(Unit.INSTANCE));
             }
             Unit unit = Unit.INSTANCE;
         }
@@ -465,7 +465,7 @@ public class SharedFlowImpl<T> extends AbstractSharedFlow<SharedFlowSlot> implem
                 emitter = emitter2;
             } else {
                 Result.Companion companion = Result.Companion;
-                cancellableContinuationImpl.resumeWith(Result.m852constructorimpl(Unit.INSTANCE));
+                cancellableContinuationImpl.resumeWith(Result.m851constructorimpl(Unit.INSTANCE));
                 continuationArr = findSlotsToResumeLocked(continuationArr2);
                 emitter = null;
             }
@@ -480,7 +480,7 @@ public class SharedFlowImpl<T> extends AbstractSharedFlow<SharedFlowSlot> implem
             i++;
             if (continuation2 != null) {
                 Result.Companion companion2 = Result.Companion;
-                continuation2.resumeWith(Result.m852constructorimpl(Unit.INSTANCE));
+                continuation2.resumeWith(Result.m851constructorimpl(Unit.INSTANCE));
             }
         }
         Object result = cancellableContinuationImpl.getResult();
@@ -672,7 +672,7 @@ public class SharedFlowImpl<T> extends AbstractSharedFlow<SharedFlowSlot> implem
             i++;
             if (continuation != null) {
                 Result.Companion companion = Result.Companion;
-                continuation.resumeWith(Result.m852constructorimpl(Unit.INSTANCE));
+                continuation.resumeWith(Result.m851constructorimpl(Unit.INSTANCE));
             }
         }
         return obj;

@@ -1,83 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.base.BdPageContextSupport;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class m9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface m9<T> {
 
-    public static BdPageContext<?> a(Context context) {
-        InterceptResult invokeL;
-        Object a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (context instanceof BdPageContext) {
-                return (BdPageContext) context;
-            }
-            if (context instanceof BdPageContextSupport) {
-                return ((BdPageContextSupport) context).getPageContext();
-            }
-            Field b = vh.b(context.getClass(), l9.class);
-            if (b == null || (a = vh.a(context, b)) == null || !(a instanceof l9) || !(a instanceof BdPageContextSupport)) {
-                return null;
-            }
-            return ((BdPageContextSupport) a).getPageContext();
-        }
-        return (BdPageContext) invokeL.objValue;
+    /* loaded from: classes7.dex */
+    public interface a<T> {
+        void a(String str, T t);
     }
 
-    public static l9 c(Context context) {
-        InterceptResult invokeL;
-        Object a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (context instanceof l9) {
-                return (l9) context;
-            }
-            if (context instanceof BdPageContextSupport) {
-                Object orignalPage = ((BdPageContextSupport) context).getPageContext().getOrignalPage();
-                if (orignalPage instanceof l9) {
-                    return (l9) orignalPage;
+    /* loaded from: classes7.dex */
+    public interface c<T> extends m9<T> {
+        void b();
+
+        l9<T> c();
+
+        String j();
+    }
+
+    void a(String str, T t);
+
+    void d(String str);
+
+    void e(String str, T t, long j);
+
+    void f(String str, a<T> aVar);
+
+    void g(String str, T t);
+
+    T get(String str);
+
+    b<T> h(String str);
+
+    void i(String str, T t, long j);
+
+    void remove(String str);
+
+    /* loaded from: classes7.dex */
+    public static class b<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public T b;
+        public long c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            Field b = vh.b(context.getClass(), l9.class);
-            if (b == null || (a = vh.a(context, b)) == null || !(a instanceof l9)) {
-                return null;
-            }
-            return (l9) a;
         }
-        return (l9) invokeL.objValue;
-    }
-
-    public static BdPageContextSupport<?> b(Context context) {
-        InterceptResult invokeL;
-        Object a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (context instanceof BdPageContextSupport) {
-                return (BdPageContextSupport) context;
-            }
-            Field b = vh.b(context.getClass(), l9.class);
-            if (b == null || (a = vh.a(context, b)) == null || !(a instanceof l9) || !(a instanceof BdPageContextSupport)) {
-                return null;
-            }
-            return (BdPageContextSupport) a;
-        }
-        return (BdPageContextSupport) invokeL.objValue;
     }
 }

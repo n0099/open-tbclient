@@ -1,9 +1,21 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface f2c {
-    void a(int i, double d);
+    void a();
 
-    void b();
+    boolean available();
 
-    void onFinished();
+    boolean b(int i, boolean z);
+
+    int c();
+
+    void d(boolean z);
+
+    boolean e(Object obj);
+
+    int f();
+
+    void release();
+
+    boolean swapBuffer();
 }

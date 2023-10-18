@@ -109,7 +109,7 @@ public final class ImageItem extends BaseImageItem<TbImageMsg> {
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.under.common.uiliststyle.group.item.BaseImageItem, com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.bn
+    @Override // com.baidu.tieba.im.under.common.uiliststyle.group.item.BaseImageItem, com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.yh
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

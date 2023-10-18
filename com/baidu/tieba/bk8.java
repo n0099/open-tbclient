@@ -1,36 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tieba.hz4;
-import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Service
+import java.util.ArrayList;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class bk8 implements hz4.d {
+public class bk8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile bk8 c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.hz4.d
-    @NonNull
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "personCenter.openNativeSendGifts" : (String) invokeV.objValue;
-    }
+    public Map<String, String> a;
+    public ArrayList<String> b;
 
     public bk8() {
         Interceptable interceptable = $ic;
@@ -46,23 +30,67 @@ public class bk8 implements hz4.d {
         }
     }
 
-    @Override // com.baidu.tieba.hz4.c
-    public void a(@NonNull String str) {
+    public static bk8 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("uid");
-                String optString2 = jSONObject.optString("name");
-                String optString3 = jSONObject.optString("nameShow");
-                jSONObject.optString("scene");
-                GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), JavaTypesHelper.toLong(optString, 0L), optString2, optString3, GiftTabActivityConfig.FROM_PERSON_CENTER, 24001);
-                giftTabActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, giftTabActivityConfig));
-            } catch (Exception e) {
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.i("NativeSendGiftHybridNotify", "发送私聊图片消息失败" + e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (bk8.class) {
+                    if (c == null) {
+                        c = new bk8();
+                    }
+                }
             }
+            return c;
+        }
+        return (bk8) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Map<String, String> map = this.a;
+            if (map != null) {
+                map.clear();
+                this.a = null;
+            }
+            ArrayList<String> arrayList = this.b;
+            if (arrayList != null) {
+                arrayList.clear();
+                this.b = null;
+            }
+        }
+    }
+
+    public Map<String, String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public ArrayList<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void e(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            this.a = map;
+        }
+    }
+
+    public void f(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            this.b = arrayList;
         }
     }
 }

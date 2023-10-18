@@ -10,13 +10,13 @@ import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class a extends com.kwad.components.ad.reward.i.a {
     public b ua = new b();
-    public final C0613a ub = new C0613a(d.sf());
+    public final C0596a ub = new C0596a(d.sf());
 
     /* renamed from: com.kwad.components.ad.reward.i.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0613a extends com.kwad.components.ad.reward.i.b {
+    public static class C0596a extends com.kwad.components.ad.reward.i.b {
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 int)] */
-        public C0613a(int i) {
+        public C0596a(int i) {
             StringBuilder sb = new StringBuilder();
             sb.append(i);
             this.tY = String.format("进阶奖励：浏览详情页 %ss", sb.toString());

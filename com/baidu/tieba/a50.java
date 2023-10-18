@@ -1,50 +1,50 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.asynctask.BdAsyncTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.CharArrayWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes5.dex */
-public class a50 {
+public abstract class a50<V> extends FutureTask<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdAsyncTask<?, ?, ?> a;
 
-    public static void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
+    public abstract void a();
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a50(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
+        super(callable);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, inputStream, outputStream, i) == null) {
-            byte[] bArr = new byte[i];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read > 0) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callable, bdAsyncTask};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Callable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.a = bdAsyncTask;
     }
 
-    public static String b(InputStream inputStream, String str) throws IOException {
-        InterceptResult invokeLL;
+    public BdAsyncTask<?, ?, ?> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, str)) == null) {
-            CharArrayWriter charArrayWriter = new CharArrayWriter();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
-            char[] cArr = new char[8192];
-            while (true) {
-                int read = inputStreamReader.read(cArr);
-                if (read > 0) {
-                    charArrayWriter.write(cArr, 0, read);
-                } else {
-                    return charArrayWriter.toString();
-                }
-            }
-        } else {
-            return (String) invokeLL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (BdAsyncTask) invokeV.objValue;
     }
 }

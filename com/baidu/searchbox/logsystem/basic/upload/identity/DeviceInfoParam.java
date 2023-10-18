@@ -2,6 +2,7 @@ package com.baidu.searchbox.logsystem.basic.upload.identity;
 
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.mobads.sdk.internal.cj;
 import com.baidu.util.Base64Encoder;
 /* loaded from: classes4.dex */
 public class DeviceInfoParam {
@@ -68,7 +69,7 @@ public class DeviceInfoParam {
         String str3 = Build.VERSION.RELEASE;
         this.mOSVersion = str3;
         if (TextUtils.isEmpty(str3)) {
-            this.mOSVersion = "0.0";
+            this.mOSVersion = cj.d;
         } else {
             this.mOSVersion = this.mOSVersion.replace("_", "-");
         }

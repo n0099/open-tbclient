@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.chatmessage.IReplyMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -215,7 +214,7 @@ public class HtmlMsg extends NormalMsg implements IReplyMsg {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(IMConstants.IM_RECEIVE_SERVER_COMMON_TYPE_HTML, str);
+                jSONObject.put("html", str);
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "getTextJson", e);
             }
@@ -247,7 +246,7 @@ public class HtmlMsg extends NormalMsg implements IReplyMsg {
             if (!TextUtils.isEmpty(jsonContent)) {
                 try {
                     JSONObject jSONObject = new JSONObject(jsonContent);
-                    this.mHtml = jSONObject.optString(IMConstants.IM_RECEIVE_SERVER_COMMON_TYPE_HTML);
+                    this.mHtml = jSONObject.optString("html");
                     MsgRepliedData msgRepliedData = new MsgRepliedData(jSONObject);
                     this.replyMsgData = msgRepliedData;
                     return msgRepliedData.parseCorrect();

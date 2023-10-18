@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes8.dex */
-public class z52 extends m42 {
+/* loaded from: classes9.dex */
+public class z52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u42 a;
+    public int a;
+    public String b;
+    public long c;
 
     public z52() {
         Interceptable interceptable = $ic;
@@ -24,29 +23,6 @@ public class z52 extends m42 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.m42
-    public void a(n42 n42Var, Canvas canvas) {
-        u42 u42Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, n42Var, canvas) == null) && (u42Var = this.a) != null && u42Var.d()) {
-            if (this.a.c()) {
-                n42Var.c.setShader(this.a.b());
-                return;
-            }
-            n42Var.m = this.a.a();
-            n42Var.c.setColor(this.a.a());
-            n42Var.b.setShader(null);
-        }
-    }
-
-    @Override // com.baidu.tieba.m42
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new u42(jSONArray);
         }
     }
 }

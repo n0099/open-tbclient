@@ -1,181 +1,148 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.opengl.GLES20;
-import android.opengl.GLUtils;
-import android.opengl.Matrix;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.CyberRender;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.consts.AdDownloadCode;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
-public class ug0 {
+public class ug0 implements vg0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] a;
-    public static final float[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<pg0> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948209899, "Lcom/baidu/tieba/ug0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-376047154, "Lcom/baidu/tieba/ug0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-376047154, "Lcom/baidu/tieba/ug0$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948209899, "Lcom/baidu/tieba/ug0;");
+            int[] iArr = new int[AdDownloadStatus.values().length];
+            a = iArr;
+            try {
+                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AdDownloadStatus.PAUSE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[AdDownloadStatus.INSTALLED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[AdDownloadStatus.FAILED.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
+
+    public ug0(@NonNull pg0 pg0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pg0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new float[]{-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-        float[] fArr = new float[16];
-        b = fArr;
-        Matrix.setIdentityM(fArr, 0);
+        this.a = new WeakReference<>(pg0Var);
     }
 
-    public static void a(String str) {
+    @Override // com.baidu.tieba.vg0
+    public void a(AdDownloadStatus adDownloadStatus) {
+        pg0 pg0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            int glGetError = GLES20.glGetError();
-            if (glGetError == 1281) {
-                Log.d("zmy", "---> GL_INVALID_VALUE : glError 0x" + Integer.toHexString(glGetError));
-            } else if (glGetError != 0) {
-                String str2 = str + ": glError 0x" + Integer.toHexString(glGetError);
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, adDownloadStatus) != null) || (pg0Var = this.a.get()) == null) {
+            return;
         }
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            int i = iArr[0];
-            GLES20.glBindTexture(3553, i);
-            GLES20.glTexParameterf(3553, 10241, 9728.0f);
-            GLES20.glTexParameterf(3553, 10240, 9729.0f);
-            GLES20.glTexParameteri(3553, 10242, 33071);
-            GLES20.glTexParameteri(3553, 10243, 33071);
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            int i = iArr[0];
-            GLES20.glBindTexture(3553, i);
-            GLES20.glTexParameterf(3553, 10241, 9985.0f);
-            GLES20.glTexParameterf(3553, 10240, 9729.0f);
-            GLES20.glTexParameteri(3553, 10242, 33071);
-            GLES20.glTexParameteri(3553, 10243, 33071);
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            int i = iArr[0];
-            GLES20.glBindTexture(CyberRender.GL_TEXTURE_EXTERNAL_OES, i);
-            GLES20.glTexParameterf(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10241, 9728.0f);
-            GLES20.glTexParameterf(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10240, 9729.0f);
-            GLES20.glTexParameteri(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10242, 33071);
-            GLES20.glTexParameteri(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10243, 33071);
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            int[] iArr = new int[1];
-            int f = f(str, 35633);
-            if (f != 0) {
-                int f2 = f(str2, 35632);
-                if (f2 != 0) {
-                    int glCreateProgram = GLES20.glCreateProgram();
-                    a("glCreateProgram");
-                    GLES20.glAttachShader(glCreateProgram, f);
-                    a("glAttachShader");
-                    GLES20.glAttachShader(glCreateProgram, f2);
-                    a("glAttachShader");
-                    GLES20.glLinkProgram(glCreateProgram);
-                    GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-                    if (iArr[0] > 0) {
-                        GLES20.glDeleteShader(f);
-                        GLES20.glDeleteShader(f2);
-                        return glCreateProgram;
-                    }
-                    GLES20.glDeleteProgram(glCreateProgram);
-                    throw new RuntimeException("gl Load Program Linking Failed");
+        eg0 r = pg0Var.r();
+        String str = "";
+        switch (a.a[adDownloadStatus.ordinal()]) {
+            case 1:
+                pg0Var.u("0", String.valueOf(r.i), "", r.e());
+                return;
+            case 2:
+                String valueOf = String.valueOf(r.i);
+                Uri uri = r.k;
+                if (uri != null) {
+                    str = uri.toString();
                 }
-                throw new RuntimeException("gl Load Program Fragment Shader Failed");
-            }
-            throw new RuntimeException("gl Load Program Vertex Shader Failed");
+                pg0Var.u("2", valueOf, str, r.e());
+                return;
+            case 3:
+                String valueOf2 = String.valueOf(r.i);
+                Uri uri2 = r.k;
+                if (uri2 != null) {
+                    str = uri2.toString();
+                }
+                pg0Var.u("1", valueOf2, str, r.e());
+                return;
+            case 4:
+                Uri uri3 = r.k;
+                if (uri3 != null) {
+                    str = uri3.toString();
+                }
+                pg0Var.u("3", "1", str, r.e());
+                return;
+            case 5:
+                Uri uri4 = r.k;
+                if (uri4 != null) {
+                    str = uri4.toString();
+                }
+                pg0Var.u("6", "1", str, r.e());
+                return;
+            case 6:
+                pg0Var.u("4", "0", "", r.e());
+                return;
+            default:
+                return;
         }
-        return invokeLL.intValue;
     }
 
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.vg0
+    public void b(AdDownloadCode adDownloadCode) {
+        pg0 pg0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
-            int[] iArr = new int[1];
-            int glCreateShader = GLES20.glCreateShader(i);
-            a("glCreateShader type=" + i + " source : " + str + "\n");
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] == 0) {
-                Log.d("Load Shader Failed", "Compilation\n" + GLES20.glGetShaderInfoLog(glCreateShader));
-                GLES20.glDeleteShader(glCreateShader);
-                return 0;
-            }
-            return glCreateShader;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) != null) || (pg0Var = this.a.get()) == null || adDownloadCode == AdDownloadCode.ERROR_FAST_CLICK) {
+            return;
         }
-        return invokeLI.intValue;
-    }
-
-    public static int g(Bitmap bitmap, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int[] iArr = new int[1];
-            if (i == -1) {
-                GLES20.glGenTextures(1, iArr, 0);
-                GLES20.glBindTexture(3553, iArr[0]);
-                GLES20.glTexParameterf(3553, 10240, 9729.0f);
-                GLES20.glTexParameterf(3553, 10241, 9729.0f);
-                GLES20.glTexParameterf(3553, 10242, 33071.0f);
-                GLES20.glTexParameterf(3553, 10243, 33071.0f);
-                GLUtils.texImage2D(3553, 0, bitmap, 0);
-            } else {
-                GLES20.glBindTexture(3553, i);
-                GLUtils.texSubImage2D(3553, 0, 0, 0, bitmap);
-                iArr[0] = i;
-            }
-            if (z) {
-                bitmap.recycle();
-            }
-            return iArr[0];
-        }
-        return invokeCommon.intValue;
+        pg0Var.u("4", "0", "", pg0Var.r().e());
     }
 }

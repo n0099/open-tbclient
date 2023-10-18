@@ -6,7 +6,7 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.api.loader.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0663a {
+    public static class C0646a {
         public long Se;
         public transient File Sf;
         public int a;
@@ -21,7 +21,7 @@ public final class a {
 
     /* loaded from: classes10.dex */
     public static class b {
-        public C0663a Sg;
+        public C0646a Sg;
         public long a;
         public String b;
 

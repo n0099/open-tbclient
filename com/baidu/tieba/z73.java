@@ -1,127 +1,74 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.os.Message;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.t53;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
-public class z73 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
+public abstract class z73 extends x53 implements ik3<t53.a> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int b;
+    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948312819, "Lcom/baidu/tieba/z73;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948312819, "Lcom/baidu/tieba/z73;");
+    public abstract void I(String str);
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z73(s53 s53Var) {
+        super(s53Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((s53) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qr1.a;
+        this.b = 0;
+        this.c = false;
     }
 
-    public static void a(Message message) {
-        Bundle bundle;
+    public static void K(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
-            if (a) {
-                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
-            }
-            int i = message.arg1;
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
-            } else {
-                bundle = null;
-            }
-            h73.a(i, str2, str, bundle);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            a23 Q = b23.Q("swan_kill_to_client");
+            Q.K(str);
+            Q.M();
         }
     }
 
-    public static void b(Message message) {
-        Bundle bundle;
+    public static void L(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
-            } else {
-                bundle = null;
+        if (interceptable == null || interceptable.invokeLI(65538, null, str, i) == null) {
+            if (SwanAppProcessInfo.SERVICE.equals(SwanAppProcessInfo.current())) {
+                z73 B = o53.K().B();
+                B.b = i;
+                B.I(str);
+                return;
             }
-            h73.a(-1000, str2, str, bundle);
+            a23 w = b23.Q("swan_forbidden_kill_on_server").z("mAppId", str).w("ipc_forbidden_flag", i);
+            w.L(true);
+            w.M();
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void c(Message message) {
+    public void J() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("delegation msg obj is not a bundle");
-            }
-            Bundle bundle = (Bundle) obj;
-            j73 j73Var = new j73(bundle.getString("key_observer_id", ""));
-            j73Var.setResult(bundle.getBundle("key_result_data"));
-            k73.b().c(j73Var);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void d(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("delegation msg obj is not a bundle");
-            }
-            Bundle bundle = (Bundle) obj;
-            j73 j73Var = new j73(bundle.getString("key_observer_id", ""));
-            j73Var.setResult(bundle.getBundle("key_result_data"));
-            k73.b().c(j73Var);
-        }
-    }
-
-    public static void e(int i, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
-            w73 e = w73.e();
-            y73 y73Var = new y73(126, bundle);
-            y73Var.a(i);
-            e.h(y73Var);
-        }
-    }
-
-    public static void f(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
-            w73.e().h(new y73(21, bundle));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.c) {
+            m53 m53Var = new m53();
+            m53Var.f(this, "event_messenger_call");
+            u(m53Var);
+            this.c = true;
         }
     }
 }

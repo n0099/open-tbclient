@@ -2,7 +2,6 @@ package com.google.android.exoplayer2.source.hls.playlist;
 
 import android.net.Uri;
 import android.util.Base64;
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Format;
@@ -82,7 +81,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
     public static final Pattern REGEX_NAME = Pattern.compile("NAME=\"(.+?)\"");
     public static final Pattern REGEX_INSTREAM_ID = Pattern.compile("INSTREAM-ID=\"((?:CC|SERVICE)\\d+)\"");
     public static final Pattern REGEX_AUTOSELECT = compileBooleanAttrPattern("AUTOSELECT");
-    public static final Pattern REGEX_DEFAULT = compileBooleanAttrPattern(EngineName.DEFAULT_ENGINE);
+    public static final Pattern REGEX_DEFAULT = compileBooleanAttrPattern("DEFAULT");
     public static final Pattern REGEX_FORCED = compileBooleanAttrPattern("FORCED");
 
     /* loaded from: classes9.dex */

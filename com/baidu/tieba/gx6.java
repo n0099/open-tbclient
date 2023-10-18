@@ -1,19 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
-import com.baidu.tieba.lx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class gx6 extends cx6 {
+public class gx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ay4 a;
+    public ArrayList<yh> b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public int f;
+    public hx6 g;
+    public boolean h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gx6() {
-        super(new AkTopRetainer(0.0f, 0.5f, 1, null), new jx6());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,12 +26,17 @@ public final class gx6 extends cx6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((lx6) objArr[0], (lx6.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = true;
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.h = true;
+        this.b = new ArrayList<>();
+        this.a = new ay4();
     }
 }

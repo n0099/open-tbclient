@@ -7,7 +7,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractLazyTypeParameterDescriptor extends AbstractTypeParameterDescriptor {
     public static /* synthetic */ void $$$reportNull$$$0(int i) {
         Object[] objArr = new Object[3];

@@ -1,14 +1,14 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.qwb;
+import com.baidu.tieba.nqb;
 import java.util.Locale;
 /* loaded from: classes9.dex */
 public class Pose {
-    public final qwb a;
+    public final nqb a;
     public final float[] b;
 
     static {
-        qwb qwbVar = qwb.e;
+        nqb nqbVar = nqb.e;
     }
 
     public String toString() {

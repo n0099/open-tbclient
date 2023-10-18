@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.yy.hiidostatis.api.HiidoSDK;
@@ -26,7 +27,7 @@ public class L {
     public static int lastLogTimeCount = 0;
 
     public static String getTypeName(int i) {
-        return i != 1 ? i != 2 ? i != 3 ? i != 4 ? "UNKNOWN" : "ERROR" : "WARN" : "INFO" : "DEBUG";
+        return i != 1 ? i != 2 ? i != 3 ? i != 4 ? "UNKNOWN" : bx.l : "WARN" : "INFO" : "DEBUG";
     }
 
     public static String getCallerFilename() {

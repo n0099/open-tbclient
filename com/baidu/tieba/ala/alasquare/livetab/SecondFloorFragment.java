@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b95;
 import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
-import com.baidu.tieba.gp5;
-import com.baidu.tieba.vp6;
-import com.baidu.tieba.wp6;
+import com.baidu.tieba.ek6;
+import com.baidu.tieba.fk6;
+import com.baidu.tieba.j35;
+import com.baidu.tieba.mj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class SecondFloorFragment extends BaseFragment {
     public boolean e;
     public String f;
     @Nullable
-    public gp5.a g;
+    public mj5.a g;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -118,7 +118,7 @@ public class SecondFloorFragment extends BaseFragment {
 
         @Override // com.baidu.tbadk.core.leveiconlivepolling.PollingModel.d
         public /* synthetic */ void onFail() {
-            b95.a(this);
+            j35.a(this);
         }
 
         public c(SecondFloorFragment secondFloorFragment) {
@@ -180,8 +180,8 @@ public class SecondFloorFragment extends BaseFragment {
                 d dVar = new d();
                 dVar.a = view2;
                 dVar.b = (AlaRecommendLayout) view2.findViewById(R.id.recommend_layout);
-                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091e8f);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e91);
+                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091eae);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eb0);
                 return dVar;
             }
             return (d) invokeL.objValue;
@@ -230,7 +230,7 @@ public class SecondFloorFragment extends BaseFragment {
         }
         this.a.c.setVisibility(8);
         this.a.b.setVisibility(8);
-        gp5.a aVar = this.g;
+        mj5.a aVar = this.g;
         if (aVar != null) {
             aVar.a(false, this.e);
         }
@@ -249,7 +249,7 @@ public class SecondFloorFragment extends BaseFragment {
         }
     }
 
-    public void m2(@Nullable gp5.a aVar) {
+    public void m2(@Nullable mj5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.g = aVar;
@@ -289,7 +289,7 @@ public class SecondFloorFragment extends BaseFragment {
             this.e = false;
             this.a.c.setVisibility(0);
             this.a.b.setVisibility(8);
-            gp5.a aVar = this.g;
+            mj5.a aVar = this.g;
             if (aVar != null) {
                 aVar.b(false);
             }
@@ -302,8 +302,8 @@ public class SecondFloorFragment extends BaseFragment {
             this.e = true;
             this.a.c.setVisibility(8);
             this.a.b.setVisibility(0);
-            TiebaStatic.log(vp6.c("c13620", 7));
-            gp5.a aVar = this.g;
+            TiebaStatic.log(ek6.c("c13620", 7));
+            mj5.a aVar = this.g;
             if (aVar != null) {
                 aVar.b(true);
             }
@@ -329,7 +329,7 @@ public class SecondFloorFragment extends BaseFragment {
         } else {
             this.a.c.setVisibility(0);
         }
-        gp5.a aVar = this.g;
+        mj5.a aVar = this.g;
         if (aVar != null) {
             aVar.a(true, this.e);
         }
@@ -349,7 +349,7 @@ public class SecondFloorFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00fb, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00f8, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -357,8 +357,8 @@ public class SecondFloorFragment extends BaseFragment {
     public final void p2(@Nullable List<AlaLiveInfo> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048590, this, list) == null) && list != null && !list.isEmpty()) {
-            this.a.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f121c), Integer.valueOf(list.size())));
-            this.a.b.setData(new wp6(getUniqueId(), list, this.f));
+            this.a.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f122b), Integer.valueOf(list.size())));
+            this.a.b.setData(new fk6(getUniqueId(), list, this.f));
             TbSingleton tbSingleton = TbSingleton.getInstance();
             if (tbSingleton.isFirstEnterBigPicPage()) {
                 tbSingleton.setFirstEnterBigPicPage(false);

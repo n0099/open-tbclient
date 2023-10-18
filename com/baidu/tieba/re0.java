@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
+import android.content.SharedPreferences;
+import android.os.Build;
+import android.text.TextUtils;
+import android.webkit.WebSettings;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,24 +14,56 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class re0 extends me0 {
+public class re0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Long a;
+    public static Long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface l;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final re0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-463781618, "Lcom/baidu/tieba/re0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-463781618, "Lcom/baidu/tieba/re0$b;");
+                    return;
+                }
+            }
+            a = new re0(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948118604, "Lcom/baidu/tieba/re0;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948118604, "Lcom/baidu/tieba/re0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948118604, "Lcom/baidu/tieba/re0;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948118604, "Lcom/baidu/tieba/re0;");
-        }
+        a = 30000L;
+        b = null;
     }
 
     public re0() {
@@ -44,72 +76,110 @@ public class re0 extends me0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public Surface k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
-        }
-        return (Surface) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.me0
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.h == 0) {
-                this.h = this.e.presentationTimeUs;
-                me0.j = 0L;
-            }
-            MediaCodec.BufferInfo bufferInfo = this.e;
-            long j = bufferInfo.presentationTimeUs - this.h;
-            bufferInfo.presentationTimeUs = j;
-            me0.j = j;
-            he0.x().V(me0.j / 1000);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
-    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void l(oe0 oe0Var, pe0 pe0Var) {
-        ne0 ne0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, oe0Var, pe0Var) == null) {
-            boolean z = true;
-            if (oe0Var != null && pe0Var != null) {
-                this.c = pe0Var;
-                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(oe0Var.j(), oe0Var.n(), oe0Var.l());
-                createVideoFormat.setInteger("color-format", 2130708361);
-                createVideoFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, oe0Var.i());
-                createVideoFormat.setInteger("frame-rate", oe0Var.k());
-                createVideoFormat.setInteger("i-frame-interval", oe0Var.m());
-                try {
-                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(oe0Var.j());
-                    this.d = createEncoderByType;
-                    createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                    this.l = this.d.createInputSurface();
-                    this.g = true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                ne0Var = this.f;
-                if (ne0Var == null) {
-                    ne0Var.b(z);
-                    return;
-                }
                 return;
             }
-            z = false;
-            ne0Var = this.f;
-            if (ne0Var == null) {
-            }
         }
+        b = Long.valueOf(System.currentTimeMillis());
+    }
+
+    @NonNull
+    public static re0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (re0) invokeV.objValue;
+    }
+
+    @NonNull
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "uad_sys_useragent" + pe0.a().x();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ re0(a aVar) {
+        this();
+    }
+
+    public void e(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            String f = f();
+            SharedPreferences.Editor edit = pe0.b().getSharedPreferences("uad_useragent", 0).edit();
+            edit.putString(f, str);
+            edit.apply();
+        }
+    }
+
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String property = System.getProperty("http.agent");
+            if (TextUtils.isEmpty(property)) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            int length = property.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = property.charAt(i);
+                if (charAt > 31 && charAt < 127) {
+                    sb.append(charAt);
+                } else {
+                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        String a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String d = d();
+            if (!TextUtils.isEmpty(d)) {
+                return d;
+            }
+            try {
+                if (Build.VERSION.SDK_INT < 19) {
+                    a2 = a();
+                } else if (j11.e() && System.currentTimeMillis() - b.longValue() < a.longValue()) {
+                    return a() + " " + pe0.a().B().toLowerCase() + "/" + pe0.a().x() + " (Baidu; P1 " + pe0.a().b() + ") nadcorevendor/5.12.0.110";
+                } else {
+                    a2 = WebSettings.getDefaultUserAgent(pe0.b());
+                }
+            } catch (Throwable unused) {
+                a2 = a();
+            }
+            String str = a2 + " " + pe0.a().B().toLowerCase() + "/" + pe0.a().x() + " (Baidu; P1 " + pe0.a().b() + ") nadcorevendor/5.12.0.110";
+            e(str);
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            SharedPreferences sharedPreferences = pe0.b().getSharedPreferences("uad_useragent", 0);
+            String string = sharedPreferences.getString(f(), null);
+            if (TextUtils.isEmpty(string) && sharedPreferences.getAll().size() > 0) {
+                sharedPreferences.edit().clear().apply();
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
     }
 }

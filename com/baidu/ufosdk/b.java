@@ -32,7 +32,6 @@ import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.tts.jni.TtsLogLoad;
 import com.baidu.ufosdk.FeedbackConfigurations;
 import com.baidu.ufosdk.hybrid.base.WebLoaderActivity;
 import com.baidu.ufosdk.screencapedt.ScreenCapEditActivity;
@@ -602,7 +601,7 @@ public class b {
             hashMap.put("id", str8);
             hashMap.put("interval", String.valueOf(a.a));
             hashMap.put("model", "");
-            hashMap.put(TtsLogLoad.KEY_OS, "android");
+            hashMap.put("os", "android");
             hashMap.put("sdkvn", "4.1.9.1");
             hashMap.put("baiducuid", f());
             String str11 = "extra";

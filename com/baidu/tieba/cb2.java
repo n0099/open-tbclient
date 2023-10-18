@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.Window;
-import android.widget.FrameLayout;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,88 +15,47 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cb2 {
+public class cb2 implements ab2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final FrameLayout.LayoutParams f;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public FrameLayout c;
-    public int d;
-    public b e;
+    public final ce3 a;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void onCustomViewHidden();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
+        public static boolean a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
 
-        public a(cb2 cb2Var, Activity activity) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cb2Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = activity;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                el3.c().e(this.a, -1.0f);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends FrameLayout {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // android.view.View
-        public boolean onTouchEvent(MotionEvent motionEvent) {
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                if (!a && ProcessUtils.isMainProcess()) {
+                    a = true;
+                    new ce3("swan_prelink_by_preload_recorder").clear().apply();
+                    if (cb2.b) {
+                        Log.d("SwanPrelinkGlobalRecorder", "clean old data in main process");
+                    }
                 }
+                return null;
             }
-            setBackgroundColor(context.getResources().getColor(17170444));
+            return (Bundle) invokeL.objValue;
         }
     }
 
@@ -113,15 +72,13 @@ public class cb2 {
                 return;
             }
         }
-        f = new FrameLayout.LayoutParams(-1, -1);
+        b = am1.a;
     }
 
-    public cb2(Context context) {
+    public cb2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -131,71 +88,114 @@ public class cb2 {
                 return;
             }
         }
-        this.a = context;
+        this.a = new ce3("swan_prelink_by_preload_recorder");
+        d();
     }
 
-    public void a() {
-        Activity activity;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b == null) {
-            return;
-        }
-        Context context = this.a;
-        if (context instanceof Activity) {
-            activity = (Activity) context;
-        } else {
-            activity = null;
-        }
-        if (activity != null) {
-            ap3.a0(new a(this, activity));
-            b(activity, false);
-            ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.c);
-            this.c = null;
-            this.b = null;
-            this.e.onCustomViewHidden();
-            activity.setRequestedOrientation(this.d);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            c23.c(a.class, null);
         }
     }
 
-    public void b(Activity activity, boolean z) {
-        int i;
+    @Override // com.baidu.tieba.ab2
+    public bb2 a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, z) == null) {
-            Window window = activity.getWindow();
-            if (!z) {
-                i = 0;
-            } else {
-                i = 1024;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
             }
-            window.setFlags(i, 1024);
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "get record : appId-" + str + ", url-" + str2);
+            }
+            String string = this.a.getString(e(str, str2), "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            bb2 g = g(string, str, str2);
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "find record - " + string);
+            }
+            return g;
+        }
+        return (bb2) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ab2
+    public void b(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "record : appId-" + str + ", url-" + str2);
+            }
+            String e = e(str, str2);
+            String f = f(str, str2);
+            if (TextUtils.isEmpty(this.a.getString(e, "")) || z) {
+                this.a.putString(e, f);
+            }
         }
     }
 
-    public void c(View view2, int i, b bVar) {
-        Activity activity;
+    public final String e(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view2, i, bVar) == null) {
-            Context context = this.a;
-            if (context instanceof Activity) {
-                activity = (Activity) context;
-            } else {
-                activity = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            String str3 = str + "_##_" + str2.hashCode();
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "generateKey - " + str3);
             }
-            if (activity != null) {
-                if (this.b != null) {
-                    bVar.onCustomViewHidden();
-                    return;
+            return str3;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final String f(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            String str3 = ProcessUtils.getCurProcessName() + "_##_" + System.currentTimeMillis();
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "generateValue - " + str3);
+            }
+            return str3;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final bb2 g(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, str3)) == null) {
+            String[] split = str.split("_##_");
+            if (split != null && split.length >= 2) {
+                bb2 bb2Var = new bb2();
+                bb2Var.a = split[0];
+                bb2Var.b = h(split[1]);
+                return bb2Var;
+            }
+            return null;
+        }
+        return (bb2) invokeLLL.objValue;
+    }
+
+    public final long h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
+            }
+            try {
+                return Long.parseLong(str);
+            } catch (Exception e) {
+                if (b) {
+                    e.printStackTrace();
                 }
-                this.d = activity.getRequestedOrientation();
-                c cVar = new c(activity);
-                this.c = cVar;
-                cVar.addView(view2, f);
-                ((FrameLayout) activity.getWindow().getDecorView()).addView(this.c, f);
-                this.b = view2;
-                b(activity, true);
-                this.e = bVar;
-                activity.setRequestedOrientation(i);
+                return 0L;
             }
         }
+        return invokeL.longValue;
     }
 }

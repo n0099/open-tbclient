@@ -1,9 +1,11 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.mutiprocess.IEvent;
 /* loaded from: classes7.dex */
 public interface nk5 {
-    void a(boolean z);
+    void a();
 
-    int getHeight();
+    void b(IEvent iEvent);
 
-    void refreshHeight(int i);
+    void c(mk5 mk5Var);
 }

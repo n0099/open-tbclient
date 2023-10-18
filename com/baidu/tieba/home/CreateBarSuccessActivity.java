@@ -64,7 +64,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         }
     }
 
-    public static void startActivity(Context context, String str) {
+    public static void N0(Context context, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) && str != null && str.length() > 0) {
             Intent intent = new Intent(context, CreateBarSuccessActivity.class);
@@ -79,8 +79,8 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     public final void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907a0);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09259d);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907bc);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0925a7);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
@@ -90,8 +90,8 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.e.setTitleText(getPageContext().getString(R.string.create_bar));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092494);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924bb);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09249e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924c5);
         }
     }
 
@@ -117,9 +117,9 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             boolean isOn = new CreateBarTipSwitch().isOn();
             TbPageContext<CreateBarSuccessActivity> pageContext2 = getPageContext();
             if (isOn) {
-                i2 = R.string.obfuscated_res_0x7f0f0505;
+                i2 = R.string.obfuscated_res_0x7f0f050b;
             } else {
-                i2 = R.string.obfuscated_res_0x7f0f0502;
+                i2 = R.string.obfuscated_res_0x7f0f0508;
             }
             String string = pageContext2.getString(i2);
             int length = string.length();
@@ -128,13 +128,13 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
                 sb.append(string);
                 sb.append(this.a);
                 pageContext = getPageContext();
-                i3 = R.string.obfuscated_res_0x7f0f0506;
+                i3 = R.string.obfuscated_res_0x7f0f050c;
             } else {
                 sb = new StringBuilder();
                 sb.append(string);
                 sb.append(this.a);
                 pageContext = getPageContext();
-                i3 = R.string.obfuscated_res_0x7f0f0503;
+                i3 = R.string.obfuscated_res_0x7f0f0509;
             }
             sb.append(pageContext.getString(i3));
             SpannableString spannableString = new SpannableString(sb.toString());

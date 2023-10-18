@@ -1,85 +1,176 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.database.Cursor;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.m9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class fd implements gd {
+public class fd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Float a;
 
-    public fd(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = Float.valueOf(f);
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.tieba.gd
-    public Object a(wd wdVar) {
+    /* loaded from: classes5.dex */
+    public static class b implements Comparator<m9.b<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(m9.b<?> bVar, m9.b<?> bVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
+                long j = bVar.c;
+                long j2 = bVar2.c;
+                if (j == j2) {
+                    return 0;
+                }
+                if (j > j2) {
+                    return -1;
+                }
+                return 1;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
+    @SuppressLint({"Range"})
+    public static List<m9.b<byte[]>> a(m9<byte[]> m9Var) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, m9Var)) == null) {
+            LinkedList linkedList = new LinkedList();
+            try {
+                cursor = c(m9Var);
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            if (cursor == null) {
+                return null;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    m9.b bVar = new m9.b();
+                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.b = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        BdCloseHelper.close(cursor);
+                        Collections.sort(linkedList, new b(null));
+                        return linkedList;
+                    } finally {
+                        BdCloseHelper.close(cursor);
+                    }
+                }
+            }
+            BdCloseHelper.close(cursor);
+            Collections.sort(linkedList, new b(null));
+            return linkedList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r3v11, types: [T, java.lang.String] */
+    @SuppressLint({"Range"})
+    public static List<m9.b<String>> b(m9<String> m9Var) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, m9Var)) == null) {
+            LinkedList linkedList = new LinkedList();
+            try {
+                cursor = c(m9Var);
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            if (cursor == null) {
+                return null;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    m9.b bVar = new m9.b();
+                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.b = cursor.getString(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        BdCloseHelper.close(cursor);
+                        Collections.sort(linkedList, new b(null));
+                        return linkedList;
+                    } finally {
+                        BdCloseHelper.close(cursor);
+                    }
+                }
+            }
+            BdCloseHelper.close(cursor);
+            Collections.sort(linkedList, new b(null));
+            return linkedList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static Cursor c(m9<?> m9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wdVar)) == null) {
-            Class<?> a = wdVar.a();
-            if (a != Byte.class && a != Byte.TYPE) {
-                if (a != Short.class && a != Short.TYPE) {
-                    if (a != Integer.class && a != Integer.TYPE) {
-                        if (a != Long.class && a != Long.TYPE) {
-                            if (a != Float.class && a != Float.TYPE) {
-                                if (a != Double.class && a != Double.TYPE) {
-                                    if (a != Character.class && a != Character.TYPE) {
-                                        boolean z = false;
-                                        if (a != Boolean.class && a != Boolean.TYPE) {
-                                            if (a == String.class) {
-                                                return String.valueOf(this.a);
-                                            }
-                                            if (a == char[].class) {
-                                                return String.valueOf(this.a).toCharArray();
-                                            }
-                                            if (a == byte[].class) {
-                                                try {
-                                                    return wh.e(String.valueOf(this.a), 0);
-                                                } catch (IOException e) {
-                                                    e.printStackTrace();
-                                                    return null;
-                                                }
-                                            }
-                                            return null;
-                                        }
-                                        if (this.a.byteValue() == 0) {
-                                            z = true;
-                                        }
-                                        return Boolean.valueOf(z);
-                                    }
-                                    return Character.valueOf((char) this.a.intValue());
-                                }
-                                return Double.valueOf(this.a.doubleValue());
-                            }
-                            return Float.valueOf(this.a.floatValue());
-                        }
-                        return Long.valueOf(this.a.longValue());
-                    }
-                    return Integer.valueOf(this.a.intValue());
-                }
-                return Short.valueOf(this.a.shortValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, m9Var)) == null) {
+            if (m9Var == null || !(m9Var instanceof m9.c)) {
+                return null;
             }
-            return Byte.valueOf(this.a.byteValue());
+            m9.c cVar = (m9.c) m9Var;
+            if (!(cVar.c() instanceof k9)) {
+                return null;
+            }
+            d9 n = ((k9) cVar.c()).n();
+            return n.q(n.h().f(), cVar.j());
         }
-        return invokeL.objValue;
+        return (Cursor) invokeL.objValue;
     }
 }

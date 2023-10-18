@@ -3,8 +3,8 @@ package com.baidu.tieba.personPolymeric.dispatcher;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.atomData.ReportThemeActivityConfig;
+import com.baidu.tieba.l4a;
 import com.baidu.tieba.personPolymeric.jvbao.ReportThemeActivity;
-import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ReportThemeDispatcher implements y9a {
+public class ReportThemeDispatcher implements l4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,7 +31,7 @@ public class ReportThemeDispatcher implements y9a {
         }
     }
 
-    @Override // com.baidu.tieba.y9a
+    @Override // com.baidu.tieba.l4a
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

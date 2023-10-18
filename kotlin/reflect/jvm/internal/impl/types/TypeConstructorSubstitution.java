@@ -97,7 +97,7 @@ public abstract class TypeConstructorSubstitution extends TypeSubstitution {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
     /* renamed from: get */
-    public TypeProjection mo2112get(KotlinType kotlinType) {
+    public TypeProjection mo2111get(KotlinType kotlinType) {
         return get(kotlinType.getConstructor());
     }
 }

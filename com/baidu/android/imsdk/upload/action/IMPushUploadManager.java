@@ -222,7 +222,7 @@ public class IMPushUploadManager {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, bArr, str, str2)) == null) {
-            return new Request.Builder().addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE).addHeader("Content-Type", "application/proto").addHeader("log-id", str2).url(IMPushUploadConstants.ONLINE_URL).post(convertRequestBody(bArr, str)).build();
+            return new Request.Builder().addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE).addHeader("Content-Type", "application/proto").addHeader(IMPushUploadConstants.BIM_LOG_ID, str2).url(IMPushUploadConstants.ONLINE_URL).post(convertRequestBody(bArr, str)).build();
         }
         return (Request) invokeLLL.objValue;
     }

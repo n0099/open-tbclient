@@ -2,7 +2,7 @@ package com.baidu.adp.framework;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.z9;
+import com.baidu.tieba.x4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,9 +35,9 @@ public class FrameHelper {
         return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 0 && i < 1000000 : invokeI.booleanValue;
     }
 
-    public static void f(int i) {
+    public static void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
         }
     }
 
@@ -109,7 +109,7 @@ public class FrameHelper {
         }
     }
 
-    public static <T extends z9> int d(LinkedList<T> linkedList, int i) {
+    public static <T extends x4> int d(LinkedList<T> linkedList, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, linkedList, i)) == null) {
@@ -123,9 +123,9 @@ public class FrameHelper {
         return invokeLI.intValue;
     }
 
-    public static <T extends z9> void insert(LinkedList<T> linkedList, T t) {
+    public static <T extends x4> void f(LinkedList<T> linkedList, T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, linkedList, t) != null) || t == null || linkedList.contains(t)) {
+        if ((interceptable != null && interceptable.invokeLL(65541, null, linkedList, t) != null) || t == null || linkedList.contains(t)) {
             return;
         }
         linkedList.add(d(linkedList, t.getPriority()), t);

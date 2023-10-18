@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface s7b {
-    boolean a(int i);
+    boolean isAgreePrivacy();
 }

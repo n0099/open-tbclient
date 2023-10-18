@@ -1,18 +1,26 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dd7;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public final class x7a implements dd7 {
+public class x7a implements ICloudCommandObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver
+    public String getCommandType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "online_net_log_notice" : (String) invokeV.objValue;
+    }
 
     public x7a() {
         Interceptable interceptable = $ic;
@@ -28,37 +36,19 @@ public final class x7a implements dd7 {
         }
     }
 
-    @Override // com.baidu.tieba.cd7
-    public String getKey() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver
+    public void dispatch(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return dd7.a.b(this);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cd7
-    public Map<String, String> a(m87 m87Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, m87Var)) == null) {
-            return dd7.a.a(this, m87Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dd7
-    public String c(m87 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
-                return "";
+        try {
+            if (!"fulllog_network".equals(jSONObject.getString("type"))) {
+                return;
             }
-            return "live_mix_card_share_click";
+            y7a.a().h(jSONObject, null);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return (String) invokeL.objValue;
     }
 }

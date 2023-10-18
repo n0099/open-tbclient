@@ -102,11 +102,11 @@ public class KSNativeAdGroupImgH5OpenView extends y {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ae);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900bf);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bc);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bd);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900be);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900eb);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900c3);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c0);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c1);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c2);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ef);
             this.h = (TextView) findViewById(R.id.ad_h5_description);
             this.i = (Button) findViewById(R.id.ad_h5_open);
         }

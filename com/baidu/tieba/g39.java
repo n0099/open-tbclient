@@ -1,54 +1,127 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.SocketMessageListener;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.callback.AccountRealNameCallback;
+import com.baidu.sapi2.callback.SapiCallback;
+import com.baidu.sapi2.dto.RealNameDTO;
+import com.baidu.sapi2.result.AccountRealNameResult;
+import com.baidu.sapi2.result.CheckUserFaceIdResult;
+import com.baidu.searchbox.live.game.interfaces.GameService;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.interestlabel.activity.LabelRecommendActivity;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class g39 {
+public class g39 implements GameService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LabelRecommendActivity a;
-    public ViewGroup b;
-    public View c;
-    public TextView d;
-    public NoNetworkView e;
-    public TextView f;
-    public BdListView g;
-    public b39 h;
-    public f39 i;
-    public View.OnClickListener j;
-    public List<c39> k;
-    public List<Integer> l;
-    public View.OnClickListener m;
+    public final Map<String, String> a;
+    public SocketMessageListener b;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a extends SocketMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g39 a;
+        public final /* synthetic */ GameService.MsgSendListener a;
+        public final /* synthetic */ g39 b;
 
-        public a(g39 g39Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(g39 g39Var, int i, GameService.MsgSendListener msgSendListener) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g39Var};
+                Object[] objArr = {g39Var, Integer.valueOf(i), msgSendListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = g39Var;
+            this.a = msgSendListener;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /* renamed from: g */
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || !(socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
+                return;
+            }
+            ChatMessage chatMessage = (ChatMessage) ((ResponseCommitPersonalMessage) socketResponsedMessage).getOrginalMessage();
+            if (chatMessage instanceof PersonalChatMessage) {
+                String valueOf = String.valueOf(chatMessage.getRecordId());
+                if (this.b.a.containsKey(valueOf)) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("msg_id", this.b.a.get(valueOf));
+                    if (socketResponsedMessage.hasError()) {
+                        this.a.onFailed(hashMap);
+                    } else {
+                        this.a.onSuccess(hashMap);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements SapiCallback<CheckUserFaceIdResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GameService.GameAuthCallback a;
+        public final /* synthetic */ g39 b;
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        public b(g39 g39Var, GameService.GameAuthCallback gameAuthCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g39Var, gameAuthCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,30 +131,94 @@ public class g39 {
                     return;
                 }
             }
-            this.a = g39Var;
+            this.b = g39Var;
+            this.a = gameAuthCallback;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        /* renamed from: a */
+        public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
+            GameService.GameAuthCallback gameAuthCallback;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof c39)) {
-                Integer valueOf = Integer.valueOf(((c39) view2.getTag()).a);
-                if (this.a.l.contains(valueOf)) {
-                    this.a.l.remove(valueOf);
-                } else {
-                    this.a.l.add(valueOf);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) && (gameAuthCallback = this.a) != null) {
+                gameAuthCallback.onFail(checkUserFaceIdResult.getResultCode(), checkUserFaceIdResult.getResultMsg());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        /* renamed from: b */
+        public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) {
+                if (!"advanced_cert_face_match".equals(checkUserFaceIdResult.action) && !"cert_face_match".equals(checkUserFaceIdResult.action)) {
+                    this.b.c(this.a);
+                    return;
                 }
-                this.a.i();
+                GameService.GameAuthCallback gameAuthCallback = this.a;
+                if (gameAuthCallback != null) {
+                    gameAuthCallback.onSuccess();
+                }
             }
         }
     }
 
-    public g39(LabelRecommendActivity labelRecommendActivity) {
+    /* loaded from: classes6.dex */
+    public class c extends AccountRealNameCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GameService.GameAuthCallback a;
+
+        public c(g39 g39Var, GameService.GameAuthCallback gameAuthCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g39Var, gameAuthCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gameAuthCallback;
+        }
+
+        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
+        public void onFinish(AccountRealNameResult accountRealNameResult) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
+                super.onFinish(accountRealNameResult);
+                if (accountRealNameResult.getResultCode() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    GameService.GameAuthCallback gameAuthCallback = this.a;
+                    if (gameAuthCallback != null) {
+                        gameAuthCallback.onSuccess();
+                        return;
+                    }
+                    return;
+                }
+                GameService.GameAuthCallback gameAuthCallback2 = this.a;
+                if (gameAuthCallback2 != null) {
+                    gameAuthCallback2.onFail(accountRealNameResult.getResultCode(), accountRealNameResult.getResultMsg());
+                }
+            }
+        }
+    }
+
+    public g39() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {labelRecommendActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,147 +228,130 @@ public class g39 {
                 return;
             }
         }
-        this.k = new ArrayList();
-        this.l = new ArrayList();
-        this.m = new a(this);
-        if (labelRecommendActivity == null) {
+        this.a = new HashMap();
+    }
+
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void clearCachedHostMsgSendAPI() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void releaseHostMsgSendAPI() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b != null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            this.b = null;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void initHostMsgSendAPI(@Nullable GameService.MsgSendListener msgSendListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, msgSendListener) != null) || msgSendListener == null) {
             return;
         }
-        this.a = labelRecommendActivity;
-        g();
-    }
-
-    public void k(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.j = onClickListener;
-            this.d.setOnClickListener(onClickListener);
+        if (this.b == null) {
+            this.b = new a(this, 0, msgSendListener);
         }
+        MessageManager.getInstance().registerListener(205001, this.b);
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    public final void c(@Nullable GameService.GameAuthCallback gameAuthCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public List<Integer> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList(this.l);
-            arrayList.add(0, Integer.valueOf(this.i.b()));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public View e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0043);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09298e);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f0922e4);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092256);
-            this.e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922fe);
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
+        if (interceptable == null || interceptable.invokeL(1048576, this, gameAuthCallback) == null) {
+            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
+                if (gameAuthCallback != null) {
+                    gameAuthCallback.onFail(-1, "pass没有初始化");
+                    return;
+                }
+                return;
             }
-            l(0, 0);
-            this.g = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f09154c);
-            b39 b39Var = new b39(this.a.getPageContext().getPageActivity());
-            this.h = b39Var;
-            b39Var.b(this.m);
-            f39 f39Var = new f39(this.a.getPageContext().getPageActivity());
-            this.i = f39Var;
-            this.g.addHeaderView(f39Var.a());
-            this.g.setAdapter((ListAdapter) this.h);
-            h();
+            RealNameDTO realNameDTO = new RealNameDTO();
+            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
+            realNameDTO.scene = "baidugame";
+            realNameDTO.needCbKey = true;
+            PassportSDK.getInstance().loadAccountRealName(TbadkCoreApplication.getInst().getContext(), new c(this, gameAuthCallback), realNameDTO);
         }
     }
 
-    public final void h() {
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void callHostMsgSendAPI(@Nullable Map<String, String> map) {
+        long parseLong;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f, (int) R.drawable.color_sub_lable_selector);
-            SkinManager.setBackgroundResource(this.f, R.drawable.bule_bg_commen_label_button);
-            this.e.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (c39 c39Var : this.k) {
-                if (c39Var != null) {
-                    c39Var.c = this.l.contains(Integer.valueOf(c39Var.a));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) && map != null && !map.isEmpty()) {
+            String str = map.get("msg_id");
+            String str2 = map.get("msg_content");
+            String str3 = map.get("receiver_id");
+            String str4 = map.get("receiver_name");
+            String str5 = map.get("receiver_avatar");
+            String str6 = map.get(DI.FOLLOW_STATUS);
+            String str7 = map.get("msg_type");
+            try {
+                if (TextUtils.isEmpty(str3)) {
+                    parseLong = -1;
+                } else {
+                    parseLong = Long.parseLong(str3);
+                }
+                int parseInt = Integer.parseInt(str7);
+                boolean equalsIgnoreCase = "1".equalsIgnoreCase(str6);
+                if (parseLong > -1) {
+                    this.a.put(String.valueOf(MessageUtils.createAndSendPersonalText(parseInt, str2, parseLong, str4, str4, str5, equalsIgnoreCase)), str);
+                    new mg8().c(null, str3);
+                }
+            } catch (NumberFormatException unused) {
+                if (BdBaseApplication.getInst().isDebugMode()) {
+                    BdLog.e("NumberFormatException: parse long");
                 }
             }
-            this.h.a(this.k);
-            l(this.l.size(), this.k.size());
         }
     }
 
-    public void j(d39 d39Var) {
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void dispatchYYLiveRouter(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, d39Var) == null) && d39Var != null && d39Var.b() != null && d39Var.a() != null) {
-            for (c39 c39Var : d39Var.a()) {
-                if (c39Var != null) {
-                    c39Var.c = false;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) && str != null && context != null) {
+            try {
+                k09.c(context, "bdtiebalive://video/yylive/router?url=" + URLEncoder.encode(str, "utf-8"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void logTiebaStatic(@NonNull String str, @NonNull Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, str, map) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        if (map != null) {
+            for (String str2 : map.keySet()) {
+                statisticItem.addParam(str2, map.get(str2));
+            }
+        }
+        TiebaStatic.log(statisticItem);
+    }
+
+    @Override // com.baidu.searchbox.live.game.interfaces.GameService
+    public void doAuth(@NonNull Map<String, String> map, @Nullable GameService.GameAuthCallback gameAuthCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, map, gameAuthCallback) == null) {
+            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
+                if (gameAuthCallback != null) {
+                    gameAuthCallback.onFail(-1, "pass没有初始化");
+                    return;
                 }
+                return;
             }
-            this.k.clear();
-            this.k.addAll(d39Var.a());
-            this.i.d(d39Var.b());
-            this.h.a(this.k);
-            this.g.setVisibility(0);
-            l(0, this.k.size());
-        }
-    }
-
-    public final void l(int i, int i2) {
-        boolean z;
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            TextView textView = this.f;
-            if (i > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            textView.setEnabled(z);
-            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f147b, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
-            TextView textView2 = this.f;
-            if (i > 0) {
-                onClickListener = this.j;
-            } else {
-                onClickListener = null;
-            }
-            textView2.setOnClickListener(onClickListener);
+            SapiAccount session = SapiAccountManager.getInstance().getSession();
+            HashMap hashMap = new HashMap();
+            hashMap.put("scene", "baidugame");
+            SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new b(this, gameAuthCallback), session.bduss, hashMap);
         }
     }
 }

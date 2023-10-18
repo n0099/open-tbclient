@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface rs {
-    void a();
 
-    void b();
+import com.baidu.tbadk.TbPageContext;
+/* loaded from: classes8.dex */
+public interface rs {
+    void onChangeSkinType(TbPageContext tbPageContext, int i);
 }

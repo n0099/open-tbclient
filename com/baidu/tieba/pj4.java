@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.oj4;
+import com.baidu.tieba.uj4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,249 +13,496 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.bumptech.glide.load.engine.GlideException;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
+import java.lang.reflect.Modifier;
 /* loaded from: classes7.dex */
-public class pj4 implements oj4<PMSAppInfo> {
+public class pj4 extends oj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final io4 a;
-    public static final int b;
+    public static boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "swan_app" : (String) invokeV.objValue;
-    }
+    public final bk4<a> a;
+    public final bk4<a> b;
+    public final String c;
+    public boolean d;
+    public boolean e;
+    public jj4 f;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948063951, "Lcom/baidu/tieba/pj4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948063951, "Lcom/baidu/tieba/pj4;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948063951, "Lcom/baidu/tieba/pj4;")) == null) {
+            return;
         }
-        a = io4.c();
-        b = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948063951, "Lcom/baidu/tieba/pj4;");
+        }
     }
 
-    public pj4() {
+    /* loaded from: classes7.dex */
+    public final class a implements uj4.b<Object>, uj4.a<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final Bundle b;
+        public oj4.a<Object> c;
+        public uj4<Object> d;
+        public boolean e;
+        public boolean f;
+        public Object g;
+        public boolean h;
+        public boolean i;
+        public boolean j;
+        public boolean k;
+        public boolean l;
+        public boolean m;
+        public a n;
+        public final /* synthetic */ pj4 o;
+
+        public void a(uj4<Object> uj4Var, Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, uj4Var, obj) == null) && this.c != null) {
+                String str = null;
+                if (this.o.f != null) {
+                    str = this.o.f.d.s;
+                    this.o.f.d.s = "onLoadFinished";
+                }
+                try {
+                    if (pj4.g) {
+                        Log.v("LoaderManager", "  onLoadFinished in " + uj4Var + ": " + uj4Var.a(obj));
+                    }
+                    this.c.b(uj4Var, obj);
+                    this.f = true;
+                } finally {
+                    if (this.o.f != null) {
+                        this.o.f.d.s = str;
+                    }
+                }
+            }
+        }
+
+        public void b() {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (pj4.g) {
+                    Log.v("LoaderManager", "  Destroying: " + this);
+                }
+                this.l = true;
+                boolean z = this.f;
+                this.f = false;
+                if (this.c != null && this.d != null && this.e && z) {
+                    if (pj4.g) {
+                        Log.v("LoaderManager", "  Reseting: " + this);
+                    }
+                    if (this.o.f != null) {
+                        str = this.o.f.d.s;
+                        this.o.f.d.s = "onLoaderReset";
+                    } else {
+                        str = null;
+                    }
+                    try {
+                        this.c.a(this.d);
+                    } finally {
+                        if (this.o.f != null) {
+                            this.o.f.d.s = str;
+                        }
+                    }
+                }
+                this.c = null;
+                this.g = null;
+                this.e = false;
+                uj4<Object> uj4Var = this.d;
+                if (uj4Var != null) {
+                    if (this.m) {
+                        this.m = false;
+                        uj4Var.h(this);
+                        this.d.i(this);
+                    }
+                    this.d.e();
+                }
+                a aVar = this.n;
+                if (aVar != null) {
+                    aVar.b();
+                }
+            }
+        }
+
+        public void c(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, fileDescriptor, printWriter, strArr) == null) {
+                printWriter.print(str);
+                printWriter.print("mId=");
+                printWriter.print(this.a);
+                printWriter.print(" mArgs=");
+                printWriter.println(this.b);
+                printWriter.print(str);
+                printWriter.print("mCallbacks=");
+                printWriter.println(this.c);
+                printWriter.print(str);
+                printWriter.print("mLoader=");
+                printWriter.println(this.d);
+                uj4<Object> uj4Var = this.d;
+                if (uj4Var != null) {
+                    uj4Var.b(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
+                }
+                if (this.e || this.f) {
+                    printWriter.print(str);
+                    printWriter.print("mHaveData=");
+                    printWriter.print(this.e);
+                    printWriter.print("  mDeliveredData=");
+                    printWriter.println(this.f);
+                    printWriter.print(str);
+                    printWriter.print("mData=");
+                    printWriter.println(this.g);
+                }
+                printWriter.print(str);
+                printWriter.print("mStarted=");
+                printWriter.print(this.h);
+                printWriter.print(" mReportNextStart=");
+                printWriter.print(this.k);
+                printWriter.print(" mDestroyed=");
+                printWriter.println(this.l);
+                printWriter.print(str);
+                printWriter.print("mRetaining=");
+                printWriter.print(this.i);
+                printWriter.print(" mRetainingStarted=");
+                printWriter.print(this.j);
+                printWriter.print(" mListenerRegistered=");
+                printWriter.println(this.m);
+                if (this.n != null) {
+                    printWriter.print(str);
+                    printWriter.println("Pending Loader ");
+                    printWriter.print(this.n);
+                    printWriter.println(":");
+                    a aVar = this.n;
+                    aVar.c(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
+                }
+            }
+        }
+
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                if (this.i) {
+                    if (pj4.g) {
+                        Log.v("LoaderManager", "  Finished Retaining: " + this);
+                    }
+                    this.i = false;
+                    boolean z = this.h;
+                    if (z != this.j && !z) {
+                        h();
+                    }
+                }
+                if (this.h && this.e && !this.k) {
+                    a(this.d, this.g);
+                }
+            }
+        }
+
+        public void h() {
+            uj4<Object> uj4Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                if (pj4.g) {
+                    Log.v("LoaderManager", "  Stopping: " + this);
+                }
+                this.h = false;
+                if (!this.i && (uj4Var = this.d) != null && this.m) {
+                    this.m = false;
+                    uj4Var.h(this);
+                    this.d.i(this);
+                    this.d.g();
+                }
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                StringBuilder sb = new StringBuilder(64);
+                sb.append("LoaderInfo{");
+                sb.append(Integer.toHexString(System.identityHashCode(this)));
+                sb.append(" #");
+                sb.append(this.a);
+                sb.append(ZeusCrashHandler.NAME_SEPERATOR);
+                xj4.a(this.d, sb);
+                sb.append("}}");
+                return sb.toString();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.h && this.k) {
+                this.k = false;
+                if (this.e) {
+                    a(this.d, this.g);
+                }
+            }
+        }
+
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                if (pj4.g) {
+                    Log.v("LoaderManager", "  Retaining: " + this);
+                }
+                this.i = true;
+                this.j = this.h;
+                this.h = false;
+                this.c = null;
+            }
+        }
+
+        public void g() {
+            oj4.a<Object> aVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                if (this.i && this.j) {
+                    this.h = true;
+                } else if (this.h) {
+                } else {
+                    this.h = true;
+                    if (pj4.g) {
+                        Log.v("LoaderManager", "  Starting: " + this);
+                    }
+                    if (this.d == null && (aVar = this.c) != null) {
+                        this.d = aVar.onCreateLoader(this.a, this.b);
+                    }
+                    uj4<Object> uj4Var = this.d;
+                    if (uj4Var != null) {
+                        if (uj4Var.getClass().isMemberClass() && !Modifier.isStatic(this.d.getClass().getModifiers())) {
+                            throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + this.d);
+                        }
+                        if (!this.m) {
+                            this.d.c(this.a, this);
+                            this.d.d(this);
+                            this.m = true;
+                        }
+                        this.d.f();
+                        throw null;
+                    }
+                }
+            }
+        }
+    }
+
+    public pj4(String str, jj4 jj4Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jj4Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new bk4<>();
+        this.b = new bk4<>();
+        this.c = str;
+        this.f = jj4Var;
+        this.d = z;
+    }
+
+    public void k(jj4 jj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jj4Var) == null) {
+            this.f = jj4Var;
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!this.e) {
+                if (g) {
+                    Log.v("LoaderManager", "Destroying Active in " + this);
+                }
+                for (int e = this.a.e() - 1; e >= 0; e--) {
+                    this.a.f(e).b();
+                }
+                this.a.a();
+            }
+            if (g) {
+                Log.v("LoaderManager", "Destroying Inactive in " + this);
+            }
+            for (int e2 = this.b.e() - 1; e2 >= 0; e2--) {
+                this.b.f(e2).b();
+            }
+            this.b.a();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (g) {
+                Log.v("LoaderManager", "Retaining in " + this);
+            }
+            if (!this.d) {
+                RuntimeException runtimeException = new RuntimeException("here");
+                runtimeException.fillInStackTrace();
+                Log.w("LoaderManager", "Called doRetain when not started: " + this, runtimeException);
+                return;
+            }
+            this.e = true;
+            this.d = false;
+            for (int e = this.a.e() - 1; e >= 0; e--) {
+                this.a.f(e).f();
             }
         }
     }
 
-    @Override // com.baidu.tieba.oj4
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(c());
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (g) {
+                Log.v("LoaderManager", "Starting in " + this);
+            }
+            if (this.d) {
+                RuntimeException runtimeException = new RuntimeException("here");
+                runtimeException.fillInStackTrace();
+                Log.w("LoaderManager", "Called doStart when already started: " + this, runtimeException);
+                return;
+            }
+            this.d = true;
+            for (int e = this.a.e() - 1; e >= 0; e--) {
+                this.a.f(e).g();
+            }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004d, code lost:
-        if (r0.isClosed() == false) goto L15;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, str)) == null) {
-            Cursor cursor = null;
-            boolean z = false;
-            try {
-                try {
-                    cursor = sQLiteDatabase.rawQuery("SELECT * FROM " + d() + " LIMIT 0", null);
-                    if (cursor != null) {
-                        if (cursor.getColumnIndex(str) != -1) {
-                            z = true;
-                        }
-                    }
-                } catch (Exception e) {
-                    a.g("PMSDBHelperAppInfo", "#checkColumnExist error", e);
-                    if (cursor != null) {
-                    }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (g) {
+                Log.v("LoaderManager", "Stopping in " + this);
+            }
+            if (!this.d) {
+                RuntimeException runtimeException = new RuntimeException("here");
+                runtimeException.fillInStackTrace();
+                Log.w("LoaderManager", "Called doStop when not started: " + this, runtimeException);
+                return;
+            }
+            for (int e = this.a.e() - 1; e >= 0; e--) {
+                this.a.f(e).h();
+            }
+            this.d = false;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int e = this.a.e() - 1; e >= 0; e--) {
+                this.a.f(e).k = true;
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (int e = this.a.e() - 1; e >= 0; e--) {
+                this.a.f(e).e();
+            }
+        }
+    }
+
+    public void h(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, fileDescriptor, printWriter, strArr) == null) {
+            if (this.a.e() > 0) {
+                printWriter.print(str);
+                printWriter.println("Active Loaders:");
+                String str2 = str + "    ";
+                for (int i = 0; i < this.a.e(); i++) {
+                    a f = this.a.f(i);
+                    printWriter.print(str);
+                    printWriter.print("  #");
+                    printWriter.print(this.a.d(i));
+                    printWriter.print(": ");
+                    printWriter.println(f.toString());
+                    f.c(str2, fileDescriptor, printWriter, strArr);
                 }
-                return z;
-            } finally {
-                if (cursor != null && !cursor.isClosed()) {
-                    cursor.close();
+            }
+            if (this.b.e() > 0) {
+                printWriter.print(str);
+                printWriter.println("Inactive Loaders:");
+                String str3 = str + "    ";
+                for (int i2 = 0; i2 < this.b.e(); i2++) {
+                    a f2 = this.b.f(i2);
+                    printWriter.print(str);
+                    printWriter.print("  #");
+                    printWriter.print(this.b.d(i2));
+                    printWriter.print(": ");
+                    printWriter.println(f2.toString());
+                    f2.c(str3, fileDescriptor, printWriter, strArr);
                 }
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public final String c() {
+    public void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.e) {
+            if (g) {
+                Log.v("LoaderManager", "Finished Retaining in " + this);
+            }
+            this.e = false;
+            for (int e = this.a.e() - 1; e >= 0; e--) {
+                this.a.f(e).d();
+            }
+        }
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int e = this.a.e();
+            boolean z2 = false;
+            for (int i = 0; i < e; i++) {
+                a f = this.a.f(i);
+                if (f.h && !f.f) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                z2 |= z;
+            }
+            return z2;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "CREATE TABLE " + d() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT UNIQUE," + GameGuideConfigInfo.KEY_APP_KEY + " TEXT NOT NULL,app_sign LONG DEFAULT 0,version_code INTEGER DEFAULT 0," + NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME + " TEXT,description TEXT,app_status INTEGER,status_detail TEXT,status_desc TEXT,resume_date TEXT,icon_url TEXT,app_name TEXT NOT NULL,service_category TEXT,subject_info TEXT,type INTEGER,pkg_size LONG,pending_err_code INTEGER,app_category INTEGER,orientation INTEGER,max_age LONG,create_time LONG,webview_domains TEXT,web_action TEXT,domains TEXT," + SwanAppBearInfo.BEAR_INFO + " TEXT,server_ext TEXT,pay_protected INTEGER,customer_service INTEGER,global_notice INTEGER,global_private INTEGER,pa_number TEXT,brand TEXT,last_launch_time LONG DEFAULT 0,launch_count INTEGER DEFAULT 0,install_src INTEGER DEFAULT 0,web_url TEXT,quick_app_key TEXT,cs_protocol_version INTEGER DEFAULT 0,web_permit INTEGER DEFAULT 0,user_action_apis TEXT," + MultiRatePlayUrlHelper.RANK + " INTEGER DEFAULT 0);";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            StringBuilder sb = new StringBuilder(128);
+            sb.append("LoaderManager{");
+            sb.append(Integer.toHexString(System.identityHashCode(this)));
+            sb.append(" in ");
+            xj4.a(this.f, sb);
+            sb.append("}}");
+            return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public final void e(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD customer_service INTEGER default " + PMSConstants.PayProtected.NO_PAY_PROTECTED.type + ParamableElem.DIVIDE_PARAM);
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD global_notice INTEGER default " + PMSConstants.CloudSwitch.NO_DISPLAY.value + ParamableElem.DIVIDE_PARAM);
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD global_private INTEGER default " + PMSConstants.CloudSwitch.NO_DISPLAY.value + ParamableElem.DIVIDE_PARAM);
-                StringBuilder sb = new StringBuilder();
-                sb.append("ALTER TABLE ");
-                sb.append(d());
-                sb.append(" ADD ");
-                sb.append("pa_number");
-                sb.append(" TEXT;");
-                sQLiteDatabase.execSQL(sb.toString());
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1115 error", e);
-            }
-        }
-    }
-
-    public final void l(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, sQLiteDatabase) == null) {
-            try {
-                if (!b(sQLiteDatabase, MultiRatePlayUrlHelper.RANK)) {
-                    sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD " + MultiRatePlayUrlHelper.RANK + " INTEGER DEFAULT 0;");
-                }
-                if (!b(sQLiteDatabase, "web_permit")) {
-                    sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_permit INTEGER DEFAULT 0;");
-                }
-                if (!b(sQLiteDatabase, "user_action_apis")) {
-                    sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD user_action_apis TEXT;");
-                }
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1217 error", e);
-            }
-        }
-    }
-
-    public final void f(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD brand TEXT;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1117 error", e);
-            }
-        }
-    }
-
-    public final void i(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD cs_protocol_version INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1125 error", e);
-            }
-        }
-    }
-
-    public final void k(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_permit INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1215 error", e);
-            }
-        }
-    }
-
-    public final void g(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, sQLiteDatabase) == null) {
-            try {
-                String d = d();
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD last_launch_time LONG DEFAULT 0;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD launch_count INTEGER DEFAULT 0;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD install_src INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1122 error", e);
-            }
-        }
-    }
-
-    public final void h(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_url TEXT;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD quick_app_key TEXT;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1124 error", e);
-            }
-        }
-    }
-
-    public final void j(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD pay_protected INTEGER default " + b + ParamableElem.DIVIDE_PARAM);
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1180 error", e);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.oj4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048588, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i != 1) {
-                    if (i != 4) {
-                        switch (i) {
-                            case 6:
-                                f(sQLiteDatabase);
-                                continue;
-                            case 7:
-                                g(sQLiteDatabase);
-                                continue;
-                            case 8:
-                                h(sQLiteDatabase);
-                                continue;
-                            case 9:
-                                i(sQLiteDatabase);
-                                continue;
-                            case 10:
-                                k(sQLiteDatabase);
-                                continue;
-                            case 11:
-                                l(sQLiteDatabase);
-                                continue;
-                        }
-                    } else {
-                        e(sQLiteDatabase);
-                    }
-                } else {
-                    j(sQLiteDatabase);
-                }
-                i++;
-            }
-        }
     }
 }

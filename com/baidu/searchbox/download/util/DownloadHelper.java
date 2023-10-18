@@ -39,9 +39,9 @@ import com.baidu.searchbox.permission.DangerousPermissionManager;
 import com.baidu.searchbox.permission.DangerousPermissionUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a20;
-import com.baidu.tieba.e10;
-import com.baidu.tieba.y10;
+import com.baidu.tieba.bw;
+import com.baidu.tieba.vw;
+import com.baidu.tieba.xw;
 import com.kuaishou.weapon.p0.h;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
@@ -278,8 +278,8 @@ public final class DownloadHelper {
     }
 
     public static boolean checkTeenagerStyleAndTip() {
-        if (e10.a.e()) {
-            UniversalToast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f1648).show();
+        if (bw.a.e()) {
+            UniversalToast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f1656).show();
             return true;
         }
         return false;
@@ -325,7 +325,7 @@ public final class DownloadHelper {
                     boolean equalsIgnoreCase = Constants.RECOVERY_DIRECTORY.equalsIgnoreCase(chooseFilename + str7);
                     return chooseUniqueFilename(i, downloadDirectoryReal.getPath() + File.separator + chooseFilename, str7, equalsIgnoreCase);
                 }
-                throw new GenerateSaveFileError(498, context.getString(R.string.obfuscated_res_0x7f0f05e0));
+                throw new GenerateSaveFileError(498, context.getString(R.string.obfuscated_res_0x7f0f05e6));
             }
             throw new GenerateSaveFileError(Downloads.Impl.STATUS_FILE_ERROR_6, "no sdcard write permission");
         }
@@ -506,7 +506,7 @@ public final class DownloadHelper {
                         externalStorageCallBack3.onResult(false);
                     }
                     if (PreferenceUtils.getBoolean(DownloadHelper.DOWNLOAD_GOTO_SETTING_DIALOG_SHOW, false)) {
-                        y10.i();
+                        vw.i();
                     } else {
                         PreferenceUtils.setBoolean(DownloadHelper.DOWNLOAD_GOTO_SETTING_DIALOG_SHOW, true);
                     }
@@ -793,7 +793,7 @@ public final class DownloadHelper {
 
     public static String getVariableLengthTitleCutOff(String str, int i, boolean z) {
         if (TextUtils.isEmpty(str)) {
-            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05d2);
+            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05d8);
         }
         int lastIndexOf = str.lastIndexOf(".");
         if (lastIndexOf == -1) {
@@ -1018,45 +1018,45 @@ public final class DownloadHelper {
         String fileSuffix = FileClassifyHelper.getFileSuffix(str3);
         int category = FileClassifyHelper.getCategory(fileSuffix, str2);
         if (category == 0) {
-            return R.drawable.obfuscated_res_0x7f0805d6;
+            return R.drawable.obfuscated_res_0x7f0805d7;
         }
         if (category == 1) {
-            return R.drawable.obfuscated_res_0x7f0805cf;
-        }
-        if (category == 2) {
-            return R.drawable.obfuscated_res_0x7f0805ce;
-        }
-        if (category == 3) {
-            return R.drawable.obfuscated_res_0x7f0805cc;
-        }
-        if (category == 6) {
             return R.drawable.obfuscated_res_0x7f0805d0;
         }
+        if (category == 2) {
+            return R.drawable.obfuscated_res_0x7f0805cf;
+        }
+        if (category == 3) {
+            return R.drawable.obfuscated_res_0x7f0805cd;
+        }
+        if (category == 6) {
+            return R.drawable.obfuscated_res_0x7f0805d1;
+        }
         if (category == 8) {
-            return R.drawable.obfuscated_res_0x7f0805d8;
+            return R.drawable.obfuscated_res_0x7f0805d9;
         }
         if (category == 4) {
             DocClassifyHelper.DocCategroy docDetailType = DocClassifyHelper.getDocDetailType(fileSuffix, str2);
             if (docDetailType == DocClassifyHelper.DocCategroy.PDF) {
-                return R.drawable.obfuscated_res_0x7f0805d3;
-            }
-            if (docDetailType == DocClassifyHelper.DocCategroy.PPT) {
                 return R.drawable.obfuscated_res_0x7f0805d4;
             }
+            if (docDetailType == DocClassifyHelper.DocCategroy.PPT) {
+                return R.drawable.obfuscated_res_0x7f0805d5;
+            }
             if (docDetailType == DocClassifyHelper.DocCategroy.WORD) {
-                return R.drawable.obfuscated_res_0x7f0805d7;
+                return R.drawable.obfuscated_res_0x7f0805d8;
             }
             if (docDetailType == DocClassifyHelper.DocCategroy.EXCEL) {
-                return R.drawable.obfuscated_res_0x7f0805cd;
+                return R.drawable.obfuscated_res_0x7f0805ce;
             }
             if (docDetailType != DocClassifyHelper.DocCategroy.TEXT) {
-                return R.drawable.obfuscated_res_0x7f0805d2;
+                return R.drawable.obfuscated_res_0x7f0805d3;
             }
-            return R.drawable.obfuscated_res_0x7f0805d5;
+            return R.drawable.obfuscated_res_0x7f0805d6;
         } else if (category != 11) {
-            return R.drawable.obfuscated_res_0x7f0805d2;
+            return R.drawable.obfuscated_res_0x7f0805d3;
         } else {
-            return R.drawable.obfuscated_res_0x7f0805d1;
+            return R.drawable.obfuscated_res_0x7f0805d2;
         }
     }
 
@@ -1419,7 +1419,7 @@ public final class DownloadHelper {
                         if (eventCallback2 != null) {
                             eventCallback2.callBack(3, new EventCallback.EventBackInfo(EventCallback.Info.INFO_PERMISSION_SYSTEM_GRANTED));
                         }
-                        a20.t(str, true);
+                        xw.t(str, true);
                         return;
                     }
                     ExternalStorageCallBack externalStorageCallBack3 = ExternalStorageCallBack.this;
@@ -1430,8 +1430,8 @@ public final class DownloadHelper {
                     if (eventCallback3 != null) {
                         eventCallback3.callBack(2, new EventCallback.EventBackInfo(110));
                     }
-                    a20.t(str, false);
-                    y10.k(realTopActivity, str, eventCallback);
+                    xw.t(str, false);
+                    vw.k(realTopActivity, str, eventCallback);
                 }
             }
         });
@@ -1449,7 +1449,7 @@ public final class DownloadHelper {
         File cacheDir = context.getCacheDir();
         for (long availableBytes = getAvailableBytes(cacheDir); availableBytes < j; availableBytes = getAvailableBytes(cacheDir)) {
             if (!discardPurgeableFiles(context, j - availableBytes)) {
-                throw new GenerateSaveFileError(498, context.getString(R.string.obfuscated_res_0x7f0f05e0));
+                throw new GenerateSaveFileError(498, context.getString(R.string.obfuscated_res_0x7f0f05e6));
             }
         }
         return cacheDir;
@@ -1488,7 +1488,7 @@ public final class DownloadHelper {
 
     public static String getTitleCutOff(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
-            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05d2);
+            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05d8);
         }
         int lastIndexOf = str.lastIndexOf(".");
         if (lastIndexOf == -1) {
@@ -1620,9 +1620,9 @@ public final class DownloadHelper {
                     }
                     if (downloadPrivateFile == null) {
                         if (isExternalMediaMounted()) {
-                            showMsg(context, R.string.obfuscated_res_0x7f0f05ca);
+                            showMsg(context, R.string.obfuscated_res_0x7f0f05d0);
                         } else {
-                            showMsg(context, R.string.obfuscated_res_0x7f0f05db);
+                            showMsg(context, R.string.obfuscated_res_0x7f0f05e1);
                         }
                         filesDir = context.getFilesDir();
                     }
@@ -1655,7 +1655,7 @@ public final class DownloadHelper {
                     if (DownloadRuntime.GLOBAL_DEBUG) {
                         Log.d("DownloadManager", "download aborted - not enough free space");
                     }
-                    throw new GenerateSaveFileError(498, context.getString(R.string.obfuscated_res_0x7f0f05e0));
+                    throw new GenerateSaveFileError(498, context.getString(R.string.obfuscated_res_0x7f0f05e6));
                 }
                 return downloadPrivateFile;
             }
@@ -1988,7 +1988,7 @@ public final class DownloadHelper {
                                 if (getAvailableBytes(getFilesystemRoot(makeUniqueFilename)) >= j) {
                                     return makeUniqueFilename;
                                 }
-                                throw new GenerateSaveFileError(498, context.getString(R.string.obfuscated_res_0x7f0f05e0));
+                                throw new GenerateSaveFileError(498, context.getString(R.string.obfuscated_res_0x7f0f05e6));
                             }
                             throw new GenerateSaveFileError(488, "requested destination file already exists");
                         }
@@ -2012,7 +2012,7 @@ public final class DownloadHelper {
     public static String getTitleCutOffWithSuffix(String str, String str2) {
         String str3;
         if (TextUtils.isEmpty(str)) {
-            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05d2);
+            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05d8);
         }
         int lastIndexOf = str.lastIndexOf(".");
         if (lastIndexOf == -1) {
@@ -2059,7 +2059,7 @@ public final class DownloadHelper {
     public static String getVariableLengthTitleCutOffWithSuffix(String str, String str2, int i) {
         String str3;
         if (TextUtils.isEmpty(str)) {
-            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05d2);
+            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05d8);
         }
         int lastIndexOf = str.lastIndexOf(".");
         if (lastIndexOf == -1) {

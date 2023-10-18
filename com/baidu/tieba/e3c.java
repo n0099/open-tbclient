@@ -1,400 +1,615 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.d0c;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import java.io.EOFException;
-import java.io.IOException;
-import java.net.ProtocolException;
-import kotlin.jvm.internal.ByteCompanionObject;
-import okio.BufferedSource;
-import okio.ByteString;
+import com.yy.render.RenderEngine;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.preference.Preference;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public final class e3c {
+public class e3c implements yxb, vxb {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile AtomicBoolean v;
+    public static volatile e3c w;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BufferedSource a;
-    public long b;
-    public long c;
-    public int d;
-    public int e;
-    public int f;
-    public long g;
-    public FieldEncoding h;
+    public final AtomicBoolean a;
+    public final AtomicBoolean b;
+    public final AtomicBoolean c;
+    public final boolean d;
+    public final int e;
+    public c3c f;
+    public HashMap<String, String> g;
+    public Context h;
+    public WeakReference<z2c> i;
+    public final List<y2c> j;
+    public final List<y2c> k;
+    public int l;
+    public int m;
+    public AtomicBoolean n;
+    public AtomicBoolean o;
+    public final AtomicBoolean p;
+    public final Queue<Long> q;
+    public final AtomicBoolean r;
+    public Handler s;
+    public HashMap<String, String> t;
+    public d0c.a u;
 
-    public e3c(BufferedSource bufferedSource) {
+    /* loaded from: classes5.dex */
+    public class a implements d0c.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public final /* synthetic */ e3c b;
+
+        public a(e3c e3cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e3cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = e3cVar;
+            this.a = 0L;
+        }
+
+        @Override // com.baidu.tieba.d0c.a
+        public void a(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                synchronized (this) {
+                    if (j <= this.a) {
+                        return;
+                    }
+                    this.a = j;
+                    TLog.m("[PreferenceSubProcess]", "PreferenceSubProcess app background");
+                    this.b.r.set(false);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.d0c.a
+        public void b(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                synchronized (this) {
+                    if (j <= this.a) {
+                        return;
+                    }
+                    this.a = j;
+                    this.b.r.set(true);
+                    TLog.m("[PreferenceSubProcess]", "PreferenceSubProcess app front ground");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e3c a;
+
+        public b(e3c e3cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e3cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = e3cVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean z = false;
+                if (!this.a.p.get() && e3c.v.compareAndSet(false, true)) {
+                    z = true;
+                }
+                if (z) {
+                    TLog.h("[PreferenceSubProcess]", "init render engine onInitTimeout.");
+                    r2c.b(true);
+                    if (this.a.o.get()) {
+                        str = "initRenderEngineFail";
+                    } else {
+                        str = "initTimeout";
+                    }
+                    TLog.h("[PreferenceSubProcess]", "close RenderEngine!!!");
+                    RenderEngine.r.a().D(this.a);
+                    RenderEngine.r.a().C(this.a);
+                    czb.h().g();
+                    this.a.t(str);
+                    TLog.h("[PreferenceSubProcess]", "onInitTimeout: destroy RenderEngine!!!");
+                    RenderEngine.r.a().s();
+                    for (y2c y2cVar : this.a.k) {
+                        y2cVar.a(str, e3c.v.get(), new HashMap<>());
+                    }
+                    for (y2c y2cVar2 : this.a.j) {
+                        y2cVar2.a(str, e3c.v.get(), new HashMap<>());
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684852, "Lcom/baidu/tieba/e3c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947684852, "Lcom/baidu/tieba/e3c;");
+                return;
+            }
+        }
+        v = new AtomicBoolean(false);
+        w = null;
+    }
+
+    public static e3c n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (w == null) {
+                synchronized (e3c.class) {
+                    if (w == null) {
+                        w = new e3c();
+                        f3c.c();
+                    }
+                }
+            }
+            return w;
+        }
+        return (e3c) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return v.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.p.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || this.s == null) {
+            return;
+        }
+        TLog.h("[PreferenceSubProcess]", "stopInitTimeout");
+        this.s.removeCallbacksAndMessages(null);
+    }
+
+    public e3c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bufferedSource};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = 0L;
-        this.c = Long.MAX_VALUE;
-        this.e = 2;
-        this.f = -1;
-        this.g = -1L;
-        this.a = bufferedSource;
-    }
-
-    public final void a(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (this.e == i) {
-                this.e = 6;
-                return;
-            }
-            long j = this.b;
-            long j2 = this.c;
-            if (j <= j2) {
-                if (j == j2) {
-                    this.c = this.g;
-                    this.g = -1L;
-                    this.e = 6;
-                    return;
-                }
-                this.e = 7;
-                return;
-            }
-            throw new IOException("Expected to end at " + this.c + " but was " + this.b);
+        this.a = new AtomicBoolean(false);
+        this.b = new AtomicBoolean(false);
+        this.c = new AtomicBoolean(true);
+        new AtomicBoolean(false);
+        this.e = hashCode();
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = new WeakReference<>(null);
+        this.j = new CopyOnWriteArrayList();
+        this.k = new CopyOnWriteArrayList();
+        this.l = 0;
+        this.m = 0;
+        this.n = new AtomicBoolean(true);
+        this.o = new AtomicBoolean(false);
+        this.p = new AtomicBoolean(false);
+        this.q = new LinkedList();
+        this.r = new AtomicBoolean(true);
+        this.s = null;
+        this.t = null;
+        this.u = new a(this);
+        boolean x = RenderEngine.r.a().x();
+        this.d = x;
+        if (x) {
+            this.f = new c3c(String.valueOf(this.e));
+            this.s = new Handler(Looper.getMainLooper());
+        } else {
+            TLog.m("[PreferenceSubProcess]", "subprocess is not support in current devices!!");
         }
+        r2c.d(this.d);
+        d0c.b(this.u);
+        TLog.h("[PreferenceSubProcess]", "PreferenceSubProcess constor");
     }
 
-    public final long b() throws IOException {
-        InterceptResult invokeV;
+    public final void p() {
+        boolean v2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.e == 2) {
-                long j = this.c - this.b;
-                this.a.require(j);
-                this.e = 6;
-                this.b = this.c;
-                this.c = this.g;
-                this.g = -1L;
-                return j;
-            }
-            throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.e);
-        }
-        return invokeV.longValue;
-    }
-
-    public int i() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i = this.e;
-            if (i != 5 && i != 2) {
-                throw new ProtocolException("Expected FIXED32 or LENGTH_DELIMITED but was " + this.e);
-            }
-            this.a.require(4L);
-            this.b += 4;
-            int readIntLe = this.a.readIntLe();
-            a(5);
-            return readIntLe;
-        }
-        return invokeV.intValue;
-    }
-
-    public long j() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i = this.e;
-            if (i != 1 && i != 2) {
-                throw new ProtocolException("Expected FIXED64 or LENGTH_DELIMITED but was " + this.e);
-            }
-            this.a.require(8L);
-            this.b += 8;
-            long readLongLe = this.a.readLongLe();
-            a(1);
-            return readLongLe;
-        }
-        return invokeV.longValue;
-    }
-
-    public long m() throws IOException {
-        InterceptResult invokeV;
-        byte readByte;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i = this.e;
-            if (i != 0 && i != 2) {
-                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
-            }
-            long j = 0;
-            for (int i2 = 0; i2 < 64; i2 += 7) {
-                this.b++;
-                j |= (readByte & ByteCompanionObject.MAX_VALUE) << i2;
-                if ((this.a.readByte() & 128) == 0) {
-                    a(0);
-                    return j;
-                }
-            }
-            throw new ProtocolException("WireInput encountered a malformed varint");
-        }
-        return invokeV.longValue;
-    }
-
-    public long c() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.e == 2) {
-                int i = this.d + 1;
-                this.d = i;
-                if (i <= 65) {
-                    long j = this.g;
-                    this.g = -1L;
-                    this.e = 6;
-                    return j;
-                }
-                throw new IOException("Wire recursion limit exceeded");
-            }
-            throw new IllegalStateException("Unexpected call to beginMessage()");
-        }
-        return invokeV.longValue;
-    }
-
-    public int l() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int i = this.e;
-            if (i != 0 && i != 2) {
-                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
-            }
-            int e = e();
-            a(0);
-            return e;
-        }
-        return invokeV.intValue;
-    }
-
-    public void d(long j) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            if (this.e == 6) {
-                int i = this.d - 1;
-                this.d = i;
-                if (i >= 0 && this.g == -1) {
-                    if (this.b != this.c && i != 0) {
-                        throw new IOException("Expected to end at " + this.c + " but was " + this.b);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            TLog.h("[PreferenceSubProcess]", "initSubProcessInternal begin !!!");
+            boolean z = false;
+            if (this.h != null && this.a.compareAndSet(false, true)) {
+                TLog.h("[PreferenceSubProcess]", "do initSubProcessInternal!!!");
+                RenderEngine.r.a().r(this);
+                czb.h().i();
+                if (this.c.compareAndSet(true, false)) {
+                    TLog.h("[PreferenceSubProcess]", "initSubProcessInternal, init RenderEngine");
+                    if (this.t == null) {
+                        this.t = new HashMap<>();
                     }
-                    this.c = j;
-                    return;
-                }
-                throw new IllegalStateException("No corresponding call to beginMessage()");
-            }
-            throw new IllegalStateException("Unexpected call to endMessage()");
-        }
-    }
-
-    public final void n(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            while (this.b < this.c && !this.a.exhausted()) {
-                int e = e();
-                if (e != 0) {
-                    int i2 = e >> 3;
-                    int i3 = e & 7;
-                    if (i3 != 0) {
-                        if (i3 != 1) {
-                            if (i3 != 2) {
-                                if (i3 != 3) {
-                                    if (i3 != 4) {
-                                        if (i3 == 5) {
-                                            this.e = 5;
-                                            i();
-                                        } else {
-                                            throw new ProtocolException("Unexpected field encoding: " + i3);
-                                        }
-                                    } else if (i2 == i) {
-                                        return;
-                                    } else {
-                                        throw new ProtocolException("Unexpected end group");
-                                    }
-                                } else {
-                                    n(i2);
-                                }
-                            } else {
-                                long e2 = e();
-                                this.b += e2;
-                                this.a.skip(e2);
-                            }
-                        } else {
-                            this.e = 1;
-                            j();
-                        }
+                    String v3 = y0c.v(this.h);
+                    if (v3 != null) {
+                        this.t.put("nativeLib", v3);
+                    }
+                    if (this.t == null) {
+                        v2 = RenderEngine.r.a().u(this.h, this);
                     } else {
-                        this.e = 0;
-                        m();
+                        v2 = RenderEngine.r.a().v(this.h, this, this.t);
                     }
-                } else {
-                    throw new ProtocolException("Unexpected tag 0");
+                    this.n.set(v2);
+                    this.o.set(!v2);
+                    if (!v2) {
+                        v.set(true);
+                        w();
+                        TLog.h("[PreferenceSubProcess]", "initSubProcessInternal end, init RenderEngine Fail");
+                    } else {
+                        v();
+                        TLog.h("[PreferenceSubProcess]", "initSubProcessInternal end, init RenderEngine success");
+                    }
                 }
             }
-            throw new EOFException();
+            StringBuilder sb = new StringBuilder();
+            sb.append("initSubProcessInternal end, but don't render engine this time, mFinistTimeInitEngineSuccess: ");
+            sb.append(this.n.get());
+            sb.append(", mAppContext: ");
+            if (this.h != null) {
+                z = true;
+            }
+            sb.append(z);
+            sb.append(", renderEngineInited: ");
+            sb.append(this.a.get());
+            TLog.h("[PreferenceSubProcess]", sb.toString());
         }
     }
 
-    public final int e() throws IOException {
+    public boolean o(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            if (this.d) {
+                this.h = context;
+                if (context != null) {
+                    this.h = context.getApplicationContext();
+                }
+                p();
+                return this.n.get();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void u(HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, hashMap) == null) && this.d) {
+            this.g = hashMap;
+            if (this.b.get()) {
+                this.f.s(hashMap);
+            }
+        }
+    }
+
+    public void j(y2c y2cVar, boolean z) {
+        List<y2c> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048579, this, y2cVar, z) == null) && this.d && y2cVar != null) {
+            if (z) {
+                list = this.k;
+            } else {
+                list = this.j;
+            }
+            if (!list.contains(y2cVar)) {
+                list.add(y2cVar);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vxb
+    public void a(String str) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            TLog.h("[PreferenceSubProcess]", "on service crash: " + str);
+            boolean z = v.get() ^ true;
+            s(str);
+            t(str);
+            if (this.b.compareAndSet(true, false)) {
+                TLog.h("[PreferenceSubProcess]", "close msg client!!!");
+                this.f.a();
+            }
+            if (this.a.get()) {
+                TLog.h("[PreferenceSubProcess]", "close RenderEngine!!!");
+                RenderEngine.r.a().D(this);
+                RenderEngine.r.a().C(this);
+            }
+            czb.h().g();
+            this.a.set(false);
+            this.c.set(true);
+            if (!v.get()) {
+                p();
+            } else {
+                TLog.h("[PreferenceSubProcess]", "on service crash, destroy RenderEngine!!!");
+                RenderEngine.r.a().s();
+            }
+            if (z) {
+                for (y2c y2cVar : this.k) {
+                    y2cVar.a(str, v.get(), new HashMap<>());
+                }
+                for (y2c y2cVar2 : this.j) {
+                    y2cVar2.a(str, v.get(), new HashMap<>());
+                }
+            }
+        }
+    }
+
+    public final void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            int d = f3c.c().d();
+            int i = f3c.c().i();
+            int f = f3c.c().f();
+            int a2 = f3c.c().a();
+            int b2 = f3c.c().b();
+            HashMap hashMap = new HashMap();
+            hashMap.put("playercnt", String.valueOf(d));
+            hashMap.put("playtask", String.valueOf(i));
+            hashMap.put("livetask", String.valueOf(f));
+            hashMap.put("frontground", String.valueOf(this.r.get() ? 1 : 0));
+            hashMap.put("fail2Main", String.valueOf(v.get() ? 1 : 0));
+            hashMap.put("crashcnt", String.valueOf(this.l));
+            hashMap.put("rctCrashCnt", String.valueOf(this.m));
+            hashMap.put("downloadclient", String.valueOf(a2));
+            hashMap.put("downloadTask", String.valueOf(b2));
+            StringBuilder sb = new StringBuilder("");
+            sb.append("crashReason=");
+            sb.append(str);
+            sb.append("&playercnt=");
+            sb.append(d);
+            sb.append("&playtask=");
+            sb.append(i);
+            sb.append("&livetask=");
+            sb.append(f);
+            sb.append("&frontground=");
+            sb.append(this.r.get() ? 1 : 0);
+            sb.append("&fail2Main=");
+            sb.append(v.get() ? 1 : 0);
+            sb.append("&crashcnt=");
+            sb.append(this.l);
+            sb.append("&rctCrashCnt=");
+            sb.append(this.m);
+            sb.append("&downloadclient=");
+            sb.append(a2);
+            sb.append("&downloadTask=");
+            sb.append(b2);
+            TLog.h("[PreferenceSubProcess]", sb.toString());
+            a3c d2 = Preference.d();
+            if (d2 != null) {
+                d2.a(1, sb.toString());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yxb
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TLog.h("[PreferenceSubProcess]", "on service connect");
+            w();
+            this.p.set(true);
+            if (v.get()) {
+                TLog.h("[PreferenceSubProcess]", "on service connect fail over to main process, destroy the renderEngine and return");
+                RenderEngine.r.a().s();
+                return;
+            }
+            this.o.set(false);
+            if (this.b.compareAndSet(false, true)) {
+                TLog.h("[PreferenceSubProcess]", "init msg client!!!");
+                this.f.c(d3c.class);
+                this.f.q();
+                HashMap<String, String> hashMap = this.g;
+                if (hashMap != null) {
+                    this.f.s(hashMap);
+                }
+            }
+            z2c z2cVar = this.i.get();
+            if (z2cVar != null) {
+                z2cVar.a();
+            }
+        }
+    }
+
+    public final int l() {
         InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.b++;
-            byte readByte = this.a.readByte();
-            if (readByte >= 0) {
-                return readByte;
-            }
-            int i2 = readByte & ByteCompanionObject.MAX_VALUE;
-            this.b++;
-            byte readByte2 = this.a.readByte();
-            if (readByte2 >= 0) {
-                i = readByte2 << 7;
-            } else {
-                i2 |= (readByte2 & ByteCompanionObject.MAX_VALUE) << 7;
-                this.b++;
-                byte readByte3 = this.a.readByte();
-                if (readByte3 >= 0) {
-                    i = readByte3 << 14;
-                } else {
-                    i2 |= (readByte3 & ByteCompanionObject.MAX_VALUE) << 14;
-                    this.b++;
-                    byte readByte4 = this.a.readByte();
-                    if (readByte4 >= 0) {
-                        i = readByte4 << 21;
-                    } else {
-                        int i3 = i2 | ((readByte4 & ByteCompanionObject.MAX_VALUE) << 21);
-                        this.b++;
-                        byte readByte5 = this.a.readByte();
-                        int i4 = i3 | (readByte5 << 28);
-                        if (readByte5 < 0) {
-                            for (int i5 = 0; i5 < 5; i5++) {
-                                this.b++;
-                                if (this.a.readByte() >= 0) {
-                                    return i4;
-                                }
-                            }
-                            throw new ProtocolException("Malformed VARINT");
-                        }
-                        return i4;
-                    }
-                }
-            }
-            return i2 | i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() throws IOException {
-        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = this.e;
-            if (i == 7) {
-                this.e = 2;
-                return this.f;
-            } else if (i == 6) {
-                while (this.b < this.c && !this.a.exhausted()) {
-                    int e = e();
-                    if (e != 0) {
-                        int i2 = e >> 3;
-                        this.f = i2;
-                        int i3 = e & 7;
-                        if (i3 != 0) {
-                            if (i3 != 1) {
-                                if (i3 != 2) {
-                                    if (i3 != 3) {
-                                        if (i3 != 4) {
-                                            if (i3 == 5) {
-                                                this.h = FieldEncoding.FIXED32;
-                                                this.e = 5;
-                                                return i2;
-                                            }
-                                            throw new ProtocolException("Unexpected field encoding: " + i3);
-                                        }
-                                        throw new ProtocolException("Unexpected end group");
-                                    }
-                                    n(i2);
-                                } else {
-                                    this.h = FieldEncoding.LENGTH_DELIMITED;
-                                    this.e = 2;
-                                    int e2 = e();
-                                    if (e2 >= 0) {
-                                        if (this.g == -1) {
-                                            long j = this.c;
-                                            this.g = j;
-                                            long j2 = this.b + e2;
-                                            this.c = j2;
-                                            if (j2 <= j) {
-                                                return this.f;
-                                            }
-                                            throw new EOFException();
-                                        }
-                                        throw new IllegalStateException();
-                                    }
-                                    throw new ProtocolException("Negative length: " + e2);
-                                }
-                            } else {
-                                this.h = FieldEncoding.FIXED64;
-                                this.e = 1;
-                                return i2;
-                            }
-                        } else {
-                            this.h = FieldEncoding.VARINT;
-                            this.e = 0;
-                            return i2;
-                        }
-                    } else {
-                        throw new ProtocolException("Unexpected tag 0");
-                    }
+            HashMap<String, String> hashMap = this.g;
+            int i2 = 1;
+            if (hashMap != null && (str = hashMap.get("MC_SUBPROCESS_CRASH_LIMIT")) != null) {
+                try {
+                    i = Integer.parseInt(str);
+                } catch (Exception e) {
+                    TLog.g(this, "mMediaConfig, crashCntLimitKey-" + str + ": " + e.toString());
                 }
-                return -1;
-            } else {
-                throw new IllegalStateException("Unexpected call to nextTag()");
+                if (i >= 0 && i <= 100) {
+                    i2 = i;
+                }
+                TLog.h("[PreferenceSubProcess]", "getCrashCntLimit: " + i2);
+                return i2;
             }
+            i = 1;
+            if (i >= 0) {
+                i2 = i;
+            }
+            TLog.h("[PreferenceSubProcess]", "getCrashCntLimit: " + i2);
+            return i2;
         }
         return invokeV.intValue;
     }
 
-    public FieldEncoding g() {
+    /* JADX WARN: Removed duplicated region for block: B:21:0x004f  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final int m() {
         InterceptResult invokeV;
+        int i;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
+            HashMap<String, String> hashMap = this.g;
+            int i2 = 15000;
+            if (hashMap != null && (str = hashMap.get("MC_SUBPROCESS_INIT_TIMEOUT")) != null) {
+                try {
+                    i = Integer.parseInt(str);
+                } catch (Exception e) {
+                    TLog.g(this, "mMediaConfig, Subprocess InitTimeoutMs-" + str + ": " + e.toString());
+                }
+                if (i >= 5000 && i <= 180000) {
+                    i2 = i;
+                }
+                if (this.o.get()) {
+                    i2 = 3000;
+                }
+                TLog.h("[PreferenceSubProcess]", "getInitTimeoutMs: " + i2);
+                return i2;
+            }
+            i = 15000;
+            if (i >= 5000) {
+                i2 = i;
+            }
+            if (this.o.get()) {
+            }
+            TLog.h("[PreferenceSubProcess]", "getInitTimeoutMs: " + i2);
+            return i2;
         }
-        return (FieldEncoding) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public ByteString h() throws IOException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yxb
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.readByteString(b());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TLog.h("[PreferenceSubProcess]", "on service disconnect");
+            this.p.set(false);
+            if (this.h != null && !v.get()) {
+                TLog.h("[PreferenceSubProcess]", "onDisconnect, init RenderEngine again");
+                if (this.t == null) {
+                    this.o.set(!RenderEngine.r.a().u(this.h, this));
+                } else {
+                    this.o.set(!RenderEngine.r.a().v(this.h, this, this.t));
+                }
+                v();
+            }
         }
-        return (ByteString) invokeV.objValue;
     }
 
-    public String k() throws IOException {
-        InterceptResult invokeV;
+    public final void s(String str) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.readUtf8(b());
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.l++;
+            long currentTimeMillis = System.currentTimeMillis();
+            this.q.offer(Long.valueOf(currentTimeMillis));
+            this.m = this.q.size();
+            TLog.h("[PreferenceSubProcess]", "onCrashCheck, time:" + currentTimeMillis + ",crashCnt:" + this.m);
+            if (this.m > l()) {
+                Long poll = this.q.poll();
+                if (poll != null && currentTimeMillis - poll.longValue() < 300000) {
+                    TLog.h("[PreferenceSubProcess]", "onCrashCheck##fail over to main process, crash cnt:" + this.m + ", first:" + poll + ", now:" + currentTimeMillis + ",interval:" + (currentTimeMillis - poll.longValue()) + "ms");
+                    v.set(true);
+                    r2c.b(true);
+                    return;
+                }
+                int i = this.m;
+                if (i > 0) {
+                    this.m = i - 1;
+                }
+            }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final void v() {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || (handler = this.s) == null) {
+            return;
+        }
+        handler.removeCallbacksAndMessages(null);
+        TLog.h("[PreferenceSubProcess]", "startInitTimeout");
+        if (!v.get()) {
+            this.s.postDelayed(new b(this), m());
+        }
     }
 }

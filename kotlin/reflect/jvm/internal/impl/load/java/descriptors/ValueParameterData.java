@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.load.java.descriptors;
 
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ValueParameterData {
     public final boolean hasDefaultValue;
     public final KotlinType type;

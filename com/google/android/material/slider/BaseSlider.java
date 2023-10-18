@@ -132,7 +132,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     public ArrayList<Float> values;
     public int widgetHeight;
     public static final String TAG = BaseSlider.class.getSimpleName();
-    public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f10039f;
+    public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f100397;
 
     /* loaded from: classes9.dex */
     public interface TooltipDrawableFactory {
@@ -171,10 +171,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         @NonNull
         private String startOrEndDescription(int i) {
             if (i == this.slider.getValues().size() - 1) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c6e);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c7b);
             }
             if (i == 0) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c6f);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c7c);
             }
             return "";
         }
@@ -666,10 +666,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     }
 
     private void loadResources(@NonNull Resources resources) {
-        this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070630);
-        this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07062e);
-        this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07062f);
-        this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070627);
+        this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07062a);
+        this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070628);
+        this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070629);
+        this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070622);
     }
 
     private boolean moveFocus(int i) {
@@ -959,7 +959,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
 
     @NonNull
     public static TooltipDrawable parseLabelDrawable(@NonNull Context context, @NonNull TypedArray typedArray) {
-        return TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f1003b7));
+        return TooltipDrawable.createFromAttributes(context, null, 0, typedArray.getResourceId(8, R.style.obfuscated_res_0x7f1003af));
     }
 
     public static int pivotIndex(float[] fArr, float f) {

@@ -1,68 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class p28 extends zw<e28> {
+public class p28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o28 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p28(TbPageContext<?> pageContext) {
-        super(pageContext.getPageActivity());
+    public static int a(int i, @NonNull List<yh> list, @NonNull String str) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, list, str)) == null) {
+            if (!ListUtils.isEmpty(list) && i >= 0 && i < list.size()) {
+                while (i < list.size()) {
+                    i++;
+                    if (i >= list.size()) {
+                        return list.size();
+                    }
+                    if (list.get(i) instanceof jk6) {
+                        jk6 jk6Var = (jk6) list.get(i);
+                        if (jk6Var.getThreadData() == null || (!TextUtils.isEmpty(jk6Var.getThreadData().getTid()) && str.equals(jk6Var.getThreadData().getTid()))) {
+                        }
+                    }
+                    return i;
+                }
             }
+            return -1;
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        this.f = new o28(pageContext);
-    }
-
-    @Override // com.baidu.tieba.zw
-    public View j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f.c();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
-    /* renamed from: s */
-    public void onBindDataToView(e28 e28Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, e28Var) == null) {
-            this.f.e(e28Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.ux
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
-        }
+        return invokeILL.intValue;
     }
 }

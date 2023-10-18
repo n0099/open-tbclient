@@ -4,6 +4,6 @@ import android.content.Context;
 /* loaded from: classes10.dex */
 public class dn {
     public static void a(Context context) {
-        dq.a(context).m367a();
+        dq.a(context).m366a();
     }
 }

@@ -1,67 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.HeadCardCover;
+import tbclient.FrsPage.HeaderCard;
+import tbclient.QuizCard;
+import tbclient.ThemeColorInfo;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
-public abstract class nta<T> {
+public final class nta implements yh {
     public static /* synthetic */ Interceptable $ic;
+    @JvmField
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public T b;
-    public T c;
-    public a d;
-    public String e;
-    public Long f;
+    public List<ThreadInfo> b;
+    public ThemeColorInfo c;
+    public lta d;
+    public mta e;
 
-    /* loaded from: classes7.dex */
-    public interface a<T> {
-        void a(nta<T> ntaVar, T t, T t2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015374, "Lcom/baidu/tieba/nta;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948015374, "Lcom/baidu/tieba/nta;");
+                return;
+            }
+        }
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        f = gen;
     }
 
-    public abstract long e(String str, long j);
-
-    public abstract T f();
-
-    public abstract void g(String str, long j);
-
-    public abstract void h();
-
-    public nta(String str, T t, String str2) {
+    public nta() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, t, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.e = str2;
-        i(t);
-        j(str);
     }
 
-    public T a() {
+    public final ThemeColorInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (T) invokeV.objValue;
+        return (ThemeColorInfo) invokeV.objValue;
     }
 
-    public String b() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -70,68 +79,91 @@ public abstract class nta<T> {
         return (String) invokeV.objValue;
     }
 
-    public long c() {
+    public final lta c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f == null && !TextUtils.isEmpty(this.e)) {
-                d();
-            }
-            Long l = this.f;
-            if (l == null) {
-                return 0L;
-            }
-            return l.longValue();
+            return this.d;
         }
-        return invokeV.longValue;
+        return (lta) invokeV.objValue;
     }
 
-    public T d() {
+    public final mta d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == null && !TextUtils.isEmpty(this.a)) {
-                this.b = f();
-                if (!TextUtils.isEmpty(this.e)) {
-                    this.f = Long.valueOf(e(this.e, 0L));
-                }
-            }
+            return this.e;
+        }
+        return (mta) invokeV.objValue;
+    }
+
+    public final List<ThreadInfo> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b;
         }
-        return (T) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void i(T t) {
+    @Override // com.baidu.tieba.yh
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
-            this.c = t;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return f;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void f(HeaderCard headerCard) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, headerCard) != null) || headerCard == null) {
+            return;
+        }
+        this.a = headerCard.card_title;
+        this.b = headerCard.thread_list;
+        QuizCard quizCard = headerCard.quiz_card;
+        if (quizCard != null) {
+            mta mtaVar = new mta();
+            this.e = mtaVar;
+            if (mtaVar != null) {
+                mtaVar.h(quizCard);
+            }
+        }
+        this.c = headerCard.card_background;
+        HeadCardCover headCardCover = headerCard.cover;
+        if (headCardCover != null) {
+            lta ltaVar = new lta();
+            this.d = ltaVar;
+            if (ltaVar != null) {
+                ltaVar.d(headCardCover);
+            }
         }
     }
 
-    public void j(String str) {
+    public final void g(tbclient.Personalized.HeaderCard headerCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.a = str;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, headerCard) != null) || headerCard == null) {
+            return;
         }
-    }
-
-    public void k(T t) {
-        T t2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, t) == null) && !TextUtils.isEmpty(this.a) && t != (t2 = this.b)) {
-            if (t == null || !t.equals(t2)) {
-                T t3 = this.b;
-                this.b = t;
-                h();
-                if (!TextUtils.isEmpty(this.e)) {
-                    Long valueOf = Long.valueOf(System.currentTimeMillis());
-                    this.f = valueOf;
-                    g(this.e, valueOf.longValue());
-                }
-                a aVar = this.d;
-                if (aVar != null) {
-                    aVar.a(this, t3, t);
-                }
+        this.a = headerCard.card_title;
+        this.b = headerCard.thread_list;
+        QuizCard quizCard = headerCard.quiz_card;
+        if (quizCard != null) {
+            mta mtaVar = new mta();
+            this.e = mtaVar;
+            if (mtaVar != null) {
+                mtaVar.h(quizCard);
+            }
+        }
+        this.c = headerCard.card_background;
+        tbclient.Personalized.HeadCardCover headCardCover = headerCard.cover;
+        if (headCardCover != null) {
+            lta ltaVar = new lta();
+            this.d = ltaVar;
+            if (ltaVar != null) {
+                ltaVar.e(headCardCover);
             }
         }
     }

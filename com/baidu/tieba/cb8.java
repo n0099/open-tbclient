@@ -1,56 +1,85 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.za8;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.biz.aibot.AibotChatRepo;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.TreeSet;
+import kotlin.collections.CollectionsKt__IterablesKt;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cb8 extends za8.b {
+public final class cb8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final cb8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cb8(View view2) {
-        super(view2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947669104, "Lcom/baidu/tieba/cb8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947669104, "Lcom/baidu/tieba/cb8;");
+                return;
+            }
+        }
+        a = new cb8();
+    }
+
+    public cb8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.za8.b, com.baidu.tieba.za8.a
-    @TargetApi(11)
-    public boolean a() {
-        InterceptResult invokeV;
+    public final void a(AibotChatRepo repo, JSONObject params, ef8 fetchMsgCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.isHardwareAccelerated();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, repo, params, fetchMsgCallback) == null) {
+            Intrinsics.checkNotNullParameter(repo, "repo");
+            Intrinsics.checkNotNullParameter(params, "params");
+            Intrinsics.checkNotNullParameter(fetchMsgCallback, "fetchMsgCallback");
+            repo.f0(params.optLong("beginMsgId"), params.optLong("endMsgId"), params.optInt("count"), fetchMsgCallback);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.za8.b, com.baidu.tieba.za8.a
-    @TargetApi(14)
-    public void c(int i) {
+    public final HashMap<String, Object> b(TreeSet<TbBaseMsg> fetchedMsgs, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.setScrollX(i);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fetchedMsgs, j)) == null) {
+            Intrinsics.checkNotNullParameter(fetchedMsgs, "fetchedMsgs");
+            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(fetchedMsgs, 10));
+            for (TbBaseMsg tbBaseMsg : fetchedMsgs) {
+                arrayList.add(jf8.c(tbBaseMsg, false));
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            String a2 = lw.a(DataExt.toJson(arrayList));
+            Intrinsics.checkNotNullExpressionValue(a2, "getEncodeValue(mapList.toJson())");
+            hashMap.put("msgs", a2);
+            hashMap.put("chatType", "AISingleChat");
+            hashMap.put("chatId", Long.valueOf(j));
+            return hashMap;
         }
+        return (HashMap) invokeLJ.objValue;
     }
 }

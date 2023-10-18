@@ -32,13 +32,13 @@ public class s extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo758a() {
+    public String mo757a() {
         return "Send tiny data.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo475a() {
+    public void mo474a() {
         String a;
         XMPushService xMPushService;
         a = this.a.a(this.f1003a);
@@ -53,12 +53,12 @@ public class s extends XMPushService.j {
             next.a("uploadWay", "longXMPushService");
             id a3 = ah.a(this.f1003a, a, next, hh.Notification);
             if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f1003a, this.b)) {
-                if (a3.m627a() == null) {
+                if (a3.m626a() == null) {
                     hu huVar = new hu();
                     huVar.a("-1");
                     a3.a(huVar);
                 }
-                a3.m627a().b("ext_traffic_source_pkg", this.b);
+                a3.m626a().b("ext_traffic_source_pkg", this.b);
             }
             byte[] a4 = ir.a(a3);
             xMPushService = this.a.a;

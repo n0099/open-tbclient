@@ -40,7 +40,7 @@ public class BridgeActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
     public IBridgeActivityDelegate a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnApplyWindowInsetsListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

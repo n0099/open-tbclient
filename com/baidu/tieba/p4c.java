@@ -1,17 +1,17 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.chromium.base.UserData;
+/* compiled from: UserData.java */
 /* loaded from: classes7.dex */
-public interface p4c {
-    void d(String str, String str2);
+public final /* synthetic */ class p4c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void e(String str, String str2);
-
-    void e(String str, String str2, Throwable th);
-
-    void i(String str, String str2);
-
-    void i(String str, String str2, Throwable th);
-
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    public static void $default$destroy(UserData userData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, userData) == null) {
+        }
+    }
 }

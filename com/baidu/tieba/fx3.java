@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
+import android.app.Activity;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.swan.gamecenter.appmanager.install.InstallPluginDelegateActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,18 +14,160 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fx3 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String b = "fx3";
-    public static final boolean c;
-    public static SharedPreferences d;
+public class fx3 extends ActivityDelegation {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public String a;
+    public JSONObject b;
+    public d c;
 
-    public final void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public b(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+        }
+
+        public /* synthetic */ b(String str, String str2, a aVar) {
+            this(str, str2);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ow3.n().t(this.b);
+                ow3.n().l(this.a);
+                ow3.n().k();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSONObject a;
+        public JSONObject b;
+        public hx3 c;
+        public Activity d;
+
+        public c(@NonNull JSONObject jSONObject, JSONObject jSONObject2, @NonNull hx3 hx3Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject, jSONObject2, hx3Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONObject;
+            this.b = jSONObject2;
+            this.c = hx3Var;
+            this.d = activity;
+        }
+
+        public /* synthetic */ c(JSONObject jSONObject, JSONObject jSONObject2, hx3 hx3Var, Activity activity, a aVar) {
+            this(jSONObject, jSONObject2, hx3Var, activity);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ow3.n().G(this.b);
+                qx3.a(this.a.optString("packageName"), "installApp", null, null, new ox3(this.b));
+                fx3.f(this.d, this.a, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements hx3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public final /* synthetic */ fx3 c;
+
+        public d(fx3 fx3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fx3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = fx3Var;
+        }
+
+        @Override // com.baidu.tieba.hx3
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.b = str;
+            }
+        }
+
+        @Override // com.baidu.tieba.hx3
+        public void setPackageName(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                this.a = str;
+            }
+        }
+
+        @Override // com.baidu.tieba.ix3
+        public void b(kx3 kx3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kx3Var) == null) {
+                if (fx3.d) {
+                    Log.d("InstallAppDelegation", "onResult mPackageName:" + this.a);
+                }
+                this.c.h(kx3Var);
+                rw3.d.execute(new b(this.b, this.a, null));
+            }
         }
     }
 
@@ -41,24 +184,13 @@ public class fx3 {
                 return;
             }
         }
-        c = qr1.a;
-        d = null;
+        d = am1.a;
     }
 
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && c) {
-            String str = b;
-            Log.d(str, "新旧版本一样:" + b(this.a));
-        }
-    }
-
-    public fx3(Context context) {
+    public fx3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,128 +200,96 @@ public class fx3 {
                 return;
             }
         }
-        this.a = null;
-        this.a = context;
+        this.c = new d(this);
     }
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (PackageManager.NameNotFoundException e) {
-                if (c) {
-                    String str = b;
-                    Log.e(str, "error:" + e.getMessage());
-                    return -1;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.c != null) {
+                ow3.n().B(this.a, this.c);
+                this.c = null;
+            }
+            this.c = null;
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void onAgentDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (d) {
+                Log.d("InstallAppDelegation", "onAgentDestroy mPackageName:" + this.a);
+            }
+            g();
+        }
+    }
+
+    public static void f(Activity activity, @NonNull JSONObject jSONObject, @NonNull hx3 hx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, activity, jSONObject, hx3Var) == null) {
+            String optString = jSONObject.optString("url");
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString2 = jSONObject.optString("packageName");
+            if (ow3.n().y(optString) == null && optBoolean) {
+                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                    g24.c().d(optString, optString2);
+                    return;
                 }
-                return -1;
+                return;
             }
+            ow3.n().r(activity, optString, optString2, hx3Var);
         }
-        return invokeL.intValue;
     }
 
-    public final int b(Context context) {
-        InterceptResult invokeL;
+    public final void h(kx3 kx3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            int i = c(context).getInt("old_versioncode_key", 0);
-            if (c) {
-                String str = b;
-                Log.d(str, "get old versioncode:" + i);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kx3Var) == null) {
+            if (kx3Var != null) {
+                this.mResult.putString("functionType", kx3Var.a());
+                this.mResult.putString("resultData", kx3Var.b());
+                this.mResult.putInt("resultStatus", kx3Var.c());
+                if (!kx3Var.d()) {
+                    qx3.a(this.a, "installApp", "fail", String.valueOf(kx3Var.c()), new ox3(this.b));
+                }
             }
-            return i;
+            g();
+            finish();
         }
-        return invokeL.intValue;
     }
 
-    public static SharedPreferences c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (d == null) {
-                d = context.getSharedPreferences("downgradefile", 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (d) {
+                Log.d("InstallAppDelegation", "onExec mParams" + this.mParams);
             }
-            return d;
+            this.b = pi3.d(this.mParams.getString("ubc_params", ""));
+            JSONObject d2 = pi3.d(this.mParams.getString("data", ""));
+            String optString = d2.optString("packageName");
+            this.a = optString;
+            this.mResult.putString("packageName", optString);
+            rw3.d.execute(new c(d2, this.b, this.c, getAgent(), null));
+            return false;
         }
-        return (SharedPreferences) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static fx3 d(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void onSelfFinish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return new fx3(context);
-        }
-        return (fx3) invokeL.objValue;
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            hn3.d(0, i);
-        }
-    }
-
-    public static void j(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, context, i) == null) {
-            if (c) {
-                String str = b;
-                Log.d(str, "set last version code:" + i);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (d) {
+                Log.d("InstallAppDelegation", "onSelfFinish mPackageName:" + this.a);
             }
-            SharedPreferences.Editor edit = c(context).edit();
-            edit.putInt("last_versioncode_key", i);
-            edit.apply();
-        }
-    }
-
-    public final void k(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, context, i) == null) {
-            if (c) {
-                String str = b;
-                Log.d(str, "set new versioncode:" + i);
+            int i = 31003;
+            if (getAgent() instanceof InstallPluginDelegateActivity) {
+                i = ((InstallPluginDelegateActivity) getAgent()).a();
             }
-            SharedPreferences.Editor edit = c(context).edit();
-            edit.putInt("old_versioncode_key", i);
-            edit.apply();
-        }
-    }
-
-    public final void h(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            hn3.d(i2, i);
-            vk2.d.u();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int a = a(this.a);
-            int b2 = b(this.a);
-            if (c) {
-                String str = b;
-                Log.d(str, "处理升级逻辑：newVersionCode=" + a + " /oldVersionCode=" + b2);
-            }
-            if (b2 == 0) {
-                f(a);
-                k(this.a, a);
-                j(this.a, b2);
-            } else if (a > b2) {
-                h(a, b2);
-                k(this.a, a);
-                j(this.a, b2);
-            } else if (a < b2) {
-                e(a, b2);
-                k(this.a, a);
-                j(this.a, b2);
-            } else {
-                g();
-            }
+            qx3.a(this.a, "installApp", "fail", String.valueOf(i), new ox3(this.b));
+            g();
         }
     }
 }

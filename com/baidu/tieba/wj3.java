@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wj3 extends g73 {
+public class wj3 extends uj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
     public wj3() {
         Interceptable interceptable = $ic;
@@ -23,29 +21,6 @@ public class wj3 extends g73 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void e(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, ashmemFileDescriptor) != null) || !ProcessUtils.isMainProcess()) {
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-        bundle.putParcelable("result", ashmemFileDescriptor);
-        a83.a(bundle, wj3.class);
-    }
-
-    @Override // com.baidu.tieba.g73
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-            AshmemFileDescriptor ashmemFileDescriptor = (AshmemFileDescriptor) bundle.getParcelable("result");
-            if (ashmemFileDescriptor != null) {
-                ak3.b(ashmemFileDescriptor);
             }
         }
     }

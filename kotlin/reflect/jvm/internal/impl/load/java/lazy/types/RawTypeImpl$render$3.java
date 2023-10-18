@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.load.java.lazy.types;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Lambda;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class RawTypeImpl$render$3 extends Lambda implements Function2<String, String, String> {
     public static final RawTypeImpl$render$3 INSTANCE = new RawTypeImpl$render$3();
 

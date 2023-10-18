@@ -7,7 +7,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SpeedStatsUtils {
     public static final String IS_NIGHT_MODE = "isNightMode";
     public static final int LAUNCH_TYPE_NEWINSTALL = 2;

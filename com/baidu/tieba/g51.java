@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface g51 {
-    void a(@NonNull Runnable runnable, @NonNull String str, int i, long j);
+    boolean c1();
 
-    void b(@NonNull Runnable runnable, @NonNull String str, long j);
+    boolean d1();
+
+    boolean r0();
 }

@@ -1,22 +1,74 @@
 package com.baidu.tieba;
 
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import java.util.Map;
+import android.os.Build;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface wvb {
-    void a();
+public class wvb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(int i, String str);
+    public static void a(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, webSettings) == null) && Build.VERSION.SDK_INT >= 11) {
+            webSettings.setAllowContentAccess(false);
+        }
+    }
 
-    void a(RippedAd rippedAd, Map<String, String> map);
+    public static void b(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, webSettings) == null) {
+            webSettings.setAllowFileAccess(false);
+            if (Build.VERSION.SDK_INT >= 16) {
+                webSettings.setAllowFileAccessFromFileURLs(false);
+                webSettings.setAllowUniversalAccessFromFileURLs(false);
+            }
+        }
+    }
 
-    void a(Map<String, String> map);
+    public static void c(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, webSettings) == null) {
+            webSettings.setGeolocationEnabled(false);
+        }
+    }
 
-    void a(boolean z, int i, Map<String, String> map);
+    public static void d(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, webSettings) == null) && Build.VERSION.SDK_INT >= 21) {
+            webSettings.setMixedContentMode(1);
+        }
+    }
 
-    void b();
+    public static void e(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webSettings) == null) && Build.VERSION.SDK_INT <= 18) {
+            webSettings.setSavePassword(false);
+        }
+    }
 
-    void b(int i, String str);
+    public static void f(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, webView) == null) {
+            WebSettings settings = webView.getSettings();
+            b(settings);
+            g(webView);
+            e(settings);
+            c(settings);
+            d(settings);
+            a(settings);
+        }
+    }
 
-    void b(RippedAd rippedAd, Map<String, String> map);
+    public static void g(WebView webView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, webView) == null) && Build.VERSION.SDK_INT >= 11) {
+            webView.removeJavascriptInterface("searchBoxJavaBridge_");
+            webView.removeJavascriptInterface("accessibility");
+            webView.removeJavascriptInterface("accessibilityTraversal");
+        }
+    }
 }

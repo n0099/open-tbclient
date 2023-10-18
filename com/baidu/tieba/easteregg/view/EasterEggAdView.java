@@ -55,7 +55,7 @@ public final class EasterEggAdView extends RelativeLayout {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a();
+        void a(String str);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -250,7 +250,7 @@ public final class EasterEggAdView extends RelativeLayout {
             }
             a aVar = this$0.e;
             if (aVar != null) {
-                aVar.a();
+                aVar.a(jumpLink);
             }
         }
     }
@@ -364,7 +364,7 @@ public final class EasterEggAdView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048582, this, easterEggAdData) == null) {
             Intrinsics.checkNotNullParameter(easterEggAdData, "easterEggAdData");
             MessageManager.getInstance().registerListener(getSkinChangeListener());
-            View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.yz6
+            View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.hu6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

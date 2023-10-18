@@ -1,5 +1,6 @@
 package com.baidu.tbadk.template.state;
 
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +34,7 @@ public final class ViewType {
         }
         CONTENT = new ViewType("CONTENT", 0);
         LOADING = new ViewType("LOADING", 1);
-        ERROR = new ViewType("ERROR", 2);
+        ERROR = new ViewType(bx.l, 2);
         ViewType viewType = new ViewType("EMPTY", 3);
         EMPTY = viewType;
         $VALUES = new ViewType[]{CONTENT, LOADING, ERROR, viewType};

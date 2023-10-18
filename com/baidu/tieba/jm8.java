@@ -1,193 +1,145 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.im.settingcache.GroupSettingItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.impl.ResponsesPanelControllerImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class jm8 extends hm8 {
+public final class jm8 {
     public static /* synthetic */ Interceptable $ic;
-    public static jm8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ResponsesPanelControllerImpl a;
+    public List<Reaction> b;
 
     /* loaded from: classes6.dex */
-    public class a extends yx5<Void> {
+    public static final class a implements hj5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GroupSettingItemData a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ jm8 c;
+        public final /* synthetic */ jm8 a;
+        public final /* synthetic */ int b;
 
-        public a(jm8 jm8Var, GroupSettingItemData groupSettingItemData, String str) {
+        public a(jm8 jm8Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jm8Var, groupSettingItemData, str};
+                Object[] objArr = {jm8Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = jm8Var;
-            this.a = groupSettingItemData;
-            this.b = str;
+            this.a = jm8Var;
+            this.b = i;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yx5
-        /* renamed from: a */
-        public Void doInBackground() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.hj5
+        public void a(List<String> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.c.getSettingCache().g(this.b, OrmObject.jsonStrWithObject(this.a));
-                return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (ListUtils.isEmpty(list)) {
+                    if (!ListUtils.isEmpty(this.a.a())) {
+                        List<Reaction> a = this.a.a();
+                        Intrinsics.checkNotNull(a);
+                        int size = a.size();
+                        if (size > this.b) {
+                            List<Reaction> a2 = this.a.a();
+                            Intrinsics.checkNotNull(a2);
+                            arrayList.addAll(a2.subList(0, this.b));
+                        } else {
+                            List<Reaction> a3 = this.a.a();
+                            Intrinsics.checkNotNull(a3);
+                            arrayList.addAll(a3.subList(0, size));
+                        }
+                        this.a.b().g(arrayList);
+                    }
+                } else {
+                    Intrinsics.checkNotNull(list);
+                    for (String str : list) {
+                        arrayList.add(new Reaction("", str));
+                    }
+                }
+                this.a.b().g(arrayList);
             }
-            return (Void) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947888212, "Lcom/baidu/tieba/jm8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947888212, "Lcom/baidu/tieba/jm8;");
-                return;
-            }
-        }
-        a = new jm8();
-    }
-
-    public jm8() {
+    public jm8(ResponsesPanelControllerImpl controller) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {controller};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(controller, "controller");
+        this.a = controller;
     }
 
-    public static jm8 a() {
+    public final List<Reaction> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (jm8) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hm8
-    public oe<String> getSettingCache() {
+    public final ResponsesPanelControllerImpl b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            y45.k();
-            return y45.l("tb.im_group_setting");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (oe) invokeV.objValue;
+        return (ResponsesPanelControllerImpl) invokeV.objValue;
     }
 
-    public void onAccountChangedInBackground() {
+    public final void c(ea8 process, Reaction reaction, BaseItem<? extends TbBaseMsg> msg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onAccountChangedInBackground(GroupSettingItemData.class);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hm8
-    /* renamed from: b */
-    public GroupSettingItemData getSetting(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            GroupSettingItemData groupSettingItemData = null;
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            String str3 = str + "@" + str2;
-            synchronized (this.memoryCachedSettings) {
-                ChatSetting chatSetting = this.memoryCachedSettings.get(str3);
-                if (chatSetting instanceof GroupSettingItemData) {
-                    groupSettingItemData = (GroupSettingItemData) chatSetting;
-                }
-            }
-            if (groupSettingItemData == null) {
-                GroupSettingItemData groupSettingItemData2 = new GroupSettingItemData();
-                groupSettingItemData2.setUid(str);
-                groupSettingItemData2.setGid(str2);
-                groupSettingItemData2.setAcceptNotify(true);
-                groupSettingItemData2.setInGroup(true);
-                return groupSettingItemData2;
-            }
-            return groupSettingItemData;
-        }
-        return (GroupSettingItemData) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.hm8
-    public void saveSetting(ChatSetting chatSetting) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
-            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
-            String uid = groupSettingItemData.getUid();
-            String gid = groupSettingItemData.getGid();
-            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
-                oe<String> settingCache = getSettingCache();
-                String str = uid + "@" + gid;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-                synchronized (this.memoryCachedSettings) {
-                    this.memoryCachedSettings.put(str, groupSettingItemData);
-                }
-                settingCache.g(str, jsonStrWithObject);
-            } else if (!TbConfig.getDebugSwitch()) {
-            } else {
-                throw new RuntimeException("key param is null");
-            }
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, process, reaction, msg) == null) {
+            Intrinsics.checkNotNullParameter(process, "process");
+            Intrinsics.checkNotNullParameter(reaction, "reaction");
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            yi8.g(process, reaction, msg, 1);
         }
     }
 
-    @Override // com.baidu.tieba.hm8
-    public void saveSettingAsync(ChatSetting chatSetting, dx5<Void> dx5Var) {
+    public final void d(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, chatSetting, dx5Var) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
-            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
-            String uid = groupSettingItemData.getUid();
-            String gid = groupSettingItemData.getGid();
-            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
-                String str = uid + "@" + gid;
-                synchronized (this.memoryCachedSettings) {
-                    this.memoryCachedSettings.put(str, groupSettingItemData);
-                }
-                cy5.c(new a(this, groupSettingItemData, str), dx5Var);
-            } else if (!TbConfig.getDebugSwitch()) {
-            } else {
-                throw new RuntimeException("key param is null");
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            int abs = Math.abs(1 - yi8.a());
+            ri5.b().e(context, true, -abs, new a(this, abs));
+        }
+    }
+
+    public final void e(List<Reaction> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.b = list;
         }
     }
 }

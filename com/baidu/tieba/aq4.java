@@ -1,35 +1,86 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
+import android.content.Context;
+import android.util.SparseArray;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class aq4 {
     public static /* synthetic */ Interceptable $ic;
+    public static aq4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<cq4> a;
 
-    public static int a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            return view2.getLayerType();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947623813, "Lcom/baidu/tieba/aq4;")) == null) {
+            return;
         }
-        return invokeL.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947623813, "Lcom/baidu/tieba/aq4;");
+        }
     }
 
-    public static void b(View view2, int i, Paint paint) {
+    public aq4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, view2, i, paint) == null) {
-            view2.setLayerType(i, paint);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = new SparseArray<>();
     }
 
-    public static void c(View view2, boolean z) {
+    public static aq4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65538, null, view2, z) == null) {
-            view2.setSaveFromParentEnabled(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (aq4.class) {
+                    if (b == null) {
+                        b = new aq4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (aq4) invokeV.objValue;
+    }
+
+    public View a(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            if (this.a.get(i) != null) {
+                return this.a.get(i).a(context);
+            }
+            return null;
+        }
+        return (View) invokeLI.objValue;
+    }
+
+    public void c(int i, cq4 cq4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, cq4Var) == null) {
+            this.a.put(i, cq4Var);
         }
     }
 }

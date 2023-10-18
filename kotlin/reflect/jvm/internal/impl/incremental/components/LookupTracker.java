@@ -1,8 +1,8 @@
 package kotlin.reflect.jvm.internal.impl.incremental.components;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public interface LookupTracker {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class DO_NOTHING implements LookupTracker {
         public static final DO_NOTHING INSTANCE = new DO_NOTHING();
 

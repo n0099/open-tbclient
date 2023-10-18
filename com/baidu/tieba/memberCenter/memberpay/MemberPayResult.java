@@ -5,7 +5,7 @@ import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.fia;
+import com.baidu.tieba.vca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -218,9 +218,9 @@ public class MemberPayResult {
                     return SkinManager.getColor(WAIT_TIP_COLOR_ID);
                 }
                 if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                    return fia.f(this.dynamicColorDark);
+                    return vca.f(this.dynamicColorDark);
                 }
-                return fia.f(this.dynamicColor);
+                return vca.f(this.dynamicColor);
             }
             return invokeV.intValue;
         }

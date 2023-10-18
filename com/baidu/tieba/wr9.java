@@ -1,41 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.rz4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import tbclient.SmartApp;
 /* loaded from: classes8.dex */
 public class wr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public Context b;
+    public pz4 c;
+    public rz4 d;
+    public List<nz4> e;
+    public nz4 f;
+    public b g;
+    public SmartApp h;
+    public rz4.e i;
 
     /* loaded from: classes8.dex */
-    public class a implements g16 {
+    public interface b {
+        void a(String str);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements rz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbModel a;
-        public final /* synthetic */ qp9 b;
+        public final /* synthetic */ wr9 a;
 
-        public a(PbModel pbModel, qp9 qp9Var) {
+        public a(wr9 wr9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbModel, qp9Var};
+                Object[] objArr = {wr9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,133 +64,104 @@ public class wr9 {
                     return;
                 }
             }
-            this.a = pbModel;
-            this.b = qp9Var;
+            this.a = wr9Var;
         }
 
-        @Override // com.baidu.tieba.g16
-        public void a() {
+        @Override // com.baidu.tieba.rz4.e
+        public void onClick() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a5(false);
-            }
-        }
-
-        @Override // com.baidu.tieba.g16
-        public void b(List<String> list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.a.r1() == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.h == null) {
                 return;
             }
-            ArrayList<zja> F = this.a.r1().F();
-            if (!ListUtils.isEmpty(F) && !ListUtils.isEmpty(list)) {
-                Iterator<zja> it = F.iterator();
-                while (it.hasNext()) {
-                    zja next = it.next();
-                    int i = 0;
-                    while (true) {
-                        if (i >= list.size()) {
-                            break;
-                        } else if (TextUtils.equals(list.get(i), next.U())) {
-                            it.remove();
-                            if (this.a.r1().O() != null) {
-                                this.a.r1().O().setReply_num(this.a.r1().O().getReply_num() - 1);
-                            }
-                        } else {
-                            i++;
-                        }
-                    }
-                }
-                this.b.g2(this.a.r1());
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
+            httpMessage.addParam("swan_app_key", this.a.h.id);
+            MessageManager.getInstance().sendMessage(httpMessage);
+            if (this.a.g != null) {
+                this.a.g.a(this.a.h.id);
+            }
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMART_APP_HISTORY_DELETE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_id", this.a.h.naws_app_id.longValue());
+            statisticItem.param("obj_name", this.a.h.name);
+            TiebaStatic.log(statisticItem);
+            if (this.a.c != null) {
+                this.a.c.dismiss();
             }
         }
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            f16.b().a();
-        }
-    }
-
-    public static i16 b(PbModel pbModel, qp9 qp9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, qp9Var)) == null) {
-            if (pbModel != null && qp9Var != null) {
-                i16 i16Var = new i16();
-                if (pbModel.r1() != null && pbModel.r1().k() != null) {
-                    if (pbModel.r1().k().getDeletedReasonInfo() != null) {
-                        i16Var.p(pbModel.r1().k().getDeletedReasonInfo().is_grays_cale_forum.intValue());
-                        i16Var.o(pbModel.r1().k().getDeletedReasonInfo().is_boomgrow.intValue());
-                    }
-                    i16Var.l(pbModel.r1().k().getId());
-                    i16Var.m(pbModel.r1().k().getName());
-                    i16Var.k(pbModel.r1().k().getImage_url());
-                    i16Var.t(pbModel.r1().k().getUser_level());
-                }
-                if (pbModel.r1() != null && pbModel.r1().n() != null) {
-                    i16Var.n(pbModel.r1().n().has_forum_rule.intValue());
-                }
-                if (pbModel.r1() != null && pbModel.r1().V() != null) {
-                    i16Var.s(pbModel.r1().V());
-                }
-                i16Var.q(new a(pbModel, qp9Var));
-                if (pbModel.r1() != null) {
-                    AntiData c = pbModel.r1().c();
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    if (c != null && c.getDelThreadInfoList() != null) {
-                        List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
-                        for (int i = 0; i < delThreadInfoList.size(); i++) {
-                            if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                                sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                            }
-                        }
-                    }
-                    i16Var.r(sparseArray);
-                }
-                return i16Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948280331, "Lcom/baidu/tieba/wr9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
-        }
-        return (i16) invokeLL.objValue;
-    }
-
-    public static boolean c(lk9 lk9Var, zja zjaVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, lk9Var, zjaVar)) == null) {
-            if (lk9Var != null && zjaVar != null) {
-                k16 k16Var = new k16();
-                k16Var.d(zjaVar.Q() + "");
-                if (lk9Var.O() != null) {
-                    k16Var.f(lk9Var.O().getId());
-                }
-                k16Var.e(zjaVar.U());
-                return f16.b().c(k16Var);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948280331, "Lcom/baidu/tieba/wr9;");
+                return;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_DEL_BROWSE_HISTORY));
     }
 
-    public static void d(TbPageContext<BaseFragmentActivity> tbPageContext, PbModel pbModel, qp9 qp9Var) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, tbPageContext, pbModel, qp9Var) == null) && tbPageContext != null && pbModel != null && qp9Var != null) {
-            f16.b().e(tbPageContext, qp9Var.G1(), b(pbModel, qp9Var));
-            f16.b().d(1);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c != null) {
+            return;
         }
+        nz4 nz4Var = new nz4(this.b.getString(R.string.obfuscated_res_0x7f0f0551), this.d);
+        this.f = nz4Var;
+        nz4Var.m(this.i);
+        this.e.add(this.f);
+        this.d.m(this.e);
+        this.c = new pz4(this.a, this.d);
     }
 
-    public static boolean e(zja zjaVar) {
-        InterceptResult invokeL;
+    public wr9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, zjaVar)) == null) {
-            if (zjaVar == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return f16.b().f(zjaVar.U());
         }
-        return invokeL.booleanValue;
+        this.i = new a(this);
+        this.a = tbPageContext;
+        Activity pageActivity = tbPageContext.getPageActivity();
+        this.b = pageActivity;
+        this.d = new rz4(pageActivity);
+        this.e = new ArrayList();
+    }
+
+    public void d(SmartApp smartApp) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
+            this.h = smartApp;
+        }
+    }
+
+    public void f(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.g = bVar;
+        }
+    }
+
+    public void g() {
+        pz4 pz4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (pz4Var = this.c) == null) {
+            return;
+        }
+        pz4Var.l();
     }
 }

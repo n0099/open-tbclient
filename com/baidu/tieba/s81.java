@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IAlertManager;
+import com.baidu.nps.interfa.IAlertManager_AlertManager_Provider;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,27 +12,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
-/* loaded from: classes7.dex */
-public final class s81 {
+/* loaded from: classes8.dex */
+public class s81 {
     public static /* synthetic */ Interceptable $ic;
-    public static m81 a;
+    public static s81 b;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public xe1<IAlertManager> a;
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ve1 b2 = ve1.b();
+            this.a = b2;
+            b2.a(new IAlertManager_AlertManager_Provider());
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948105181, "Lcom/baidu/tieba/s81;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948105181, "Lcom/baidu/tieba/s81;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948105181, "Lcom/baidu/tieba/s81;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948105181, "Lcom/baidu/tieba/s81;");
-        }
+        b = new s81();
     }
 
     public s81() {
@@ -41,28 +55,25 @@ public final class s81 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        b();
     }
 
-    @JvmStatic
-    public static final m81 a() {
+    public static s81 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (s81.class) {
-                    if (a == null) {
-                        a = (m81) ServiceManager.getService(m81.a);
-                    }
-                    if (a == null) {
-                        a = m81.b;
-                    }
-                    Unit unit = Unit.INSTANCE;
-                }
-            }
-            return a;
+            return b;
         }
-        return (m81) invokeV.objValue;
+        return (s81) invokeV.objValue;
+    }
+
+    public void c(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
+            this.a.get().onAlert(str, str2, onClickListener, str3, onClickListener2, str4);
+        }
     }
 }

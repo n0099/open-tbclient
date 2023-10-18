@@ -5,12 +5,12 @@ import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.ox4;
-import com.baidu.tieba.qka;
-import com.baidu.tieba.rka;
-import com.baidu.tieba.ska;
-import com.baidu.tieba.uka;
-import com.baidu.tieba.xm6;
+import com.baidu.tieba.gfa;
+import com.baidu.tieba.gh6;
+import com.baidu.tieba.hfa;
+import com.baidu.tieba.ifa;
+import com.baidu.tieba.kfa;
+import com.baidu.tieba.wr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,17 +24,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class HostJsBridgePlugin_Proxy extends qka {
+public class HostJsBridgePlugin_Proxy extends gfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ox4 mJsBridge;
+    public wr4 mJsBridge;
 
-    public HostJsBridgePlugin_Proxy(ox4 ox4Var) {
+    public HostJsBridgePlugin_Proxy(wr4 wr4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ox4Var};
+            Object[] objArr = {wr4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public class HostJsBridgePlugin_Proxy extends qka {
                 return;
             }
         }
-        this.mJsBridge = ox4Var;
+        this.mJsBridge = wr4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
@@ -54,197 +54,197 @@ public class HostJsBridgePlugin_Proxy extends qka {
         this.mNotificationNameList.add("receiveNewMsgs");
     }
 
-    @Override // com.baidu.tieba.qka
-    public ska dispatch(WebView webView, uka ukaVar, ska skaVar) {
+    @Override // com.baidu.tieba.gfa
+    public ifa dispatch(WebView webView, kfa kfaVar, ifa ifaVar) {
         InterceptResult invokeLLL;
-        ska skaVar2;
+        ifa ifaVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ukaVar, skaVar)) == null) {
-            if (skaVar == null) {
-                skaVar2 = new ska();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, kfaVar, ifaVar)) == null) {
+            if (ifaVar == null) {
+                ifaVar2 = new ifa();
             } else {
-                skaVar2 = skaVar;
+                ifaVar2 = ifaVar;
             }
-            String b = ukaVar.b();
-            JSONObject e = ukaVar.e();
+            String b = kfaVar.b();
+            JSONObject e = kfaVar.e();
             if (b.equals("host/callNativeSMS")) {
-                skaVar2.s(true);
-                ska c = this.mJsBridge.c(webView, e.optString("phoneNumber"), e.optString("content"));
+                ifaVar2.s(true);
+                ifa c = this.mJsBridge.c(webView, e.optString("phoneNumber"), e.optString("content"));
                 if (c != null) {
-                    skaVar2.y(c.f());
-                    skaVar2.u(c.b());
-                    skaVar2.o(c.a());
-                    skaVar2.x(c.e());
+                    ifaVar2.y(c.f());
+                    ifaVar2.u(c.b());
+                    ifaVar2.o(c.a());
+                    ifaVar2.x(c.e());
                 }
-                skaVar2.z(0);
+                ifaVar2.z(0);
             } else if (b.equals("host/recordNovelInfo")) {
-                skaVar2.s(true);
-                ska p = this.mJsBridge.p(webView, e.optString("bookProgress"), e.optString(TbEnum.ParamKey.GID), e.optString("lastReadChapterId"), e.optString("lastReadChapterIndex"), e.optString("lastReadChapterName"));
+                ifaVar2.s(true);
+                ifa p = this.mJsBridge.p(webView, e.optString("bookProgress"), e.optString(TbEnum.ParamKey.GID), e.optString("lastReadChapterId"), e.optString("lastReadChapterIndex"), e.optString("lastReadChapterName"));
                 if (p != null) {
-                    skaVar2.y(p.f());
-                    skaVar2.u(p.b());
-                    skaVar2.o(p.a());
-                    skaVar2.x(p.e());
+                    ifaVar2.y(p.f());
+                    ifaVar2.u(p.b());
+                    ifaVar2.o(p.a());
+                    ifaVar2.x(p.e());
                 }
-                skaVar2.z(0);
+                ifaVar2.z(0);
             } else if (b.equals("host/novelPayResultToClient")) {
-                skaVar2.s(true);
-                ska i = this.mJsBridge.i(webView, e.optBoolean("isPaySuccess"));
+                ifaVar2.s(true);
+                ifa i = this.mJsBridge.i(webView, e.optBoolean("isPaySuccess"));
                 if (i != null) {
-                    skaVar2.y(i.f());
-                    skaVar2.u(i.b());
-                    skaVar2.o(i.a());
-                    skaVar2.x(i.e());
+                    ifaVar2.y(i.f());
+                    ifaVar2.u(i.b());
+                    ifaVar2.o(i.a());
+                    ifaVar2.x(i.e());
                 }
-                skaVar2.z(0);
+                ifaVar2.z(0);
             } else if (b.equals("host/preheatWeb")) {
-                skaVar2.s(true);
+                ifaVar2.s(true);
                 ArrayList<String> arrayList = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList, e.optJSONArray("urlList"));
-                ska n = this.mJsBridge.n(webView, arrayList);
+                ifa n = this.mJsBridge.n(webView, arrayList);
                 if (n != null) {
-                    skaVar2.y(n.f());
-                    skaVar2.u(n.b());
-                    skaVar2.o(n.a());
-                    skaVar2.x(n.e());
+                    ifaVar2.y(n.f());
+                    ifaVar2.u(n.b());
+                    ifaVar2.o(n.a());
+                    ifaVar2.x(n.e());
                 }
-                skaVar2.z(0);
+                ifaVar2.z(0);
             } else if (b.equals("host/sendMsg")) {
-                skaVar2.s(true);
-                ska q = this.mJsBridge.q(webView, e.optString("msg"), e.optString("chatType"), e.optString("chatId"));
+                ifaVar2.s(true);
+                ifa q = this.mJsBridge.q(webView, e.optString("msg"), e.optString("chatType"), e.optString("chatId"));
                 this.mNotificationNameList.add("sendMsg");
                 if (q != null) {
-                    skaVar2.y(q.f());
-                    skaVar2.u(q.b());
-                    skaVar2.o(q.a());
-                    skaVar2.x(q.e());
-                    if (!skaVar2.h()) {
-                        skaVar2.n(false);
-                        addObserver(webView, "sendMsg", skaVar2, true);
+                    ifaVar2.y(q.f());
+                    ifaVar2.u(q.b());
+                    ifaVar2.o(q.a());
+                    ifaVar2.x(q.e());
+                    if (!ifaVar2.h()) {
+                        ifaVar2.n(false);
+                        addObserver(webView, "sendMsg", ifaVar2, true);
                     }
                 }
-                skaVar2.z(0);
+                ifaVar2.z(0);
             } else if (b.equals("host/handleAudioMsgByTTS")) {
-                skaVar2.s(true);
+                ifaVar2.s(true);
                 JSONObject optJSONObject = e.optJSONObject("ext");
                 String optString = e.optString("chatType");
                 String optString2 = e.optString("chatId");
                 String optString3 = e.optString("speakId");
                 ArrayList<String> arrayList2 = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList2, e.optJSONArray("speechTexts"));
-                ska g = this.mJsBridge.g(webView, optJSONObject, optString, optString2, optString3, arrayList2, e.optString("actionType"));
+                ifa g = this.mJsBridge.g(webView, optJSONObject, optString, optString2, optString3, arrayList2, e.optString("actionType"));
                 this.mNotificationNameList.add("handleAudioMsgByTTS");
                 if (g != null) {
-                    skaVar2.y(g.f());
-                    skaVar2.u(g.b());
-                    skaVar2.o(g.a());
-                    skaVar2.x(g.e());
-                    if (!skaVar2.h()) {
-                        skaVar2.n(false);
-                        addObserver(webView, "handleAudioMsgByTTS", skaVar2, true);
+                    ifaVar2.y(g.f());
+                    ifaVar2.u(g.b());
+                    ifaVar2.o(g.a());
+                    ifaVar2.x(g.e());
+                    if (!ifaVar2.h()) {
+                        ifaVar2.n(false);
+                        addObserver(webView, "handleAudioMsgByTTS", ifaVar2, true);
                     }
                 }
-                skaVar2.z(0);
+                ifaVar2.z(0);
             } else if (b.equals("host/fetchHistoryMsgs")) {
-                skaVar2.s(true);
-                ska d = this.mJsBridge.d(webView, e.optInt("count"), e.optLong("beginMsgId"), e.optLong("endMsgId"), e.optString("chatType"), e.optString("chatId"));
+                ifaVar2.s(true);
+                ifa d = this.mJsBridge.d(webView, e.optInt("count"), e.optLong("beginMsgId"), e.optLong("endMsgId"), e.optString("chatType"), e.optString("chatId"));
                 this.mNotificationNameList.add("fetchHistoryMsgs");
                 if (d != null) {
-                    skaVar2.y(d.f());
-                    skaVar2.u(d.b());
-                    skaVar2.o(d.a());
-                    skaVar2.x(d.e());
-                    if (!skaVar2.h()) {
-                        skaVar2.n(false);
-                        addObserver(webView, "fetchHistoryMsgs", skaVar2, true);
+                    ifaVar2.y(d.f());
+                    ifaVar2.u(d.b());
+                    ifaVar2.o(d.a());
+                    ifaVar2.x(d.e());
+                    if (!ifaVar2.h()) {
+                        ifaVar2.n(false);
+                        addObserver(webView, "fetchHistoryMsgs", ifaVar2, true);
                     }
                 }
-                skaVar2.z(0);
+                ifaVar2.z(0);
             } else if (b.equals("host/receiveNewMsgs")) {
-                skaVar2.s(true);
-                ska o = this.mJsBridge.o(webView);
+                ifaVar2.s(true);
+                ifa o = this.mJsBridge.o(webView);
                 this.mNotificationNameList.add("receiveNewMsgs");
                 if (o != null) {
-                    skaVar2.y(o.f());
-                    skaVar2.u(o.b());
-                    skaVar2.o(o.a());
-                    skaVar2.x(o.e());
-                    if (!skaVar2.h()) {
-                        skaVar2.n(false);
-                        addObserver(webView, "receiveNewMsgs", skaVar2, true);
+                    ifaVar2.y(o.f());
+                    ifaVar2.u(o.b());
+                    ifaVar2.o(o.a());
+                    ifaVar2.x(o.e());
+                    if (!ifaVar2.h()) {
+                        ifaVar2.n(false);
+                        addObserver(webView, "receiveNewMsgs", ifaVar2, true);
                     }
                 }
-                skaVar2.z(0);
+                ifaVar2.z(0);
             } else if (b.equals("host/preloadPic")) {
-                skaVar2.s(true);
+                ifaVar2.s(true);
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList3, e.optJSONArray("url"));
-                ska m = this.mJsBridge.m(webView, arrayList3);
+                ifa m = this.mJsBridge.m(webView, arrayList3);
                 this.mNotificationNameList.add("preloadPic");
                 if (m != null) {
-                    skaVar2.y(m.f());
-                    skaVar2.u(m.b());
-                    skaVar2.o(m.a());
-                    skaVar2.x(m.e());
-                    if (!skaVar2.h()) {
-                        skaVar2.n(false);
-                        addObserver(webView, "preloadPic", skaVar2, false);
+                    ifaVar2.y(m.f());
+                    ifaVar2.u(m.b());
+                    ifaVar2.o(m.a());
+                    ifaVar2.x(m.e());
+                    if (!ifaVar2.h()) {
+                        ifaVar2.n(false);
+                        addObserver(webView, "preloadPic", ifaVar2, false);
                     }
                 }
-                skaVar2.z(0);
+                ifaVar2.z(0);
             }
-            return skaVar2;
+            return ifaVar2;
         }
-        return (ska) invokeLLL.objValue;
+        return (ifa) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qka
-    public xm6 getJsBridge() {
+    @Override // com.baidu.tieba.gfa
+    public gh6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (xm6) invokeV.objValue;
+        return (gh6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qka
-    public List<ska> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.gfa
+    public List<ifa> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            ska skaVar = null;
+            ifa ifaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("handleAudioMsgByTTS")) {
-                skaVar = this.mJsBridge.h(webView, hashMap);
+                ifaVar = this.mJsBridge.h(webView, hashMap);
             } else if (str.equals("sendMsg")) {
-                skaVar = this.mJsBridge.l(webView, hashMap);
+                ifaVar = this.mJsBridge.l(webView, hashMap);
             } else if (str.equals("fetchHistoryMsgs")) {
-                skaVar = this.mJsBridge.j(webView, hashMap);
+                ifaVar = this.mJsBridge.j(webView, hashMap);
             } else if (str.equals("receiveNewMsgs")) {
-                skaVar = this.mJsBridge.k(webView, hashMap);
+                ifaVar = this.mJsBridge.k(webView, hashMap);
             }
-            if (skaVar != null) {
-                skaVar.z(0);
+            if (ifaVar != null) {
+                ifaVar.z(0);
             }
-            List<rka> list = this.mAsyncCallBackMethodList.get(str);
-            if (skaVar != null && list != null) {
-                Iterator<rka> it = list.iterator();
-                if (!TextUtils.isEmpty(skaVar.e())) {
+            List<hfa> list = this.mAsyncCallBackMethodList.get(str);
+            if (ifaVar != null && list != null) {
+                Iterator<hfa> it = list.iterator();
+                if (!TextUtils.isEmpty(ifaVar.e())) {
                     while (it.hasNext()) {
-                        rka next = it.next();
-                        if (next.b().equals(skaVar.e())) {
-                            ska skaVar2 = new ska();
-                            skaVar2.w(next.a());
-                            skaVar2.y(skaVar.f());
-                            skaVar2.u(skaVar.b());
-                            skaVar2.o(skaVar.a());
-                            skaVar2.j = skaVar.j;
-                            skaVar2.A(skaVar.l());
-                            arrayList.add(skaVar2);
+                        hfa next = it.next();
+                        if (next.b().equals(ifaVar.e())) {
+                            ifa ifaVar2 = new ifa();
+                            ifaVar2.w(next.a());
+                            ifaVar2.y(ifaVar.f());
+                            ifaVar2.u(ifaVar.b());
+                            ifaVar2.o(ifaVar.a());
+                            ifaVar2.j = ifaVar.j;
+                            ifaVar2.A(ifaVar.l());
+                            arrayList.add(ifaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -252,15 +252,15 @@ public class HostJsBridgePlugin_Proxy extends qka {
                     }
                 } else {
                     while (it.hasNext()) {
-                        rka next2 = it.next();
-                        ska skaVar3 = new ska();
-                        skaVar3.w(next2.a());
-                        skaVar3.y(skaVar.f());
-                        skaVar3.u(skaVar.b());
-                        skaVar3.o(skaVar.a());
-                        skaVar3.j = skaVar.j;
-                        skaVar3.A(skaVar.l());
-                        arrayList.add(skaVar3);
+                        hfa next2 = it.next();
+                        ifa ifaVar3 = new ifa();
+                        ifaVar3.w(next2.a());
+                        ifaVar3.y(ifaVar.f());
+                        ifaVar3.u(ifaVar.b());
+                        ifaVar3.o(ifaVar.a());
+                        ifaVar3.j = ifaVar.j;
+                        ifaVar3.A(ifaVar.l());
+                        arrayList.add(ifaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

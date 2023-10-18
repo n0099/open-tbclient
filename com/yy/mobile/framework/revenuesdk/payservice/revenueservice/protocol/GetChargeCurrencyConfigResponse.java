@@ -1,6 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
-import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.dto.IsShowRealNameGuideDTO;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
@@ -231,7 +230,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 productInfo.payType = optJSONObject.optString("payType");
                 productInfo.usedChannelType = optJSONObject.optInt("usedChannelType");
                 productInfo.giftbags.addAll(optGiftBagsInfoList(optJSONObject.optJSONArray("giftbags")));
-                productInfo.giftBagTagInfos.addAll(optGiftBagTagInfoList(optJSONObject.optJSONArray(TaskProcess.keyTags)));
+                productInfo.giftBagTagInfos.addAll(optGiftBagTagInfoList(optJSONObject.optJSONArray("tags")));
                 arrayList.add(productInfo);
             }
         }

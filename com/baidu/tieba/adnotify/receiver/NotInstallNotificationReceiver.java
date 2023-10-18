@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.ql0;
-import com.baidu.tieba.rm0;
+import com.baidu.tieba.ng0;
+import com.baidu.tieba.oh0;
 import com.baidu.tieba.util.AdApkInstallHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,13 +25,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.lang.reflect.Method;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u0000 \u00192\u00020\u0001:\u0001\u0019B\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0003J0\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\u000b2\u0006\u0010\r\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u000bH\u0002J\u0010\u0010\u000f\u001a\u00020\u00102\u0006\u0010\b\u001a\u00020\tH\u0002Jh\u0010\u0011\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\b\u0010\u000e\u001a\u0004\u0018\u00010\u000b2\b\u0010\u0012\u001a\u0004\u0018\u00010\u000b2\b\u0010\f\u001a\u0004\u0018\u00010\u000b2\b\u0010\u0013\u001a\u0004\u0018\u00010\u000b2\u0006\u0010\b\u001a\u00020\t2\b\u0010\u0014\u001a\u0004\u0018\u00010\u000b2\b\u0010\u0015\u001a\u0004\u0018\u00010\u000b2\b\u0010\n\u001a\u0004\u0018\u00010\u000b2\b\u0010\r\u001a\u0004\u0018\u00010\u000bH\u0002J\u0018\u0010\u0016\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0017\u001a\u00020\u0018H\u0016¨\u0006\u001a"}, d2 = {"Lcom/baidu/tieba/adnotify/receiver/NotInstallNotificationReceiver;", "Landroid/content/BroadcastReceiver;", "()V", "collapseStatusBar", "", "context", "Landroid/content/Context;", "installRemindNotificationClickStat", "source", "", TTDownloadField.TT_DOWNLOAD_URL, "", MiPushMessage.KEY_NOTIFY_TYPE, "apkName", "packageName", "judgeIsFromBusiness", "", "onNotificationClick", "path", "extraParams", "alaArea", "downloadId", "onReceive", "intent", "Landroid/content/Intent;", "Companion", "runtime_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u0000 \u00192\u00020\u0001:\u0001\u0019B\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0003J0\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\u000b2\u0006\u0010\r\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u000bH\u0002J\u0010\u0010\u000f\u001a\u00020\u00102\u0006\u0010\b\u001a\u00020\tH\u0002Jh\u0010\u0011\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\b\u0010\u000e\u001a\u0004\u0018\u00010\u000b2\b\u0010\u0012\u001a\u0004\u0018\u00010\u000b2\b\u0010\f\u001a\u0004\u0018\u00010\u000b2\b\u0010\u0013\u001a\u0004\u0018\u00010\u000b2\u0006\u0010\b\u001a\u00020\t2\b\u0010\u0014\u001a\u0004\u0018\u00010\u000b2\b\u0010\u0015\u001a\u0004\u0018\u00010\u000b2\b\u0010\n\u001a\u0004\u0018\u00010\u000b2\b\u0010\r\u001a\u0004\u0018\u00010\u000bH\u0002J\u0018\u0010\u0016\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0017\u001a\u00020\u0018H\u0016¨\u0006\u001a"}, d2 = {"Lcom/baidu/tieba/adnotify/receiver/NotInstallNotificationReceiver;", "Landroid/content/BroadcastReceiver;", "()V", "collapseStatusBar", "", "context", "Landroid/content/Context;", "installRemindNotificationClickStat", "source", "", "downloadUrl", "", MiPushMessage.KEY_NOTIFY_TYPE, "apkName", "packageName", "judgeIsFromBusiness", "", "onNotificationClick", "path", "extraParams", "alaArea", "downloadId", "onReceive", "intent", "Landroid/content/Intent;", "Companion", "runtime_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
 public final class NotInstallNotificationReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -164,7 +163,7 @@ public final class NotInstallNotificationReceiver extends BroadcastReceiver {
                 AdApkInstallHelper.a.c(str2, new DownloadData(str6));
                 str9 = ClogBuilder.LogType.DOWNLOAD_INSTALL.type;
             } else {
-                rm0.h(str);
+                oh0.h(str);
                 str9 = ClogBuilder.LogType.OPEN_APP.type;
             }
             collapseStatusBar(context);
@@ -190,7 +189,7 @@ public final class NotInstallNotificationReceiver extends BroadcastReceiver {
             }
             installRemindNotificationClickStat(i, str10, str11, str12, str13);
             if (judgeIsFromBusiness(i)) {
-                ql0.f().h(str9, str5, str4, str3);
+                ng0.f().h(str9, str5, str4, str3);
             }
         }
     }
@@ -220,7 +219,7 @@ public final class NotInstallNotificationReceiver extends BroadcastReceiver {
                     if (hashCode != -474095210) {
                         if (hashCode == -373665438 && action.equals(RECEIVER_ACTION_REMOVE_ITEM)) {
                             if (judgeIsFromBusiness(intExtra2)) {
-                                ql0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
+                                ng0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
                             }
                         }
                     } else if (action.equals(RECEIVER_ACTION_CLICK_ITEM)) {
@@ -229,7 +228,7 @@ public final class NotInstallNotificationReceiver extends BroadcastReceiver {
                 } else if (action.equals(RECEIVER_ACTION_CLICK_BUTTON)) {
                     onNotificationClick(context, stringExtra, stringExtra2, stringExtra3, stringExtra4, intExtra2, ClogBuilder.Area.AD_NOTIFICATION_BTN_CLICK.type, stringExtra5, stringExtra6, stringExtra7);
                     if (intExtra != -1) {
-                        ql0.f().a(intExtra);
+                        ng0.f().a(intExtra);
                     }
                 }
             }

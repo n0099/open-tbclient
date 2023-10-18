@@ -49,11 +49,11 @@ public abstract class SliceActivity extends BaseFragmentActivity {
             super.finish();
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             Intrinsics.checkNotNullExpressionValue(supportFragmentManager, "supportFragmentManager");
-            n1(supportFragmentManager, SliceActivity$finish$1.INSTANCE);
+            o1(supportFragmentManager, SliceActivity$finish$1.INSTANCE);
         }
     }
 
-    public final void n1(FragmentManager fragmentManager, Function1<? super Fragment, Unit> function1) {
+    public final void o1(FragmentManager fragmentManager, Function1<? super Fragment, Unit> function1) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentManager, function1) == null) {
             for (Fragment it : fragmentManager.getFragments()) {
@@ -61,7 +61,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
                 function1.invoke(it);
                 FragmentManager childFragmentManager = it.getChildFragmentManager();
                 Intrinsics.checkNotNullExpressionValue(childFragmentManager, "it.childFragmentManager");
-                n1(childFragmentManager, function1);
+                o1(childFragmentManager, function1);
             }
         }
     }
@@ -74,7 +74,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
             super.onActivityResult(i, i2, intent);
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             Intrinsics.checkNotNullExpressionValue(supportFragmentManager, "supportFragmentManager");
-            n1(supportFragmentManager, new Function1<Fragment, Unit>(i, i2, intent) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onActivityResult$1
+            o1(supportFragmentManager, new Function1<Fragment, Unit>(i, i2, intent) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onActivityResult$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ Intent $data;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +142,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
             super.onRequestPermissionsResult(i, permissions, grantResults);
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             Intrinsics.checkNotNullExpressionValue(supportFragmentManager, "supportFragmentManager");
-            n1(supportFragmentManager, new Function1<Fragment, Unit>(i, permissions, grantResults) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onRequestPermissionsResult$1
+            o1(supportFragmentManager, new Function1<Fragment, Unit>(i, permissions, grantResults) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onRequestPermissionsResult$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int[] $grantResults;
@@ -210,7 +210,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
         this.a = i;
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         Intrinsics.checkNotNullExpressionValue(supportFragmentManager, "supportFragmentManager");
-        n1(supportFragmentManager, new Function1<Fragment, Unit>(i) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onChangeSkinType$1
+        o1(supportFragmentManager, new Function1<Fragment, Unit>(i) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onChangeSkinType$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int $skinType;
@@ -272,7 +272,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
             Intrinsics.checkNotNullParameter(event, "event");
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             Intrinsics.checkNotNullExpressionValue(supportFragmentManager, "supportFragmentManager");
-            if (p1(supportFragmentManager, new Function1<Fragment, Boolean>(i, event) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onKeyDown$isConsumed$1
+            if (q1(supportFragmentManager, new Function1<Fragment, Boolean>(i, event) { // from class: com.baidu.tieba.im.base.core.slice.SliceActivity$onKeyDown$isConsumed$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ KeyEvent $event;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -325,7 +325,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
         return invokeIL.booleanValue;
     }
 
-    public final boolean p1(FragmentManager fragmentManager, Function1<? super Fragment, Boolean> function1) {
+    public final boolean q1(FragmentManager fragmentManager, Function1<? super Fragment, Boolean> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, fragmentManager, function1)) == null) {
@@ -336,7 +336,7 @@ public abstract class SliceActivity extends BaseFragmentActivity {
                 }
                 FragmentManager childFragmentManager = it.getChildFragmentManager();
                 Intrinsics.checkNotNullExpressionValue(childFragmentManager, "it.childFragmentManager");
-                if (p1(childFragmentManager, function1)) {
+                if (q1(childFragmentManager, function1)) {
                     return true;
                 }
             }

@@ -438,7 +438,7 @@ public class UniversalToast implements PopItem {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return DeviceUtil.ScreenInfo.getStatusBarHeight() + ((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070745));
+            return DeviceUtil.ScreenInfo.getStatusBarHeight() + ((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070740));
         }
         return invokeL.intValue;
     }
@@ -1147,7 +1147,7 @@ public class UniversalToast implements PopItem {
                 this.mOnDismissListener = null;
             }
             if (TextUtils.isEmpty(this.mBtnText)) {
-                this.mBtnText = AppRuntime.getAppContext().getResources().getText(R.string.obfuscated_res_0x7f0f0472);
+                this.mBtnText = AppRuntime.getAppContext().getResources().getText(R.string.obfuscated_res_0x7f0f0474);
             }
             ViewToast.showTemplate2((Activity) this.mContext, null, null, null, this.mToastText, this.mLeftTextColor, this.mBtnText, this.mJumpTextColor, this.mDuration, ToastLocation.BOTTOM, z2, this.mIsOverFloatWindow, this.mToastCallback);
             return;

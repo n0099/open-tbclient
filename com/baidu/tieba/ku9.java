@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import tbclient.Personal.PersonalResIdl;
-import tbclient.Profile.ProfileResIdl;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface ku9 {
-    void a(PersonalResIdl personalResIdl);
+    List<yh> getListData();
 
-    void b(ProfileResIdl profileResIdl);
+    mu9 getMainView();
+
+    boolean y1();
 }

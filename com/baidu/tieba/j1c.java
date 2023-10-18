@@ -1,260 +1,506 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.media.AudioTrack;
+import android.media.MediaFormat;
+import android.os.Build;
+import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.X509TrustManager;
-import org.apache.http.conn.ssl.BrowserCompatHostnameVerifier;
-import org.apache.http.conn.ssl.StrictHostnameVerifier;
-import org.apache.http.conn.ssl.X509HostnameVerifier;
-@Deprecated
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import java.nio.ByteBuffer;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes6.dex */
-public class j1c extends SSLSocketFactory {
+public final class j1c extends t1c {
     public static /* synthetic */ Interceptable $ic;
-    @Deprecated
-    public static final X509HostnameVerifier i;
-    public static final String j;
-    public static volatile j1c k;
     public transient /* synthetic */ FieldHolder $fh;
-    public SSLContext a;
-    public SSLSocket b;
-    public Context c;
-    public String[] d;
-    public X509TrustManager e;
-    public String[] f;
-    public String[] g;
-    public String[] h;
+    public long A;
+    public int B;
+    public long C;
+    public int D;
+    public int E;
+    public long F;
+    public AtomicLong G;
+    public final String o;
+    public byte[] p;
+    public int q;
+    public MediaFormat r;
+    public MediaFormat s;
+    public AudioTrack t;
+    public AtomicBoolean u;
+    public AtomicBoolean v;
+    public AtomicInteger w;
+    public long x;
+    public long y;
+    public long z;
 
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getDefaultCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947831885, "Lcom/baidu/tieba/j1c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947831885, "Lcom/baidu/tieba/j1c;");
-                return;
-            }
-        }
-        new BrowserCompatHostnameVerifier();
-        i = new StrictHostnameVerifier();
-        j = j1c.class.getSimpleName();
-        k = null;
-    }
-
-    public j1c(Context context) throws NoSuchAlgorithmException, CertificateException, KeyStoreException, IOException, KeyManagementException {
+    public j1c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        if (context == null) {
-            v1c.d(j, "SecureSSLSocketFactory: context is null");
-            return;
-        }
-        c(context);
-        d(i1c.f());
-        m1c a = l1c.a(context);
-        this.e = a;
-        this.a.init(null, new X509TrustManager[]{a}, null);
+        this.o = j1c.class.getSimpleName();
+        this.p = null;
+        this.q = -1;
+        this.r = null;
+        this.s = null;
+        this.t = null;
+        this.u = new AtomicBoolean(false);
+        this.v = new AtomicBoolean(false);
+        this.w = new AtomicInteger(-1);
+        this.x = 0L;
+        this.y = 0L;
+        this.z = 0L;
+        this.A = 0L;
+        this.B = 0;
+        this.C = 0L;
+        this.F = 0L;
+        this.G = new AtomicLong(0L);
+        this.l.setName("VOD Audio playback");
+        this.b = i;
     }
 
-    public static j1c b(Context context) throws IOException, NoSuchAlgorithmException, CertificateException, KeyStoreException, IllegalAccessException, KeyManagementException, IllegalArgumentException {
-        InterceptResult invokeL;
+    public final void A(boolean z) {
+        int i;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            s1c.b(context);
-            if (k == null) {
-                synchronized (j1c.class) {
-                    if (k == null) {
-                        k = new j1c(context);
+            if (this.x == 0) {
+                this.x = currentTimeMillis;
+            }
+            int i2 = (int) (currentTimeMillis - this.x);
+            if ((!z && i2 < 5000) || (i = this.B) == 0) {
+                return;
+            }
+            int i3 = i2 / 1000;
+            if (i3 == 0) {
+                j = (this.A * 8) / 1024;
+            } else {
+                i /= i3;
+                j = ((this.A * 8) / i3) / 1024;
+            }
+            TLog.h("[AudioMonitor]", String.format("playuid %d, %d ms, fps %d, %d kbps, frames %d, channel %d, sampleRate %d, pts [%d, %d]", Integer.valueOf(this.b), Integer.valueOf(i2), Integer.valueOf(i), Integer.valueOf((int) j), Integer.valueOf(this.B), Integer.valueOf(this.D), Integer.valueOf(this.E), Long.valueOf(this.y), Long.valueOf(this.z)));
+            G();
+            this.x = currentTimeMillis;
+        }
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:20:0x0082 -> B:31:0x0087). Please submit an issue!!! */
+    @Override // com.baidu.tieba.n1c
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            synchronized (this) {
+                TLog.g(this, "set volume old: " + this.w.get() + " new: " + i);
+                this.w.set(i);
+                if (this.t != null) {
+                    float minVolume = AudioTrack.getMinVolume();
+                    float maxVolume = AudioTrack.getMaxVolume();
+                    float f = i / 1000.0f;
+                    if (f >= minVolume) {
+                        if (f > maxVolume) {
+                            minVolume = maxVolume;
+                        } else {
+                            minVolume = f;
+                        }
+                    }
+                    try {
+                        if (Build.VERSION.SDK_INT >= 21) {
+                            TLog.g(this, "set volume " + minVolume);
+                            this.t.setVolume(minVolume);
+                        } else {
+                            TLog.g(this, "set volume++ " + minVolume);
+                            this.t.setStereoVolume(minVolume, minVolume);
+                        }
+                    } catch (Exception unused) {
+                        TLog.g(this, "set volume error");
                     }
                 }
             }
-            if (k.c == null && context != null) {
-                k.c(context);
-            }
-            String str = j;
-            v1c.b(str, "getInstance: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-            return k;
         }
-        return (j1c) invokeL.objValue;
     }
 
-    public final void a(Socket socket) {
-        boolean z;
+    public final AudioTrack B(int i, int i2) {
+        InterceptResult invokeII;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, socket) == null) {
-            boolean z2 = true;
-            if (!r1c.a(this.h)) {
-                v1c.e(j, "set protocols");
-                i1c.e((SSLSocket) socket, this.h);
-                z = true;
-            } else {
-                z = false;
-            }
-            if (r1c.a(this.g) && r1c.a(this.f)) {
-                z2 = false;
-            } else {
-                v1c.e(j, "set white cipher or black cipher");
-                SSLSocket sSLSocket = (SSLSocket) socket;
-                i1c.d(sSLSocket);
-                if (!r1c.a(this.g)) {
-                    i1c.h(sSLSocket, this.g);
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+            this.E = i;
+            this.D = i2;
+            int i4 = (i2 << 1) * 2048;
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 4) {
+                        if (i2 != 6) {
+                            if (i2 != 8) {
+                                i3 = 1;
+                            } else {
+                                i3 = 1020;
+                            }
+                        } else {
+                            i3 = GDiffPatcher.COPY_INT_UBYTE;
+                        }
+                    } else {
+                        i3 = 204;
+                    }
                 } else {
-                    i1c.b(sSLSocket, this.f);
+                    i3 = 12;
+                }
+            } else {
+                i3 = 4;
+            }
+            this.p = new byte[i4];
+            try {
+                return new AudioTrack(3, i, i3, 2, i4, 1);
+            } catch (IllegalArgumentException e) {
+                TLog.g(this, "createAudioTrack error = " + e.getMessage());
+                return null;
+            } catch (Throwable th) {
+                TLog.g(this, "createAudioTrack exception = " + th.toString());
+                return null;
+            }
+        }
+        return (AudioTrack) invokeII.objValue;
+    }
+
+    public final void C(MediaFormat mediaFormat) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaFormat) == null) {
+            TLog.g(this, "AudioTrackFilter.internalCreatePlayback enter.");
+            if (mediaFormat == null) {
+                TLog.c(this, "MediaFormat is null");
+                return;
+            }
+            G();
+            int integer = mediaFormat.getInteger("sample-rate");
+            int integer2 = mediaFormat.getInteger("channel-count");
+            AudioTrack audioTrack = this.t;
+            if (audioTrack != null) {
+                i = audioTrack.getSampleRate();
+            } else {
+                i = 0;
+            }
+            AudioTrack audioTrack2 = this.t;
+            if (audioTrack2 != null) {
+                i2 = audioTrack2.getChannelCount();
+            } else {
+                i2 = 0;
+            }
+            if (this.t != null && integer == i && integer2 == i2) {
+                TLog.g(this, "error: no need to create");
+            } else {
+                AudioTrack audioTrack3 = this.t;
+                if (audioTrack3 != null && audioTrack3.getState() != 0) {
+                    this.t.flush();
+                    this.t.stop();
+                    this.t.release();
+                    TLog.g(this, "remove AudioTrack.");
+                }
+                TLog.g(this, String.format("create AudioTrack. sampleRate:%d, channels:%d", Integer.valueOf(integer), Integer.valueOf(integer2)));
+                AudioTrack B = B(integer, integer2);
+                this.t = B;
+                if (B != null) {
+                    if (B.getState() == 0) {
+                        TLog.c(this, "create audio track failed, state is uninitialized!");
+                        return;
+                    }
+                    if (this.w.get() != -1) {
+                        String str = this.o;
+                        TLog.h(str, "delay set volume:" + this.w.get());
+                        u(this.w.get());
+                    }
+                    this.t.play();
+                    this.u.set(false);
+                } else {
+                    TLog.g(this, "error: audioTrack create error");
                 }
             }
-            if (!z) {
-                v1c.e(j, "set default protocols");
-                i1c.d((SSLSocket) socket);
+            TLog.g(this, "AudioTrackFilter.internalCreatePlayback  leave.");
+        }
+    }
+
+    @Override // com.baidu.tieba.n1c, com.baidu.tieba.l1c
+    public void f(MediaSample mediaSample) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, mediaSample) == null) {
+            if (!this.u.get() && !this.v.get()) {
+                if (this.f.getElementCount() >= 8) {
+                    MediaSample poll = this.f.poll();
+                    if (poll != null) {
+                        ByteBuffer byteBuffer = poll.i.k;
+                        if (byteBuffer != null) {
+                            this.m.add(byteBuffer);
+                            poll.i.k = null;
+                        }
+                        e0c.f().e(poll);
+                    }
+                    long j = this.F + 1;
+                    this.F = j;
+                    if (j % 45 == 0) {
+                        TLog.l(this, " inputCount >= MAX_MEDIA_SAMPLE_COUNT  playTag = " + this.G);
+                    }
+                }
+                ByteBuffer poll2 = this.m.poll();
+                int remaining = mediaSample.i.k.remaining();
+                if (poll2 == null || poll2.capacity() < remaining) {
+                    poll2 = ByteBuffer.allocateDirect(remaining);
+                    TLog.g(this, "allocate a new one. capacity:" + remaining);
+                }
+                poll2.clear();
+                mediaSample.i.k.mark();
+                poll2.put(mediaSample.i.k).flip();
+                mediaSample.i.k.reset();
+                mediaSample.i.k = poll2;
+                this.f.add(mediaSample);
+                if (this.e.g() == 6) {
+                    this.l.f(2102);
+                    return;
+                }
+                return;
             }
-            if (!z2) {
-                v1c.e(j, "set default cipher suites");
-                i1c.c((SSLSocket) socket);
+            e0c.f().e(mediaSample);
+        }
+    }
+
+    public final void D() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (!this.f.isEmpty()) {
+                i = 0;
+                while (true) {
+                    MediaSample poll = this.f.poll();
+                    if (poll == null) {
+                        break;
+                    }
+                    i++;
+                    v(poll, 9, "player is stopped");
+                    if (poll.i.k != null) {
+                        if (this.m.getElementCount() < 15) {
+                            this.m.add(poll.i.k);
+                        }
+                        poll.i.k = null;
+                    }
+                    e0c.f().e(poll);
+                }
+            } else {
+                i = 0;
+            }
+            TLog.g(this, String.format("there are still %d entries in queue that not presented, freeQueue %d entries.", Integer.valueOf(i), Integer.valueOf(this.m.getElementCount())));
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            synchronized (this) {
+                if (this.s == null) {
+                    C(this.r);
+                    this.s = this.r;
+                    TLog.g(this, " create AudioTrack  current channel count  " + this.s.getInteger("channel-count"));
+                    D();
+                } else if (!this.s.equals(this.r)) {
+                    C(this.r);
+                    this.s = this.r;
+                    TLog.g(this, " create AudioTrack  current channel count  " + this.s.getInteger("channel-count"));
+                    D();
+                }
             }
         }
     }
 
-    public void c(Context context) {
+    public final void E(MediaSample mediaSample) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = context.getApplicationContext();
-        }
-    }
-
-    public void d(SSLContext sSLContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sSLContext) == null) {
-            this.a = sSLContext;
-        }
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i2) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) {
-            v1c.e(j, "createSocket: host , port");
-            Socket createSocket = this.a.getSocketFactory().createSocket(str, i2);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+        if (interceptable == null || interceptable.invokeL(1048580, this, mediaSample) == null) {
+            this.A += mediaSample.g.l;
+            this.B++;
+            if (this.y == 0) {
+                this.y = mediaSample.l;
             }
-            return createSocket;
+            this.z = mediaSample.l;
+            A(false);
         }
-        return (Socket) invokeLI.objValue;
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i2, InetAddress inetAddress, int i3) throws IOException, UnknownHostException {
-        InterceptResult invokeCommon;
+    public void F(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i2), inetAddress, Integer.valueOf(i3)})) == null) {
-            return createSocket(str, i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.v.set(true);
+            this.a = i;
         }
-        return (Socket) invokeCommon.objValue;
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i2) throws IOException {
-        InterceptResult invokeLI;
+    public void H(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, inetAddress, i2)) == null) {
-            return createSocket(inetAddress.getHostAddress(), i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.v.set(false);
+            this.a = i;
         }
-        return (Socket) invokeLI.objValue;
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i2, InetAddress inetAddress2, int i3) throws IOException {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.t1c, com.baidu.tieba.b0c.a
+    public final void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inetAddress, Integer.valueOf(i2), inetAddress2, Integer.valueOf(i3)})) == null) {
-            return createSocket(inetAddress.getHostAddress(), i2);
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            v1c.e(j, "createSocket s host port autoClose");
-            Socket createSocket = this.a.getSocketFactory().createSocket(socket, str, i2, z);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+        if (interceptable == null || interceptable.invokeL(1048587, this, message) == null) {
+            if (message.what != 1002) {
+                super.handleMessage(message);
+            } else {
+                I();
             }
-            return createSocket;
         }
-        return (Socket) invokeCommon.objValue;
     }
 
-    public Context getContext() {
-        InterceptResult invokeV;
+    public final void G() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.x = 0L;
+            this.B = 0;
+            this.A = 0L;
+            this.y = 0L;
+            this.z = 0L;
         }
-        return (Context) invokeV.objValue;
     }
 
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getSupportedCipherSuites() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.t1c, com.baidu.tieba.n1c
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            String[] strArr = this.d;
-            if (strArr != null) {
-                return strArr;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            TLog.g(this, "AudioTrackFilter.release enter");
+            this.l.g(1002);
+            this.l.f(1002);
+            super.p();
+            TLog.g(this, "AudioTrackFilter.release leave");
+        }
+    }
+
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            TLog.g(this, "AudioTrackFilter.stopAudioTrack enter.");
+            synchronized (this) {
+                if (this.t != null && this.t.getState() != 0) {
+                    this.t.flush();
+                    this.t.stop();
+                    this.t.release();
+                    this.t = null;
+                }
             }
-            return new String[0];
+            D();
+            this.p = null;
+            TLog.g(this, "AudioTrackFilter.stopAudioTrack leave.");
         }
-        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.n1c, com.baidu.tieba.l1c
+    public void d(String str, Object obj, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            TLog.g(this, "AudioTrackFilter.config  enter");
+            this.u.set(false);
+            MediaFormat mediaFormat = (MediaFormat) obj;
+            int integer = mediaFormat.getInteger("sample-rate");
+            int integer2 = mediaFormat.getInteger("channel-count");
+            synchronized (this) {
+                this.r = MediaFormat.createAudioFormat("audio/mp4a-latm", integer, integer2);
+                TLog.g(this, " create AudioTrack  new channel count  " + this.r.getInteger("channel-count"));
+            }
+            TLog.g(this, "AudioTrackFilter.config leave");
+        }
+    }
+
+    @Override // com.baidu.tieba.n1c
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            TLog.g(this, "AudioTrackFilter.stop enter");
+            this.u.set(true);
+            this.v.set(false);
+            TLog.g(this, "AudioTrackFilter.stop leave");
+            TLog.g(this, "AudioTrackFilter.stop logNum " + this.F + " playTag " + this.G);
+            this.F = 0L;
+        }
+    }
+
+    @Override // com.baidu.tieba.t1c
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            if (this.u.get()) {
+                TLog.g(this, "ws AudioTrack is stoped");
+                return;
+            }
+            while (this.f.getElementCount() > 0) {
+                try {
+                    this.G.getAndIncrement();
+                    z();
+                    this.G.getAndIncrement();
+                    MediaSample poll = this.f.poll();
+                    if (poll != null) {
+                        MediaInfo mediaInfo = poll.i;
+                        int remaining = mediaInfo.k.remaining();
+                        this.C += (remaining / 2) * this.D;
+                        this.G.getAndIncrement();
+                        mediaInfo.k.mark();
+                        x0c.c(poll, 9);
+                        if (Build.VERSION.SDK_INT >= 21) {
+                            this.t.write(mediaInfo.k, remaining, 0);
+                        } else {
+                            if (remaining > this.p.length) {
+                                remaining = this.p.length;
+                            }
+                            mediaInfo.k.get(this.p, 0, remaining);
+                            this.t.write(this.p, 0, remaining);
+                        }
+                        x0c.c(poll, 10);
+                        this.G.getAndIncrement();
+                        long j = this.C % 10240;
+                        E(poll);
+                        int i = poll.g.d;
+                        if (i != this.q) {
+                            this.q = i;
+                            poll.e = true;
+                            TLog.g(this, "first frame show --- audio");
+                        }
+                        w(poll);
+                        this.G.getAndIncrement();
+                        mediaInfo.k.reset();
+                        this.m.add(mediaInfo.k);
+                        mediaInfo.k = null;
+                        e0c.f().e(poll);
+                    } else {
+                        this.G.set(111L);
+                        this.l.g(2102);
+                        this.G.set(222L);
+                    }
+                    this.G.set(0L);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    TLog.g(this, "onInputAvailable error = " + e.getMessage());
+                    return;
+                }
+            }
+        }
     }
 }

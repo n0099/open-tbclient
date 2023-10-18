@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.vb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public abstract class Message<T> extends OrmObject {
         this.squencedId = 0;
         this.mCmd = i;
         check();
-        this.clientLogID = yg.b().a();
+        this.clientLogID = vb.b().a();
     }
 
     public Message(int i, BdUniqueId bdUniqueId) {
@@ -73,7 +73,7 @@ public abstract class Message<T> extends OrmObject {
         this.mCmd = i;
         this.mTag = bdUniqueId;
         check();
-        this.clientLogID = yg.b().a();
+        this.clientLogID = vb.b().a();
     }
 
     private void check() {

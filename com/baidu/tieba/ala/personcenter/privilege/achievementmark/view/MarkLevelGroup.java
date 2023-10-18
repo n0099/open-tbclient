@@ -12,8 +12,8 @@ import com.baidu.ala.utils.AlaStringHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ph6;
-import com.baidu.tieba.rh6;
+import com.baidu.tieba.ac6;
+import com.baidu.tieba.yb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,15 +37,15 @@ public class MarkLevelGroup extends LinearLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rh6 a;
+        public final /* synthetic */ ac6 a;
         public final /* synthetic */ MarkLevelGroup b;
 
-        public a(MarkLevelGroup markLevelGroup, rh6 rh6Var) {
+        public a(MarkLevelGroup markLevelGroup, ac6 ac6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {markLevelGroup, rh6Var};
+                Object[] objArr = {markLevelGroup, ac6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public class MarkLevelGroup extends LinearLayout {
                 }
             }
             this.b = markLevelGroup;
-            this.a = rh6Var;
+            this.a = ac6Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -65,9 +65,9 @@ public class MarkLevelGroup extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 for (View view3 : this.b.b) {
                     if (view2 == view3) {
-                        this.b.e((FrameLayout) view3.findViewById(R.id.obfuscated_res_0x7f0916dc), true);
+                        this.b.e((FrameLayout) view3.findViewById(R.id.obfuscated_res_0x7f0916f6), true);
                     } else {
-                        this.b.e((FrameLayout) view3.findViewById(R.id.obfuscated_res_0x7f0916dc), false);
+                        this.b.e((FrameLayout) view3.findViewById(R.id.obfuscated_res_0x7f0916f6), false);
                     }
                 }
                 if (this.b.c != null) {
@@ -154,8 +154,8 @@ public class MarkLevelGroup extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(0);
             setGravity(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00ed, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916dd);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00ea, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916f7);
         }
     }
 
@@ -163,24 +163,24 @@ public class MarkLevelGroup extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout, z) == null) {
             if (z) {
-                frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08121d);
+                frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08121e);
             } else {
                 frameLayout.setBackgroundResource(0);
             }
         }
     }
 
-    public void f(ph6 ph6Var) {
+    public void f(yb6 yb6Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ph6Var) != null) || ph6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yb6Var) != null) || yb6Var == null) {
             return;
         }
-        List<rh6> c = ph6Var.c();
+        List<ac6> c = yb6Var.c();
         if (ListUtils.isEmpty(c)) {
             if (getLayoutParams() != null) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                layoutParams.height = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070366);
+                layoutParams.height = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070362);
                 setLayoutParams(layoutParams);
             }
             setVisibility(4);
@@ -196,43 +196,43 @@ public class MarkLevelGroup extends LinearLayout {
         }
         int size = c.size();
         for (int i = 0; i < size; i++) {
-            rh6 rh6Var = c.get(i);
-            if (rh6Var != null) {
-                View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00ec, (ViewGroup) null);
-                FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0916dc);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916df);
+            ac6 ac6Var = c.get(i);
+            if (ac6Var != null) {
+                View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00e9, (ViewGroup) null);
+                FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0916f6);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916f9);
                 textView.setText(String.valueOf(i + 1));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916de)).setText(AlaStringHelper.numFormatMarkLevel(rh6Var.d()));
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916f8)).setText(AlaStringHelper.numFormatMarkLevel(ac6Var.d()));
                 this.b.add(inflate);
-                if (ph6Var.j() == 0) {
+                if (yb6Var.j() == 0) {
                     z = true;
                 } else {
                     z = false;
                 }
-                if (ph6Var.g() == rh6Var.c()) {
+                if (yb6Var.g() == ac6Var.c()) {
                     e(frameLayout, true);
                     if (z) {
-                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08121b);
-                    } else {
                         textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08121c);
+                    } else {
+                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08121d);
                     }
-                } else if (ph6Var.g() > rh6Var.c()) {
+                } else if (yb6Var.g() > ac6Var.c()) {
                     e(frameLayout, false);
                     if (z) {
-                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08121b);
-                    } else {
                         textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08121c);
+                    } else {
+                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08121d);
                     }
-                } else if (ph6Var.g() < rh6Var.c()) {
+                } else if (yb6Var.g() < ac6Var.c()) {
                     e(frameLayout, false);
-                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08121b);
+                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08121c);
                 }
-                inflate.setOnClickListener(new a(this, rh6Var));
+                inflate.setOnClickListener(new a(this, ac6Var));
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) inflate.getLayoutParams();
                 if (layoutParams2 == null) {
-                    layoutParams2 = new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070422), -2);
+                    layoutParams2 = new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041e), -2);
                 } else {
-                    layoutParams2.width = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070422);
+                    layoutParams2.width = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041e);
                     layoutParams2.height = -2;
                 }
                 this.a.addView(inflate, layoutParams2);

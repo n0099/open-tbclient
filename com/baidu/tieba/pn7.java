@@ -1,16 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import tbclient.ThemeElement;
 /* loaded from: classes7.dex */
-public interface pn7 {
-    dx7 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
+public interface pn7 extends vn7 {
+    @Nullable
+    <T> T a(@NonNull LogicField logicField);
 
-    nn7 b(FrsFragment frsFragment, hn hnVar, boolean z);
+    void b(@NonNull ThemeElement themeElement);
 
-    qn7 c();
+    void c(@NonNull FrsFragment frsFragment, @NonNull View view2);
 
-    rn7 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
+    @NonNull
+    tn7 e();
 
-    tx7 e(String str, FrsFragment frsFragment, int i);
+    void f(boolean z);
+
+    int l(@NonNull LogicField logicField);
 }

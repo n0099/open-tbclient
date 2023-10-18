@@ -1,23 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class n24 extends m34 {
+public class n24 implements e34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n24() {
-        super("openSpaceCleanActivity");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,48 +18,25 @@ public class n24 extends m34 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.m34
-    public g32 a(@NonNull JSONObject jSONObject, @NonNull ko2 ko2Var) {
-        InterceptResult invokeLL;
-        boolean z;
+    @Override // com.baidu.tieba.e34
+    public void a(d64 d64Var, c64 c64Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ko2Var)) == null) {
-            if (po3.m()) {
-                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
-            } else if (po3.n()) {
-                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
-            } else if (po3.o()) {
-                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
-            } else if (po3.r()) {
-                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
-            } else {
-                z = false;
-            }
-            if (!z) {
-                Toast.makeText(nu2.c(), (int) R.string.obfuscated_res_0x7f0f01bd, 0).show();
-            }
-            ko2Var.onSuccess(null);
-            return null;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, d64Var, c64Var) == null) && c64Var != null) {
+            c64Var.a(d64Var, "Method 'shareVideo' is not implemented.");
         }
-        return (g32) invokeLL.objValue;
     }
 
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.e34
+    public void b(u54 u54Var, t54 t54Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            Intent intent = new Intent();
-            intent.setClassName(str, str2);
-            return pn3.i(nu2.c(), intent, true, false);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u54Var, t54Var) == null) && t54Var != null) {
+            t54Var.a(u54Var, "Method 'clipVideo' is not implemented.");
         }
-        return invokeLL.booleanValue;
     }
 }

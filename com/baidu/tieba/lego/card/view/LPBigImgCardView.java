@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,14 +31,14 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: D */
-    public void t(LPBigImgCard lPBigImgCard, int i) {
+    /* renamed from: F */
+    public void v(LPBigImgCard lPBigImgCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, i) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         this.r = BdUtilHelper.getEquipmentWidth(getContext());
     }
 
-    public final int C(int i) {
+    public final int E(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -140,22 +140,22 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: E */
-    public void u(LPBigImgCard lPBigImgCard) {
+    /* renamed from: G */
+    public void w(LPBigImgCard lPBigImgCard) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lPBigImgCard) == null) && lPBigImgCard.getPicWidth() > 0 && lPBigImgCard.getPicHeight() > 0) {
             int picHeight = (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * this.r);
             this.q = picHeight;
-            F(this.n, picHeight);
+            H(this.n, picHeight);
             if (!TextUtils.isEmpty(lPBigImgCard.getPicUrl())) {
                 this.n.startLoad(lPBigImgCard.getPicUrl(), 17, this.r, this.q, false);
             } else {
-                x(this.n, lPBigImgCard.getBgColor(), lPBigImgCard.getBgColorNight(), R.color.CAM_X0201);
+                z(this.n, lPBigImgCard.getBgColor(), lPBigImgCard.getBgColorNight(), R.color.CAM_X0201);
             }
             int i = this.q;
             if (!TextUtils.isEmpty(lPBigImgCard.getBtnImgUrl()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
                 int btnHeight = lPBigImgCard.getBtnHeight();
-                G(this.o, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
+                I(this.o, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
                 this.o.startLoad(lPBigImgCard.getBtnImgUrl(), 17, false);
                 int btnPosRatio = (int) ((i * lPBigImgCard.getBtnPosRatio()) - (btnHeight * 0.5d));
                 if (btnPosRatio < 0) {
@@ -173,8 +173,8 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
             } else if (!TextUtils.isEmpty(lPBigImgCard.getBtnText()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
                 int btnHeight2 = lPBigImgCard.getBtnHeight();
                 this.p.setText(lPBigImgCard.getBtnText());
-                G(this.p, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
-                y(this.p, lPBigImgCard.getBtnColor(), lPBigImgCard.getBtnColorNight(), R.color.black_alpha100);
+                I(this.p, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
+                A(this.p, lPBigImgCard.getBtnColor(), lPBigImgCard.getBtnColorNight(), R.color.black_alpha100);
                 int btnPosRatio2 = (int) ((i * lPBigImgCard.getBtnPosRatio()) - (btnHeight2 * 0.5d));
                 if (btnPosRatio2 < 0) {
                     btnPosRatio2 = 0;
@@ -198,7 +198,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         }
     }
 
-    public final void F(View view2, int i) {
+    public final void H(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, view2, i) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
@@ -208,26 +208,26 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         }
     }
 
-    public final void G(View view2, int i, int i2) {
+    public final void I(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048580, this, view2, i, i2) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
-            layoutParams.height = C(i2);
-            layoutParams.width = C(i);
+            layoutParams.height = E(i2);
+            layoutParams.width = E(i);
             view2.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View q() {
+    public View s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a7, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a5, (ViewGroup) null);
             this.m = relativeLayout;
-            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f092468);
-            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092469);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092701);
+            this.n = (TbImageView) n(relativeLayout, R.id.obfuscated_res_0x7f092472);
+            this.o = (TbImageView) n(this.m, R.id.obfuscated_res_0x7f092473);
+            this.p = (TextView) n(this.m, R.id.obfuscated_res_0x7f0926f9);
             return this.m;
         }
         return (View) invokeV.objValue;

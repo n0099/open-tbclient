@@ -1,218 +1,164 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.ActivityManager;
+import android.util.Log;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.LinkedList;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
-public class jqb extends BaseAdRipper {
+public class jqb {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jqb(Ssp.Pid pid) {
-        super(pid);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947893358, "Lcom/baidu/tieba/jqb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947893358, "Lcom/baidu/tieba/jqb;");
         }
     }
 
-    public final JSONObject d(Object obj) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            String[] strArr = {"com.bytedance.sdk.openadsdk.core.q.z", "com.bytedance.sdk.openadsdk.core.s.y", "com.bytedance.sdk.openadsdk.core.m.ng"};
-            Object obj2 = null;
-            for (int i = 0; i < 3 && (obj2 = ReflectionUtils.findField(strArr[i], obj)) == null; i++) {
+    /* loaded from: classes6.dex */
+    public class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            String[] strArr2 = {"bO", "zp"};
-            JSONObject jSONObject2 = null;
-            for (int i2 = 0; i2 < 2; i2++) {
+        }
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                return Pattern.matches("cpu[0-9]", file.getName());
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public static long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            ((ActivityManager) bqb.d().provideContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
+            return memoryInfo.availMem / 1024;
+        }
+        return invokeV.longValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == 0) {
                 try {
-                    jSONObject = (JSONObject) ReflectionUtils.invoke(obj2, strArr2[i2], null, new Object[0]);
-                    jSONObject2 = jSONObject;
-                } catch (Exception unused) {
-                    LogPrinter.d("parse method error", new Object[0]);
-                }
-                if (jSONObject != null) {
-                    break;
+                    a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
+                } catch (Exception e) {
+                    Log.e("PerformanceUtils", "getNumCores exception", e);
+                    a = 1;
                 }
             }
-            return jSONObject2;
+            return a;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public final Object e(Object obj) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0058 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0015 */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.lang.Integer */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static long c() {
+        InterceptResult invokeV;
+        FileReader fileReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            try {
-                Field declaredField = obj.getClass().getSuperclass().getDeclaredField("h");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                Field declaredField2 = obj2.getClass().getDeclaredField("a");
-                declaredField2.setAccessible(true);
-                return declaredField2.get(obj2);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x006d, code lost:
-        r1 = null;
-     */
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        JSONObject jSONObject2;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        String optString;
-        String str6;
-        JSONObject optJSONObject;
-        JSONObject optJSONObject2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            try {
-                Object obj2 = ((zqb) obj).a;
-                if (obj2.getClass().getName().contains("Proxy") && (obj2 = e(obj2)) == null) {
-                    return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == 0) {
+                long j = -1;
+                FileReader fileReader2 = null;
+                try {
+                    try {
+                        try {
+                            fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
+                        } catch (IOException e) {
+                            Log.e("PerformanceUtils", "close localFileReader exception = ", e);
+                        }
+                    } catch (IOException e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th) {
+                    th = th;
                 }
-                String a = vrb.a(obj2);
-                if (TextUtils.isEmpty(a)) {
-                    jSONObject2 = d(obj2);
-                } else {
-                    LinkedList linkedList = new LinkedList(Arrays.asList(a.split("\\+")));
-                    Object obj3 = obj2;
-                    while (true) {
-                        String str7 = (String) linkedList.pollFirst();
-                        if (str7 == null) {
-                            break;
-                        } else if (!str7.equals("super")) {
-                            if (str7.startsWith("*")) {
-                                jSONObject = (JSONObject) ReflectionUtils.invoke(obj3, str7.substring(1), null, new Object[0]);
-                                break;
-                            }
-                            obj3 = ReflectionUtils.findField(str7, obj3);
-                            if (obj3 == null) {
-                                break;
-                            }
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
+                    String readLine = bufferedReader.readLine();
+                    String str = readLine;
+                    if (readLine != null) {
+                        Integer valueOf = Integer.valueOf(readLine.split("\\s+")[1]);
+                        j = valueOf.intValue();
+                        str = valueOf;
+                    }
+                    bufferedReader.close();
+                    fileReader.close();
+                    fileReader2 = str;
+                } catch (IOException e3) {
+                    e = e3;
+                    fileReader2 = fileReader;
+                    Log.e("PerformanceUtils", "getTotalMemory exception = ", e);
+                    if (fileReader2 != null) {
+                        fileReader2.close();
+                        fileReader2 = fileReader2;
+                    }
+                    b = j;
+                    return b;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileReader2 = fileReader;
+                    if (fileReader2 != null) {
+                        try {
+                            fileReader2.close();
+                        } catch (IOException e4) {
+                            Log.e("PerformanceUtils", "close localFileReader exception = ", e4);
                         }
                     }
-                    if (jSONObject == null) {
-                        new Thread(new urb(obj2)).start();
-                        return null;
-                    }
-                    jSONObject2 = jSONObject;
+                    throw th;
                 }
-                if (jSONObject2 == null) {
-                    return null;
-                }
-                JSONObject optJSONObject3 = jSONObject2.optJSONObject("icon");
-                if (optJSONObject3 != null) {
-                    str = optJSONObject3.optString("url");
-                } else {
-                    str = null;
-                }
-                String combineStrWithComma = RippedAd.combineStrWithComma(jSONObject2.optJSONArray("image"), new RippedAd.Acceptor() { // from class: com.baidu.tieba.fqb
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.fun.ad.sdk.internal.api.ripper.RippedAd.Acceptor
-                    public final String accept(Object obj4) {
-                        InterceptResult invokeL2;
-                        String optString2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, obj4)) == null) {
-                            optString2 = ((JSONObject) obj4).optString("url");
-                            return optString2;
-                        }
-                        return (String) invokeL2.objValue;
-                    }
-                });
-                JSONObject optJSONObject4 = jSONObject2.optJSONObject("video");
-                if (optJSONObject4 != null) {
-                    str3 = optJSONObject4.optString("video_url");
-                    str2 = optJSONObject4.optString(NetDiskFileMsg.NetDiskFile.JSON_KEY_COVER_URL);
-                } else {
-                    str2 = null;
-                    str3 = null;
-                }
-                int optInt = jSONObject2.optInt("interaction_type", -1);
-                if (optInt != 3) {
-                    if (optInt == 4 && (optJSONObject2 = jSONObject2.optJSONObject("app")) != null) {
-                        String optString2 = optJSONObject2.optString("app_name");
-                        String optString3 = optJSONObject2.optString("package_name");
-                        str6 = optJSONObject2.optString("download_url");
-                        str5 = optString3;
-                        str4 = optString2;
-                        optString = null;
-                    }
-                    str6 = null;
-                    optString = null;
-                    str4 = null;
-                    str5 = null;
-                } else {
-                    JSONObject optJSONObject5 = jSONObject2.optJSONObject("deep_link");
-                    if (optJSONObject5 != null) {
-                        str4 = null;
-                        str5 = null;
-                        optString = optJSONObject5.optString("deeplink_url");
-                        str6 = null;
-                    }
-                    str6 = null;
-                    optString = null;
-                    str4 = null;
-                    str5 = null;
-                }
-                if (str4 == null && (optJSONObject = jSONObject2.optJSONObject("app_manage")) != null) {
-                    str4 = optJSONObject.optString("app_name");
-                    str5 = optJSONObject.optString("package_name");
-                }
-                RippedAd.Builder builder = new RippedAd.Builder();
-                builder.setCorporation(jSONObject2.optString("source")).setTitle(jSONObject2.optString("title")).setDescription(jSONObject2.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject2.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                return builder.build();
-            } catch (Error | Exception e) {
-                LogPrinter.e(e);
-                return null;
+                b = j;
             }
+            return b;
         }
-        return (RippedAd) invokeL.objValue;
+        return invokeV.longValue;
     }
 }

@@ -39,15 +39,15 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m807a() {
+    public static synchronized String m806a() {
         String str;
         synchronized (bv.class) {
             if (f952a == null) {
-                SharedPreferences sharedPreferences = com.xiaomi.push.s.m725a().getSharedPreferences("XMPushServiceConfig", 0);
+                SharedPreferences sharedPreferences = com.xiaomi.push.s.m724a().getSharedPreferences("XMPushServiceConfig", 0);
                 String string = sharedPreferences.getString("DeviceUUID", null);
                 f952a = string;
                 if (string == null) {
-                    String a2 = com.xiaomi.push.i.a(com.xiaomi.push.s.m725a(), false);
+                    String a2 = com.xiaomi.push.i.a(com.xiaomi.push.s.m724a(), false);
                     f952a = a2;
                     if (a2 != null) {
                         sharedPreferences.edit().putString("DeviceUUID", f952a).commit();
@@ -85,13 +85,13 @@ public class bv {
         Exception e;
         try {
             try {
-                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.s.m725a().openFileInput("XMCloudCfg"));
+                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.s.m724a().openFileInput("XMCloudCfg"));
                 try {
                     this.f954a = dv.a.b(com.xiaomi.push.b.a(bufferedInputStream));
                     bufferedInputStream.close();
                 } catch (Exception e2) {
                     e = e2;
-                    com.xiaomi.channel.commonutils.logger.b.m183a("load config failure: " + e.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m182a("load config failure: " + e.getMessage());
                     com.xiaomi.push.y.a(bufferedInputStream);
                     if (this.f954a != null) {
                     }
@@ -120,19 +120,19 @@ public class bv {
     public void e() {
         try {
             if (this.f954a != null) {
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.s.m725a().openFileOutput("XMCloudCfg", 0));
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.s.m724a().openFileOutput("XMCloudCfg", 0));
                 com.xiaomi.push.c a2 = com.xiaomi.push.c.a(bufferedOutputStream);
                 this.f954a.a(a2);
-                a2.m312a();
+                a2.m311a();
                 bufferedOutputStream.close();
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m183a("save config failure: " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m182a("save config failure: " + e.getMessage());
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m810a() {
+    public int m809a() {
         b();
         dv.a aVar = this.f954a;
         if (aVar != null) {
@@ -142,19 +142,19 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dv.a m811a() {
+    public dv.a m810a() {
         b();
         return this.f954a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m812a() {
+    public synchronized void m811a() {
         this.f955a.clear();
     }
 
     public void a(dw.b bVar) {
         a[] aVarArr;
-        if (bVar.m395d() && bVar.d() > m810a()) {
+        if (bVar.m394d() && bVar.d() > m809a()) {
             c();
         }
         synchronized (this) {

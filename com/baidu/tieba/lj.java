@@ -1,31 +1,42 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class lj extends tj {
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.lang.reflect.Array;
+import java.security.InvalidParameterException;
+/* loaded from: classes7.dex */
+public class lj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lj(xi xiVar) {
-        super(xiVar);
+    public static String a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xiVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((xi) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
+            if (obj.getClass().isArray()) {
+                int length = Array.getLength(obj);
+                StringBuilder sb = new StringBuilder();
+                sb.append('[');
+                int i = 0;
+                while (i < length) {
+                    sb.append(Array.get(obj, i));
+                    sb.append(',');
+                    sb.append(WebvttCueParser.CHAR_SPACE);
+                    i++;
+                }
+                if (i > 0) {
+                    sb.delete(sb.length() - 2, sb.length());
+                }
+                sb.append(']');
+                return sb.toString();
+            }
+            throw new InvalidParameterException("Not a primitive array: " + obj.getClass());
         }
+        return (String) invokeL.objValue;
     }
 }

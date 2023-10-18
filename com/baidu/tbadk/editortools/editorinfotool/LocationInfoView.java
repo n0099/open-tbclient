@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sa5;
+import com.baidu.tieba.a55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LocationInfoView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
     public a b;
     public int c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
     }
@@ -81,17 +81,17 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(0);
             setGravity(16);
-            sa5 sa5Var = new sa5();
-            sa5Var.s(R.color.CAM_X0209, R.color.CAM_X0105);
-            sa5Var.j(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            sa5Var.i(R.color.CAM_X0110);
-            sa5Var.g(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            sa5Var.o(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004), BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004));
-            sa5Var.p(BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X002));
-            sa5Var.h(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            a55 a55Var = new a55();
+            a55Var.s(R.color.CAM_X0209, R.color.CAM_X0105);
+            a55Var.j(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            a55Var.i(R.color.CAM_X0110);
+            a55Var.g(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            a55Var.o(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004), BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004));
+            a55Var.p(BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X002));
+            a55Var.h(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
             this.a = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(sa5Var);
+            tBSpecificationBtn.setConfig(a55Var);
             this.a.setTextSize(R.dimen.T_X09);
             this.a.setOnClickListener(this);
             this.a.setText(getContext().getString(R.string.editor_location));

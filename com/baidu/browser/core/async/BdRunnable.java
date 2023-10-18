@@ -1,8 +1,8 @@
 package com.baidu.browser.core.async;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fw;
-import com.baidu.tieba.gw;
+import com.baidu.tieba.cr;
+import com.baidu.tieba.dr;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class BdRunnable implements Runnable, gw {
+public abstract class BdRunnable implements Runnable, dr {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gw a;
+    public dr a;
     public STATUS b;
 
     public abstract void c();
@@ -120,25 +120,25 @@ public abstract class BdRunnable implements Runnable, gw {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gw
+    @Override // com.baidu.tieba.dr
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b = STATUS.COMPLETE;
-            gw gwVar = this.a;
-            if (gwVar != null) {
-                gwVar.onComplete();
+            dr drVar = this.a;
+            if (drVar != null) {
+                drVar.onComplete();
             }
-            fw.f().d();
+            cr.f().d();
         }
     }
 
-    @Override // com.baidu.tieba.gw
+    @Override // com.baidu.tieba.dr
     public void onStart() {
-        gw gwVar;
+        dr drVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (gwVar = this.a) != null) {
-            gwVar.onStart();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (drVar = this.a) != null) {
+            drVar.onStart();
         }
     }
 
@@ -159,29 +159,29 @@ public abstract class BdRunnable implements Runnable, gw {
         }
     }
 
-    @Override // com.baidu.tieba.gw
+    @Override // com.baidu.tieba.dr
     public void a(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
             this.b = STATUS.FAIL;
-            gw gwVar = this.a;
-            if (gwVar != null) {
-                gwVar.a(exc);
+            dr drVar = this.a;
+            if (drVar != null) {
+                drVar.a(exc);
             }
-            fw.f().d();
+            cr.f().d();
         }
     }
 
-    @Override // com.baidu.tieba.gw
+    @Override // com.baidu.tieba.dr
     public void b(Error error) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, error) == null) {
             this.b = STATUS.FAIL;
-            gw gwVar = this.a;
-            if (gwVar != null) {
-                gwVar.b(error);
+            dr drVar = this.a;
+            if (drVar != null) {
+                drVar.b(error);
             }
-            fw.f().d();
+            cr.f().d();
         }
     }
 }

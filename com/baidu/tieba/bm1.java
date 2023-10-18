@@ -1,7 +1,16 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface bm1 {
-    void onVideoSizeChanged(int i, int i2);
 
-    void setDisplayMode(int i);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
+public final class bm1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? "2.34.0" : (String) invokeV.objValue;
+    }
 }

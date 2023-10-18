@@ -16,7 +16,7 @@ import com.baidu.tieba.immessagecenter.arch.base.BaseRepository;
 import com.baidu.tieba.immessagecenter.msgtab.data.CacheDataType;
 import com.baidu.tieba.immessagecenter.msgtab.data.ForumListData;
 import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
-import com.baidu.tieba.iq8;
+import com.baidu.tieba.sk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,8 +45,8 @@ public final class MsgCenterRepository extends BaseRepository {
     public final class a extends FastRequest.b<ForumListData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Function1<? super ForumListData, Unit> c;
-        public final /* synthetic */ MsgCenterRepository d;
+        public Function1<? super ForumListData, Unit> d;
+        public final /* synthetic */ MsgCenterRepository e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(MsgCenterRepository msgCenterRepository) {
@@ -64,32 +64,32 @@ public final class MsgCenterRepository extends BaseRepository {
                     return;
                 }
             }
-            this.d = msgCenterRepository;
+            this.e = msgCenterRepository;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: j */
-        public void g(ForumListData result) {
+        /* renamed from: m */
+        public void i(ForumListData result) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
                 Intrinsics.checkNotNullParameter(result, "result");
-                super.g(result);
-                ForumListData h = this.d.h(result);
+                super.i(result);
+                ForumListData h = this.e.h(result);
                 if (h != null) {
-                    Function1<? super ForumListData, Unit> function1 = this.c;
+                    Function1<? super ForumListData, Unit> function1 = this.d;
                     if (function1 != null) {
                         function1.invoke(h);
                     }
-                    this.c = null;
+                    this.d = null;
                 }
             }
         }
 
-        public final void k(Function1<? super ForumListData, Unit> function1) {
+        public final void n(Function1<? super ForumListData, Unit> function1) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, function1) == null) {
-                this.c = function1;
+                this.d = function1;
             }
         }
 
@@ -98,19 +98,19 @@ public final class MsgCenterRepository extends BaseRepository {
             if (r5 == null) goto L13;
          */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: i */
+        /* renamed from: l */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void d(int i, String errMsg, ForumListData forumListData) {
+        public void f(int i, String errMsg, ForumListData forumListData) {
             Unit unit;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, errMsg, forumListData) == null) {
                 Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                super.d(i, errMsg, forumListData);
-                ForumListData d = this.d.d();
+                super.f(i, errMsg, forumListData);
+                ForumListData d = this.e.d();
                 if (d != null) {
-                    Function1<? super ForumListData, Unit> function1 = this.c;
+                    Function1<? super ForumListData, Unit> function1 = this.d;
                     if (function1 != null) {
                         function1.invoke(d);
                         unit = Unit.INSTANCE;
@@ -118,12 +118,12 @@ public final class MsgCenterRepository extends BaseRepository {
                         unit = null;
                     }
                 }
-                Function1<? super ForumListData, Unit> function12 = this.c;
+                Function1<? super ForumListData, Unit> function12 = this.d;
                 if (function12 != null) {
-                    function12.invoke(this.d.e());
+                    function12.invoke(this.e.e());
                     Unit unit2 = Unit.INSTANCE;
                 }
-                this.c = null;
+                this.d = null;
             }
         }
     }
@@ -151,8 +151,8 @@ public final class MsgCenterRepository extends BaseRepository {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
             FastRequest fastRequest = new FastRequest(tbPageContext, CmdConfigHttp.CMD_REQUEST_FOLLOWED_FRS_LIST, TbConfig.REQUEST_FOLLOWED_FRS_LIST);
-            fastRequest.S(HttpMessageTask.HTTP_METHOD.POST);
-            fastRequest.P(this.a);
+            fastRequest.T(HttpMessageTask.HTTP_METHOD.POST);
+            fastRequest.Q(this.a);
             return fastRequest;
         }
         return (FastRequest) invokeL.objValue;
@@ -213,7 +213,7 @@ public final class MsgCenterRepository extends BaseRepository {
                 this.b.put(c, forumListData);
                 return forumListData;
             } catch (Exception e) {
-                iq8.a.a("MsgCenterContainerPresenter->获取本地存储的推荐数据失败", e);
+                sk8.a.a("MsgCenterContainerPresenter->获取本地存储的推荐数据失败", e);
             }
         } else {
             return (ForumListData) invokeV.objValue;
@@ -239,7 +239,7 @@ public final class MsgCenterRepository extends BaseRepository {
                 this.b.put(c, forumListData);
                 return forumListData;
             } catch (Exception e) {
-                iq8.a.a("MsgCenterContainerPresenter->获取本地存储的最后一次网络请求数据失败", e);
+                sk8.a.a("MsgCenterContainerPresenter->获取本地存储的最后一次网络请求数据失败", e);
             }
         } else {
             return (ForumListData) invokeV.objValue;
@@ -380,10 +380,10 @@ public final class MsgCenterRepository extends BaseRepository {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, block) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(block, "block");
-            this.a.k(block);
+            this.a.n(block);
             FastRequest b = b(context);
-            b.N("fids", f());
-            b.O();
+            b.O("fids", f());
+            b.P();
         }
     }
 

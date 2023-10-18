@@ -1,51 +1,61 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ComponentName;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "PageUtil")
 /* loaded from: classes5.dex */
-public final class br6 {
+public final class br6 extends jq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(Activity activity) {
-        InterceptResult invokeL;
-        ComponentName componentName;
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public br6(eq6 context) {
+        super(context, r3, null, 4, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (activity != null) {
-                componentName = activity.getComponentName();
-            } else {
-                componentName = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((eq6) objArr2[0], (l0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (componentName == null) {
-                return true;
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+        Intrinsics.checkNotNullParameter(context, "context");
+        l0 b = l0.i(oq6.class).b();
+        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
     }
 
-    public static final boolean b(Activity activity, String activityClassName) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.jq6
+    public void m(i0 entity, float f) {
+        zp6 a;
+        oq6 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, activityClassName)) == null) {
-            Intrinsics.checkNotNullParameter(activityClassName, "activityClassName");
-            if (!a(activity)) {
-                Intrinsics.checkNotNull(activity);
-                ComponentName componentName = activity.getComponentName();
-                Intrinsics.checkNotNull(componentName);
-                if (Intrinsics.areEqual(activityClassName, componentName.getClassName())) {
-                    return true;
-                }
+        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            lq6 b = jr6.b(entity);
+            if (b == null || (a = b.a()) == null || (a2 = jr6.a(entity)) == null) {
+                return;
             }
-            return false;
+            if (ir6.b(this) >= a.e().k()) {
+                a2.h(true);
+                a2.c(ir6.b(this) - a.e().k());
+                return;
+            }
+            a2.h(false);
         }
-        return invokeLL.booleanValue;
     }
 }

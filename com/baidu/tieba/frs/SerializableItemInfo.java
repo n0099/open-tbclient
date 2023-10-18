@@ -6,8 +6,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
-import com.baidu.tieba.t49;
+import com.baidu.tieba.ez8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +21,7 @@ import org.json.JSONObject;
 import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SerializableItemInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALL = "all";
@@ -167,13 +166,13 @@ public class SerializableItemInfo extends OrmObject implements Serializable {
             }
             this.brief = jSONObject.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
             ArrayList arrayList = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray(TaskProcess.keyTags);
+            JSONArray optJSONArray = jSONObject.optJSONArray("tags");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                     if (optJSONObject2 != null) {
-                        t49.a(arrayList, optJSONObject2.optString("tag"));
+                        ez8.a(arrayList, optJSONObject2.optString("tag"));
                     }
                 }
             }
@@ -255,7 +254,7 @@ public class SerializableItemInfo extends OrmObject implements Serializable {
                 for (String str : this.tags) {
                     jSONArray.put(str);
                 }
-                jSONObject.put(TaskProcess.keyTags, jSONArray);
+                jSONObject.put("tags", jSONArray);
                 jSONObject.put("is_school", this.isSchool);
                 jSONObject.put("average_score", this.averageScore);
             } catch (JSONException e) {

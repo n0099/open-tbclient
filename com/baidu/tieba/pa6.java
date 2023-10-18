@@ -1,95 +1,116 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
-import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class pa6 extends dd3 {
+public class pa6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<lh> c;
+    public List<yh> d;
+    public rb6 e;
+    public va6 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pa6(dc3 dc3Var) {
-        super(dc3Var, "/swan/publishThread");
+    public pa6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, rb6 rb6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dc3Var};
+            Object[] objArr = {tbPageContext, bdTypeListView, rb6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = rb6Var;
+        a();
     }
 
-    public static boolean j(Context context, String str) {
-        InterceptResult invokeLL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("path");
-                if (StringUtils.isNull(optString)) {
-                    String optString2 = jSONObject.optString("appid");
-                    if (StringUtils.isNull(optString2)) {
-                        return false;
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, TbAiappsLaunchUtil.getSmartLink(optString2, "", "", 0)));
-                    return true;
-                }
-                String substring = optString.substring(39);
-                if (StringUtils.isNull(substring)) {
-                    return false;
-                }
-                JSONObject jSONObject2 = new JSONObject(di.getUrlDecode(substring));
-                String optString3 = jSONObject2.optString("third_app_id");
-                String optString4 = jSONObject2.optString("third_app_name");
-                String optString5 = jSONObject2.optString("third_app_pic");
-                String optString6 = jSONObject2.optString("third_app_link");
-                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
-                selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
-                return true;
-            } catch (JSONException unused) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            oa6 oa6Var = new oa6(this.a);
+            sa6 sa6Var = new sa6(this.a);
+            ta6 ta6Var = new ta6(this.a);
+            ma6 ma6Var = new ma6(this.a);
+            ra6 ra6Var = new ra6(this.a);
+            ua6 ua6Var = new ua6(this.a);
+            qa6 qa6Var = new qa6(this.a);
+            na6 na6Var = new na6(this.a);
+            this.f = new va6(this.a);
+            xa6 xa6Var = new xa6(this.a, this.e);
+            wa6 wa6Var = new wa6(this.a);
+            this.c.add(oa6Var);
+            this.c.add(this.f);
+            this.c.add(sa6Var);
+            this.c.add(ta6Var);
+            this.c.add(ma6Var);
+            this.c.add(ra6Var);
+            this.c.add(ua6Var);
+            this.c.add(qa6Var);
+            this.c.add(na6Var);
+            this.c.add(xa6Var);
+            this.c.add(wa6Var);
+            this.b.addAdapters(this.c);
         }
-        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
-        InterceptResult invokeLLLL;
+    public void b(List<yh> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
-            j(context, unitedSchemeEntity.getParam("params"));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && this.b != null && !ListUtils.isEmpty(list)) {
+            this.d.clear();
+            this.d.addAll(list);
+            this.b.setData(this.d);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public void c(String str) {
+        va6 va6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (va6Var = this.f) != null) {
+            va6Var.B(str);
+        }
+    }
+
+    public void d(String str) {
+        va6 va6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (va6Var = this.f) != null) {
+            va6Var.a(str);
+        }
+    }
+
+    public void e(String str) {
+        va6 va6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (va6Var = this.f) != null) {
+            va6Var.C(str);
+        }
+    }
+
+    public void f(boolean z) {
+        va6 va6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (va6Var = this.f) != null) {
+            va6Var.D(z);
+        }
     }
 }

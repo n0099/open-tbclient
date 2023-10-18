@@ -14,5 +14,5 @@ public final class SizeType {
     public static final int NOT_SCALE = -1;
 
     /* renamed from: T  reason: collision with root package name */
-    public static final int f1057T = 3;
+    public static final int f1058T = 3;
 }

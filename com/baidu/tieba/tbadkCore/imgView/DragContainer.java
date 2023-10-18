@@ -42,7 +42,7 @@ public class DragContainer extends LinearLayout {
             }
         }
         this.b = new Rect();
-        a(context);
+        b(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,19 +65,12 @@ public class DragContainer extends LinearLayout {
             }
         }
         this.b = new Rect();
-        a(context);
+        b(context);
     }
 
-    public final void a(Context context) {
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = new Scroller(context);
-        }
-    }
-
-    public void delete(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             this.c = view2;
             view2.setDrawingCacheEnabled(true);
             view2.buildDrawingCache();
@@ -117,6 +110,13 @@ public class DragContainer extends LinearLayout {
                 this.d = null;
                 this.c = null;
             }
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.a = new Scroller(context);
         }
     }
 

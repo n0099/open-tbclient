@@ -3,6 +3,7 @@ package com.baidu.browser.core.util;
 import android.os.Environment;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -56,7 +57,7 @@ public final class BdLog {
                 }
             }
             DEBUG = new LogLevel("DEBUG", 0);
-            ERROR = new LogLevel("ERROR", 1);
+            ERROR = new LogLevel(bx.l, 1);
             INFO = new LogLevel("INFO", 2);
             VERBOSE = new LogLevel("VERBOSE", 3);
             LogLevel logLevel = new LogLevel("WARN", 4);

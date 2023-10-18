@@ -11,9 +11,9 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.spswitch.emotion.view.CircleIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ed0;
-import com.baidu.tieba.id0;
-import com.baidu.tieba.ra0;
+import com.baidu.tieba.b80;
+import com.baidu.tieba.f80;
+import com.baidu.tieba.o50;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes3.dex */
 public class LiveFeedPageToolItemView extends FrameLayout {
@@ -47,16 +47,16 @@ public class LiveFeedPageToolItemView extends FrameLayout {
     }
 
     public final void a() {
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f2, (ViewGroup) this, true);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090ff0);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05e4, (ViewGroup) this, true);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09100b);
         this.b = (TextView) findViewById(R.id.tv_name);
-        this.c = findViewById(R.id.obfuscated_res_0x7f0908e9);
+        this.c = findViewById(R.id.obfuscated_res_0x7f090904);
         c();
     }
 
     public void c() {
-        ed0.f(this.a, ra0.c(getContext().getResources(), 19.0f), ra0.c(getContext().getResources(), 19.0f));
-        ed0.h(this.b, 1, 9.0f);
+        b80.f(this.a, o50.c(getContext().getResources(), 19.0f), o50.c(getContext().getResources(), 19.0f));
+        b80.h(this.b, 1, 9.0f);
     }
 
     public void d() {
@@ -149,7 +149,7 @@ public class LiveFeedPageToolItemView extends FrameLayout {
             this.a.setImageResource(i);
         }
         setData(str);
-        b(id0.f().r(), z);
+        b(f80.f().r(), z);
     }
 
     public void setData(boolean z, String str, String str2) {
@@ -158,6 +158,6 @@ public class LiveFeedPageToolItemView extends FrameLayout {
             simpleDraweeView.setImageURI(str);
         }
         setData(str2);
-        b(id0.f().r(), z);
+        b(f80.f().r(), z);
     }
 }

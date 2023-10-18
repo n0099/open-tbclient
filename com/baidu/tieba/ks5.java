@@ -1,78 +1,126 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ks5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
+    public static final BdAsyncTaskParallel b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, int i, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4}) == null) {
-            b(str, -1, str2, str3, str4, 0, "", "", "");
+    /* loaded from: classes6.dex */
+    public static class a<T> extends BdAsyncTask<String, Object, T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public gs5<T> a;
+        public lr5<T> b;
+
+        public a(gs5<T> gs5Var, lr5<T> lr5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gs5Var, lr5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+            this.a = gs5Var;
+            this.b = lr5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public T doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                try {
+                    if (this.a == null) {
+                        return null;
+                    }
+                    return this.a.doInBackground();
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
+                    return null;
+                }
+            }
+            return (T) invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(T t) {
+            lr5<T> lr5Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) && (lr5Var = this.b) != null) {
+                lr5Var.onReturnDataInUI(t);
+            }
         }
     }
 
-    public static void b(String str, int i, String str2, String str3, String str4, int i2, String str5, String str6, String str7) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923676, "Lcom/baidu/tieba/ks5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947923676, "Lcom/baidu/tieba/ks5;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+        b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
+    }
+
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4, Integer.valueOf(i2), str5, str6, str7}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_source", str2);
-            statisticItem.param("thread_type", i2);
-            if (i > 0) {
-                statisticItem.param("obj_locate", i);
-            }
-            if (!StringUtils.isNull(str3)) {
-                statisticItem.param("tid", str3);
-            }
-            if (!StringUtils.isNull(str4)) {
-                statisticItem.param("fid", str4);
-            }
-            if (str5 == null) {
-                str5 = "";
-            }
-            statisticItem.addParam("obj_id", str5);
-            if (str6 == null) {
-                str6 = "";
-            }
-            statisticItem.addParam("obj_name", str6);
-            if (str7 == null) {
-                str7 = "";
-            }
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, str7);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            BdAsyncTask.removeAllTask(a);
         }
     }
 
-    public static void c(String str, String str2, String str3, String str4, String str5, String str6) {
+    public static <T> void b(gs5<T> gs5Var, lr5<T> lr5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            if (str4 == null) {
-                str4 = "";
-            }
-            statisticItem.addParam("obj_id", str4);
-            if (str5 == null) {
-                str5 = "";
-            }
-            statisticItem.addParam("obj_name", str5);
-            if (str2 == null) {
-                str2 = "";
-            }
-            statisticItem.param("resource_id", str2);
-            if (str6 == null) {
-                str6 = "";
-            }
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, str6);
-            if (str3 == null) {
-                str3 = "";
-            }
-            statisticItem.param("tid", str3);
-            TiebaStatic.log(statisticItem);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, gs5Var, lr5Var) == null) && gs5Var != null) {
+            a aVar = new a(gs5Var, lr5Var);
+            aVar.setParallel(b);
+            aVar.setTag(a);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
+        }
+    }
+
+    public static <T> void c(gs5<T> gs5Var, lr5<T> lr5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, gs5Var, lr5Var) == null) && gs5Var != null) {
+            a aVar = new a(gs5Var, lr5Var);
+            aVar.setParallel(TiebaIMConfig.getParallel());
+            aVar.setTag(a);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
         }
     }
 }

@@ -1,44 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.log.DefaultLog;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.mutiprocess.HybridNotify.HybridNotifyEvent;
-import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xx4 implements xm6 {
+public class xx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.xm6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        wm6.a(this, webView, str, jSONObject);
-    }
-
-    @Override // com.baidu.tieba.xm6
-    public /* synthetic */ void onDestroy() {
-        wm6.b(this);
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
     public xx4() {
         Interceptable interceptable = $ic;
@@ -54,155 +31,35 @@ public class xx4 implements xm6 {
         }
     }
 
-    @Override // com.baidu.tieba.xm6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.GAME_PUSH.equals(str2)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(c(webView, jSONObject.optString("gameId"), jSONObject.optString("gameName"), jSONObject.optString("gameTime"), jSONObject.optString("gameType")).a());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return true;
-            } else if (CommonTbJsBridge.GAME_PUSH_STATUS.equals(str2)) {
-                jsPromptResult.confirm(e(webView).a());
-                return true;
-            } else {
-                return false;
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, intent) != null) || intent == null) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
+        this.a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
+        this.b = intent.getStringExtra("recom_source");
+        this.c = intent.getStringExtra("recom_abtag");
+        this.d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
     }
 
-    public ska c(WebView webView, String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLLL;
+    public void b(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, str4)) == null) {
-            ska skaVar = new ska();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("gameId", str);
-                jSONObject.put("gameName", str2);
-                jSONObject.put("gameTime", str3);
-                jSONObject.put("gameType", str4);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            String jSONObject2 = jSONObject.toString();
-            if (!TextUtils.isEmpty(jSONObject2)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
-                return skaVar;
-            }
-            skaVar.p();
-            return skaVar;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) != null) || threadData == null) {
+            return;
         }
-        return (ska) invokeLLLLL.objValue;
+        this.a = threadData.mRecomWeight;
+        this.b = threadData.mRecomSource;
+        this.c = threadData.mRecomAbTag;
+        this.d = threadData.mRecomExtra;
     }
 
-    @NonNull
-    public ska d(WebView webView, @NonNull String str, @Nullable String str2) {
-        InterceptResult invokeLLL;
+    public void c(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
-            ska skaVar = new ska();
-            skaVar.y(0);
-            skaVar.o(wy5.b().c(str, str2));
-            return skaVar;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) && intent != null) {
+            intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.a);
+            intent.putExtra("recom_source", this.b);
+            intent.putExtra("recom_abtag", this.c);
+            intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.d);
         }
-        return (ska) invokeLLL.objValue;
-    }
-
-    public ska e(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, webView)) == null) {
-            ska skaVar = new ska();
-            String string = SharedPrefHelper.getInstance().getString("key_match_id_list_football", "");
-            String string2 = SharedPrefHelper.getInstance().getString("key_match_id_list_basketball", "");
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
-                jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + string2 + PreferencesUtil.RIGHT_MOUNT);
-                skaVar.o(jSONObject.toString());
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            return skaVar;
-        }
-        return (ska) invokeL.objValue;
-    }
-
-    public ska f(WebView webView, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, Boolean.valueOf(z)})) == null) {
-            ska skaVar = new ska();
-            if (!str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_CREATE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_DISSLOVE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_MANAGE)) {
-                if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_NAME.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921779, str2));
-                } else if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_AVATAR.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921780, str2));
-                } else if (CommonTbJsBridge.KEY_SPRING_FESTIVAL_PICK_FORUM.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921725, Boolean.TRUE));
-                } else if ("showFunnySprite".equals(str)) {
-                    try {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921797, Integer.valueOf(new JSONObject(str2).optInt("spriteShowType"))));
-                    } catch (JSONException e) {
-                        TbLog defaultLog = DefaultLog.getInstance();
-                        defaultLog.e("SpriteTip", "JSONException:" + e);
-                    }
-                } else if (CommonTbJsBridge.KEY_GROUP_CHAT_NOTIFY_REFTESH.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921795, str2));
-                } else {
-                    boolean z2 = false;
-                    if ("pbFirstFloorWebViewRefresh".equalsIgnoreCase(str)) {
-                        if (webView instanceof MonitorWebView) {
-                            try {
-                                JSONObject jSONObject = new JSONObject(str2);
-                                ((MonitorWebView) webView).q(jSONObject.optInt("success", 0), jSONObject.optDouble("height", 0.0d));
-                            } catch (Exception unused) {
-                                ((MonitorWebView) webView).q(0, webView.getContentHeight());
-                            }
-                        }
-                    } else if ("setGroupChatBubble".equals(str)) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921799, str2));
-                    } else if ("officialPushMsgStatus".equals(str)) {
-                        try {
-                            int optInt = new JSONObject(str2).optInt("status");
-                            if (optInt == 1) {
-                                z2 = true;
-                            }
-                            SharedPrefHelper.getInstance().putBoolean("official_push_switch", z2);
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921754, Integer.valueOf(optInt)));
-                        } catch (JSONException e2) {
-                            TbLog defaultLog2 = DefaultLog.getInstance();
-                            defaultLog2.e("officialPushMsgStatus", "JSONException:" + e2);
-                        }
-                    } else if ("changeOftenForumList".equals(str)) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921811, str2));
-                    }
-                }
-            } else {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921778));
-            }
-            hz4.a().b(webView, str, str2);
-            HybridNotifyEvent hybridNotifyEvent = new HybridNotifyEvent();
-            hybridNotifyEvent.key = str;
-            hybridNotifyEvent.data = str2;
-            MutiProcessManager.publishEvent(hybridNotifyEvent);
-            if (z) {
-                try {
-                    ym6.a().g(str, new JSONObject(str2), webView);
-                } catch (Exception e3) {
-                    TbLog hybridLog = HybridLog.getInstance();
-                    hybridLog.e("NotifyDataChanged", "H5通知H5异常:" + e3);
-                }
-            }
-            return skaVar;
-        }
-        return (ska) invokeCommon.objValue;
     }
 }

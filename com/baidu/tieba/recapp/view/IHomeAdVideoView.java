@@ -4,20 +4,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.l6a;
-import com.baidu.tieba.m6a;
+import com.baidu.tieba.iz9;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.v4a;
+import com.baidu.tieba.y0a;
+import com.baidu.tieba.z0a;
 import tbclient.VideoInfo;
 /* loaded from: classes7.dex */
-public interface IHomeAdVideoView extends v4a {
-    @Override // com.baidu.tieba.v4a
+public interface IHomeAdVideoView extends iz9 {
+    @Override // com.baidu.tieba.iz9
     /* synthetic */ void autoPlay(int i);
 
-    @Override // com.baidu.tieba.v4a
+    @Override // com.baidu.tieba.iz9
     /* synthetic */ boolean canPlay();
 
-    @Override // com.baidu.tieba.v4a
+    @Override // com.baidu.tieba.iz9
     /* synthetic */ long getCurrentPosition();
 
     /* synthetic */ int getHeight();
@@ -26,29 +26,29 @@ public interface IHomeAdVideoView extends v4a {
 
     /* synthetic */ void getLocationInWindow(int[] iArr);
 
-    @Override // com.baidu.tieba.v4a
+    @Override // com.baidu.tieba.iz9
     /* synthetic */ int getPlayStatus();
 
-    @Override // com.baidu.tieba.v4a
+    @Override // com.baidu.tieba.iz9
     /* synthetic */ String getPlayUrl();
 
-    @Override // com.baidu.tieba.v4a
+    @Override // com.baidu.tieba.iz9
     /* synthetic */ View getVideoContainer();
 
-    @Override // com.baidu.tieba.v4a
+    @Override // com.baidu.tieba.iz9
     /* synthetic */ boolean isPlayStarted();
 
-    @Override // com.baidu.tieba.v4a
+    @Override // com.baidu.tieba.iz9
     /* synthetic */ boolean isPlaying();
 
     int jump2DownloadDetailPage();
 
-    @Override // com.baidu.tieba.v4a
+    @Override // com.baidu.tieba.iz9
     /* synthetic */ void release();
 
     void setAdInfo(AdCard adCard);
 
-    void setData(VideoInfo videoInfo, l6a l6aVar, int i, int i2, int i3, int i4);
+    void setData(VideoInfo videoInfo, y0a y0aVar, int i, int i2, int i3, int i4);
 
     void setMaskViewRadius(float[] fArr);
 
@@ -62,12 +62,12 @@ public interface IHomeAdVideoView extends v4a {
 
     void setVideoScalingMode(int i);
 
-    void setVideoTailFrameData(m6a m6aVar);
+    void setVideoTailFrameData(z0a z0aVar);
 
-    @Override // com.baidu.tieba.v4a
+    @Override // com.baidu.tieba.iz9
     /* synthetic */ void startPlay();
 
-    @Override // com.baidu.tieba.v4a
+    @Override // com.baidu.tieba.iz9
     /* synthetic */ void stopPlay();
 
     void updateTailFrameView(AdvertAppInfo advertAppInfo);

@@ -1,9 +1,9 @@
 package com.badlogic.ashley.core;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c3;
 import com.baidu.tieba.i0;
-import com.baidu.tieba.t7;
-import com.baidu.tieba.u6;
+import com.baidu.tieba.r2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ public class ComponentOperationHandler {
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public c b;
-    public u6<ComponentOperation> c;
+    public r2<ComponentOperation> c;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -26,7 +26,7 @@ public class ComponentOperationHandler {
     }
 
     /* loaded from: classes.dex */
-    public static class ComponentOperation implements t7.a {
+    public static class ComponentOperation implements c3.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Type a;
@@ -112,7 +112,7 @@ public class ComponentOperationHandler {
             }
         }
 
-        @Override // com.baidu.tieba.t7.a
+        @Override // com.baidu.tieba.c3.a
         public void reset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -174,7 +174,7 @@ public class ComponentOperationHandler {
     }
 
     /* loaded from: classes.dex */
-    public static class c extends t7<ComponentOperation> {
+    public static class c extends c3<ComponentOperation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -193,7 +193,7 @@ public class ComponentOperationHandler {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t7
+        @Override // com.baidu.tieba.c3
         /* renamed from: g */
         public ComponentOperation d() {
             InterceptResult invokeV;
@@ -225,7 +225,7 @@ public class ComponentOperationHandler {
             }
         }
         this.b = new c(null);
-        this.c = new u6<>();
+        this.c = new r2<>();
         this.a = bVar;
     }
 
@@ -260,9 +260,9 @@ public class ComponentOperationHandler {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int i = 0;
             while (true) {
-                u6<ComponentOperation> u6Var = this.c;
-                if (i < u6Var.b) {
-                    ComponentOperation componentOperation = u6Var.get(i);
+                r2<ComponentOperation> r2Var = this.c;
+                if (i < r2Var.b) {
+                    ComponentOperation componentOperation = r2Var.get(i);
                     int i2 = a.a[componentOperation.a.ordinal()];
                     if (i2 != 1) {
                         if (i2 == 2) {
@@ -274,7 +274,7 @@ public class ComponentOperationHandler {
                     this.b.c(componentOperation);
                     i++;
                 } else {
-                    u6Var.clear();
+                    r2Var.clear();
                     return;
                 }
             }

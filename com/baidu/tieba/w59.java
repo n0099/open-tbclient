@@ -1,38 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.SystemBarTintManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.auth.NTLMEngineImpl;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import tbclient.GetMemberTaskList.PointTaskInfo;
+import tbclient.GetVipInfo.VipTaskItem;
 /* loaded from: classes8.dex */
-public class w59 extends gv4 {
+public class w59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.gv4
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/registerInterviewNotice" : (String) invokeV.objValue;
-    }
+    public long a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
 
     public w59() {
         Interceptable interceptable = $ic;
@@ -48,58 +34,132 @@ public class w59 extends gv4 {
         }
     }
 
-    @Override // com.baidu.tieba.gv4, com.baidu.tieba.jv4
-    public lv4 b(Object obj, HashMap<String, String> hashMap, String str) {
-        InterceptResult invokeLLL;
-        Map.Entry<String, String> next;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            lv4 lv4Var = new lv4();
-            if (obj instanceof q49) {
-                q49 q49Var = (q49) obj;
-                boolean c = q49Var.c();
-                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-                Intent intent = new Intent(context, AlarmReceiver.class);
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                intent.putExtra("uid", TbadkCoreApplication.getCurrentAccount());
-                intent.setData(Uri.parse(currentAccount));
-                long j = 0;
-                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
-                int i = 0;
-                while (it.hasNext() && (next = it.next()) != null) {
-                    intent.putExtra(next.getKey(), next.getValue());
-                    if ("task_id".equals(next.getKey())) {
-                        i = Integer.parseInt(next.getValue());
-                    } else if ("s_time".equals(next.getKey())) {
-                        j = Long.parseLong(next.getValue()) * 1000;
-                    }
-                }
-                StatisticItem statisticItem = new StatisticItem(q49Var.h());
-                statisticItem.param("obj_id", "");
-                if (c) {
-                    statisticItem.param("obj_type", "2");
-                    BdToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f0af7)).show();
-                    PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
-                    if (broadcast != null) {
-                        alarmManager.cancel(broadcast);
-                        broadcast.cancel();
-                    }
-                    lv4Var.a = false;
-                } else {
-                    statisticItem.param("obj_type", "1");
-                    BdToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f0b02)).show();
-                    alarmManager.set(0, j, PendingIntent.getBroadcast(context, i, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
-                    lv4Var.a = true;
-                }
-                TiebaStatic.log(statisticItem);
-                q49Var.k(lv4Var.a);
-            }
-            return lv4Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (lv4) invokeLLL.objValue;
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.d == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public w59(PointTaskInfo pointTaskInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pointTaskInfo};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (pointTaskInfo == null) {
+            return;
+        }
+        this.a = pointTaskInfo.task_id.longValue();
+        this.b = pointTaskInfo.task_name;
+        this.c = pointTaskInfo.task_intro;
+        this.d = pointTaskInfo.is_finish.intValue();
+        this.e = pointTaskInfo.points_add.intValue();
+        this.f = pointTaskInfo.type.intValue();
+    }
+
+    public w59(VipTaskItem vipTaskItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipTaskItem};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = vipTaskItem.task_id.intValue();
+        this.b = vipTaskItem.title;
+        this.c = vipTaskItem.desc;
+        String str = vipTaskItem.img_url;
+        String str2 = vipTaskItem.link;
+        this.d = vipTaskItem.is_finish.intValue();
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.a = j;
+        }
     }
 }

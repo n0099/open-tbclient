@@ -1,12 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import org.json.JSONObject;
+import com.baidu.tieba.umb;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.ChannelNativeAds;
 /* loaded from: classes8.dex */
-public interface xmb {
-    public static final ServiceReference a = new ServiceReference("yaLog", "yaLogConfig");
+public class xmb implements umb.e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ ChannelNativeAds.GdtADStatusChangeListener a;
 
-    void a(JSONObject jSONObject);
+    public xmb(ymb ymbVar, ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ymbVar, gdtADStatusChangeListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = gdtADStatusChangeListener;
+    }
 
-    void b(JSONObject jSONObject, boolean z);
+    @Override // com.baidu.tieba.umb.e
+    public void onADStatusChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.onADStatusChanged();
+        }
+    }
 }

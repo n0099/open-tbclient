@@ -41,8 +41,8 @@ public final class LimitedDispatcher extends CoroutineDispatcher implements Runn
 
     @Override // kotlinx.coroutines.Delay
     /* renamed from: scheduleResumeAfterDelay */
-    public void mo2348scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
-        this.$$delegate_0.mo2348scheduleResumeAfterDelay(j, cancellableContinuation);
+    public void mo2347scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
+        this.$$delegate_0.mo2347scheduleResumeAfterDelay(j, cancellableContinuation);
     }
 
     public LimitedDispatcher(CoroutineDispatcher coroutineDispatcher, int i) {
@@ -68,9 +68,9 @@ public final class LimitedDispatcher extends CoroutineDispatcher implements Runn
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     /* renamed from: dispatch */
-    public void mo2347dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    public void mo2346dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         if (!addAndTryDispatching(runnable) && tryAllocateWorker()) {
-            this.dispatcher.mo2347dispatch(this, this);
+            this.dispatcher.mo2346dispatch(this, this);
         }
     }
 
@@ -152,7 +152,7 @@ public final class LimitedDispatcher extends CoroutineDispatcher implements Runn
                 }
                 i++;
                 if (i >= 16 && this.dispatcher.isDispatchNeeded(this)) {
-                    this.dispatcher.mo2347dispatch(this, this);
+                    this.dispatcher.mo2346dispatch(this, this);
                     return;
                 }
             }

@@ -1,195 +1,195 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes5.dex */
-public class as3 extends qg3 {
+public class as3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean u;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean s;
-    public String t;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends fg3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ as3 c;
-
-        /* loaded from: classes5.dex */
-        public class a implements zp3<Bundle> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.zp3
-            /* renamed from: b */
-            public void a(Bundle bundle) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-                    if (bundle == null) {
-                        this.a.e(new OAuthException("null stoken", 10001));
-                        return;
-                    }
-                    String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
-                    if (TextUtils.isEmpty(string)) {
-                        this.a.e(new OAuthException("empty stoken", 10001));
-                        return;
-                    }
-                    this.a.c.t = string;
-                    this.a.d();
-                }
-            }
-        }
-
-        public b(as3 as3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {as3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = as3Var;
-        }
-
-        public /* synthetic */ b(as3 as3Var, a aVar) {
-            this(as3Var);
-        }
-
-        @Override // com.baidu.tieba.fg3
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.c.s) {
-                    hr3.t(this.c.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
-                    return false;
-                }
-                this.c.t = null;
-                if (as3.u) {
-                    Log.w("MaOpenDataRequest", "user not login");
-                    return true;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625704, "Lcom/baidu/tieba/as3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947625704, "Lcom/baidu/tieba/as3;");
-                return;
-            }
-        }
-        u = qr1.a;
-    }
-
-    @Override // com.baidu.tieba.qg3
-    public JSONObject P() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x004e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.ByteArrayOutputStream] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static byte[] a(byte[] bArr, Key key, int i) {
+        InterceptResult invokeLLI;
+        ByteArrayOutputStream byteArrayOutputStream;
+        byte[] doFinal;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject P = super.P();
-            if (!TextUtils.isEmpty(this.t)) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, bArr, key, i)) == null) {
+            ?? r0 = 0;
+            if (bArr != null && bArr.length != 0 && key != null) {
                 try {
-                    P.put("stoken", this.t);
-                } catch (JSONException e) {
-                    if (u) {
-                        e.printStackTrace();
+                    if (i > 0) {
+                        try {
+                            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                            cipher.init(1, key);
+                            byteArrayOutputStream = new ByteArrayOutputStream();
+                            try {
+                                int length = bArr.length;
+                                int i2 = 0;
+                                while (true) {
+                                    int i3 = length - i2;
+                                    if (i3 <= 0) {
+                                        break;
+                                    }
+                                    if (i3 > i) {
+                                        doFinal = cipher.doFinal(bArr, i2, i);
+                                    } else {
+                                        doFinal = cipher.doFinal(bArr, i2, i3);
+                                    }
+                                    byteArrayOutputStream.write(doFinal, 0, doFinal.length);
+                                    i2 += i;
+                                }
+                                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                                try {
+                                    byteArrayOutputStream.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                return byteArray;
+                            } catch (InvalidKeyException e2) {
+                                e = e2;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                    try {
+                                        byteArrayOutputStream.close();
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
+                                    }
+                                }
+                                return null;
+                            } catch (NoSuchAlgorithmException e4) {
+                                e = e4;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (BadPaddingException e5) {
+                                e = e5;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (IllegalBlockSizeException e6) {
+                                e = e6;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (NoSuchPaddingException e7) {
+                                e = e7;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            }
+                        } catch (InvalidKeyException e8) {
+                            e = e8;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (NoSuchAlgorithmException e9) {
+                            e = e9;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (BadPaddingException e10) {
+                            e = e10;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (IllegalBlockSizeException e11) {
+                            e = e11;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (NoSuchPaddingException e12) {
+                            e = e12;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (r0 != 0) {
+                                try {
+                                    r0.close();
+                                } catch (IOException e13) {
+                                    e13.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
                     }
+                } catch (Throwable th2) {
+                    th = th2;
+                    r0 = key;
                 }
             }
-            return P;
+            return null;
         }
-        return (JSONObject) invokeV.objValue;
+        return (byte[]) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.tieba.dg3
-    public boolean k() {
-        InterceptResult invokeV;
+    public static byte[] b(byte[] bArr, String str, int i) {
+        InterceptResult invokeLLI;
+        PublicKey c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            h(new b(this, null));
-            return true;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bArr, str, i)) == null) {
+            if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (c = c(str)) == null) {
+                return null;
+            }
+            return a(bArr, c, i);
         }
-        return invokeV.booleanValue;
+        return (byte[]) invokeLLI.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public as3(Activity activity, String str, String str2, boolean z, boolean z2) {
-        super(activity, str, str2, z);
+    public static PublicKey c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Activity) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        this.s = z2;
-        y();
+        return (PublicKey) invokeL.objValue;
     }
 }

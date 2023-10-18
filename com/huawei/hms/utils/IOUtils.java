@@ -1,6 +1,7 @@
 package com.huawei.hms.utils;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.sdk.internal.bp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +41,7 @@ public final class IOUtils {
             try {
                 closeable.close();
             } catch (IOException unused) {
-                HMSLog.e("IOUtils", "An exception occurred while closing the 'Closeable' object.");
+                HMSLog.e(bp.a, "An exception occurred while closing the 'Closeable' object.");
             }
         }
     }

@@ -1,28 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.InternalSyncControlEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
 /* loaded from: classes6.dex */
-public final class hr0 {
+public class hr0 extends mr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public String a;
-    @JvmField
-    public String b;
-    @JvmField
-    public String c;
-    @JvmField
-    public String d;
-    @JvmField
-    public String e;
-    @JvmField
-    public String f;
-    @JvmField
-    public String g;
 
     public hr0() {
         Interceptable interceptable = $ic;
@@ -38,14 +25,30 @@ public final class hr0 {
         }
     }
 
-    public final void a() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-            this.c = null;
-            this.e = null;
-            this.f = null;
-            this.g = null;
+            sr0 x = er0.x(InternalSyncControlEvent.INTERNAL_ACTION_PAUSE);
+            x.t(1);
+            c(x);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            sr0 x = er0.x(InternalSyncControlEvent.INTERNAL_ACTION_RESUME);
+            x.t(1);
+            c(x);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            sr0 x = er0.x(InternalSyncControlEvent.INTERNAL_ACTION_START);
+            x.t(1);
+            c(x);
         }
     }
 }

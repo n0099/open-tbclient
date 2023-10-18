@@ -2,7 +2,6 @@ package com.baidu.searchbox.crius.ui;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.crius.factory.NativeRenderFactory;
 import com.baidu.searchbox.crius.parser.CriusData;
 /* loaded from: classes3.dex */
@@ -13,6 +12,6 @@ public class CriusUIGifImage extends CriusUI<View> {
 
     @Override // com.baidu.searchbox.crius.ui.CriusUI
     public View createView(Context context) {
-        return NativeRenderFactory.getInstance().createView(context, NativeConstants.TYPE_GIF);
+        return NativeRenderFactory.getInstance().createView(context, "gif");
     }
 }

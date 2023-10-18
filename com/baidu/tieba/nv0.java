@@ -1,308 +1,167 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.ControlEvent;
-import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nv0 {
+public final class nv0 extends ov0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hv0 a;
-    public bv0 b;
+    public final ArrayList<Object> a;
+    public final String b;
+    public final Boolean c;
+    public final String d;
+    public final String e;
+    public final String f;
 
-    public nv0() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof nv0) {
+                    nv0 nv0Var = (nv0) obj;
+                    return Intrinsics.areEqual(this.a, nv0Var.a) && Intrinsics.areEqual(this.b, nv0Var.b) && Intrinsics.areEqual(b(), nv0Var.b()) && Intrinsics.areEqual(c(), nv0Var.c()) && Intrinsics.areEqual(e(), nv0Var.e()) && Intrinsics.areEqual(a(), nv0Var.a());
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ArrayList<Object> arrayList = this.a;
+            int hashCode = (arrayList != null ? arrayList.hashCode() : 0) * 31;
+            String str = this.b;
+            int hashCode2 = (hashCode + (str != null ? str.hashCode() : 0)) * 31;
+            Boolean b = b();
+            int hashCode3 = (hashCode2 + (b != null ? b.hashCode() : 0)) * 31;
+            String c = c();
+            int hashCode4 = (hashCode3 + (c != null ? c.hashCode() : 0)) * 31;
+            String e = e();
+            int hashCode5 = (hashCode4 + (e != null ? e.hashCode() : 0)) * 31;
+            String a = a();
+            return hashCode5 + (a != null ? a.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "AdaptationSet(representationList=" + this.a + ", type=" + this.b + ", frmAlign=" + b() + ", pre=" + c() + ", suf=" + e() + ", codecs=" + a() + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nv0(ArrayList<Object> arrayList, String str, Boolean bool, String str2, String str3, String str4) {
+        super(bool, str2, str3, str4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {arrayList, str, bool, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Boolean) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = arrayList;
+        this.b = str;
+        this.c = bool;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
     }
 
-    public hv0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (hv0) invokeV.objValue;
-    }
-
-    public void d() {
-        hv0 hv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hv0Var = this.a) != null) {
-            hv0Var.onBufferEnd();
-        }
-    }
-
-    public void e() {
-        hv0 hv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (hv0Var = this.a) != null) {
-            hv0Var.onBufferStart();
-        }
-    }
-
-    public void k() {
-        hv0 hv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (hv0Var = this.a) != null) {
-            hv0Var.onPause();
-        }
-    }
-
-    public void l() {
-        hv0 hv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (hv0Var = this.a) != null) {
-            hv0Var.onPrepared();
-        }
-    }
-
-    public void m() {
-        hv0 hv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (hv0Var = this.a) != null) {
-            hv0Var.onResume();
-        }
-    }
-
-    public void n() {
-        hv0 hv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (hv0Var = this.a) != null) {
-            hv0Var.onSeekEnd();
-        }
-    }
-
-    public void o() {
-        hv0 hv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (hv0Var = this.a) != null) {
-            hv0Var.onStart();
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.a = null;
-            this.b = null;
-        }
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (701 == i) {
-                e();
-            } else if (702 == i) {
-                d();
-            }
-        }
-    }
-
-    public void f(int i) {
-        hv0 hv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (hv0Var = this.a) != null) {
-            hv0Var.onEnd(i);
-        }
-    }
-
-    public void i(vz0 vz0Var) {
-        bv0 bv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vz0Var) == null) && (bv0Var = this.b) != null) {
-            bv0Var.a(vz0Var);
-        }
-    }
-
-    public void j(vz0 vz0Var) {
-        bv0 bv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, vz0Var) == null) && (bv0Var = this.b) != null) {
-            bv0Var.b(vz0Var);
-        }
-    }
-
-    public void s(hv0 hv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, hv0Var) == null) {
-            this.a = hv0Var;
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x007d, code lost:
-        if (r0.equals(com.baidu.searchbox.player.event.PlayerEvent.ACTION_SEEK_COMPLETE) != false) goto L14;
-     */
+    /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void b(vw0 vw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vw0Var) == null) {
-            char c = 4;
-            if (vw0Var.getType() == 4 || vw0Var.getType() == 2) {
-                String c2 = vw0Var.c();
-                switch (c2.hashCode()) {
-                    case -1502879971:
-                        if (c2.equals(PlayerEvent.ACTION_VIDEO_SIZE_CHANGED)) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1244137507:
-                        break;
-                    case -525235558:
-                        if (c2.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -461848373:
-                        if (c2.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 154871702:
-                        if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 720027695:
-                        if (c2.equals(ControlEvent.ACTION_PAUSE)) {
-                            c = '\b';
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 723345051:
-                        if (c2.equals(ControlEvent.ACTION_START)) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 906917140:
-                        if (c2.equals(ControlEvent.ACTION_RESUME)) {
-                            c = 7;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1370689931:
-                        if (c2.equals(PlayerEvent.ACTION_ON_INFO)) {
-                            c = 0;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1547354793:
-                        if (c2.equals(ControlEvent.ACTION_STOP)) {
-                            c = '\t';
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        int g = vw0Var.g(1);
-                        h(g, vw0Var.g(2), vw0Var.f(3));
-                        a(g);
-                        return;
-                    case 1:
-                        g(vw0Var.g(1), vw0Var.g(2), vw0Var.f(3));
-                        return;
-                    case 2:
-                        l();
-                        return;
-                    case 3:
-                        f(307);
-                        return;
-                    case 4:
-                        n();
-                        return;
-                    case 5:
-                        q(vw0Var.g(5), vw0Var.g(6));
-                        return;
-                    case 6:
-                        o();
-                        return;
-                    case 7:
-                        m();
-                        return;
-                    case '\b':
-                        k();
-                        return;
-                    case '\t':
-                        f(0);
-                        return;
-                    default:
-                        return;
-                }
-            }
+    public /* synthetic */ nv0(ArrayList arrayList, String str, Boolean bool, String str2, String str3, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(arrayList, str, r3, r4, r5, r6);
+        String str5;
+        String str6;
+        String str7;
+        Boolean bool2 = (i & 4) != 0 ? null : bool;
+        if ((i & 8) != 0) {
+            str5 = "";
+        } else {
+            str5 = str2;
+        }
+        if ((i & 16) != 0) {
+            str6 = "";
+        } else {
+            str6 = str3;
+        }
+        if ((i & 32) != 0) {
+            str7 = "";
+        } else {
+            str7 = str4;
         }
     }
 
-    public void g(int i, int i2, Object obj) {
-        hv0 hv0Var;
-        String str;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, obj) == null) && (hv0Var = this.a) != null) {
-            if (obj != null) {
-                str = obj.toString();
-            } else {
-                str = "";
-            }
-            hv0Var.onError(i, i2, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void h(int i, int i2, Object obj) {
-        hv0 hv0Var;
+    public Boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, obj) == null) && (hv0Var = this.a) != null) {
-            hv0Var.onInfo(i, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (Boolean) invokeV.objValue;
     }
 
-    public void p(int i, int i2, int i3) {
-        hv0 hv0Var;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIII(1048591, this, i, i2, i3) == null) && (hv0Var = this.a) != null) {
-            hv0Var.onUpdateProgress(i, i2, i3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void q(int i, int i2) {
-        hv0 hv0Var;
+    public final ArrayList<Object> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) && (hv0Var = this.a) != null) {
-            hv0Var.onVideoSizeChanged(i, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
     }
 }

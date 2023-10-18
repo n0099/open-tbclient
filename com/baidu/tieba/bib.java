@@ -1,345 +1,722 @@
 package com.baidu.tieba;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Process;
 import android.text.TextUtils;
+import android.util.JsonWriter;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vhb;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
-import java.io.Closeable;
+import com.baidu.yalog.Logger;
+import com.baidu.yalog.impl.mmap.YaNativeLogger;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.io.StringWriter;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes5.dex */
-public abstract class bib implements vhb {
+public class bib extends Logger {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile int c;
+    public static String[] d;
+    public static Object e;
+    public static ExecutorService f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public final yhb b;
-    public final gib c;
-    public final vhb.a d;
-    public volatile int e;
-    public volatile int f;
 
-    public abstract RandomAccessFile e(File file, String str, long j) throws IOException;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ long f;
+        public final /* synthetic */ int[] g;
+        public final /* synthetic */ bib h;
 
-    public abstract Map<String, String> f(gib gibVar);
+        public a(bib bibVar, String str, int i, String str2, String str3, int i2, long j, int[] iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bibVar, str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Long.valueOf(j), iArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = bibVar;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+            this.d = str3;
+            this.e = i2;
+            this.f = j;
+            this.g = iArr;
+        }
 
-    public abstract int g();
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.h.y(this.a, this.b, this.c, this.d, this.e, this.f, this.g);
+        }
+    }
 
-    public abstract String h();
+    /* loaded from: classes5.dex */
+    public class b implements Callable<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ long f;
+        public final /* synthetic */ bib g;
 
-    public abstract void j(gib gibVar);
+        public b(bib bibVar, String str, int i, String str2, String str3, int i2, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bibVar, str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = bibVar;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+            this.d = str3;
+            this.e = i2;
+            this.f = j;
+        }
 
-    public abstract void n(gib gibVar);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public Void call() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (Void) invokeV.objValue;
+            }
+            this.g.y(this.a, this.b, this.c, this.d, this.e, this.f, 0);
+            return null;
+        }
+    }
 
-    public bib(yhb yhbVar, gib gibVar, vhb.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yhbVar, gibVar, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bib a;
+
+        public c(bib bibVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bibVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bibVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.x(false);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(bib bibVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bibVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                bib.C();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            long min;
+            long min2;
+            long min3;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            synchronized (bib.e) {
+                String g = bib.g();
+                boolean z = bib.z(g);
+                vhb c = vhb.c();
+                if (!c.m()) {
+                    if (z && c.l()) {
+                        bib.r();
+                    }
+                    int unused = bib.c = 2;
+                    return;
+                }
+                YaNativeLogger.a();
+                YaNativeLogger.setBaseDir(bib.m());
+                YaNativeLogger.setProcessName(bib.t(g));
+                if (z) {
+                    YaNativeLogger.setMainController(true);
+                } else {
+                    YaNativeLogger.setMainController(false);
+                }
+                long h = c.h() * 1024 * 1024;
+                if (h <= 0) {
+                    min = 104857600;
+                } else {
+                    min = Math.min(h, 1073741824L);
+                }
+                YaNativeLogger.setMaxSizeAllLogFile(min);
+                long d = c.d() * 1024 * 1024;
+                if (d <= 0) {
+                    min2 = 1048576;
+                } else {
+                    min2 = Math.min(d, min);
+                }
+                YaNativeLogger.setMaxSizePerLogFile(min2);
+                YaNativeLogger.setDefaultSpaceEnable(true);
+                YaNativeLogger.setDefaultLogIdEnable(true);
+                long f = c.f() * 1024 * 1024;
+                if (f <= 0) {
+                    f = 20971520;
+                }
+                YaNativeLogger.setDefaultSpaceMaxSize(f);
+                List<yhb> e = c.e();
+                if (e != null && e.size() > 0) {
+                    for (yhb yhbVar : e) {
+                        if (yhbVar != null && !TextUtils.isEmpty(yhbVar.b())) {
+                            String b = yhbVar.b();
+                            YaNativeLogger.setSpaceEnable(b, yhbVar.c());
+                            long a = yhbVar.a() * 1024 * 1024;
+                            if (a <= 0) {
+                                a = 20971520;
+                            }
+                            YaNativeLogger.setSpaceMaxSize(b, a);
+                            long d2 = yhbVar.d() * 60 * 60 * 24;
+                            if (d2 <= 0) {
+                                d2 = 604800;
+                            }
+                            YaNativeLogger.setMaxAliveTimeForSpace(b, d2);
+                        }
+                    }
+                }
+                long b2 = c.b() * 1024 * 1024;
+                if (b2 <= 0) {
+                    b2 = 20971520;
+                }
+                YaNativeLogger.setDefaultLogIdMaxSize(b2);
+                Map<String, xhb> a2 = c.a();
+                if (a2 != null && a2.size() > 0) {
+                    for (String str : a2.keySet()) {
+                        if (!TextUtils.isEmpty(str) && a2.get(str) != null) {
+                            xhb xhbVar = a2.get(str);
+                            YaNativeLogger.setLogIdEnable(str, xhbVar.b());
+                            long a3 = xhbVar.a() * 1024 * 1024;
+                            if (a3 <= 0) {
+                                a3 = 20971520;
+                            }
+                            YaNativeLogger.setLogIdMaxSize(str, a3);
+                        }
+                    }
+                }
+                long g2 = c.g() * 24 * 60 * 60;
+                if (g2 <= 0) {
+                    min3 = 604800;
+                } else {
+                    min3 = Math.min(g2, 2592000L);
+                }
+                YaNativeLogger.setDefaultMaxAliveTimeForSpace(min3);
+                YaNativeLogger.start();
+                int unused2 = bib.c = 1;
+                if (bib.b) {
+                    Log.v("MmapLogger", "Yalog init finish");
+                }
+                bib.e.notifyAll();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947647342, "Lcom/baidu/tieba/bib;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947647342, "Lcom/baidu/tieba/bib;");
                 return;
             }
         }
-        this.f = 0;
-        this.b = yhbVar;
-        this.c = gibVar;
-        this.d = aVar;
-        String h = h();
-        this.a = h;
-        if (TextUtils.isEmpty(h)) {
-            this.a = getClass().getSimpleName();
-        }
+        b = AppConfig.isDebug();
+        c = 0;
+        d = new String[]{"L0", "L1", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "D", "I", ExifInterface.LONGITUDE_WEST, ExifInterface.LONGITUDE_EAST, ExifInterface.GPS_MEASUREMENT_IN_PROGRESS};
+        e = new Object();
+        f = Executors.newSingleThreadExecutor();
     }
 
-    public final void a() throws DownloadException {
+    public static String u() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f != 107) {
-                if (this.f != 106) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            Iterator<ActivityManager.RunningAppProcessInfo> it = ((ActivityManager) appContext.getSystemService("activity")).getRunningAppProcesses().iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    ActivityManager.RunningAppProcessInfo next = it.next();
+                    if (next.pid == Process.myPid()) {
+                        str = next.processName;
+                        break;
+                    }
+                } else {
+                    str = null;
+                    break;
                 }
-                n(this.c);
-                throw new DownloadException(106, "Download paused!");
             }
-            throw new DownloadException(107, "Download canceled!");
-        }
-    }
-
-    @Override // com.baidu.tieba.vhb
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = 107;
-        }
-    }
-
-    @Override // com.baidu.tieba.vhb
-    public boolean isComplete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.e == 105) {
-                return true;
+            if (!TextUtils.isEmpty(str)) {
+                return str;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vhb
-    public boolean isDownloading() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.e == 104) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vhb
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f = 106;
-        }
-    }
-
-    public final void b(Closeable closeable) throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeable) == null) && closeable != null) {
-            synchronized (bib.class) {
-                closeable.close();
-            }
-        }
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b.a().getAbsolutePath() + File.separator + this.b.d();
+            return appContext.getPackageName();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public bib(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            Process.setThreadPriority(10);
-            j(this.c);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        D();
+        E();
+    }
+
+    public static void s(File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65555, null, file) == null) && file != null && file.exists()) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        s(file2);
+                    } else {
+                        file2.delete();
+                    }
+                }
+            }
+            file.delete();
+        }
+    }
+
+    public static List<String> B(long j, long j2, String str, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!F()) {
+                return arrayList;
+            }
             try {
-                this.e = 104;
-                d();
-                synchronized (this.d) {
-                    this.e = 105;
-                    this.d.onDownloadCompleted(c());
+                YaNativeLogger.queryLogFiles(j, j2, str, str2, arrayList);
+            } catch (Throwable th) {
+                if (b) {
+                    th.printStackTrace();
                 }
-            } catch (DownloadException e) {
-                i(e);
+            }
+            return arrayList;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public static void C() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || !F()) {
+            return;
+        }
+        try {
+            YaNativeLogger.requestCleanOverQuotaLog();
+        } catch (Throwable th) {
+            if (b) {
+                th.printStackTrace();
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x005c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x007a  */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v6, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r2v7 */
-    /* JADX WARN: Type inference failed for: r7v0, types: [com.baidu.tieba.bib, java.lang.Object] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void d() throws DownloadException {
-        IOException e;
-        ProtocolException e2;
+    public static void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || c != 0) {
+            return;
+        }
+        dib.a(new e());
+    }
+
+    public static boolean F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == 0) {
+                synchronized (e) {
+                    while (c == 0) {
+                        try {
+                            e.wait();
+                        } catch (InterruptedException unused) {
+                        }
+                    }
+                }
+            }
+            if (c == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static /* synthetic */ String g() {
+        return u();
+    }
+
+    public static /* synthetic */ String m() {
+        return p();
+    }
+
+    public static String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, ".yalog").getAbsolutePath();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
+            s(new File(p()));
+        }
+    }
+
+    public /* synthetic */ void A() {
+        if (c == 3) {
+            c = 0;
+            D();
+            E();
+        }
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            new Handler(Looper.getMainLooper()).postDelayed(new d(this), 30000L);
+        }
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void reinitialize() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            dib.a(new Runnable() { // from class: com.baidu.tieba.zhb
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        bib.this.A();
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void executeRunnable(@NonNull Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+            f.execute(runnable);
+        }
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void flush(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (z) {
+                x(true);
+            } else {
+                f.execute(new c(this));
+            }
+        }
+    }
+
+    public final void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) != null) || !F()) {
+            return;
+        }
+        try {
+            YaNativeLogger.flush(this.a, z);
+        } catch (Throwable th) {
+            if (b) {
+                th.printStackTrace();
+            }
+        }
+    }
+
+    public static List<String> q(long j, long j2, String str, String str2, boolean z, boolean z2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!F()) {
+                return arrayList;
+            }
             try {
-                URL url = new URL(this.c.d());
-                ?? r2 = 0;
-                try {
-                    try {
-                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                        try {
-                            httpURLConnection.setConnectTimeout(4000);
-                            httpURLConnection.setReadTimeout(4000);
-                            httpURLConnection.setRequestMethod("GET");
-                            k(f(this.c), httpURLConnection);
-                            int responseCode = httpURLConnection.getResponseCode();
-                            if (responseCode == g()) {
-                                m(httpURLConnection);
-                                if (httpURLConnection != null) {
-                                    httpURLConnection.disconnect();
-                                    return;
-                                }
-                                return;
-                            }
-                            throw new DownloadException(108, "UnSupported response code:" + responseCode);
-                        } catch (ProtocolException e3) {
-                            e2 = e3;
-                            throw new DownloadException(108, "Protocol error", e2);
-                        } catch (IOException e4) {
-                            e = e4;
-                            throw new DownloadException(108, "IO error", e);
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        r2 = url;
-                        if (r2 != 0) {
-                            r2.disconnect();
-                        }
-                        throw th;
-                    }
-                } catch (ProtocolException e5) {
-                    e2 = e5;
-                } catch (IOException e6) {
-                    e = e6;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (r2 != 0) {
-                    }
-                    throw th;
-                }
-            } catch (MalformedURLException e7) {
-                throw new DownloadException(108, "Bad url.", e7);
-            }
-        }
-    }
-
-    public final void i(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, downloadException) == null) {
-            switch (downloadException.getErrorCode()) {
-                case 106:
-                    synchronized (this.d) {
-                        this.e = 106;
-                        this.d.onDownloadPaused();
-                    }
-                    return;
-                case 107:
-                    synchronized (this.d) {
-                        this.e = 107;
-                        this.d.onDownloadCanceled();
-                    }
-                    return;
-                case 108:
-                    synchronized (this.d) {
-                        this.e = 108;
-                        this.d.a(downloadException);
-                    }
-                    return;
-                default:
-                    throw new IllegalArgumentException("Unknown state");
-            }
-        }
-    }
-
-    public final void k(Map<String, String> map, URLConnection uRLConnection) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, map, uRLConnection) == null) && map != null) {
-            for (String str : map.keySet()) {
-                uRLConnection.setRequestProperty(str, map.get(str));
-            }
-        }
-    }
-
-    public final void l(InputStream inputStream, RandomAccessFile randomAccessFile) throws DownloadException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, inputStream, randomAccessFile) == null) {
-            byte[] bArr = new byte[8192];
-            while (true) {
-                a();
-                try {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        return;
-                    }
-                    randomAccessFile.write(bArr, 0, read);
-                    long j = read;
-                    this.c.e(this.c.b() + j);
-                    synchronized (this.d) {
-                        this.b.f(this.b.b() + j);
-                        this.d.onDownloadProgress(this.b.b(), this.b.c());
-                    }
-                } catch (IOException e) {
-                    n(this.c);
-                    throw new DownloadException(108, e);
+                YaNativeLogger.createLogSnapShot(j, j2, str, str2, z, z2, str3, arrayList);
+            } catch (Throwable th) {
+                if (b) {
+                    th.printStackTrace();
                 }
             }
+            return arrayList;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public static String t(String str) {
+        InterceptResult invokeL;
+        String replaceAll;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "unknown";
+            }
+            if (z(str)) {
+                return "main";
+            }
+            Context appContext = AppRuntime.getAppContext();
+            String str2 = appContext.getApplicationInfo().packageName;
+            if (TextUtils.isEmpty(str2)) {
+                str2 = appContext.getPackageName();
+            }
+            String str3 = str2 + ":";
+            if (str.startsWith(str3)) {
+                String substring = str.substring(str3.length());
+                if (TextUtils.equals("main", substring)) {
+                    return "_main";
+                }
+                if (!TextUtils.isEmpty(substring)) {
+                    replaceAll = substring.replaceAll("[:/]", "_");
+                } else {
+                    replaceAll = "";
+                }
+            } else {
+                replaceAll = str.replaceAll("[:/]", "_");
+            }
+            if (TextUtils.isEmpty(replaceAll)) {
+                return "unknown";
+            }
+            return replaceAll;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            if (str == null) {
+                return true;
+            }
+            Context appContext = AppRuntime.getAppContext();
+            String str2 = appContext.getApplicationInfo().processName;
+            if (TextUtils.isEmpty(str2)) {
+                str2 = appContext.getPackageName();
+            }
+            if (str.startsWith(str2)) {
+                if (str.length() == str2.length() || str.charAt(str2.length()) != ':') {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void log(String str, int i, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048580, this, str, i, str2, str3) == null) {
+            log(str, i, str2, str3, 0);
         }
     }
 
-    public final void m(HttpURLConnection httpURLConnection) throws DownloadException {
-        Closeable closeable;
+    @Override // com.baidu.yalog.Logger
+    public void log(String str, int i, String str2, String str3, int... iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, httpURLConnection) == null) {
-            Closeable closeable2 = null;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i), str2, str3, iArr}) == null) {
+            f.execute(new a(this, str, i, str2, str3, Process.myTid(), System.currentTimeMillis(), iArr));
+        }
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void logSync(String str, int i, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048582, this, str, i, str2, str3) == null) {
             try {
-                try {
-                    InputStream inputStream = httpURLConnection.getInputStream();
-                    try {
-                        long c = this.c.c() + this.c.b();
-                        try {
-                            File a = this.b.a();
-                            if (!a.exists()) {
-                                a.mkdirs();
-                            }
-                            RandomAccessFile e = e(a, this.b.d(), c);
-                            l(inputStream, e);
-                            try {
-                                b(inputStream);
-                                b(e);
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
-                            }
-                        } catch (IOException e3) {
-                            throw new DownloadException(108, "File occur IOException ", e3);
-                        } catch (Exception e4) {
-                            throw new DownloadException(108, "Occur Exception ", e4);
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        closeable2 = inputStream;
-                        closeable = null;
-                        try {
-                            b(closeable2);
-                            b(closeable);
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (IOException e6) {
-                    throw new DownloadException(108, "http get inputStream error", e6);
+                f.submit(new b(this, str, i, str2, str3, Process.myTid(), System.currentTimeMillis())).get();
+            } catch (Exception e2) {
+                if (b) {
+                    e2.printStackTrace();
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                closeable = null;
             }
         }
+    }
+
+    public final void y(String str, int i, String str2, String str3, int i2, long j, int... iArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Long.valueOf(j), iArr}) != null) || !F()) {
+            return;
+        }
+        int myPid = Process.myPid();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        StringWriter stringWriter = new StringWriter();
+        JsonWriter jsonWriter = new JsonWriter(stringWriter);
+        int i3 = 0;
+        for (int i4 : iArr) {
+            i3 |= i4;
+        }
+        try {
+            jsonWriter.beginObject();
+            if ((i3 & 17) != 17) {
+                jsonWriter.name("pid").value(myPid);
+            }
+            if ((i3 & 18) != 18) {
+                jsonWriter.name("tid").value(i2);
+            }
+            jsonWriter.name("time").value(simpleDateFormat.format(Long.valueOf(j)));
+            if (!TextUtils.isEmpty(str)) {
+                jsonWriter.name("logid").value(str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                jsonWriter.name("tag").value(str2);
+            }
+            if (i >= 0 && i < d.length) {
+                jsonWriter.name("level").value(d[i]);
+            } else if (i != -1) {
+                jsonWriter.name("level").value("L" + i);
+            }
+            jsonWriter.endObject();
+        } catch (IOException unused) {
+        }
+        YaNativeLogger.b(this.a, "main", str, stringWriter.toString(), str3);
     }
 }

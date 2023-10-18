@@ -1,138 +1,55 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.menu.viewpager.PointPageIndicator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ac4 {
+public class ac4 extends PointPageIndicator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(CallbackHandler callbackHandler, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac4(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        hc4 hc4Var = new hc4();
-        hc4Var.a = str;
-        xb4.c().a(new wb4(50000, hc4Var));
-    }
-
-    public static void b(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        hc4 hc4Var = new hc4();
-        hc4Var.a = str;
-        xb4.c().a(new wb4(90000, hc4Var));
-    }
-
-    public static void e(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        hc4 hc4Var = new hc4();
-        hc4Var.a = str;
-        xb4.c().a(new wb4(60000, hc4Var));
-    }
-
-    public static void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        hc4 hc4Var = new hc4();
-        hc4Var.a = str;
-        xb4.c().a(new wb4(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, hc4Var));
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            fc4 fc4Var = new fc4();
-            fc4Var.b = str;
-            fc4Var.a = str2;
-            xb4.c().a(new wb4(30000, fc4Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void c(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            ec4 ec4Var = new ec4();
-            ec4Var.b = str;
-            ec4Var.c = i;
-            ec4Var.d = z ? 1 : 0;
-            ec4Var.a = str2;
-            xb4.c().a(new wb4(DefaultOggSeeker.MATCH_BYTE_RANGE, ec4Var));
-        }
+    @Override // com.baidu.swan.menu.viewpager.PointPageIndicator
+    public /* bridge */ /* synthetic */ PointPageIndicator d(Drawable drawable, Drawable drawable2) {
+        g(drawable, drawable2);
+        return this;
     }
 
-    public static void h(String str, int i, String str2, boolean z) {
+    public ac4 g(Drawable drawable, Drawable drawable2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            ec4 ec4Var = new ec4();
-            ec4Var.b = str;
-            ec4Var.c = i;
-            ec4Var.d = z ? 1 : 0;
-            ec4Var.a = str2;
-            xb4.c().a(new wb4(70000, ec4Var));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, drawable2)) == null) {
+            this.a = drawable;
+            this.b = drawable2;
+            this.c.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.d.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            return this;
         }
-    }
-
-    public static void k(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            ec4 ec4Var = new ec4();
-            ec4Var.b = str;
-            ec4Var.c = i;
-            ec4Var.d = z ? 1 : 0;
-            ec4Var.a = str2;
-            xb4.c().a(new wb4(110000, ec4Var));
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            hc4 hc4Var = new hc4();
-            hc4Var.a = str;
-            xb4.c().a(new wb4(20000, hc4Var));
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            hc4 hc4Var = new hc4();
-            hc4Var.a = str;
-            xb4.c().a(new wb4(10000, hc4Var));
-        }
-    }
-
-    public static void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            hc4 hc4Var = new hc4();
-            hc4Var.a = str;
-            xb4.c().a(new wb4(120000, hc4Var));
-        }
-    }
-
-    public static void j(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
-            gc4 gc4Var = new gc4();
-            gc4Var.b = str;
-            gc4Var.c = i;
-            gc4Var.a = str2;
-            xb4.c().a(new wb4(80000, gc4Var));
-        }
+        return (ac4) invokeLL.objValue;
     }
 }

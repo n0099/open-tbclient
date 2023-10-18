@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rb9;
+import com.baidu.tieba.c69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class MemberPayFragment extends BaseFragment {
     public int f;
     public int g;
     public String h;
-    public rb9 i;
+    public c69 i;
     public MemberPayResult j;
     public View k;
 
@@ -46,30 +46,30 @@ public class MemberPayFragment extends BaseFragment {
         this.j = null;
     }
 
-    public int getType() {
+    public int c2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
     }
 
-    public void c2(Boolean bool) {
-        rb9 rb9Var;
+    public void d2(Boolean bool) {
+        c69 c69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && (rb9Var = this.i) != null) {
-            rb9Var.v(bool.booleanValue());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) && (c69Var = this.i) != null) {
+            c69Var.v(bool.booleanValue());
         }
     }
 
-    public void d2(MemberPayResult memberPayResult) {
+    public void e2(MemberPayResult memberPayResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, memberPayResult) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, memberPayResult) == null) {
             this.j = memberPayResult;
-            rb9 rb9Var = this.i;
-            if (rb9Var != null) {
-                rb9Var.x(memberPayResult);
+            c69 c69Var = this.i;
+            if (c69Var != null) {
+                c69Var.x(memberPayResult);
             }
         }
     }
@@ -87,9 +87,9 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            rb9 rb9Var = this.i;
-            if (rb9Var != null) {
-                rb9Var.u(i);
+            c69 c69Var = this.i;
+            if (c69Var != null) {
+                c69Var.u(i);
             }
         }
     }
@@ -118,10 +118,10 @@ public class MemberPayFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d061e, viewGroup, false);
-            rb9 rb9Var = new rb9(getPageContext(), this.k, this.a, this.b, this.d, this.e, this.f, this.g, this.h, this.c);
-            this.i = rb9Var;
-            rb9Var.x(this.j);
+            this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0610, viewGroup, false);
+            c69 c69Var = new c69(getPageContext(), this.k, this.a, this.b, this.d, this.e, this.f, this.g, this.h, this.c);
+            this.i = c69Var;
+            c69Var.x(this.j);
             return this.k;
         }
         return (View) invokeLLL.objValue;

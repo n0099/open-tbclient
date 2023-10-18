@@ -4,9 +4,9 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ara;
-import com.baidu.tieba.wqa;
-import com.baidu.tieba.zqa;
+import com.baidu.tieba.mla;
+import com.baidu.tieba.pla;
+import com.baidu.tieba.qla;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,9 +24,9 @@ import tbclient.GetThemeList.ThemeList;
 public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ara mRecommand;
-    public List<wqa> mThemeCarouselList;
-    public List<zqa> mThemeList;
+    public qla mRecommand;
+    public List<mla> mThemeCarouselList;
+    public List<pla> mThemeList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DressupCenterSocketResponseMessage() {
@@ -46,16 +46,16 @@ public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public ara getRecommand() {
+    public qla getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mRecommand;
         }
-        return (ara) invokeV.objValue;
+        return (qla) invokeV.objValue;
     }
 
-    public List<wqa> getThemeCarouselList() {
+    public List<mla> getThemeCarouselList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -64,7 +64,7 @@ public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List<zqa> getThemeList() {
+    public List<pla> getThemeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -94,9 +94,9 @@ public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
                     this.mThemeCarouselList = new ArrayList();
                     for (ThemeCarousel themeCarousel : getThemeListResIdl.data.carousel) {
                         if (themeCarousel != null && (!StringUtils.isNull(themeCarousel.pic_url) || !StringUtils.isNull(themeCarousel.active_url))) {
-                            wqa wqaVar = new wqa();
-                            wqaVar.a(themeCarousel);
-                            this.mThemeCarouselList.add(wqaVar);
+                            mla mlaVar = new mla();
+                            mlaVar.a(themeCarousel);
+                            this.mThemeCarouselList.add(mlaVar);
                         }
                     }
                 }
@@ -104,16 +104,16 @@ public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
                     this.mThemeList = new ArrayList();
                     for (ThemeList themeList : getThemeListResIdl.data.theme_list) {
                         if (themeList != null && !StringUtils.isNull(themeList.name)) {
-                            zqa zqaVar = new zqa();
-                            zqaVar.d(themeList);
-                            this.mThemeList.add(zqaVar);
+                            pla plaVar = new pla();
+                            plaVar.e(themeList);
+                            this.mThemeList.add(plaVar);
                         }
                     }
                 }
                 if (getThemeListResIdl.data.recommend != null) {
-                    ara araVar = new ara();
-                    this.mRecommand = araVar;
-                    araVar.d(getThemeListResIdl.data.recommend);
+                    qla qlaVar = new qla();
+                    this.mRecommand = qlaVar;
+                    qlaVar.d(getThemeListResIdl.data.recommend);
                 }
             }
             return getThemeListResIdl;
@@ -121,21 +121,21 @@ public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public void setRecommand(ara araVar) {
+    public void setRecommand(qla qlaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, araVar) == null) {
-            this.mRecommand = araVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, qlaVar) == null) {
+            this.mRecommand = qlaVar;
         }
     }
 
-    public void setThemeCarouselList(List<wqa> list) {
+    public void setThemeCarouselList(List<mla> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.mThemeCarouselList = list;
         }
     }
 
-    public void setThemeList(List<zqa> list) {
+    public void setThemeList(List<pla> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.mThemeList = list;

@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
-import com.baidu.tieba.lt4;
-import com.baidu.tieba.mt4;
+import com.baidu.tieba.tn4;
+import com.baidu.tieba.un4;
 import com.baidu.tieba.videoplay.view.VideoChannelHeaderLayout;
 import com.baidu.tieba.videoplay.view.VideoChannelViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -238,8 +238,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
-            if (mt4.w().y(lt4.e0)) {
-                mt4.w().E();
+            if (un4.w().y(tn4.e0)) {
+                un4.w().E();
             }
         }
     }
@@ -251,8 +251,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
             super.onPrimary();
             if (isPrimary()) {
                 startBrowseTimeMission();
-            } else if (mt4.w().y(lt4.e0)) {
-                mt4.w().E();
+            } else if (un4.w().y(tn4.e0)) {
+                un4.w().E();
             }
         }
     }
@@ -269,7 +269,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            mt4.w().O(lt4.e0);
+            un4.w().O(tn4.e0);
         }
     }
 

@@ -1,75 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.proxy.IAdDownloader;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bm0 {
     public static /* synthetic */ Interceptable $ic;
-    public static cm0 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public String b;
+    public final String c;
+    public final String d;
+    public final boolean e;
+    public final String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947649636, "Lcom/baidu/tieba/bm0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947649636, "Lcom/baidu/tieba/bm0;");
-        }
-    }
-
-    public bm0() {
+    public bm0(@NonNull JSONObject jSONObject, boolean z) {
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        if (z) {
+            str = "pkg_name";
+        } else {
+            str = "apk_name";
+        }
+        this.a = jSONObject.optString(str);
+        if (z) {
+            str2 = "key";
+        } else {
+            str2 = "download_key";
+        }
+        this.d = jSONObject.optString(str2);
+        this.b = jSONObject.optString("deferred_cmd");
+        this.c = jSONObject.optString("download_url");
+        jSONObject.optString("source", "apk_yuansheng");
+        this.f = jSONObject.optString(CommandUBCHelper.COMMAND_UBC_TYPE_COPY);
+        this.e = a();
     }
 
-    public static cm0 a() {
-        InterceptResult invokeV;
+    @Nullable
+    public static bm0 b(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (bm0.class) {
-                    if (a == null) {
-                        a = (cm0) ServiceManager.getService(cm0.a);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return a;
+            return new bm0(jSONObject, false);
         }
-        return (cm0) invokeV.objValue;
+        return (bm0) invokeL.objValue;
     }
 
-    public static IAdDownloader b() {
+    @Nullable
+    public static bm0 c(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return new bm0(jSONObject, true);
+        }
+        return (bm0) invokeL.objValue;
+    }
+
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            cm0 a2 = a();
-            if (a2 == null) {
-                return c61.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.c)) {
+                return true;
             }
-            return a2.a();
+            return false;
         }
-        return (IAdDownloader) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

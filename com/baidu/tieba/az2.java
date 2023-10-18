@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface az2 {
-    void a(File file);
-
-    void b(String str);
+public interface az2 extends bz2 {
+    void b(JSONObject jSONObject);
 }

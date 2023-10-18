@@ -6,17 +6,17 @@ import android.database.Cursor;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.fi2;
-import com.baidu.tieba.ix2;
+import com.baidu.tieba.oc2;
+import com.baidu.tieba.rr2;
 /* loaded from: classes4.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
-    public volatile fi2 a;
+    public volatile oc2 a;
 
-    public final fi2 a() {
+    public final oc2 a() {
         if (this.a == null) {
             synchronized (SwanAppFavoriteProvider.class) {
                 if (this.a == null) {
-                    this.a = new fi2();
+                    this.a = new oc2();
                 }
             }
         }
@@ -25,35 +25,35 @@ public class SwanAppFavoriteProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        ix2.a().b(getContext());
+        rr2.a().b(getContext());
         return true;
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return a().delete(uri, str, strArr);
+        return a().a(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return a().getType(uri);
+        return a().c(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return a().insert(uri, contentValues);
+        return a().d(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return a().query(uri, strArr, str, strArr2, str2);
+        return a().f(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return a().update(uri, contentValues, str, strArr);
+        return a().g(uri, contentValues, str, strArr);
     }
 }

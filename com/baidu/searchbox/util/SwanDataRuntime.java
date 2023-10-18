@@ -2,12 +2,12 @@ package com.baidu.searchbox.util;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.ada;
+import com.baidu.tieba.q7a;
 @Autowired
 /* loaded from: classes4.dex */
 public class SwanDataRuntime {
     @Inject
     public static ISwanData getISwanData() {
-        return ada.a();
+        return q7a.a();
     }
 }

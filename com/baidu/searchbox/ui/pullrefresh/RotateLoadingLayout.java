@@ -42,36 +42,36 @@ public class RotateLoadingLayout extends LoadingLayout {
         if (relativeLayout != null) {
             return relativeLayout.getHeight();
         }
-        return (int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07077c);
+        return (int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070777);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onPullToRefresh() {
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f119f);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11ae);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onRefreshing() {
         resetRotation();
         this.mArrowImageView.startAnimation(this.mRotateAnimation);
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f119e);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11ad);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReleaseToLongRefresh() {
         super.onReleaseToLongRefresh();
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f119d);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11ac);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReleaseToRefresh() {
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11a0);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11af);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReset() {
         resetRotation();
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f119f);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f11ae);
     }
 
     public RotateLoadingLayout(Context context) {
@@ -110,11 +110,11 @@ public class RotateLoadingLayout extends LoadingLayout {
     }
 
     private void init(Context context) {
-        this.mHeaderContainer = (RelativeLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dc1);
-        this.mArrowImageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dbf);
-        this.mHintTextView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dc2);
-        this.mHeaderTimeView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dc5);
-        this.mHeaderTimeViewTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dc7);
+        this.mHeaderContainer = (RelativeLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091de3);
+        this.mArrowImageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091de1);
+        this.mHintTextView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091de4);
+        this.mHeaderTimeView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091de7);
+        this.mHeaderTimeViewTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091de9);
         this.mArrowImageView.setScaleType(ImageView.ScaleType.CENTER);
         this.mArrowImageView.setImageResource(com.baidu.tieba.R.drawable.default_ptr_rotate);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
@@ -128,6 +128,6 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public View createLoadingView(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        return LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0840, viewGroup, false);
+        return LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0833, viewGroup, false);
     }
 }

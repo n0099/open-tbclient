@@ -1,56 +1,119 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.webkit.URLUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.download.model.Downloads;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ah6 extends rg6 {
+public class ah6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947615226, "Lcom/baidu/tieba/ah6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static Set<sg6> a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            HashSet hashSet = new HashSet();
+            if (jSONObject == null) {
+                return hashSet;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947615226, "Lcom/baidu/tieba/ah6;");
+            JSONObject optJSONObject = jSONObject.optJSONObject(PrefetchEvent.MODULE);
+            if (optJSONObject == null) {
+                return hashSet;
+            }
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                if (optJSONObject2 != null) {
+                    String str = null;
+                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("since");
+                    if (optJSONObject3 != null) {
+                        str = optJSONObject3.optString("android", "");
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        str = com.kuaishou.weapon.p0.q1.e;
+                    }
+                    sg6 sg6Var = new sg6(next, optJSONObject2.optString("method", "GET"), str);
+                    JSONObject optJSONObject4 = optJSONObject2.optJSONObject(Downloads.Impl.RequestHeaders.URI_SEGMENT);
+                    if (optJSONObject4 != null) {
+                        Iterator<String> keys2 = optJSONObject4.keys();
+                        while (keys2.hasNext()) {
+                            String next2 = keys2.next();
+                            if (!TextUtils.isEmpty(next2)) {
+                                sg6Var.a(next2, optJSONObject4.optString(next2));
+                            }
+                        }
+                    }
+                    hashSet.add(sg6Var);
+                }
+            }
+            return hashSet;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    public static void b(String str) {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            rg6.c().b();
+            try {
+                jSONArray = new JSONArray(str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                jSONArray = null;
+            }
+            if (zh6.c(jSONArray)) {
                 return;
             }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public ah6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    String optString = optJSONObject.optString("url", "");
+                    if (!TextUtils.isEmpty(optString)) {
+                        Set<sg6> a = a(optJSONObject);
+                        qg6 qg6Var = new qg6();
+                        if (!zh6.a(a)) {
+                            qg6Var.a = a;
+                            qg6Var.d = optString;
+                            rg6.c().a(optString, qg6Var);
+                        } else {
+                            rg6.c().a(optString, qg6Var);
+                        }
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Nullable
+    public static List<Pair<String, Long>> c(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            ji6 ji6Var = (ji6) ServiceManager.getService(ji6.a);
+            if (ji6Var != null && URLUtil.isNetworkUrl(str)) {
+                return ji6Var.a(str);
+            }
+            return null;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 }

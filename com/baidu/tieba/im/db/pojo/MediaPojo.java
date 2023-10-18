@@ -50,7 +50,7 @@ public class MediaPojo extends OrmObject {
         }
     }
 
-    public String M() {
+    public String N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -59,16 +59,7 @@ public class MediaPojo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.type;
-        }
-        return invokeV.intValue;
-    }
-
-    public void N(Media media) {
+    public void O(Media media) {
         int intValue;
         int intValue2;
         int intValue3;

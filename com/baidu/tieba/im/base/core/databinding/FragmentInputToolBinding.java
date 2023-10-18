@@ -68,26 +68,26 @@ public final class FragmentInputToolBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090489;
-            GroupChatKeyboardLayout groupChatKeyboardLayout = (GroupChatKeyboardLayout) view2.findViewById(R.id.obfuscated_res_0x7f090489);
+            int i = R.id.obfuscated_res_0x7f09048a;
+            GroupChatKeyboardLayout groupChatKeyboardLayout = (GroupChatKeyboardLayout) view2.findViewById(R.id.obfuscated_res_0x7f09048a);
             if (groupChatKeyboardLayout != null) {
-                i = R.id.obfuscated_res_0x7f09112d;
-                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09112d);
+                i = R.id.obfuscated_res_0x7f091147;
+                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091147);
                 if (relativeLayout != null) {
-                    i = R.id.obfuscated_res_0x7f091135;
-                    RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091135);
+                    i = R.id.obfuscated_res_0x7f09114f;
+                    RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09114f);
                     if (relativeLayout2 != null) {
-                        i = R.id.obfuscated_res_0x7f091f87;
-                        GroupChatRobotFloorView groupChatRobotFloorView = (GroupChatRobotFloorView) view2.findViewById(R.id.obfuscated_res_0x7f091f87);
+                        i = R.id.obfuscated_res_0x7f091f92;
+                        GroupChatRobotFloorView groupChatRobotFloorView = (GroupChatRobotFloorView) view2.findViewById(R.id.obfuscated_res_0x7f091f92);
                         if (groupChatRobotFloorView != null) {
-                            i = R.id.obfuscated_res_0x7f09225b;
-                            NoSlidingLinearLayout noSlidingLinearLayout = (NoSlidingLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09225b);
+                            i = R.id.obfuscated_res_0x7f092265;
+                            NoSlidingLinearLayout noSlidingLinearLayout = (NoSlidingLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092265);
                             if (noSlidingLinearLayout != null) {
-                                i = R.id.obfuscated_res_0x7f09284c;
-                                GroupChatUserReplyView groupChatUserReplyView = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f09284c);
+                                i = R.id.obfuscated_res_0x7f092841;
+                                GroupChatUserReplyView groupChatUserReplyView = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f092841);
                                 if (groupChatUserReplyView != null) {
-                                    i = R.id.obfuscated_res_0x7f09287e;
-                                    GroupChatUserReplyView groupChatUserReplyView2 = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f09287e);
+                                    i = R.id.obfuscated_res_0x7f092873;
+                                    GroupChatUserReplyView groupChatUserReplyView2 = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f092873);
                                     if (groupChatUserReplyView2 != null) {
                                         return new FragmentInputToolBinding((RelativeLayout) view2, groupChatKeyboardLayout, relativeLayout, relativeLayout2, groupChatRobotFloorView, noSlidingLinearLayout, groupChatUserReplyView, groupChatUserReplyView2);
                                     }

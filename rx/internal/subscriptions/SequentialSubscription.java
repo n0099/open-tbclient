@@ -1,24 +1,24 @@
 package rx.internal.subscriptions;
 
-import com.baidu.tieba.ohc;
-import com.baidu.tieba.rcc;
+import com.baidu.tieba.nbc;
+import com.baidu.tieba.o6c;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class SequentialSubscription extends AtomicReference<rcc> implements rcc {
+public final class SequentialSubscription extends AtomicReference<o6c> implements o6c {
     public static final long serialVersionUID = 995205034283130269L;
 
     public SequentialSubscription() {
     }
 
-    public rcc current() {
-        rcc rccVar = (rcc) super.get();
-        if (rccVar == Unsubscribed.INSTANCE) {
-            return ohc.c();
+    public o6c current() {
+        o6c o6cVar = (o6c) super.get();
+        if (o6cVar == Unsubscribed.INSTANCE) {
+            return nbc.c();
         }
-        return rccVar;
+        return o6cVar;
     }
 
-    @Override // com.baidu.tieba.rcc
+    @Override // com.baidu.tieba.o6c
     public boolean isUnsubscribed() {
         if (get() == Unsubscribed.INSTANCE) {
             return true;
@@ -26,86 +26,86 @@ public final class SequentialSubscription extends AtomicReference<rcc> implement
         return false;
     }
 
-    @Override // com.baidu.tieba.rcc
+    @Override // com.baidu.tieba.o6c
     public void unsubscribe() {
-        rcc andSet;
-        rcc rccVar = get();
+        o6c andSet;
+        o6c o6cVar = get();
         Unsubscribed unsubscribed = Unsubscribed.INSTANCE;
-        if (rccVar != unsubscribed && (andSet = getAndSet(unsubscribed)) != null && andSet != Unsubscribed.INSTANCE) {
+        if (o6cVar != unsubscribed && (andSet = getAndSet(unsubscribed)) != null && andSet != Unsubscribed.INSTANCE) {
             andSet.unsubscribe();
         }
     }
 
-    public SequentialSubscription(rcc rccVar) {
-        lazySet(rccVar);
+    public SequentialSubscription(o6c o6cVar) {
+        lazySet(o6cVar);
     }
 
-    public boolean replace(rcc rccVar) {
-        rcc rccVar2;
+    public boolean replace(o6c o6cVar) {
+        o6c o6cVar2;
         do {
-            rccVar2 = get();
-            if (rccVar2 == Unsubscribed.INSTANCE) {
-                if (rccVar != null) {
-                    rccVar.unsubscribe();
+            o6cVar2 = get();
+            if (o6cVar2 == Unsubscribed.INSTANCE) {
+                if (o6cVar != null) {
+                    o6cVar.unsubscribe();
                     return false;
                 }
                 return false;
             }
-        } while (!compareAndSet(rccVar2, rccVar));
+        } while (!compareAndSet(o6cVar2, o6cVar));
         return true;
     }
 
-    public boolean replaceWeak(rcc rccVar) {
-        rcc rccVar2 = get();
-        if (rccVar2 == Unsubscribed.INSTANCE) {
-            if (rccVar != null) {
-                rccVar.unsubscribe();
+    public boolean replaceWeak(o6c o6cVar) {
+        o6c o6cVar2 = get();
+        if (o6cVar2 == Unsubscribed.INSTANCE) {
+            if (o6cVar != null) {
+                o6cVar.unsubscribe();
             }
             return false;
-        } else if (compareAndSet(rccVar2, rccVar) || get() != Unsubscribed.INSTANCE) {
+        } else if (compareAndSet(o6cVar2, o6cVar) || get() != Unsubscribed.INSTANCE) {
             return true;
         } else {
-            if (rccVar != null) {
-                rccVar.unsubscribe();
+            if (o6cVar != null) {
+                o6cVar.unsubscribe();
             }
             return false;
         }
     }
 
-    public boolean update(rcc rccVar) {
-        rcc rccVar2;
+    public boolean update(o6c o6cVar) {
+        o6c o6cVar2;
         do {
-            rccVar2 = get();
-            if (rccVar2 == Unsubscribed.INSTANCE) {
-                if (rccVar != null) {
-                    rccVar.unsubscribe();
+            o6cVar2 = get();
+            if (o6cVar2 == Unsubscribed.INSTANCE) {
+                if (o6cVar != null) {
+                    o6cVar.unsubscribe();
                     return false;
                 }
                 return false;
             }
-        } while (!compareAndSet(rccVar2, rccVar));
-        if (rccVar2 != null) {
-            rccVar2.unsubscribe();
+        } while (!compareAndSet(o6cVar2, o6cVar));
+        if (o6cVar2 != null) {
+            o6cVar2.unsubscribe();
             return true;
         }
         return true;
     }
 
-    public boolean updateWeak(rcc rccVar) {
-        rcc rccVar2 = get();
-        if (rccVar2 == Unsubscribed.INSTANCE) {
-            if (rccVar != null) {
-                rccVar.unsubscribe();
+    public boolean updateWeak(o6c o6cVar) {
+        o6c o6cVar2 = get();
+        if (o6cVar2 == Unsubscribed.INSTANCE) {
+            if (o6cVar != null) {
+                o6cVar.unsubscribe();
             }
             return false;
-        } else if (compareAndSet(rccVar2, rccVar)) {
+        } else if (compareAndSet(o6cVar2, o6cVar)) {
             return true;
         } else {
-            rcc rccVar3 = get();
-            if (rccVar != null) {
-                rccVar.unsubscribe();
+            o6c o6cVar3 = get();
+            if (o6cVar != null) {
+                o6cVar.unsubscribe();
             }
-            if (rccVar3 != Unsubscribed.INSTANCE) {
+            if (o6cVar3 != Unsubscribed.INSTANCE) {
                 return false;
             }
             return true;

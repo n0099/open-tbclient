@@ -1,10 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Message;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,110 +8,165 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 /* loaded from: classes5.dex */
-public class b63 implements kw2 {
-    public static /* synthetic */ Interceptable $ic;
+public class b63 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Runnable, String> c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947596874, "Lcom/baidu/tieba/b63;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947596874, "Lcom/baidu/tieba/b63;");
+        }
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final b63 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppConfigData a;
+        public final /* synthetic */ File b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-965164148, "Lcom/baidu/tieba/b63$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-965164148, "Lcom/baidu/tieba/b63$b;");
+        public a(SwanAppConfigData swanAppConfigData, File file, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {swanAppConfigData, file, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new b63(null);
+            this.a = swanAppConfigData;
+            this.b = file;
         }
-    }
 
-    public b63() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @Override // java.lang.Runnable
+        public void run() {
+            FileOutputStream fileOutputStream;
+            Throwable th;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
                 return;
             }
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                fileOutputStream = new FileOutputStream(this.b);
+                try {
+                    fileOutputStream.write(SwanAppConfigData.w.call(this.a));
+                    sl4.d(fileOutputStream);
+                } catch (Exception unused) {
+                    fileOutputStream2 = fileOutputStream;
+                    sl4.d(fileOutputStream2);
+                } catch (Throwable th2) {
+                    th = th2;
+                    sl4.d(fileOutputStream);
+                    throw th;
+                }
+            } catch (Exception unused2) {
+            } catch (Throwable th3) {
+                fileOutputStream = null;
+                th = th3;
+            }
         }
-        this.c = new ConcurrentHashMap();
     }
 
-    public static b63 b() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (b63) invokeV.objValue;
-    }
-
-    public /* synthetic */ b63(a aVar) {
-        this();
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (kw2.a) {
-                Log.e("SwanPerformance", "main process launch start，appId = " + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == -1) {
+                wo2.g0().getSwitch("swan_app_json_serialize", 0);
+                a = 0;
             }
+            if (a != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static SwanAppConfigData b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return c(str, false);
+        }
+        return (SwanAppConfigData) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:30:0x006f  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static SwanAppConfigData c(String str, boolean z) {
+        InterceptResult invokeLZ;
+        FileInputStream fileInputStream;
+        SwanAppConfigData call;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, str, z)) == null) {
             System.currentTimeMillis();
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c.isEmpty()) {
-            return;
-        }
-        if (kw2.a) {
-            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.c.size());
-        }
-        for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-            if (entry != null) {
-                ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
+            File file = new File(str, "app.json");
+            FileInputStream fileInputStream2 = null;
+            if (!file.exists()) {
+                return null;
             }
+            String E = sl4.E(file);
+            File file2 = new File(str, "app_json_serialize6.kv");
+            if (a() && !z && file2.exists()) {
+                try {
+                    fileInputStream = new FileInputStream(file2);
+                } catch (Exception unused) {
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    int available = fileInputStream.available();
+                    byte[] bArr = new byte[available];
+                    if (available == fileInputStream.read(bArr) && (call = SwanAppConfigData.x.call(bArr)) != null) {
+                        call.n = E;
+                        sl4.d(fileInputStream);
+                        return call;
+                    }
+                    sl4.d(fileInputStream);
+                } catch (Exception unused2) {
+                    fileInputStream2 = fileInputStream;
+                    sl4.d(fileInputStream2);
+                    SwanAppConfigData c = SwanAppConfigData.c(E, file.getParentFile());
+                    if (a()) {
+                    }
+                    return c;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileInputStream2 = fileInputStream;
+                    sl4.d(fileInputStream2);
+                    throw th;
+                }
+            }
+            SwanAppConfigData c2 = SwanAppConfigData.c(E, file.getParentFile());
+            if (a()) {
+                ji3.k(new a(c2, file2, str), "SwanAppConfigDataReader");
+            }
+            return c2;
         }
-        this.c.clear();
-    }
-
-    public void c(Message message) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) != null) || message == null || (obj = message.obj) == null || !(obj instanceof Bundle)) {
-            return;
-        }
-        Bundle bundle = (Bundle) obj;
-        boolean z = bundle.getBoolean("is_timeout", false);
-        String string = bundle.getString("app_id", null);
-        if (kw2.a) {
-            Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
-        }
-        a();
+        return (SwanAppConfigData) invokeLZ.objValue;
     }
 }

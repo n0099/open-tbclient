@@ -297,10 +297,10 @@ public class IMFetchBusinessSessionMsg extends Message {
             this.mResponse = jSONObject;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:20:0x009f  */
-        /* JADX WARN: Removed duplicated region for block: B:31:0x00e7  */
-        /* JADX WARN: Removed duplicated region for block: B:36:0x00f7  */
-        /* JADX WARN: Removed duplicated region for block: B:50:0x0148 A[ADDED_TO_REGION] */
+        /* JADX WARN: Removed duplicated region for block: B:20:0x00a0  */
+        /* JADX WARN: Removed duplicated region for block: B:31:0x00e8  */
+        /* JADX WARN: Removed duplicated region for block: B:36:0x00f8  */
+        /* JADX WARN: Removed duplicated region for block: B:50:0x0149 A[ADDED_TO_REGION] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -310,7 +310,6 @@ public class IMFetchBusinessSessionMsg extends Message {
             int i2;
             int i3;
             int i4;
-            int optInt;
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -330,33 +329,33 @@ public class IMFetchBusinessSessionMsg extends Message {
                             list = this.this$0.parseBusinessSessions(this.mResponse.optJSONArray("sessions"));
                             i = this.mResponse.optInt("has_more");
                             try {
-                                optInt = this.mResponse.optInt("total_unread_num");
+                                int optInt = this.mResponse.optInt("total_unread_num");
                                 this.mResponse.optInt("consult_unread_num");
                                 i2 = this.mResponse.optInt("top_has_more");
-                            } catch (Exception unused) {
-                                i2 = 0;
-                                i3 = 1005;
-                                if (!TextUtils.isEmpty(this.this$0.mScreenKey)) {
-                                }
-                                i4 = i3;
-                                if (list != null) {
-                                    while (r1.hasNext()) {
+                                try {
+                                    int optInt2 = this.mResponse.optInt("stranger_unread_num");
+                                    int optInt3 = this.mResponse.optInt("do_not_disturb_unread_number");
+                                    if (this.this$0.mMode != 2) {
+                                        MediaSessionManager.getInstance(this.mContext).setMediaTotalUnread(optInt);
+                                        MediaSessionManager.getInstance(this.mContext).setStrangerUnread(optInt2);
+                                        MediaSessionManager.getInstance(this.mContext).setPrivateChatNoDisturbNum(optInt3);
                                     }
-                                }
-                                if (i == 1) {
-                                }
-                                z = true;
-                                this.this$0.completeSessionInfo(i4, z, i2, hashMap, hashMap2, hashMap3, arrayList);
-                            }
-                            try {
-                                int optInt2 = this.mResponse.optInt("stranger_unread_num");
-                                int optInt3 = this.mResponse.optInt("do_not_disturb_unread_number");
-                                if (this.this$0.mMode != 2) {
-                                    MediaSessionManager.getInstance(this.mContext).setMediaTotalUnread(optInt);
-                                    MediaSessionManager.getInstance(this.mContext).setStrangerUnread(optInt2);
-                                    MediaSessionManager.getInstance(this.mContext).setPrivateChatNoDisturbNum(optInt3);
+                                } catch (Exception unused) {
+                                    i3 = 1005;
+                                    if (!TextUtils.isEmpty(this.this$0.mScreenKey)) {
+                                    }
+                                    i4 = i3;
+                                    if (list != null) {
+                                        while (r1.hasNext()) {
+                                        }
+                                    }
+                                    if (i == 1) {
+                                    }
+                                    z = true;
+                                    this.this$0.completeSessionInfo(i4, z, i2, hashMap, hashMap2, hashMap3, arrayList);
                                 }
                             } catch (Exception unused2) {
+                                i2 = 0;
                                 i3 = 1005;
                                 if (!TextUtils.isEmpty(this.this$0.mScreenKey)) {
                                 }
@@ -855,39 +854,39 @@ public class IMFetchBusinessSessionMsg extends Message {
     /* JADX WARN: Can't wrap try/catch for region: R(32:(4:10|11|12|(7:13|14|15|16|17|(1:19)(1:126)|20))|(9:124|26|27|28|29|(1:31)|32|(20:39|(1:41)(1:120)|42|43|44|45|(1:47)|48|49|50|51|52|(11:54|55|56|58|59|(1:61)|62|(1:105)(4:66|67|68|(1:70))|71|72|(2:88|89))(1:111)|74|(1:78)|79|80|81|82|84)(2:36|37)|38)|25|26|27|28|29|(0)|32|(1:34)|39|(0)(0)|42|43|44|45|(0)|48|49|50|51|52|(0)(0)|74|(2:76|78)|79|80|81|82|84|38|8) */
     /* JADX WARN: Can't wrap try/catch for region: R(35:10|11|12|(7:13|14|15|16|17|(1:19)(1:126)|20)|(9:124|26|27|28|29|(1:31)|32|(20:39|(1:41)(1:120)|42|43|44|45|(1:47)|48|49|50|51|52|(11:54|55|56|58|59|(1:61)|62|(1:105)(4:66|67|68|(1:70))|71|72|(2:88|89))(1:111)|74|(1:78)|79|80|81|82|84)(2:36|37)|38)|25|26|27|28|29|(0)|32|(1:34)|39|(0)(0)|42|43|44|45|(0)|48|49|50|51|52|(0)(0)|74|(2:76|78)|79|80|81|82|84|38|8) */
     /* JADX WARN: Can't wrap try/catch for region: R(41:10|11|12|13|14|15|16|17|(1:19)(1:126)|20|(9:124|26|27|28|29|(1:31)|32|(20:39|(1:41)(1:120)|42|43|44|45|(1:47)|48|49|50|51|52|(11:54|55|56|58|59|(1:61)|62|(1:105)(4:66|67|68|(1:70))|71|72|(2:88|89))(1:111)|74|(1:78)|79|80|81|82|84)(2:36|37)|38)|25|26|27|28|29|(0)|32|(1:34)|39|(0)(0)|42|43|44|45|(0)|48|49|50|51|52|(0)(0)|74|(2:76|78)|79|80|81|82|84|38|8) */
-    /* JADX WARN: Code restructure failed: missing block: B:100:0x0301, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x0302, code lost:
         r8 = r50;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:102:0x0308, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x0309, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:103:0x0309, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x030a, code lost:
         r8 = r50;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:104:0x030c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:104:0x030d, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:105:0x030d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:105:0x030e, code lost:
         r8 = r1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:106:0x030e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:106:0x030f, code lost:
         r2 = r26;
         r3 = r41;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:95:0x02fa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:95:0x02fb, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:99:0x0300, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:99:0x0301, code lost:
         r0 = e;
      */
-    /* JADX WARN: Removed duplicated region for block: B:134:0x0256 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0135 A[Catch: Exception -> 0x030c, TryCatch #1 {Exception -> 0x030c, blocks: (B:30:0x0119, B:32:0x0135, B:35:0x013e, B:42:0x015d), top: B:124:0x0119 }] */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0158  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x015b  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x01ae A[Catch: Exception -> 0x0308, TryCatch #10 {Exception -> 0x0308, blocks: (B:44:0x0185, B:46:0x01ae, B:47:0x01b3), top: B:142:0x0185 }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x01e2  */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x02d0  */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x02d8 A[Catch: Exception -> 0x02fc, TryCatch #6 {Exception -> 0x02fc, blocks: (B:77:0x0248, B:79:0x0256, B:86:0x02d4, B:88:0x02d8, B:90:0x02e0, B:91:0x02ee, B:76:0x0245), top: B:134:0x0256 }] */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x0257 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0136 A[Catch: Exception -> 0x030d, TryCatch #0 {Exception -> 0x030d, blocks: (B:30:0x011a, B:32:0x0136, B:35:0x013f, B:42:0x015e), top: B:124:0x011a }] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0159  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x015c  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x01af A[Catch: Exception -> 0x0309, TryCatch #4 {Exception -> 0x0309, blocks: (B:44:0x0186, B:46:0x01af, B:47:0x01b4), top: B:130:0x0186 }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x01e3  */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x02d1  */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x02d9 A[Catch: Exception -> 0x02fd, TryCatch #7 {Exception -> 0x02fd, blocks: (B:77:0x0249, B:79:0x0257, B:86:0x02d5, B:88:0x02d9, B:90:0x02e1, B:91:0x02ef, B:76:0x0246), top: B:136:0x0257 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

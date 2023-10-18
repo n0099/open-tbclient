@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
@@ -48,7 +47,7 @@ public class BdListViewHelper {
                     return;
                 }
             }
-            DEFAULT = new HeadType(EngineName.DEFAULT_ENGINE, 0);
+            DEFAULT = new HeadType("DEFAULT", 0);
             HASTAB = new HeadType("HASTAB", 1);
             HAS_NO_NETWORK_BAR = new HeadType("HAS_NO_NETWORK_BAR", 2);
             HeadType headType = new HeadType("TIP", 3);
@@ -147,7 +146,7 @@ public class BdListViewHelper {
                 return;
             }
         }
-        a = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0703c0);
+        a = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0703bc);
     }
 
     public static int a(HeadType headType) {
@@ -160,15 +159,15 @@ public class BdListViewHelper {
                 if (i != 2) {
                     if (i != 3) {
                         if (i != 4) {
-                            return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070424);
+                            return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070420);
                         }
-                        return BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703fb);
+                        return BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703f7);
                     }
-                    return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070382);
+                    return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f07037e);
                 }
-                return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070387);
+                return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070383);
             }
-            return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070424);
+            return UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070420);
         }
         return invokeL.intValue;
     }
@@ -185,10 +184,10 @@ public class BdListViewHelper {
             }
             if (HeadType.DEFAULT == headType) {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                dimens = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070384);
+                dimens = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070380);
             } else {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                dimens = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703a5);
+                dimens = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703a1);
             }
             return lightStatusBarHeight + dimens;
         }
@@ -204,9 +203,9 @@ public class BdListViewHelper {
                 if (z) {
                     layoutParams.height = a(headType);
                 } else if (HeadType.DEFAULT == headType) {
-                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070384);
+                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070380);
                 } else {
-                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703a5);
+                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703a1);
                 }
                 view2.setLayoutParams(layoutParams);
             }

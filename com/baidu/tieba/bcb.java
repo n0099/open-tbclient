@@ -1,68 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
-import com.baidu.turbonet.net.UploadDataSink;
 import java.io.IOException;
-import java.net.HttpRetryException;
-import java.net.ProtocolException;
-import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
-public final class bcb extends ecb {
-    public static /* synthetic */ Interceptable $ic = null;
-    @VisibleForTesting
-    public static int i = 16384;
+public class bcb extends ubb implements pdb {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fcb d;
-    public final long e;
-    public final ByteBuffer f;
-    public final UploadDataProvider g;
-    public long h;
+    public ccb B;
+    public String C;
+    public Thread D;
+    public long E;
+    public long F;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947641576, "Lcom/baidu/tieba/bcb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947641576, "Lcom/baidu/tieba/bcb;");
-        }
-    }
-
-    @Override // com.baidu.tieba.ecb
-    public void g() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends UploadDataProvider {
+    public class a extends qdb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bcb a;
 
-        public b(bcb bcbVar) {
+        public a(bcb bcbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,160 +42,227 @@ public final class bcb extends ecb {
             this.a = bcbVar;
         }
 
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void c(UploadDataSink uploadDataSink) {
+        @Override // com.baidu.tieba.qdb, com.baidu.tieba.pdb
+        public void onExceptionThrown(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
-                uploadDataSink.b(new HttpRetryException("Cannot retry streamed Http body", -1));
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.z == null || this.a.l) {
+                return;
             }
+            this.a.z.onExceptionThrown(str);
         }
 
-        public /* synthetic */ b(bcb bcbVar, a aVar) {
-            this(bcbVar);
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public long a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.qdb
+        public void onFinishedWriting(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a.e;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
-                if (byteBuffer.remaining() >= this.a.f.remaining()) {
-                    byteBuffer.put(this.a.f);
-                    this.a.f.clear();
-                    uploadDataSink.a(false);
-                    this.a.d.quit();
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.a.k = true;
+                if (this.a.z == null || this.a.l) {
                     return;
                 }
-                int limit = this.a.f.limit();
-                this.a.f.limit(this.a.f.position() + byteBuffer.remaining());
-                byteBuffer.put(this.a.f);
-                this.a.f.limit(limit);
-                uploadDataSink.a(false);
+                this.a.z.onFinishedWriting(z);
             }
         }
     }
 
-    public bcb(ccb ccbVar, long j, fcb fcbVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bcb(String str, String str2, int[] iArr) throws Exception {
+        super(0, str, iArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ccbVar, Long.valueOf(j), fcbVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {str, str2, iArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new b(this, null);
-        if (ccbVar != null) {
-            if (j >= 0) {
-                this.e = j;
-                this.f = ByteBuffer.allocate((int) Math.min(j, i));
-                this.d = fcbVar;
-                this.h = 0L;
-                return;
+        this.C = str2;
+        this.B.e(str2);
+        F(this);
+    }
+
+    @Override // com.baidu.tieba.ubb
+    public void B(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = j * 1000;
+            if (j2 < 0) {
+                j2 = 0;
             }
-            throw new IllegalArgumentException("Content length must be larger than 0 for non-chunked upload.");
-        }
-        throw null;
-    }
-
-    @Override // java.io.OutputStream
-    public void write(int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            c();
-            l(1);
-            n();
-            this.f.put((byte) i2);
-            this.h++;
-            p();
+            this.E = j2;
+            if (this.e != null) {
+                if (j2 > this.e.getDuration()) {
+                    j2 = this.e.getDuration();
+                }
+                synchronized (this.c) {
+                    this.e.seek(j2);
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.ecb
-    public void e() throws IOException {
+    @Override // com.baidu.tieba.ubb
+    public void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.h >= this.e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.k) {
             return;
         }
-        throw new ProtocolException("Content received is less than Content-Length.");
+        long currentPosition = this.e.getCurrentPosition();
+        long j = this.E;
+        long j2 = currentPosition - j;
+        long j3 = this.F;
+        long duration = j3 > 0 ? j3 - j : this.e.getDuration();
+        double d = duration == 0 ? 0.0d : j2 / duration;
+        double d2 = d >= 0.0d ? d : 0.0d;
+        onProgressChanged(this.n, d2 > 1.0d ? 1.0d : d2, j2);
     }
 
-    @Override // com.baidu.tieba.ecb
-    public UploadDataProvider f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ubb
+    public void I() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.I();
+            Thread thread = this.D;
+            if (thread == null || !thread.isAlive()) {
+                Thread thread2 = new Thread(this);
+                this.D = thread2;
+                thread2.start();
+            }
+            super.I();
         }
-        return (UploadDataProvider) invokeV.objValue;
     }
 
-    public final void n() throws IOException {
+    public void R(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f.hasRemaining()) {
-            o();
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            long j2 = j * 1000;
+            this.F = j2;
+            if (this.e != null) {
+                if (j2 > this.e.getDuration()) {
+                    j2 = this.e.getDuration();
+                }
+                synchronized (this.c) {
+                    this.e.h(j2);
+                }
+            }
         }
     }
 
-    public final void o() throws IOException {
+    public void S(qdb qdbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, qdbVar) == null) {
+            this.z = qdbVar;
+            this.B.d(new a(this));
+        }
+    }
+
+    public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c();
-            this.f.flip();
-            this.d.a();
-            a();
+            this.l = true;
+            this.k = true;
+            Thread thread = this.D;
+            if (thread != null) {
+                try {
+                    thread.interrupt();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                this.D = null;
+            }
+            try {
+                this.B.g();
+            } catch (Exception e2) {
+                veb.e("VideoMuxer", "cancel finishWriting error:" + e2.getMessage());
+            }
         }
     }
 
-    public final void p() throws IOException {
+    @Override // com.baidu.tieba.pdb
+    public void onCancel() {
+        qdb qdbVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.h == this.e) {
-            o();
-        }
-    }
-
-    public final void l(int i2) throws ProtocolException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i2) != null) || this.h + i2 <= this.e) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (qdbVar = this.z) == null) {
             return;
         }
-        throw new ProtocolException("expected " + (this.e - this.h) + " bytes but received " + i2);
+        qdbVar.onCancel();
     }
 
-    @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i2, int i3) throws IOException {
+    @Override // com.baidu.tieba.pdb
+    public void onExceptionThrown(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3) == null) {
-            c();
-            if (bArr.length - i2 >= i3 && i2 >= 0 && i3 >= 0) {
-                l(i3);
-                int i4 = i3;
-                while (i4 > 0) {
-                    n();
-                    int min = Math.min(i4, this.f.remaining());
-                    this.f.put(bArr, (i2 + i3) - i4, min);
-                    i4 -= min;
-                }
-                this.h += i3;
-                p();
-                return;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.z == null || this.l) {
+            return;
+        }
+        this.z.onExceptionThrown(str);
+    }
+
+    @Override // com.baidu.tieba.pdb
+    public void onProgressChanged(int i, double d, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) || this.z == null || this.l) {
+            return;
+        }
+        this.z.onProgressChanged(i, d, j);
+    }
+
+    @Override // com.baidu.tieba.pdb
+    public void onTrackEnd(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            try {
+                this.B.b();
+            } catch (Exception e) {
+                veb.e("VideoMuxer", "onTrackEnd finishWriting error:" + e.getMessage());
             }
-            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    @Override // com.baidu.tieba.ubb
+    public ybb p() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ccb ccbVar = new ccb(this.C, m(), i());
+            this.B = ccbVar;
+            return ccbVar;
+        }
+        return (ybb) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ubb
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ubb
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ubb
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.D != null) {
+                this.D = null;
+            }
+            try {
+                this.B.b();
+            } catch (Exception e) {
+                veb.e("VideoMuxer", "onStop finishWriting error:" + e.getMessage());
+            }
         }
     }
 }

@@ -9,10 +9,10 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.dt5;
-import com.baidu.tieba.ht5;
-import com.baidu.tieba.it5;
-import com.baidu.tieba.jt5;
+import com.baidu.tieba.jn5;
+import com.baidu.tieba.nn5;
+import com.baidu.tieba.on5;
+import com.baidu.tieba.pn5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PerformanceLoggerHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_CLASS_2G = 1;
@@ -124,18 +124,18 @@ public class PerformanceLoggerHelper {
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x009c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x0025 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:84:0x006c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:87:0x0025 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:88:0x0025 */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x004f, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x009b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x0024 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:84:0x006b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:87:0x0024 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:88:0x0024 */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x004e, code lost:
         r3 = r6[2].trim();
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x009e  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x00b5 A[Catch: Exception -> 0x00b8, TRY_LEAVE, TryCatch #3 {Exception -> 0x00b8, blocks: (B:59:0x00b0, B:61:0x00b5), top: B:71:0x00b0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x00b0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x009d  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x00b4 A[Catch: Exception -> 0x00b7, TRY_LEAVE, TryCatch #5 {Exception -> 0x00b7, blocks: (B:59:0x00af, B:61:0x00b4), top: B:71:0x00af }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x00af A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r3v10 */
     /* JADX WARN: Type inference failed for: r3v12 */
     /* JADX WARN: Type inference failed for: r3v13 */
@@ -266,14 +266,14 @@ public class PerformanceLoggerHelper {
         return invokeV.intValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x003e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x003d, code lost:
         r1 = r4.replaceAll("\\s+", "_");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x005e, code lost:
-        if (r3 != null) goto L20;
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x005d, code lost:
+        if (r3 != null) goto L19;
      */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x006b A[Catch: Exception -> 0x006e, TRY_LEAVE, TryCatch #1 {Exception -> 0x006e, blocks: (B:36:0x0066, B:38:0x006b), top: B:46:0x0066 }] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0066 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x006a A[Catch: Exception -> 0x006d, TRY_LEAVE, TryCatch #2 {Exception -> 0x006d, blocks: (B:36:0x0065, B:38:0x006a), top: B:49:0x0065 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0065 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -291,70 +291,70 @@ public class PerformanceLoggerHelper {
             str = null;
             Process process2 = null;
             try {
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
                 try {
+                    process = Runtime.getRuntime().exec("top -n 1");
                     try {
-                        process = Runtime.getRuntime().exec("top -n 1");
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                } catch (Exception e) {
-                    e = e;
-                    process = null;
-                    bufferedReader2 = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedReader = null;
-                    if (process2 != null) {
-                        try {
-                            process2.destroy();
-                        } catch (Exception unused) {
-                            throw th;
-                        }
-                    }
-                    if (bufferedReader != null) {
-                        bufferedReader.close();
-                    }
-                    throw th;
-                }
-                try {
-                    bufferedReader2 = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader2.readLine();
-                            if (readLine != null) {
-                                if (readLine.trim().contains(String.valueOf(myPid))) {
+                        bufferedReader2 = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader2.readLine();
+                                if (readLine != null) {
+                                    if (readLine.trim().contains(String.valueOf(myPid))) {
+                                        break;
+                                    }
+                                } else {
                                     break;
                                 }
-                            } else {
-                                break;
-                            }
-                        } catch (Exception e2) {
-                            e = e2;
-                            e.printStackTrace();
-                            if (process != null) {
-                                process.destroy();
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                if (process != null) {
+                                    process.destroy();
+                                }
                             }
                         }
+                        if (process != null) {
+                            process.destroy();
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        bufferedReader2 = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        bufferedReader = null;
+                        process2 = process;
+                        if (process2 != null) {
+                            try {
+                                process2.destroy();
+                            } catch (Exception unused) {
+                                throw th;
+                            }
+                        }
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                        throw th;
                     }
-                    if (process != null) {
-                        process.destroy();
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    bufferedReader2 = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedReader = null;
-                    process2 = process;
-                    if (process2 != null) {
-                    }
-                    if (bufferedReader != null) {
-                    }
-                    throw th;
+                } catch (Exception unused2) {
                 }
-                bufferedReader2.close();
-            } catch (Exception unused2) {
+            } catch (Exception e3) {
+                e = e3;
+                process = null;
+                bufferedReader2 = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedReader = null;
+                if (process2 != null) {
+                }
+                if (bufferedReader != null) {
+                }
+                throw th;
             }
+            bufferedReader2.close();
             return str;
         }
         return (String) invokeV.objValue;
@@ -369,54 +369,54 @@ public class PerformanceLoggerHelper {
             }
             switch (i) {
                 case 1000:
-                    jt5 jt5Var = new jt5();
-                    jt5Var.subType = "frs";
-                    return jt5Var;
+                    pn5 pn5Var = new pn5();
+                    pn5Var.subType = "frs";
+                    return pn5Var;
                 case 1001:
-                    jt5 jt5Var2 = new jt5();
-                    jt5Var2.subType = "pb";
-                    return jt5Var2;
+                    pn5 pn5Var2 = new pn5();
+                    pn5Var2.subType = "pb";
+                    return pn5Var2;
                 case 1002:
-                    ht5 ht5Var = new ht5();
-                    ht5Var.subType = "im";
-                    return ht5Var;
+                    nn5 nn5Var = new nn5();
+                    nn5Var.subType = "im";
+                    return nn5Var;
                 case 1003:
                 case 1006:
                 case 1007:
                 default:
                     return null;
                 case 1004:
-                    jt5 jt5Var3 = new jt5();
-                    jt5Var3.subType = "photo_live";
-                    return jt5Var3;
+                    pn5 pn5Var3 = new pn5();
+                    pn5Var3.subType = "photo_live";
+                    return pn5Var3;
                 case 1005:
-                    dt5 dt5Var = new dt5();
-                    dt5Var.subType = "home_page";
-                    return dt5Var;
+                    jn5 jn5Var = new jn5();
+                    jn5Var.subType = "home_page";
+                    return jn5Var;
                 case 1008:
-                    jt5 jt5Var4 = new jt5();
-                    jt5Var4.subType = "user_center";
-                    return jt5Var4;
+                    pn5 pn5Var4 = new pn5();
+                    pn5Var4.subType = "user_center";
+                    return pn5Var4;
                 case 1009:
-                    jt5 jt5Var5 = new jt5();
-                    jt5Var5.subType = Logger.SIGN_ALL;
-                    return jt5Var5;
+                    pn5 pn5Var5 = new pn5();
+                    pn5Var5.subType = Logger.SIGN_ALL;
+                    return pn5Var5;
                 case 1010:
-                    jt5 jt5Var6 = new jt5();
-                    jt5Var6.subType = "person_center";
-                    return jt5Var6;
+                    pn5 pn5Var6 = new pn5();
+                    pn5Var6.subType = "person_center";
+                    return pn5Var6;
                 case 1011:
-                    jt5 jt5Var7 = new jt5();
-                    jt5Var7.subType = "person_center_home";
-                    return jt5Var7;
+                    pn5 pn5Var7 = new pn5();
+                    pn5Var7.subType = "person_center_home";
+                    return pn5Var7;
                 case 1012:
-                    jt5 jt5Var8 = new jt5();
-                    jt5Var8.subType = "person_center_post";
-                    return jt5Var8;
+                    pn5 pn5Var8 = new pn5();
+                    pn5Var8.subType = "person_center_post";
+                    return pn5Var8;
                 case 1013:
-                    jt5 jt5Var9 = new jt5();
-                    jt5Var9.subType = "person_center_dynamic";
-                    return jt5Var9;
+                    pn5 pn5Var9 = new pn5();
+                    pn5Var9.subType = "person_center_dynamic";
+                    return pn5Var9;
             }
         }
         return (PerformanceLogger) invokeI.objValue;
@@ -465,7 +465,7 @@ public class PerformanceLoggerHelper {
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                it5.a().e();
+                on5.a().e();
             }
         }
     }

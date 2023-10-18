@@ -1,214 +1,123 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.tieba.ob2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
 public class dc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ob2 a;
-    public final xb2 b;
-    public final lb2 c;
-    public long d;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
     public String e;
-    public Timer f;
-
-    /* loaded from: classes5.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dc2 a;
-
-        public a(dc2 dc2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dc2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dc2Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e(null);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements ob2.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nb2 a;
-        public final /* synthetic */ zb2 b;
-        public final /* synthetic */ zp3 c;
-        public final /* synthetic */ dc2 d;
-
-        public b(dc2 dc2Var, nb2 nb2Var, zb2 zb2Var, zp3 zp3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dc2Var, nb2Var, zb2Var, zp3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = dc2Var;
-            this.a = nb2Var;
-            this.b = zb2Var;
-            this.c = zp3Var;
-        }
-
-        @Override // com.baidu.tieba.ob2.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.a());
-                sb.append(this.b.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.b.c());
-                if (dc2.g) {
-                    Log.d("SceneLaunchDefaultTips", ">> " + sb.toString());
-                }
-                this.d.e = sb.toString();
-                zp3 zp3Var = this.c;
-                if (zp3Var != null) {
-                    zp3Var.a(this.d.e);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947699670, "Lcom/baidu/tieba/dc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947699670, "Lcom/baidu/tieba/dc2;");
-                return;
-            }
-        }
-        g = qr1.a;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (System.currentTimeMillis() - this.d > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void g() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (timer = this.f) != null) {
-            timer.cancel();
-            this.f = null;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (g) {
-                Log.d("SceneLaunchDefaultTips", ">> start to collect default launch info.");
-            }
-            g();
-            Timer timer = new Timer();
-            this.f = timer;
-            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g();
-        }
-    }
+    public String f;
+    public String g;
+    public boolean h;
+    public String i;
+    public boolean j;
+    public String k;
+    public boolean l;
+    public String m;
 
     public dc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.d = System.currentTimeMillis();
-        this.e = "";
-        this.a = new ob2();
-        this.b = xb2.d();
-        this.c = lb2.d();
     }
 
-    public void e(@Nullable zp3<String> zp3Var) {
+    public static Map<String, String> a(dc2 dc2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zp3Var) == null) {
-            if (d() && !TextUtils.isEmpty(this.e)) {
-                if (zp3Var != null) {
-                    zp3Var.a(this.e);
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dc2Var)) == null) {
+            TreeMap treeMap = new TreeMap();
+            if (dc2Var == null) {
+                return treeMap;
             }
-            this.a.a(new b(this, this.c.f(), this.b.f(), zp3Var));
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, dc2Var.a);
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, dc2Var.b);
+            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, dc2Var.c);
+            treeMap.put(PrefetchEvent.EVENT_KEY_PAGE_URL, dc2Var.d);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, dc2Var.f);
+            treeMap.put("root", dc2Var.g);
+            if (!TextUtils.isEmpty(dc2Var.e)) {
+                treeMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, dc2Var.e);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(dc2Var.h));
+            treeMap.put("pageType", dc2Var.i);
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(dc2Var.j));
+            if (!TextUtils.isEmpty(dc2Var.k)) {
+                treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, dc2Var.k);
+            }
+            n13.a(treeMap, "app ready event");
+            h93.a(dc2Var.d, treeMap);
+            if (t42.c()) {
+                treeMap.put("offlinePerfTool", String.valueOf(1));
+            }
+            if (nb3.d()) {
+                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
+            }
+            if (nb3.f()) {
+                treeMap.put("performanceType", "stabilityProfile");
+            }
+            treeMap.put("slaveReady", String.valueOf(dc2Var.l));
+            if (!TextUtils.isEmpty(dc2Var.m)) {
+                treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, dc2Var.m);
+            }
+            return treeMap;
         }
+        return (Map) invokeL.objValue;
+    }
+
+    public static qf2 b(dc2 dc2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dc2Var)) == null) {
+            Map<String, String> a = a(dc2Var);
+            qf2 qf2Var = new qf2("AppReady", a);
+            PrefetchEvent.c createFromAppReadyEvent = PrefetchEvent.createFromAppReadyEvent(a);
+            if (createFromAppReadyEvent == null) {
+                return qf2Var;
+            }
+            fc2 fc2Var = new fc2();
+            fc2Var.t(createFromAppReadyEvent);
+            fc2Var.t(qf2Var);
+            return fc2Var;
+        }
+        return (qf2) invokeL.objValue;
+    }
+
+    public static String c(p53 p53Var, String str) {
+        InterceptResult invokeLL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, p53Var, str)) == null) {
+            if (p53Var != null) {
+                str2 = p53Var.d0(hj3.f(str));
+            } else {
+                str2 = null;
+            }
+            if (str2 == null) {
+                return "";
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
     }
 }

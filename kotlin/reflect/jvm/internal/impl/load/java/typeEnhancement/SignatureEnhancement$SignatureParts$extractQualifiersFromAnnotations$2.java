@@ -4,7 +4,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 /* JADX INFO: Add missing generic type declarations: [T] */
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class SignatureEnhancement$SignatureParts$extractQualifiersFromAnnotations$2<T> extends Lambda implements Function2<T, T, T> {
     public static final SignatureEnhancement$SignatureParts$extractQualifiersFromAnnotations$2 INSTANCE = new SignatureEnhancement$SignatureParts$extractQualifiersFromAnnotations$2();
 

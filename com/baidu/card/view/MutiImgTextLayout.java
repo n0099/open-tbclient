@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b15;
-import com.baidu.tieba.lm;
-import com.baidu.tieba.sp6;
+import com.baidu.tieba.bk6;
+import com.baidu.tieba.ih;
+import com.baidu.tieba.jv4;
+import com.baidu.tieba.qs;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.tx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,15 +33,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class MutiImgTextLayout extends LinearLayout implements tx<b15> {
+public class MutiImgTextLayout extends LinearLayout implements qs<jv4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public TextView b;
     public PlayVoiceBntNew c;
-    public sp6<b15> d;
-    public b15 e;
+    public bk6<jv4> d;
+    public jv4 e;
     public boolean f;
 
     public void setFrom(String str) {
@@ -56,9 +56,9 @@ public class MutiImgTextLayout extends LinearLayout implements tx<b15> {
         }
     }
 
-    public void setPreloadSizeReadyCallback(lm lmVar) {
+    public void setPreloadSizeReadyCallback(ih ihVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, lmVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, ihVar) == null) {
         }
     }
 
@@ -88,7 +88,7 @@ public class MutiImgTextLayout extends LinearLayout implements tx<b15> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            sp6<b15> subClickListener;
+            bk6<jv4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -165,10 +165,10 @@ public class MutiImgTextLayout extends LinearLayout implements tx<b15> {
         }
     }
 
-    public void setSubClickListener(sp6<b15> sp6Var) {
+    public void setSubClickListener(bk6<jv4> bk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, sp6Var) == null) {
-            this.d = sp6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bk6Var) == null) {
+            this.d = bk6Var;
         }
     }
 
@@ -214,16 +214,16 @@ public class MutiImgTextLayout extends LinearLayout implements tx<b15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
+    @Override // com.baidu.tieba.qs
     /* renamed from: c */
-    public void onBindDataToView(b15 b15Var) {
+    public void onBindDataToView(jv4 jv4Var) {
         boolean z;
         boolean z2;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b15Var) == null) {
-            this.e = b15Var;
-            ThreadData threadData = b15Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jv4Var) == null) {
+            this.e = jv4Var;
+            ThreadData threadData = jv4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.f);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, g, this.f);
             TextView textView = this.a;
@@ -275,13 +275,13 @@ public class MutiImgTextLayout extends LinearLayout implements tx<b15> {
         }
     }
 
-    public sp6<b15> getSubClickListener() {
+    public bk6<jv4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (sp6) invokeV.objValue;
+        return (bk6) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

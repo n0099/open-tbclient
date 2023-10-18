@@ -1,152 +1,221 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaPersonCenterRealAuthenConfig;
-import com.baidu.ala.data.AlaUserInfoData;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class og6 extends om<eh6, CardViewHolder<zh6>> {
+public class og6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ih6 b;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eh6 a;
-        public final /* synthetic */ og6 b;
-
-        public a(og6 og6Var, eh6 eh6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og6Var, eh6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = og6Var;
-            this.a = eh6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.u(this.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public og6(TbPageContext tbPageContext, ih6 ih6Var) {
-        super(tbPageContext.getPageActivity(), eh6.b);
+    public static lg6 a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ih6Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-        this.b = ih6Var;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: x */
-    public CardViewHolder<zh6> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new zh6(this.a));
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public final void t(eh6 eh6Var, zh6 zh6Var) {
-        sg6 c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, eh6Var, zh6Var) == null) && (c = eh6Var.c()) != null && c.b() != null) {
-            zh6Var.y(0);
-            zh6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0271));
-            int i = c.b().certify_status;
-            if (i == 0) {
-                zh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0275));
-                zh6Var.x(0);
-            } else if (1 == i) {
-                zh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0274));
-                zh6Var.x(4);
-            } else if (2 == i) {
-                zh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0272));
-                zh6Var.x(4);
-            } else if (3 == i) {
-                zh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0273));
-                zh6Var.x(0);
-            }
-            zh6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public final void u(eh6 eh6Var) {
-        AlaUserInfoData b;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, eh6Var) == null) && eh6Var != null && eh6Var.c() != null && eh6Var.c().b() != null && 1 != (i = (b = eh6Var.c().b()).certify_status) && 2 != i) {
-            Context context = this.mContext;
-            String str = b.user_id;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b.certify_status + "")));
-            ih6 ih6Var = this.b;
-            if (ih6Var != null) {
-                ih6Var.a(1);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, eh6 eh6Var, CardViewHolder<zh6> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, eh6Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            File m = fg6.n().m();
+            File file = new File(m, str + "/" + str2);
+            if (!file.exists() || TextUtils.isEmpty(str2)) {
                 return null;
             }
-            t(eh6Var, cardViewHolder.a());
-            cardViewHolder.a().h().setOnClickListener(new a(this, eh6Var));
-            return cardViewHolder.a().h();
+            Map<String, qg6> b = b(file);
+            if (!f(file, b)) {
+                return null;
+            }
+            return new lg6(file, str2, b);
         }
-        return (View) invokeCommon.objValue;
+        return (lg6) invokeLL.objValue;
+    }
+
+    public static Map<String, qg6> b(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            File file2 = new File(file, "router.json");
+            if (!file2.exists()) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(bi6.d(file2));
+                Map<String, qg6> d = d(jSONObject.optJSONObject("config"));
+                Map<String, qg6> d2 = d(jSONObject.optJSONObject("proxyConfig"));
+                if (!zh6.b(d2)) {
+                    d.putAll(d2);
+                }
+                return d;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static Set<String> c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            HashSet hashSet = new HashSet();
+            if (jSONObject == null) {
+                return hashSet;
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("data_urls");
+            if (!zh6.c(optJSONArray)) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    hashSet.add(optJSONArray.optString(i, ""));
+                }
+            }
+            return hashSet;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0048 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r10v0, types: [int] */
+    /* JADX WARN: Type inference failed for: r10v1 */
+    /* JADX WARN: Type inference failed for: r10v4, types: [boolean] */
+    public static Map<String, qg6> d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        boolean z;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            HashMap hashMap = new HashMap();
+            if (jSONObject == null) {
+                return hashMap;
+            }
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!TextUtils.isEmpty(next) && !hashMap.containsKey(next)) {
+                    try {
+                        JSONObject jSONObject2 = jSONObject.getJSONObject(next);
+                        String optString = jSONObject2.optString("module", "");
+                        String optString2 = jSONObject2.optString("path", "");
+                        ?? optInt = jSONObject2.optInt("proxyMode", 0);
+                        if (jSONObject2.has("proxySwitch") && (optJSONObject = jSONObject2.optJSONObject("proxySwitch")) != null) {
+                            optInt = gi6.a(optJSONObject.optString("android", ""), TbConfig.getVersion());
+                        }
+                        qg6 qg6Var = new qg6();
+                        if (jSONObject2.optInt("proxyMode", 0) == 1) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        qg6Var.i = z;
+                        if (optInt == 1) {
+                            qg6Var.h = true;
+                            qg6Var.a = ah6.a(jSONObject2);
+                        } else {
+                            qg6Var.h = false;
+                            qg6Var.b = c(jSONObject2);
+                        }
+                        qg6Var.c = optString;
+                        qg6Var.d = optString2;
+                        qg6Var.f = e(next, jSONObject2);
+                        hashMap.put(next, qg6Var);
+                        sy9.a().j(next, next);
+                        sy9.a().k(next, optString2);
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static Set<String> e(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
+            HashSet<String> hashSet = new HashSet();
+            if (jSONObject == null) {
+                return hashSet;
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("source");
+            if (!zh6.c(optJSONArray)) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    hashSet.add(optJSONArray.optString(i, ""));
+                }
+            }
+            String optString = jSONObject.optString("staticPrePath", "");
+            for (String str2 : hashSet) {
+                if (!TextUtils.isEmpty(str2)) {
+                    sy9 a = sy9.a();
+                    a.j(optString + "/" + str2, str);
+                    sy9 a2 = sy9.a();
+                    a2.k(optString + "/" + str2, str2);
+                }
+            }
+            return hashSet;
+        }
+        return (Set) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0094 A[Catch: Exception -> 0x00e0, TryCatch #0 {Exception -> 0x00e0, blocks: (B:12:0x0023, B:15:0x002e, B:18:0x003c, B:21:0x0045, B:22:0x0052, B:24:0x0058, B:25:0x008e, B:27:0x0094, B:29:0x00a2, B:30:0x00ae, B:32:0x00ba, B:34:0x00c0), top: B:44:0x0023 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean f(File file, Map<String, qg6> map) {
+        InterceptResult invokeLL;
+        String d;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, map)) == null) {
+            File file2 = new File(file, "staticSources.json");
+            if (zh6.b(map) || !file2.exists() || !file2.isFile()) {
+                return false;
+            }
+            try {
+                d = bi6.d(file2);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (TextUtils.isEmpty(d)) {
+                return false;
+            }
+            JSONObject optJSONObject2 = new JSONObject(d).optJSONObject("sources");
+            if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject(SmsLoginView.f.j)) == null) {
+                return true;
+            }
+            HashMap hashMap = new HashMap();
+            for (Map.Entry<String, qg6> entry : map.entrySet()) {
+                qg6 value = entry.getValue();
+                HashSet<String> hashSet = new HashSet(value.f);
+                hashSet.add(value.d);
+                Log.e("newHybrid", "-------------------------：" + entry.getKey());
+                for (String str : hashSet) {
+                    String str2 = (String) hashMap.get(str);
+                    if (str2 == null) {
+                        str2 = ai6.b(new File(file, str));
+                        hashMap.put(str, str2);
+                    }
+                    String optString = optJSONObject.optString(str, "");
+                    if (TextUtils.isEmpty(optString) || !optString.equalsIgnoreCase(str2)) {
+                        Log.e("newHybrid", str + "," + optString + "_" + str2);
+                        return false;
+                    }
+                    while (r5.hasNext()) {
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -18,6 +18,7 @@ import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.searchbox.downloads.DownloadConstants;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -70,7 +71,7 @@ public class f {
             intent.putExtra("pushService_package_name", context.getPackageName());
             intent.putExtra("service_name", Utility.U(context) ? "com.baidu.pushservice.PushService" : "com.baidu.android.pushservice.PushService");
             intent.putExtra("notify_type", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
-            intent.putExtra("message_id", str);
+            intent.putExtra(ForbidActivityConfig.CHAT_MSG_ID, str);
             intent.putExtra("app_id", str2);
             intent.putExtra(Constants.EXTRA_NOTIFY_ID, i2);
             intent.putExtra("baidu_message_type", i);

@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -179,7 +178,7 @@ public class AdvisoryWaitConfirmMsg extends NormalMsg {
                     this.mSendBduid = jSONObject.optLong("buid");
                     this.mReceiveBduid = jSONObject.optLong("tobuid");
                     this.mBusinessExt = jSONObject.optString("business_ext");
-                    this.mHtmlContent = jSONObject.optString(IMConstants.IM_RECEIVE_SERVER_COMMON_TYPE_HTML);
+                    this.mHtmlContent = jSONObject.optString("html");
                     return true;
                 } catch (JSONException e) {
                     e.printStackTrace();

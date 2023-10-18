@@ -663,7 +663,7 @@ public class ErrorUtils {
 
         @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
         /* renamed from: getContributedClassifier */
-        public ClassifierDescriptor mo2109getContributedClassifier(Name name, LookupLocation lookupLocation) {
+        public ClassifierDescriptor mo2108getContributedClassifier(Name name, LookupLocation lookupLocation) {
             if (name == null) {
                 $$$reportNull$$$0(1);
             }
@@ -826,7 +826,7 @@ public class ErrorUtils {
 
         @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
         /* renamed from: getContributedClassifier */
-        public ClassifierDescriptor mo2109getContributedClassifier(Name name, LookupLocation lookupLocation) {
+        public ClassifierDescriptor mo2108getContributedClassifier(Name name, LookupLocation lookupLocation) {
             if (name == null) {
                 $$$reportNull$$$0(1);
             }
@@ -960,8 +960,8 @@ public class ErrorUtils {
 
         @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
         /* renamed from: getDeclarationDescriptor */
-        public ClassifierDescriptor mo2107getDeclarationDescriptor() {
-            return this.errorTypeConstructor.mo2107getDeclarationDescriptor();
+        public ClassifierDescriptor mo2106getDeclarationDescriptor() {
+            return this.errorTypeConstructor.mo2106getDeclarationDescriptor();
         }
 
         @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
@@ -975,12 +975,12 @@ public class ErrorUtils {
 
         @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
         /* renamed from: getSupertypes */
-        public Collection<KotlinType> mo2108getSupertypes() {
-            Collection<KotlinType> mo2108getSupertypes = this.errorTypeConstructor.mo2108getSupertypes();
-            if (mo2108getSupertypes == null) {
+        public Collection<KotlinType> mo2107getSupertypes() {
+            Collection<KotlinType> mo2107getSupertypes = this.errorTypeConstructor.mo2107getSupertypes();
+            if (mo2107getSupertypes == null) {
                 $$$reportNull$$$0(3);
             }
-            return mo2108getSupertypes;
+            return mo2107getSupertypes;
         }
 
         public TypeParameterDescriptor getTypeParameterDescriptor() {
@@ -1162,7 +1162,7 @@ public class ErrorUtils {
 
             @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
             /* renamed from: getDeclarationDescriptor */
-            public ClassifierDescriptor mo2107getDeclarationDescriptor() {
+            public ClassifierDescriptor mo2106getDeclarationDescriptor() {
                 return ErrorClassDescriptor.this;
             }
 
@@ -1177,7 +1177,7 @@ public class ErrorUtils {
 
             @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
             /* renamed from: getSupertypes */
-            public Collection<KotlinType> mo2108getSupertypes() {
+            public Collection<KotlinType> mo2107getSupertypes() {
                 List emptyList = CollectionsKt__CollectionsKt.emptyList();
                 if (emptyList == null) {
                     $$$reportNull$$$0(1);

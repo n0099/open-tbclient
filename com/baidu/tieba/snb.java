@@ -1,128 +1,193 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.res.AssetManager;
-import android.content.res.XmlResourceParser;
-import android.database.Cursor;
-import android.os.Build;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.searchbox.v8engine.V8Engine;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
-import org.xmlpull.v1.XmlPullParserException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBVideo;
+import com.win.opensdk.PBVideoListener;
 /* loaded from: classes8.dex */
-public class snb {
+public class snb extends ReporterPidLoader<PBVideo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(String str, int i) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException, IOException, XmlPullParserException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            AssetManager assetManager = (AssetManager) Class.forName("android.content.res.AssetManager").newInstance();
-            XmlResourceParser xmlResourceParser = null;
-            try {
-                XmlResourceParser openXmlResourceParser = assetManager.openXmlResourceParser(((Integer) assetManager.getClass().getMethod(V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class).invoke(assetManager, str)).intValue(), "AndroidManifest.xml");
-                if (openXmlResourceParser == null) {
-                    if (openXmlResourceParser != null) {
-                        openXmlResourceParser.close();
-                    }
-                    return -1;
+    /* loaded from: classes8.dex */
+    public class a implements PBVideoListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public final /* synthetic */ PBVideo c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ snb e;
+
+        public a(snb snbVar, PBVideo pBVideo, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {snbVar, pBVideo, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                while (openXmlResourceParser.next() != 1) {
-                    if (openXmlResourceParser.getEventType() == 2 && openXmlResourceParser.getName().equals("uses-sdk")) {
-                        for (int i2 = 0; i2 < openXmlResourceParser.getAttributeCount(); i2++) {
-                            if (openXmlResourceParser.getAttributeNameResource(i2) == i) {
-                                int attributeIntValue = openXmlResourceParser.getAttributeIntValue(i2, -1);
-                                if (openXmlResourceParser != null) {
-                                    openXmlResourceParser.close();
-                                }
-                                return attributeIntValue;
-                            }
-                        }
-                        continue;
-                    }
-                }
-                if (openXmlResourceParser != null) {
-                    openXmlResourceParser.close();
-                }
-                return -1;
-            } catch (Throwable th) {
-                if (0 != 0) {
-                    xmlResourceParser.close();
-                }
-                throw th;
+            }
+            this.e = snbVar;
+            this.c = pBVideo;
+            this.d = str;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClicked((snb) this.c, this.b, this.d);
+                this.b = true;
             }
         }
-        return invokeLI.intValue;
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
+                LogPrinter.e("onFail errorCode: " + pBError.getCode() + ", errorMessage: " + pBError.getMsg(), new Object[0]);
+                this.e.onError(pBError.getCode(), pBError.getMsg());
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.e.onAdLoaded(this.c, new String[0]);
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedAdClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClose(this.c);
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedAdOpened() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+                this.e.onAdShow((snb) this.c, this.a, this.d);
+                this.a = true;
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onRewardedShowFail(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                LogPrinter.d();
+                this.e.onAdError(this.c, 0, str);
+            }
+        }
+
+        @Override // com.win.opensdk.PBVideoListener
+        public void onUserEarnedReward(boolean z, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+                LogPrinter.d();
+                this.e.onRewardedVideo(this.c, z, this.d);
+            }
+        }
     }
 
-    public static List<mnb> b(Context context) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public snb(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < 9; i++) {
-                arrayList.add(new mnb());
-            }
-            ((mnb) arrayList.get(0)).c("SDK版本号");
-            ((mnb) arrayList.get(1)).c("测试应用");
-            ((mnb) arrayList.get(1)).g(context.getPackageName());
-            ((mnb) arrayList.get(2)).c("AppID");
-            ((mnb) arrayList.get(3)).c("设备id");
-            ((mnb) arrayList.get(4)).c(HttpConstants.OS_VERSION);
-            ((mnb) arrayList.get(4)).g(Build.VERSION.RELEASE);
-            ((mnb) arrayList.get(5)).c(HttpConstants.HTTP_MANUFACTURER);
-            ((mnb) arrayList.get(5)).g(Build.MANUFACTURER);
-            ((mnb) arrayList.get(6)).c("imei");
-            ((mnb) arrayList.get(7)).c("oaid");
-            ((mnb) arrayList.get(8)).c("environment");
-            try {
-                if (Build.VERSION.SDK_INT >= 24) {
-                    ((mnb) arrayList.get(8)).g("minSdkVersion:" + context.getApplicationInfo().minSdkVersion + "targetSdkVersion:" + context.getApplicationInfo().targetSdkVersion);
-                } else {
-                    ((mnb) arrayList.get(8)).g("minSdkVersion:" + a(context.getApplicationContext().getPackageResourcePath(), 16843276) + "targetSdkVersion:" + a(context.getApplicationContext().getPackageResourcePath(), 16843376));
-                }
-            } catch (Exception unused) {
-            }
-            Cursor cursor = null;
-            try {
-                try {
-                    Cursor b = tnb.b(context, "setting_base_info", new String[]{"_id", "value"}, null, null, null, null, null);
-                    if (b == null) {
-                        if (b != null) {
-                            b.close();
-                        }
-                        return arrayList;
-                    }
-                    while (b.moveToNext()) {
-                        try {
-                            int i2 = b.getInt(b.getColumnIndex("_id"));
-                            String string = b.getString(b.getColumnIndex("value"));
-                            if (i2 >= 0 && i2 < 9) {
-                                ((mnb) arrayList.get(i2)).g(rnb.g(string));
-                            }
-                        } catch (Exception unused2) {
-                        }
-                    }
-                    if (b != null) {
-                        b.close();
-                    }
-                    return arrayList;
-                } catch (Exception unused3) {
-                    return arrayList;
-                }
-            } finally {
-                if (0 != 0) {
-                    cursor.close();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (List) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            String tid = getTid(String.valueOf(System.currentTimeMillis()));
+            PBVideo pBVideo = new PBVideo(context.getApplicationContext(), this.mPid.pid);
+            pBVideo.setVideoListener(new a(this, pBVideo, tid));
+            pBVideo.load();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        PBVideo pBVideo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBVideo = (PBVideo) obj) != null) {
+            pBVideo.destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean isAdAvailable(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            PBVideo pBVideo = (PBVideo) obj;
+            if (pBVideo != null && pBVideo.isReady()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            PBVideo pBVideo = (PBVideo) obj;
+            onShowStart(pBVideo);
+            if (!pBVideo.isReady()) {
+                LogPrinter.e("Ad isn't ready now", new Object[0]);
+                return false;
+            }
+            pBVideo.show();
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

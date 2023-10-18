@@ -1,144 +1,191 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.text.TextUtils;
+import android.util.Xml;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes8.dex */
-public class vl4 extends mk4<bm4> {
+public class vl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
 
-    @Override // com.baidu.tieba.mk4
-    public String g() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0043 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0045 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0021 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v14 */
+    public static boolean a(InputStream inputStream, File file) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        int read;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vl4(String str, bj4 bj4Var, mm4 mm4Var) {
-        super(bj4Var, mm4Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, bj4Var, mm4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((bj4) objArr2[0], (mm4) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = str;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mk4
-    /* renamed from: x */
-    public bm4 t(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) {
-            return no4.g(this.d, jSONObject);
-        }
-        return (bm4) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mk4
-    /* renamed from: v */
-    public boolean r(bm4 bm4Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, bm4Var, i)) == null) {
-            if (bm4Var != null) {
-                q(bm4Var.e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, file)) == null) {
+            boolean z = false;
+            if (inputStream == null || file == null) {
                 return false;
             }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mk4
-    /* renamed from: u */
-    public boolean e(bm4 bm4Var) {
-        InterceptResult invokeL;
-        List<gk4> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bm4Var)) == null) {
-            if (bm4Var == null) {
-                return false;
+            File parentFile = file.getParentFile();
+            if (!parentFile.exists()) {
+                parentFile.mkdirs();
             }
-            if (bm4Var.a == null && (((list = bm4Var.b) == null || list.isEmpty()) && bm4Var.d == null && bm4Var.f == null && bm4Var.e == null)) {
-                return false;
+            if (file.exists()) {
+                file.delete();
             }
-            fk4 fk4Var = bm4Var.a;
-            if (fk4Var != null && !fk4Var.a()) {
-                return false;
-            }
-            List<gk4> list2 = bm4Var.b;
-            if (list2 != null) {
-                for (gk4 gk4Var : list2) {
-                    if (!gk4Var.a()) {
-                        return false;
-                    }
+            FileOutputStream fileOutputStream2 = null;
+            FileOutputStream fileOutputStream3 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Throwable th) {
+                    th = th;
                 }
+            } catch (Exception e) {
+                e = e;
             }
-            dk4 dk4Var = bm4Var.d;
-            if (dk4Var != null && !dk4Var.a()) {
-                return false;
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    fileOutputStream.write(bArr, 0, read);
+                }
+                fileOutputStream.flush();
+                z = true;
+                sl4.d(fileOutputStream);
+                fileOutputStream2 = read;
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream3 = fileOutputStream;
+                e.printStackTrace();
+                sl4.d(fileOutputStream3);
+                fileOutputStream2 = fileOutputStream3;
+                sl4.d(inputStream);
+                return z;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                sl4.d(fileOutputStream2);
+                sl4.d(inputStream);
+                throw th;
             }
-            bk4 bk4Var = bm4Var.f;
-            if (bk4Var != null && !bk4Var.a()) {
-                return false;
-            }
-            PMSAppInfo pMSAppInfo = bm4Var.e;
-            if (pMSAppInfo != null && !pMSAppInfo.checkValid()) {
-                return false;
-            }
-            return true;
+            sl4.d(inputStream);
+            return z;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mk4
-    /* renamed from: w */
-    public ak4 s(bm4 bm4Var) {
+    public static String b(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bm4Var)) == null) {
-            this.a.E();
-            oo4 oo4Var = new oo4();
-            n(bm4Var.a, oo4Var);
-            o(bm4Var.b, oo4Var);
-            m(f(bm4Var.c), oo4Var);
-            l(bm4Var.d, oo4Var);
-            k(bm4Var.f, oo4Var);
-            q(bm4Var.e);
-            if (oo4Var.n() == 0) {
-                this.a.F();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            return c(inputStream, Xml.Encoding.UTF_8.toString());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(InputStream inputStream, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
+            if (inputStream == null) {
                 return null;
             }
-            this.a.G(oo4Var);
-            rk4.b(bm4Var, this.a);
-            return null;
+            StringBuilder sb = new StringBuilder();
+            try {
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, str), 8192);
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        sb.append(readLine);
+                    }
+                } catch (Throwable th) {
+                    sl4.d(inputStream);
+                    throw th;
+                }
+            } catch (Exception | OutOfMemoryError e) {
+                e.printStackTrace();
+            }
+            sl4.d(inputStream);
+            return sb.toString();
         }
-        return (ak4) invokeL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean d(InputStream inputStream, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) {
+            boolean z = false;
+            if (inputStream != null && !TextUtils.isEmpty(str)) {
+                File file = new File(str);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                byte[] bArr = new byte[8192];
+                ZipInputStream zipInputStream = new ZipInputStream(inputStream);
+                while (true) {
+                    try {
+                        ZipEntry nextEntry = zipInputStream.getNextEntry();
+                        if (nextEntry != null) {
+                            String str2 = str + "/" + nextEntry.getName();
+                            if (sl4.x(str2)) {
+                                sl4.d(zipInputStream);
+                                return false;
+                            } else if (nextEntry.isDirectory()) {
+                                File file2 = new File(str2);
+                                if (!file2.exists()) {
+                                    file2.mkdirs();
+                                }
+                            } else {
+                                File parentFile = new File(str2).getParentFile();
+                                if (!parentFile.exists()) {
+                                    parentFile.mkdirs();
+                                }
+                                if (!parentFile.isDirectory()) {
+                                    parentFile.delete();
+                                    parentFile.mkdirs();
+                                }
+                                FileOutputStream fileOutputStream = new FileOutputStream(str2);
+                                while (true) {
+                                    try {
+                                        int read = zipInputStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        fileOutputStream.write(bArr, 0, read);
+                                    } finally {
+                                    }
+                                }
+                                sl4.d(fileOutputStream);
+                            }
+                        } else {
+                            z = true;
+                            break;
+                        }
+                    } catch (IOException unused) {
+                    } catch (Throwable th) {
+                        sl4.d(zipInputStream);
+                        throw th;
+                    }
+                }
+                sl4.d(zipInputStream);
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
     }
 }

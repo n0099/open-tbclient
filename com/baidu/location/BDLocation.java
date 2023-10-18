@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.messages.DuPaBInfoMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.location.Address;
 import com.baidu.location.e.k;
 import com.baidu.mobstat.Config;
@@ -114,7 +113,7 @@ public final class BDLocation implements Parcelable {
     public String S;
 
     /* renamed from: T  reason: collision with root package name */
-    public String f1044T;
+    public String f1043T;
     public String U;
     public Bundle V;
     public int W;
@@ -232,7 +231,7 @@ public final class BDLocation implements Parcelable {
         this.Q = -1;
         this.R = null;
         this.S = null;
-        this.f1044T = null;
+        this.f1043T = null;
         this.U = null;
         this.V = new Bundle();
         this.W = 0;
@@ -310,7 +309,7 @@ public final class BDLocation implements Parcelable {
         this.Q = -1;
         this.R = null;
         this.S = null;
-        this.f1044T = null;
+        this.f1043T = null;
         this.U = null;
         this.V = new Bundle();
         this.W = 0;
@@ -376,7 +375,7 @@ public final class BDLocation implements Parcelable {
         this.P = parcel.readString();
         this.Q = parcel.readInt();
         this.W = parcel.readInt();
-        this.f1044T = parcel.readString();
+        this.f1043T = parcel.readString();
         this.X = parcel.readInt();
         this.U = parcel.readString();
         this.Z = parcel.readString();
@@ -501,7 +500,7 @@ public final class BDLocation implements Parcelable {
         this.Q = -1;
         this.R = null;
         this.S = null;
-        this.f1044T = null;
+        this.f1043T = null;
         this.U = null;
         this.V = new Bundle();
         this.W = 0;
@@ -575,7 +574,7 @@ public final class BDLocation implements Parcelable {
         this.ah = bDLocation.ah;
         this.ai = bDLocation.ai;
         this.aj = bDLocation.aj;
-        this.f1044T = bDLocation.f1044T;
+        this.f1043T = bDLocation.f1043T;
         if (bDLocation.R != null) {
             arrayList = new ArrayList();
             for (int i3 = 0; i3 < bDLocation.R.size(); i3++) {
@@ -718,7 +717,7 @@ public final class BDLocation implements Parcelable {
         this.Q = -1;
         this.R = null;
         this.S = null;
-        this.f1044T = null;
+        this.f1043T = null;
         this.U = null;
         this.V = new Bundle();
         this.W = 0;
@@ -821,7 +820,7 @@ public final class BDLocation implements Parcelable {
                                     ArrayList arrayList = new ArrayList();
                                     for (int i5 = 0; i5 < jSONArray.length(); i5++) {
                                         JSONObject jSONObject9 = jSONArray.getJSONObject(i5);
-                                        arrayList.add(new Poi(jSONObject9.getString("pid"), jSONObject9.getString("pname"), jSONObject9.getDouble("pr"), jSONObject9.has(TaskProcess.keyTags) ? jSONObject9.getString(TaskProcess.keyTags) : str3, jSONObject9.has(DuPaBInfoMsg.B_ADDR) ? jSONObject9.getString(DuPaBInfoMsg.B_ADDR) : str3));
+                                        arrayList.add(new Poi(jSONObject9.getString("pid"), jSONObject9.getString("pname"), jSONObject9.getDouble("pr"), jSONObject9.has("tags") ? jSONObject9.getString("tags") : str3, jSONObject9.has(DuPaBInfoMsg.B_ADDR) ? jSONObject9.getString(DuPaBInfoMsg.B_ADDR) : str3));
                                     }
                                     this.R = arrayList;
                                 }
@@ -1806,7 +1805,7 @@ public final class BDLocation implements Parcelable {
     public String getLocationID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f1044T : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f1043T : (String) invokeV.objValue;
     }
 
     public int getLocationWhere() {
@@ -2343,7 +2342,7 @@ public final class BDLocation implements Parcelable {
     public void setLocationID(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048685, this, str) == null) {
-            this.f1044T = str;
+            this.f1043T = str;
         }
     }
 
@@ -2598,7 +2597,7 @@ public final class BDLocation implements Parcelable {
             parcel.writeString(this.P);
             parcel.writeInt(this.Q);
             parcel.writeInt(this.W);
-            parcel.writeString(this.f1044T);
+            parcel.writeString(this.f1043T);
             parcel.writeInt(this.X);
             parcel.writeString(this.U);
             parcel.writeString(this.Z);

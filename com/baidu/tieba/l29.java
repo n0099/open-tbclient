@@ -1,31 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public abstract class l29<SdkMsg extends ChatMsg, T> implements o29<SdkMsg, p09<T>> {
+/* loaded from: classes7.dex */
+public class l29 extends kf1<AccountManagerService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract int c();
-
-    public abstract SdkMsg e(T t);
-
-    public abstract T g(SdkMsg sdkmsg);
 
     public l29() {
         Interceptable interceptable = $ic;
@@ -42,83 +27,14 @@ public abstract class l29<SdkMsg extends ChatMsg, T> implements o29<SdkMsg, p09<
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o29
-    /* renamed from: d */
-    public SdkMsg b(p09<T> msg) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kf1
+    /* renamed from: a */
+    public AccountManagerService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            SdkMsg e = e(msg.f());
-            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.m.a())));
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("type", c());
-            jSONObject.put("from", "android");
-            e.setContentExtra(jSONObject.toString());
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new m29();
         }
-        return (SdkMsg) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o29
-    /* renamed from: f */
-    public p09<T> a(SdkMsg msg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            p09<T> p09Var = new p09<>();
-            p09Var.i(g(msg));
-            p09Var.c(msg.getMsgId());
-            String msgKey = msg.getMsgKey();
-            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
-            p09Var.d(msgKey);
-            p09Var.e().l(msg.getContacterUk());
-            p09Var.e().k(ekb.c(msg.getSenderUid(), 0L));
-            p09Var.e().i(msg.getStatus());
-            p09Var.j(msg);
-            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
-            p09Var.e().h(isSelf);
-            if (!isSelf) {
-                p09Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
-                p09Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
-            } else {
-                p09Var.e().g(TbadkCoreApplication.getCurrentPortrait());
-                p09Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
-            }
-            if (!StringUtils.isNull(msg.getContentExtra())) {
-                try {
-                    JSONObject jSONObject = new JSONObject(msg.getContentExtra());
-                    p09Var.e().j(jSONObject.optInt("type"));
-                    p09Var.e().e(jSONObject.optString("from"));
-                } catch (JSONException e) {
-                    if (!TbadkApplication.getInst().isDebugMode()) {
-                        e.printStackTrace();
-                    } else {
-                        throw e;
-                    }
-                }
-            }
-            String msgContent = msg.getMsgContent();
-            if (msgContent == null) {
-                msgContent = "";
-            } else {
-                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
-            }
-            if (!di.isEmpty(msgContent)) {
-                try {
-                    JSONObject jSONObject2 = new JSONObject(msgContent);
-                    o09 g = p09Var.g();
-                    String optString = jSONObject2.optString("origin_msg_key");
-                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
-                    g.b(optString);
-                } catch (JSONException e2) {
-                    BdLog.e(e2);
-                }
-            }
-            return p09Var;
-        }
-        return (p09) invokeL.objValue;
+        return (AccountManagerService) invokeV.objValue;
     }
 }

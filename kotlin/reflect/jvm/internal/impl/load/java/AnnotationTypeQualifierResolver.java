@@ -23,13 +23,13 @@ import kotlin.reflect.jvm.internal.impl.storage.MemoizedFunctionToNullable;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.utils.Jsr305State;
 import kotlin.reflect.jvm.internal.impl.utils.ReportLevel;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class AnnotationTypeQualifierResolver {
     public final boolean disabled;
     public final Jsr305State jsr305State;
     public final MemoizedFunctionToNullable<ClassDescriptor, AnnotationDescriptor> resolvedNicknames;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public enum QualifierApplicabilityType {
         METHOD_RETURN_TYPE,
         VALUE_PARAMETER,
@@ -37,7 +37,7 @@ public final class AnnotationTypeQualifierResolver {
         TYPE_USE
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class TypeQualifierWithApplicability {
         public final int applicability;
         public final AnnotationDescriptor typeQualifier;
@@ -197,9 +197,9 @@ public final class AnnotationTypeQualifierResolver {
 
     private final ReportLevel migrationAnnotationStatus(ClassDescriptor classDescriptor) {
         ConstantValue<?> constantValue;
-        AnnotationDescriptor mo2102findAnnotation = classDescriptor.getAnnotations().mo2102findAnnotation(AnnotationTypeQualifierResolverKt.getMIGRATION_ANNOTATION_FQNAME());
-        if (mo2102findAnnotation != null) {
-            constantValue = DescriptorUtilsKt.firstArgument(mo2102findAnnotation);
+        AnnotationDescriptor mo2101findAnnotation = classDescriptor.getAnnotations().mo2101findAnnotation(AnnotationTypeQualifierResolverKt.getMIGRATION_ANNOTATION_FQNAME());
+        if (mo2101findAnnotation != null) {
+            constantValue = DescriptorUtilsKt.firstArgument(mo2101findAnnotation);
         } else {
             constantValue = null;
         }
@@ -274,11 +274,11 @@ public final class AnnotationTypeQualifierResolver {
                 if (annotationClass2 == null) {
                     Intrinsics.throwNpe();
                 }
-                AnnotationDescriptor mo2102findAnnotation = annotationClass2.getAnnotations().mo2102findAnnotation(AnnotationTypeQualifierResolverKt.getTYPE_QUALIFIER_DEFAULT_FQNAME());
-                if (mo2102findAnnotation == null) {
+                AnnotationDescriptor mo2101findAnnotation = annotationClass2.getAnnotations().mo2101findAnnotation(AnnotationTypeQualifierResolverKt.getTYPE_QUALIFIER_DEFAULT_FQNAME());
+                if (mo2101findAnnotation == null) {
                     Intrinsics.throwNpe();
                 }
-                Map<Name, ConstantValue<?>> allValueArguments = mo2102findAnnotation.getAllValueArguments();
+                Map<Name, ConstantValue<?>> allValueArguments = mo2101findAnnotation.getAllValueArguments();
                 ArrayList<QualifierApplicabilityType> arrayList = new ArrayList();
                 for (Map.Entry<Name, ConstantValue<?>> entry : allValueArguments.entrySet()) {
                     ConstantValue<?> value = entry.getValue();

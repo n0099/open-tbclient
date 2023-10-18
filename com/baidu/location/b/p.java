@@ -49,7 +49,7 @@ public class p extends m {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1045T;
+    public boolean f1044T;
     public boolean U;
     public boolean V;
     public m.b e;
@@ -194,7 +194,7 @@ public class p extends m {
         this.Q = false;
         this.R = null;
         this.S = false;
-        this.f1045T = false;
+        this.f1044T = false;
         this.U = false;
         this.V = true;
         this.e = new m.b(this);
@@ -237,7 +237,7 @@ public class p extends m {
     private void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, str) == null) {
-            this.f1045T = str != null && "subway".equals(str.toLowerCase());
+            this.f1044T = str != null && "subway".equals(str.toLowerCase());
         }
     }
 

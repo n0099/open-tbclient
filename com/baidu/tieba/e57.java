@@ -1,238 +1,107 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.widget.ImageView.BdImage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Deprecated
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedLinkComponent;
+import tbclient.PbLinkInfo;
 /* loaded from: classes5.dex */
-public class e57 extends pj5 {
+public final class e57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String e;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(e57 e57Var);
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public String b(int i) {
-        InterceptResult invokeI;
+    public static final void a(FeedLinkComponent feedLinkComponent, List<h77<? extends Object>> mutableList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public BdImage n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return null;
-        }
-        return (BdImage) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public BdImage o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            return null;
-        }
-        return (BdImage) invokeL.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends BdResourceCallback<BdImage> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ e57 b;
-
-        public a(e57 e57Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e57Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = e57Var;
-            this.a = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
-        public void onLoaded(BdImage bdImage, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) {
-                super.onLoaded((a) bdImage, str, i);
-                if (bdImage != null) {
-                    this.b.r(bdImage);
-                    this.b.s(bdImage);
-                    if (this.b.u()) {
-                        this.a.a(this.b);
+        if (interceptable == null || interceptable.invokeLL(65536, null, feedLinkComponent, mutableList) == null) {
+            Intrinsics.checkNotNullParameter(feedLinkComponent, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            List<PbLinkInfo> list = feedLinkComponent.links;
+            if (list != null) {
+                ArrayList arrayList = new ArrayList();
+                for (PbLinkInfo it : list) {
+                    Intrinsics.checkNotNullExpressionValue(it, "it");
+                    z37 b = b(it);
+                    if (b != null) {
+                        arrayList.add(b);
                     }
                 }
+                if (arrayList.size() > 1) {
+                    mutableList.add(new w17(arrayList));
+                } else {
+                    mutableList.add(new c27((z37) arrayList.get(0)));
+                }
             }
         }
     }
 
-    public e57(o47 o47Var) {
+    public static final z37 b(PbLinkInfo pbLinkInfo) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        int intValue;
+        String str6;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o47Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pbLinkInfo)) == null) {
+            Intrinsics.checkNotNullParameter(pbLinkInfo, "<this>");
+            String str7 = pbLinkInfo.title;
+            if (str7 == null) {
+                str = "";
+            } else {
+                str = str7;
             }
-        }
-        this.e = o47Var.getGroupId();
-        t(1);
-        q(4);
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public BdImage e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.d();
-        }
-        return (BdImage) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public EmotionGroupType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return EmotionGroupType.SINGLE_FORUM;
-        }
-        return (EmotionGroupType) invokeV.objValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (d() != null) {
-                return true;
+            String str8 = pbLinkInfo.to_url;
+            if (str8 == null) {
+                str2 = "";
+            } else {
+                str2 = str8;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean v(o47 o47Var, b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, o47Var, bVar)) == null) {
-            if (!(o47Var instanceof SingleBarEmotionRecommendData)) {
-                return false;
+            String str9 = pbLinkInfo.pic_url;
+            if (str9 == null) {
+                str3 = "";
+            } else {
+                str3 = str9;
             }
-            BdResourceLoader.getInstance().loadResource(((SingleBarEmotionRecommendData) o47Var).cover, 10, new a(this, bVar), null);
-            if (!u()) {
-                return false;
+            String str10 = pbLinkInfo.link_from;
+            if (str10 == null) {
+                str4 = "";
+            } else {
+                str4 = str10;
             }
-            bVar.a(this);
-            return true;
+            String str11 = pbLinkInfo.ext_txt;
+            if (str11 == null) {
+                str5 = "";
+            } else {
+                str5 = str11;
+            }
+            Integer num = pbLinkInfo.sort;
+            int i = 0;
+            if (num == null) {
+                intValue = 0;
+            } else {
+                intValue = num.intValue();
+            }
+            Integer num2 = pbLinkInfo.url_type;
+            if (num2 != null) {
+                i = num2.intValue();
+            }
+            String str12 = pbLinkInfo.content1;
+            if (str12 == null) {
+                str6 = "";
+            } else {
+                str6 = str12;
+            }
+            String str13 = pbLinkInfo.content2;
+            if (str13 == null) {
+                str13 = "";
+            }
+            return new z37(str, str2, str3, str4, str5, intValue, i, str6, str13);
         }
-        return invokeLL.booleanValue;
+        return (z37) invokeL.objValue;
     }
 }

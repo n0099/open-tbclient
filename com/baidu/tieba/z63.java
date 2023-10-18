@@ -1,102 +1,133 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.tieba.cu2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
-public class z63 {
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class z63 extends m73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948311858, "Lcom/baidu/tieba/z63;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948311858, "Lcom/baidu/tieba/z63;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z63(m63 m63Var) {
+        super(m63Var, "/swanAPI/openApp4Ad");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {m63Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qr1.a;
     }
 
-    public static void a() {
-        String[] list;
+    public static ResolveInfo j(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (list = cu2.q().list()) != null && list.length > 0) {
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    hk4 hk4Var = new hk4();
-                    hk4Var.g = str;
-                    hk4Var.i = -1L;
-                    dj4.i().f(hk4Var);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return null;
             }
-            cu2.e.d();
+            Intent intent = new Intent("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
+                return null;
+            }
+            return queryIntentActivities.iterator().next();
         }
+        return (ResolveInfo) invokeLL.objValue;
     }
 
-    public static void b(String str) {
-        File s;
-        String[] list;
+    public static void k(Context context, ResolveInfo resolveInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && !TextUtils.isEmpty(str) && (s = cu2.s(str)) != null && (list = s.list()) != null && list.length > 1) {
-            List<hk4> q = n63.q(str);
-            for (String str2 : list) {
-                long j = -1;
-                try {
-                    j = Long.parseLong(str2);
-                } catch (NumberFormatException e) {
-                    if (a) {
-                        y63.b(Log.getStackTraceString(e));
-                    }
+        if ((interceptable == null || interceptable.invokeLL(65538, null, context, resolveInfo) == null) && context != null && resolveInfo != null) {
+            Intent intent = new Intent("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            ActivityInfo activityInfo = resolveInfo.activityInfo;
+            intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            try {
+                wo2.a().b(context, intent, o53.K().q().P(), null, resolveInfo.activityInfo.packageName);
+            } catch (Exception e) {
+                if (m73.b) {
+                    e.printStackTrace();
                 }
-                if (!c(j, q)) {
-                    kr4.L(cu2.t(str, str2));
-                    y63.b("delete plugin name = " + str + " ; version = " + str2);
-                }
-            }
-            hk4 hk4Var = null;
-            if (q != null) {
-                if (q.size() == 1) {
-                    hk4Var = q.get(0);
-                } else if (q.size() >= 2) {
-                    hk4Var = q.get(1);
-                }
-            }
-            if (hk4Var != null) {
-                dj4.i().f(hk4Var);
             }
         }
     }
 
-    public static boolean c(long j, List<hk4> list) {
-        InterceptResult invokeJL;
+    @Override // com.baidu.tieba.m73
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
-            if (j >= 0 && list != null && list.size() != 0) {
-                int min = Math.min(list.size(), 2);
-                for (int i = 0; i < min; i++) {
-                    hk4 hk4Var = list.get(i);
-                    if (hk4Var != null && (j == hk4Var.i || j == vo3.c(hk4Var.j))) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
+            JSONObject a = m73.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
+                p22.i("OpenAdAppAction", "params parse error");
+                return false;
+            } else if (!wo2.a().d()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "Host denied");
+                p22.i("OpenAdAppAction", "Host denied");
+                return false;
+            } else {
+                String optString = a.optString("name");
+                String optString2 = a.optString("url");
+                if (TextUtils.isEmpty(optString) && TextUtils.isEmpty(optString2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty params: Must contain 'url' or 'name' parameter");
+                    p22.i("OpenAdAppAction", "empty params: Must contain 'url' or 'name' parameter");
+                    return false;
+                }
+                if (!TextUtils.isEmpty(optString2)) {
+                    if (jj3.W(context, optString2)) {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                         return true;
                     }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "deeplink launch failed");
+                    p22.i("OpenAdAppAction", "deeplink launch failed");
                 }
+                if (!TextUtils.isEmpty(optString)) {
+                    ResolveInfo j = j(context, optString);
+                    if (j != null) {
+                        k(context, j);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                        return true;
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "app not installed");
+                    p22.i("OpenAdAppAction", "app not installed");
+                }
+                if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "launch failed");
+                    p22.i("OpenAdAppAction", "launch failed");
+                }
+                return false;
             }
-            return false;
         }
-        return invokeJL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

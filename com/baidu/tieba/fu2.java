@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import android.util.Base64;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.media.AudioRecord;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.gu2;
-import com.baidu.tieba.hu2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,61 +16,52 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.zip.GZIPInputStream;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONException;
+import org.json.JSONObject;
+import rx.schedulers.Schedulers;
 /* loaded from: classes6.dex */
 public class fu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final AtomicInteger b;
-    public static CharSequence c;
-    public static final boolean d;
+    public static final boolean q;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile fu2 r;
     public transient /* synthetic */ FieldHolder $fh;
+    public AudioRecord a;
+    public String b;
+    public int c;
+    public int d;
+    public Context e;
+    public String f;
+    public Timer g;
+    public eu2 h;
+    public long i;
+    public long j;
+    public au2 k;
+    public bu2 l;
+    public boolean m;
+    public TelephonyManager n;
+    public du2 o;
+    public boolean p;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public class a implements eu2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ byte[] c;
-        public final /* synthetic */ AtomicInteger d;
-        public final /* synthetic */ AtomicInteger e;
+        public final /* synthetic */ fu2 a;
 
-        public a(File file, String str, byte[] bArr, AtomicInteger atomicInteger, AtomicInteger atomicInteger2) {
+        public a(fu2 fu2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {file, str, bArr, atomicInteger, atomicInteger2};
+                Object[] objArr = {fu2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -80,61 +71,149 @@ public class fu2 {
                     return;
                 }
             }
-            this.a = file;
-            this.b = str;
-            this.c = bArr;
-            this.d = atomicInteger;
-            this.e = atomicInteger2;
+            this.a = fu2Var;
         }
 
-        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
-        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        @Override // java.lang.Runnable
+        @Override // com.baidu.tieba.eu2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (fu2.q) {
+                    Log.d("AudioRecorderManager", "record --- timeOut");
+                }
+                p22.i("recorder", "time out");
+                this.a.F();
+                this.a.z();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements v6c<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fu2 a;
+
+        public b(fu2 fu2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fu2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fu2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.v6c
+        /* renamed from: a */
+        public void call(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, bool) != null) || bool.booleanValue()) {
+                return;
+            }
+            this.a.f();
+            p22.c("recorder", "record error");
+            this.a.z();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements a7c<String, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fu2 a;
+
+        public c(fu2 fu2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fu2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fu2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.a7c
+        /* renamed from: a */
+        public Boolean call(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return Boolean.valueOf(this.a.C());
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eu2 a;
+        public final /* synthetic */ fu2 b;
+
+        public d(fu2 fu2Var, eu2 eu2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fu2Var, eu2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fu2Var;
+            this.a = eu2Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    File file = new File(this.a, this.b);
-                    if (file.exists()) {
-                        if (file.length() == this.c.length) {
-                            return;
-                        }
-                    }
-                    kr4.m(file.getParentFile());
-                    try {
-                        FileOutputStream fileOutputStream = new FileOutputStream(file);
-                        try {
-                            fileOutputStream.write(this.c);
-                            fileOutputStream.close();
-                        } finally {
-                        }
-                    } catch (Exception e) {
-                        if (this.d != null) {
-                            this.d.incrementAndGet();
-                        }
-                        g82.l("BundleDecrypt", "write file fail - " + file.getAbsolutePath(), e);
-                    }
-                } finally {
-                    this.e.getAndDecrement();
+                eu2 eu2Var = this.a;
+                if (eu2Var != null) {
+                    eu2Var.a();
                 }
+                this.b.G();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public class e extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
+        public final /* synthetic */ fu2 a;
 
-        public b(boolean z) {
+        public e(fu2 fu2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z)};
+                Object[] objArr = {fu2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -144,32 +223,18 @@ public class fu2 {
                     return;
                 }
             }
-            this.a = z;
-            this.b = "";
+            this.a = fu2Var;
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public BufferedInputStream a;
-        public int b;
-
-        public c() {
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.h != null) {
+                    this.a.h.a();
                 }
+                this.a.G();
             }
-            this.b = -1;
         }
     }
 
@@ -186,841 +251,586 @@ public class fu2 {
                 return;
             }
         }
-        a = qr1.a;
-        b = new AtomicInteger(0);
-        c = "._";
-        nu2.g0().getSwitch("swan_pkg_unzip_quickly", false);
-        d = false;
+        q = am1.a;
     }
 
-    public static PublicKey o() {
-        InterceptResult invokeV;
+    public fu2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            try {
-                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode("MEwwDQYJKoZIhvcNAQEBBQADOwAwOAIxAMrOpIWOfuGDG1bjUXV5aPU5UQr0vmOqJif4uJC+7/2B9Nm27SEGINei70QIW4x/vwIDAQAB".getBytes("utf-8"), 0)));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
-                if (a) {
-                    Log.e("BundleDecrypt", e.getMessage());
-                    return null;
-                }
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (PublicKey) invokeV.objValue;
+        this.d = -1;
+        this.k = new au2();
+        this.p = false;
     }
 
-    public static void a(File file, String str, byte[] bArr, AtomicInteger atomicInteger, AtomicInteger atomicInteger2) {
+    public static fu2 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, file, str, bArr, atomicInteger, atomicInteger2) == null) {
-            iu2.a(new a(file, str, bArr, atomicInteger, atomicInteger2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (r == null) {
+                synchronized (fu2.class) {
+                    if (r == null) {
+                        r = new fu2();
+                    }
+                }
+            }
+            return r;
+        }
+        return (fu2) invokeV.objValue;
+    }
+
+    public static void x() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65544, null) != null) || r == null) {
+            return;
+        }
+        r.z();
+        r.H();
+        r.o();
+    }
+
+    public static void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            x();
+            r = null;
         }
     }
 
-    public static boolean b(int i, @NonNull File file, int i2, @NonNull b bVar) {
-        InterceptResult invokeCommon;
+    public void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), file, Integer.valueOf(i2), bVar})) == null) {
-            if (i > 0) {
-                String str = i + " files write error";
-                bVar.b = str;
-                g82.k("BundleDecrypt", str);
-                hi3 hi3Var = new hi3();
-                zm3 zm3Var = new zm3();
-                zm3Var.k(4L);
-                zm3Var.i(52L);
-                hi3Var.p(zm3Var);
-                hi3Var.l("path", file.getAbsolutePath());
-                hi3Var.l("eMsg", str);
-                hi3Var.l("decryptType", String.valueOf(i2));
-                hi3Var.l("stack", ap3.z(30));
-                zh3.R(hi3Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "resume record");
+            }
+            D(false);
+            B();
+        }
+    }
+
+    public boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            byte[] bArr = new byte[this.c];
+            au2 au2Var = this.k;
+            gu2 gu2Var = new gu2(au2Var.b, au2Var.c, au2Var.d, au2Var.e);
+            if (this.a == null) {
+                return false;
+            }
+            return v(bArr, gu2Var);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "stop timer");
+            }
+            p22.i("recorder", "stop timer");
+            this.h = null;
+            Timer timer = this.g;
+            if (timer != null) {
+                timer.cancel();
+                this.g = null;
+            }
+        }
+    }
+
+    public final void H() {
+        TelephonyManager telephonyManager;
+        du2 du2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (telephonyManager = this.n) != null && (du2Var = this.o) != null) {
+            telephonyManager.listen(du2Var, 0);
+            this.n = null;
+            this.o = null;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            g(2002, "error execute");
+        }
+    }
+
+    public bu2 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.l;
+        }
+        return (bu2) invokeV.objValue;
+    }
+
+    public au2 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.k;
+        }
+        return (au2) invokeV.objValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            int i = this.d;
+            if (i == 0 || i == 1) {
+                if (!this.p) {
+                    this.p = true;
+                    e(bu2.i, "recorderInterruptionBegin");
+                }
+                t();
+            }
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.p) {
+            this.p = false;
+            e(bu2.j, "recorderInterruptionEnd");
+        }
+    }
+
+    public final void w() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048600, this) != null) || (context = this.e) == null) {
+            return;
+        }
+        this.n = (TelephonyManager) context.getSystemService("phone");
+        du2 du2Var = new du2();
+        this.o = du2Var;
+        this.n.listen(du2Var, 32);
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            G();
+            this.e = null;
+            this.d = -1;
+            AudioRecord audioRecord = this.a;
+            if (audioRecord != null) {
+                audioRecord.release();
+                this.a = null;
+            }
+        }
+    }
+
+    public static void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || r == null) {
+            return;
+        }
+        r.s(z);
+    }
+
+    public boolean q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            if (!this.m) {
+                return false;
+            }
+            if (!TextUtils.equals(str, "/swanAPI/recorder/start") && !TextUtils.equals(str, "/swanAPI/recorder/resume")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            if (z && this.d == 1) {
+                t();
+            }
+            this.m = z;
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "resume timer");
+            }
+            p22.i("recorder", "resume timer");
+            eu2 eu2Var = this.h;
+            if (eu2Var != null) {
+                if (this.j <= 0) {
+                    eu2Var.a();
+                    return;
+                }
+                Timer timer = new Timer();
+                this.g = timer;
+                timer.schedule(new e(this), this.j);
+                this.i = System.currentTimeMillis();
+            }
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "stop record");
+            }
+            AudioRecord audioRecord = this.a;
+            if (audioRecord == null) {
+                f();
+                p22.c("recorder", "none audioRecord");
+                z();
+                return;
+            }
+            try {
+                audioRecord.stop();
+                G();
+                this.d = 3;
+                h();
+                H();
+            } catch (IllegalStateException e2) {
+                f();
+                p22.d("recorder", "stop error", e2);
+                z();
+            }
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "pause record");
+            }
+            AudioRecord audioRecord = this.a;
+            if (audioRecord == null) {
+                f();
+                p22.c("recorder", "none audio record");
+                z();
+                return;
+            }
+            try {
+                audioRecord.stop();
+                this.d = 2;
+                u();
+                e(bu2.e, "recorderPause");
+            } catch (IllegalStateException e2) {
+                f();
+                p22.d("recorder", "pause error", e2);
+                z();
+            }
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "pause timer, lastTime:" + this.j);
+            }
+            p22.i("recorder", "pause timer, lastTime:" + this.j);
+            Timer timer = this.g;
+            if (timer != null) {
+                timer.cancel();
+                this.g = null;
+            }
+            this.j = this.k.a - (System.currentTimeMillis() - this.i);
+        }
+    }
+
+    public void D(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (this.e == null) {
+                f();
+                p22.c("recorder", "start error, context is null");
+                z();
+            } else if (this.d != -1 && !TextUtils.isEmpty(this.b)) {
+                if (z) {
+                    String str = null;
+                    int i = this.d;
+                    if (i == 1) {
+                        str = "start fail: recorder is recording";
+                    } else if (i != 0 && i != 3) {
+                        str = "start fail: recorder is paused";
+                    }
+                    if (str != null) {
+                        g(2003, str);
+                        p22.c("recorder", str);
+                        return;
+                    }
+                }
+                if (q) {
+                    Log.d("AudioRecorderManager", "start record");
+                }
+                try {
+                    this.a.startRecording();
+                    if (this.a.getRecordingState() != 3) {
+                        f();
+                        p22.c("recorder", "start error, no real permission");
+                        z();
+                        return;
+                    }
+                    if (z) {
+                        E(new a(this));
+                        e(bu2.d, "recorderStart");
+                    } else {
+                        e(bu2.f, "recorderResume");
+                    }
+                    h6c.n("").J(Schedulers.io()).p(new c(this)).s(r6c.b()).H(new b(this));
+                } catch (IllegalStateException e2) {
+                    f();
+                    p22.d("recorder", "can't start", e2);
+                    z();
+                }
+            } else {
+                f();
+                p22.c("recorder", "start error, wrong state");
+                z();
+            }
+        }
+    }
+
+    public void E(eu2 eu2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, eu2Var) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "start timer:" + this.k.a);
+            }
+            p22.i("recorder", "start timer, totalTime:" + this.k.a);
+            this.h = eu2Var;
+            Timer timer = new Timer();
+            this.g = timer;
+            timer.schedule(new d(this, eu2Var), this.k.a);
+            this.i = System.currentTimeMillis();
+        }
+    }
+
+    public final void m(String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            if (TextUtils.equals(this.k.b, "mp3")) {
+                str2 = ".mp3";
+            } else if (TextUtils.equals(this.k.b, "pcm")) {
+                str2 = ".pcm";
+            } else {
+                str2 = DefaultHlsExtractorFactory.AAC_FILE_EXTENSION;
+            }
+            this.b = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
+        }
+    }
+
+    public boolean p(String str) {
+        InterceptResult invokeL;
+        int i;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            if (TextUtils.equals(str, "/swanAPI/recorder/pause")) {
+                if (this.d != 1) {
+                    str2 = "pause fail: recorder is not recording";
+                }
+                str2 = null;
+            } else if (TextUtils.equals(str, "/swanAPI/recorder/resume")) {
+                if (this.d != 2) {
+                    str2 = "resume fail: recorder is not paused";
+                }
+                str2 = null;
+            } else {
+                if (TextUtils.equals(str, "/swanAPI/recorder/stop") && (i = this.d) != 2 && i != 1) {
+                    str2 = "stop fail: recorder is not started";
+                }
+                str2 = null;
+            }
+            if (str2 == null) {
                 return true;
             }
+            g(2003, str2);
+            p22.c("recorder", str2);
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @NonNull
-    public static Pair<Boolean, File> c() {
-        InterceptResult invokeV;
+    public final void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            File file = new File(nu2.c().getFilesDir(), "swan_tmp_unzip");
-            kr4.l(file);
-            File file2 = new File(file, System.nanoTime() + "_" + b.incrementAndGet());
-            boolean l = kr4.l(file2);
-            g82.k("BundleDecrypt", "#createTmpUnzipDir tmpUnzipDir=" + file2 + " dirExist=" + l);
-            return new Pair<>(Boolean.valueOf(l), file2);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "dispatchCallback: " + str + " " + str2);
+            }
+            if (this.l != null && !TextUtils.isEmpty(str)) {
+                this.l.b(str);
+                return;
+            }
+            cr2.V().v(new qf2(str2));
         }
-        return (Pair) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:163:0x03a7  */
-    /* JADX WARN: Removed duplicated region for block: B:166:0x03c4  */
-    /* JADX WARN: Removed duplicated region for block: B:171:0x03f6  */
-    @NonNull
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static b d(BufferedInputStream bufferedInputStream, File file, int i) {
-        InterceptResult invokeLLI;
+    public final void g(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {
+            if (this.l != null && !TextUtils.isEmpty(bu2.h)) {
+                this.l.d(i, str);
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, i);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str);
+                HashMap hashMap = new HashMap();
+                hashMap.put("data", jSONObject.toString());
+                cr2.V().v(new qf2("recorderError", hashMap));
+            } catch (JSONException e2) {
+                p22.d("recorder", "json error", e2);
+                z();
+            }
+        }
+    }
+
+    public final void h() {
         long j;
-        DataInputStream dataInputStream;
-        long j2;
-        File file2;
-        DataInputStream dataInputStream2;
-        byte[] f;
-        DataInputStream dataInputStream3;
-        DataInputStream dataInputStream4;
-        AtomicInteger atomicInteger;
-        CountDownLatch countDownLatch;
-        String str;
-        ArrayList arrayList;
-        String str2;
-        String str3;
-        long j3;
-        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bufferedInputStream, file, i)) == null) {
-            String str5 = " 耗时(ms): ";
-            String str6 = "删除tmpUnzipDir ";
-            String str7 = "BundleDecrypt";
-            if (d) {
-                g82.k("BundleDecrypt", "#decryptQuickly dstFolder=" + file + " type=" + i);
-                return g(bufferedInputStream, file, i);
-            }
-            if (a) {
-                j = System.nanoTime();
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            String J = xc3.J(this.b, this.f);
+            long j2 = -1;
+            if (!TextUtils.isEmpty(this.b)) {
+                j2 = sl4.u(this.b);
+                j = new File(this.b).length();
             } else {
-                j = 0;
+                j = -1;
             }
-            b bVar = new b(false);
-            if (file != null && bufferedInputStream != null && i != 0) {
-                gu2 gu2Var = new gu2();
-                try {
-                    dataInputStream2 = new DataInputStream(bufferedInputStream);
-                    try {
-                        try {
-                            l(dataInputStream2);
-                            gu2Var.a = l(dataInputStream2);
-                            gu2Var.b = l(dataInputStream2);
-                            l(dataInputStream2);
-                            m(dataInputStream2);
-                            dataInputStream2.readFully(gu2Var.c);
-                            f = f(gu2Var.c);
-                        } catch (Throwable th) {
-                            th = th;
-                            dataInputStream = dataInputStream2;
-                            file2 = null;
-                            kr4.d(dataInputStream);
-                            if (file2 != null) {
-                                g82.k(str7, str6 + file2.getAbsolutePath());
-                                kr4.L(file2);
-                            }
-                            throw th;
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        j2 = j;
-                    }
-                    try {
-                    } catch (Exception e2) {
-                        e = e2;
-                        dataInputStream = dataInputStream2;
-                        file2 = null;
-                        try {
-                            bVar.b = e.getLocalizedMessage();
-                            g82.l(str7, "解压异常", e);
-                            kr4.d(dataInputStream);
-                            if (file2 != null) {
-                            }
-                            if (a) {
-                            }
-                            return bVar;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            kr4.d(dataInputStream);
-                            if (file2 != null) {
-                            }
-                            throw th;
-                        }
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    j2 = j;
-                    dataInputStream = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    dataInputStream = null;
-                }
-                if (f != null && f.length > 0) {
-                    byte[] bArr = new byte[gu2Var.b];
-                    dataInputStream2.readFully(bArr);
-                    byte[] bArr2 = new byte[16];
-                    byte[] bArr3 = new byte[16];
-                    System.arraycopy(f, 0, bArr2, 0, 16);
-                    System.arraycopy(f, 16, bArr3, 0, 16);
-                    byte[] e4 = e(bArr, bArr2, bArr3);
-                    if (e4 != null && e4.length > 0) {
-                        if (i == 2) {
-                            try {
-                                dataInputStream3 = new DataInputStream(nu2.j().a(new ByteArrayInputStream(e4)));
-                                dataInputStream4 = new DataInputStream(nu2.j().a(dataInputStream2));
-                            } catch (Exception e5) {
-                                e = e5;
-                                dataInputStream = dataInputStream2;
-                                j2 = j;
-                                file2 = null;
-                                bVar.b = e.getLocalizedMessage();
-                                g82.l(str7, "解压异常", e);
-                                kr4.d(dataInputStream);
-                                if (file2 != null) {
-                                }
-                                if (a) {
-                                }
-                                return bVar;
-                            }
-                        } else {
-                            dataInputStream3 = new DataInputStream(new ByteArrayInputStream(e4));
-                            dataInputStream4 = new DataInputStream(new GZIPInputStream(dataInputStream2));
-                        }
-                        DataInputStream dataInputStream5 = dataInputStream3;
-                        DataInputStream dataInputStream6 = dataInputStream4;
-                        if (!kr4.l(file)) {
-                            String str8 = "解压目录创建失败 path=" + file.getAbsolutePath();
-                            g82.k("BundleDecrypt", str8);
-                            bVar.b = str8;
-                            kr4.d(dataInputStream2);
-                            return bVar;
-                        }
-                        Pair<Boolean, File> c2 = c();
-                        if (!((Boolean) c2.first).booleanValue()) {
-                            String str9 = "临时目录创建失败 path=" + ((File) c2.second).getAbsolutePath();
-                            g82.k("BundleDecrypt", str9);
-                            bVar.b = str9;
-                            kr4.d(dataInputStream2);
-                            return bVar;
-                        }
-                        File file3 = (File) c2.second;
-                        try {
-                            try {
-                                atomicInteger = new AtomicInteger(0);
-                                countDownLatch = new CountDownLatch(4);
-                                j2 = j;
-                                try {
-                                    Handler[] handlerArr = new Handler[4];
-                                    int i2 = 0;
-                                    for (int i3 = 4; i2 < i3; i3 = 4) {
-                                        String str10 = str5;
-                                        try {
-                                            hu2 hu2Var = new hu2("BundleDecrypt" + i2, file3, countDownLatch, atomicInteger);
-                                            hu2Var.start();
-                                            handlerArr[i2] = hu2Var.d();
-                                            i2++;
-                                            str5 = str10;
-                                        } catch (Exception e6) {
-                                            e = e6;
-                                            dataInputStream = dataInputStream2;
-                                            file2 = file3;
-                                            str5 = str10;
-                                            bVar.b = e.getLocalizedMessage();
-                                            g82.l(str7, "解压异常", e);
-                                            kr4.d(dataInputStream);
-                                            if (file2 != null) {
-                                                g82.k(str7, str6 + file2.getAbsolutePath());
-                                                kr4.L(file2);
-                                            }
-                                            if (a) {
-                                            }
-                                            return bVar;
-                                        }
-                                    }
-                                    str = str5;
-                                    try {
-                                        arrayList = new ArrayList();
-                                        int i4 = 0;
-                                        while (i4 < gu2Var.a) {
-                                            try {
-                                                gu2.a r = r(dataInputStream5);
-                                                gu2 gu2Var2 = gu2Var;
-                                                String str11 = str7;
-                                                try {
-                                                    if (r.c.contains(c)) {
-                                                        dataInputStream6.skipBytes(r.a);
-                                                        str4 = str6;
-                                                    } else {
-                                                        byte[] bArr4 = new byte[r.a];
-                                                        dataInputStream6.readFully(bArr4);
-                                                        Message obtain = Message.obtain();
-                                                        str4 = str6;
-                                                        try {
-                                                            hu2.b bVar2 = new hu2.b();
-                                                            bVar2.b = bArr4;
-                                                            bVar2.a = r.c;
-                                                            obtain.what = 100;
-                                                            obtain.obj = bVar2;
-                                                            handlerArr[i4 % 4].sendMessage(obtain);
-                                                            arrayList.add(r);
-                                                        } catch (Throwable th4) {
-                                                            th = th4;
-                                                            for (int i5 = 0; i5 < 4; i5++) {
-                                                                handlerArr[i5].sendEmptyMessage(200);
-                                                            }
-                                                            countDownLatch.await();
-                                                            kr4.d(dataInputStream5);
-                                                            kr4.d(dataInputStream6);
-                                                            throw th;
-                                                        }
-                                                    }
-                                                    i4++;
-                                                    gu2Var = gu2Var2;
-                                                    str7 = str11;
-                                                    str6 = str4;
-                                                } catch (Throwable th5) {
-                                                    th = th5;
-                                                }
-                                            } catch (Throwable th6) {
-                                                th = th6;
-                                            }
-                                        }
-                                        str2 = str6;
-                                        str3 = str7;
-                                        int i6 = 0;
-                                        for (int i7 = 4; i6 < i7; i7 = 4) {
-                                            try {
-                                                handlerArr[i6].sendEmptyMessage(200);
-                                                i6++;
-                                            } catch (Exception e7) {
-                                                e = e7;
-                                                dataInputStream = dataInputStream2;
-                                                file2 = file3;
-                                                str5 = str;
-                                                str7 = str3;
-                                                str6 = str2;
-                                                bVar.b = e.getLocalizedMessage();
-                                                g82.l(str7, "解压异常", e);
-                                                kr4.d(dataInputStream);
-                                                if (file2 != null) {
-                                                }
-                                                if (a) {
-                                                }
-                                                return bVar;
-                                            } catch (Throwable th7) {
-                                                th = th7;
-                                                dataInputStream = dataInputStream2;
-                                                file2 = file3;
-                                                str7 = str3;
-                                                str6 = str2;
-                                                kr4.d(dataInputStream);
-                                                if (file2 != null) {
-                                                }
-                                                throw th;
-                                            }
-                                        }
-                                    } catch (Exception e8) {
-                                        e = e8;
-                                        str5 = str;
-                                    }
-                                } catch (Exception e9) {
-                                    e = e9;
-                                }
-                            } catch (Throwable th8) {
-                                th = th8;
-                            }
-                        } catch (Exception e10) {
-                            e = e10;
-                            j2 = j;
-                        }
-                        try {
-                            countDownLatch.await();
-                            kr4.d(dataInputStream5);
-                            kr4.d(dataInputStream6);
-                        } catch (Exception e11) {
-                            e = e11;
-                            str5 = str;
-                            str7 = str3;
-                            str6 = str2;
-                            dataInputStream = dataInputStream2;
-                            file2 = file3;
-                            bVar.b = e.getLocalizedMessage();
-                            g82.l(str7, "解压异常", e);
-                            kr4.d(dataInputStream);
-                            if (file2 != null) {
-                            }
-                            if (a) {
-                            }
-                            return bVar;
-                        } catch (Throwable th9) {
-                            th = th9;
-                            str7 = str3;
-                            str6 = str2;
-                            dataInputStream = dataInputStream2;
-                            file2 = file3;
-                            kr4.d(dataInputStream);
-                            if (file2 != null) {
-                            }
-                            throw th;
-                        }
-                        if (b(atomicInteger.get(), file, i, bVar)) {
-                            kr4.d(dataInputStream2);
-                            if (file3 != null) {
-                                g82.k(str3, str2 + file3.getAbsolutePath());
-                                kr4.L(file3);
-                            }
-                            return bVar;
-                        }
-                        str7 = str3;
-                        str6 = str2;
-                        if (!n(arrayList, file3, i)) {
-                            String str12 = "解压后校验失败 tmpUnzipDir=" + file3;
-                            g82.k(str7, str12);
-                            bVar.b = str12;
-                            kr4.d(dataInputStream2);
-                            if (file3 != null) {
-                                g82.k(str7, str6 + file3.getAbsolutePath());
-                                kr4.L(file3);
-                            }
-                            return bVar;
-                        }
-                        if (a) {
-                            j3 = System.nanoTime();
-                        } else {
-                            j3 = 0;
-                        }
-                        boolean q = q(file3, file, arrayList);
-                        if (a) {
-                            StringBuilder sb = new StringBuilder();
-                            sb.append("#moveToDestDir dstFolder=");
-                            sb.append(file.getAbsolutePath());
-                            sb.append(" moveRes=");
-                            sb.append(q);
-                            sb.append(" fileCount=");
-                            sb.append(arrayList.size());
-                            str5 = str;
-                            sb.append(str5);
-                            sb.append((System.nanoTime() - j3) / 1000000.0d);
-                            Log.i(str7, sb.toString());
-                        } else {
-                            str5 = str;
-                        }
-                        if (!q) {
-                            String str13 = "解压后rename失败 dstFolder=" + file;
-                            g82.k(str7, str13);
-                            bVar.b = str13;
-                            kr4.d(dataInputStream2);
-                            if (file3 != null) {
-                                g82.k(str7, str6 + file3.getAbsolutePath());
-                                kr4.L(file3);
-                            }
-                            return bVar;
-                        }
-                        bVar.a = true;
-                        kr4.d(dataInputStream2);
-                        if (file3 != null) {
-                            g82.k(str7, str6 + file3.getAbsolutePath());
-                            kr4.L(file3);
-                        }
-                        if (a) {
-                            Log.i(str7, "#decrypt dstFolder=" + file.getAbsolutePath() + str5 + ((System.nanoTime() - j2) / 1000000.0d));
-                        }
-                        return bVar;
-                    }
-                    g82.k("BundleDecrypt", "index array length <= 0");
-                    bVar.b = "index array length <= 0";
-                    kr4.d(dataInputStream2);
-                    return bVar;
-                }
-                g82.k("BundleDecrypt", "cipher is null");
-                bVar.b = "cipher is null";
-                kr4.d(dataInputStream2);
-                return bVar;
-            }
-            return bVar;
-        }
-        return (b) invokeLLI.objValue;
-    }
-
-    public static byte[] e(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, bArr, bArr2, bArr3)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-                cipher.init(2, new SecretKeySpec(bArr2, "AES"), new IvParameterSpec(bArr3));
-                return cipher.doFinal(bArr);
-            } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e) {
-                if (a) {
-                    Log.e("BundleDecrypt", "use key/iv decrypt AES fail", e);
-                    return null;
+                if (!TextUtils.isEmpty(J)) {
+                    jSONObject.put("tempFilePath", J);
                 }
-                return null;
+                if (j2 >= 0) {
+                    jSONObject.put("duration", j2);
+                }
+                if (j >= 0) {
+                    jSONObject.put("fileSize", j);
+                }
+                if (this.l != null && !TextUtils.isEmpty(bu2.g)) {
+                    this.l.c(bu2.g, jSONObject);
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put("data", jSONObject.toString());
+                cr2.V().v(new qf2("recorderStop", hashMap));
+            } catch (JSONException e2) {
+                f();
+                p22.d("recorder", "json error", e2);
+                z();
             }
         }
-        return (byte[]) invokeLLL.objValue;
     }
 
-    public static byte[] f(byte[] bArr) {
-        InterceptResult invokeL;
+    public void l(String str, au2 au2Var, Context context, bu2 bu2Var, String str2) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(2, o());
-                return cipher.doFinal(bArr);
-            } catch (InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e) {
-                if (a) {
-                    Log.e("BundleDecrypt", "decypt cipher fail", e);
-                    return null;
-                }
-                return null;
+        if (interceptable == null || interceptable.invokeLLLLL(1048590, this, str, au2Var, context, bu2Var, str2) == null) {
+            int i2 = this.d;
+            if (i2 != -1 && i2 != 3) {
+                p22.c("recorder", "wrong state, can't init");
+                return;
             }
+            this.k = au2Var;
+            m(str);
+            this.l = bu2Var;
+            int minBufferSize = AudioRecord.getMinBufferSize(au2Var.d, au2Var.c, 2);
+            this.c = minBufferSize;
+            if (minBufferSize <= 0) {
+                f();
+                p22.c("recorder", "wrong buffer size");
+                z();
+                return;
+            }
+            if (au2Var.c == 1) {
+                i = 16;
+            } else {
+                i = 12;
+            }
+            this.a = new AudioRecord(au2Var.f, au2Var.d, i, 2, this.c);
+            this.d = 0;
+            this.e = context;
+            this.f = str2;
+            w();
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public static gu2.a r(DataInputStream dataInputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, dataInputStream)) == null) {
-            gu2.a aVar = new gu2.a();
-            l(dataInputStream);
-            aVar.a = l(dataInputStream);
-            int l = l(dataInputStream);
-            aVar.b = l;
-            byte[] bArr = new byte[l];
-            dataInputStream.readFully(bArr);
-            aVar.c = new String(bArr, "utf-8");
-            return aVar;
-        }
-        return (gu2.a) invokeL.objValue;
-    }
-
-    public static b g(BufferedInputStream bufferedInputStream, File file, int i) {
-        InterceptResult invokeLLI;
-        DataInputStream dataInputStream;
+    public final boolean v(byte[] bArr, gu2 gu2Var) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
         byte[] f;
-        DataInputStream dataInputStream2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, bufferedInputStream, file, i)) == null) {
-            b bVar = new b(false);
-            if (file != null && bufferedInputStream != null && i != 0) {
-                gu2 gu2Var = new gu2();
-                DataInputStream dataInputStream3 = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, bArr, gu2Var)) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
                 try {
-                    try {
-                        dataInputStream = new DataInputStream(bufferedInputStream);
-                    } catch (Throwable th) {
-                        th = th;
+                    File file = new File(this.b);
+                    if (this.d == 0) {
+                        if (file.exists()) {
+                            file.delete();
+                        }
+                        sl4.h(file);
                     }
-                } catch (Exception e) {
-                    e = e;
-                }
-                try {
-                    l(dataInputStream);
-                    gu2Var.a = l(dataInputStream);
-                    gu2Var.b = l(dataInputStream);
-                    l(dataInputStream);
-                    m(dataInputStream);
-                    dataInputStream.readFully(gu2Var.c);
-                    f = f(gu2Var.c);
+                    fileOutputStream = new FileOutputStream(file, true);
                 } catch (Exception e2) {
                     e = e2;
-                    dataInputStream3 = dataInputStream;
-                    bVar.b = e.getLocalizedMessage();
-                    g82.l("BundleDecrypt", "解压异常 dstFolder=" + file, e);
-                    kr4.d(dataInputStream3);
-                    return bVar;
-                } catch (Throwable th2) {
-                    th = th2;
-                    dataInputStream3 = dataInputStream;
-                    kr4.d(dataInputStream3);
-                    throw th;
                 }
-                if (f != null && f.length > 0) {
-                    byte[] bArr = new byte[gu2Var.b];
-                    dataInputStream.readFully(bArr);
-                    byte[] bArr2 = new byte[16];
-                    byte[] bArr3 = new byte[16];
-                    System.arraycopy(f, 0, bArr2, 0, 16);
-                    System.arraycopy(f, 16, bArr3, 0, 16);
-                    byte[] e3 = e(bArr, bArr2, bArr3);
-                    if (e3 != null && e3.length > 0) {
-                        if (i == 2) {
-                            dataInputStream3 = new DataInputStream(nu2.j().a(new ByteArrayInputStream(e3)));
-                            dataInputStream2 = new DataInputStream(nu2.j().a(dataInputStream));
-                        } else {
-                            dataInputStream3 = new DataInputStream(new ByteArrayInputStream(e3));
-                            dataInputStream2 = new DataInputStream(new GZIPInputStream(dataInputStream));
-                        }
-                        if (!kr4.m(file)) {
-                            String str = "解压目录创建失败 path=" + file.getAbsolutePath();
-                            g82.k("BundleDecrypt", str);
-                            bVar.b = str;
-                            kr4.d(dataInputStream);
-                            return bVar;
-                        }
-                        AtomicInteger atomicInteger = new AtomicInteger(0);
-                        AtomicInteger atomicInteger2 = new AtomicInteger(gu2Var.a);
-                        ArrayList arrayList = new ArrayList();
-                        for (int i2 = 0; i2 < gu2Var.a; i2++) {
-                            try {
-                                gu2.a r = r(dataInputStream3);
-                                if (r.c.contains(c)) {
-                                    atomicInteger2.getAndDecrement();
-                                    dataInputStream2.skipBytes(r.a);
-                                } else {
-                                    byte[] bArr4 = new byte[r.a];
-                                    dataInputStream2.readFully(bArr4);
-                                    a(file, r.c, bArr4, atomicInteger, atomicInteger2);
-                                    arrayList.add(r);
-                                }
-                            } catch (Throwable th3) {
-                                atomicInteger2.set(0);
-                                kr4.d(dataInputStream3);
-                                kr4.d(dataInputStream2);
-                                throw th3;
-                            }
-                        }
-                        while (atomicInteger2.get() > 0) {
-                            TimeUnit.MILLISECONDS.sleep(1L);
-                        }
-                        atomicInteger2.set(0);
-                        kr4.d(dataInputStream3);
-                        kr4.d(dataInputStream2);
-                        if (b(atomicInteger.get(), file, i, bVar)) {
-                            kr4.d(dataInputStream);
-                            return bVar;
-                        } else if (!n(arrayList, file, i)) {
-                            String str2 = "解压后校验失败 dstFolder=" + file;
-                            g82.k("BundleDecrypt", str2);
-                            bVar.b = str2;
-                            kr4.d(dataInputStream);
-                            return bVar;
-                        } else {
-                            bVar.a = true;
-                            kr4.d(dataInputStream);
-                            return bVar;
-                        }
-                    }
-                    g82.k("BundleDecrypt", "index array length <= 0");
-                    bVar.b = "index array length <= 0";
-                    kr4.d(dataInputStream);
-                    return bVar;
-                }
-                g82.k("BundleDecrypt", "cipher is null");
-                bVar.b = "cipher is null";
-                kr4.d(dataInputStream);
-                return bVar;
-            }
-            return bVar;
-        }
-        return (b) invokeLLI.objValue;
-    }
-
-    public static void h(int i) {
-        FileWriter fileWriter;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, null, i) == null) {
-            File file = new File(k());
-            FileWriter fileWriter2 = null;
-            try {
-                try {
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    fileWriter = new FileWriter(file, true);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException e) {
-                e = e;
+            } catch (Throwable th) {
+                th = th;
             }
             try {
-                fileWriter.write(String.valueOf(i));
-                fileWriter.write(44);
-                kr4.d(fileWriter);
-            } catch (IOException e2) {
-                e = e2;
-                fileWriter2 = fileWriter;
-                if (a) {
-                    e.printStackTrace();
+                this.d = 1;
+                while (this.d == 1) {
+                    if (this.a.read(bArr, 0, this.c) >= 0) {
+                        if (TextUtils.equals(this.k.b, "pcm")) {
+                            f = bArr;
+                        } else {
+                            f = gu2Var.f(bArr);
+                        }
+                        if (f != null && f.length > 0) {
+                            fileOutputStream.write(f);
+                        }
+                    }
                 }
-                kr4.d(fileWriter2);
+                sl4.d(fileOutputStream);
+                return true;
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream2 = fileOutputStream;
+                p22.d("recorder", "save record error", e);
+                if (this.d == 1) {
+                    this.d = 3;
+                }
+                sl4.d(fileOutputStream2);
+                return false;
             } catch (Throwable th2) {
                 th = th2;
-                fileWriter2 = fileWriter;
-                kr4.d(fileWriter2);
+                fileOutputStream2 = fileOutputStream;
+                sl4.d(fileOutputStream2);
                 throw th;
             }
         }
-    }
-
-    public static c i(@NonNull BufferedInputStream bufferedInputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bufferedInputStream)) == null) {
-            c cVar = new c();
-            cVar.a = bufferedInputStream;
-            bufferedInputStream.mark(8);
-            int read = (bufferedInputStream.read() << 8) | bufferedInputStream.read() | (bufferedInputStream.read() << 16) | (bufferedInputStream.read() << 24);
-            if (read == -1122498812) {
-                cVar.b = 1;
-            } else if (read == -1122434039) {
-                cVar.b = 2;
-            } else {
-                bufferedInputStream.reset();
-            }
-            return cVar;
-        }
-        return (c) invokeL.objValue;
-    }
-
-    public static c j(File file) {
-        InterceptResult invokeL;
-        BufferedInputStream bufferedInputStream;
-        int read;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, file)) == null) {
-            c cVar = new c();
-            if (file != null && file.exists()) {
-                BufferedInputStream bufferedInputStream2 = null;
-                try {
-                    bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
-                } catch (IOException e) {
-                    e = e;
-                }
-                try {
-                    read = bufferedInputStream.read() | (bufferedInputStream.read() << 8) | (bufferedInputStream.read() << 16) | (bufferedInputStream.read() << 24);
-                } catch (IOException e2) {
-                    e = e2;
-                    bufferedInputStream2 = bufferedInputStream;
-                    if (a) {
-                        Log.e("BundleDecrypt", "bundle encryption check fail", e);
-                    }
-                    bufferedInputStream = bufferedInputStream2;
-                    kr4.d(bufferedInputStream);
-                    return cVar;
-                }
-                if (read == -1122498812) {
-                    cVar.a = bufferedInputStream;
-                    cVar.b = 1;
-                    return cVar;
-                }
-                if (read == -1122434039) {
-                    cVar.a = bufferedInputStream;
-                    cVar.b = 2;
-                    return cVar;
-                }
-                kr4.d(bufferedInputStream);
-            }
-            return cVar;
-        }
-        return (c) invokeL.objValue;
-    }
-
-    public static String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return new File(yv2.d().get(0).a, "/decryptLog.csv").getAbsolutePath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int l(DataInputStream dataInputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, dataInputStream)) == null) {
-            byte[] bArr = new byte[4];
-            dataInputStream.readFully(bArr);
-            return ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN).getInt();
-        }
-        return invokeL.intValue;
-    }
-
-    public static long m(DataInputStream dataInputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, dataInputStream)) == null) {
-            byte[] bArr = new byte[8];
-            dataInputStream.readFully(bArr);
-            return ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN).getLong();
-        }
-        return invokeL.longValue;
-    }
-
-    public static boolean n(List<gu2.a> list, File file, int i) {
-        InterceptResult invokeLLI;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65550, null, list, file, i)) == null) {
-            if (a) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            for (gu2.a aVar : list) {
-                File file2 = new File(file, aVar.c);
-                if (!file2.exists() || (file2.isFile() && file2.length() != aVar.a)) {
-                    g82.k("BundleDecrypt", "decrypt：unpack file " + aVar.c + " fail");
-                    hi3 hi3Var = new hi3();
-                    zm3 zm3Var = new zm3();
-                    zm3Var.k(4L);
-                    zm3Var.i(52L);
-                    hi3Var.p(zm3Var);
-                    hi3Var.l("path", file2.getAbsolutePath());
-                    hi3Var.l("eMsg", "decrypt files not match encrypt content");
-                    hi3Var.l("decryptType", String.valueOf(i));
-                    hi3Var.l("stack", ap3.z(30));
-                    zh3.R(hi3Var);
-                    return false;
-                }
-            }
-            if (a) {
-                Log.d("BundleDecrypt", "check all files valid cost - " + (System.currentTimeMillis() - j) + "ms");
-                return true;
-            }
-            return true;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean p(@NonNull File file, @NonNull File file2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, file, file2)) == null) {
-            if (file2.exists()) {
-                if (file.length() != file2.length() && !file.renameTo(file2)) {
-                    return false;
-                }
-                return true;
-            }
-            file2.getParentFile().mkdirs();
-            return file.renameTo(file2);
-        }
         return invokeLL.booleanValue;
-    }
-
-    public static boolean q(File file, File file2, List<gu2.a> list) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, file, file2, list)) == null) {
-            if (file == null || file2 == null || list == null || !file.isDirectory() || !file2.isDirectory()) {
-                return false;
-            }
-            for (gu2.a aVar : list) {
-                String str = aVar.c;
-                File file3 = new File(file, str);
-                File file4 = new File(file2, str);
-                if (!p(file3, file4)) {
-                    g82.k("BundleDecrypt", "#moveFile fail src=" + file3.getAbsolutePath() + "dst=" + file4.getAbsolutePath());
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLLL.booleanValue;
     }
 }

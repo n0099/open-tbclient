@@ -1,43 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import android.app.ActivityManager;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 /* loaded from: classes7.dex */
-public interface mc7 {
+public class mc7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(View view2, yc7<?> yc7Var, xc7<?, ?> xc7Var);
+    @Nullable
+    public static ImagePipelineConfig a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (rc.a()) {
+                return null;
+            }
+            ImagePipelineConfig.Builder newBuilder = ImagePipelineConfig.newBuilder(TbadkCoreApplication.getInst());
+            newBuilder.setBitmapMemoryCacheParamsSupplier(new nc7((ActivityManager) TbadkCoreApplication.getInst().getSystemService("activity")));
+            return newBuilder.build();
+        }
+        return (ImagePipelineConfig) invokeV.objValue;
     }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(@NonNull yc7<?> yc7Var, int i);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(@NonNull yc7<?> yc7Var, @NonNull xc7<?, ?> xc7Var, int i);
-
-        void b(@NonNull RecyclerView recyclerView);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        boolean a(View view2, yc7<?> yc7Var, xc7<?, ?> xc7Var);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface e {
-        void a(@NonNull Object obj);
-    }
-
-    void c(b bVar);
-
-    void e(c cVar);
-
-    void i(a aVar);
-
-    void k(e eVar);
 }

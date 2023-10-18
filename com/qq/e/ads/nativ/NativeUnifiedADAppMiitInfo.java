@@ -5,6 +5,8 @@ public interface NativeUnifiedADAppMiitInfo {
 
     String getAuthorName();
 
+    String getDescriptionUrl();
+
     long getPackageSizeBytes();
 
     String getPermissionsUrl();

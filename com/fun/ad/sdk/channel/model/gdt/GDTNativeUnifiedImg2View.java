@@ -124,8 +124,8 @@ public class GDTNativeUnifiedImg2View extends t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b7);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bb);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b8);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bc);
         }
     }
 

@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public final class jyb<TResult> implements czb<TResult> {
+public class jyb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fzb<TResult> a;
-    public Executor b;
-    public final Object c;
+    public volatile int a;
+    public volatile int b;
+    public volatile int c;
 
-    public jyb(Executor executor, fzb<TResult> fzbVar) {
+    public jyb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor, fzbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,17 +27,53 @@ public final class jyb<TResult> implements czb<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = fzbVar;
-        this.b = executor;
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
     }
 
-    @Override // com.baidu.tieba.czb
-    public final void a(oyb<TResult> oybVar) {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, oybVar) == null) && oybVar.f()) {
-            oybVar.e();
-            this.b.execute(new hyb(this, oybVar));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                if (this.a != 2) {
+                    this.b++;
+                    if (this.b >= this.c) {
+                        this.a = 2;
+                        notify();
+                    }
+                }
+            }
         }
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = 0;
+            this.b = 0;
+            this.c = i;
+        }
+    }
+
+    public synchronized boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            synchronized (this) {
+                if (this.a != 0) {
+                    return true;
+                }
+                try {
+                    this.a = 1;
+                    wait(i);
+                    return true;
+                } catch (Exception unused) {
+                    this.a = 2;
+                    return false;
+                }
+            }
+        }
+        return invokeI.booleanValue;
     }
 }

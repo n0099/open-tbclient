@@ -1,106 +1,158 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
+import android.widget.AdapterView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
+import com.baidu.tbadk.core.atomData.OfficialBarFeedActivityConfig;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.immessagecenter.StrangerListActivityConfig;
+import com.baidu.tieba.immessagecenter.im.chat.notify.MessageAggregationListAdapter;
+import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
+import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qr8 implements lr8 {
+public final class qr8 implements AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public ImageView c;
-    public RecyclerView d;
-    public qr8 e;
+    public final Context a;
+    public final BdUniqueId b;
+    public final MsgChatCenterSliceView c;
+    public final MessageAggregationListAdapter d;
+    public final MsgChatCenterSliceViewModel e;
 
-    public qr8() {
+    public qr8(Context context, BdUniqueId uniqueId, MsgChatCenterSliceView sliceView, MessageAggregationListAdapter messageAggregationListAdapter, MsgChatCenterSliceViewModel viewModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, uniqueId, sliceView, messageAggregationListAdapter, viewModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
+        Intrinsics.checkNotNullParameter(sliceView, "sliceView");
+        Intrinsics.checkNotNullParameter(viewModel, "viewModel");
+        this.a = context;
+        this.b = uniqueId;
+        this.c = sliceView;
+        this.d = messageAggregationListAdapter;
+        this.e = viewModel;
     }
 
-    @Override // com.baidu.tieba.lr8
-    public RelativeLayout a() {
-        InterceptResult invokeV;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        ImMessageCenterShowItemData imMessageCenterShowItemData;
+        boolean z;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e.a;
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i < 0) {
+            return;
         }
-        return (RelativeLayout) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lr8
-    public RecyclerView c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e.d;
+        MessageAggregationListAdapter messageAggregationListAdapter = this.d;
+        String str3 = null;
+        if (messageAggregationListAdapter != null) {
+            imMessageCenterShowItemData = messageAggregationListAdapter.getItem(i);
+        } else {
+            imMessageCenterShowItemData = null;
         }
-        return (RecyclerView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lr8
-    public ImageView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e.c;
+        if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.getDataType() == 2) {
+            z = true;
+        } else {
+            z = false;
         }
-        return (ImageView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lr8
-    public TextView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e.b;
+        if (z) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a).createNormalCfg(imMessageCenterShowItemData.getForumName(), FrsActivityConfig.FRS_FROM_IM_REC_FORUM)));
+            wt8.a.f(imMessageCenterShowItemData);
+            return;
         }
-        return (TextView) invokeV.objValue;
-    }
-
-    public static qr8 f(@NonNull View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            qr8 qr8Var = new qr8();
-            qr8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917f1);
-            qr8Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917f0);
-            qr8Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917f7);
-            qr8Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091809);
-            qr8Var.e = qr8Var;
-            return qr8Var;
+        if (imMessageCenterShowItemData != null) {
+            wt8.a.d(imMessageCenterShowItemData, this.a);
         }
-        return (qr8) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lr8
-    public void b(int i, @NonNull cs8 cs8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, cs8Var) == null) {
-            if (!cs8Var.e()) {
-                EMManager.from(this.e.b).setTextSize(R.dimen.T_X12).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
+        StatisticItem statisticItem = new StatisticItem("c13720");
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+        if (imMessageCenterShowItemData != null) {
+            str = imMessageCenterShowItemData.getOwnerName();
+        } else {
+            str = null;
+        }
+        if (TextUtils.isEmpty(str)) {
+            yt8.a(imMessageCenterShowItemData, this.a, this.b);
+            statisticItem.param("obj_type", 6);
+        } else if (Intrinsics.areEqual(str, "5")) {
+            TiebaStatic.log("c12931");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialBarFeedActivityConfig(this.a)));
+        } else if (Intrinsics.areEqual(str, "8")) {
+            long j2 = JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L);
+            OfficalBarChatActivityConfig officalBarChatActivityConfig = new OfficalBarChatActivityConfig(this.a, j2, imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0, imMessageCenterShowItemData.getUserType());
+            wt8.a.g(j2);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002006, officalBarChatActivityConfig));
+        } else if (Intrinsics.areEqual(str, "7")) {
+            TiebaStatic.log(new StatisticItem("c12614"));
+            statisticItem.param("obj_type", 6);
+            wt8.a.e(imMessageCenterShowItemData);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new StrangerListActivityConfig(this.a)));
+            return;
+        } else if (Intrinsics.areEqual(str, "9")) {
+            this.c.Y(imMessageCenterShowItemData);
+            if (imMessageCenterShowItemData.getAtInfoData() != null) {
+                imMessageCenterShowItemData.setAtInfoData(null);
             }
-            EMManager.from(this.e.d).setBackGroundColor(R.color.CAM_X0201);
-            EMManager.from(this.e.a).setBackGroundColor(R.color.CAM_X0201);
+            imMessageCenterShowItemData.setUnReadCount(0);
+            this.e.B(false);
+            this.e.o().V(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L));
+            this.e.E(null, imMessageCenterShowItemData, 2);
+            wt8.a.c(imMessageCenterShowItemData);
+            this.e.o().J();
+        } else {
+            yt8.a(imMessageCenterShowItemData, this.a, this.b);
+            statisticItem.param("obj_type", 6);
+        }
+        if (imMessageCenterShowItemData != null) {
+            str2 = imMessageCenterShowItemData.getFriendName();
+        } else {
+            str2 = null;
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            if (imMessageCenterShowItemData != null) {
+                str3 = imMessageCenterShowItemData.getFriendName();
+            }
+            if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0ce6))) {
+                statisticItem.param("obj_type", 8);
+            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0ce9))) {
+                statisticItem.param("obj_type", 9);
+            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0ce7))) {
+                statisticItem.param("obj_type", 10);
+            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0ce2))) {
+                statisticItem.param("obj_type", 4);
+            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0ce4))) {
+                statisticItem.param("obj_type", 5);
+            }
+        }
+        TiebaStatic.log(statisticItem);
+        if (imMessageCenterShowItemData != null) {
+            wt8.a.b(imMessageCenterShowItemData, this.a);
         }
     }
 }

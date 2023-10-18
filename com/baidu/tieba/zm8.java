@@ -1,87 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.LoadDraftMessage;
-import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zm8 implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
+public class zm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hm8 a;
-    public int b;
 
-    public zm8(hm8 hm8Var, int i) {
+    @NonNull
+    public static StatisticItem a(String str, String str2, long j, String str3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hm8Var, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j), str3})) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("fname", str3);
+            if (!StringUtils.isNull(str2)) {
+                statisticItem.param("room_id", str2);
             }
+            return statisticItem;
         }
-        this.a = hm8Var;
-        this.b = i;
+        return (StatisticItem) invokeCommon.objValue;
     }
 
-    public final LoadDraftResponsedMessage a(int i) {
-        InterceptResult invokeI;
+    public static void b(String str, long j, String str2, String str3, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
-            loadDraftResponsedMessage.setError(-18);
-            return loadDraftResponsedMessage;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            StatisticItem a = a(str, str3, j, str2);
+            a.param("obj_locate", i);
+            a.param("obj_type", i2);
+            TiebaStatic.log(a);
         }
-        return (LoadDraftResponsedMessage) invokeI.objValue;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<LoadDraftMessage.a> customMessage) {
-        InterceptResult invokeL;
-        String str;
+    public static void c(String str, long j, String str2, String str3, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.b);
-            if (customMessage != null && (customMessage instanceof LoadDraftMessage)) {
-                LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
-                if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                    str = TbadkCoreApplication.getCurrentAccountObj().getID();
-                } else {
-                    str = "";
-                }
-                LoadDraftMessage.a data = loadDraftMessage.getData();
-                ChatSetting setting = this.a.getSetting(str, data.a);
-                if (setting == null) {
-                    return a(loadDraftMessage.getCmd());
-                }
-                String draft = setting.getDraft();
-                LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
-                aVar.a = draft;
-                String str2 = data.a;
-                try {
-                    loadDraftResponsedMessage.decodeInBackGround(this.b, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return loadDraftResponsedMessage;
-            }
-            return a(this.b);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            StatisticItem a = a(str, str3, j, str2);
+            a.param("obj_locate", i2);
+            a.param("obj_type", i);
+            TiebaStatic.log(a);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+    }
+
+    public static void e(String str, long j, String str2, String str3, int i, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Long.valueOf(j), str2, str3, Integer.valueOf(i), str4}) == null) {
+            StatisticItem a = a(str, str3, j, str2);
+            a.param("obj_locate", i);
+            if (!StringUtils.isNull(str4)) {
+                a.param("obj_type", str4);
+            }
+            TiebaStatic.log(a);
+        }
+    }
+
+    public static void d(long j, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            StatisticItem param = StatisticItem.make("c15289").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", j);
+            if (z) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            param.param("obj_type", i).eventStat();
+        }
     }
 }

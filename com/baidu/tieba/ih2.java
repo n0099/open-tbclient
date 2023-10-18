@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface ih2 {
-    void onFail();
+    void a();
 
-    void onSuccess();
+    void b(boolean z);
+
+    void c();
 }

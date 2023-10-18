@@ -1,59 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.base.LiveBaseFragment;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wa0 {
+public final class wa0 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static WeakReference<LiveBaseFragment> b;
+    public static ia0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948263715, "Lcom/baidu/tieba/wa0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948263715, "Lcom/baidu/tieba/wa0;");
-        }
-    }
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public long b;
+        public int c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
+        public String i;
+        public boolean j;
+        public boolean k;
+        public boolean l;
+        public int m;
+        public int n;
+        public JSONObject o;
+        public JSONObject p;
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = 0;
-            WeakReference<LiveBaseFragment> weakReference = b;
-            if (weakReference != null) {
-                weakReference.clear();
-                b = null;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    public static void c(int i) {
+    public static void a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            a = i;
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, jSONObject) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.putOpt("sdk_version", Integer.valueOf(fa0.i()));
+                if (jSONObject2.length() > 0) {
+                    jSONObject2.put("debug_info", jSONObject);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            ia0 ia0Var = a;
+            if (ia0Var != null) {
+                ia0Var.a(str, jSONObject2);
+            }
         }
     }
 }

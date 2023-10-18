@@ -1,73 +1,33 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-/* loaded from: classes8.dex */
-public class yf {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
+public class yf extends cg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(InputStream inputStream, OutputStream outputStream) throws IOException {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.cg
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, outputStream)) == null) {
-            long b = b(inputStream, outputStream);
-            if (b > 2147483647L) {
-                return -1;
-            }
-            return (int) b;
-        }
-        return invokeLL.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "medialive" : (String) invokeV.objValue;
     }
 
-    public static long b(InputStream inputStream, OutputStream outputStream) throws IOException {
-        InterceptResult invokeLL;
+    public yf() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
-            if (inputStream == null) {
-                return -1L;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            byte[] bArr = new byte[4096];
-            long j = 0;
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (-1 != read) {
-                    outputStream.write(bArr, 0, read);
-                    j += read;
-                } else {
-                    return j;
-                }
-            }
-        } else {
-            return invokeLL.longValue;
         }
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null && str.contains("vnd.wap.wml")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static byte[] d(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            a(inputStream, byteArrayOutputStream);
-            return byteArrayOutputStream.toByteArray();
-        }
-        return (byte[]) invokeL.objValue;
     }
 }

@@ -2,11 +2,11 @@ package com.baidu.searchbox.anr.ioc;
 
 import com.baidu.searchbox.anr.ubc.UbcANRRegister;
 import com.baidu.searchbox.anr.upload.ANRBOSRegister;
-import com.baidu.tieba.kk1;
+import com.baidu.tieba.ue1;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class IANRRegister_ANRRuntime_ListProvider implements kk1 {
-    @Override // com.baidu.tieba.kk1
+public class IANRRegister_ANRRuntime_ListProvider implements ue1 {
+    @Override // com.baidu.tieba.ue1
     public Object get() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new UbcANRRegister());

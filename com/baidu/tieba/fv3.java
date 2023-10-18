@@ -1,25 +1,40 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class fv3 {
+public class fv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fv3() {
+    public static String a(String str, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, hashMap)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (hashMap != null) {
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                    sb.append(entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
+                    sb.append("&");
+                }
             }
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append(str);
+            sb2.append("?code2=");
+            bv3 bv3Var = new bv3();
+            sb2.append(bv3Var.a(sb.toString() + "b" + System.currentTimeMillis() + "=1"));
+            String sb3 = sb2.toString();
+            StringBuilder sb4 = new StringBuilder();
+            sb4.append("&b" + System.currentTimeMillis());
+            sb4.append("=");
+            sb4.append("1");
+            return sb3 + sb4.toString();
         }
+        return (String) invokeLL.objValue;
     }
 }

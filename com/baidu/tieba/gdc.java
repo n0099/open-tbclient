@@ -1,60 +1,126 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
+import java.util.List;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.model.PayFinishInfo;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public final class gdc {
+public class gdc implements IYYPayAmountView.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public Dialog c;
+    public IYYPayAmountView.ViewParams d;
+    public Activity e;
+    public IPayCallback<CurrencyChargeMessage> f;
+    public rcc g;
+    public tfc h;
 
-    /* JADX INFO: Add missing generic type declarations: [R] */
-    /* loaded from: classes6.dex */
-    public static class a<R> implements fdc<R> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ edc a;
-
-        public a(edc edcVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {edcVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public gdc(int i, int i2, Dialog dialog, IYYPayAmountView.ViewParams viewParams, Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, rcc rccVar, tfc tfcVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), dialog, viewParams, activity, iPayCallback, rccVar, tfcVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = edcVar;
         }
+        RLog.info("PayAmountViewCallback", "create PayAmountViewCallback appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = dialog;
+        this.d = viewParams;
+        this.e = activity;
+        this.f = iPayCallback;
+        this.g = rccVar;
+        this.h = tfcVar;
+    }
 
-        @Override // com.baidu.tieba.fdc
-        public R call(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                if (objArr.length == 2) {
-                    return (R) this.a.call(objArr[0], objArr[1]);
-                }
-                throw new IllegalArgumentException("Func2 expecting 2 arguments.");
-            }
-            return (R) invokeL.objValue;
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void onRefreshViewFail(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            PayFinishInfo a = dfc.a(PayDialogType.PAY_AMOUNT_DIALOG, i, str);
+            RLog.error("PayAmountViewCallback", "showPayAmountDialog onFail code:" + i + " failReason:" + str + " message:" + a, new Object[0]);
+            this.g.l(a);
+            cfc.b(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
         }
     }
 
-    public static <T0, T1, R> fdc<R> a(edc<? super T0, ? super T1, ? extends R> edcVar) {
-        InterceptResult invokeL;
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void onStartPay(nec necVar, jec jecVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, edcVar)) == null) {
-            return new a(edcVar);
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, necVar, jecVar, appCustomExpand, list, str) == null) {
+            RLog.info("PayAmountViewCallback", "onStartPay payType=" + necVar.a + ", payAmount=" + jecVar);
+            this.g.k(this.e, necVar, jecVar, this.c, this.h, appCustomExpand, lfc.a(jecVar, list, str, this.d), this.f);
         }
-        return (fdc) invokeL.objValue;
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void onStartSignPay(nec necVar, jec jecVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, necVar, jecVar, appCustomExpand, list, str) == null) {
+            nec necVar2 = new nec(PayType.ALI_PAY_SIGN, necVar.b, necVar.c, necVar.d, necVar.e, necVar.f, necVar.g);
+            RLog.info("PayAmountViewCallback", "onStartSignPay payType=" + necVar2.a + ", payAmount=" + jecVar);
+            this.g.p(this.e, jecVar, necVar2, this.c, this.h, appCustomExpand, lfc.a(jecVar, list, str, this.d), this.f);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, list, str) == null) {
+            RLog.info("PayAmountViewCallback", "showInputNumberDialog bubbleActMsg:" + str);
+            cfc.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.g.n(activity, list, str, this.d, this.f);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toPayWayDialog(jec jecVar, List<PayWayInfo> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, jecVar, list, str) == null) {
+            RLog.info("PayAmountViewCallback", "toPayWayDialog bubbleActMsg:" + str);
+            cfc.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.g.t(this.e, jecVar, list, str, this.d, this.f);
+            sec.b(this.a, this.b, PayUIEventType.purchasegotopay);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toBannerConfigWebPage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.g.q(this.e, str);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toHelpCenterPage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.g.u(this.e);
+        }
     }
 }

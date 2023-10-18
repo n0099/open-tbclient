@@ -6,8 +6,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.fra;
-import com.baidu.tieba.wh;
+import com.baidu.tieba.tc;
+import com.baidu.tieba.vla;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ public class TiebaIMConfig {
         }
         IM_ASYCTASK_UNIQUEID = BdUniqueId.gen();
         sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, IM_ASYCTASK_UNIQUEID);
-        String c = fra.c(AppRuntime.getAppContext(), "LCS_SERVER_ADDR");
+        String c = vla.c(AppRuntime.getAppContext(), "LCS_SERVER_ADDR");
         defaultUrl = c;
         url = c;
         reconStrategy = new int[]{30, 60, 300, 600, 1800, 3600, 7200, 14400};
@@ -90,7 +90,7 @@ public class TiebaIMConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return wh.d(PUBLIC_KEY_BASE64);
+            return tc.d(PUBLIC_KEY_BASE64);
         }
         return (byte[]) invokeV.objValue;
     }

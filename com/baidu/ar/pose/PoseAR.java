@@ -91,7 +91,7 @@ public class PoseAR extends c {
         if (r == null) {
             return hashMap;
         }
-        boolean z = this.f1034T;
+        boolean z = this.f1033T;
         if (fArr != null && fArr.length > 0) {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
@@ -99,7 +99,7 @@ public class PoseAR extends c {
                 int i2 = i * 3;
                 PointF pointF = new PointF(fArr[i2], fArr[i2 + 1]);
                 r.a(pointF, z);
-                arrayList2.add(this.f1034T ? new Vector3f(pointF.x, pointF.y, fArr[i2 + 2]) : new Vector3f(pointF.y, pointF.x, fArr[i2 + 2]));
+                arrayList2.add(this.f1033T ? new Vector3f(pointF.x, pointF.y, fArr[i2 + 2]) : new Vector3f(pointF.y, pointF.x, fArr[i2 + 2]));
             }
             arrayList.add(arrayList2);
             hashMap.put("event_data", arrayList);
@@ -129,7 +129,7 @@ public class PoseAR extends c {
         this.tM = new PoseDetector();
         dn();
         this.tM.i(this.nO, this.nP);
-        this.tM.I(this.f1034T);
+        this.tM.I(this.f1033T);
         e eVar = new e() { // from class: com.baidu.ar.pose.PoseAR.1
             @Override // com.baidu.ar.d.e
             public void a(b bVar) {

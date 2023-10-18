@@ -1,13 +1,6 @@
 package com.badlogic.gdx.math;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.badlogic.gdx.math.c;
 /* loaded from: classes.dex */
-public abstract class c {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract float a(float f);
-
-    public abstract float b(float f, float f2, float f3);
+public interface c<T extends c<T>> {
 }

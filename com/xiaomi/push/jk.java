@@ -40,7 +40,7 @@ public class jk extends jn {
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a  reason: collision with other method in class */
-    public void mo721a(byte[] bArr, int i, int i2) {
+    public void mo720a(byte[] bArr, int i, int i2) {
         OutputStream outputStream = this.f817a;
         if (outputStream == null) {
             throw new jo(1, "Cannot write to null outputStream");

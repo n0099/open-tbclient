@@ -1,10 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import java.util.List;
 /* loaded from: classes8.dex */
-public interface xta {
-    void C0(String str, int i, String str2);
+public interface xta<Result> {
+    void a(String str);
 
-    void setMusicData(List<MusicData> list);
+    void b(String str, int i, Result result);
 }

@@ -1,74 +1,141 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v03 extends t03 {
+public class v03 extends t82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b72<Boolean> c;
+    public String d;
+    public String e;
+    public long f;
+    public final gd4<qe4> g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948186928, "Lcom/baidu/tieba/v03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a extends u82<v03> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v03 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(v03 v03Var, v03 v03Var2) {
+            super(v03Var2);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v03Var, v03Var2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((t82) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948186928, "Lcom/baidu/tieba/v03;");
-                return;
+            this.b = v03Var;
+        }
+
+        @Override // com.baidu.tieba.u82
+        public void r(@NonNull qe4 qe4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, qe4Var) == null) {
+                this.b.c.a(Boolean.TRUE);
             }
         }
-        boolean z = qr1.a;
+
+        @Override // com.baidu.tieba.u82
+        public void u(qe4 qe4Var, ih3 ih3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qe4Var, ih3Var) == null) {
+                this.b.c.a(Boolean.FALSE);
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v03(String str) {
-        super(str);
+    public v03(String str, String str2, long j, b72<Boolean> b72Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str, str2, Long.valueOf(j), b72Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.g = new a(this, this);
+        this.c = b72Var;
+        this.d = str;
+        this.e = str2;
+        this.f = j;
     }
 
-    private void update(o03 o03Var, q03 q03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    @Override // com.baidu.tieba.kd4
+    public void G(xi4 xi4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, this, o03Var, q03Var, unitedSchemeEntity, callbackHandler) == null) {
-            o03Var.h(q03Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || interceptable.invokeL(1048579, this, xi4Var) == null) {
+            super.G(xi4Var);
         }
     }
 
-    @Override // com.baidu.tieba.t03
-    public boolean a(o03 o03Var, q03 q03Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.kd4
+    public void C(je4 je4Var) {
+        qe4 p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{o03Var, q03Var, context, unitedSchemeEntity, callbackHandler, gb3Var})) == null) {
-            g82.b("vrvideo", "update, video id:" + q03Var.j + " slave id: " + q03Var.c);
-            update(o03Var, q03Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, je4Var) == null) {
+            super.C(je4Var);
+            if (je4Var != null) {
+                if (je4Var.a == 1010 && (p = w03.p(this.d, this.e, this.f)) != null) {
+                    p.d = p.b();
+                    md4.i().x(p);
+                }
+                h13.b("fetch plugin error: " + je4Var.toString());
+            } else {
+                h13.b("fetch plugin error");
+            }
+            this.c.a(Boolean.FALSE);
         }
-        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kd4
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.E();
+            h13.b("fetch plugin success");
+        }
+    }
+
+    @Override // com.baidu.tieba.kd4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.F();
+            h13.b("no package");
+            this.c.a(Boolean.FALSE);
+        }
+    }
+
+    @Override // com.baidu.tieba.kd4
+    public gd4<qe4> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (gd4) invokeV.objValue;
     }
 }

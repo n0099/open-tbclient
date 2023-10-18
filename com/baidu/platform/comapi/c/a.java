@@ -1,5 +1,6 @@
 package com.baidu.platform.comapi.c;
 
+import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.platform.comapi.a.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -84,9 +85,9 @@ public class a {
                 z = false;
                 if (this.c != null) {
                     if (b != null && b.length() > 0) {
-                        a2 = this.c.a(1100, 1, str, b.toString());
+                        a2 = this.c.a(FeatureCodes.BASIC_FILTER, 1, str, b.toString());
                     } else {
-                        a2 = this.c.a(1100, 1, str, null);
+                        a2 = this.c.a(FeatureCodes.BASIC_FILTER, 1, str, null);
                     }
                     z = a2;
                     b();

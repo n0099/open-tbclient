@@ -6,9 +6,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.dn9;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.qs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
     public boolean m;
-    public qs9 n;
+    public dn9 n;
     public TbPageContext<MsglistActivity<?>> o;
 
     /* loaded from: classes6.dex */
@@ -80,9 +80,9 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qs9 qs9Var = new qs9(this.mContext);
-            this.n = qs9Var;
-            qs9Var.b(this.o.getUniqueId());
+            dn9 dn9Var = new dn9(this.mContext);
+            this.n = dn9Var;
+            dn9Var.b(this.o.getUniqueId());
         }
     }
 
@@ -96,7 +96,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
+    @Override // com.baidu.tieba.lh
     /* renamed from: I */
     public MsgCommonItemAdapter.MsgViewHolder<MsgrightView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -123,7 +123,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.om
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.lh
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -136,21 +136,21 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgrightView a2 = msgViewHolder.a();
-            a2.T(this.g);
-            a2.L(this.l);
-            a2.I(this.h);
+            a2.U(this.g);
+            a2.M(this.l);
+            a2.J(this.h);
             a2.setUpdateListener(this.j);
-            a2.S(this.i);
-            a2.K(this.m);
-            a2.E();
+            a2.T(this.i);
+            a2.L(this.m);
+            a2.F();
             chatMessage.getCacheData().setIs_left(0);
-            a2.O(this.b);
-            a2.P(this.c);
-            a2.Q(i);
-            a2.G(this.d);
-            a2.M(chatMessage.getCacheData().getLastMsgTime());
-            a2.R(viewGroup, chatMessage);
-            a2.H(viewGroup, chatMessage);
+            a2.P(this.b);
+            a2.Q(this.c);
+            a2.R(i);
+            a2.H(this.d);
+            a2.N(chatMessage.getCacheData().getLastMsgTime());
+            a2.S(viewGroup, chatMessage);
+            a2.I(viewGroup, chatMessage);
             this.o.getLayoutMode().setNightMode(false);
             this.o.getLayoutMode().onModeChanged(view2);
             return view2;

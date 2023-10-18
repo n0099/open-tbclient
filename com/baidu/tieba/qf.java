@@ -1,28 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.network.http.IHttpNet;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IPackageDownloadCallback;
+import com.baidu.nps.interfa.IPackageGetCallback;
+import com.baidu.nps.interfa.IPackageGetter;
+import com.baidu.nps.pm.IBundleInfo;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import java.util.Map;
+@Service
 /* loaded from: classes7.dex */
-public class qf {
+public class qf implements IPackageGetter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public Map<String, List<String>> h;
-    public byte[] i;
-    public int j;
 
     public qf() {
         Interceptable interceptable = $ic;
@@ -34,39 +27,23 @@ public class qf {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = -1;
-        this.c = -1;
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "net error";
     }
 
-    public void a(IHttpNet iHttpNet) throws Exception {
+    @Override // com.baidu.nps.interfa.IPackageGetter
+    public void downloadBundle(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, iHttpNet) != null) || iHttpNet == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, iBundleInfo, str, i, iPackageDownloadCallback) == null) {
+            pf.f().g().i(iBundleInfo, str, i, iPackageDownloadCallback);
         }
-        this.b = iHttpNet.getResponseCode();
-        this.d = iHttpNet.getContentEncoding();
-        this.e = iHttpNet.getContentType();
-        this.f = iHttpNet.getContentLength() + "";
-        this.h = iHttpNet.b();
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nps.interfa.IPackageGetter
+    public void getBundleInfo(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == 200) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, iPackageGetCallback) == null) {
+            pf.f().g().k(list, iPackageGetCallback);
         }
-        return invokeV.booleanValue;
     }
 }

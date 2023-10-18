@@ -17,7 +17,7 @@ import android.widget.FrameLayout;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mh4;
+import com.baidu.tieba.vb4;
 import java.lang.ref.WeakReference;
 @SuppressLint({"ClickableViewAccessibility", "BDThrowableCheck", "SyntheticAccessor"})
 /* loaded from: classes4.dex */
@@ -86,8 +86,8 @@ public class PopupWindow {
             if (view2 != null && PopupWindow.this.f != null) {
                 WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) PopupWindow.this.f.getLayoutParams();
                 PopupWindow popupWindow = PopupWindow.this;
-                popupWindow.Q(popupWindow.t(view2, layoutParams, popupWindow.N, PopupWindow.this.O));
-                PopupWindow.this.update(layoutParams.x, layoutParams.y, -1, -1, true);
+                popupWindow.S(popupWindow.t(view2, layoutParams, popupWindow.N, PopupWindow.this.O));
+                PopupWindow.this.R(layoutParams.x, layoutParams.y, -1, -1, true);
             }
         }
     }
@@ -187,9 +187,9 @@ public class PopupWindow {
         if (i == -1) {
             if (this.d) {
                 if (this.G) {
-                    return R.style.obfuscated_res_0x7f10017e;
+                    return R.style.obfuscated_res_0x7f10017c;
                 }
-                return R.style.obfuscated_res_0x7f10017d;
+                return R.style.obfuscated_res_0x7f10017b;
             }
             return 0;
         }
@@ -276,7 +276,7 @@ public class PopupWindow {
         this.u = i;
     }
 
-    public final void Q(boolean z) {
+    public final void S(boolean z) {
         if (z != this.G) {
             this.G = z;
             if (this.D != null) {
@@ -307,11 +307,6 @@ public class PopupWindow {
         this(context, attributeSet, 16842870);
     }
 
-    public void update(int i, int i2) {
-        WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f.getLayoutParams();
-        update(layoutParams.x, layoutParams.y, i, i2, false);
-    }
-
     public PopupWindow(Context context, AttributeSet attributeSet, int i) {
         this(context, attributeSet, i, 0);
     }
@@ -329,10 +324,6 @@ public class PopupWindow {
 
     public void N(View view2, int i, int i2) {
         r(view2, i, i2);
-    }
-
-    public void update(View view2, int i, int i2) {
-        update(view2, false, 0, 0, true, i, i2);
     }
 
     public PopupWindow(Context context, AttributeSet attributeSet, int i, int i2) {
@@ -353,7 +344,7 @@ public class PopupWindow {
         this.M = new a();
         this.a = context;
         this.b = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, mh4.PopupWindow, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vb4.PopupWindow, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;
@@ -389,56 +380,6 @@ public class PopupWindow {
         M(i);
         H(i2);
         G(z);
-    }
-
-    public void update(View view2, int i, int i2, int i3, int i4) {
-        update(view2, true, i, i2, true, i3, i4);
-    }
-
-    private void update(View view2, boolean z, int i, int i2, boolean z2, int i3, int i4) {
-        boolean z3;
-        int i5 = i3;
-        int i6 = i4;
-        if (y() && this.e != null) {
-            WeakReference<View> weakReference = this.L;
-            boolean z4 = false;
-            if (z && (this.N != i || this.O != i2)) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            if (weakReference != null && weakReference.get() == view2 && (!z3 || this.d)) {
-                if (z3) {
-                    this.N = i;
-                    this.O = i2;
-                }
-            } else {
-                B(view2, i, i2);
-            }
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f.getLayoutParams();
-            if (z2) {
-                if (i5 == -1) {
-                    i5 = this.z;
-                } else {
-                    this.z = i5;
-                }
-                if (i6 == -1) {
-                    i6 = this.A;
-                } else {
-                    this.A = i6;
-                }
-            }
-            int i7 = layoutParams.x;
-            int i8 = layoutParams.y;
-            if (z) {
-                Q(t(view2, layoutParams, i, i2));
-            } else {
-                Q(t(view2, layoutParams, this.N, this.O));
-            }
-            int i9 = layoutParams.x;
-            int i10 = layoutParams.y;
-            update(i9, i10, i5, i6, (i7 == i9 && i8 == i10) ? true : true);
-        }
     }
 
     public final void A(WindowManager.LayoutParams layoutParams) {
@@ -534,8 +475,81 @@ public class PopupWindow {
         s(view2.getWindowToken(), i, i2, i3);
     }
 
-    public void update(int i, int i2, int i3, int i4) {
-        update(i, i2, i3, i4, false);
+    public void Q() {
+        if (y() && this.e != null) {
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f.getLayoutParams();
+            boolean z = false;
+            int n = n();
+            boolean z2 = true;
+            if (n != layoutParams.windowAnimations) {
+                layoutParams.windowAnimations = n;
+                z = true;
+            }
+            int o = o(layoutParams.flags);
+            if (o != layoutParams.flags) {
+                layoutParams.flags = o;
+            } else {
+                z2 = z;
+            }
+            if (z2) {
+                this.b.updateViewLayout(this.f, layoutParams);
+            }
+        }
+    }
+
+    public void R(int i, int i2, int i3, int i4, boolean z) {
+        if (i3 != -1) {
+            this.v = i3;
+            M(i3);
+        }
+        if (i4 != -1) {
+            this.y = i4;
+            H(i4);
+        }
+        if (y() && this.e != null) {
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f.getLayoutParams();
+            int i5 = this.t;
+            if (i5 >= 0) {
+                i5 = this.v;
+            }
+            boolean z2 = true;
+            if (i3 != -1 && layoutParams.width != i5) {
+                this.v = i5;
+                layoutParams.width = i5;
+                z = true;
+            }
+            int i6 = this.w;
+            if (i6 >= 0) {
+                i6 = this.y;
+            }
+            if (i4 != -1 && layoutParams.height != i6) {
+                this.y = i6;
+                layoutParams.height = i6;
+                z = true;
+            }
+            if (layoutParams.x != i) {
+                layoutParams.x = i;
+                z = true;
+            }
+            if (layoutParams.y != i2) {
+                layoutParams.y = i2;
+                z = true;
+            }
+            int n = n();
+            if (n != layoutParams.windowAnimations) {
+                layoutParams.windowAnimations = n;
+                z = true;
+            }
+            int o = o(layoutParams.flags);
+            if (o != layoutParams.flags) {
+                layoutParams.flags = o;
+            } else {
+                z2 = z;
+            }
+            if (z2) {
+                this.b.updateViewLayout(this.f, layoutParams);
+            }
+        }
     }
 
     public void q() {
@@ -590,7 +604,7 @@ public class PopupWindow {
             this.d = true;
             WindowManager.LayoutParams p = p(view2.getWindowToken());
             A(p);
-            Q(t(view2, p, i, i2));
+            S(t(view2, p, i, i2));
             int i3 = this.w;
             if (i3 < 0) {
                 this.y = i3;
@@ -691,82 +705,5 @@ public class PopupWindow {
         }
         layoutParams.gravity |= LaunchTaskConstants.OTHER_PROCESS;
         return z;
-    }
-
-    public void update() {
-        if (y() && this.e != null) {
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f.getLayoutParams();
-            boolean z = false;
-            int n = n();
-            boolean z2 = true;
-            if (n != layoutParams.windowAnimations) {
-                layoutParams.windowAnimations = n;
-                z = true;
-            }
-            int o = o(layoutParams.flags);
-            if (o != layoutParams.flags) {
-                layoutParams.flags = o;
-            } else {
-                z2 = z;
-            }
-            if (z2) {
-                this.b.updateViewLayout(this.f, layoutParams);
-            }
-        }
-    }
-
-    public void update(int i, int i2, int i3, int i4, boolean z) {
-        if (i3 != -1) {
-            this.v = i3;
-            M(i3);
-        }
-        if (i4 != -1) {
-            this.y = i4;
-            H(i4);
-        }
-        if (y() && this.e != null) {
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f.getLayoutParams();
-            int i5 = this.t;
-            if (i5 >= 0) {
-                i5 = this.v;
-            }
-            boolean z2 = true;
-            if (i3 != -1 && layoutParams.width != i5) {
-                this.v = i5;
-                layoutParams.width = i5;
-                z = true;
-            }
-            int i6 = this.w;
-            if (i6 >= 0) {
-                i6 = this.y;
-            }
-            if (i4 != -1 && layoutParams.height != i6) {
-                this.y = i6;
-                layoutParams.height = i6;
-                z = true;
-            }
-            if (layoutParams.x != i) {
-                layoutParams.x = i;
-                z = true;
-            }
-            if (layoutParams.y != i2) {
-                layoutParams.y = i2;
-                z = true;
-            }
-            int n = n();
-            if (n != layoutParams.windowAnimations) {
-                layoutParams.windowAnimations = n;
-                z = true;
-            }
-            int o = o(layoutParams.flags);
-            if (o != layoutParams.flags) {
-                layoutParams.flags = o;
-            } else {
-                z2 = z;
-            }
-            if (z2) {
-                this.b.updateViewLayout(this.f, layoutParams);
-            }
-        }
     }
 }

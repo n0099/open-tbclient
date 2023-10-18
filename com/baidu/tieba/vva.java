@@ -1,19 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.view.View;
-import android.widget.ImageView;
-import androidx.annotation.IdRes;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.videoplay.danmu.VideoDanmuController;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,200 +15,181 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLDecoder;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vva {
+public final class vva {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int e = 2131233327;
-    public static final int f = 2131233326;
+    public static final a a;
+    public static final String b = "#\\(rich-image_[\\s\\S]+?_img\\)";
+    @JvmField
+    public static final String c = "#(rich-image_";
+    public static final String d = "_img)";
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public b c;
-    public CustomMessageListener d;
-
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(boolean z);
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948255624, "Lcom/baidu/tieba/vva;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948255624, "Lcom/baidu/tieba/vva;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948255624, "Lcom/baidu/tieba/vva;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948255624, "Lcom/baidu/tieba/vva;");
-        }
+        a = new a(null);
+    }
+
+    @JvmStatic
+    public static final String c(WriteData writeData, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, writeData, str)) == null) ? a.a(writeData, str) : (String) invokeLL.objValue;
     }
 
     /* loaded from: classes8.dex */
-    public class a extends CustomMessageListener {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vva a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(vva vvaVar, int i) {
-            super(i);
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vvaVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = vvaVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public final String c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return vva.b;
             }
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            if (this.a.c != null) {
-                this.a.c.a(booleanValue);
+            return (String) invokeV.objValue;
+        }
+
+        public final String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return vva.d;
             }
+            return (String) invokeV.objValue;
         }
-    }
 
-    public vva(View view2, @IdRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        @JvmStatic
+        public final String a(WriteData writeData, String content) {
+            InterceptResult invokeLL;
+            String replace$default;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, writeData, content)) == null) {
+                Intrinsics.checkNotNullParameter(writeData, "writeData");
+                Intrinsics.checkNotNullParameter(content, "content");
+                if (TextUtils.isEmpty(content)) {
+                    return content;
+                }
+                Matcher matcher = Pattern.compile(c()).matcher(content);
+                if (matcher.find()) {
+                    String result = matcher.group();
+                    Intrinsics.checkNotNullExpressionValue(result, "result");
+                    String substring = result.substring(vva.c.length(), result.length() - d().length());
+                    Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
+                    if (!TextUtils.isEmpty(substring) && StringsKt__StringsJVMKt.startsWith$default(substring, "%7B%22", false, 2, null)) {
+                        substring = URLDecoder.decode(substring);
+                        Intrinsics.checkNotNullExpressionValue(substring, "decode(commodityJson)");
+                    }
+                    try {
+                        ImageFileInfo b = b(writeData, new JSONObject(substring));
+                        if (b != null && !TextUtils.isEmpty(b.getServerImageCode())) {
+                            TbLog hybridLog = HybridLog.getInstance();
+                            hybridLog.e("WriteDataHelper", "富文本图片数据替换成功，to：" + b.getServerImageCode() + " from " + result);
+                            String serverImageCode = b.getServerImageCode();
+                            Intrinsics.checkNotNullExpressionValue(serverImageCode, "data.serverImageCode");
+                            replace$default = StringsKt__StringsJVMKt.replace$default(content, result, serverImageCode, false, 4, (Object) null);
+                        } else {
+                            HybridLog.getInstance().e("WriteDataHelper", "富文本图片数据替换失败，没有对应的serverImageCode");
+                            replace$default = StringsKt__StringsJVMKt.replace$default(content, result, "", false, 4, (Object) null);
+                        }
+                    } catch (Exception e) {
+                        TbLog hybridLog2 = HybridLog.getInstance();
+                        hybridLog2.e("WriteDataHelper", "富文本数据解析失败：" + e);
+                        replace$default = StringsKt__StringsJVMKt.replace$default(content, result, "", false, 4, (Object) null);
+                    }
+                    return a(writeData, replace$default);
+                }
+                return content;
             }
+            return (String) invokeLL.objValue;
         }
-        this.d = new a(this, 2921647);
-        MessageManager.getInstance().registerListener(this.d);
-        this.a = view2;
-        if (view2 != null) {
-            ImageView imageView = (ImageView) view2.findViewById(i);
-            this.b = imageView;
-            if (imageView != null) {
-                imageView.setVisibility(0);
+
+        public final ImageFileInfo b(WriteData writeData, JSONObject jsonFromH5) {
+            InterceptResult invokeLL;
+            LinkedList<ImageFileInfo> linkedList;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData, jsonFromH5)) == null) {
+                Intrinsics.checkNotNullParameter(writeData, "writeData");
+                Intrinsics.checkNotNullParameter(jsonFromH5, "jsonFromH5");
+                String optString = jsonFromH5.optString("tag");
+                String optString2 = jsonFromH5.optString("name");
+                int optInt = jsonFromH5.optInt("imageIndex");
+                ImageFileInfo imageFileInfo = null;
+                if (TextUtils.isEmpty(optString)) {
+                    HybridLog.getInstance().e("WriteDataHelper", "图片解析失败：FE传递的tag错误，info=" + jsonFromH5);
+                    return null;
+                }
+                WriteImagesInfo writeImagesInfo = writeData.getWriteImagesInfo();
+                if (writeImagesInfo != null) {
+                    linkedList = writeImagesInfo.getChosedFiles();
+                } else {
+                    linkedList = null;
+                }
+                if (ListUtils.isEmpty(linkedList)) {
+                    HybridLog.getInstance().e("WriteDataHelper", "图片解析失败：端上没有图片数据，info=" + jsonFromH5);
+                    return null;
+                }
+                LinkedList<ImageFileInfo> chosedFiles = writeData.getWriteImagesInfo().getChosedFiles();
+                Intrinsics.checkNotNull(chosedFiles);
+                Iterator<ImageFileInfo> it = chosedFiles.iterator();
+                int i = 0;
+                while (it.hasNext()) {
+                    int i2 = i + 1;
+                    ImageFileInfo item = it.next();
+                    Intrinsics.checkNotNullExpressionValue(item, "item");
+                    if (!optString.equals(wva.a(item)) && !optString2.equals(wva.b(item))) {
+                        i = i2;
+                    } else if (optInt == i) {
+                        return item;
+                    } else {
+                        i = i2;
+                        imageFileInfo = item;
+                    }
+                }
+                return imageFileInfo;
             }
-        }
-        j(d());
-    }
-
-    public static String c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (i != VideoDanmuController.N && i != VideoDanmuController.M) {
-                return "1";
-            }
-            return "2";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void g(View.OnClickListener onClickListener) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && (imageView = this.b) != null) {
-            imageView.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void h(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public void j(boolean z) {
-        ImageView imageView;
-        View view2;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (imageView = this.b) != null && (view2 = this.a) != null) {
-            Resources resources = view2.getResources();
-            if (z) {
-                i = e;
-            } else {
-                i = f;
-            }
-            imageView.setImageDrawable(resources.getDrawable(i));
-        }
-    }
-
-    public static StatisticItem b(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
-            return new StatisticItem(str).param("obj_locate", c(i)).param("tid", str2).param("uid", TbadkCoreApplication.getCurrentAccountId());
-        }
-        return (StatisticItem) invokeLLI.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbSingleton.getInstance().isDanmuSwitchOpen();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.d);
-            ImageView imageView = this.b;
-            if (imageView != null) {
-                imageView.setOnClickListener(null);
-            }
-            this.c = null;
-        }
-    }
-
-    public void e(String str, int i) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
-            StatisticItem b2 = b("c14474", str, i);
-            if (d()) {
-                str2 = "1";
-            } else {
-                str2 = "0";
-            }
-            TiebaStatic.log(b2.param("obj_type", str2));
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            boolean z = !d();
-            TbSingleton.getInstance().setDanmuSwitchOpen(z);
-            j(z);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921647, Boolean.valueOf(z)));
+            return (ImageFileInfo) invokeLL.objValue;
         }
     }
 }

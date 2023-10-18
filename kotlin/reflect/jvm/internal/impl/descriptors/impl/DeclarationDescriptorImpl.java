@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.annotations.AnnotatedImpl;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.renderer.DescriptorRenderer;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public abstract class DeclarationDescriptorImpl extends AnnotatedImpl implements DeclarationDescriptor {
     public final Name name;
 

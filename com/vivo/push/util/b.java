@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.AdvertisementOption;
 import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.model.NotifyArriveCallbackByUser;
 import java.security.PublicKey;
@@ -123,7 +122,7 @@ public abstract class b {
                 if (!TextUtils.isEmpty(a3)) {
                     hashMap.put("remoteAppId", a3);
                 }
-                hashMap.put(AdvertisementOption.AD_PACKAGE, this.a);
+                hashMap.put("ap", this.a);
                 hashMap.put("clientsdkver", String.valueOf(ag.c(this.c, this.a)));
                 f.a(a2, hashMap);
                 return null;

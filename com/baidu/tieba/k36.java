@@ -1,170 +1,145 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import androidx.annotation.NonNull;
-import androidx.core.view.MotionEventCompat;
-import androidx.core.view.ViewConfigurationCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+@Service
 /* loaded from: classes6.dex */
-public class k36 {
+public final class k36 extends t9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public float d;
-    public float e;
-    public float f;
-    public int g;
-    public VelocityTracker h;
-    @NonNull
-    public ViewGroup i;
-    public boolean j;
 
-    public k36(ViewGroup viewGroup) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862203, "Lcom/baidu/tieba/k36;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947862203, "Lcom/baidu/tieba/k36;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
+
+    @Override // com.baidu.tieba.t9
+    public void changeSettingByType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Possible override for method com.baidu.tieba.t9.getCrashKeys()[Ljava/lang/String; */
+    public Void getCrashKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (Void) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t9
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.t9
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.t9
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "12.48_open_screen_close_timeout_switch" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t9
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return SwitchManager.getInstance().findType("12.48_open_screen_close_timeout_switch");
+            }
+            return invokeV.intValue;
+        }
+    }
+
+    public k36() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.g = -1;
-        this.j = true;
-        this.i = viewGroup;
-        this.c = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(viewGroup.getContext()));
-    }
-
-    public final void b(MotionEvent motionEvent) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent) == null) {
-            int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-            if (MotionEventCompat.getPointerId(motionEvent, actionIndex) == this.g) {
-                if (actionIndex == 0) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                this.d = MotionEventCompat.getY(motionEvent, i);
-                this.g = MotionEventCompat.getPointerId(motionEvent, i);
-                VelocityTracker velocityTracker = this.h;
-                if (velocityTracker != null) {
-                    velocityTracker.clear();
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @SuppressLint({"LongLogTag"})
-    public boolean a(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        float f;
-        float f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            int action = motionEvent.getAction() & 255;
-            if (action != 3 && action != 1) {
-                if (action != 0) {
-                    if (this.a) {
-                        return true;
-                    }
-                    if (this.b) {
-                        return false;
-                    }
-                }
-                if (action != 0) {
-                    if (action != 2) {
-                        if (action == 6) {
-                            b(motionEvent);
-                        }
-                    } else {
-                        int i = this.g;
-                        if (i != -1) {
-                            int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i);
-                            if (findPointerIndex >= 0 && findPointerIndex < motionEvent.getPointerCount()) {
-                                float y = MotionEventCompat.getY(motionEvent, findPointerIndex) - this.d;
-                                float abs = Math.abs(y);
-                                float abs2 = Math.abs(MotionEventCompat.getX(motionEvent, findPointerIndex) - this.e);
-                                if (this.j) {
-                                    f = 0.5f;
-                                } else {
-                                    f = 3.0f;
-                                }
-                                if (abs > this.c && abs * f > abs2) {
-                                    this.a = true;
-                                    c(true);
-                                    if (y > 0.0f) {
-                                        f2 = this.f + this.c;
-                                    } else {
-                                        f2 = this.f - this.c;
-                                    }
-                                    this.d = f2;
-                                } else if (abs2 > this.c) {
-                                    this.b = true;
-                                }
-                            } else {
-                                this.a = false;
-                            }
-                        }
-                    }
-                } else {
-                    this.e = motionEvent.getX();
-                    float y2 = motionEvent.getY();
-                    this.f = y2;
-                    this.d = y2;
-                    this.g = MotionEventCompat.getPointerId(motionEvent, 0);
-                    this.b = false;
-                    this.a = false;
-                }
-                if (this.h == null) {
-                    this.h = VelocityTracker.obtain();
-                }
-                this.h.addMovement(motionEvent);
-                return this.a;
-            }
-            this.a = false;
-            this.b = false;
-            this.g = -1;
-            VelocityTracker velocityTracker = this.h;
-            if (velocityTracker != null) {
-                velocityTracker.recycle();
-                this.h = null;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void c(boolean z) {
-        ViewParent parent;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (parent = this.i.getParent()) != null) {
-            parent.requestDisallowInterceptTouchEvent(z);
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.j = z;
-        }
+    @Override // com.baidu.tieba.t9
+    /* renamed from: getCrashKeys */
+    public /* bridge */ /* synthetic */ String[] mo130getCrashKeys() {
+        return (String[]) getCrashKeys();
     }
 }

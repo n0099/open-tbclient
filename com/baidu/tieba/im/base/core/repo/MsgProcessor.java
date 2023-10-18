@@ -5,12 +5,12 @@ import android.util.SparseArray;
 import androidx.annotation.MainThread;
 import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.UiUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.af8;
-import com.baidu.tieba.dg8;
+import com.baidu.tieba.ff8;
 import com.baidu.tieba.im.base.core.repo.MsgProcessor;
 import com.baidu.tieba.im.base.core.repo.SizedSyncTreeSet;
 import com.baidu.tieba.im.base.core.uilist.Action;
@@ -18,8 +18,8 @@ import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
 import com.baidu.tieba.im.lib.socket.msg.TbTimestampSysMsg;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.vk8;
+import com.baidu.tieba.l98;
+import com.baidu.tieba.na8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0098\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 N2\u00020\u0001:\u0006NOPQRSB\u0005¢\u0006\u0002\u0010\u0002J*\u0010\u0014\u001a\u00020\u00152\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\b0\u00172\u0006\u0010\u0018\u001a\u00020\u00192\n\b\u0002\u0010\u001a\u001a\u0004\u0018\u00010\u001bH\u0002J*\u0010\u001c\u001a\u00020\u00152\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\b0\u00172\u0006\u0010\u0018\u001a\u00020\u00192\n\b\u0002\u0010\u001a\u001a\u0004\u0018\u00010\u001bH\u0003J*\u0010\u001d\u001a\f\u0012\u0006\b\u0001\u0012\u00020\b\u0018\u00010\u00072\u0006\u0010\u001e\u001a\u00020\u00052\u0006\u0010\u001f\u001a\u00020\b2\u0006\u0010\u0018\u001a\u00020\u0019H\u0002J\u000e\u0010 \u001a\u00020\u00152\u0006\u0010\u001e\u001a\u00020\u0005J\u000e\u0010!\u001a\u00020\u00152\u0006\u0010\u001e\u001a\u00020\u0005J\u001a\u0010\"\u001a\f\u0012\b\u0012\u0006\u0012\u0002\b\u00030\u00070\u00062\u0006\u0010\u001e\u001a\u00020\u0005H\u0002J0\u0010#\u001a\f\u0012\u0006\b\u0001\u0012\u00020\b\u0018\u00010\u00072\u0014\u0010$\u001a\u0010\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\b0\u00070\u00062\u0006\u0010%\u001a\u00020&H\u0002J\u0018\u0010'\u001a\f\u0012\u0006\b\u0001\u0012\u00020\b\u0018\u00010\u00072\u0006\u0010\u001e\u001a\u00020\u0005J\u0018\u0010(\u001a\f\u0012\u0006\b\u0001\u0012\u00020\b\u0018\u00010\u00072\u0006\u0010)\u001a\u00020\u0005J\u0018\u0010*\u001a\f\u0012\u0006\b\u0001\u0012\u00020\b\u0018\u00010\u00072\u0006\u0010\u001e\u001a\u00020\u0005J\u001a\u0010+\u001a\f\u0012\b\u0012\u0006\u0012\u0002\b\u00030\u00070\u00062\u0006\u0010\u001e\u001a\u00020\u0005H\u0002J\u0016\u0010,\u001a\u00020-2\u0006\u0010\u001e\u001a\u00020\u00052\u0006\u0010.\u001a\u00020\u0005J4\u0010/\u001a\u0018\u0012\u0004\u0012\u000201\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\b0\u0007\u0018\u0001002\u0006\u00102\u001a\u00020-2\u0006\u0010\u001e\u001a\u00020\u00052\u0006\u0010%\u001a\u00020&J\u001c\u00103\u001a\u0002012\f\u00104\u001a\b\u0012\u0004\u0012\u0002050\u00172\u0006\u0010%\u001a\u00020&J\u001a\u00106\u001a\f\u0012\b\u0012\u0006\u0012\u0002\b\u00030\u00070\u00062\u0006\u0010\u001e\u001a\u00020\u0005H\u0002J\u000e\u00107\u001a\u00020\u00102\u0006\u0010\u001e\u001a\u00020\u0005J\u001c\u00108\u001a\u00020\u00102\u0006\u0010)\u001a\u00020\u00052\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\b0\u0017J\u0016\u00109\u001a\u00020\u00152\u0006\u0010\u001e\u001a\u00020\u00052\u0006\u0010\u0018\u001a\u00020\u0019J\u001e\u0010:\u001a\u00020\u00152\u0006\u0010;\u001a\u0002012\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\b0\u0017H\u0016J*\u0010<\u001a\u00020\u00152\u0006\u0010;\u001a\u0002012\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\b0\u00172\n\b\u0002\u0010\u001a\u001a\u0004\u0018\u00010\u001bH\u0007J\u001a\u0010=\u001a\u00020\u00152\u0006\u0010\u001f\u001a\u00020\b2\b\b\u0002\u0010\u0018\u001a\u00020\u0019H\u0007J\u0010\u0010>\u001a\u00020\u00152\u0006\u0010?\u001a\u00020@H\u0002J*\u0010A\u001a\u00020\u00152\"\u0010B\u001a\u001e\u0012\u0004\u0012\u00020C\u0012\u0014\u0012\u0012\u0012\u000e\b\u0001\u0012\n\u0012\u0006\b\u0001\u0012\u00020\b0\u00070\u000b00J\u001a\u0010D\u001a\u00020\u00152\u0006\u0010\u001e\u001a\u00020\u00052\b\b\u0002\u0010E\u001a\u00020\u0010H\u0007J\u0010\u0010F\u001a\u00020\u00152\b\u0010\u001a\u001a\u0004\u0018\u00010\u000eJ\u0018\u0010G\u001a\u00020\u00152\u0010\u0010\u001a\u001a\f\u0012\u0006\b\u0001\u0012\u00020@\u0018\u00010\u0012J(\u0010H\u001a\u00020\u00102\u0006\u0010\u001e\u001a\u00020\u00052\u000e\u0010I\u001a\n\u0012\u0006\b\u0001\u0012\u00020\b0\u00072\u0006\u0010\u0018\u001a\u00020\u0019H\u0002J(\u0010J\u001a\u0004\u0018\u00010@2\n\u0010K\u001a\u0006\u0012\u0002\b\u00030\u00072\u0010\u0010L\u001a\f\u0012\b\u0012\u0006\u0012\u0002\b\u00030\u00070MH\u0002R(\u0010\u0003\u001a\u001c\u0012\u0004\u0012\u00020\u0005\u0012\u0012\u0012\u0010\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\b0\u00070\u00060\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R$\u0010\t\u001a\u0018\u0012\u0014\u0012\u0012\u0012\u000e\b\u0001\u0012\n\u0012\u0006\b\u0001\u0012\u00020\b0\u00070\u000b0\nX\u0082\u0004¢\u0006\u0002\n\u0000R(\u0010\f\u001a\u001c\u0012\u0004\u0012\u00020\u0005\u0012\u0012\u0012\u0010\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\b0\u00070\u00060\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u000f\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00100\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0011\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R(\u0010\u0013\u001a\u001c\u0012\u0004\u0012\u00020\u0005\u0012\u0012\u0012\u0010\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\b0\u00070\u00060\u0004X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006T"}, d2 = {"Lcom/baidu/tieba/im/base/core/repo/MsgProcessor;", "Lcom/baidu/tieba/im/lib/socket/listener/MsgReceiveListener;", "()V", "chatMsgSetMap", "Ljava/util/concurrent/ConcurrentHashMap;", "", "Lcom/baidu/tieba/im/base/core/repo/SizedSyncTreeSet;", "Lcom/baidu/tieba/im/base/core/uilist/BaseItem;", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "classMap", "Landroid/util/SparseArray;", "Ljava/lang/Class;", "latestTmpSetMap", "msgCallback", "Lcom/baidu/tieba/im/base/core/repo/MsgProcessor$MsgCallback;", "setTailStatusMap", "", "sysMsgCallback", "Lcom/baidu/tieba/im/base/core/repo/MsgProcessor$SysMsgCallback;", "tmpSetMap", "doParse", "", "msgSet", "Ljava/util/TreeSet;", "source", "Lcom/baidu/tieba/im/base/core/repo/MsgProcessor$Source;", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/tieba/im/base/core/repo/MsgProcessor$ParsedCallback;", "doParseOnBgThread", "doParseOneMsg", "sessionId", "tbMsg", "faultChatMsgSet", "forceClearMasterSet", "getChatMsgSet", "getClonedBaseMsgByMsgKey", "set", "msgKey", "", "getFarthestMsg", "getFarthestTmpMsg", "roomId", "getLatestMsg", "getLatestTmpSet", "getMsgPosAtWhichMemory", "Lcom/baidu/tieba/im/base/core/repo/MsgProcessor$MemoryFlag;", "msgId", "getPairByMsgKey", "Lkotlin/Pair;", "", "flag", "getPositionByMsgKeyWithTargetSet", "targetSet", "Lcom/baidu/android/imsdk/chatmessage/messages/ChatMsg;", "getTmpSet", "isChatMsgSetFaulted", "isLatestTmpSetContains", "manualUpdateData", "onReceiveMessage", StatConstants.KEY_EXT_ERR_CODE, "onReceiveMessageByHttp", "onReceiveMessageByLocal", "onSysMsgArrive", "tbSysMsg", "Lcom/baidu/tieba/im/lib/socket/msg/TbSysMsg;", "putParseClass", "pair", "", "resumeFaultChatMsgSet", "clearBefore", "setMsgCallback", "setSysMsgCallback", "tryExecMsgAction", "baseItem", "tryGenerateTimestampSysMsg", "arriveItem", "currentSet", "Ljava/util/SortedSet;", "Companion", "MemoryFlag", "MsgCallback", "ParsedCallback", "Source", "SysMsgCallback", "im-base-core_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgProcessor implements vk8 {
+public final class MsgProcessor implements ff8 {
     public static /* synthetic */ Interceptable $ic;
     public static final a g;
     public transient /* synthetic */ FieldHolder $fh;
@@ -605,7 +605,7 @@ public final class MsgProcessor implements vk8 {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(tbSysMsg, "$tbSysMsg");
             try {
-                af8.a(this$0.f, tbSysMsg);
+                l98.a(this$0.f, tbSysMsg);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
@@ -622,7 +622,7 @@ public final class MsgProcessor implements vk8 {
         }
     }
 
-    @Override // com.baidu.tieba.vk8
+    @Override // com.baidu.tieba.ff8
     public void a(int i, TreeSet<TbBaseMsg> msgSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i, msgSet) == null) {
@@ -636,7 +636,7 @@ public final class MsgProcessor implements vk8 {
         if (interceptable == null || interceptable.invokeJL(1048604, this, j, source) == null) {
             Intrinsics.checkNotNullParameter(source, "source");
             final ArrayList arrayList = new ArrayList(k(j));
-            lg.c(new Runnable() { // from class: com.baidu.tieba.ye8
+            UiUtils.post(new Runnable() { // from class: com.baidu.tieba.j98
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -690,7 +690,7 @@ public final class MsgProcessor implements vk8 {
     public final void E(final TbSysMsg tbSysMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbSysMsg) == null) {
-            lg.c(new Runnable() { // from class: com.baidu.tieba.xe8
+            UiUtils.post(new Runnable() { // from class: com.baidu.tieba.i98
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -976,7 +976,7 @@ public final class MsgProcessor implements vk8 {
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
-                        dg8.g("parse_msg_exception", sessionId, e2);
+                        na8.g("parse_msg_exception", sessionId, e2);
                     }
                 }
                 if (!t.isEmpty()) {
@@ -985,7 +985,7 @@ public final class MsgProcessor implements vk8 {
                     } else {
                         k.addAll(t);
                         final ArrayList arrayList = new ArrayList(k);
-                        lg.c(new Runnable() { // from class: com.baidu.tieba.ve8
+                        UiUtils.post(new Runnable() { // from class: com.baidu.tieba.g98
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1069,7 +1069,7 @@ public final class MsgProcessor implements vk8 {
         if ((interceptable != null && interceptable.invokeLLL(1048587, this, treeSet, dVar, cVar) != null) || treeSet.isEmpty()) {
             return;
         }
-        lg.e(new Runnable() { // from class: com.baidu.tieba.we8
+        UiUtils.runOnBgThread(new Runnable() { // from class: com.baidu.tieba.h98
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

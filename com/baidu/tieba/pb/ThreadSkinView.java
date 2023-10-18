@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fka;
+import com.baidu.tieba.vea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class ThreadSkinView extends TbImageView {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public SkinInfo b;
-    public fka.b c;
+    public vea.b c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSkinView(Context context) {
@@ -54,11 +54,11 @@ public class ThreadSkinView extends TbImageView {
         SkinInfo skinInfo;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && (skinInfo = this.b) != null && !StringUtils.isNull(skinInfo.url)) {
-            fka.b bVar = this.c;
+            vea.b bVar = this.c;
             if (bVar != null) {
-                bVar.delete("action_type");
-                this.c.d("action_type", "CLICK");
-                this.c.e();
+                bVar.c("action_type");
+                this.c.e("action_type", "CLICK");
+                this.c.f();
             }
             UrlManager.getInstance().dealOneLink(this.a, new String[]{this.b.url});
         }
@@ -115,19 +115,19 @@ public class ThreadSkinView extends TbImageView {
         }
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, fka.b bVar) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, vea.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, skinInfo, bVar) == null) {
             if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {
                 this.a = tbPageContext;
                 if (this.b != skinInfo && bVar != null) {
                     this.c = bVar;
-                    bVar.delete("action_type");
-                    this.c.d("obj_id", skinInfo.obj_id);
-                    this.c.d(TiebaStatic.Params.OBJ_URL, skinInfo.url);
-                    this.c.d("obj_name", skinInfo.monitor_id);
-                    this.c.d("action_type", "VIEW_TRUE");
-                    this.c.e();
+                    bVar.c("action_type");
+                    this.c.e("obj_id", skinInfo.obj_id);
+                    this.c.e(TiebaStatic.Params.OBJ_URL, skinInfo.url);
+                    this.c.e("obj_name", skinInfo.monitor_id);
+                    this.c.e("action_type", "VIEW_TRUE");
+                    this.c.f();
                 }
                 this.b = skinInfo;
                 int equipmentWidth = BdUtilHelper.getEquipmentWidth(tbPageContext.getPageActivity());

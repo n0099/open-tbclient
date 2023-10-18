@@ -1,125 +1,227 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public abstract class dy0 implements nx0 {
+public abstract class dy0 implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mz0 a;
+    @NonNull
+    public final SharedPreferences a;
 
-    public abstract void f(vw0 vw0Var);
+    public abstract SharedPreferences c(String str, int i);
 
-    public abstract void g(vw0 vw0Var);
+    public abstract void i(String str, String str2, boolean z);
 
-    public abstract void h(vw0 vw0Var);
-
-    public abstract void i(vw0 vw0Var);
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947720750, "Lcom/baidu/tieba/dy0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947720750, "Lcom/baidu/tieba/dy0;");
-                return;
-            }
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
         }
-        au0.f();
     }
 
-    public dy0(Map<String, String> map) {
+    public dy0(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        j(map);
+        this.a = c(str, i);
     }
 
-    @Override // com.baidu.tieba.nx0
-    public final <T extends iz0> void d(T t) {
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.a = (mz0) t;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, onSharedPreferenceChangeListener) == null) {
+            this.a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
     }
 
-    @Override // com.baidu.tieba.ox0
-    public final void c(vw0 vw0Var) {
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, vw0Var) == null) && vw0Var != null && this.a != null) {
-            int type = vw0Var.getType();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (type == 4) {
-                            h(vw0Var);
-                            return;
-                        }
-                        return;
-                    }
-                    g(vw0Var);
-                    return;
-                }
-                f(vw0Var);
-                return;
-            }
-            i(vw0Var);
+        if (interceptable == null || interceptable.invokeL(1048594, this, onSharedPreferenceChangeListener) == null) {
+            this.a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
     }
 
-    public void j(Map<String, String> map) {
+    public void d(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, map) == null) && map != null && map.size() > 0) {
-            if (map.containsKey(WriteActivityConfig.VIDEO_INFO)) {
-                String str = (String) i31.b(map, WriteActivityConfig.VIDEO_INFO);
-            }
-            if (map.containsKey("channel_id")) {
-                String str2 = (String) i31.b(map, "channel_id");
-            }
-            if (map.containsKey("channel_title")) {
-                String str3 = (String) i31.b(map, "channel_title");
-            }
-            if (map.containsKey("type")) {
-                String str4 = (String) i31.b(map, "type");
-            }
-            if (map.containsKey("source")) {
-                String str5 = (String) i31.b(map, "source");
-            }
-            if (map.containsKey("from")) {
-                String str6 = (String) i31.b(map, "from");
-            }
-            if (map.containsKey("pd")) {
-                String str7 = (String) i31.b(map, "pd");
-            }
-            if (map.containsKey("tpl")) {
-                String str8 = (String) i31.b(map, "tpl");
-            }
-            if (map.containsKey("ext_request")) {
-                String str9 = (String) i31.b(map, "ext_request");
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            this.a.edit().putBoolean(str, z).apply();
+        }
+    }
+
+    public void e(String str, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(1048579, this, str, f) == null) {
+            this.a.edit().putFloat(str, f).apply();
+        }
+    }
+
+    public void f(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            this.a.edit().putInt(str, i).apply();
+        }
+    }
+
+    public void g(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j) == null) {
+            this.a.edit().putLong(str, j).apply();
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
+            try {
+                return this.a.getBoolean(str, z);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return z;
             }
         }
+        return invokeLZ.booleanValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048585, this, str, f)) == null) {
+            try {
+                return this.a.getFloat(str, f);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return f;
+            }
+        }
+        return invokeLF.floatValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) {
+            try {
+                return this.a.getInt(str, i);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return i;
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048587, this, str, j)) == null) {
+            try {
+                return this.a.getLong(str, j);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return j;
+            }
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    @Nullable
+    public String getString(String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
+            try {
+                return this.a.getString(str, str2);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    @Nullable
+    public Set<String> getStringSet(String str, @Nullable Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, set)) == null) {
+            try {
+                return this.a.getStringSet(str, set);
+            } catch (ClassCastException e) {
+                j(e.getMessage());
+                return set;
+            }
+        }
+        return (Set) invokeLL.objValue;
+    }
+
+    public void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
+            this.a.edit().putString(str, str2).apply();
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.edit();
+        }
+        return (SharedPreferences.Editor) invokeV.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            try {
+                return this.a.getAll();
+            } catch (Exception e) {
+                j(e.getMessage());
+                return null;
+            }
+        }
+        return (Map) invokeV.objValue;
     }
 }

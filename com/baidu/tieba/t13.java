@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.a23;
-import com.baidu.tieba.dw2;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,74 +12,58 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public final class t13 {
+public class t13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile String b;
-    public static volatile boolean c;
+    public static final boolean d;
+    public static volatile t13 e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-        }
-    }
+    public ConcurrentHashMap<String, u13<s13>> a;
+    public ConcurrentHashMap<String, Runnable> b;
+    public a c;
 
     /* loaded from: classes8.dex */
-    public static class a implements Runnable {
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
 
-        /* renamed from: com.baidu.tieba.t13$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC0462a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ int a;
-            public final /* synthetic */ Bitmap b;
-            public final /* synthetic */ Rect c;
-
-            public RunnableC0462a(a aVar, int i, Bitmap bitmap, Rect rect) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i), bitmap, rect};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = i;
-                this.b = bitmap;
-                this.c = rect;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a23 a = a23.a.a("simple_parser");
-                    a.c(this.a);
-                    if (!a.a(this.b, this.c)) {
-                        t13.h();
-                    }
-                }
-            }
-        }
-
-        public a(String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<t13> a;
+        public String b;
+
+        public b(t13 t13Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t13Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -92,20 +73,23 @@ public final class t13 {
                     return;
                 }
             }
-            this.a = str;
+            this.a = new WeakReference<>(t13Var);
+            this.b = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            SwanAppActivity activity;
-            pa2 X;
-            oa2 o;
+            t13 t13Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (activity = tw2.T().getActivity()) == null || activity.isFinishing() || activity.isDestroyed() || (X = activity.X()) == null || (o = X.o()) == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (t13Var = this.a.get()) == null) {
                 return;
             }
-            Bitmap p = xo3.p();
-            ao3.f().execute(new RunnableC0462a(this, p13.d(o), p, p13.b(p, o, tw2.T().B(this.a))), "SwanNAArrivalCheck");
+            if (t13.d) {
+                Log.d("MDelegate-Observe", "run: observer timeout " + this.b);
+            }
+            s13 s13Var = new s13(this.b);
+            s13Var.b(null);
+            t13Var.c(s13Var);
         }
     }
 
@@ -122,149 +106,152 @@ public final class t13 {
                 return;
             }
         }
-        a = qr1.a;
-        b = "";
-        c = true;
+        d = am1.a;
     }
 
-    public static boolean g() {
+    public static t13 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void h() {
-        dw2.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            if (gb3.M() != null) {
-                aVar = gb3.M().Y();
-            } else {
-                aVar = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (e == null) {
+                synchronized (t13.class) {
+                    if (e == null) {
+                        e = new t13();
+                    }
+                }
             }
-            qh3.o(aVar);
+            return e;
         }
+        return (t13) invokeV.objValue;
     }
 
-    public static void k() {
+    public t13() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            b = "";
-            c = true;
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            ap3.a0(new a(str));
-        }
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            b = str;
-        }
-    }
-
-    public static void c() {
-        pa2 U;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (a) {
-                Log.d("SwanArrivalMonitor", "start handle arrival report");
-            }
-            if (qh3.f() || (U = tw2.T().U()) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            oa2 o = U.o();
-            xx1 xx1Var = null;
-            if (o != null) {
-                mx1 q3 = o.q3();
-                if (q3 == null) {
-                    return;
-                }
-                px1 j = q3.j();
-                if (j != null) {
-                    xx1Var = j.L();
-                } else {
-                    xx1Var = q3.L();
-                }
-            }
-            if (xx1Var != null && xx1Var.b > 0) {
-                qh3.a(xx1Var);
-            }
         }
+        this.a = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
+        this.c = new a(Looper.getMainLooper());
     }
 
-    public static void d() {
+    public void c(@NonNull s13 s13Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || qh3.h()) {
-            return;
-        }
-        oa2 H = tw2.T().H();
-        if (H == null) {
-            if (a) {
-                Log.d("SwanArrivalMonitor", "NAArrival：top fragment is null");
-            }
-        } else if (!f(H)) {
-            if (a) {
-                Log.d("SwanArrivalMonitor", "start na report");
-            }
-            h();
-        } else {
-            if (a) {
-                Log.d("SwanArrivalMonitor", "start check for na arrival");
-            }
-            b(H.v3());
-        }
-    }
-
-    public static boolean f(oa2 oa2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, oa2Var)) == null) {
-            if (oa2Var == null) {
-                return false;
-            }
-            boolean equals = TextUtils.equals(b, oa2Var.v3());
-            if (a) {
-                Log.d("SwanArrivalMonitor", "FirstPage: " + equals);
-            }
-            return equals;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            if (a) {
-                Log.d("SwanArrivalMonitor", "on swan page change, isFromRoute : " + z);
-            }
-            if (z && qh3.j()) {
-                if (a) {
-                    Log.d("SwanArrivalMonitor", "end handle swan page change");
+        if (interceptable == null || interceptable.invokeL(1048576, this, s13Var) == null) {
+            u13<s13> u13Var = this.a.get(s13Var.c());
+            if (u13Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "notify a null observer");
                     return;
                 }
                 return;
             }
-            if (z) {
-                c = false;
+            String b2 = u13Var.b();
+            if (d) {
+                Log.d("MDelegate-Observe", "notify observer: " + b2);
             }
-            if (!z) {
-                d();
+            u13Var.onEvent(s13Var);
+            if (this.b.containsKey(b2)) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "remove observer: " + b2 + " timeout runnable");
+                }
+                this.c.removeCallbacks(this.b.get(b2));
+                this.b.remove(b2);
             }
-            qh3.G();
-            c();
-            gb3 M = gb3.M();
-            if (M != null && !z) {
-                qh3.q(M.Y());
+            if (u13Var.c()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "auto unregister disposable observer: " + b2);
+                }
+                f(u13Var);
             }
+        }
+    }
+
+    public void e(u13<s13> u13Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u13Var) == null) {
+            if (u13Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "register a null observer");
+                    return;
+                }
+                return;
+            }
+            String b2 = u13Var.b();
+            if (this.a.containsKey(b2)) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "multiple register observer：" + b2);
+                    return;
+                }
+                return;
+            }
+            if (d) {
+                Log.d("MDelegate-Observe", "register observer: " + b2);
+            }
+            this.a.put(b2, u13Var);
+            long a2 = u13Var.a();
+            if (a2 > 0 && u13Var.c()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "post observer: " + b2 + " " + a2 + "ms timeout runnable");
+                }
+                b bVar = new b(this, b2);
+                this.b.put(b2, bVar);
+                this.c.postDelayed(bVar, a2);
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (d) {
+                Log.d("MDelegate-Observe", "release observable");
+            }
+            if (e == null) {
+                return;
+            }
+            this.a.clear();
+            for (Map.Entry<String, Runnable> entry : this.b.entrySet()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
+                }
+                this.c.removeCallbacks(entry.getValue());
+            }
+            this.b.clear();
+            e = null;
+        }
+    }
+
+    public void f(u13<s13> u13Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, u13Var) == null) {
+            if (u13Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "unregister a null observer");
+                    return;
+                }
+                return;
+            }
+            String b2 = u13Var.b();
+            if (!this.a.containsKey(b2)) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "unregister a nonexistent observer");
+                    return;
+                }
+                return;
+            }
+            if (d) {
+                Log.d("MDelegate-Observe", "unregister observer: " + b2);
+            }
+            this.a.remove(b2);
         }
     }
 }

@@ -146,7 +146,7 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
             @DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$2$1$1", f = "Combine.kt", i = {}, l = {132, 135, 135}, m = "invokeSuspend", n = {}, s = {})
             /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$2$1$1  reason: invalid class name and collision with other inner class name */
             /* loaded from: classes2.dex */
-            public static final class C07871 extends SuspendLambda implements Function2<Unit, Continuation<? super Unit>, Object> {
+            public static final class C07221 extends SuspendLambda implements Function2<Unit, Continuation<? super Unit>, Object> {
                 public final /* synthetic */ ReceiveChannel<Object> $second;
                 public final /* synthetic */ FlowCollector<R> $this_unsafeFlow;
                 public final /* synthetic */ Function3<T1, T2, Continuation<? super R>, Object> $transform;
@@ -158,7 +158,7 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
                 /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.functions.Function3<? super T1, ? super T2, ? super kotlin.coroutines.Continuation<? super R>, ? extends java.lang.Object> */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */
-                public C07871(ReceiveChannel<? extends Object> receiveChannel, FlowCollector<? super R> flowCollector, Function3<? super T1, ? super T2, ? super Continuation<? super R>, ? extends Object> function3, T1 t1, Continuation<? super C07871> continuation) {
+                public C07221(ReceiveChannel<? extends Object> receiveChannel, FlowCollector<? super R> flowCollector, Function3<? super T1, ? super T2, ? super Continuation<? super R>, ? extends Object> function3, T1 t1, Continuation<? super C07221> continuation) {
                     super(2, continuation);
                     this.$second = receiveChannel;
                     this.$this_unsafeFlow = flowCollector;
@@ -168,7 +168,7 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    return new C07871(this.$second, this.$this_unsafeFlow, this.$transform, this.$value, continuation);
+                    return new C07221(this.$second, this.$this_unsafeFlow, this.$transform, this.$value, continuation);
                 }
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
@@ -179,7 +179,7 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
 
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final Object invoke2(Unit unit, Continuation<? super Unit> continuation) {
-                    return ((C07871) create(unit, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C07221) create(unit, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 /* JADX WARN: Removed duplicated region for block: B:29:0x006e A[RETURN] */
@@ -188,7 +188,7 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
                 public final Object invokeSuspend(Object obj) {
-                    Object mo2299receiveCatchingJP2dKIU;
+                    Object mo2298receiveCatchingJP2dKIU;
                     FlowCollector flowCollector;
                     Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
                     int i = this.label;
@@ -211,32 +211,32 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
                             return Unit.INSTANCE;
                         }
                         ResultKt.throwOnFailure(obj);
-                        mo2299receiveCatchingJP2dKIU = ((ChannelResult) obj).m2318unboximpl();
+                        mo2298receiveCatchingJP2dKIU = ((ChannelResult) obj).m2317unboximpl();
                     } else {
                         ResultKt.throwOnFailure(obj);
                         ReceiveChannel<Object> receiveChannel = this.$second;
                         this.label = 1;
-                        mo2299receiveCatchingJP2dKIU = receiveChannel.mo2299receiveCatchingJP2dKIU(this);
-                        if (mo2299receiveCatchingJP2dKIU == coroutine_suspended) {
+                        mo2298receiveCatchingJP2dKIU = receiveChannel.mo2298receiveCatchingJP2dKIU(this);
+                        if (mo2298receiveCatchingJP2dKIU == coroutine_suspended) {
                             return coroutine_suspended;
                         }
                     }
                     FlowCollector flowCollector2 = this.$this_unsafeFlow;
-                    if (mo2299receiveCatchingJP2dKIU instanceof ChannelResult.Failed) {
-                        Throwable m2310exceptionOrNullimpl = ChannelResult.m2310exceptionOrNullimpl(mo2299receiveCatchingJP2dKIU);
-                        if (m2310exceptionOrNullimpl == null) {
+                    if (mo2298receiveCatchingJP2dKIU instanceof ChannelResult.Failed) {
+                        Throwable m2309exceptionOrNullimpl = ChannelResult.m2309exceptionOrNullimpl(mo2298receiveCatchingJP2dKIU);
+                        if (m2309exceptionOrNullimpl == null) {
                             throw new AbortFlowException(flowCollector2);
                         }
-                        throw m2310exceptionOrNullimpl;
+                        throw m2309exceptionOrNullimpl;
                     }
                     Function3<T1, T2, Continuation<? super R>, Object> function3 = this.$transform;
                     T1 t1 = this.$value;
-                    if (mo2299receiveCatchingJP2dKIU == NullSurrogateKt.NULL) {
-                        mo2299receiveCatchingJP2dKIU = null;
+                    if (mo2298receiveCatchingJP2dKIU == NullSurrogateKt.NULL) {
+                        mo2298receiveCatchingJP2dKIU = null;
                     }
                     this.L$0 = flowCollector2;
                     this.label = 2;
-                    obj = function3.invoke(t1, mo2299receiveCatchingJP2dKIU, this);
+                    obj = function3.invoke(t1, mo2298receiveCatchingJP2dKIU, this);
                     flowCollector = flowCollector2;
                     if (obj == coroutine_suspended) {
                         return coroutine_suspended;
@@ -277,9 +277,9 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
                             CoroutineContext coroutineContext = this.$scopeContext;
                             Unit unit = Unit.INSTANCE;
                             Object obj2 = this.$cnt;
-                            C07871 c07871 = new C07871(this.$second, this.$this_unsafeFlow, this.$transform, t1, null);
+                            C07221 c07221 = new C07221(this.$second, this.$this_unsafeFlow, this.$transform, t1, null);
                             combineKt$zipImpl$1$1$2$1$emit$1.label = 1;
-                            if (ChannelFlowKt.withContextUndispatched(coroutineContext, unit, obj2, c07871, combineKt$zipImpl$1$1$2$1$emit$1) == coroutine_suspended) {
+                            if (ChannelFlowKt.withContextUndispatched(coroutineContext, unit, obj2, c07221, combineKt$zipImpl$1$1$2$1$emit$1) == coroutine_suspended) {
                                 return coroutine_suspended;
                             }
                         }
@@ -367,7 +367,7 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
             ReceiveChannel produce$default = ProduceKt.produce$default(coroutineScope, null, 0, new CombineKt$zipImpl$1$1$second$1(this.$flow2, null), 3, null);
             Job$default = JobKt__JobKt.Job$default((Job) null, 1, (Object) null);
             final FlowCollector flowCollector = this.$this_unsafeFlow;
-            ((SendChannel) produce$default).mo2360invokeOnClose(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1.1
+            ((SendChannel) produce$default).mo2359invokeOnClose(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1.1
                 /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlinx.coroutines.flow.FlowCollector<? super R> */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */

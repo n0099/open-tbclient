@@ -1,6 +1,5 @@
 package com.baidu.pyramid.runtime.multiprocess;
 
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +33,7 @@ public final class AppProcessPolicy$ProcessType {
             }
         }
         ALL = new AppProcessPolicy$ProcessType(Rule.ALL, 0);
-        DEFAULT = new AppProcessPolicy$ProcessType(EngineName.DEFAULT_ENGINE, 1);
+        DEFAULT = new AppProcessPolicy$ProcessType("DEFAULT", 1);
         SERVER = new AppProcessPolicy$ProcessType("SERVER", 2);
         AppProcessPolicy$ProcessType appProcessPolicy$ProcessType = new AppProcessPolicy$ProcessType("OTHER", 3);
         OTHER = appProcessPolicy$ProcessType;

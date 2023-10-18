@@ -2,16 +2,19 @@ package com.baidu.tieba.setting.dispatcher;
 
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.tieba.l4a;
 import com.baidu.tieba.setting.more.MoreActivity;
-import com.baidu.tieba.y9a;
+import com.baidu.tieba.setting.more.MsgRemindActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class MoreDispatcher implements y9a {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes8.dex */
+public class MoreDispatcher implements l4a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String JUMP_TO_PAGE = "toPage";
+    public static final String PAGE_SETTING_NOTIFACTION = "notification";
     public transient /* synthetic */ FieldHolder $fh;
 
     public MoreDispatcher() {
@@ -28,13 +31,20 @@ public class MoreDispatcher implements y9a {
         }
     }
 
-    @Override // com.baidu.tieba.y9a
+    @Override // com.baidu.tieba.l4a
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
-            Intent intent = new Intent();
-            intent.setClass(context, MoreActivity.class);
-            context.startActivity(intent);
+            String optString = jSONObject.optString(JUMP_TO_PAGE);
+            char c = 65535;
+            if (optString.hashCode() == 595233003 && optString.equals("notification")) {
+                c = 0;
+            }
+            if (c != 0) {
+                context.startActivity(new Intent(context, MoreActivity.class));
+            } else {
+                context.startActivity(new Intent(context, MsgRemindActivity.class));
+            }
         }
     }
 }

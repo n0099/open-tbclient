@@ -1,47 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.searchbox.http.request.PostStringRequest;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gi4 extends PostStringRequest.PostStringRequestBuilder {
+public class gi4 extends xg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gi4(AbstractHttpManager abstractHttpManager) {
-        super(abstractHttpManager);
+    public gi4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((AbstractHttpManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.http.request.PostStringRequest.PostStringRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
-    public HttpRequest build() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xg4, com.baidu.tieba.ah4
+    public void b(JSONObject jSONObject, kd4 kd4Var, @Nullable kd4 kd4Var2, @Nullable kd4 kd4Var3) {
+        JSONObject optJSONObject;
+        di4 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yh4.b().j(this.httpUrl.toString(), this);
-            requestFrom(6);
-            return super.build();
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, kd4Var, kd4Var2, kd4Var3) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (a = di4.a(optJSONObject)) != null) {
+            ei4.e().i(a);
+            ei4.e().j(a.k);
         }
-        return (HttpRequest) invokeV.objValue;
     }
 }

@@ -1,185 +1,174 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.StringHelper;
+import android.content.Context;
+import android.graphics.Bitmap;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.tieba.cua;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.util.List;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes7.dex */
-public class pua implements xta, cua.c, yt6 {
+public class pua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public pta b;
-    public bua c;
-    public SelectMusicModel d;
-    public String e;
 
-    @Override // com.baidu.tieba.xta
-    public void setMusicData(List<MusicData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948075917, "Lcom/baidu/tieba/pua;")) == null) {
+            return;
         }
-    }
-
-    public pua(pta ptaVar) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ptaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = ptaVar;
-        this.a = ptaVar.a;
-    }
-
-    public final void a(String str) {
-        pta ptaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || (ptaVar = this.b) == null) {
-            return;
-        }
-        if (ptaVar.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        this.e = str;
-        VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.e);
-        videoInfo.setThumbPath(this.b.c);
-        pta ptaVar2 = this.b;
-        if (ptaVar2 != null) {
-            ptaVar2.f(videoInfo);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948075917, "Lcom/baidu/tieba/pua;");
         }
     }
 
-    @Override // com.baidu.tieba.xta
-    public void C0(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-            pta ptaVar = this.b;
-            if (ptaVar != null && ptaVar.b()) {
-                this.b.c();
-                this.b = null;
-            } else if (TextUtils.isEmpty(str)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0cae);
-                pta ptaVar2 = this.b;
-                if (ptaVar2 != null) {
-                    ptaVar2.g(i, str2);
-                }
-            } else {
-                pta ptaVar3 = this.b;
-                if (ptaVar3 != null) {
-                    ptaVar3.h();
-                }
-                if (!StringUtils.isNull(this.b.f)) {
-                    if (!StringHelper.equals(str, this.b.b)) {
-                        this.b.g = str;
-                    }
-                    if (this.c == null) {
-                        bua buaVar = new bua(this.a.getActivity());
-                        this.c = buaVar;
-                        buaVar.i(this);
-                    }
-                    this.c.g(str, this.b.f);
+    /* loaded from: classes7.dex */
+    public class a implements rua {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rua a;
+
+        public a(rua ruaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ruaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                pta ptaVar4 = this.b;
-                if (ptaVar4 != null) {
-                    ptaVar4.e();
+            }
+            this.a = ruaVar;
+        }
+
+        @Override // com.baidu.tieba.rua
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                rua ruaVar = this.a;
+                if (ruaVar != null) {
+                    ruaVar.a(i, bitmap);
                 }
-                a(str);
+                veb.d("single-frameResult: " + i);
             }
         }
     }
 
-    public void b() {
-        pta ptaVar;
+    /* loaded from: classes7.dex */
+    public class b implements rua {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rua a;
+
+        public b(rua ruaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ruaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ruaVar;
+        }
+
+        @Override // com.baidu.tieba.rua
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                rua ruaVar = this.a;
+                if (ruaVar != null) {
+                    ruaVar.a(i, bitmap);
+                }
+                veb.d("multi-frameResult: " + i);
+            }
+        }
+    }
+
+    public static TbMultiMediaData a(VideoInfo videoInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (ptaVar = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
+            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
+            tbMultiMediaData.path = videoInfo.getVideoPath();
+            tbMultiMediaData.coverPath = videoInfo.getThumbPath();
+            tbMultiMediaData.height = videoInfo.getVideoHeight();
+            tbMultiMediaData.width = videoInfo.getVideoWidth();
+            tbMultiMediaData.type = 1;
+            tbMultiMediaData.start = 0L;
+            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.scaleType = "center_inside";
+            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
+            return tbMultiMediaData;
         }
-        if (ptaVar.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        if (StringUtils.isNull(this.b.d)) {
-            pta ptaVar2 = this.b;
-            if (!ptaVar2.e) {
-                C0(ptaVar2.b, -4399, "");
+        return (TbMultiMediaData) invokeL.objValue;
+    }
+
+    public static void b(VlogEditManager vlogEditManager, Context context, int i, int i2, int i3, rua ruaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{vlogEditManager, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), ruaVar}) == null) && vlogEditManager != null && context != null && i > 0) {
+            ava avaVar = new ava();
+            avaVar.a = vlogEditManager.getDuration();
+            avaVar.b = i;
+            avaVar.f = vlogEditManager.getInputMultiMediaData();
+            MediaTrack mediaTrack = (MediaTrack) afb.c(vlogEditManager.getUpdateMediaTracks(), 0);
+            if (mediaTrack == null) {
                 return;
             }
-        }
-        if (this.d == null) {
-            this.d = new SelectMusicModel(this.a.getPageContext(), this);
-        }
-        SelectMusicModel selectMusicModel = this.d;
-        pta ptaVar3 = this.b;
-        selectMusicModel.P(ptaVar3.b, ptaVar3.d, qta.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !ptaVar3.e);
-    }
-
-    @Override // com.baidu.tieba.yt6
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            pta ptaVar = this.b;
-            if (ptaVar != null) {
-                ptaVar.i(true);
+            avaVar.e = mediaTrack.mediaSegments;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
             }
-            bua buaVar = this.c;
-            if (buaVar != null && buaVar.f()) {
-                this.c.e();
+            avaVar.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
             }
+            avaVar.d = i3;
+            uua.f().i(avaVar, new b(ruaVar));
         }
     }
 
-    @Override // com.baidu.tieba.cua.c
-    public void onGenFilterVideoFail(int i, String str) {
-        pta ptaVar;
+    public static void c(MultiMediaData multiMediaData, Context context, int i, int i2, int i3, rua ruaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && (ptaVar = this.b) != null) {
-            ptaVar.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.cua.c
-    public void onGenFilterVideoRecordError(int i, String str) {
-        pta ptaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && (ptaVar = this.b) != null) {
-            ptaVar.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.cua.c
-    public void onGenFilterVideoSuccess(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            pta ptaVar = this.b;
-            if (ptaVar != null) {
-                ptaVar.e();
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{multiMediaData, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), ruaVar}) == null) && multiMediaData != null && context != null && i > 0) {
+            bva bvaVar = new bva();
+            bvaVar.b = i;
+            bvaVar.a = multiMediaData.originalDuration;
+            bvaVar.e = multiMediaData;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
             }
-            a(str);
+            bvaVar.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+            }
+            bvaVar.d = i3;
+            uua.f().j(bvaVar, new a(ruaVar));
         }
     }
 }

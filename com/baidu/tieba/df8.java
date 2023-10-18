@@ -1,89 +1,80 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.KeyEvent;
-import androidx.annotation.CallSuper;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public interface df8 {
+public final class df8 extends bf8 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final df8 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @CallSuper
-        public static void a(df8 df8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65536, null, df8Var) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947702739, "Lcom/baidu/tieba/df8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947702739, "Lcom/baidu/tieba/df8;");
+                return;
             }
         }
+        a = new df8();
+    }
 
-        @CallSuper
-        public static void b(df8 df8Var, int i, int i2, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{df8Var, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
+    public df8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
 
-        @CallSuper
-        public static void c(df8 df8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65538, null, df8Var, z) == null) {
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lf8
+    /* renamed from: e */
+    public void a(ChatMsg sdkMsg, TbBaseMsg tbMsg, String extJson) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, sdkMsg, tbMsg, extJson) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            Intrinsics.checkNotNullParameter(extJson, "extJson");
+            sdkMsg.setCategory(0);
+            sdkMsg.setChatType(7);
+            sdkMsg.setContentExtra(extJson);
+            sdkMsg.setMsgContent(sdkMsg.getSendMsgContent());
         }
+    }
 
-        @CallSuper
-        public static void d(df8 df8Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(65539, null, df8Var, i) == null) {
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lf8
+    /* renamed from: f */
+    public String c(ChatMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            String contentExtra = sdkMsg.getContentExtra();
+            Intrinsics.checkNotNullExpressionValue(contentExtra, "sdkMsg.contentExtra");
+            return contentExtra;
         }
-
-        @CallSuper
-        public static boolean e(df8 df8Var, int i, KeyEvent event) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, df8Var, i, event)) == null) {
-                Intrinsics.checkNotNullParameter(event, "event");
-                return false;
-            }
-            return invokeLIL.booleanValue;
-        }
-
-        @CallSuper
-        public static void f(df8 df8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65541, null, df8Var, z) == null) {
-            }
-        }
-
-        @CallSuper
-        public static void g(df8 df8Var, int i, String[] permissions, int[] grantResults) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(65542, null, df8Var, i, permissions, grantResults) == null) {
-                Intrinsics.checkNotNullParameter(permissions, "permissions");
-                Intrinsics.checkNotNullParameter(grantResults, "grantResults");
-            }
-        }
-
-        public static void h(df8 df8Var, Bundle outState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65543, null, df8Var, outState) == null) {
-                Intrinsics.checkNotNullParameter(outState, "outState");
-            }
-        }
-
-        @CallSuper
-        public static void i(df8 df8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65544, null, df8Var, z) == null) {
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

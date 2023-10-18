@@ -1,17 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.download.center.clearcache.BaseClearCache;
+import com.baidu.searchbox.download.center.clearcache.DiskManager;
+import com.baidu.searchbox.download.center.clearcache.DiskUtilKt;
+import com.baidu.searchbox.download.center.clearcache.IClearCacheContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class ws6 extends la7 {
+public class ws6 implements IClearCacheContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void addClearCache(List<BaseClearCache> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void clearHistoryFile() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public BaseClearCache getDownloadClearCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (BaseClearCache) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void notifyDiskLevelChanged(DiskManager.NotifyLevel notifyLevel, DiskManager.DiskLevel diskLevel, DiskManager.DiskLevel diskLevel2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, notifyLevel, diskLevel, diskLevel2) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void notifyPersonalClearCacheTipsChange() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void registerBackForegroundEvent() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void registerDiskUsageLevelChangedObserver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void startDownloadActivity(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+        }
+    }
 
     public ws6() {
         Interceptable interceptable = $ic;
@@ -27,38 +96,31 @@ public class ws6 extends la7 {
         }
     }
 
-    @Override // com.baidu.tieba.la7
-    @Nullable
-    public Object e(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c;
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public List<File> getAppFileList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (str.hashCode() == 155229553 && str.equals("click_back_card")) {
-                c = 0;
-            } else {
-                c = 65535;
-            }
-            if (c != 0) {
-                return super.e(str, str2);
-            }
-            return w45.b(str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return DiskUtilKt.getAppFileList();
         }
-        return invokeLL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.la7
-    @NonNull
-    public yc7<?> h(@NonNull n87<?> n87Var, @NonNull b97 b97Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public List<File> getUserAssetFileList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n87Var, b97Var)) == null) {
-            u87 u87Var = new u87();
-            u87Var.c = n87Var;
-            u87Var.b = b97Var.a();
-            u87Var.a = b97Var.c();
-            return u87Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return DiskUtilKt.getUserAssetFileList();
         }
-        return (yc7) invokeLL.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void cleanCacheMonitorUBC(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            DiskUtilKt.cleanCacheMonitorUBC(str);
+        }
     }
 }

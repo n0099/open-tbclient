@@ -1,58 +1,54 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public final class lg0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class lg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public wm0 b;
+    public String c;
 
-    public static void a(String str, String str2) {
+    public lg0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            if (str2.length() > 2001) {
-                int i = 0;
-                while (i < str2.length()) {
-                    int i2 = i + 2001;
-                    if (i2 < str2.length()) {
-                        b(3, str, str2.substring(i, i2));
-                    } else {
-                        b(3, str, str2.substring(i));
-                    }
-                    i = i2;
-                }
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            b(3, str, str2);
         }
     }
 
-    public static void b(int i, String str, String str2) {
+    public static lg0 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65537, null, i, str, str2) == null) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        if (i != 5) {
-                            if (i != 6) {
-                                Log.d(str, str2);
-                                return;
-                            } else {
-                                Log.e(str, str2);
-                                return;
-                            }
-                        }
-                        Log.w(str, str2);
-                        return;
-                    }
-                    Log.i(str, str2);
-                    return;
-                }
-                Log.d(str, str2);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            Log.v(str, str2);
+            lg0 lg0Var = new lg0();
+            lg0Var.a = jSONObject.optInt("download_state");
+            JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
+            if (optJSONObject != null) {
+                try {
+                    lg0Var.b = wm0.d(optJSONObject);
+                } catch (ParseError e) {
+                    e.printStackTrace();
+                }
+            }
+            lg0Var.c = jSONObject.optString("download_hint");
+            return lg0Var;
         }
+        return (lg0) invokeL.objValue;
     }
 }

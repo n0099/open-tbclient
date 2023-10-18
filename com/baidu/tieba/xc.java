@@ -1,92 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes8.dex */
-public class xc implements nc {
+public class xc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public xc(String str) {
+    public static void a(InputStream inputStream, OutputStream outputStream) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, inputStream, outputStream) == null) {
+            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = inputStream.read(bArr, 0, 1024);
+                if (read != -1) {
+                    gZIPOutputStream.write(bArr, 0, read);
+                } else {
+                    gZIPOutputStream.flush();
+                    gZIPOutputStream.finish();
+                    gZIPOutputStream.close();
+                    return;
+                }
             }
         }
-        this.a = str;
     }
 
-    @Override // com.baidu.tieba.nc
-    public Object a(wd wdVar) {
-        InterceptResult invokeL;
+    public static void b(byte[] bArr, OutputStream outputStream) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wdVar)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, bArr, outputStream) == null) && bArr != null && bArr.length != 0) {
+            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+            gZIPOutputStream.write(bArr, 0, bArr.length);
+            gZIPOutputStream.flush();
+            gZIPOutputStream.finish();
+            gZIPOutputStream.close();
         }
-        return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nc
-    public Object b(wd wdVar) {
-        InterceptResult invokeL;
+    public static void c(InputStream inputStream, OutputStream outputStream) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wdVar)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, outputStream) == null) {
+            GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = gZIPInputStream.read(bArr, 0, 1024);
+                if (read != -1) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    gZIPInputStream.close();
+                    return;
+                }
+            }
         }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nc
-    public Object c(wd wdVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wdVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nc
-    public Object d(wd wdVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, wdVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nc
-    public Object e(wd wdVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, wdVar)) == null) {
-            return d(wdVar);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nc
-    public Object f(wd wdVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, wdVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
     }
 }

@@ -1,90 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.jk4;
-import java.util.List;
-import org.json.JSONArray;
+import android.text.TextUtils;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public interface pi4 {
-    ql4 A();
+public class pi4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int B();
+    public static String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? "unknown" : "swanplugin" : "swandynamiclib" : "swangameconsole" : SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan" : (String) invokeI.objValue;
+    }
 
-    void C();
+    public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), jSONObject}) == null) {
+            ad4.b().K(b(i), str, str2, i2, jSONObject, c(str, i2));
+        }
+    }
 
-    void D(vm4 vm4Var);
-
-    String E();
-
-    int F(String str, int i);
-
-    void G(String str, String str2, Throwable th);
-
-    void H(jn4 jn4Var);
-
-    String I();
-
-    String J(int i);
-
-    void K(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z);
-
-    void L(String str, String str2, String str3, @Nullable Throwable th, boolean z);
-
-    pk4 M();
-
-    float a();
-
-    String b();
-
-    String c();
-
-    void d(byte[] bArr);
-
-    String e();
-
-    CookieManager f();
-
-    String g();
-
-    String h();
-
-    ir4 i();
-
-    long j(int i);
-
-    void k(JSONArray jSONArray, String str, String str2);
-
-    List<zj4> l(String str, long j);
-
-    void m(String str, String str2, jk4.c cVar);
-
-    pk4 n();
-
-    boolean o(boolean z, @NonNull JSONArray jSONArray);
-
-    void p(String str, JSONObject jSONObject, fk4 fk4Var, List<gk4> list);
-
-    String q();
-
-    boolean r(@Nullable hk4 hk4Var);
-
-    void s(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
-
-    void t(yn4 yn4Var, oo4 oo4Var);
-
-    String u();
-
-    String v(int i);
-
-    long w(int i);
-
-    boolean x();
-
-    void y(String str, String str2);
-
-    void z(String str, String str2, String str3, boolean z);
+    public static boolean c(String str, int i) {
+        InterceptResult invokeLI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            boolean equals = TextUtils.equals(str, "cs_protocol");
+            if (i != 2000) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (equals && z) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
 }

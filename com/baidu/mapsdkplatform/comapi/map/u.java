@@ -1,6 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +31,7 @@ public final class u {
                 return;
             }
         }
-        a = new u(EngineName.DEFAULT_ENGINE, 0, 1);
+        a = new u("DEFAULT", 0, 1);
         b = new u("INDOOR", 1, 2);
         u uVar = new u("STREET", 2, 3);
         c = uVar;

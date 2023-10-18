@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public static BdUniqueId i;
@@ -35,7 +35,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
     public int g;
     public CustomMessageListener h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnLayoutChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +156,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         this.b = view2;
         this.a = viewGroup;
         NoDataViewFactory.d b2 = NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, 0);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907a0);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907bc);
         NoDataView a2 = NoDataViewFactory.a(view2.getContext(), this.c, b2, null, null);
         this.d = a2;
         a2.setVisibility(0);

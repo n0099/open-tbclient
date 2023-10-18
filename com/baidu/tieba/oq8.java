@@ -1,58 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.arch.view.BaseView;
-import com.baidu.tieba.immessagecenter.arch.vm.StatelessViewModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
+import tbclient.NewFloorInfo;
 /* loaded from: classes7.dex */
-public abstract class oq8 extends BaseView<qq8, pq8, StatelessViewModel> {
+public class oq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: O */
-    public void H(qq8 state) {
+    public static void a(vp8 vp8Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
-            Intrinsics.checkNotNullParameter(state, "state");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oq8(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, vp8Var, i) == null) && vp8Var != null && vp8Var.u() != null && !ListUtils.isEmpty(vp8Var.i()) && vp8Var.i().size() >= 2) {
+            List<NewFloorInfo> i2 = vp8Var.i();
+            if (i2.size() > 2) {
+                if (StringHelper.equals(vp8Var.u().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                    if (i2.get(1) != null) {
+                        if (i2.get(1).is_floor.intValue() == 0) {
+                            b(vp8Var, 12, i);
+                            return;
+                        } else if (i2.get(1).is_floor.intValue() == 1) {
+                            b(vp8Var, 13, i);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    return;
+                } else if (i2.get(1) != null) {
+                    if (i2.get(1).is_floor.intValue() == 0) {
+                        if (vp8Var.q() != null) {
+                            if (StringHelper.equals(vp8Var.q().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                                b(vp8Var, 14, i);
+                                return;
+                            } else {
+                                b(vp8Var, 15, i);
+                                return;
+                            }
+                        }
+                        return;
+                    } else if (i2.get(1).is_floor.intValue() == 1) {
+                        b(vp8Var, 16, i);
+                        return;
+                    } else {
+                        return;
+                    }
+                } else {
+                    return;
+                }
             }
+            b(vp8Var, 11, i);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: N */
-    public StatelessViewModel r() {
-        InterceptResult invokeV;
+    public static void b(vp8 vp8Var, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new StatelessViewModel();
+        if ((interceptable == null || interceptable.invokeLII(65537, null, vp8Var, i, i2) == null) && vp8Var != null && vp8Var.r() != null && vp8Var.l() != null) {
+            StatisticItem statisticItem = new StatisticItem("c12928");
+            statisticItem.param("tid", vp8Var.l().f);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", vp8Var.l().e);
+            statisticItem.param("fname", vp8Var.l().d);
+            statisticItem.param("pid", vp8Var.o());
+            statisticItem.param("obj_type", i);
+            statisticItem.param("obj_locate", i2);
+            TiebaStatic.log(statisticItem);
         }
-        return (StatelessViewModel) invokeV.objValue;
     }
 }

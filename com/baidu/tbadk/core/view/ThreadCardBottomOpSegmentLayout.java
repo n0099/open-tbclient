@@ -53,7 +53,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             if (interceptable != null && interceptable.invokeLZ(1048576, this, view2, z) != null) {
                 return;
             }
-            this.a.Y(this.a.e0(), z);
+            this.a.Z(this.a.e0(), z);
         }
     }
 
@@ -78,7 +78,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         this.y0 = new a(this);
     }
 
-    public final void Z(boolean z) {
+    public final void a0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
@@ -206,7 +206,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Y(e0(), this.e.I());
+            Z(e0(), this.e.I());
         }
     }
 
@@ -231,12 +231,12 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             boolean e0 = e0();
             if (d0(e0) || c0(e0)) {
                 this.e.A(e0);
-                Z(e0());
+                a0(e0());
             }
         }
     }
 
-    public final void Y(boolean z, boolean z2) {
+    public final void Z(boolean z, boolean z2) {
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
@@ -285,7 +285,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.y.getLayoutParams();
             layoutParams4.leftMargin = i3;
             this.y.setLayoutParams(layoutParams4);
-            Y(z, z2);
+            Z(z, z2);
         }
     }
 }

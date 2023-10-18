@@ -3,7 +3,6 @@ package com.baidu.browser.core;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.util.BdLog;
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +43,7 @@ public final class BdCore {
                     return;
                 }
             }
-            DEFAULT = new EditTextType(EngineName.DEFAULT_ENGINE, 0);
+            DEFAULT = new EditTextType("DEFAULT", 0);
             WEB_EDIT = new EditTextType("WEB_EDIT", 1);
             ADD_BAR = new EditTextType("ADD_BAR", 2);
             BD_EDIT = new EditTextType("BD_EDIT", 3);
@@ -108,7 +107,7 @@ public final class BdCore {
         this.b = false;
     }
 
-    public static synchronized BdCore a() {
+    public static synchronized BdCore b() {
         InterceptResult invokeV;
         BdCore bdCore;
         Interceptable interceptable = $ic;
@@ -124,10 +123,10 @@ public final class BdCore {
         return (BdCore) invokeV.objValue;
     }
 
-    public Context getContext() {
+    public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Context context = this.a;
             if (context != null) {
                 return context;
@@ -137,9 +136,9 @@ public final class BdCore {
         return (Context) invokeV.objValue;
     }
 
-    public void b(Context context, boolean z) {
+    public void c(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) && !this.b) {
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, z) == null) && !this.b) {
             BdLog.f(z);
             this.a = context.getApplicationContext();
             this.b = true;

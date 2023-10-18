@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import com.huawei.hms.support.log.HMSLog;
-import com.meizu.cloud.pushsdk.notification.model.AdvertisementOption;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -348,7 +347,7 @@ public class k {
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("dispPkgName", this.f);
             jSONObject3.put("msgId", this.e);
-            jSONObject3.put(AdvertisementOption.AD_PACKAGE, this.d);
+            jSONObject3.put("ap", this.d);
             jSONObject3.put("notifyId", this.B);
             jSONObject3.put(RemoteMessageConst.MessageBody.PS_CONTENT, jSONObject);
             jSONObject3.put(RemoteMessageConst.MessageBody.NOTIFY_DETAIL, jSONObject2);
@@ -368,8 +367,8 @@ public class k {
 
     public final void c(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) && jSONObject.has(AdvertisementOption.AD_PACKAGE)) {
-            String string = jSONObject.getString(AdvertisementOption.AD_PACKAGE);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) && jSONObject.has("ap")) {
+            String string = jSONObject.getString("ap");
             StringBuilder sb = new StringBuilder();
             if (!TextUtils.isEmpty(string) && string.length() < 48) {
                 int length = 48 - string.length();

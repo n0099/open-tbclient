@@ -50,19 +50,18 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.mutiprocess.write.NewWritePageStateEvent;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a05;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.en6;
-import com.baidu.tieba.k75;
+import com.baidu.tieba.gl6;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.mu6;
-import com.baidu.tieba.nu6;
-import com.baidu.tieba.pu6;
-import com.baidu.tieba.qu6;
-import com.baidu.tieba.r3b;
-import com.baidu.tieba.s55;
-import com.baidu.tieba.v3b;
+import com.baidu.tieba.mya;
+import com.baidu.tieba.nh6;
+import com.baidu.tieba.qya;
+import com.baidu.tieba.rya;
+import com.baidu.tieba.s15;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.w3b;
+import com.baidu.tieba.vo6;
+import com.baidu.tieba.wo6;
 import com.baidu.tieba.write.WriteWebViewCacheManager;
 import com.baidu.tieba.write.webwrite.WebWriteActivity;
 import com.baidu.tieba.write.webwrite.fragment.ArticleWebWriteFragment;
@@ -70,7 +69,8 @@ import com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment;
 import com.baidu.tieba.write.webwrite.fragment.HelpWebWriteFragment;
 import com.baidu.tieba.write.webwrite.fragment.NormalWebWriteFragment;
 import com.baidu.tieba.write.webwrite.fragment.TabPagerAdapter;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.yo6;
+import com.baidu.tieba.zo6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,7 +89,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000¾\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\n\u0018\u0000 e2\u00020\u00012\u00020\u00022\u00020\u0003:\u0002efB\u0005¢\u0006\u0002\u0010\u0004J\u0010\u00106\u001a\u0002072\b\b\u0002\u00108\u001a\u000209J\b\u0010:\u001a\u000207H\u0002J\b\u0010;\u001a\u000207H\u0016J\u0010\u0010<\u001a\u00020\u00062\u0006\u0010=\u001a\u00020>H\u0016J\u0010\u0010?\u001a\u0002072\u0006\u0010@\u001a\u00020\u0006H\u0002J\b\u0010A\u001a\u000207H\u0016J\b\u0010B\u001a\u00020\fH\u0016J\u0012\u0010C\u001a\u0004\u0018\u00010D2\u0006\u0010E\u001a\u00020FH\u0016J\b\u0010G\u001a\u000203H\u0016J\b\u0010H\u001a\u000207H\u0002J\b\u0010I\u001a\u000207H\u0002J\"\u0010J\u001a\u0002072\u0006\u0010K\u001a\u00020L2\u0006\u0010M\u001a\u00020L2\b\u0010N\u001a\u0004\u0018\u00010OH\u0014J\b\u0010P\u001a\u000207H\u0016J\u0010\u0010Q\u001a\u0002072\u0006\u0010R\u001a\u00020LH\u0014J\u0012\u0010S\u001a\u0002072\b\u0010T\u001a\u0004\u0018\u00010UH\u0014J\b\u0010V\u001a\u000207H\u0014J\u0010\u0010W\u001a\u0002072\u0006\u0010X\u001a\u00020\u0006H\u0014J\u0012\u0010Y\u001a\u0002072\b\u0010Z\u001a\u0004\u0018\u00010OH\u0014J\u001c\u0010[\u001a\u0002072\b\u0010\\\u001a\u0004\u0018\u00010]2\b\u0010^\u001a\u0004\u0018\u00010\fH\u0016J\b\u0010_\u001a\u000207H\u0014J\b\u0010`\u001a\u000207H\u0014J\u0010\u0010a\u001a\u0002072\u0006\u0010b\u001a\u00020UH\u0014J\b\u0010c\u001a\u000207H\u0014J\b\u0010d\u001a\u000207H\u0014R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u0007\u001a\u0012\u0012\u0004\u0012\u00020\t0\bj\b\u0012\u0004\u0012\u00020\t`\nX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\r\u001a\u00020\u000e8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0011\u0010\u0012\u001a\u0004\b\u000f\u0010\u0010R\u000e\u0010\u0013\u001a\u00020\fX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0016\u001a\u00020\u00178BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001a\u0010\u0012\u001a\u0004\b\u0018\u0010\u0019R\u000e\u0010\u001b\u001a\u00020\u001cX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u001eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082.¢\u0006\u0002\n\u0000R\u001b\u0010!\u001a\u00020 8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b$\u0010\u0012\u001a\u0004\b\"\u0010#R\u001b\u0010%\u001a\u00020&8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b)\u0010\u0012\u001a\u0004\b'\u0010(R\u0010\u0010*\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010+\u001a\u00020,8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b/\u0010\u0012\u001a\u0004\b-\u0010.R\u000e\u00100\u001a\u000201X\u0082.¢\u0006\u0002\n\u0000R\u0010\u00102\u001a\u0004\u0018\u000103X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u00104\u001a\u0006\u0012\u0002\b\u000305X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006g"}, d2 = {"Lcom/baidu/tieba/write/webwrite/WebWriteActivity;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "Lcom/baidu/tbadk/core/voice/VoiceManager$IVoiceActivity;", "Lcom/baidu/tieba/browser/listener/OnPageFinishedListener;", "()V", "canBackPressed", "", "fragmentList", "Ljava/util/ArrayList;", "Lcom/baidu/tieba/write/webwrite/fragment/TabPagerAdapter$FragmentItem;", "Lkotlin/collections/ArrayList;", "lastTab", "", "mErrorContainer", "Landroid/widget/FrameLayout;", "getMErrorContainer", "()Landroid/widget/FrameLayout;", "mErrorContainer$delegate", "Lkotlin/Lazy;", "mFrom", "mGestureDetector", "Landroid/view/GestureDetector;", "mNavigationBar", "Lcom/baidu/tbadk/core/view/NavigationBar;", "getMNavigationBar", "()Lcom/baidu/tbadk/core/view/NavigationBar;", "mNavigationBar$delegate", "mNavigationBarBackBtn", "Landroid/widget/ImageView;", "mNavigationBarRightBtn", "Landroid/widget/RelativeLayout;", "mNavigationBarRightBtnBg", "Landroid/view/View;", "mRootView", "getMRootView", "()Landroid/view/View;", "mRootView$delegate", "mTabLayout", "Lcom/baidu/tbadk/widget/tab/NewPagerSlidingTabBaseStrip;", "getMTabLayout", "()Lcom/baidu/tbadk/widget/tab/NewPagerSlidingTabBaseStrip;", "mTabLayout$delegate", "mTargetTab", "mViewPager", "Lcom/baidu/tbadk/core/view/viewpager/BdBaseViewPager;", "getMViewPager", "()Lcom/baidu/tbadk/core/view/viewpager/BdBaseViewPager;", "mViewPager$delegate", "mViewPagerAdapter", "Lcom/baidu/tieba/write/webwrite/fragment/TabPagerAdapter;", "mVoiceManager", "Lcom/baidu/tbadk/core/voice/VoiceManager;", "topToastEventListener", "Lcom/baidu/tbadk/mutiprocess/ResponsedEventListener;", "chooseSelectWriteMode", "", "startOffset", "", "clickPublishBtn", "closeAnimation", "dispatchTouchEvent", Config.EVENT_PART, "Landroid/view/MotionEvent;", "enablePublishBtn", "enable", "enterExitAnimation", "getCurrentPageKey", "getRealView", "Lcom/baidu/tbadk/core/voice/VoiceManager$IPlayView;", "m", "Lcom/baidu/tbadk/core/data/VoiceData$VoiceModel;", "getVoiceManager", "initTabLayout", "initViewPager", "onActivityResult", "requestCode", "", "resultCode", "data", "Landroid/content/Intent;", "onBackPressed", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreate", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, "onKeyboardVisibilityChanged", "isVisible", "onNewIntent", "intent", "onPageFinished", "webView", "Landroid/webkit/WebView;", "url", MissionEvent.MESSAGE_PAUSE, "onResume", "onSaveInstanceState", "outState", "onStart", MissionEvent.MESSAGE_STOP, "Companion", "GestureListener", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class WebWriteActivity extends BaseFragmentActivity implements VoiceManager.j, en6 {
+public final class WebWriteActivity extends BaseFragmentActivity implements VoiceManager.j, nh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -118,7 +118,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.IPlayView w1(VoiceData.VoiceModel m) {
+    public VoiceManager.IPlayView v1(VoiceData.VoiceModel m) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, m)) == null) {
@@ -168,13 +168,13 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
     }
 
     /* loaded from: classes8.dex */
-    public static final class b extends qu6<w3b> {
+    public static final class b extends zo6<rya> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebWriteActivity b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(WebWriteActivity webWriteActivity, Class<w3b> cls) {
+        public b(WebWriteActivity webWriteActivity, Class<rya> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -195,10 +195,10 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qu6
-        public void onEvent(w3b event) {
+        @Override // com.baidu.tieba.zo6
+        public void onEvent(rya event) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
                 RelativeLayout relativeLayout = this.b.i;
                 if (relativeLayout == null) {
@@ -212,13 +212,13 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
     }
 
     /* loaded from: classes8.dex */
-    public static final class c extends qu6<v3b> {
+    public static final class c extends zo6<qya> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebWriteActivity b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(WebWriteActivity webWriteActivity, Class<v3b> cls) {
+        public c(WebWriteActivity webWriteActivity, Class<qya> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -239,12 +239,12 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qu6
-        public void onEvent(v3b event) {
+        @Override // com.baidu.tieba.zo6
+        public void onEvent(qya event) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
-                this.b.x1(350L);
+                this.b.y1(350L);
             }
         }
     }
@@ -301,13 +301,13 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
     }
 
     /* loaded from: classes8.dex */
-    public static final class e extends qu6<r3b> {
+    public static final class e extends zo6<mya> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebWriteActivity b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(WebWriteActivity webWriteActivity, Class<r3b> cls) {
+        public e(WebWriteActivity webWriteActivity, Class<mya> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -336,10 +336,10 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qu6
-        public void onEvent(r3b event) {
+        @Override // com.baidu.tieba.zo6
+        public void onEvent(mya event) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
                 if (event.a()) {
                     this.b.B1().setVisibility(0);
@@ -348,7 +348,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                     String string = this.b.getString(R.string.hanpen_error);
                     String string2 = this.b.getString(R.string.write_save_draft_leave);
                     final WebWriteActivity webWriteActivity2 = this.b;
-                    webWriteActivity.showNetRefreshView(B1, string, null, string2, true, new View.OnClickListener() { // from class: com.baidu.tieba.x2b
+                    webWriteActivity.showNetRefreshView(B1, string, null, string2, true, new View.OnClickListener() { // from class: com.baidu.tieba.sxa
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -394,7 +394,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.mutiprocess.ResponsedEventListener, com.baidu.tieba.fq5
+        @Override // com.baidu.tbadk.mutiprocess.ResponsedEventListener, com.baidu.tieba.lk5
         /* renamed from: g */
         public boolean onEvent(TopToastEvent action) {
             InterceptResult invokeL;
@@ -435,7 +435,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         return (FrameLayout) invokeV.objValue;
     }
 
-    public final NavigationBar C1() {
+    public final NavigationBar D1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -478,7 +478,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager P0() {
+    public VoiceManager O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -513,9 +513,9 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPause();
-            P0().onPause();
+            O0().onPause();
             BdUtilHelper.hideSoftKeyPad(this, getCurrentFocus());
-            YunDialogManager.onHidden(s55.o);
+            YunDialogManager.onHidden(a05.o);
         }
     }
 
@@ -524,7 +524,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onResume();
-            P0().onResume(getPageContext());
+            O0().onResume(getPageContext());
         }
     }
 
@@ -533,7 +533,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onStart();
-            P0().onStart(getPageContext());
+            O0().onStart(getPageContext());
         }
     }
 
@@ -542,7 +542,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onStop();
-            P0().onStop(getPageContext());
+            O0().onStop(getPageContext());
         }
     }
 
@@ -609,7 +609,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return this.this$0.findViewById(R.id.obfuscated_res_0x7f091f9f);
+                    return this.this$0.findViewById(R.id.obfuscated_res_0x7f091faa);
                 }
                 return (View) invokeV.objValue;
             }
@@ -723,7 +723,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (BdBaseViewPager) this.this$0.findViewById(R.id.obfuscated_res_0x7f092a9b);
+                    return (BdBaseViewPager) this.this$0.findViewById(R.id.obfuscated_res_0x7f092a8d);
                 }
                 return (BdBaseViewPager) invokeV.objValue;
             }
@@ -761,7 +761,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (FrameLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f090a3d);
+                    return (FrameLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f090a58);
                 }
                 return (FrameLayout) invokeV.objValue;
             }
@@ -790,7 +790,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lastTab)) == null) {
             Intrinsics.checkNotNullParameter(lastTab, "$lastTab");
-            WriteWebViewCacheManager.c.b().j(lastTab);
+            WriteWebViewCacheManager.c.b().k(lastTab);
             return false;
         }
         return invokeL.booleanValue;
@@ -877,7 +877,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, outState) == null) {
             Intrinsics.checkNotNullParameter(outState, "outState");
-            P0().onSaveInstanceState(this);
+            O0().onSaveInstanceState(this);
             super.onSaveInstanceState(outState);
         }
     }
@@ -895,8 +895,8 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             F1().setExpandedTabLayoutParams(new LinearLayout.LayoutParams(-2, BdUtilHelper.getDimens(this, R.dimen.tbds100)));
             F1().setTabPadding(BdUtilHelper.getDimens(this, R.dimen.tbds36), 0, BdUtilHelper.getDimens(this, R.dimen.tbds36), 0);
             F1().setViewPager(G1());
-            C1().setIsClose(true);
-            C1().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y2b
+            D1().setIsClose(true);
+            D1().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.txa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -908,7 +908,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                     }
                 }
             });
-            ImageView backImageView = C1().getBackImageView();
+            ImageView backImageView = D1().getBackImageView();
             Intrinsics.checkNotNullExpressionValue(backImageView, "mNavigationBar.backImageView");
             this.h = backImageView;
             if (backImageView == null) {
@@ -949,7 +949,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                 relativeLayout2.addView(view2, new ViewGroup.LayoutParams(-1, -1));
                 this.j = view2;
                 ImageView imageView3 = new ImageView(this);
-                imageView3.setImageResource(R.drawable.obfuscated_res_0x7f080bc4);
+                imageView3.setImageResource(R.drawable.obfuscated_res_0x7f080bc6);
                 imageView3.setScaleType(ImageView.ScaleType.FIT_XY);
                 RelativeLayout relativeLayout3 = this.i;
                 if (relativeLayout3 == null) {
@@ -960,14 +960,14 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                 layoutParams2.addRule(13);
                 Unit unit = Unit.INSTANCE;
                 relativeLayout3.addView(imageView3, layoutParams2);
-                NavigationBar C1 = C1();
+                NavigationBar D1 = D1();
                 NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_RIGHT;
                 RelativeLayout relativeLayout4 = this.i;
                 if (relativeLayout4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mNavigationBarRightBtn");
                     relativeLayout4 = null;
                 }
-                C1.addCustomView(controlAlign, relativeLayout4, new View.OnClickListener() { // from class: com.baidu.tieba.v2b
+                D1.addCustomView(controlAlign, relativeLayout4, new View.OnClickListener() { // from class: com.baidu.tieba.qxa
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -992,8 +992,8 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                 }
                 relativeLayout6.setClickable(false);
                 A1(false);
-                C1().hideBottomLine();
-                C1().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, F1(), (View.OnClickListener) null);
+                D1().hideBottomLine();
+                D1().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, F1(), (View.OnClickListener) null);
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup.MarginLayoutParams");
@@ -1012,7 +1012,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             bundle.putString("write_url", WriteWebViewCacheManager.c.a());
             articleWebWriteFragment.setArguments(bundle);
             aVar.c(articleWebWriteFragment);
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02dc);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02de);
             Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.string.article)");
             aVar.d(string);
             ArrayList<TabPagerAdapter.a> arrayList = this.b;
@@ -1161,7 +1161,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            C1().onChangeSkinType(getPageContext(), i);
+            D1().onChangeSkinType(getPageContext(), i);
             F1().H();
             ImageView imageView = this.h;
             if (imageView == null) {
@@ -1191,27 +1191,33 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        String stringExtra;
         String str;
+        String stringExtra;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0a33);
+            setContentView(R.layout.obfuscated_res_0x7f0d0a1d);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
             this.c = new GestureDetector(getPageContext().getPageActivity(), new a(this));
-            P0().onCreate(getPageContext());
+            O0().onCreate(getPageContext());
+            if (getIntent() != null) {
+                str = getIntent().getStringExtra(WriteActivityConfig.KEY_TARGET_TAB);
+            } else {
+                str = null;
+            }
+            this.p = str;
             K1();
             H1();
-            pu6 b2 = nu6.b();
+            yo6 b2 = wo6.b();
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            b2.a(new mu6(pageContext, w3b.class), new b(this, w3b.class));
-            pu6 b3 = nu6.b();
+            b2.b(new vo6(pageContext, rya.class), new b(this, rya.class));
+            yo6 b3 = wo6.b();
             TbPageContext<BaseFragmentActivity> pageContext2 = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext2, "pageContext");
-            b3.a(new mu6(pageContext2, v3b.class), new c(this, v3b.class));
+            b3.b(new vo6(pageContext2, qya.class), new c(this, qya.class));
             String str2 = "";
             if (bundle != null) {
                 str2 = bundle.getString("from", "");
@@ -1220,19 +1226,13 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                 str2 = stringExtra;
             }
             this.o = str2;
-            if (getIntent() != null) {
-                str = getIntent().getStringExtra(WriteActivityConfig.KEY_TARGET_TAB);
-            } else {
-                str = null;
-            }
-            this.p = str;
             MutiProcessManager.publishEvent(new NewWritePageStateEvent(true));
             registerResponsedEventListener(TopToastEvent.class, this.q);
             registerListener(new d(this));
-            pu6 b4 = nu6.b();
+            yo6 b4 = wo6.b();
             TbPageContext<BaseFragmentActivity> pageContext3 = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext3, "pageContext");
-            b4.a(new mu6(pageContext3, r3b.class), new e(this, r3b.class));
+            b4.b(new vo6(pageContext3, mya.class), new e(this, mya.class));
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_source", "new_write").param("obj_type", this.a));
         }
     }
@@ -1250,7 +1250,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             BaseWebWriteFragment b2 = tabPagerAdapter.b();
             final String str = (b2 == null || (str = b2.I2()) == null) ? "normal" : "normal";
             SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("key_last_select_write_tab"), str);
-            Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.u2b
+            Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.pxa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1262,21 +1262,21 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                 }
             });
             MutiProcessManager.publishEvent(new NewWritePageStateEvent(false));
-            P0().stopPlay();
-            P0().onDestory(getPageContext());
+            O0().stopPlay();
+            O0().onDestory(getPageContext());
         }
     }
 
-    @Override // com.baidu.tieba.en6
+    @Override // com.baidu.tieba.nh6
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, webView, str) == null) {
             TbLog hybridLog = HybridLog.getInstance();
             hybridLog.i("write", "页面加载完成:url=" + str);
             if (this.isResumed) {
-                if (k75.a.a("newWritePageGuideDialog") < 1) {
+                if (s15.a.a("newWritePageGuideDialog") < 1) {
                     this.e = false;
-                    SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.w2b
+                    SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.rxa
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1295,14 +1295,14 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                     Intrinsics.throwUninitializedPropertyAccessException("mFrom");
                     str2 = null;
                 }
-                xq6.a(jSONObject, "from", str2);
+                gl6.a(jSONObject, "from", str2);
                 YunDialogManager.onShow(this, "newWritePageGuideDialog", jSONObject);
-                YunDialogManager.onShow(this, s55.o);
+                YunDialogManager.onShow(this, a05.o);
             }
         }
     }
 
-    public final void x1(long j) {
+    public final void y1(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048603, this, j) == null) && !G1().a()) {
             TbLog hybridLog = HybridLog.getInstance();

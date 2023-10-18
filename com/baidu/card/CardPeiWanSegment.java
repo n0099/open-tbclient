@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.CardPeiWanView;
-import com.baidu.tieba.nq6;
-import com.baidu.tieba.zw;
+import com.baidu.tieba.wk6;
+import com.baidu.tieba.wr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import kotlin.text.StringsKt__StringsJVMKt;
 import tbclient.Voice;
 @Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\n\u0012\u0006\u0012\u0004\u0018\u00010\u00020\u0001B\u0011\u0012\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0004¢\u0006\u0002\u0010\u0005J\u001a\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u0011\u001a\u00020\u0012H\u0002J\b\u0010\u0013\u001a\u00020\u0014H\u0014J\u0012\u0010\u0015\u001a\u00020\u000f2\b\u0010\u0016\u001a\u0004\u0018\u00010\u0002H\u0016J\u001e\u0010\u0017\u001a\u00020\u000f2\f\u0010\u0018\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u00042\u0006\u0010\u0019\u001a\u00020\u0007H\u0016R\u001a\u0010\u0006\u001a\u00020\u0007X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\b\u0010\t\"\u0004\b\n\u0010\u000bR\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001a"}, d2 = {"Lcom/baidu/card/CardPeiWanSegment;", "Lcom/baidu/card/BaseCardSegment;", "Lcom/baidu/tieba/card/data/CardPeiWanData;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "(Lcom/baidu/tbadk/TbPageContext;)V", "fromScene", "", "getFromScene", "()I", "setFromScene", "(I)V", "peiWanCard", "Lcom/baidu/tbadk/core/view/CardPeiWanView;", "clickStatistic", "", "cardPeiWanData", "isVoice", "", "getView", "Landroid/view/View;", "onBindDataToView", "data", "onChangeSkinType", "context", WriteMulitImageActivityConfig.SKIN_TYPE, "tbadk_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes3.dex */
-public final class CardPeiWanSegment extends zw<nq6> {
+public final class CardPeiWanSegment extends wr<wk6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int f;
@@ -57,8 +57,8 @@ public final class CardPeiWanSegment extends zw<nq6> {
         this.g = new CardPeiWanView(pageActivity, null, 0, 6, null);
     }
 
-    @Override // com.baidu.tieba.zw
-    public View j() {
+    @Override // com.baidu.tieba.wr
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -68,14 +68,14 @@ public final class CardPeiWanSegment extends zw<nq6> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
-    /* renamed from: u */
-    public void onBindDataToView(final nq6 nq6Var) {
+    @Override // com.baidu.tieba.qs
+    /* renamed from: x */
+    public void onBindDataToView(final wk6 wk6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, nq6Var) == null) && nq6Var != null) {
-            this.g.setData(nq6Var, new Function0<Unit>(this, nq6Var) { // from class: com.baidu.card.CardPeiWanSegment$onBindDataToView$1
+        if ((interceptable == null || interceptable.invokeL(1048580, this, wk6Var) == null) && wk6Var != null) {
+            this.g.setData(wk6Var, new Function0<Unit>(this, wk6Var) { // from class: com.baidu.card.CardPeiWanSegment$onBindDataToView$1
                 public static /* synthetic */ Interceptable $ic;
-                public final /* synthetic */ nq6 $data;
+                public final /* synthetic */ wk6 $data;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CardPeiWanSegment this$0;
 
@@ -86,7 +86,7 @@ public final class CardPeiWanSegment extends zw<nq6> {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, nq6Var};
+                        Object[] objArr = {this, wk6Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -98,7 +98,7 @@ public final class CardPeiWanSegment extends zw<nq6> {
                         }
                     }
                     this.this$0 = this;
-                    this.$data = nq6Var;
+                    this.$data = wk6Var;
                 }
 
                 /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -113,12 +113,12 @@ public final class CardPeiWanSegment extends zw<nq6> {
                 public final void invoke2() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.this$0.t(this.$data, false);
+                        this.this$0.u(this.$data, false);
                     }
                 }
-            }, new Function0<Unit>(this, nq6Var) { // from class: com.baidu.card.CardPeiWanSegment$onBindDataToView$2
+            }, new Function0<Unit>(this, wk6Var) { // from class: com.baidu.card.CardPeiWanSegment$onBindDataToView$2
                 public static /* synthetic */ Interceptable $ic;
-                public final /* synthetic */ nq6 $data;
+                public final /* synthetic */ wk6 $data;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CardPeiWanSegment this$0;
 
@@ -129,7 +129,7 @@ public final class CardPeiWanSegment extends zw<nq6> {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, nq6Var};
+                        Object[] objArr = {this, wk6Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -141,7 +141,7 @@ public final class CardPeiWanSegment extends zw<nq6> {
                         }
                     }
                     this.this$0 = this;
-                    this.$data = nq6Var;
+                    this.$data = wk6Var;
                 }
 
                 /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -156,21 +156,21 @@ public final class CardPeiWanSegment extends zw<nq6> {
                 public final void invoke2() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.this$0.t(this.$data, true);
+                        this.this$0.u(this.$data, true);
                     }
                 }
             });
         }
     }
 
-    public final void x(int i) {
+    public final void y(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.f = i;
         }
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.rs
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -178,12 +178,12 @@ public final class CardPeiWanSegment extends zw<nq6> {
         }
     }
 
-    public final void t(nq6 nq6Var, boolean z) {
+    public final void u(wk6 wk6Var, boolean z) {
         String str;
         Long l;
         Long l2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, nq6Var, z) == null) && nq6Var != null) {
+        if ((interceptable == null || interceptable.invokeLZ(1048579, this, wk6Var, z) == null) && wk6Var != null) {
             boolean z2 = true;
             String str2 = null;
             if (z) {
@@ -213,10 +213,10 @@ public final class CardPeiWanSegment extends zw<nq6> {
             if (!z2) {
                 StatisticItem statisticItem = new StatisticItem(str);
                 statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.addParam("obj_locate", nq6Var.position);
-                statisticItem.addParam(TiebaStatic.Params.OBJ_TO, nq6Var.e());
+                statisticItem.addParam("obj_locate", wk6Var.position);
+                statisticItem.addParam(TiebaStatic.Params.OBJ_TO, wk6Var.e());
                 if (z) {
-                    Voice i3 = nq6Var.i();
+                    Voice i3 = wk6Var.i();
                     if (i3 != null) {
                         l2 = i3.uid;
                     } else {
@@ -224,16 +224,16 @@ public final class CardPeiWanSegment extends zw<nq6> {
                     }
                     statisticItem.addParam("obj_id", String.valueOf(l2));
                 }
-                statisticItem.addParam("obj_param1", nq6Var.d() ? 1 : 0);
+                statisticItem.addParam("obj_param1", wk6Var.d() ? 1 : 0);
                 if (this.f == 2) {
-                    ThreadData threadData = nq6Var.getThreadData();
+                    ThreadData threadData = wk6Var.getThreadData();
                     if (threadData != null) {
                         l = Long.valueOf(threadData.getFid());
                     } else {
                         l = null;
                     }
                     statisticItem.addParam("fid", String.valueOf(l));
-                    ThreadData threadData2 = nq6Var.getThreadData();
+                    ThreadData threadData2 = wk6Var.getThreadData();
                     if (threadData2 != null) {
                         str2 = threadData2.getForum_name();
                     }

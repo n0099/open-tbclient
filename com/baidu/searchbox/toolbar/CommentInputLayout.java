@@ -141,12 +141,12 @@ public class CommentInputLayout extends LinearLayout implements IFontSizeViewLis
     private void initLayout(Context context) {
         LayoutInflater.from(context).inflate(R.layout.common_comment_intput_layout, (ViewGroup) this, true);
         setIsResponseFontSize(true);
-        SelectorTextView selectorTextView = (SelectorTextView) findViewById(R.id.obfuscated_res_0x7f092615);
+        SelectorTextView selectorTextView = (SelectorTextView) findViewById(R.id.obfuscated_res_0x7f09261e);
         this.mCommentInputView = selectorTextView;
-        selectorTextView.setPadding(getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070260), 0, 0, 0);
-        FontSizeTextViewExtKt.setScaledSizeRes(this.mCommentInputView, 0, R.dimen.obfuscated_res_0x7f07025d, 2);
-        setBackground(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f08151f));
-        this.mCommentInputView.setText(R.string.obfuscated_res_0x7f0f04a4);
+        selectorTextView.setPadding(getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07025c), 0, 0, 0);
+        FontSizeTextViewExtKt.setScaledSizeRes(this.mCommentInputView, 0, R.dimen.obfuscated_res_0x7f070259, 2);
+        setBackground(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f08151c));
+        this.mCommentInputView.setText(R.string.obfuscated_res_0x7f0f04a7);
         this.mCommentInputView.setSingleLine(true);
         this.mCommentInputView.setEllipsize(TextUtils.TruncateAt.END);
         this.mCommentInputView.setGravity(16);
@@ -258,9 +258,9 @@ public class CommentInputLayout extends LinearLayout implements IFontSizeViewLis
         SelectorTextView selectorTextView2 = this.mCommentInputView;
         if (selectorTextView2 != null) {
             if (this.mIsResponseFontSize) {
-                FontSizeTextViewExtKt.setScaledSize(selectorTextView2, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025d) * 1.0f, 2);
+                FontSizeTextViewExtKt.setScaledSize(selectorTextView2, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070259) * 1.0f, 2);
             } else {
-                selectorTextView2.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025d));
+                selectorTextView2.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070259));
             }
             this.mCommentInputView.setText(EmotionLoader.getInstance().parseEmotion(EmotionType.EMOTION_CLASSIC_TYPE, getContext(), this.mCommentInputView.getText(), this.mCommentInputView, 1.2f), TextView.BufferType.SPANNABLE);
         }
@@ -281,14 +281,14 @@ public class CommentInputLayout extends LinearLayout implements IFontSizeViewLis
             selectorImageView4.onFontSizeChange();
         }
         if (isResponseFontSize() && (selectorTextView = this.mCommentInputGuide) != null) {
-            FontSizeTextViewExtKt.setScaledSize(selectorTextView, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025d) * 1.0f, 2);
+            FontSizeTextViewExtKt.setScaledSize(selectorTextView, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070259) * 1.0f, 2);
             this.mCommentInputGuide.setText(EmotionLoader.getInstance().parseEmotion(EmotionType.EMOTION_CLASSIC_TYPE, getContext(), this.mCommentInputGuide.getText(), this.mCommentInputGuide, 1.2f), TextView.BufferType.SPANNABLE);
         }
         if (isResponseFontSize()) {
-            FontSizeViewExtKt.setScaledHeightRes(this, 0, R.dimen.obfuscated_res_0x7f07025c, 2);
-            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f08151f);
+            FontSizeViewExtKt.setScaledHeightRes(this, 0, R.dimen.obfuscated_res_0x7f070257, 2);
+            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f08151c);
             if (drawable instanceof GradientDrawable) {
-                ((GradientDrawable) drawable).setCornerRadius(FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070b37));
+                ((GradientDrawable) drawable).setCornerRadius(FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070b32));
                 setBackground(drawable);
             }
         }

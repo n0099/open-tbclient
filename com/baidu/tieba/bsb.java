@@ -1,225 +1,188 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.ViewGroup;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.pose.PoseAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.flavor.Flavors;
-import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.Arrays;
-import java.util.Set;
+import com.hihonor.push.framework.aidl.entity.PushTokenResult;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.common.data.DownMsgType;
+import com.hihonor.push.sdk.common.data.UpMsgType;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
-public class bsb extends arb<nrb> {
+public class bsb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public nsb b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bsb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
+    public bsb(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = context;
+        this.b = new nsb();
+    }
+
+    public static /* synthetic */ void f(orb orbVar, int i, String str) {
+        if (orbVar != null) {
+            orbVar.onFailure(i, str);
+        }
+    }
+
+    public final void b(final orb<?> orbVar, final int i, final String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, orbVar, i, str) == null) {
+            msb.b(new Runnable() { // from class: com.baidu.tieba.nrb
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        bsb.f(orb.this, i, str);
+                    }
+                }
+            });
+        }
+    }
+
+    public static /* synthetic */ void g(orb orbVar, Object obj) {
+        if (orbVar != null) {
+            orbVar.onSuccess(obj);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void t(int i) {
-        onError(e(i));
+    public /* synthetic */ void h(Callable callable, orb orbVar) {
+        try {
+            c(orbVar, callable.call());
+        } catch (ApiException e) {
+            b(orbVar, e.getErrorCode(), e.getMessage());
+        } catch (Exception unused) {
+            HonorPushErrorEnum honorPushErrorEnum = HonorPushErrorEnum.ERROR_INTERNAL_ERROR;
+            b(orbVar, honorPushErrorEnum.getErrorCode(), honorPushErrorEnum.getMessage());
+        }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    public final <T> void c(final orb<T> orbVar, final T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            nrb nrbVar = (nrb) obj;
-        }
-    }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, orbVar, t) == null) {
+            msb.b(new Runnable() { // from class: com.baidu.tieba.mrb
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.arb
-    public void f(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String tid = getTid(valueOf);
-            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
-            onLoadStart(funAdSlot, tid);
-            IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
-            Ssp.Pid pid = this.mPid;
-            final int checkForbidStatus = iAdForbidStrategyManager.checkForbidStatus(pid.ssp.type, pid.pid);
-            if (checkForbidStatus != 0) {
-                this.f.postAtTime(new Runnable() { // from class: com.baidu.tieba.hqb
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            bsb.this.t(checkForbidStatus);
-                        }
-                    }
-                }, 50L);
-            } else {
-                this.e.loadRewardVideoAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setUserID(FunAdSdk.getFunAdConfig().userId).setOrientation(this.mPid.isHorizontal ? 2 : 1).setMediaExtra(buildExtra).build(), new a(this, tid));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.arb, com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
-            }
-            f(context, funAdSlot);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements TTAdNative.RewardVideoAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ bsb c;
-
-        public a(bsb bsbVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bsbVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = bsbVar;
-            this.b = str;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJRewardVideoAd onError code: " + i + ", message: " + str, new Object[0]);
-                if (this.a) {
-                    return;
-                }
-                this.c.onError(i, str, this.b);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoCached() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoCached(TTRewardVideoAd tTRewardVideoAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, tTRewardVideoAd) == null) {
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd) {
-            Set<String> set;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTRewardVideoAd) == null) {
-                this.a = true;
-                LogPrinter.d();
-                nrb nrbVar = new nrb(tTRewardVideoAd);
-                String c = nrbVar.c();
-                synchronized (mqb.class) {
-                    set = mqb.b;
-                    if (set.isEmpty()) {
-                        String string = xrb.a.getString("req_id", "");
-                        if (string.isEmpty()) {
-                            z = true;
-                        } else {
-                            set.addAll(Arrays.asList(string.split(ParamableElem.DIVIDE_PARAM)));
-                        }
-                    }
-                    z = !set.contains(c);
-                }
-                if (!z) {
-                    this.c.onError("repeat", this.b);
-                    this.c.getClass();
-                    return;
-                }
-                String c2 = nrbVar.c();
-                synchronized (mqb.class) {
-                    if (set.add(c2)) {
-                        StringBuilder sb = new StringBuilder();
-                        for (String str : set) {
-                            sb.append(str);
-                            sb.append(ParamableElem.DIVIDE_PARAM);
-                        }
-                        sb.deleteCharAt(sb.length() - 1);
-                        xrb.a.edit().putString("req_id", sb.toString()).apply();
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        bsb.g(orb.this, t);
                     }
                 }
-                bsb bsbVar = this.c;
-                String str2 = this.b;
-                bsbVar.getClass();
-                ((TTRewardVideoAd) nrbVar.a).setRewardPlayAgainInteractionListener(new csb(bsbVar, str2, nrbVar));
-                bsb bsbVar2 = this.c;
-                String str3 = this.b;
-                bsbVar2.getClass();
-                ((TTRewardVideoAd) nrbVar.a).setRewardAdInteractionListener(new iqb(bsbVar2, str3, nrbVar));
-                this.c.onAdLoaded(nrbVar, this.b);
-            }
+            });
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public void d(orb<String> orbVar, final boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            nrb nrbVar = (nrb) obj;
-            onShowStart(nrbVar);
-            ((TTRewardVideoAd) nrbVar.a).setDownloadListener(new qqb(null));
-            ((TTRewardVideoAd) nrbVar.a).showRewardVideoAd(activity);
-            return true;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, orbVar, z) == null) {
+            e(new Callable() { // from class: com.baidu.tieba.grb
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.util.concurrent.Callable
+                public final Object call() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? bsb.this.a(z) : invokeV.objValue;
+                }
+            }, orbVar);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public final <T> void e(final Callable<T> callable, final orb<T> orbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, callable, orbVar) == null) {
+            Runnable runnable = new Runnable() { // from class: com.baidu.tieba.lrb
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        bsb.this.h(callable, orbVar);
+                    }
+                }
+            };
+            msb msbVar = msb.f;
+            if (msbVar.d == null) {
+                synchronized (msbVar.e) {
+                    if (msbVar.d == null) {
+                        msbVar.d = msbVar.c();
+                    }
+                }
+            }
+            msbVar.d.execute(runnable);
+        }
+    }
+
+    public final String a(boolean z) throws Exception {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.b.getClass();
+            try {
+                ssb ssbVar = new ssb(UpMsgType.REQUEST_PUSH_TOKEN, null);
+                ssbVar.d = srb.a();
+                String pushToken = ((PushTokenResult) srb.d(ksb.c.a(ssbVar))).getPushToken();
+                if (z && !TextUtils.isEmpty(pushToken)) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, DownMsgType.RECEIVE_TOKEN);
+                    bundle.putString("push_token", pushToken);
+                    wsb wsbVar = new wsb();
+                    Context context = this.a;
+                    Log.i("MessengerSrvConnection", "start bind service.");
+                    try {
+                        Intent intent = new Intent();
+                        intent.setPackage(context.getPackageName());
+                        intent.setAction("com.hihonor.push.action.MESSAGING_EVENT");
+                        Context applicationContext = context.getApplicationContext();
+                        wsbVar.c = applicationContext;
+                        wsbVar.b = bundle;
+                        if (applicationContext.bindService(intent, wsbVar, 1)) {
+                            Log.i("MessengerSrvConnection", "bind service succeeded.");
+                        }
+                    } catch (Exception e) {
+                        String str = "bind service failed." + e.getMessage();
+                    }
+                }
+                return pushToken;
+            } catch (Exception e2) {
+                throw srb.b(e2);
+            }
+        }
+        return (String) invokeZ.objValue;
     }
 }

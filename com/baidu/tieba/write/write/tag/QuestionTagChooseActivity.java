@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.w8b;
-import com.baidu.tieba.yt5;
+import com.baidu.tieba.eo5;
+import com.baidu.tieba.r3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w8b k;
+    public r3b k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void C1() {
+    public void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
@@ -79,9 +79,9 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            w8b w8bVar = this.k;
-            if (w8bVar != null) {
-                w8bVar.onDestroy();
+            r3b r3bVar = this.k;
+            if (r3bVar != null) {
+                r3bVar.onDestroy();
             }
         }
     }
@@ -97,7 +97,7 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public yt5 p1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public eo5 q1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         String str;
         String str2;
@@ -118,13 +118,13 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (str3 != null) {
                     str4 = str3;
                 }
-                w8b w8bVar = new w8b(linearLayout, navigationBar, this, str4);
-                this.k = w8bVar;
-                w8bVar.G(str2);
+                r3b r3bVar = new r3b(linearLayout, navigationBar, this, str4);
+                this.k = r3bVar;
+                r3bVar.G(str2);
                 this.k.F(str);
             }
             return this.k;
         }
-        return (yt5) invokeLL.objValue;
+        return (eo5) invokeLL.objValue;
     }
 }

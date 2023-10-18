@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.eu5;
+import com.baidu.tieba.ko5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eu5 a;
+    public ko5 a;
     public ViewGroup b;
 
-    public abstract eu5 M0();
+    public abstract ko5 M0();
 
     public abstract int N0();
 
@@ -39,9 +39,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            eu5 eu5Var = this.a;
-            if (eu5Var != null) {
-                eu5Var.i();
+            ko5 ko5Var = this.a;
+            if (ko5Var != null) {
+                ko5Var.i();
             }
         }
     }
@@ -51,9 +51,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
-            eu5 eu5Var = this.a;
-            if (eu5Var != null) {
-                eu5Var.j();
+            ko5 ko5Var = this.a;
+            if (ko5Var != null) {
+                ko5Var.j();
             }
         }
     }
@@ -63,9 +63,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            eu5 eu5Var = this.a;
-            if (eu5Var != null) {
-                eu5Var.k();
+            ko5 ko5Var = this.a;
+            if (ko5Var != null) {
+                ko5Var.k();
             }
         }
     }
@@ -75,9 +75,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            eu5 eu5Var = this.a;
-            if (eu5Var != null) {
-                eu5Var.h(i);
+            ko5 ko5Var = this.a;
+            if (ko5Var != null) {
+                ko5Var.h(i);
             }
         }
     }

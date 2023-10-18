@@ -1,62 +1,38 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes8.dex */
-public class uw4 implements ItemCardHelper.c {
+public class uw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vj6<WebView> a;
 
-    public uw4(@NonNull vj6<WebView> vj6Var) {
+    public uw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vj6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = vj6Var;
     }
 
-    @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
-    public void a(long j) {
+    public void a(HeadSdk headSdk) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            c(this.a.call(), String.valueOf(j), 0);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, headSdk) != null) || headSdk == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            c(this.a.call(), String.valueOf(j), 1);
-        }
-    }
-
-    public final void c(WebView webView, @NonNull String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, webView, str, i) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("id", str);
-            hashMap.put("resultCode", Integer.valueOf(i));
-            hashMap.put("name", null);
-            ym6.a().d(webView, "orderGameApkResult", hashMap);
-        }
+        String str = headSdk.head_pic;
+        String str2 = headSdk.head_text;
+        String str3 = headSdk.sdk_name;
+        String str4 = headSdk.sdk_params;
+        headSdk.head_type.intValue();
     }
 }

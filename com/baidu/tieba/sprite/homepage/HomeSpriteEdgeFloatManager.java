@@ -23,20 +23,27 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.switchs.FunnySpriteSwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aaa;
+import com.baidu.tieba.baa;
+import com.baidu.tieba.bka;
 import com.baidu.tieba.core.widget.SpriteBottomTipView;
-import com.baidu.tieba.eu6;
-import com.baidu.tieba.gc7;
-import com.baidu.tieba.go5;
-import com.baidu.tieba.ig5;
-import com.baidu.tieba.kfa;
-import com.baidu.tieba.lfa;
+import com.baidu.tieba.daa;
+import com.baidu.tieba.eca;
+import com.baidu.tieba.ep6;
+import com.baidu.tieba.f9a;
+import com.baidu.tieba.g19;
+import com.baidu.tieba.gr5;
+import com.baidu.tieba.i9a;
+import com.baidu.tieba.jca;
+import com.baidu.tieba.kaa;
+import com.baidu.tieba.lca;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.lpa;
 import com.baidu.tieba.m;
-import com.baidu.tieba.nfa;
-import com.baidu.tieba.oha;
-import com.baidu.tieba.pea;
-import com.baidu.tieba.sea;
+import com.baidu.tieba.mi5;
+import com.baidu.tieba.nca;
+import com.baidu.tieba.no6;
+import com.baidu.tieba.p67;
+import com.baidu.tieba.pa5;
 import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
 import com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat;
 import com.baidu.tieba.sprite.edgefloat.SpriteNotificationEdgeFloat;
@@ -47,14 +54,7 @@ import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager$skinChangeList
 import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager$visibleOrGoneListener$2;
 import com.baidu.tieba.sprite.homepage.userstrategy.NewUserSpriteShowStrategy;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
-import com.baidu.tieba.tha;
 import com.baidu.tieba.tipview.HomePageSpriteTipController;
-import com.baidu.tieba.ufa;
-import com.baidu.tieba.v69;
-import com.baidu.tieba.vha;
-import com.baidu.tieba.vu6;
-import com.baidu.tieba.xha;
-import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -82,7 +82,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
     public static final a l;
     public static final Lazy<HomeSpriteEdgeFloatManager> m;
     public static final Lazy<List<String>> n;
-    public static final v69 o;
+    public static final g19 o;
     public static boolean p;
     public static final Lazy<Double> q;
     public static final double r;
@@ -90,14 +90,14 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
     public String a;
     public final Lazy b;
     public final Lazy c;
-    public eu6.e d;
+    public no6.e d;
     public final Lazy e;
     public final Lazy f;
     public HomePageSpriteTipController g;
     public SpriteTipEdgeFloat h;
     public SpriteEdgeFloat i;
     public SpriteNotificationEdgeFloat j;
-    public kfa k;
+    public aaa k;
 
     public /* synthetic */ HomeSpriteEdgeFloatManager(DefaultConstructorMarker defaultConstructorMarker) {
         this();
@@ -167,7 +167,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (pea.a.a() && !pea.a.b()) {
+                if (f9a.a.a() && !f9a.a.b()) {
                     return false;
                 }
                 return true;
@@ -190,7 +190,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 boolean z = false;
-                if (lpa.i.a().f()) {
+                if (bka.i.a().f()) {
                     DefaultLog.getInstance().i("SpriteEdgeFloat", "spriteEdgeFloat blocked by easter egg");
                     return false;
                 }
@@ -221,7 +221,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
     }
 
     /* loaded from: classes8.dex */
-    public static final class b implements tha {
+    public static final class b implements jca {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomeSpriteEdgeFloatManager a;
@@ -246,15 +246,15 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
             this.b = spriteEdgeFloat;
         }
 
-        @Override // com.baidu.tieba.tha
+        @Override // com.baidu.tieba.jca
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            ufa B = this.a.B("day_normal", "dark_normal");
-            B.a().c(true);
-            this.b.o(B);
+            kaa C = this.a.C("day_normal", "dark_normal");
+            C.a().d(true);
+            this.b.o(C);
             if (HomeSpriteEdgeFloatManager.l.h()) {
                 this.b.p();
             }
@@ -277,7 +277,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         l = new a(null);
         m = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) HomeSpriteEdgeFloatManager$Companion$instance$2.INSTANCE);
         n = LazyKt__LazyJVMKt.lazy(HomeSpriteEdgeFloatManager$Companion$PAGE_SUPPORT_LIST$2.INSTANCE);
-        o = new v69("key_sprite_dialog_disappear");
+        o = new g19("key_sprite_dialog_disappear");
         p = true;
         q = LazyKt__LazyJVMKt.lazy(HomeSpriteEdgeFloatManager$Companion$limit$2.INSTANCE);
         r = ScheduleStrategy.getDeviceScore();
@@ -296,8 +296,8 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                 return;
             }
         }
-        Q();
-        this.a = go5.b("sprite_talk_default", 0);
+        R();
+        this.a = mi5.b("sprite_talk_default", 0);
         this.b = LazyKt__LazyJVMKt.lazy(HomeSpriteEdgeFloatManager$normalMainTabBarHeight$2.INSTANCE);
         this.c = LazyKt__LazyJVMKt.lazy(HomeSpriteEdgeFloatManager$spriteStateMap$2.INSTANCE);
         this.e = LazyKt__LazyJVMKt.lazy(new Function0<HomeSpriteEdgeFloatManager$skinChangeListener$2.a>(this) { // from class: com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager$skinChangeListener$2
@@ -356,35 +356,35 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    SpriteEdgeFloat E;
-                    sea F;
-                    sea F2;
-                    sea F3;
+                    SpriteEdgeFloat F;
+                    i9a H;
+                    i9a H2;
+                    i9a H3;
                     Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (E = this.a.E()) != null) {
+                    if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (F = this.a.F()) != null) {
                         HomeSpriteEdgeFloatManager homeSpriteEdgeFloatManager = this.a;
-                        xha c = E.c();
-                        F = homeSpriteEdgeFloatManager.F();
-                        if (Intrinsics.areEqual(c, F.c())) {
-                            ufa B = homeSpriteEdgeFloatManager.B("day_stand", "dark_stand");
-                            B.a().c(false);
-                            E.o(B);
+                        nca c = F.c();
+                        H = homeSpriteEdgeFloatManager.H();
+                        if (Intrinsics.areEqual(c, H.c())) {
+                            kaa C = homeSpriteEdgeFloatManager.C("day_stand", "dark_stand");
+                            C.a().d(false);
+                            F.o(C);
                             return;
                         }
-                        F2 = homeSpriteEdgeFloatManager.F();
-                        if (Intrinsics.areEqual(c, F2.h())) {
-                            ufa B2 = homeSpriteEdgeFloatManager.B("day_normal", "dark_normal");
-                            B2.a().c(true);
-                            E.o(B2);
+                        H2 = homeSpriteEdgeFloatManager.H();
+                        if (Intrinsics.areEqual(c, H2.h())) {
+                            kaa C2 = homeSpriteEdgeFloatManager.C("day_normal", "dark_normal");
+                            C2.a().d(true);
+                            F.o(C2);
                             return;
                         }
-                        F3 = homeSpriteEdgeFloatManager.F();
-                        if (!Intrinsics.areEqual(c, F3.d())) {
+                        H3 = homeSpriteEdgeFloatManager.H();
+                        if (!Intrinsics.areEqual(c, H3.d())) {
                             return;
                         }
-                        ufa B3 = homeSpriteEdgeFloatManager.B("day_disappear", "dark_disappear");
-                        B3.a().c(false);
-                        E.o(B3);
+                        kaa C3 = homeSpriteEdgeFloatManager.C("day_disappear", "dark_disappear");
+                        C3.a().d(false);
+                        F.o(C3);
                     }
                 }
             }
@@ -476,10 +476,10 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                                 if (intValue != 2) {
                                     return;
                                 }
-                                homeSpriteEdgeFloatManager.L();
+                                homeSpriteEdgeFloatManager.M();
                                 return;
                             }
-                            homeSpriteEdgeFloatManager.a0();
+                            homeSpriteEdgeFloatManager.b0();
                         }
                     }
                 }
@@ -499,7 +499,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         });
     }
 
-    public final SpriteTipEdgeFloat I() {
+    public final SpriteTipEdgeFloat J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -511,7 +511,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                 Activity activity = mainActivity;
                 synchronized (this) {
                     if (this.h == null) {
-                        this.h = new SpriteTipEdgeFloat(activity, 85, BdUtilHelper.getDimens(activity, R.dimen.tbds177), C(), false, l.e());
+                        this.h = new SpriteTipEdgeFloat(activity, 85, BdUtilHelper.getDimens(activity, R.dimen.tbds177), D(), false, l.e());
                     }
                     Unit unit = Unit.INSTANCE;
                 }
@@ -521,83 +521,83 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         return (SpriteTipEdgeFloat) invokeV.objValue;
     }
 
-    public final void N() {
+    public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            SpriteEdgeFloat E = E();
-            if (E != null) {
+            SpriteEdgeFloat F = F();
+            if (F != null) {
                 DefaultLog.getInstance().i("SpriteEdgeFloat", "spriteEdgeFloat hide() is Showing???");
-                if (!E.i()) {
+                if (!F.i()) {
                     return;
                 }
-                MessageManager.getInstance().unRegisterListener(D());
+                MessageManager.getInstance().unRegisterListener(E());
                 DefaultLog.getInstance().i("SpriteEdgeFloat", "spriteEdgeFloat hide() internal hide");
-                kfa kfaVar = this.k;
-                if (kfaVar == null) {
+                aaa aaaVar = this.k;
+                if (aaaVar == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("spriteShowStrategy");
-                    kfaVar = null;
+                    aaaVar = null;
                 }
-                kfaVar.hide();
-                lpa.i.a().n(false);
+                aaaVar.hide();
+                bka.i.a().n(false);
             }
-            SpriteTipEdgeFloat I = I();
-            if (I != null) {
-                I.e();
+            SpriteTipEdgeFloat J = J();
+            if (J != null) {
+                J.e();
             }
         }
     }
 
-    public final boolean V() {
+    public final boolean W() {
         InterceptResult invokeV;
-        SpriteEdgeFloat E;
+        SpriteEdgeFloat F;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (!l.b() || (E = E()) == null) {
+            if (!l.b() || (F = F()) == null) {
                 return false;
             }
             DefaultLog.getInstance().i("SpriteEdgeFloat", "spriteEdgeFloat show is not Showing???");
-            if (E.i()) {
+            if (F.i()) {
                 return false;
             }
-            MessageManager.getInstance().registerListener(D());
+            MessageManager.getInstance().registerListener(E());
             DefaultLog.getInstance().i("SpriteEdgeFloat", "spriteEdgeFloat show internal show");
-            E.n();
-            nfa.b();
-            U();
-            lpa.i.a().n(true);
+            F.n();
+            daa.b();
+            V();
+            bka.i.a().n(true);
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final void a0() {
+    public final void b0() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048599, this) != null) || !l.b()) {
             return;
         }
         if (!l.g()) {
-            HomePageSpriteTipController H = H();
-            if (H != null) {
-                H.l(true);
+            HomePageSpriteTipController I = I();
+            if (I != null) {
+                I.l(true);
                 return;
             }
             return;
         }
-        SpriteEdgeFloat E = E();
-        if (E != null) {
-            if (E.i()) {
+        SpriteEdgeFloat F = F();
+        if (F != null) {
+            if (F.i()) {
                 return;
             }
-            E.n();
-            lpa.i.a().n(true);
+            F.n();
+            bka.i.a().n(true);
         }
-        HomePageSpriteTipController H2 = H();
-        if (H2 != null) {
-            H2.l(true);
+        HomePageSpriteTipController I2 = I();
+        if (I2 != null) {
+            I2.l(true);
         }
     }
 
-    public static final void X(HomeSpriteEdgeFloatManager this$0) {
+    public static final void Y(HomeSpriteEdgeFloatManager this$0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -607,7 +607,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                 spriteNotificationEdgeFloat.d();
             }
             this$0.j = null;
-            eu6.e eVar = this$0.d;
+            no6.e eVar = this$0.d;
             if (eVar != null) {
                 eVar.onDismiss();
             }
@@ -622,26 +622,26 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
             Intrinsics.checkNotNullParameter(owner, "owner");
             DefaultLog.getInstance().i("SpriteEdgeFloat", "spriteEdgeFloat onCreate");
             m.$default$onCreate(this, owner);
-            kfa kfaVar = this.k;
-            if (kfaVar == null) {
+            aaa aaaVar = this.k;
+            if (aaaVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("spriteShowStrategy");
-                kfaVar = null;
+                aaaVar = null;
             }
-            kfaVar.d();
-            MessageManager.getInstance().registerListener(K());
+            aaaVar.d();
+            MessageManager.getInstance().registerListener(L());
         }
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public void onPause(LifecycleOwner owner) {
-        HomePageSpriteTipController H;
+        HomePageSpriteTipController I;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, owner) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
             DefaultLog.getInstance().i("SpriteEdgeFloat", "spriteEdgeFloat onPause");
             m.$default$onPause(this, owner);
-            if (l.b() && (H = H()) != null) {
-                H.g();
+            if (l.b() && (I = I()) != null) {
+                I.g();
             }
         }
     }
@@ -652,46 +652,46 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, activity, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(activity, "$activity");
-            if (yw5.a()) {
+            if (gr5.a()) {
                 return;
             }
-            SpriteTipEdgeFloat I = this$0.I();
-            if (I != null) {
-                bool = Boolean.valueOf(I.f());
+            SpriteTipEdgeFloat J = this$0.J();
+            if (J != null) {
+                bool = Boolean.valueOf(J.f());
             } else {
                 bool = null;
             }
-            nfa.a(Intrinsics.areEqual(bool, Boolean.TRUE));
+            daa.a(Intrinsics.areEqual(bool, Boolean.TRUE));
             if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
-                SpriteTipEdgeFloat I2 = this$0.I();
-                if (I2 != null) {
-                    I2.d();
+                SpriteTipEdgeFloat J2 = this$0.J();
+                if (J2 != null) {
+                    J2.d();
                     return;
                 }
                 return;
             }
             T activity2 = activity.element;
             Intrinsics.checkNotNullExpressionValue(activity2, "activity");
-            this$0.M((Context) activity2, this$0.a);
+            this$0.N((Context) activity2, this$0.a);
         }
     }
 
-    public final void A(Activity context, SpriteTipHttpResponseMessage response, HomePageSpriteBottomTipView spriteTipView) {
+    public final void B(Activity context, SpriteTipHttpResponseMessage response, HomePageSpriteBottomTipView spriteTipView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, response, spriteTipView) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(response, "response");
             Intrinsics.checkNotNullParameter(spriteTipView, "spriteTipView");
-            kfa kfaVar = this.k;
-            if (kfaVar == null) {
+            aaa aaaVar = this.k;
+            if (aaaVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("spriteShowStrategy");
-                kfaVar = null;
+                aaaVar = null;
             }
-            kfaVar.c(context, response, spriteTipView);
+            aaaVar.c(context, response, spriteTipView);
         }
     }
 
-    public final int C() {
+    public final int D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -700,7 +700,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         return invokeV.intValue;
     }
 
-    public final CustomMessageListener D() {
+    public final CustomMessageListener E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -709,16 +709,16 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         return (CustomMessageListener) invokeV.objValue;
     }
 
-    public final sea F() {
+    public final i9a H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return (sea) this.c.getValue();
+            return (i9a) this.c.getValue();
         }
-        return (sea) invokeV.objValue;
+        return (i9a) invokeV.objValue;
     }
 
-    public final CustomMessageListener K() {
+    public final CustomMessageListener L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -727,7 +727,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         return (CustomMessageListener) invokeV.objValue;
     }
 
-    public final void O() {
+    public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             DefaultLog.getInstance().i("SpriteEdgeFloat", "精灵动画提示控件：触发首页精灵动画提示控件隐藏");
@@ -736,7 +736,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                 spriteNotificationEdgeFloat.d();
             }
             this.j = null;
-            eu6.e eVar = this.d;
+            no6.e eVar = this.d;
             if (eVar != null) {
                 eVar.onDismiss();
             }
@@ -744,20 +744,20 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         }
     }
 
-    public final void P() {
-        SpriteEdgeFloat E;
+    public final void Q() {
+        SpriteEdgeFloat F;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (E = E()) != null) {
-            E.h();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (F = F()) != null) {
+            F.h();
         }
     }
 
-    public final void Q() {
-        kfa newUserSpriteShowStrategy;
+    public final void R() {
+        aaa newUserSpriteShowStrategy;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (l.g()) {
-                newUserSpriteShowStrategy = new lfa();
+                newUserSpriteShowStrategy = new baa();
             } else {
                 newUserSpriteShowStrategy = new NewUserSpriteShowStrategy();
             }
@@ -765,36 +765,36 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         }
     }
 
-    public final boolean R() {
+    public final boolean S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            kfa kfaVar = this.k;
-            if (kfaVar == null) {
+            aaa aaaVar = this.k;
+            if (aaaVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("spriteShowStrategy");
-                kfaVar = null;
+                aaaVar = null;
             }
-            return kfaVar.a();
+            return aaaVar.a();
         }
         return invokeV.booleanValue;
     }
 
-    public final void S() {
+    public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            T(F().e());
+            U(H().e());
         }
     }
 
-    public final void U() {
+    public final void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             DefaultLog.getInstance().i("SpriteEdgeFloat", "spriteEdgeFloat sendStandEvent");
-            T(F().b());
+            U(H().b());
         }
     }
 
-    public final void Y() {
+    public final void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             DefaultLog.getInstance().i("SpriteEdgeFloat", "spriteEdgeFloat dialog displayed");
@@ -802,60 +802,60 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         }
     }
 
-    public final void Z() {
-        HomePageSpriteTipController H;
+    public final void a0() {
+        HomePageSpriteTipController I;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (H = H()) != null) {
-            H.d();
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (I = I()) != null) {
+            I.d();
         }
     }
 
-    public final void T(vha vhaVar) {
-        SpriteEdgeFloat E;
+    public final void U(lca lcaVar) {
+        SpriteEdgeFloat F;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, vhaVar) == null) && (E = E()) != null) {
-            E.k(vhaVar);
+        if ((interceptable == null || interceptable.invokeL(1048593, this, lcaVar) == null) && (F = F()) != null) {
+            F.k(lcaVar);
         }
     }
 
-    public final void w(oha hotEventShowData) {
+    public final void w(eca hotEventShowData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, hotEventShowData) == null) {
             Intrinsics.checkNotNullParameter(hotEventShowData, "hotEventShowData");
-            kfa kfaVar = this.k;
-            if (kfaVar == null) {
+            aaa aaaVar = this.k;
+            if (aaaVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("spriteShowStrategy");
-                kfaVar = null;
+                aaaVar = null;
             }
-            kfaVar.b(hotEventShowData);
+            aaaVar.b(hotEventShowData);
         }
     }
 
-    public final ufa B(String str, String str2) {
+    public final kaa C(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            vu6 vu6Var = new vu6();
-            ufa ufaVar = new ufa(vu6Var);
+            ep6 ep6Var = new ep6();
+            kaa kaaVar = new kaa(ep6Var);
             if (TbadkCoreApplication.getInst().getSkinType() == 4) {
                 str = str2;
             }
-            vu6Var.d(FunnySpriteResDownloadUtil.j(str, null, false, 6, null));
-            if (StringsKt__StringsJVMKt.endsWith$default(vu6Var.a(), DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, false, 2, null)) {
-                vu6Var.e(1);
-            } else if (StringsKt__StringsJVMKt.endsWith$default(vu6Var.a(), ".webp", false, 2, null)) {
-                vu6Var.e(2);
+            ep6Var.e(FunnySpriteResDownloadUtil.j(str, null, false, 6, null));
+            if (StringsKt__StringsJVMKt.endsWith$default(ep6Var.a(), DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, false, 2, null)) {
+                ep6Var.f(1);
+            } else if (StringsKt__StringsJVMKt.endsWith$default(ep6Var.a(), ".webp", false, 2, null)) {
+                ep6Var.f(2);
             } else if (TbadkCoreApplication.getInst().isDebugMode()) {
-                throw new IllegalStateException("unsupported file path " + vu6Var.a());
+                throw new IllegalStateException("unsupported file path " + ep6Var.a());
             }
-            return ufaVar;
+            return kaaVar;
         }
-        return (ufa) invokeLL.objValue;
+        return (kaa) invokeLL.objValue;
     }
 
     /* JADX WARN: Type inference failed for: r1v10, types: [T, android.app.Activity] */
     /* JADX WARN: Type inference failed for: r1v3, types: [T, android.app.Activity] */
-    public final SpriteEdgeFloat E() {
+    public final SpriteEdgeFloat F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -872,11 +872,11 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                 }
                 synchronized (this) {
                     if (this.i == null) {
-                        int C = C() - BdUtilHelper.getDimens((Context) objectRef.element, R.dimen.M_H_X003);
+                        int D = D() - BdUtilHelper.getDimens((Context) objectRef.element, R.dimen.M_H_X003);
                         T activity = objectRef.element;
                         Intrinsics.checkNotNullExpressionValue(activity, "activity");
-                        final SpriteEdgeFloat spriteEdgeFloat = new SpriteEdgeFloat((Activity) activity, F(), 85, 0, C, false, l.e());
-                        spriteEdgeFloat.l(new View.OnClickListener() { // from class: com.baidu.tieba.efa
+                        final SpriteEdgeFloat spriteEdgeFloat = new SpriteEdgeFloat((Activity) activity, H(), 85, 0, D, false, l.e());
+                        spriteEdgeFloat.l(new View.OnClickListener() { // from class: com.baidu.tieba.u9a
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -888,7 +888,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                                 }
                             }
                         });
-                        F().c().a(new tha(spriteEdgeFloat, this) { // from class: com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager$spriteEdgeFloat$1$1$2
+                        H().c().a(new jca(spriteEdgeFloat, this) { // from class: com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager$spriteEdgeFloat$1$1$2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ SpriteEdgeFloat a;
@@ -913,15 +913,15 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                                 this.b = this;
                             }
 
-                            @Override // com.baidu.tieba.tha
+                            @Override // com.baidu.tieba.jca
                             public void a() {
-                                sea F;
+                                i9a H;
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     if (HomeSpriteEdgeFloatManager.l.h()) {
                                         SpriteEdgeFloat spriteEdgeFloat2 = this.a;
-                                        F = this.b.F();
-                                        spriteEdgeFloat2.k(F.g());
+                                        H = this.b.H();
+                                        spriteEdgeFloat2.k(H.g());
                                         return;
                                     }
                                     final SpriteEdgeFloat spriteEdgeFloat3 = this.a;
@@ -964,24 +964,24 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                                         /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                                         /* renamed from: invoke  reason: avoid collision after fix types in other method */
                                         public final void invoke2() {
-                                            sea F2;
+                                            i9a H2;
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                                                 this.$this_apply.m(null);
                                                 SpriteEdgeFloat spriteEdgeFloat4 = this.$this_apply;
-                                                F2 = this.this$0.F();
-                                                spriteEdgeFloat4.k(F2.g());
+                                                H2 = this.this$0.H();
+                                                spriteEdgeFloat4.k(H2.g());
                                             }
                                         }
                                     });
-                                    ufa B = this.b.B("day_stand", "dark_stand");
-                                    B.a().c(false);
-                                    this.a.o(B);
+                                    kaa C = this.b.C("day_stand", "dark_stand");
+                                    C.a().d(false);
+                                    this.a.o(C);
                                 }
                             }
                         });
-                        F().h().a(new b(this, spriteEdgeFloat));
-                        F().d().a(new tha(spriteEdgeFloat, this) { // from class: com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager$spriteEdgeFloat$1$1$4
+                        H().h().a(new b(this, spriteEdgeFloat));
+                        H().d().a(new jca(spriteEdgeFloat, this) { // from class: com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager$spriteEdgeFloat$1$1$4
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ SpriteEdgeFloat a;
@@ -1006,7 +1006,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                                 this.b = this;
                             }
 
-                            @Override // com.baidu.tieba.tha
+                            @Override // com.baidu.tieba.jca
                             public void a() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -1054,16 +1054,16 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                                                 Interceptable interceptable3 = $ic;
                                                 if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                                                     this.$this_apply.m(null);
-                                                    this.this$0.P();
+                                                    this.this$0.Q();
                                                 }
                                             }
                                         });
-                                        ufa B = this.b.B("day_disappear", "dark_disappear");
-                                        B.a().c(false);
-                                        this.a.o(B);
+                                        kaa C = this.b.C("day_disappear", "dark_disappear");
+                                        C.a().d(false);
+                                        this.a.o(C);
                                         return;
                                     }
-                                    this.b.P();
+                                    this.b.Q();
                                 }
                             }
                         });
@@ -1077,16 +1077,16 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         return (SpriteEdgeFloat) invokeV.objValue;
     }
 
-    public final HomePageSpriteTipController H() {
+    public final HomePageSpriteTipController I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.g == null) {
                 synchronized (this) {
-                    if (this.g == null && I() != null) {
-                        SpriteTipEdgeFloat I = I();
-                        Intrinsics.checkNotNull(I);
-                        this.g = new HomePageSpriteTipController(I.c());
+                    if (this.g == null && J() != null) {
+                        SpriteTipEdgeFloat J = J();
+                        Intrinsics.checkNotNull(J);
+                        this.g = new HomePageSpriteTipController(J.c());
                     }
                     Unit unit = Unit.INSTANCE;
                 }
@@ -1096,39 +1096,39 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
         return (HomePageSpriteTipController) invokeV.objValue;
     }
 
-    public final void L() {
+    public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            SpriteEdgeFloat E = E();
-            if (E != null) {
-                if (!E.i()) {
+            SpriteEdgeFloat F = F();
+            if (F != null) {
+                if (!F.i()) {
                     return;
                 }
-                E.h();
-                lpa.i.a().n(false);
+                F.h();
+                bka.i.a().n(false);
             }
-            SpriteTipEdgeFloat I = I();
+            SpriteTipEdgeFloat J = J();
+            if (J != null) {
+                J.e();
+            }
+            HomePageSpriteTipController I = I();
             if (I != null) {
-                I.e();
-            }
-            HomePageSpriteTipController H = H();
-            if (H != null) {
-                H.l(false);
+                I.l(false);
             }
         }
     }
 
-    public final void M(Context context, String str) {
+    public final void N(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
             boolean z = true;
             if ((str == null || !StringsKt__StringsJVMKt.startsWith$default(str, "tiebaapp://router/portal", false, 2, null)) ? false : false) {
-                gc7.c(context, str);
+                p67.c(context, str);
             }
         }
     }
 
-    public final void W(oha hotEventShowData) {
+    public final void X(eca hotEventShowData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, hotEventShowData) == null) {
             Intrinsics.checkNotNullParameter(hotEventShowData, "hotEventShowData");
@@ -1143,7 +1143,7 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
             if (curActivity != null) {
                 hotEventShowData.b().setShowCloseBtn(false);
                 hotEventShowData.b().setUseRightBg(false);
-                SpriteBottomTipView tipView = ig5.f(hotEventShowData.b(), curActivity, null);
+                SpriteBottomTipView tipView = pa5.f(hotEventShowData.b(), curActivity, null);
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds177);
                 ViewGroup.LayoutParams layoutParams = tipView.getContentView().getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -1152,19 +1152,19 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                 if (marginLayoutParams != null) {
                     marginLayoutParams.width = BdUtilHelper.getEquipmentWidth(curActivity) - dimenPixelSize;
                 }
-                int C = C();
+                int D = D();
                 Intrinsics.checkNotNullExpressionValue(curActivity, "curActivity");
                 List e = l.e();
                 Intrinsics.checkNotNullExpressionValue(tipView, "tipView");
-                SpriteNotificationEdgeFloat spriteNotificationEdgeFloat = new SpriteNotificationEdgeFloat(curActivity, 85, dimenPixelSize, C, false, e, tipView);
+                SpriteNotificationEdgeFloat spriteNotificationEdgeFloat = new SpriteNotificationEdgeFloat(curActivity, 85, dimenPixelSize, D, false, e, tipView);
                 this.j = spriteNotificationEdgeFloat;
                 if (spriteNotificationEdgeFloat != null) {
                     spriteNotificationEdgeFloat.f();
                 }
                 DefaultLog.getInstance().i("SpriteEdgeFloat", "精灵动画提示控件：首页精灵动画提示控件显示成功");
-                ig5.o();
-                ig5.q(hotEventShowData.b());
-                SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.cfa
+                pa5.o();
+                pa5.q(hotEventShowData.b());
+                SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.s9a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -1172,14 +1172,14 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            HomeSpriteEdgeFloatManager.X(HomeSpriteEdgeFloatManager.this);
+                            HomeSpriteEdgeFloatManager.Y(HomeSpriteEdgeFloatManager.this);
                         }
                     }
                 }, 5000L);
                 return;
             }
             DefaultLog.getInstance().e("SpriteEdgeFloat", "精灵动画提示控件：首页精灵动画提示控件显示失败");
-            eu6.e eVar = this.d;
+            no6.e eVar = this.d;
             if (eVar != null) {
                 eVar.onDismiss();
             }
@@ -1194,22 +1194,22 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
             Intrinsics.checkNotNullParameter(owner, "owner");
             DefaultLog.getInstance().i("SpriteEdgeFloat", "spriteEdgeFloat onDestroy");
             m.$default$onDestroy(this, owner);
-            MessageManager.getInstance().unRegisterListener(K());
-            if (lpa.i.a().h()) {
-                N();
-                HomePageSpriteTipController H = H();
-                if (H != null) {
-                    H.f();
+            MessageManager.getInstance().unRegisterListener(L());
+            if (bka.i.a().h()) {
+                O();
+                HomePageSpriteTipController I = I();
+                if (I != null) {
+                    I.f();
                 }
                 this.g = null;
-                SpriteTipEdgeFloat I = I();
-                if (I != null) {
-                    I.g();
+                SpriteTipEdgeFloat J = J();
+                if (J != null) {
+                    J.g();
                 }
                 this.h = null;
-                SpriteEdgeFloat E = E();
-                if (E != null) {
-                    E.j();
+                SpriteEdgeFloat F = F();
+                if (F != null) {
+                    F.j();
                 }
                 this.i = null;
             }
@@ -1228,14 +1228,14 @@ public final class HomeSpriteEdgeFloatManager implements DefaultLifecycleObserve
             DefaultLog.getInstance().i("SpriteEdgeFloat", "spriteEdgeFloat onResume");
             m.$default$onResume(this, owner);
             if (l.b()) {
-                HomePageSpriteTipController H = H();
-                if (H != null) {
-                    H.h();
+                HomePageSpriteTipController I = I();
+                if (I != null) {
+                    I.h();
                 }
-                SpriteEdgeFloat E = E();
+                SpriteEdgeFloat F = F();
                 boolean z = true;
-                if ((E == null || !E.i()) ? false : false) {
-                    nfa.b();
+                if ((F == null || !F.i()) ? false : false) {
+                    daa.b();
                 }
             }
         }

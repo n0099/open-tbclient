@@ -1,6 +1,7 @@
 package com.baidu.pass.main.facesdk;
 
 import android.util.Log;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
 /* loaded from: classes3.dex */
@@ -36,7 +37,7 @@ public class FaceAuth {
                     th.printStackTrace();
                     Log.e(FaceAuth.TAG, "bdface_create_instance status -1");
                 }
-                callback.onResponse(i, "OK");
+                callback.onResponse(i, bx.k);
             }
         });
     }

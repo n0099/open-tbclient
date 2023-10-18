@@ -141,7 +141,7 @@ public final class LoadingMsgView extends FrameLayout {
                     Handler handler = this.a.e;
                     final LoadingMsgView loadingMsgView = this.a;
                     final ValueAnimator valueAnimator = this.b;
-                    handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.a09
+                    handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.lu8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -279,7 +279,7 @@ public final class LoadingMsgView extends FrameLayout {
             ofFloat.setDuration(8000L);
             ofFloat.setRepeatCount(-1);
             ofFloat.setInterpolator(new LinearInterpolator());
-            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yz8
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ju8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

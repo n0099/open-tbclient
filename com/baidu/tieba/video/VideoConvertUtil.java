@@ -2,13 +2,12 @@ package com.baidu.tieba.video;
 
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qta;
-import com.baidu.tieba.rta;
+import com.baidu.tieba.ioa;
+import com.baidu.tieba.joa;
 import com.baidu.tieba.video.convert.IVideoConvertListener;
 import com.baidu.tieba.video.convert.IVideoConvertService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,7 +31,7 @@ public class VideoConvertUtil {
     public String d;
     public File e;
     public File f;
-    public rta g;
+    public joa g;
     public IntenalConvertListener h;
     public int i;
     public boolean j;
@@ -173,33 +172,7 @@ public class VideoConvertUtil {
                 return;
             }
         }
-        String str = qta.f;
-    }
-
-    private void bindService() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.a != null) {
-            Intent intent = new Intent("com.baidu.tieba.video.convert.VideoConvertService");
-            intent.setPackage("com.baidu.tieba");
-            this.a.bindService(intent, this.m, 1);
-        }
-    }
-
-    private void startService() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && this.a != null) {
-            Intent intent = new Intent("com.baidu.tieba.video.convert.VideoConvertService");
-            intent.setPackage("com.baidu.tieba");
-            this.a.startService(intent);
-        }
-    }
-
-    private void unbindService() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && this.b != null && (context = this.a) != null) {
-            context.unbindService(this.m);
-        }
+        String str = ioa.f;
     }
 
     public void a() {
@@ -219,7 +192,7 @@ public class VideoConvertUtil {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.j = true;
             a();
-            unbindService();
+            q();
         }
     }
 
@@ -241,6 +214,14 @@ public class VideoConvertUtil {
             }
         }
         return invokeV.booleanValue;
+    }
+
+    public final void q() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (context = this.a) != null) {
+            context.unbindService(this.m);
+        }
     }
 
     public VideoConvertUtil(Context context) {
@@ -270,7 +251,7 @@ public class VideoConvertUtil {
     public static String p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             if (str != null && !str.isEmpty()) {
                 try {
                     byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
@@ -295,10 +276,10 @@ public class VideoConvertUtil {
         return (String) invokeL.objValue;
     }
 
-    public void o(rta rtaVar) {
+    public void o(joa joaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, rtaVar) == null) {
-            this.g = rtaVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, joaVar) == null) {
+            this.g = joaVar;
         }
     }
 
@@ -314,12 +295,12 @@ public class VideoConvertUtil {
                 e.printStackTrace();
                 i = -1;
             }
-            rta rtaVar = this.g;
-            if (rtaVar != null) {
+            joa joaVar = this.g;
+            if (joaVar != null) {
                 if (i == 0) {
-                    rtaVar.b();
+                    joaVar.b();
                 } else {
-                    rtaVar.a(i);
+                    joaVar.a(i);
                 }
             }
         }

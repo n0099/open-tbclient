@@ -21,7 +21,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibility;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public class ClassConstructorDescriptorImpl extends FunctionDescriptorImpl implements ClassConstructorDescriptor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final Name NAME = Name.special("<init>");

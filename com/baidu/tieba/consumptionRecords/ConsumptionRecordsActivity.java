@@ -28,7 +28,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public SigleRecordsFragment d;
     public SigleRecordsFragment e;
 
-    public final int p1(int i) {
+    public final int q1(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -57,7 +57,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void n1(FragmentTabStructure fragmentTabStructure, FragmentTabIndicator fragmentTabIndicator, String str) {
+    public final void o1(FragmentTabStructure fragmentTabStructure, FragmentTabIndicator fragmentTabIndicator, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(1048576, this, fragmentTabStructure, fragmentTabIndicator, str) != null) || fragmentTabStructure == null) {
             return;
@@ -110,7 +110,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public final void s1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e9b);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091eba);
             this.b = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.b.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
@@ -119,24 +119,24 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             sigleRecordsFragment.t2(1);
             FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
             fragmentTabStructure.frag = this.c;
-            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f06f0;
-            n1(fragmentTabStructure, r1(getPageContext().getPageActivity()), null);
+            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f06f6;
+            o1(fragmentTabStructure, r1(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
             this.d = sigleRecordsFragment2;
             sigleRecordsFragment2.t2(2);
             FragmentTabStructure fragmentTabStructure2 = new FragmentTabStructure();
             fragmentTabStructure2.frag = this.d;
-            fragmentTabStructure2.textResId = R.string.obfuscated_res_0x7f0f0a8b;
-            n1(fragmentTabStructure2, r1(getPageContext().getPageActivity()), null);
+            fragmentTabStructure2.textResId = R.string.obfuscated_res_0x7f0f0a96;
+            o1(fragmentTabStructure2, r1(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
             this.e = sigleRecordsFragment3;
             sigleRecordsFragment3.t2(3);
             FragmentTabStructure fragmentTabStructure3 = new FragmentTabStructure();
             fragmentTabStructure3.frag = this.e;
-            fragmentTabStructure3.textResId = R.string.obfuscated_res_0x7f0f11f9;
-            n1(fragmentTabStructure3, r1(getPageContext().getPageActivity()), null);
+            fragmentTabStructure3.textResId = R.string.obfuscated_res_0x7f0f1208;
+            o1(fragmentTabStructure3, r1(getPageContext().getPageActivity()), null);
             this.b.j(3);
-            this.b.setCurrentTab(p1(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
+            this.b.setCurrentTab(q1(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
         }
     }
 }

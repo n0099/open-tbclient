@@ -38,7 +38,7 @@ import org.json.JSONObject;
 @KsAdSdkDynamicImpl(FeedDownloadActivity.class)
 @Keep
 /* loaded from: classes10.dex */
-public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b<k> implements a.InterfaceC0614a {
+public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b<k> implements a.InterfaceC0597a {
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_VIDEO_PLAY_CONFIG = "key_video_play_config";
     public static final String TAG = "FullScreenVideo";
@@ -156,9 +156,9 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
     }
 
     private void initView() {
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913ea);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091403);
         this.mRootContainer = adBaseFrameLayout;
-        DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091440);
+        DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091459);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.setAd(true);
     }
@@ -216,7 +216,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
         return "KsFullScreenVideoActivityProxy";
     }
 
-    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0614a
+    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0597a
     public boolean handledOnResume() {
         com.kwad.components.ad.fullscreen.b.b bVar = this.mFullScreenPresenter;
         if (bVar != null) {
@@ -250,7 +250,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
         com.kwad.components.ad.reward.monitor.a.a(false, this.mAdTemplate, elapsedRealtime);
         com.kwad.components.ad.reward.monitor.a.b(false, this.mAdTemplate, this.mPageEnterTime);
         this.mContext = Wrapper.wrapContextIfNeed(getActivity());
-        setContentView(R.layout.obfuscated_res_0x7f0d048a);
+        setContentView(R.layout.obfuscated_res_0x7f0d0485);
         initView();
         onActivityCreated(this.mRootContainer);
     }
@@ -283,7 +283,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
             kVar.mm = new m(kVar, this.mReportExtData, null);
         }
         if (com.kwad.sdk.core.response.a.a.aY(this.mAdInfo)) {
-            kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09134b));
+            kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091364));
         }
         if (com.kwad.sdk.core.response.a.d.bX(this.mAdTemplate)) {
             kVar.mo = new com.kwad.components.ad.i.a().ae(false);

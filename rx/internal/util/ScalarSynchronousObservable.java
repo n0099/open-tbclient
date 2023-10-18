@@ -2,39 +2,39 @@ package rx.internal.util;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.ddc;
-import com.baidu.tieba.kcc;
-import com.baidu.tieba.mcc;
-import com.baidu.tieba.mec;
-import com.baidu.tieba.ncc;
-import com.baidu.tieba.qcc;
-import com.baidu.tieba.rcc;
-import com.baidu.tieba.vgc;
-import com.baidu.tieba.wcc;
-import com.baidu.tieba.xcc;
-import com.baidu.tieba.ygc;
+import com.baidu.tieba.a7c;
+import com.baidu.tieba.h6c;
+import com.baidu.tieba.j6c;
+import com.baidu.tieba.k6c;
+import com.baidu.tieba.l8c;
+import com.baidu.tieba.n6c;
+import com.baidu.tieba.o6c;
+import com.baidu.tieba.t6c;
+import com.baidu.tieba.u6c;
+import com.baidu.tieba.uac;
+import com.baidu.tieba.xac;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.producers.SingleProducer;
 /* loaded from: classes2.dex */
-public final class ScalarSynchronousObservable<T> extends kcc<T> {
+public final class ScalarSynchronousObservable<T> extends h6c<T> {
     public static final boolean c = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
     public final T b;
 
     /* loaded from: classes2.dex */
-    public class b implements ddc<xcc, rcc> {
-        public final /* synthetic */ ncc a;
+    public class b implements a7c<u6c, o6c> {
+        public final /* synthetic */ k6c a;
 
         /* loaded from: classes2.dex */
-        public class a implements xcc {
-            public final /* synthetic */ xcc a;
-            public final /* synthetic */ ncc.a b;
+        public class a implements u6c {
+            public final /* synthetic */ u6c a;
+            public final /* synthetic */ k6c.a b;
 
-            public a(b bVar, xcc xccVar, ncc.a aVar) {
-                this.a = xccVar;
+            public a(b bVar, u6c u6cVar, k6c.a aVar) {
+                this.a = u6cVar;
                 this.b = aVar;
             }
 
-            @Override // com.baidu.tieba.xcc
+            @Override // com.baidu.tieba.u6c
             public void call() {
                 try {
                     this.a.call();
@@ -44,47 +44,48 @@ public final class ScalarSynchronousObservable<T> extends kcc<T> {
             }
         }
 
-        public b(ScalarSynchronousObservable scalarSynchronousObservable, ncc nccVar) {
-            this.a = nccVar;
+        public b(ScalarSynchronousObservable scalarSynchronousObservable, k6c k6cVar) {
+            this.a = k6cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ddc
-        public rcc call(xcc xccVar) {
-            ncc.a createWorker = this.a.createWorker();
-            createWorker.b(new a(this, xccVar, createWorker));
+        @Override // com.baidu.tieba.a7c
+        /* renamed from: a */
+        public o6c call(u6c u6cVar) {
+            k6c.a createWorker = this.a.createWorker();
+            createWorker.b(new a(this, u6cVar, createWorker));
             return createWorker;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements mcc, xcc {
+    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements j6c, u6c {
         public static final long serialVersionUID = -2466317989629281651L;
-        public final qcc<? super T> actual;
-        public final ddc<xcc, rcc> onSchedule;
+        public final n6c<? super T> actual;
+        public final a7c<u6c, o6c> onSchedule;
         public final T value;
 
-        public ScalarAsyncProducer(qcc<? super T> qccVar, T t, ddc<xcc, rcc> ddcVar) {
-            this.actual = qccVar;
+        public ScalarAsyncProducer(n6c<? super T> n6cVar, T t, a7c<u6c, o6c> a7cVar) {
+            this.actual = n6cVar;
             this.value = t;
-            this.onSchedule = ddcVar;
+            this.onSchedule = a7cVar;
         }
 
-        @Override // com.baidu.tieba.xcc
+        @Override // com.baidu.tieba.u6c
         public void call() {
-            qcc<? super T> qccVar = this.actual;
-            if (qccVar.isUnsubscribed()) {
+            n6c<? super T> n6cVar = this.actual;
+            if (n6cVar.isUnsubscribed()) {
                 return;
             }
             Object obj = (T) this.value;
             try {
-                qccVar.onNext(obj);
-                if (qccVar.isUnsubscribed()) {
+                n6cVar.onNext(obj);
+                if (n6cVar.isUnsubscribed()) {
                     return;
                 }
-                qccVar.onCompleted();
+                n6cVar.onCompleted();
             } catch (Throwable th) {
-                wcc.g(th, qccVar, obj);
+                t6c.g(th, n6cVar, obj);
             }
         }
 
@@ -93,7 +94,7 @@ public final class ScalarSynchronousObservable<T> extends kcc<T> {
             return "ScalarAsyncProducer[" + this.value + StringUtil.ARRAY_ELEMENT_SEPARATOR + get() + PreferencesUtil.RIGHT_MOUNT;
         }
 
-        @Override // com.baidu.tieba.mcc
+        @Override // com.baidu.tieba.j6c
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
@@ -108,94 +109,89 @@ public final class ScalarSynchronousObservable<T> extends kcc<T> {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements ddc<xcc, rcc> {
-        public final /* synthetic */ mec a;
+    public class a implements a7c<u6c, o6c> {
+        public final /* synthetic */ l8c a;
 
-        public a(ScalarSynchronousObservable scalarSynchronousObservable, mec mecVar) {
-            this.a = mecVar;
+        public a(ScalarSynchronousObservable scalarSynchronousObservable, l8c l8cVar) {
+            this.a = l8cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ddc
-        public rcc call(xcc xccVar) {
-            return this.a.a(xccVar);
+        @Override // com.baidu.tieba.a7c
+        /* renamed from: a */
+        public o6c call(u6c u6cVar) {
+            return this.a.a(u6cVar);
         }
     }
 
     /* JADX INFO: Add missing generic type declarations: [R] */
     /* loaded from: classes2.dex */
-    public class c<R> implements kcc.a<R> {
-        public final /* synthetic */ ddc a;
+    public class c<R> implements h6c.a<R> {
+        public final /* synthetic */ a7c a;
 
-        public c(ddc ddcVar) {
-            this.a = ddcVar;
+        public c(a7c a7cVar) {
+            this.a = a7cVar;
         }
 
-        public void call(qcc<? super R> qccVar) {
-            kcc kccVar = (kcc) this.a.call(ScalarSynchronousObservable.this.b);
-            if (kccVar instanceof ScalarSynchronousObservable) {
-                qccVar.f(ScalarSynchronousObservable.Q(qccVar, ((ScalarSynchronousObservable) kccVar).b));
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.v6c
+        /* renamed from: a */
+        public void call(n6c<? super R> n6cVar) {
+            h6c h6cVar = (h6c) this.a.call(ScalarSynchronousObservable.this.b);
+            if (h6cVar instanceof ScalarSynchronousObservable) {
+                n6cVar.f(ScalarSynchronousObservable.Q(n6cVar, ((ScalarSynchronousObservable) h6cVar).b));
             } else {
-                kccVar.O(vgc.c(qccVar));
+                h6cVar.O(uac.c(n6cVar));
             }
-        }
-
-        @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((qcc) ((qcc) obj));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class d<T> implements kcc.a<T> {
+    public static final class d<T> implements h6c.a<T> {
         public final T a;
 
         public d(T t) {
             this.a = t;
         }
 
-        public void call(qcc<? super T> qccVar) {
-            qccVar.f(ScalarSynchronousObservable.Q(qccVar, this.a));
-        }
-
-        @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((qcc) ((qcc) obj));
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.v6c
+        /* renamed from: a */
+        public void call(n6c<? super T> n6cVar) {
+            n6cVar.f(ScalarSynchronousObservable.Q(n6cVar, this.a));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class e<T> implements kcc.a<T> {
+    public static final class e<T> implements h6c.a<T> {
         public final T a;
-        public final ddc<xcc, rcc> b;
+        public final a7c<u6c, o6c> b;
 
-        public e(T t, ddc<xcc, rcc> ddcVar) {
+        public e(T t, a7c<u6c, o6c> a7cVar) {
             this.a = t;
-            this.b = ddcVar;
+            this.b = a7cVar;
         }
 
-        public void call(qcc<? super T> qccVar) {
-            qccVar.f(new ScalarAsyncProducer(qccVar, this.a, this.b));
-        }
-
-        @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((qcc) ((qcc) obj));
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.v6c
+        /* renamed from: a */
+        public void call(n6c<? super T> n6cVar) {
+            n6cVar.f(new ScalarAsyncProducer(n6cVar, this.a, this.b));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class f<T> implements mcc {
-        public final qcc<? super T> a;
+    public static final class f<T> implements j6c {
+        public final n6c<? super T> a;
         public final T b;
         public boolean c;
 
-        public f(qcc<? super T> qccVar, T t) {
-            this.a = qccVar;
+        public f(n6c<? super T> n6cVar, T t) {
+            this.a = n6cVar;
             this.b = t;
         }
 
-        @Override // com.baidu.tieba.mcc
+        @Override // com.baidu.tieba.j6c
         public void request(long j) {
             if (this.c) {
                 return;
@@ -206,20 +202,20 @@ public final class ScalarSynchronousObservable<T> extends kcc<T> {
                     return;
                 }
                 this.c = true;
-                qcc<? super T> qccVar = this.a;
-                if (qccVar.isUnsubscribed()) {
+                n6c<? super T> n6cVar = this.a;
+                if (n6cVar.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.b;
                 try {
-                    qccVar.onNext(obj);
-                    if (qccVar.isUnsubscribed()) {
+                    n6cVar.onNext(obj);
+                    if (n6cVar.isUnsubscribed()) {
                         return;
                     }
-                    qccVar.onCompleted();
+                    n6cVar.onCompleted();
                     return;
                 } catch (Throwable th) {
-                    wcc.g(th, qccVar, obj);
+                    t6c.g(th, n6cVar, obj);
                     return;
                 }
             }
@@ -232,7 +228,7 @@ public final class ScalarSynchronousObservable<T> extends kcc<T> {
     }
 
     public ScalarSynchronousObservable(T t) {
-        super(ygc.h(new d(t)));
+        super(xac.h(new d(t)));
         this.b = t;
     }
 
@@ -240,24 +236,24 @@ public final class ScalarSynchronousObservable<T> extends kcc<T> {
         return new ScalarSynchronousObservable<>(t);
     }
 
-    public <R> kcc<R> S(ddc<? super T, ? extends kcc<? extends R>> ddcVar) {
-        return kcc.d(new c(ddcVar));
+    public <R> h6c<R> S(a7c<? super T, ? extends h6c<? extends R>> a7cVar) {
+        return h6c.d(new c(a7cVar));
     }
 
-    public kcc<T> T(ncc nccVar) {
-        ddc bVar;
-        if (nccVar instanceof mec) {
-            bVar = new a(this, (mec) nccVar);
+    public h6c<T> T(k6c k6cVar) {
+        a7c bVar;
+        if (k6cVar instanceof l8c) {
+            bVar = new a(this, (l8c) k6cVar);
         } else {
-            bVar = new b(this, nccVar);
+            bVar = new b(this, k6cVar);
         }
-        return kcc.d(new e(this.b, bVar));
+        return h6c.d(new e(this.b, bVar));
     }
 
-    public static <T> mcc Q(qcc<? super T> qccVar, T t) {
+    public static <T> j6c Q(n6c<? super T> n6cVar, T t) {
         if (c) {
-            return new SingleProducer(qccVar, t);
+            return new SingleProducer(n6cVar, t);
         }
-        return new f(qccVar, t);
+        return new f(n6cVar, t);
     }
 }

@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.annotations;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public class AnnotatedImpl implements Annotated {
     public final Annotations annotations;
 

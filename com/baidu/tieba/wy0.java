@@ -1,39 +1,74 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public abstract class wy0 extends vy0 {
+public class wy0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<Class<? extends cz0>, cz0> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yy0 f;
 
-    public abstract void V(yy0 yy0Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948286779, "Lcom/baidu/tieba/wy0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948286779, "Lcom/baidu/tieba/wy0;");
+                return;
+            }
+        }
+        a = new HashMap<>();
+    }
 
     public wy0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f = new yy0();
     }
 
-    @Override // com.baidu.tieba.vy0
-    public void F(dz0 dz0Var) {
+    public static <T extends cz0> T a(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dz0Var) == null) {
-            this.f.a(dz0Var);
-            V(this.f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            T t = (T) a.get(cls);
+            if (t == null) {
+                synchronized (wy0.class) {
+                    t = (T) a.get(cls);
+                    if (t == null) {
+                        t = (T) xy0.a(cls);
+                        a.put(cls, t);
+                    }
+                }
+            }
+            return t;
         }
+        return (T) invokeL.objValue;
+    }
+
+    public static <T extends cz0> bz0 b(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            return a(cls).b();
+        }
+        return (bz0) invokeL.objValue;
     }
 }

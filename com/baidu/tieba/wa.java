@@ -1,39 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.controller.MessageRule;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes8.dex */
-public abstract class wa extends MessageRule<HttpMessage, HttpMessageTask> {
+public class wa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wa(int i) {
-        super(i);
+    public static int a(InputStream inputStream, OutputStream outputStream) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, outputStream)) == null) {
+            long b = b(inputStream, outputStream);
+            if (b > 2147483647L) {
+                return -1;
             }
+            return (int) b;
         }
-        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.HTTP) {
-            throw new InvalidParameterException("cmd invalid");
+        return invokeLL.intValue;
+    }
+
+    public static long b(InputStream inputStream, OutputStream outputStream) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
+            if (inputStream == null) {
+                return -1L;
+            }
+            byte[] bArr = new byte[4096];
+            long j = 0;
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (-1 != read) {
+                    outputStream.write(bArr, 0, read);
+                    j += read;
+                } else {
+                    return j;
+                }
+            }
+        } else {
+            return invokeLL.longValue;
         }
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str != null && str.contains("vnd.wap.wml")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static byte[] d(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            a(inputStream, byteArrayOutputStream);
+            return byteArrayOutputStream.toByteArray();
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

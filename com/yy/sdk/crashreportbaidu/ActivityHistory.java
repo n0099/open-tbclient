@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import com.baidu.tieba.q4c;
+import com.baidu.tieba.nyb;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
@@ -72,7 +72,7 @@ public enum ActivityHistory {
 
         @Override // android.content.ComponentCallbacks2
         public void onTrimMemory(int i) {
-            q4c.b(ActivityHistory.TAG, "trim level: " + i);
+            nyb.b(ActivityHistory.TAG, "trim level: " + i);
             ActivityHistory.this.mLastTrimLevel = i;
             if (i == 20) {
                 ActivityHistory.this.addRecord(ActivityHistory.BACKGROUND);
@@ -81,7 +81,7 @@ public enum ActivityHistory {
 
         @Override // android.content.ComponentCallbacks
         public void onLowMemory() {
-            q4c.b(ActivityHistory.TAG, "low memory");
+            nyb.b(ActivityHistory.TAG, "low memory");
         }
     }
 

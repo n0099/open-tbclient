@@ -5,17 +5,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b7;
+import com.baidu.tieba.v2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
-import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class Gdx2DPixmap implements b7 {
+public class Gdx2DPixmap implements v2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
@@ -35,22 +34,10 @@ public class Gdx2DPixmap implements b7 {
 
     public static native void drawRect(long j, int i, int i2, int i3, int i4, int i5);
 
-    public static native void fillCircle(long j, int i, int i2, int i3, int i4);
-
-    public static native void fillRect(long j, int i, int i2, int i3, int i4, int i5);
-
-    public static native void fillTriangle(long j, int i, int i2, int i3, int i4, int i5, int i6, int i7);
-
-    public static native void free(long j);
-
-    public static native String getFailureReason();
-
-    public static native int getPixel(long j, int i, int i2);
-
-    public static String j(int i) {
+    public static String f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
             switch (i) {
                 case 1:
                     return Key.ALPHA;
@@ -70,6 +57,18 @@ public class Gdx2DPixmap implements b7 {
         }
         return (String) invokeI.objValue;
     }
+
+    public static native void fillCircle(long j, int i, int i2, int i3, int i4);
+
+    public static native void fillRect(long j, int i, int i2, int i3, int i4, int i5);
+
+    public static native void fillTriangle(long j, int i, int i2, int i3, int i4, int i5, int i6, int i7);
+
+    public static native void free(long j);
+
+    public static native String getFailureReason();
+
+    public static native int getPixel(long j, int i, int i2);
 
     public static native ByteBuffer load(long[] jArr, byte[] bArr, int i, int i2);
 
@@ -108,48 +107,13 @@ public class Gdx2DPixmap implements b7 {
             this.d = (int) jArr2[3];
             return;
         }
-        throw new GdxRuntimeException("Unable to allocate memory for pixmap: " + i + "x" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + j(i3));
+        throw new GdxRuntimeException("Unable to allocate memory for pixmap: " + i + "x" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f(i3));
     }
 
-    public Gdx2DPixmap(byte[] bArr, int i, int i2, int i3) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        long[] jArr = new long[4];
-        this.f = jArr;
-        ByteBuffer load = load(jArr, bArr, i, i2);
-        this.e = load;
-        if (load != null) {
-            long[] jArr2 = this.f;
-            this.a = jArr2[0];
-            this.b = (int) jArr2[1];
-            this.c = (int) jArr2[2];
-            int i6 = (int) jArr2[3];
-            this.d = i6;
-            if (i3 != 0 && i3 != i6) {
-                f(i3);
-                return;
-            }
-            return;
-        }
-        throw new IOException("Error loading pixmap: " + getFailureReason());
-    }
-
-    public static int r(int i) {
+    public static int n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
             switch (i) {
                 case 1:
                     return 6406;
@@ -168,10 +132,10 @@ public class Gdx2DPixmap implements b7 {
         return invokeI.intValue;
     }
 
-    public static int s(int i) {
+    public static int o(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
             switch (i) {
                 case 1:
                 case 2:
@@ -189,118 +153,102 @@ public class Gdx2DPixmap implements b7 {
         return invokeI.intValue;
     }
 
-    public void a(int i) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             clear(this.a, i);
         }
     }
 
-    public void q(int i) {
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             setBlend(this.a, i);
         }
     }
 
-    @Override // com.baidu.tieba.b7
+    public void c(Gdx2DPixmap gdx2DPixmap, int i, int i2, int i3, int i4, int i5, int i6) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{gdx2DPixmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+            drawPixmap(gdx2DPixmap.a, this.a, i, i2, i5, i6, i3, i4, i5, i6);
+        }
+    }
+
+    public void d(Gdx2DPixmap gdx2DPixmap, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{gdx2DPixmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+            drawPixmap(gdx2DPixmap.a, this.a, i, i2, i3, i4, i5, i6, i7, i8);
+        }
+    }
+
+    @Override // com.baidu.tieba.v2
     public void dispose() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             free(this.a);
         }
     }
 
-    public int i() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.d;
         }
         return invokeV.intValue;
     }
 
-    public int k() {
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return h();
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return l();
+            return n(this.d);
         }
         return invokeV.intValue;
     }
 
-    public int l() {
+    public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return r(this.d);
+            return o(this.d);
         }
         return invokeV.intValue;
     }
 
-    public int m() {
+    public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return s(this.d);
-        }
-        return invokeV.intValue;
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.c;
         }
         return invokeV.intValue;
     }
 
-    public ByteBuffer o() {
+    public ByteBuffer k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.e;
         }
         return (ByteBuffer) invokeV.objValue;
     }
 
-    public int p() {
+    public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.b;
         }
         return invokeV.intValue;
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            Gdx2DPixmap gdx2DPixmap = new Gdx2DPixmap(this.b, this.c, i);
-            gdx2DPixmap.q(0);
-            gdx2DPixmap.g(this, 0, 0, 0, 0, this.b, this.c);
-            dispose();
-            this.a = gdx2DPixmap.a;
-            this.d = gdx2DPixmap.d;
-            this.c = gdx2DPixmap.c;
-            this.f = gdx2DPixmap.f;
-            this.e = gdx2DPixmap.e;
-            this.b = gdx2DPixmap.b;
-        }
-    }
-
-    public void g(Gdx2DPixmap gdx2DPixmap, int i, int i2, int i3, int i4, int i5, int i6) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{gdx2DPixmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            drawPixmap(gdx2DPixmap.a, this.a, i, i2, i5, i6, i3, i4, i5, i6);
-        }
-    }
-
-    public void h(Gdx2DPixmap gdx2DPixmap, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{gdx2DPixmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-            drawPixmap(gdx2DPixmap.a, this.a, i, i2, i3, i4, i5, i6, i7, i8);
-        }
     }
 }

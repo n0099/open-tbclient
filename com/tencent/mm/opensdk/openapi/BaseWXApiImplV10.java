@@ -653,12 +653,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
             this.appId = str;
         }
         Log.d(TAG, "register app " + this.context.getPackageName());
-        a.C0768a c0768a = new a.C0768a();
-        c0768a.a = "com.tencent.mm";
-        c0768a.action = ConstantsAPI.ACTION_HANDLE_APP_REGISTER;
-        c0768a.content = "weixin://registerapp?appid=" + this.appId;
-        c0768a.b = j;
-        return a.a(this.context, c0768a);
+        a.C0703a c0703a = new a.C0703a();
+        c0703a.a = "com.tencent.mm";
+        c0703a.action = ConstantsAPI.ACTION_HANDLE_APP_REGISTER;
+        c0703a.content = "weixin://registerapp?appid=" + this.appId;
+        c0703a.b = j;
+        return a.a(this.context, c0703a);
     }
 
     @Override // com.tencent.mm.opensdk.openapi.IWXAPI
@@ -844,10 +844,10 @@ public class BaseWXApiImplV10 implements IWXAPI {
             return;
         }
         Log.d(TAG, "unregister app " + this.context.getPackageName());
-        a.C0768a c0768a = new a.C0768a();
-        c0768a.a = "com.tencent.mm";
-        c0768a.action = ConstantsAPI.ACTION_HANDLE_APP_UNREGISTER;
-        c0768a.content = "weixin://unregisterapp?appid=" + this.appId;
-        a.a(this.context, c0768a);
+        a.C0703a c0703a = new a.C0703a();
+        c0703a.a = "com.tencent.mm";
+        c0703a.action = ConstantsAPI.ACTION_HANDLE_APP_UNREGISTER;
+        c0703a.content = "weixin://unregisterapp?appid=" + this.appId;
+        a.a(this.context, c0703a);
     }
 }

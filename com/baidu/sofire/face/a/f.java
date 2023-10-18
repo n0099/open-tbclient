@@ -84,7 +84,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
     public IDetectStrategy S;
 
     /* renamed from: T  reason: collision with root package name */
-    public Map<Long, String> f1069T;
+    public Map<Long, String> f1070T;
     public int U;
     public long V;
     public JSONArray W;
@@ -146,12 +146,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
         /* renamed from: com.baidu.sofire.face.a.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0181a implements Runnable {
+        public class RunnableC0183a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0181a(a aVar) {
+            public RunnableC0183a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -303,7 +303,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     com.baidu.sofire.face.b.b.a(fVar6.a, fVar6.r, 1, 0, null);
                     f fVar7 = this.a;
                     if (fVar7.d != null && (activity3 = fVar7.b) != null) {
-                        activity3.runOnUiThread(new RunnableC0181a(this));
+                        activity3.runOnUiThread(new RunnableC0183a(this));
                     }
                     if (!FH.isInitSuc(1) && this.a.n.a()) {
                         this.a.a(-15);
@@ -873,12 +873,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
     /* renamed from: com.baidu.sofire.face.a.f$f  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC0182f implements Runnable {
+    public class RunnableC0184f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        public RunnableC0182f(f fVar) {
+        public RunnableC0184f(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1071,7 +1071,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                             fVar.p = true;
                             Map<Long, String> a = f.a(fVar, hashMap, hashMap2);
                             if (a != null) {
-                                this.a.f1069T = a;
+                                this.a.f1070T = a;
                             } else {
                                 this.a.a(-8);
                             }
@@ -1140,7 +1140,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                             fVar.p = true;
                             Map<Long, String> a = f.a(fVar, hashMap, hashMap2);
                             if (a != null) {
-                                this.a.f1069T = a;
+                                this.a.f1070T = a;
                             } else {
                                 this.a.a(-8);
                             }
@@ -1660,10 +1660,10 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                     }
                     this.j = null;
                 }
-                Map<Long, String> map = this.f1069T;
+                Map<Long, String> map = this.f1070T;
                 if (map != null) {
                     map.clear();
-                    this.f1069T = null;
+                    this.f1070T = null;
                 }
                 com.baidu.sofire.face.b.b.a(this.a, this.r, 2, i2, null);
             } catch (Throwable unused2) {
@@ -1753,11 +1753,11 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                 if (jSONObject3 == null) {
                     jSONObject3 = new JSONObject();
                 }
-                if (this.f1069T.size() == 1) {
-                    jSONObject3.put("image", this.f1069T.values().iterator().next());
-                } else if (this.f1069T.size() >= 2) {
+                if (this.f1070T.size() == 1) {
+                    jSONObject3.put("image", this.f1070T.values().iterator().next());
+                } else if (this.f1070T.size() >= 2) {
                     JSONArray jSONArray = new JSONArray();
-                    for (String str2 : this.f1069T.values()) {
+                    for (String str2 : this.f1070T.values()) {
                         jSONArray.put(str2);
                     }
                     jSONObject3.put("images", jSONArray);
@@ -2059,7 +2059,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             try {
                 Activity activity = this.b;
                 if (activity != null) {
-                    activity.runOnUiThread(new RunnableC0182f(this));
+                    activity.runOnUiThread(new RunnableC0184f(this));
                 }
             } catch (Throwable unused) {
             }

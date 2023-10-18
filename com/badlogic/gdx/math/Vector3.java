@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.n7;
+import com.baidu.tieba.z2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class Vector3 implements Serializable, e<Vector3> {
+public class Vector3 implements Serializable, c<Vector3> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Vector3 X;
     public static final Vector3 Y;
@@ -109,7 +109,7 @@ public class Vector3 implements Serializable, e<Vector3> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return ((((n7.a(this.x) + 31) * 31) + n7.a(this.y)) * 31) + n7.a(this.z);
+            return ((((z2.a(this.x) + 31) * 31) + z2.a(this.y)) * 31) + z2.a(this.z);
         }
         return invokeV.intValue;
     }
@@ -182,7 +182,7 @@ public class Vector3 implements Serializable, e<Vector3> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
-            return setFromSpherical(d.k() * 6.2831855f, (float) Math.acos((d.k() * 2.0f) - 1.0f));
+            return setFromSpherical(b.j() * 6.2831855f, (float) Math.acos((b.j() * 2.0f) - 1.0f));
         }
         return (Vector3) invokeV.objValue;
     }
@@ -280,11 +280,11 @@ public class Vector3 implements Serializable, e<Vector3> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    public Vector3 interpolate(Vector3 vector3, float f, c cVar) {
+    public Vector3 interpolate(Vector3 vector3, float f, a aVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{vector3, Float.valueOf(f), cVar})) == null) {
-            return lerp(vector3, cVar.b(0.0f, 1.0f, f));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{vector3, Float.valueOf(f), aVar})) == null) {
+            return lerp(vector3, aVar.b(0.0f, 1.0f, f));
         }
         return (Vector3) invokeCommon.objValue;
     }
@@ -387,9 +387,9 @@ public class Vector3 implements Serializable, e<Vector3> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048664, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            float c = d.c(f2);
-            float o = d.o(f2);
-            return set(d.c(f) * o, d.o(f) * o, c);
+            float c = b.c(f2);
+            float l = b.l(f2);
+            return set(b.c(f) * l, b.l(f) * l, c);
         }
         return (Vector3) invokeCommon.objValue;
     }
@@ -535,7 +535,7 @@ public class Vector3 implements Serializable, e<Vector3> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, vector3)) == null) {
-            return d.h(dot(vector3));
+            return b.g(dot(vector3));
         }
         return invokeL.booleanValue;
     }
@@ -814,7 +814,7 @@ public class Vector3 implements Serializable, e<Vector3> {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048623, this, vector3, f)) == null) {
-            return d.i(dot(vector3), f);
+            return b.h(dot(vector3), f);
         }
         return invokeLF.booleanValue;
     }
@@ -913,7 +913,7 @@ public class Vector3 implements Serializable, e<Vector3> {
                 return false;
             }
             Vector3 vector3 = (Vector3) obj;
-            if (n7.a(this.x) == n7.a(vector3.x) && n7.a(this.y) == n7.a(vector3.y) && n7.a(this.z) == n7.a(vector3.z)) {
+            if (z2.a(this.x) == z2.a(vector3.x) && z2.a(this.y) == z2.a(vector3.y) && z2.a(this.z) == z2.a(vector3.z)) {
                 return true;
             }
             return false;

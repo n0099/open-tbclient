@@ -1,120 +1,158 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.recapp.localads.LocationCacheData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class vr5 {
+public class vr5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] b;
+    public static vr5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<tr5> eventDelegates;
-    public boolean isDispatchMvcEventing;
-    public BdUniqueId uniqueId;
+    public CustomMessageListener a;
 
-    public void onBeforeDispatchMvcEvent(ur5 ur5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ur5Var) == null) {
+    /* loaded from: classes8.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vr5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vr5 vr5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vr5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vr5Var;
         }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                this.a.d();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948250416, "Lcom/baidu/tieba/vr5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948250416, "Lcom/baidu/tieba/vr5;");
+                return;
+            }
+        }
+        b = new byte[1];
     }
 
     public vr5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.isDispatchMvcEventing = false;
+        BdNetTypeUtil.init();
     }
 
-    public void addEventDelegate(tr5 tr5Var) {
+    public static vr5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tr5Var) == null) {
-            if (this.eventDelegates == null) {
-                this.eventDelegates = new ArrayList();
-            }
-            if (this.eventDelegates.contains(tr5Var)) {
-                return;
-            }
-            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
-                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
-            }
-            this.eventDelegates.add(tr5Var);
-        }
-    }
-
-    public void removeEventDelegate(tr5 tr5Var) {
-        List<tr5> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, tr5Var) != null) || (list = this.eventDelegates) == null || !list.contains(tr5Var)) {
-            return;
-        }
-        if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
-            throw new RuntimeException("can not add event delegate on dispatch mvcevent");
-        }
-        this.eventDelegates.remove(tr5Var);
-    }
-
-    public boolean dispatchMvcEvent(ur5 ur5Var) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ur5Var)) == null) {
-            if (ur5Var == null) {
-                return false;
-            }
-            if (ur5Var.e() == null) {
-                ur5Var.i(this.uniqueId);
-            }
-            if (this.eventDelegates == null) {
-                return false;
-            }
-            try {
-                this.isDispatchMvcEventing = true;
-                onBeforeDispatchMvcEvent(ur5Var);
-                int size = this.eventDelegates.size();
-                z = false;
-                for (int i = 0; i < size; i++) {
-                    try {
-                        tr5 tr5Var = this.eventDelegates.get(i);
-                        if (tr5Var != null && ((!tr5Var.o() || (tr5Var.o() && ur5Var.e() == tr5Var.getUniqueId())) && (z = tr5Var.j(ur5Var)) && ur5Var.f())) {
-                            return true;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            BdLog.e(th);
-                            if (TbadkCoreApplication.getInst().isDebugMode()) {
-                                throw new RuntimeException(th);
-                            }
-                            this.isDispatchMvcEventing = false;
-                            return z;
-                        } finally {
-                            this.isDispatchMvcEventing = false;
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (b) {
+                    if (c == null) {
+                        c = new vr5();
                     }
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                z = false;
             }
-            this.isDispatchMvcEventing = false;
-            return z;
+            return c;
         }
-        return invokeL.booleanValue;
+        return (vr5) invokeV.objValue;
+    }
+
+    public final CustomMessageListener c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this, 2000994);
+        }
+        return (CustomMessageListener) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                if (this.a == null) {
+                    this.a = c();
+                    MessageManager.getInstance().registerListener(this.a);
+                }
+            } catch (Exception e) {
+                this.a = null;
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                boolean isNetWorkAvailable = BdNetTypeUtil.isNetWorkAvailable();
+                if (isNetWorkAvailable) {
+                    if (BdNetTypeUtil.isWifiNet()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(true);
+                        LocationCacheData.getInstance().refreshMacAddress();
+                    } else if (BdNetTypeUtil.isMobileNet()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(false);
+                    }
+                }
+                NoNetworkView.setIsHasNetwork(isNetWorkAvailable);
+                CompatibleUtile.dealWebView(null);
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+            }
+        }
     }
 }

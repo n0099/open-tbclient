@@ -8,9 +8,9 @@ import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.tieba.o0c;
-import com.baidu.tieba.p0c;
-import com.baidu.tieba.r0c;
+import com.baidu.tieba.lub;
+import com.baidu.tieba.mub;
+import com.baidu.tieba.oub;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -133,29 +133,29 @@ public class HmsMessaging {
         }
     }
 
-    public o0c<Void> subscribe(String str) {
+    public lub<Void> subscribe(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             HMSLog.i("HmsMessaging", "invoke subscribe");
             return a(str, "Sub");
         }
-        return (o0c) invokeL.objValue;
+        return (lub) invokeL.objValue;
     }
 
-    public o0c<Void> unsubscribe(String str) {
+    public lub<Void> unsubscribe(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             HMSLog.i("HmsMessaging", "invoke unsubscribe");
             return a(str, "UnSub");
         }
-        return (o0c) invokeL.objValue;
+        return (lub) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r6v16. Raw type applied. Possible types: com.baidu.tieba.o0c<TResult>, com.baidu.tieba.o0c<java.lang.Void> */
-    /* JADX DEBUG: Type inference failed for r6v18. Raw type applied. Possible types: com.baidu.tieba.o0c<TResult>, com.baidu.tieba.o0c<java.lang.Void> */
-    public final o0c<Void> a(String str, String str2) {
+    /* JADX DEBUG: Type inference failed for r6v16. Raw type applied. Possible types: com.baidu.tieba.lub<TResult>, com.baidu.tieba.lub<java.lang.Void> */
+    /* JADX DEBUG: Type inference failed for r6v18. Raw type applied. Possible types: com.baidu.tieba.lub<TResult>, com.baidu.tieba.lub<java.lang.Void> */
+    public final lub<Void> a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
@@ -184,26 +184,26 @@ public class HmsMessaging {
                     }
                     throw a2.toApiException();
                 } catch (ApiException e) {
-                    p0c p0cVar = new p0c();
-                    p0cVar.c(e);
+                    mub mubVar = new mub();
+                    mubVar.c(e);
                     PushBiUtil.reportExit(this.b, PushNaming.SUBSCRIBE, reportEntry, e.getStatusCode());
-                    return p0cVar.b();
+                    return mubVar.b();
                 } catch (Exception unused) {
-                    p0c p0cVar2 = new p0c();
-                    p0cVar2.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
+                    mub mubVar2 = new mub();
+                    mubVar2.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
                     PushBiUtil.reportExit(this.b, PushNaming.SUBSCRIBE, reportEntry, ErrorEnum.ERROR_INTERNAL_ERROR);
-                    return p0cVar2.b();
+                    return mubVar2.b();
                 }
             }
             PushBiUtil.reportExit(this.b, PushNaming.SUBSCRIBE, reportEntry, ErrorEnum.ERROR_ARGUMENTS_INVALID);
             HMSLog.e("HmsMessaging", "Invalid topic: topic should match the format:[\\u4e00-\\u9fa5\\w-_.~%]{1,900}");
             throw new IllegalArgumentException("Invalid topic: topic should match the format:[\\u4e00-\\u9fa5\\w-_.~%]{1,900}");
         }
-        return (o0c) invokeLL.objValue;
+        return (lub) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r10v2. Raw type applied. Possible types: com.baidu.tieba.o0c<TResult>, com.baidu.tieba.o0c<java.lang.Void> */
-    public final o0c<Void> a(boolean z) {
+    /* JADX DEBUG: Type inference failed for r10v2. Raw type applied. Possible types: com.baidu.tieba.lub<TResult>, com.baidu.tieba.lub<java.lang.Void> */
+    public final lub<Void> a(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
@@ -211,16 +211,16 @@ public class HmsMessaging {
             if (s.d(this.b) && !s.b()) {
                 if (HwBuildEx.VERSION.EMUI_SDK_INT < 12) {
                     HMSLog.e("HmsMessaging", "operation not available on Huawei device with EMUI lower than 5.1");
-                    p0c p0cVar = new p0c();
-                    p0cVar.c(ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.toApiException());
+                    mub mubVar = new mub();
+                    mubVar.c(ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.toApiException());
                     PushBiUtil.reportExit(this.b, PushNaming.SET_NOTIFY_FLAG, reportEntry, ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED);
-                    return p0cVar.b();
+                    return mubVar.b();
                 } else if (s.b(this.b) < 90101310) {
                     HMSLog.i("HmsMessaging", "turn on/off with broadcast v1");
                     Context context = this.b;
                     Intent putExtra = new Intent("com.huawei.intent.action.SELF_SHOW_FLAG").putExtra("enalbeFlag", PushEncrypter.encrypterOld(context, this.b.getPackageName() + "#" + z));
                     putExtra.setPackage("android");
-                    return r0c.b(new IntentCallable(this.b, putExtra, reportEntry));
+                    return oub.b(new IntentCallable(this.b, putExtra, reportEntry));
                 } else {
                     HMSLog.i("HmsMessaging", "turn on/off with broadcast v2");
                     new PushPreferences(this.b, "push_notify_flag").saveBoolean("notify_msg_enable", !z);
@@ -230,7 +230,7 @@ public class HmsMessaging {
                     intent.putExtra("pkgName", this.b.getPackageName());
                     intent.putExtra("url", parse);
                     intent.setPackage("android");
-                    return r0c.b(new IntentCallable(this.b, intent, reportEntry));
+                    return oub.b(new IntentCallable(this.b, intent, reportEntry));
                 }
             }
             HMSLog.i("HmsMessaging", "turn on/off with AIDL");
@@ -239,7 +239,7 @@ public class HmsMessaging {
             enableNotifyReq.setEnable(z);
             return this.c.doWrite(new BaseVoidTask(PushNaming.SET_NOTIFY_FLAG, JsonUtil.createJsonString(enableNotifyReq), reportEntry));
         }
-        return (o0c) invokeZ.objValue;
+        return (lub) invokeZ.objValue;
     }
 
     public final void a(RemoteMessage remoteMessage) {
@@ -303,7 +303,7 @@ public class HmsMessaging {
         }
     }
 
-    public o0c<Void> turnOffPush() {
+    public lub<Void> turnOffPush() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -314,10 +314,10 @@ public class HmsMessaging {
             HMSLog.i("HmsMessaging", "invoke turnOffPush");
             return a(false);
         }
-        return (o0c) invokeV.objValue;
+        return (lub) invokeV.objValue;
     }
 
-    public o0c<Void> turnOnPush() {
+    public lub<Void> turnOnPush() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -328,6 +328,6 @@ public class HmsMessaging {
             HMSLog.i("HmsMessaging", "invoke turnOnPush");
             return a(true);
         }
-        return (o0c) invokeV.objValue;
+        return (lub) invokeV.objValue;
     }
 }

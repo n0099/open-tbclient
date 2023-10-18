@@ -23,7 +23,7 @@ public final class et {
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean mo470a();
+        boolean mo469a();
     }
 
     public static synchronized void a() {
@@ -31,7 +31,7 @@ public final class et {
             if (f329a == null) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m183a("[Alarm] stop alarm.");
+            com.xiaomi.channel.commonutils.logger.b.m182a("[Alarm] stop alarm.");
             f329a.a();
         }
     }
@@ -77,7 +77,7 @@ public final class et {
                         } catch (Exception e) {
                             e = e;
                             i = i2;
-                            com.xiaomi.channel.commonutils.logger.b.m183a("check service err : " + e.getMessage());
+                            com.xiaomi.channel.commonutils.logger.b.m182a("check service err : " + e.getMessage());
                             if (i != 0) {
                             }
                             int i3 = Build.VERSION.SDK_INT;
@@ -90,7 +90,7 @@ public final class et {
             } catch (Exception e2) {
                 e = e2;
             }
-            if (i != 0 && s.m728a(applicationContext)) {
+            if (i != 0 && s.m727a(applicationContext)) {
                 throw new RuntimeException("Should export service: " + f330a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
             }
             int i32 = Build.VERSION.SDK_INT;
@@ -119,21 +119,21 @@ public final class et {
     public static synchronized void a(boolean z) {
         synchronized (et.class) {
             if (f329a == null) {
-                com.xiaomi.channel.commonutils.logger.b.m183a("timer is not initialized");
+                com.xiaomi.channel.commonutils.logger.b.m182a("timer is not initialized");
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m183a("[Alarm] register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
+            com.xiaomi.channel.commonutils.logger.b.m182a("[Alarm] register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
             f329a.a(z);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m469a() {
+    public static synchronized boolean m468a() {
         synchronized (et.class) {
             if (f329a == null) {
                 return false;
             }
-            return f329a.mo470a();
+            return f329a.mo469a();
         }
     }
 }

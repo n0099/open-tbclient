@@ -1,25 +1,78 @@
 package com.baidu.tieba;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
+import android.animation.AnimatorInflater;
+import android.animation.ObjectAnimator;
+import android.animation.StateListAnimator;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewOutlineProvider;
+import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.motion.widget.Key;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@RequiresApi(21)
 /* loaded from: classes8.dex */
-public interface y60 extends Closeable {
-    void disconnect();
+public class y60 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final int[] a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int getCode() throws IOException;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948281974, "Lcom/baidu/tieba/y60;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948281974, "Lcom/baidu/tieba/y60;");
+                return;
+            }
+        }
+        a = new int[]{16843848};
+    }
 
-    Map<String, List<String>> getHeaders() throws IOException;
+    public static void a(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            view2.setOutlineProvider(ViewOutlineProvider.BOUNDS);
+        }
+    }
 
-    InputStream getInputStream() throws IOException;
+    public static void b(View view2, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(65538, null, view2, f) == null) {
+            int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0013);
+            StateListAnimator stateListAnimator = new StateListAnimator();
+            long j = integer;
+            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f0404bd, -2130969790}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
+            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, f).setDuration(j));
+            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(0L));
+            view2.setStateListAnimator(stateListAnimator);
+        }
+    }
 
-    String getMessage() throws IOException;
-
-    InputStream m() throws IOException;
-
-    void t(int i);
-
-    int u();
+    public static void c(View view2, AttributeSet attributeSet, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65539, null, view2, attributeSet, i, i2) == null) {
+            Context context = view2.getContext();
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a, i, i2);
+            try {
+                if (obtainStyledAttributes.hasValue(0)) {
+                    view2.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));
+                }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                obtainStyledAttributes.recycle();
+                throw th;
+            }
+            obtainStyledAttributes.recycle();
+        }
+    }
 }

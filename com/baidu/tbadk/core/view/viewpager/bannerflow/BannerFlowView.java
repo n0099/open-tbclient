@@ -10,24 +10,24 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.vb5;
-import com.baidu.tieba.wb5;
-import com.baidu.tieba.yb5;
-import com.baidu.tieba.zb5;
+import com.baidu.tieba.d65;
+import com.baidu.tieba.e65;
+import com.baidu.tieba.g65;
+import com.baidu.tieba.h65;
+import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BannerFlowView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public vb5 c;
-    public zb5 d;
+    public d65 c;
+    public h65 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,8 +89,8 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new vb5(context, this.a, this.b, null);
-            this.d = new zb5(context, yb5.a);
+            this.c = new d65(context, this.a, this.b, null);
+            this.d = new h65(context, g65.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
@@ -107,7 +107,7 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setData(List<bn> list) {
+    public void setData(List<yh> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.a.removeAllViews();
@@ -122,11 +122,11 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(wb5.a<yb5, zb5.a> aVar) {
-        zb5 zb5Var;
+    public void setOnItemClickListener(e65.a<g65, h65.a> aVar) {
+        h65 h65Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (zb5Var = this.d) != null) {
-            zb5Var.e(aVar);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (h65Var = this.d) != null) {
+            h65Var.f(aVar);
         }
     }
 }

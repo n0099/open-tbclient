@@ -1,15 +1,90 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.util.Objects;
+import tbclient.Loop.FestivalInfo;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes8.dex */
-public interface tb5 {
-    void a(View view2);
+public class tb5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    @SerializedName("main_fname")
+    public String a;
+    @SerializedName("main_fid")
+    public long b;
+    @Nullable
+    @SerializedName("bless")
+    public String c;
+    @Nullable
+    @SerializedName("write_select_tips")
+    public String d;
+    @Nullable
+    @SerializedName("comment_tips")
+    public String e;
+    @Nullable
+    @SerializedName("tips_color")
+    public ThemeColorInfo f;
 
-    void b(boolean z, int i, boolean z2);
+    public tb5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(int i);
+    public void a(FestivalInfo festivalInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, festivalInfo) != null) || festivalInfo == null) {
+            return;
+        }
+        this.a = festivalInfo.main_fname;
+        this.b = festivalInfo.main_fid.longValue();
+        this.c = festivalInfo.bless;
+        this.d = festivalInfo.write_select_tips;
+        this.e = festivalInfo.comment_tips;
+        this.f = festivalInfo.tips_color;
+    }
 
-    void d(boolean z, int i);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || tb5.class != obj.getClass()) {
+                return false;
+            }
+            tb5 tb5Var = (tb5) obj;
+            if (Objects.equals(this.a, tb5Var.a) && this.b == tb5Var.b && Objects.equals(this.c, tb5Var.c) && Objects.equals(this.d, tb5Var.d) && Objects.equals(this.e, tb5Var.e)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    void e(View.OnClickListener onClickListener);
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Objects.hash(this.a, Long.valueOf(this.b), this.c, this.d, this.e);
+        }
+        return invokeV.intValue;
+    }
 }

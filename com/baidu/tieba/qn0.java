@@ -1,50 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class qn0 implements zn0 {
+public abstract class qn0 implements bo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rn0 b;
-    public int c;
-    public long d;
-    public AtomicBoolean e;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public interface a {
+        void a(Exception exc, int i);
 
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final qn0 a;
-        public transient /* synthetic */ FieldHolder $fh;
+        void b(Headers headers, InputStream inputStream, int i) throws Exception;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-484099080, "Lcom/baidu/tieba/qn0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-484099080, "Lcom/baidu/tieba/qn0$b;");
-                    return;
-                }
-            }
-            a = new qn0(null);
-        }
+        void c(Headers headers, String str, int i) throws Exception;
     }
 
     public qn0() {
@@ -57,72 +30,7 @@ public class qn0 implements zn0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = -1;
-        this.d = 0L;
-        this.e = new AtomicBoolean(false);
-    }
-
-    public static qn0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (qn0) invokeV.objValue;
-    }
-
-    public void b() {
-        rn0 rn0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.c + 1;
-            this.c = i;
-            if (i <= 2 && (rn0Var = this.b) != null) {
-                rn0Var.e();
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.set(false);
-        }
-    }
-
-    public /* synthetic */ qn0(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.zn0
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.e.get()) {
-            return;
-        }
-        rn0 rn0Var = this.b;
-        if (rn0Var != null) {
-            rn0Var.d();
-            this.b = null;
-            this.c = -1;
-        }
-        if (z) {
-            if (this.d == 0 || System.currentTimeMillis() - this.d <= 300000) {
-                return;
-            }
-            if (this.e.compareAndSet(false, true)) {
-                this.b = new rn0(60, this.c + 1, true);
-            }
-        } else {
-            if (this.e.compareAndSet(false, true)) {
-                this.b = new rn0(60, this.c + 1, false);
-            }
-            nn0.d().f();
-        }
-        b();
-        this.d = System.currentTimeMillis();
     }
 }

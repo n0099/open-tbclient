@@ -6,8 +6,8 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tieba.lzb;
-import com.baidu.tieba.nzb;
+import com.baidu.tieba.itb;
+import com.baidu.tieba.ktb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,20 +111,20 @@ public class AGCUtils {
             }
             String str = null;
             try {
-                lzb b = lzb.b();
-                if (b.getContext() != context) {
-                    b = lzb.a(new nzb().a(context));
+                itb c = itb.c();
+                if (c.b() != context) {
+                    c = itb.a(new ktb().a(context));
                 }
-                str = b.c().a("client/cp_id");
+                str = c.d().a("client/cp_id");
             } catch (NullPointerException unused) {
                 HMSLog.e("AGCUtils", "Get cpid with AGConnectServicesConfig failed");
             }
             if (!TextUtils.isEmpty(str)) {
                 return str;
             }
-            String b2 = b(context);
-            if (!TextUtils.isEmpty(b2)) {
-                return b2;
+            String b = b(context);
+            if (!TextUtils.isEmpty(b)) {
+                return b;
             }
             return a(context, "client/cp_id");
         }
@@ -144,10 +144,10 @@ public class AGCUtils {
             InputStream inputStream = null;
             try {
                 try {
-                    nzb nzbVar = new nzb();
+                    ktb ktbVar = new ktb();
                     inputStream = context.getResources().getAssets().open("agconnect-services.json");
-                    nzbVar.b(inputStream);
-                    str2 = nzbVar.a(context).a(str);
+                    ktbVar.b(inputStream);
+                    str2 = ktbVar.a(context).a(str);
                 } catch (IOException e) {
                     HMSLog.e("AGCUtils", "Get " + str + " failed: " + e);
                     str2 = "";
@@ -198,11 +198,11 @@ public class AGCUtils {
                 str = null;
             }
             try {
-                lzb b = lzb.b();
-                if (b.getContext() != context) {
-                    b = lzb.a(new nzb().a(context));
+                itb c = itb.c();
+                if (c.b() != context) {
+                    c = itb.a(new ktb().a(context));
                 }
-                str = b.c().a("client/app_id");
+                str = c.d().a("client/app_id");
             } catch (NullPointerException unused) {
                 HMSLog.e("AGCUtils", "Get appId with AGConnectServicesConfig failed");
             }

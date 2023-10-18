@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.MessageQueue;
 import android.text.TextUtils;
+import com.baidu.mobads.sdk.internal.au;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.sapi2.SapiOptions;
@@ -55,7 +56,7 @@ import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.yo1;
+import com.baidu.tieba.ij1;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -308,7 +309,7 @@ public final class SapiAccountManager implements ISAccountManager {
         SapiConfiguration sapiConfiguration2 = getSapiConfiguration();
         if (sapiConfiguration2 != null) {
             sapiConfiguration2.setAgreeDangerousProtocol(z);
-            yo1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
+            ij1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
             sapiConfiguration2.clientIp = SapiUtils.getLocalIpAddress();
             if (sapiConfiguration2.supportFaceLogin) {
                 new PassBiometricCall().setFaceModuleAgreeDangerousProtocol(z);
@@ -861,7 +862,7 @@ public final class SapiAccountManager implements ISAccountManager {
                 Log.e(Log.TAG, objArr);
             }
         });
-        StatService.onEvent("logout", Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo("sdk_api_logout")));
+        StatService.onEvent(au.b, Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo("sdk_api_logout")));
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         removeLoginAccount(currentAccount);
         if (currentAccount != null) {

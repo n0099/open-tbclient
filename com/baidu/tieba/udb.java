@@ -1,29 +1,9 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes8.dex */
 public interface udb {
-    void a(int i);
+    void a();
 
-    String b(boolean z);
+    void b(int i);
 
-    String c(String str);
-
-    int d();
-
-    String e(String str);
-
-    Context getAppContext();
-
-    int getInt(String str, int i);
-
-    long getLong(String str, long j);
-
-    boolean isDebug();
-
-    void putInt(String str, int i);
-
-    void putLong(String str, long j);
-
-    void putString(String str, String str2);
+    void c(long j);
 }

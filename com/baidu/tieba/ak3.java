@@ -1,23 +1,30 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
-import com.baidu.storage.swankv.SwanKV;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.tieba.ci3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ak3 {
+public class ak3 extends ci3.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, zj3> b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,57 +39,132 @@ public class ak3 {
                 return;
             }
         }
-        a = qr1.a;
-        b = new ArrayMap();
+        c = am1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ak3(boolean z) {
+        super(z);
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (z) {
+            str = "swan_js_native_v8_ab.txt";
+        } else {
+            str = "swan_js_native_webview_ab.txt";
+        }
+        this.b = lo2.g().getPath() + File.separator + "js_native" + File.separator + str;
+    }
+
+    public boolean a(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            String str = lo2.g().getPath() + File.separator + "js_native" + File.separator;
+            if ((i & 1) != 0) {
+                z = sl4.M(str + "swan_js_native_v8_ab.txt");
+            } else {
+                z = true;
+            }
+            if ((i & 2) != 0) {
+                return z & sl4.M(str + "swan_js_native_webview_ab.txt");
+            }
+            return z;
+        }
+        return invokeI.booleanValue;
     }
 
     @Nullable
-    public static AshmemFileDescriptor a(@NonNull String str, int i) {
-        InterceptResult invokeLI;
+    public final List<String> b(boolean z, String str) {
+        InterceptResult invokeZL;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            try {
-                if (ProcessUtils.isMainProcess()) {
-                    synchronized (b) {
-                        zj3 zj3Var = b.get(str);
-                        if (zj3Var != null && zj3Var.a() != null) {
-                            return zj3Var.a();
-                        }
-                        int ashmemFD = SwanKV.getAshmemFD(str, i);
-                        if (ashmemFD >= 0) {
-                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
-                            wj3.e(ashmemFileDescriptor);
-                            return ashmemFileDescriptor;
-                        }
-                        return null;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
+            if (z) {
+                str2 = SchemeCollecter.CLASSIFY_SWAN_V8;
+            } else {
+                str2 = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
+            }
+            if (z) {
+                str3 = "swan/v8_ab";
+            } else {
+                str3 = "swan/webview_ab";
+            }
+            List<JSONObject> b = yj3.b(str2, str3);
+            if (b != null) {
+                File file = new File(str);
+                ArrayList arrayList = new ArrayList();
+                for (JSONObject jSONObject : b) {
+                    if (jSONObject != null) {
+                        arrayList.add(jSONObject.toString());
                     }
                 }
-                return vj3.c(str, i);
-            } catch (Throwable th) {
-                if (a) {
-                    th.printStackTrace();
-                    return null;
+                if (file.exists()) {
+                    sl4.L(file);
                 }
-                return null;
+                sl4.h(file);
+                sl4.P(arrayList, file);
+                return arrayList;
             }
+            return null;
         }
-        return (AshmemFileDescriptor) invokeLI.objValue;
+        return (List) invokeZL.objValue;
     }
 
-    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+    public boolean c(@NonNull JSONArray jSONArray) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
-            synchronized (ak3.class) {
-                if (ProcessUtils.isMainProcess()) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+            if (jSONArray.length() > 0 && sl4.v(this.b)) {
+                if (this.a) {
+                    str = SchemeCollecter.CLASSIFY_SWAN_V8;
+                } else {
+                    str = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
                 }
-                zj3 zj3Var = b.get(ashmemFileDescriptor.getName());
-                if (zj3Var != null && zj3Var.a() != null && zj3Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
-                    SwanKV b2 = zj3Var.b();
-                    zj3Var.c(new SwanKV(ashmemFileDescriptor));
-                    b2.release();
+                return zj3.a(jSONArray, new File(this.b), SchemeCollecter.getSchemesDesListSize(str));
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public List<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (c) {
+                Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
+            }
+            if (!wh4.b() && !TextUtils.equals(wh4.a(), "0")) {
+                File file = new File(this.b);
+                if (file.exists()) {
+                    sl4.L(file);
                 }
             }
+            if (sl4.v(this.b)) {
+                if (c) {
+                    Log.d("SwanAppCompat", "start create cache");
+                }
+                return sl4.F(new File(this.b));
+            }
+            return b(this.a, this.b);
         }
+        return (List) invokeV.objValue;
     }
 }

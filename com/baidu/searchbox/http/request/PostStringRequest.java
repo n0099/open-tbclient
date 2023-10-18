@@ -5,7 +5,7 @@ import com.baidu.searchbox.http.AbstractHttpManager;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
     public static final MediaType MEDIA_TYPE_PLAIN = MediaType.parse("text/plain");
     public String content;

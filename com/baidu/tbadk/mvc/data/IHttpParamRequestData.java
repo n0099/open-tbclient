@@ -1,9 +1,9 @@
 package com.baidu.tbadk.mvc.data;
 
-import com.baidu.tieba.or5;
+import com.baidu.tieba.ul5;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
-public interface IHttpParamRequestData extends or5 {
+/* loaded from: classes5.dex */
+public interface IHttpParamRequestData extends ul5 {
     HashMap<String, String> getHttpHeader();
 
     HashMap<String, Object> makeHttpParam();

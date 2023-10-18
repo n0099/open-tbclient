@@ -1,79 +1,125 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class by6 implements bn {
+public class by6 implements iy6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeatureCardCompetition a;
+    public dy6 a;
+    public boolean b;
+    public boolean c;
+    public ay6 d;
+    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947661354, "Lcom/baidu/tieba/by6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947661354, "Lcom/baidu/tieba/by6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public by6() {
+    public by6(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = false;
+        this.e = false;
+        this.a = new dy6();
+        this.e = z;
     }
 
-    public FeatureCardCompetition a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.iy6
+    public void a(String str, jy6 jy6Var) {
+        ay6 ay6Var;
+        ay6 ay6Var2;
+        float f;
+        float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (FeatureCardCompetition) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void b(FeatureCardCompetition featureCardCompetition) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardCompetition) != null) || featureCardCompetition == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, jy6Var) != null) || jy6Var == null) {
             return;
         }
-        this.a = featureCardCompetition;
-        String str = featureCardCompetition.title;
-        Integer num = featureCardCompetition.floor;
-        Integer num2 = featureCardCompetition.type;
+        if (this.b) {
+            File file = new File(jy6Var.a);
+            Bitmap decodeFile = BitmapFactory.decodeFile(jy6Var.a);
+            if (file.exists() && decodeFile != null) {
+                float height = decodeFile.getHeight();
+                float width = decodeFile.getWidth();
+                float f3 = height * 1.0f;
+                float f4 = f3 / width;
+                if (f4 > 1.0f) {
+                    f = 1.7777778f;
+                } else {
+                    f = 0.75f;
+                }
+                float f5 = 0.0f;
+                if (f4 > f) {
+                    float f6 = f * width;
+                    f2 = (height - f6) * 0.5f;
+                    height = f6;
+                } else {
+                    float f7 = f3 / f;
+                    f5 = (width - f7) * 0.5f;
+                    width = f7;
+                    f2 = 0.0f;
+                }
+                jy6Var.a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f5, (int) f2, (int) width, (int) height), 95);
+            }
+        }
+        if ("default".equals(str)) {
+            if (!this.c && (ay6Var2 = this.d) != null) {
+                ay6Var2.y(jy6Var.a);
+            }
+        } else if ("manual".equals(str) && (ay6Var = this.d) != null) {
+            ay6Var.y(jy6Var.a);
+        }
+    }
+
+    public void b(ky6 ky6Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ky6Var, str) == null) {
+            this.a.a(str, this.e).a(ky6Var, this);
+        }
+    }
+
+    @Override // com.baidu.tieba.iy6
+    public void onError(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            BdLog.e("get cover error ! type : " + str + ", err : " + str2);
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void e(ay6 ay6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ay6Var) == null) {
+            this.d = ay6Var;
+        }
     }
 }

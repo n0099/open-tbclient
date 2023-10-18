@@ -8,32 +8,32 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.aw6;
-import com.baidu.tieba.ax6;
-import com.baidu.tieba.bw6;
-import com.baidu.tieba.bx6;
-import com.baidu.tieba.cw6;
-import com.baidu.tieba.dw6;
-import com.baidu.tieba.ew6;
-import com.baidu.tieba.fw6;
+import com.baidu.tieba.aq6;
+import com.baidu.tieba.ar6;
+import com.baidu.tieba.bq6;
+import com.baidu.tieba.cr6;
+import com.baidu.tieba.cs6;
+import com.baidu.tieba.eq6;
+import com.baidu.tieba.er6;
+import com.baidu.tieba.es6;
+import com.baidu.tieba.gr6;
 import com.baidu.tieba.h0;
 import com.baidu.tieba.i0;
-import com.baidu.tieba.kv6;
+import com.baidu.tieba.ir6;
+import com.baidu.tieba.jq6;
+import com.baidu.tieba.jr6;
+import com.baidu.tieba.kq6;
+import com.baidu.tieba.kr6;
 import com.baidu.tieba.l0;
-import com.baidu.tieba.pv6;
-import com.baidu.tieba.pw6;
-import com.baidu.tieba.qv6;
-import com.baidu.tieba.qw6;
-import com.baidu.tieba.rv6;
-import com.baidu.tieba.rw6;
-import com.baidu.tieba.sv6;
-import com.baidu.tieba.tw6;
-import com.baidu.tieba.tx6;
-import com.baidu.tieba.vv6;
-import com.baidu.tieba.vw6;
-import com.baidu.tieba.vx6;
-import com.baidu.tieba.xw6;
-import com.baidu.tieba.zw6;
+import com.baidu.tieba.lq6;
+import com.baidu.tieba.mq6;
+import com.baidu.tieba.nq6;
+import com.baidu.tieba.oq6;
+import com.baidu.tieba.tp6;
+import com.baidu.tieba.yp6;
+import com.baidu.tieba.yq6;
+import com.baidu.tieba.zp6;
+import com.baidu.tieba.zq6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,15 +58,15 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000~\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u001e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0000\u0018\u0000 ;2\u00020\u00012\u00020\u0002:\u0001;B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005J\u000e\u0010\u001d\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u0010J\u0014\u0010 \u001a\u00020\u001e2\f\u0010!\u001a\b\u0012\u0004\u0012\u00020\u00100\"J\b\u0010#\u001a\u00020\u001eH\u0003J\u0016\u0010$\u001a\u00020%2\f\u0010&\u001a\b\u0012\u0004\u0012\u00020\u00100\u001bH\u0002J\u0010\u0010'\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u0010H\u0002J\b\u0010(\u001a\u00020\u001eH\u0002J\u0010\u0010)\u001a\u00020\u001e2\b\u0010\u001f\u001a\u0004\u0018\u00010\u0010J\u0016\u0010*\u001a\u00020\u001e2\f\u0010+\u001a\b\u0012\u0004\u0012\u00020\u00100\u001bH\u0016J\u0016\u0010,\u001a\u00020\u001e2\f\u0010-\u001a\b\u0012\u0004\u0012\u00020\u00100\u001bH\u0016J\u0018\u0010.\u001a\u00020\u001e2\u0006\u0010/\u001a\u0002002\u0006\u00101\u001a\u000202H\u0014J\u0010\u00103\u001a\u00020\u001e2\u0006\u00104\u001a\u000205H\u0016J\b\u00106\u001a\u00020\u001eH\u0002J\u0010\u00107\u001a\u00020\u001e2\u0006\u00101\u001a\u000202H\u0016J\b\u00108\u001a\u00020\u001eH\u0002J\u0006\u00109\u001a\u00020\u001eJ\u000e\u0010:\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u0010R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u0011\u001a\u0012\u0012\u0004\u0012\u00020\u000b0\u0012j\b\u0012\u0004\u0012\u00020\u000b`\u0013X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00100\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00100\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\u00100\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R2\u0010\u0019\u001a&\u0012\f\u0012\n \u001a*\u0004\u0018\u00010\u00100\u0010 \u001a*\u0012\u0012\f\u0012\n \u001a*\u0004\u0018\u00010\u00100\u0010\u0018\u00010\u001b0\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006<"}, d2 = {"Lcom/baidu/tieba/danmu/ecs/system/DataSystem;", "Lcom/baidu/tieba/danmu/ecs/base/DanmakuSortedSystem;", "Lcom/baidu/tieba/danmu/data/DataSource$DataChangeListener;", "context", "Lcom/baidu/tieba/danmu/ecs/DanmakuContext;", "(Lcom/baidu/tieba/danmu/ecs/DanmakuContext;)V", "comparator", "Lcom/baidu/tieba/danmu/ecs/system/DanmakuItemComparator;", "currentData", "Lcom/baidu/tieba/danmu/ecs/system/Danmakus;", "endTimeMills", "", "entityEntryTime", "forceUpdate", "", "holdingItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "idSet", "Ljava/util/HashSet;", "Lkotlin/collections/HashSet;", "pendingAddItems", "", "pendingCreateItems", "pendingUpdateItems", "shouldSort", "sortedData", "kotlin.jvm.PlatformType", "", "startTimeMills", "addItem", "", "item", "addItems", "items", "", "addPendingItems", "createEntityBeforeEntry", "", "data", "createItemEntity", "createPendingItems", "hold", "onDataAdded", "additionalItems", "onDataRemoved", "removalItems", "processEntity", "entity", "Lcom/badlogic/ashley/core/Entity;", "deltaTime", "", "removedFromEngine", "engine", "Lcom/badlogic/ashley/core/Engine;", QuickPersistConfigConst.KEY_SPLASH_SORT, StickerDataChangeType.UPDATE, "updateCurrentSlice", "updateEntities", "updateItem", "Companion", "danmu_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class DataSystem extends aw6 implements sv6.a {
+public final class DataSystem extends jq6 implements bq6.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<qv6> i;
-    public vw6 j;
-    public final tw6 k;
-    public final List<qv6> l;
-    public final List<qv6> m;
-    public final List<qv6> n;
+    public final List<zp6> i;
+    public er6 j;
+    public final cr6 k;
+    public final List<zp6> l;
+    public final List<zp6> m;
+    public final List<zp6> n;
     public boolean o;
     public long p;
     public long q;
@@ -89,8 +89,8 @@ public final class DataSystem extends aw6 implements sv6.a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DataSystem(vv6 context) {
-        super(context, vx6.a.a(), null, 4, null);
+    public DataSystem(eq6 context) {
+        super(context, es6.a.a(), null, 4, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public final class DataSystem extends aw6 implements sv6.a {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((vv6) objArr2[0], (l0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                super((eq6) objArr2[0], (l0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -109,61 +109,61 @@ public final class DataSystem extends aw6 implements sv6.a {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         this.i = Collections.synchronizedList(new ArrayList());
-        List synchronizedList = Collections.synchronizedList(new pv6());
+        List synchronizedList = Collections.synchronizedList(new yp6());
         Intrinsics.checkNotNullExpressionValue(synchronizedList, "synchronizedList(TreeList())");
-        this.j = new vw6(synchronizedList, 0L, 0L, -1, -1, false, 32, null);
-        this.k = new tw6();
+        this.j = new er6(synchronizedList, 0L, 0L, -1, -1, false, 32, null);
+        this.k = new cr6();
         this.l = new ArrayList();
         this.m = new ArrayList();
         this.n = new ArrayList();
         this.s = new HashSet<>();
     }
 
-    public final void A(qv6 qv6Var) {
-        fw6 fw6Var;
+    public final void B(zp6 zp6Var) {
+        oq6 oq6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, qv6Var) != null) || this.s.contains(Long.valueOf(qv6Var.e().f()))) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zp6Var) != null) || this.s.contains(Long.valueOf(zp6Var.e().f()))) {
             return;
         }
         i0 entity = f().i();
         Intrinsics.checkNotNullExpressionValue(entity, "entity");
-        if (((cw6) zw6.a(this, cw6.class, entity, qv6Var)) == null) {
+        if (((lq6) ir6.a(this, lq6.class, entity, zp6Var)) == null) {
             return;
         }
-        if (qv6Var.e().j() > 0) {
-            if (((dw6) zw6.a(this, dw6.class, entity, qv6Var)) == null) {
+        if (zp6Var.e().j() > 0) {
+            if (((mq6) ir6.a(this, mq6.class, entity, zp6Var)) == null) {
                 return;
             }
-            int j = qv6Var.e().j();
+            int j = zp6Var.e().j();
             if (j != 1) {
                 if (j != 4) {
                     if (j == 5) {
-                        entity.a(new qw6());
+                        entity.a(new zq6());
                     }
                 } else {
-                    entity.a(new pw6());
+                    entity.a(new yq6());
                 }
             } else {
-                entity.a(new rw6());
+                entity.a(new ar6());
             }
         }
-        if (!qv6Var.d().isEmpty() && (fw6Var = (fw6) zw6.a(this, fw6.class, entity, qv6Var)) != null) {
-            for (ew6 it : qv6Var.d()) {
+        if (!zp6Var.d().isEmpty() && (oq6Var = (oq6) ir6.a(this, oq6.class, entity, zp6Var)) != null) {
+            for (nq6 it : zp6Var.d()) {
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                fw6Var.d(it);
+                oq6Var.d(it);
             }
         }
         f().c(entity);
-        this.s.add(Long.valueOf(qv6Var.e().f()));
+        this.s.add(Long.valueOf(zp6Var.e().f()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void m() {
+    public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (this.o) {
                 synchronized (this) {
-                    List<qv6> sortedData = this.i;
+                    List<zp6> sortedData = this.i;
                     Intrinsics.checkNotNullExpressionValue(sortedData, "sortedData");
                     CollectionsKt__MutableCollectionsJVMKt.sortWith(sortedData, this.k);
                     Unit unit = Unit.INSTANCE;
@@ -180,19 +180,29 @@ public final class DataSystem extends aw6 implements sv6.a {
         }
     }
 
-    @Override // com.baidu.tieba.aw6, com.baidu.tieba.yv6, com.baidu.tieba.k0
+    public final int A(List<? extends zp6> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            this.m.addAll(list);
+            return list.size();
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.jq6, com.baidu.tieba.hq6, com.baidu.tieba.k0
     public void g(h0 engine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, engine) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, engine) == null) {
             Intrinsics.checkNotNullParameter(engine, "engine");
             super.g(engine);
             this.i.clear();
         }
     }
 
-    public final void w(qv6 item) {
+    public final void x(zp6 item) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, item) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, item) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             synchronized (this) {
                 this.l.add(item);
@@ -200,9 +210,9 @@ public final class DataSystem extends aw6 implements sv6.a {
         }
     }
 
-    public final void x(Collection<? extends qv6> items) {
+    public final void y(Collection<? extends zp6> items) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, items) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, items) == null) {
             Intrinsics.checkNotNullParameter(items, "items");
             synchronized (this) {
                 this.l.addAll(items);
@@ -210,287 +220,256 @@ public final class DataSystem extends aw6 implements sv6.a {
         }
     }
 
-    public final int z(List<? extends qv6> list) {
-        InterceptResult invokeL;
+    public final void C() {
+        List<zp6> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, list)) == null) {
-            this.m.addAll(list);
-            return list.size();
-        }
-        return invokeL.intValue;
-    }
-
-    public final void B() {
-        List<qv6> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
                 list = CollectionsKt___CollectionsKt.toList(this.m);
                 this.m.clear();
             }
-            for (qv6 qv6Var : list) {
-                A(qv6Var);
+            for (zp6 zp6Var : list) {
+                B(zp6Var);
             }
         }
     }
 
-    public final void C() {
+    public final void D() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.i.isEmpty()) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.i.isEmpty()) {
             return;
         }
         int i = 0;
         if (!GlobalBuildConfig.isDebug()) {
-            bx6.b("DataSystem_createNewSlice");
+            kr6.b("DataSystem_createNewSlice");
             synchronized (this) {
                 List sortedData = this.i;
                 Intrinsics.checkNotNullExpressionValue(sortedData, "sortedData");
-                int a = xw6.a(sortedData, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
+                int a = gr6.a(sortedData, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
                 List sortedData2 = this.i;
                 Intrinsics.checkNotNullExpressionValue(sortedData2, "sortedData");
-                int b = xw6.b(sortedData2, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
+                int b = gr6.b(sortedData2, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
                 if (a != -1 && b != -1 && b >= a) {
                     BdLog.w("DanmakuEngine [Data] update current slice [" + a + StringUtil.ARRAY_ELEMENT_SEPARATOR + b + "] in time (" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ')');
                     List subList = this.i.subList(a, b + 1);
-                    bx6.a();
+                    kr6.a();
                     Unit unit = Unit.INSTANCE;
-                    bx6.b("DataSystem_getCurrentEntity_" + subList.size());
-                    vw6 vw6Var = this.j;
-                    List synchronizedList = Collections.synchronizedList(xw6.c(subList));
+                    kr6.b("DataSystem_getCurrentEntity_" + subList.size());
+                    er6 er6Var = this.j;
+                    List synchronizedList = Collections.synchronizedList(gr6.c(subList));
                     Intrinsics.checkNotNullExpressionValue(synchronizedList, "synchronizedList(newData.toTreeList())");
-                    this.j = new vw6(synchronizedList, this.p, this.q, a, b, false, 32, null);
-                    bx6.a();
-                    bx6.b("DataSystem_diffAndCreateEntity");
-                    if (a <= vw6Var.b() && b > vw6Var.d()) {
-                        z(subList);
+                    this.j = new er6(synchronizedList, this.p, this.q, a, b, false, 32, null);
+                    kr6.a();
+                    kr6.b("DataSystem_diffAndCreateEntity");
+                    if (a <= er6Var.b() && b > er6Var.d()) {
+                        A(subList);
                     } else {
                         i = 0 + subList.size();
-                        z(subList);
+                        A(subList);
                         BdLog.d("DanmakuEngine [Data] Add all new data [" + a + StringUtil.ARRAY_ELEMENT_SEPARATOR + b + ']');
                     }
-                    bx6.a();
+                    kr6.a();
                     BdLog.d("DanmakuEngine [Data] Add " + i + " in [" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ']');
                 }
                 BdLog.w("DanmakuEngine [Data] update current slice failed: invalid start or end index.");
-                bx6.a();
+                kr6.a();
             }
             return;
         }
         Trace.beginSection("DataSystem_updateCurrentSlice");
-        bx6.b("DataSystem_createNewSlice");
+        kr6.b("DataSystem_createNewSlice");
         synchronized (this) {
             List sortedData3 = this.i;
             Intrinsics.checkNotNullExpressionValue(sortedData3, "sortedData");
-            int a2 = xw6.a(sortedData3, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
+            int a2 = gr6.a(sortedData3, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
             List sortedData4 = this.i;
             Intrinsics.checkNotNullExpressionValue(sortedData4, "sortedData");
-            int b2 = xw6.b(sortedData4, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
+            int b2 = gr6.b(sortedData4, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
             if (a2 != -1 && b2 != -1 && b2 >= a2) {
                 BdLog.w("DanmakuEngine [Data] update current slice [" + a2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2 + "] in time (" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ')');
                 List subList2 = this.i.subList(a2, b2 + 1);
-                bx6.a();
+                kr6.a();
                 Unit unit2 = Unit.INSTANCE;
-                bx6.b("DataSystem_getCurrentEntity_" + subList2.size());
-                vw6 vw6Var2 = this.j;
-                List synchronizedList2 = Collections.synchronizedList(xw6.c(subList2));
+                kr6.b("DataSystem_getCurrentEntity_" + subList2.size());
+                er6 er6Var2 = this.j;
+                List synchronizedList2 = Collections.synchronizedList(gr6.c(subList2));
                 Intrinsics.checkNotNullExpressionValue(synchronizedList2, "synchronizedList(newData.toTreeList())");
-                this.j = new vw6(synchronizedList2, this.p, this.q, a2, b2, false, 32, null);
-                bx6.a();
-                bx6.b("DataSystem_diffAndCreateEntity");
-                if (a2 <= vw6Var2.b() && b2 > vw6Var2.d()) {
-                    z(subList2);
+                this.j = new er6(synchronizedList2, this.p, this.q, a2, b2, false, 32, null);
+                kr6.a();
+                kr6.b("DataSystem_diffAndCreateEntity");
+                if (a2 <= er6Var2.b() && b2 > er6Var2.d()) {
+                    A(subList2);
                 } else {
                     i = 0 + subList2.size();
-                    z(subList2);
+                    A(subList2);
                     BdLog.d("DanmakuEngine [Data] Add all new data [" + a2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2 + ']');
                 }
-                bx6.a();
+                kr6.a();
                 BdLog.d("DanmakuEngine [Data] Add " + i + " in [" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ']');
             }
             BdLog.w("DanmakuEngine [Data] update current slice failed: invalid start or end index.");
-            bx6.a();
+            kr6.a();
         }
         Unit unit3 = Unit.INSTANCE;
         Trace.endSection();
     }
 
-    public final void D() {
+    public final void E() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            kv6 c = i().c();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            tp6 c = j().c();
             long max = Math.max(c.k(), c.t());
-            long b = zw6.b(this) - max;
-            long b2 = zw6.b(this) + max;
-            zw6.b(this);
-            y();
+            long b = ir6.b(this) - max;
+            long b2 = ir6.b(this) + max;
+            ir6.b(this);
+            z();
             if (!GlobalBuildConfig.isDebug()) {
-                m();
+                n();
             } else {
                 Trace.beginSection("DataSystem_sort");
-                m();
+                n();
                 Unit unit = Unit.INSTANCE;
                 Trace.endSection();
             }
-            if (this.r || b < this.p || zw6.b(this) > this.q - i().c().q()) {
+            if (this.r || b < this.p || ir6.b(this) > this.q - j().c().q()) {
                 this.p = b;
                 this.q = b2;
-                C();
+                D();
                 this.r = false;
             }
-            B();
+            C();
         }
     }
 
-    @Override // com.baidu.tieba.aw6
-    public void l(i0 entity, float f) {
-        qv6 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048581, this, entity, f) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            tx6 d = zw6.d(this);
-            cw6 b = ax6.b(entity);
-            if (b != null && (a = b.a()) != null) {
-                bw6 d2 = ax6.d(entity);
-                if (d2 == null && (d2 = (bw6) zw6.a(this, bw6.class, entity, a)) == null) {
-                    return;
-                }
-                kv6 c = i().c();
-                if (d2.c() != c.l()) {
-                    d2.update(c.l(), i().e().a(a, d, c).a());
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.aw6, com.baidu.tieba.k0
-    public void update(float f) {
-        qv6 a;
+    @Override // com.baidu.tieba.jq6, com.baidu.tieba.k0
+    public void i(float f) {
+        zp6 a;
         long k;
-        qv6 a2;
+        zp6 a2;
         long k2;
-        qv6 a3;
+        zp6 a3;
         long k3;
-        qv6 a4;
+        zp6 a4;
         long k4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
             if (!GlobalBuildConfig.isDebug()) {
                 if (!GlobalBuildConfig.isDebug()) {
-                    kv6 c = i().c();
-                    for (i0 i0Var : k()) {
-                        cw6 b = ax6.b(i0Var);
+                    tp6 c = j().c();
+                    for (i0 i0Var : l()) {
+                        lq6 b = jr6.b(i0Var);
                         if (b != null && (a4 = b.a()) != null) {
-                            rv6 e = a4.e();
+                            aq6 e = a4.e();
                             if (e.j() == 1) {
                                 k4 = c.t();
                             } else {
                                 k4 = c.k();
                             }
                             a4.n(k4);
-                            if (ax6.h(i0Var, zw6.b(this))) {
+                            if (jr6.h(i0Var, ir6.b(this))) {
                                 if (!this.j.a().isEmpty()) {
                                     this.j.a().remove(a4);
                                 }
                                 this.s.remove(Long.valueOf(e.f()));
                                 f().m(i0Var);
-                                vw6 vw6Var = this.j;
-                                vw6Var.g(vw6Var.d() + 1);
-                            } else if (ax6.g(i0Var, this.q)) {
+                                er6 er6Var = this.j;
+                                er6Var.g(er6Var.d() + 1);
+                            } else if (jr6.g(i0Var, this.q)) {
                                 this.s.remove(Long.valueOf(e.f()));
                                 f().m(i0Var);
                             }
                         }
                     }
-                    super.update(f);
+                    super.i(f);
                     return;
                 }
                 Trace.beginSection("DataSystem_processEntity");
-                kv6 c2 = i().c();
-                for (i0 i0Var2 : k()) {
-                    cw6 b2 = ax6.b(i0Var2);
+                tp6 c2 = j().c();
+                for (i0 i0Var2 : l()) {
+                    lq6 b2 = jr6.b(i0Var2);
                     if (b2 != null && (a3 = b2.a()) != null) {
-                        rv6 e2 = a3.e();
+                        aq6 e2 = a3.e();
                         if (e2.j() == 1) {
                             k3 = c2.t();
                         } else {
                             k3 = c2.k();
                         }
                         a3.n(k3);
-                        if (ax6.h(i0Var2, zw6.b(this))) {
+                        if (jr6.h(i0Var2, ir6.b(this))) {
                             if (!this.j.a().isEmpty()) {
                                 this.j.a().remove(a3);
                             }
                             this.s.remove(Long.valueOf(e2.f()));
                             f().m(i0Var2);
-                            vw6 vw6Var2 = this.j;
-                            vw6Var2.g(vw6Var2.d() + 1);
-                        } else if (ax6.g(i0Var2, this.q)) {
+                            er6 er6Var2 = this.j;
+                            er6Var2.g(er6Var2.d() + 1);
+                        } else if (jr6.g(i0Var2, this.q)) {
                             this.s.remove(Long.valueOf(e2.f()));
                             f().m(i0Var2);
                         }
                     }
                 }
-                super.update(f);
+                super.i(f);
                 Unit unit = Unit.INSTANCE;
                 Trace.endSection();
                 return;
             }
             Trace.beginSection("DataSystem_update");
             if (!GlobalBuildConfig.isDebug()) {
-                kv6 c3 = i().c();
-                for (i0 i0Var3 : k()) {
-                    cw6 b3 = ax6.b(i0Var3);
+                tp6 c3 = j().c();
+                for (i0 i0Var3 : l()) {
+                    lq6 b3 = jr6.b(i0Var3);
                     if (b3 != null && (a2 = b3.a()) != null) {
-                        rv6 e3 = a2.e();
+                        aq6 e3 = a2.e();
                         if (e3.j() == 1) {
                             k2 = c3.t();
                         } else {
                             k2 = c3.k();
                         }
                         a2.n(k2);
-                        if (ax6.h(i0Var3, zw6.b(this))) {
+                        if (jr6.h(i0Var3, ir6.b(this))) {
                             if (!this.j.a().isEmpty()) {
                                 this.j.a().remove(a2);
                             }
                             this.s.remove(Long.valueOf(e3.f()));
                             f().m(i0Var3);
-                            vw6 vw6Var3 = this.j;
-                            vw6Var3.g(vw6Var3.d() + 1);
-                        } else if (ax6.g(i0Var3, this.q)) {
+                            er6 er6Var3 = this.j;
+                            er6Var3.g(er6Var3.d() + 1);
+                        } else if (jr6.g(i0Var3, this.q)) {
                             this.s.remove(Long.valueOf(e3.f()));
                             f().m(i0Var3);
                         }
                     }
                 }
-                super.update(f);
+                super.i(f);
             } else {
                 Trace.beginSection("DataSystem_processEntity");
-                kv6 c4 = i().c();
-                for (i0 i0Var4 : k()) {
-                    cw6 b4 = ax6.b(i0Var4);
+                tp6 c4 = j().c();
+                for (i0 i0Var4 : l()) {
+                    lq6 b4 = jr6.b(i0Var4);
                     if (b4 != null && (a = b4.a()) != null) {
-                        rv6 e4 = a.e();
+                        aq6 e4 = a.e();
                         if (e4.j() == 1) {
                             k = c4.t();
                         } else {
                             k = c4.k();
                         }
                         a.n(k);
-                        if (ax6.h(i0Var4, zw6.b(this))) {
+                        if (jr6.h(i0Var4, ir6.b(this))) {
                             if (!this.j.a().isEmpty()) {
                                 this.j.a().remove(a);
                             }
                             this.s.remove(Long.valueOf(e4.f()));
                             f().m(i0Var4);
-                            vw6 vw6Var4 = this.j;
-                            vw6Var4.g(vw6Var4.d() + 1);
-                        } else if (ax6.g(i0Var4, this.q)) {
+                            er6 er6Var4 = this.j;
+                            er6Var4.g(er6Var4.d() + 1);
+                        } else if (jr6.g(i0Var4, this.q)) {
                             this.s.remove(Long.valueOf(e4.f()));
                             f().m(i0Var4);
                         }
                     }
                 }
-                super.update(f);
+                super.i(f);
                 Unit unit2 = Unit.INSTANCE;
                 Trace.endSection();
             }
@@ -499,8 +478,29 @@ public final class DataSystem extends aw6 implements sv6.a {
         }
     }
 
+    @Override // com.baidu.tieba.jq6
+    public void m(i0 entity, float f) {
+        zp6 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(1048583, this, entity, f) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            cs6 d = ir6.d(this);
+            lq6 b = jr6.b(entity);
+            if (b != null && (a = b.a()) != null) {
+                kq6 d2 = jr6.d(entity);
+                if (d2 == null && (d2 = (kq6) ir6.a(this, kq6.class, entity, a)) == null) {
+                    return;
+                }
+                tp6 c = j().c();
+                if (d2.c() != c.l()) {
+                    d2.e(c.l(), j().e().a(a, d, c).a());
+                }
+            }
+        }
+    }
+
     @WorkerThread
-    public final void y() {
+    public final void z() {
         List list;
         List list2;
         int i;
@@ -509,7 +509,7 @@ public final class DataSystem extends aw6 implements sv6.a {
         boolean z3;
         boolean z4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this) {
                 list = CollectionsKt___CollectionsKt.toList(this.l);
                 this.l.clear();
@@ -528,7 +528,7 @@ public final class DataSystem extends aw6 implements sv6.a {
                 Iterator it = list.iterator();
                 i = 0;
                 while (it.hasNext()) {
-                    if (((qv6) it.next()).e().k() < this.p) {
+                    if (((zp6) it.next()).e().k() < this.p) {
                         z = true;
                     } else {
                         z = false;
@@ -542,7 +542,7 @@ public final class DataSystem extends aw6 implements sv6.a {
             for (Object obj : list) {
                 long j = this.p;
                 long j2 = this.q;
-                long k = ((qv6) obj).e().k();
+                long k = ((zp6) obj).e().k();
                 if (j <= k && k < j2) {
                     z4 = true;
                 } else {
@@ -552,15 +552,15 @@ public final class DataSystem extends aw6 implements sv6.a {
                     arrayList.add(obj);
                 }
             }
-            vw6 vw6Var = this.j;
-            vw6Var.g(vw6Var.d() + i);
-            vw6 vw6Var2 = this.j;
-            vw6Var2.e(vw6Var2.b() + i + arrayList.size());
+            er6 er6Var = this.j;
+            er6Var.g(er6Var.d() + i);
+            er6 er6Var2 = this.j;
+            er6Var2.e(er6Var2.b() + i + arrayList.size());
             ArrayList arrayList2 = new ArrayList();
             for (Object obj2 : list2) {
                 long j3 = this.p;
                 long j4 = this.q;
-                long k2 = ((qv6) obj2).e().k();
+                long k2 = ((zp6) obj2).e().k();
                 if (j3 <= k2 && k2 < j4) {
                     z3 = true;
                 } else {
@@ -580,8 +580,8 @@ public final class DataSystem extends aw6 implements sv6.a {
                 z2 = true;
             }
             this.o = z2;
-            vw6 vw6Var3 = this.j;
-            vw6Var3.f((vw6Var3.c() || (arrayList.isEmpty() ^ true) || (arrayList2.isEmpty() ^ true)) ? true : true);
+            er6 er6Var3 = this.j;
+            er6Var3.f((er6Var3.c() || (arrayList.isEmpty() ^ true) || (arrayList2.isEmpty() ^ true)) ? true : true);
         }
     }
 }

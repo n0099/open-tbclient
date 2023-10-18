@@ -10,11 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface Application {
-    void debug(String str, String str2);
-
     void error(String str, String str2);
-
-    void error(String str, String str2, Throwable th);
 
     v0 getApplicationListener();
 

@@ -1,154 +1,119 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.BdStatsItem;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.compact.DelegateNativeAdView;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class hka {
+public class hka implements g77<DelegateNativeAdView, AdvertAppInfo> {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, jka> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ICardInfo a;
+    public final String b;
+    public final int c;
+    public TbPageContext<?> d;
+    public String e;
 
-    public static void d() {
+    public hka(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                hka.a(1);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947827979, "Lcom/baidu/tieba/hka;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947827979, "Lcom/baidu/tieba/hka;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new a(2001011));
-        a = new HashMap<>();
+        this.a = gka.a(i);
+        this.b = gka.c(i);
+        this.c = i2;
     }
 
-    public static void a(int i) {
+    public hka(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            for (String str : a.keySet()) {
-                b(a.get(str), i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = gka.b(i, i2);
+        this.b = gka.d(i, i2);
+        this.c = i3;
+    }
+
+    @Override // com.baidu.tieba.g77
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            DelegateNativeAdView delegateNativeAdView = new DelegateNativeAdView(viewGroup.getContext(), this.d, this.a, this.c, this.e);
+            v87.i(delegateNativeAdView, Integer.valueOf(v87.e() - lt.r));
+            return delegateNativeAdView;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.g77
+    /* renamed from: d */
+    public void b(@NonNull DelegateNativeAdView delegateNativeAdView, @NonNull AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, delegateNativeAdView, advertAppInfo) == null) {
+            delegateNativeAdView.a(advertAppInfo);
         }
     }
 
-    public static void b(jka jkaVar, int i) {
-        String str;
+    @Override // com.baidu.tieba.g77
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, jkaVar, i) == null) {
-            ika ikaVar = jkaVar.d;
-            ika ikaVar2 = jkaVar.e;
-            ika ikaVar3 = jkaVar.f;
-            if (ikaVar.b + ikaVar2.b + ikaVar3.b >= i) {
-                BdStatsItem bdStatsItem = new BdStatsItem("dbg");
-                bdStatsItem.append("act", jkaVar.c);
-                bdStatsItem.append("httpTimeCost", String.valueOf(ikaVar.a));
-                bdStatsItem.append("httpNum", String.valueOf(ikaVar.b));
-                bdStatsItem.append("httpFailnum", String.valueOf(ikaVar.c));
-                bdStatsItem.append("httpSize", String.valueOf(ikaVar.d));
-                bdStatsItem.append("socketTimeCost", String.valueOf(ikaVar2.a));
-                bdStatsItem.append("socketNum", String.valueOf(ikaVar2.b));
-                bdStatsItem.append("socketFailnum", String.valueOf(ikaVar2.c));
-                bdStatsItem.append("socketSize", String.valueOf(ikaVar2.d));
-                bdStatsItem.append("abortTimeCost", String.valueOf(ikaVar3.a));
-                bdStatsItem.append("abortNum", String.valueOf(ikaVar3.b));
-                bdStatsItem.append("netType", jkaVar.b);
-                if (jkaVar.a) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                bdStatsItem.append("isJson", str);
-                BdStatisticsManager.getInstance().debug("frs", bdStatsItem);
-                ikaVar.a();
-                ikaVar2.a();
-                ikaVar3.a();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void c(String str, String str2, boolean z) {
+    public hka e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
-            if (str2 == null) {
-                str2 = "";
-            }
-            String str3 = str + str2;
-            if (!a.containsKey(str3)) {
-                a.put(str3, new jka(str, str2, z));
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.e = str;
+            return this;
         }
+        return (hka) invokeL.objValue;
     }
 
-    public static jka e(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
+    public hka f(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, str2, z)) == null) {
-            if (str2 == null) {
-                str2 = "";
-            }
-            String str3 = str + str2;
-            if (!a.containsKey(str3)) {
-                a.put(str3, new jka(str, str2, z));
-            }
-            return a.get(str3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tbPageContext)) == null) {
+            this.d = tbPageContext;
+            return this;
         }
-        return (jka) invokeLLZ.objValue;
+        return (hka) invokeL.objValue;
     }
 }

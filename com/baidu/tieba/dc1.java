@@ -1,156 +1,108 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.LoadingProgressBar;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dc1 extends Dialog {
+public class dc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public LoadingProgressBar c;
-    public TextView d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
+    public String a;
+    public long b;
+    public String c;
+    public String d;
+    public JSONObject e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dc1(@NonNull Context context) {
-        super(context, R.style.obfuscated_res_0x7f100143);
+    public dc1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = "";
-        this.g = false;
-        this.h = false;
-        this.a = context;
-        this.f = a(context);
+        this.e = new JSONObject();
+        this.a = str;
+        this.b = System.currentTimeMillis();
+        this.c = rc1.c();
     }
 
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
+    public dc1 a(String str, Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context instanceof Activity) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
+            try {
+                this.e.put(str, obj);
+            } catch (JSONException unused) {
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public dc1 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.g = z;
             return this;
         }
-        return (dc1) invokeZ.objValue;
+        return (dc1) invokeLL.objValue;
     }
 
-    public dc1 d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.h = z;
-            return this;
-        }
-        return (dc1) invokeZ.objValue;
-    }
-
-    public dc1 e(String str) {
+    public dc1 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.e = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.d = str;
             return this;
         }
         return (dc1) invokeL.objValue;
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    public dc1 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.nad_call_action_loading_dialog);
-            b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            this.e = jSONObject;
+            return this;
         }
+        return (dc1) invokeL.objValue;
     }
 
-    public final void b() {
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091fa7);
-            this.c = (LoadingProgressBar) findViewById(R.id.obfuscated_res_0x7f09163a);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09174d);
-            this.d = textView;
-            textView.setText(this.e);
-            setCancelable(this.g);
-            setCanceledOnTouchOutside(this.h);
-            f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                pc1.d("statistics action can not null");
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("a", this.a);
+                jSONObject.put("t", this.b);
+                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.c);
+                if (this.e != null) {
+                    jSONObject.put("cn", this.e);
+                } else if (!TextUtils.isEmpty(this.d)) {
+                    try {
+                        jSONObject.put("cn", new JSONObject(this.d));
+                    } catch (JSONException unused) {
+                        jSONObject.put("cn", this.d);
+                    }
+                }
+            } catch (JSONException e) {
+                if (pc1.d) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
         }
-    }
-
-    public final void f() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (context = this.a) == null) {
-            return;
-        }
-        Resources resources = context.getResources();
-        View view2 = this.b;
-        if (view2 != null) {
-            view2.setBackground(resources.getDrawable(R.drawable.nad_icon_loading_dialog_bg));
-        }
-        LoadingProgressBar loadingProgressBar = this.c;
-        if (loadingProgressBar != null) {
-            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.nad_loading_animation));
-        }
-        TextView textView = this.d;
-        if (textView != null) {
-            textView.setTextColor(resources.getColor(R.color.nad_color_white));
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !this.f) {
-            return;
-        }
-        try {
-            super.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

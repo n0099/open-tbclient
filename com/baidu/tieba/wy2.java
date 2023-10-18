@@ -1,25 +1,14 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
+import android.app.Application;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.text.TextUtils;
+import android.util.ArrayMap;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.utils.enums.ShareDirectionType;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
-import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
-import com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumActivity;
-import com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity;
-import com.baidu.swan.apps.media.chooser.model.ImageModel;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import com.baidu.swan.apps.media.chooser.model.VideoModel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.t43;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,415 +16,292 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.baidubce.AbstractBceClient;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wy2 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static ArrayList<MediaModel> a = null;
-    public static String b = "album";
-    public static int c = 9;
-    public static String d = "single";
-    public static boolean e = false;
-    public static String f = null;
-    public static int g = 0;
-    public static boolean h = true;
-    public static boolean i;
-    public static String j;
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
+    public static wy2 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, JSONArray> a;
+    public String[] b;
+    public String c;
+    public Map<String, String> d;
+
+    /* loaded from: classes8.dex */
+    public static abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void c(String str);
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final void b(int i) {
+            Application c;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (c = wo2.c()) != null) {
+                c(c.getString(i));
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public AtomicInteger a;
+        public boolean b;
+        public int c;
+        public a d;
+        public final /* synthetic */ wy2 e;
+
+        public b(wy2 wy2Var, int i, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wy2Var, Integer.valueOf(i), aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = wy2Var;
+            this.a = new AtomicInteger(0);
+            this.c = i;
+            this.d = aVar;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && !this.b && this.a.incrementAndGet() >= this.c && (aVar = this.d) != null) {
+                aVar.b(R.string.obfuscated_res_0x7f0f017a);
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+                this.b = true;
+                this.e.a = new ArrayMap();
+                a aVar = this.d;
+                if (aVar != null) {
+                    aVar.b(R.string.obfuscated_res_0x7f0f017e);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                if (response != null && response.body() != null && response.isSuccessful()) {
+                    try {
+                        return response.body().string();
+                    } catch (IOException e) {
+                        if (wy2.e) {
+                            Log.d("TraceDataManager", "Trace Data publish fail for IOException", e);
+                        }
+                    }
+                }
+                return null;
+            }
+            return invokeLI.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948286841, "Lcom/baidu/tieba/wy2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948286841, "Lcom/baidu/tieba/wy2;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a implements ActivityResultConsumer {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bz2 a;
-
-        public a(bz2 bz2Var) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948286841, "Lcom/baidu/tieba/wy2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bz2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = bz2Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
-        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
-                tw2.T().c();
-                if (i == -1) {
-                    if (intent == null) {
-                        this.a.e("choose: Selected data is null");
-                        return true;
-                    }
-                    this.a.f(intent.getParcelableArrayListExtra("mediaModels"));
-                    return true;
-                } else if (i == 0) {
-                    this.a.e("选择文件失败：用户取消操作");
-                    return true;
-                } else {
-                    return true;
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948286841, "Lcom/baidu/tieba/wy2;");
+                return;
             }
-            return invokeLIL.booleanValue;
         }
+        e = am1.a;
     }
 
-    /* loaded from: classes8.dex */
-    public static class b implements cz2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-
-        public b(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-        }
-
-        @Override // com.baidu.tieba.cz2
-        public void a(boolean z, String str, Object obj) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, obj}) == null) && z && (obj instanceof ArrayList)) {
-                ArrayList<? extends Parcelable> arrayList = (ArrayList) obj;
-                if (vy2.a) {
-                    Iterator<? extends Parcelable> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        Log.d("SwanAppChooseHelper", "tempPath = " + ((MediaModel) it.next()).getTempPath());
-                    }
-                }
-                Intent intent = new Intent();
-                intent.putParcelableArrayListExtra("mediaModels", arrayList);
-                this.a.setResult(-1, intent);
-                this.a.finish();
-            }
-        }
-    }
-
-    public static void a() {
-        ArrayList<MediaModel> arrayList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (arrayList = a) != null) {
-            arrayList.clear();
-            a = null;
-        }
-    }
-
-    public static ArrayList<MediaModel> c() {
+    public static wy2 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f == null) {
+                synchronized (wy2.class) {
+                    if (f == null) {
+                        f = new wy2();
+                    }
+                }
+            }
+            return f;
         }
-        return (ArrayList) invokeV.objValue;
+        return (wy2) invokeV.objValue;
     }
 
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        char c2;
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != 70760763) {
-                if (hashCode != 92896879) {
-                    if (hashCode == 112202875 && str.equals("video")) {
-                        c2 = 1;
-                    }
-                    c2 = 65535;
-                } else {
-                    if (str.equals(CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER)) {
-                        c2 = 2;
-                    }
-                    c2 = 65535;
-                }
-            } else {
-                if (str.equals("Image")) {
-                    c2 = 0;
-                }
-                c2 = 65535;
-            }
-            int i2 = R.string.obfuscated_res_0x7f0f1518;
-            if (c2 != 0) {
-                if (c2 == 1) {
-                    i2 = R.string.obfuscated_res_0x7f0f1519;
-                }
-            } else {
-                i2 = R.string.obfuscated_res_0x7f0f1517;
-            }
-            return context.getResources().getString(i2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            String str2 = options.outMimeType;
-            if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase("image/gif")) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String[] strArr = this.b;
+            if (strArr != null && strArr.length > 0 && !TextUtils.isEmpty(this.c)) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void i(ArrayList<MediaModel> arrayList) {
+    public wy2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, arrayList) == null) {
-            if (a == null) {
-                a = new ArrayList<>();
-            }
-            a.clear();
-            a.addAll(arrayList);
-        }
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            float f2 = options.outWidth;
-            float f3 = options.outHeight;
-            if (!d(str)) {
-                float f4 = vy2.c;
-                if (f2 > f4 && f3 > f4) {
-                    float f5 = f2 / f3;
-                    float f6 = vy2.b;
-                    if (f5 > f6 || 1.0f / f5 > f6) {
-                        return true;
-                    }
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(String str, MediaModel mediaModel) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, mediaModel)) == null) {
-            if (xy2.d() >= c && !xy2.g(mediaModel)) {
-                return true;
-            }
-            if (TextUtils.equals(str, "single") && xy2.d() > 0 && !TextUtils.equals(xy2.b(), mediaModel.getType())) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void g(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, activity, bundle) == null) {
-            if (vy2.a) {
-                Log.d("SwanAppChooseHelper", "selectCompleted");
-            }
-            if (xy2.d() <= 0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            nu2.k().a(activity, bundle, new b(activity));
         }
+        this.a = new ArrayMap();
+        this.c = "";
+        this.d = new HashMap();
     }
 
-    public static void k(Activity activity, Bundle bundle) {
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, activity, bundle) == null) {
-            Intent intent = new Intent(activity, SwanAppAlbumPreviewActivity.class);
-            intent.putExtra("launchParams", bundle);
-            activity.startActivityForResult(intent, 32770);
-            activity.overridePendingTransition(R.anim.obfuscated_res_0x7f010176, R.anim.obfuscated_res_0x7f01001d);
-        }
-    }
-
-    public static void h(Activity activity, Bundle bundle, cz2 cz2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, activity, bundle, cz2Var) == null) {
-            if (vy2.a) {
-                Log.d("SwanAppChooseHelper", "selectCompleted");
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && this.a != null && jSONObject != null) {
+            String U = cr2.V().U();
+            JSONArray jSONArray = this.a.get(U);
+            if (jSONArray == null) {
+                jSONArray = new JSONArray();
+                this.a.put(U, jSONArray);
             }
-            if (xy2.d() <= 0) {
-                return;
-            }
-            nu2.k().a(activity, bundle, cz2Var);
+            jSONArray.put(jSONObject);
         }
     }
 
-    public static void j(String str) {
+    public final String d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65546, null, str) != null) || xy2.d() == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (f() && i < this.b.length) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("http://");
+                sb.append(this.b[i]);
+                sb.append(":");
+                sb.append(this.c);
+                sb.append("/uploadTraceData");
+                sb.append("?");
+                for (Map.Entry<String, String> entry : this.d.entrySet()) {
+                    sb.append(entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
+                }
+                return sb.toString();
+            }
+            return "";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void h(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, bundle) != null) || bundle == null) {
             return;
         }
-        Context appContext = AppRuntime.getAppContext();
-        String string = appContext.getString(R.string.obfuscated_res_0x7f0f1525, Integer.valueOf(c));
-        if (TextUtils.equals(str, "single")) {
-            if (xy2.e().get(0) instanceof ImageModel) {
-                string = appContext.getString(R.string.obfuscated_res_0x7f0f1526, Integer.valueOf(c));
-            } else {
-                string = appContext.getString(R.string.obfuscated_res_0x7f0f1527, Integer.valueOf(c));
+        String string = bundle.getString("tool_ip");
+        String string2 = bundle.getString("tool_port");
+        String string3 = bundle.getString("projectId");
+        if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
+            if (e) {
+                Log.d("TraceDataManager", "IP : " + string);
+                Log.d("TraceDataManager", "Port : " + string2);
+                Log.d("TraceDataManager", "Project ID : " + string3);
             }
-        } else if (TextUtils.equals(str, ShareDirectionType.BOTH)) {
-            string = appContext.getString(R.string.obfuscated_res_0x7f0f1525, Integer.valueOf(c));
-        }
-        ya3.g(appContext, string).G();
-    }
-
-    public static void l(Context context, Bundle bundle, bz2 bz2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, context, bundle, bz2Var) == null) {
-            Intent intent = new Intent(context, SwanAppAlbumActivity.class);
-            intent.putExtra("launchParams", bundle);
-            if (!(context instanceof ActivityResultDispatcherHolder)) {
-                bz2Var.e("choose: context error");
-                return;
-            }
-            ActivityResultDispatcher resultDispatcher = ((ActivityResultDispatcherHolder) context).getResultDispatcher();
-            if (resultDispatcher == null) {
-                bz2Var.e("choose: ActivityResultDispatcher null");
-                return;
-            }
-            resultDispatcher.addConsumer(new a(bz2Var));
-            tw2.T().p();
-            resultDispatcher.startActivityForResult(intent);
-            ((Activity) context).overridePendingTransition(R.anim.obfuscated_res_0x7f01017a, 0);
+            this.b = string.split("_");
+            this.c = string2;
+            this.d.put("projectId", string3);
+        } else if (e) {
+            Log.d("TraceDataManager", "Trace Data Params is invalid");
         }
     }
 
-    public static JSONObject m(List<MediaModel> list, gb3 gb3Var, String str) {
-        InterceptResult invokeLLL;
+    public void g(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, list, gb3Var, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            if (!f()) {
+                h53.f(o53.K().w(), R.string.obfuscated_res_0x7f0f017b).G();
+                return;
+            }
+            Map<String, JSONArray> map = this.a;
+            if (map != null && map.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray();
-                for (MediaModel mediaModel : list) {
-                    if (mediaModel != null) {
-                        String str2 = null;
-                        if (gb3Var.w0()) {
-                            vs1 m = ou2.m();
-                            if (m != null) {
-                                str2 = m.h(mediaModel.getTempPath());
-                            }
-                        } else {
-                            str2 = oi3.J(mediaModel.getTempPath(), gb3Var.b);
-                        }
-                        jSONArray.put(str2);
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("path", str2);
-                        if (TextUtils.equals(CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER, str)) {
-                            jSONObject2.put("type", mediaModel.getType());
-                        }
-                        jSONObject2.put("size", mediaModel.getSize());
-                        if (mediaModel instanceof VideoModel) {
-                            VideoModel videoModel = (VideoModel) mediaModel;
-                            jSONObject2.put("duration", videoModel.getDuration());
-                            jSONObject2.put("height", videoModel.getHeight());
-                            jSONObject2.put("width", videoModel.getWidth());
-                        }
-                        jSONArray2.put(jSONObject2);
+                try {
+                    for (Map.Entry<String, JSONArray> entry : this.a.entrySet()) {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.putOpt("path", entry.getKey());
+                        jSONObject.putOpt("data", entry.getValue().toString());
+                        jSONArray.put(jSONObject);
+                    }
+                } catch (JSONException e2) {
+                    if (e) {
+                        Log.e("TraceDataManager", "Maybe the format of the Trace data is incorrect", e2);
                     }
                 }
-                jSONObject.put("tempFilePaths", jSONArray);
-                jSONObject.put("tempFiles", jSONArray2);
-            } catch (JSONException e2) {
-                if (vy2.a) {
-                    e2.printStackTrace();
+                nc4 postRequest = tc4.g().postRequest();
+                postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONArray.toString()));
+                postRequest.connectionTimeout(3000);
+                int min = Math.min(this.b.length, 4);
+                b bVar = new b(this, min, aVar);
+                for (int i = 0; i < min; i++) {
+                    postRequest.url(d(i));
+                    postRequest.build().executeAsync(bVar);
                 }
+                return;
             }
-            if (vy2.a) {
-                Log.d("SwanAppChooseHelper", jSONObject.toString());
-            }
-            return jSONObject;
+            t43.a aVar2 = new t43.a(o53.K().w());
+            aVar2.U(R.string.obfuscated_res_0x7f0f017d);
+            aVar2.v(R.string.obfuscated_res_0x7f0f017c);
+            aVar2.n(new xk3());
+            aVar2.O(R.string.obfuscated_res_0x7f0f0149, null);
+            aVar2.X();
         }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static JSONObject n(List<MediaModel> list, gb3 gb3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, list, gb3Var)) == null) {
-            String str = null;
-            if (list == null || !(list.get(0) instanceof VideoModel)) {
-                return null;
-            }
-            VideoModel videoModel = (VideoModel) list.get(0);
-            if (gb3Var.w0()) {
-                vs1 m = ou2.m();
-                if (m != null) {
-                    str = m.h(videoModel.getTempPath());
-                }
-            } else {
-                str = oi3.J(videoModel.getTempPath(), gb3Var.b);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("tempFilePath", str);
-                jSONObject.put("duration", videoModel.getDuration() / 1000);
-                jSONObject.put("height", videoModel.getHeight());
-                jSONObject.put("width", videoModel.getWidth());
-                jSONObject.put("size", videoModel.getSize());
-            } catch (JSONException e2) {
-                if (vy2.a) {
-                    e2.printStackTrace();
-                }
-            }
-            if (vy2.a) {
-                Log.d("SwanAppChooseHelper", jSONObject.toString());
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
     }
 }

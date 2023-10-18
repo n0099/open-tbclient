@@ -31,7 +31,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
     public ImageView lm;
     public KsLogoView ln;
     public com.kwad.components.ad.reflux.a lo;
-    public b.InterfaceC0660b lp;
+    public b.InterfaceC0643b lp;
 
     public a(@NonNull Context context) {
         super(context);
@@ -48,14 +48,14 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
     }
 
     private void br() {
-        b.InterfaceC0660b interfaceC0660b;
+        b.InterfaceC0643b interfaceC0643b;
         com.kwad.components.ad.reflux.a aVar = this.lo;
         if (aVar == null) {
             return;
         }
         AdTemplate adTemplate = aVar.getAdTemplate();
-        if (!adTemplate.mPvReported && (interfaceC0660b = this.lp) != null) {
-            interfaceC0660b.onAdShow();
+        if (!adTemplate.mPvReported && (interfaceC0643b = this.lp) != null) {
+            interfaceC0643b.onAdShow();
         }
         f fVar = new f();
         com.kwad.components.ad.reflux.a aVar2 = this.lo;
@@ -71,7 +71,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
             return;
         }
         final AdTemplate adTemplate = aVar.getAdTemplate();
-        com.kwad.components.core.c.a.a.a(new a.C0636a(com.kwad.sdk.b.kwai.a.x(this)).L(adTemplate).b(this.lo.getApkDownloadHelper()).ae(i).aj(true).a(new a.b() { // from class: com.kwad.components.ad.reflux.kwai.a.1
+        com.kwad.components.core.c.a.a.a(new a.C0619a(com.kwad.sdk.b.kwai.a.x(this)).L(adTemplate).b(this.lo.getApkDownloadHelper()).ae(i).aj(true).a(new a.b() { // from class: com.kwad.components.ad.reflux.kwai.a.1
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 a.this.k(adTemplate);
@@ -137,9 +137,9 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
             b.aO(aVar.eQ());
         }
         com.kwad.sdk.core.report.a.a(adTemplate, b, (JSONObject) null);
-        b.InterfaceC0660b interfaceC0660b = this.lp;
-        if (interfaceC0660b != null) {
-            interfaceC0660b.onAdClicked();
+        b.InterfaceC0643b interfaceC0643b = this.lp;
+        if (interfaceC0643b != null) {
+            interfaceC0643b.onAdClicked();
         }
     }
 
@@ -152,7 +152,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
         }
     }
 
-    public void setAdClickListener(b.InterfaceC0660b interfaceC0660b) {
-        this.lp = interfaceC0660b;
+    public void setAdClickListener(b.InterfaceC0643b interfaceC0643b) {
+        this.lp = interfaceC0643b;
     }
 }

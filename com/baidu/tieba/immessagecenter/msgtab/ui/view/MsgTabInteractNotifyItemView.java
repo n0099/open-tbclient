@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
-import com.baidu.tieba.iw8;
-import com.baidu.tieba.mz8;
-import com.baidu.tieba.oq8;
-import com.baidu.tieba.px8;
+import com.baidu.tieba.sq8;
+import com.baidu.tieba.xt8;
+import com.baidu.tieba.yk8;
+import com.baidu.tieba.zr8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u00012\u00020\u0002B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005J\u000e\u00104\u001a\u0002052\u0006\u00106\u001a\u00020\u0018J\u0010\u00107\u001a\u0002052\u0006\u00108\u001a\u000209H\u0014J\b\u0010:\u001a\u000205H\u0002J\b\u0010;\u001a\u000205H\u0002J\u0010\u0010<\u001a\u0002052\u0006\u0010=\u001a\u00020>H\u0016J\u0012\u0010?\u001a\u0002052\b\u0010@\u001a\u0004\u0018\u00010AH\u0016J\b\u0010B\u001a\u000205H\u0014J\b\u0010C\u001a\u000205H\u0002J\b\u0010D\u001a\u000205H\u0002R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\b\u001a\u00020\tX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\u001a\u0010\u000e\u001a\u00020\u000fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0010\u0010\u0011\"\u0004\b\u0012\u0010\u0013R\u001a\u0010\u0014\u001a\u00020\tX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0015\u0010\u000b\"\u0004\b\u0016\u0010\rR\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0019\u001a\u00020\u001aX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR\u001a\u0010\u001f\u001a\u00020 X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$R\u001b\u0010%\u001a\u00020&8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b)\u0010*\u001a\u0004\b'\u0010(R\u001a\u0010+\u001a\u00020,X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b-\u0010.\"\u0004\b/\u00100R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u00101\u001a\u00020\u000fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b2\u0010\u0011\"\u0004\b3\u0010\u0013¨\u0006E"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgTabInteractNotifyItemView;", "Lcom/baidu/tieba/immessagecenter/arch/view/StatelessView;", "Landroid/view/View$OnClickListener;", "mRootFragment", "Lcom/baidu/tbadk/core/BaseFragment;", "(Lcom/baidu/tbadk/core/BaseFragment;)V", "DEFAULT_CONTENT", "", "mCardAbs", "Landroid/widget/TextView;", "getMCardAbs", "()Landroid/widget/TextView;", "setMCardAbs", "(Landroid/widget/TextView;)V", "mCardMsgView", "Landroid/widget/LinearLayout;", "getMCardMsgView", "()Landroid/widget/LinearLayout;", "setMCardMsgView", "(Landroid/widget/LinearLayout;)V", "mCardTitle", "getMCardTitle", "setMCardTitle", "mCurrentData", "Lcom/baidu/tieba/immessagecenter/msgtab/data/MsgNotifyData;", "mEnterBtn", "Landroid/widget/ImageView;", "getMEnterBtn", "()Landroid/widget/ImageView;", "setMEnterBtn", "(Landroid/widget/ImageView;)V", "mHeadView", "Lcom/baidu/tbadk/widget/TbImageView;", "getMHeadView", "()Lcom/baidu/tbadk/widget/TbImageView;", "setMHeadView", "(Lcom/baidu/tbadk/widget/TbImageView;)V", "mPresenter", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/prenster/MsgTabNotifyItemPresenter;", "getMPresenter", "()Lcom/baidu/tieba/immessagecenter/msgtab/ui/prenster/MsgTabNotifyItemPresenter;", "mPresenter$delegate", "Lkotlin/Lazy;", "mRedDot", "Lcom/baidu/tbadk/core/view/MessageRedDotView;", "getMRedDot", "()Lcom/baidu/tbadk/core/view/MessageRedDotView;", "setMRedDot", "(Lcom/baidu/tbadk/core/view/MessageRedDotView;)V", "mStatusView", "getMStatusView", "setMStatusView", "bindData", "", "data", "init", "context", "Landroid/content/Context;", "onAgreeMeItemClick", "onAtMeItemClick", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onClick", "v", "Landroid/view/View;", "onFinishInflate", "onFollowMeItemClick", "onReplyMeItemClick", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnClickListener {
+public final class MsgTabInteractNotifyItemView extends yk8 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BaseFragment f;
@@ -47,7 +47,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
     public ImageView m;
     public LinearLayout n;
     public final Lazy o;
-    public iw8 p;
+    public sq8 p;
 
     /* loaded from: classes6.dex */
     public /* synthetic */ class a {
@@ -79,7 +79,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgTabInteractNotifyItemView(BaseFragment mRootFragment) {
-        super(R.layout.obfuscated_res_0x7f0d0650);
+        super(R.layout.obfuscated_res_0x7f0d0643);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,9 +109,9 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, view2) == null) {
-            iw8 iw8Var = this.p;
-            if (iw8Var != null) {
-                notifyType = iw8Var.getType();
+            sq8 sq8Var = this.p;
+            if (sq8Var != null) {
+                notifyType = sq8Var.c();
             } else {
                 notifyType = null;
             }
@@ -124,76 +124,76 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
                 if (i != 2) {
                     if (i != 3) {
                         if (i == 4) {
-                            b0();
+                            c0();
                         }
                     } else {
-                        c0();
+                        d0();
                     }
                 } else {
-                    Y();
+                    a0();
                 }
             } else {
-                Z();
+                b0();
             }
-            V().a(this.p);
-            mz8.a.d(this.p);
+            W().a(this.p);
+            xt8.a.d(this.p);
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    public void F() {
+    public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h0((TbImageView) k(R.id.obfuscated_res_0x7f0919be));
-            e0((LinearLayout) k(R.id.obfuscated_res_0x7f0919bf));
-            f0((TextView) k(R.id.obfuscated_res_0x7f0919c2));
-            d0((TextView) k(R.id.obfuscated_res_0x7f0919bd));
-            i0((MessageRedDotView) k(R.id.obfuscated_res_0x7f0919c0));
-            g0((ImageView) k(R.id.obfuscated_res_0x7f090a12));
-            j0((LinearLayout) k(R.id.obfuscated_res_0x7f0919c1));
+            i0((TbImageView) k(R.id.obfuscated_res_0x7f0919e7));
+            f0((LinearLayout) k(R.id.obfuscated_res_0x7f0919e8));
+            g0((TextView) k(R.id.obfuscated_res_0x7f0919eb));
+            e0((TextView) k(R.id.obfuscated_res_0x7f0919e6));
+            j0((MessageRedDotView) k(R.id.obfuscated_res_0x7f0919e9));
+            h0((ImageView) k(R.id.obfuscated_res_0x7f090a2d));
+            k0((LinearLayout) k(R.id.obfuscated_res_0x7f0919ea));
         }
     }
 
-    public final void P(iw8 data) {
+    public final void Q(sq8 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             this.p = data;
-            S().setText(data.getType().getTitle());
+            T().setText(data.c().getTitle());
             if (TextUtils.isEmpty(data.b())) {
-                Q().setText(this.g);
+                R().setText(this.g);
             } else {
-                Q().setText(data.b());
+                R().setText(data.b());
             }
-            if (data.c() > 0) {
-                X().setVisibility(0);
-                T().setVisibility(8);
-                MessageRedDotView W = W();
-                W.setVisibility(0);
-                W.refresh(data.c());
+            if (data.d() > 0) {
+                Z().setVisibility(0);
+                U().setVisibility(8);
+                MessageRedDotView Y = Y();
+                Y.setVisibility(0);
+                Y.refresh(data.d());
                 return;
             }
-            X().setVisibility(8);
-            T().setVisibility(0);
+            Z().setVisibility(8);
+            U().setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.nq8
+    @Override // com.baidu.tieba.xk8
     public void onChangeSkinType(int i) {
-        NotifyType type;
+        NotifyType c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            EMManager.from(S()).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X01);
-            EMManager.from(Q()).setTextColor(R.color.CAM_X0109).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01);
-            WebPManager.setPureDrawable(T(), R.drawable.obfuscated_res_0x7f0808b8, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL_PRESS);
-            iw8 iw8Var = this.p;
-            if (iw8Var != null && (type = iw8Var.getType()) != null) {
-                WebPManager.setMaskDrawable(U(), type.getIcon(), WebPManager.ResourceStateType.NORMAL_PRESS);
+            EMManager.from(T()).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X01);
+            EMManager.from(R()).setTextColor(R.color.CAM_X0109).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01);
+            WebPManager.setPureDrawable(U(), R.drawable.obfuscated_res_0x7f0808bb, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL_PRESS);
+            sq8 sq8Var = this.p;
+            if (sq8Var != null && (c = sq8Var.c()) != null) {
+                WebPManager.setMaskDrawable(V(), c.getIcon(), WebPManager.ResourceStateType.NORMAL_PRESS);
             }
         }
     }
 
-    public final TextView Q() {
+    public final TextView R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -207,7 +207,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         return (TextView) invokeV.objValue;
     }
 
-    public final LinearLayout R() {
+    public final LinearLayout S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -221,7 +221,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         return (LinearLayout) invokeV.objValue;
     }
 
-    public final TextView S() {
+    public final TextView T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -235,7 +235,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         return (TextView) invokeV.objValue;
     }
 
-    public final ImageView T() {
+    public final ImageView U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -249,7 +249,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         return (ImageView) invokeV.objValue;
     }
 
-    public final TbImageView U() {
+    public final TbImageView V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -263,16 +263,16 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         return (TbImageView) invokeV.objValue;
     }
 
-    public final px8 V() {
+    public final zr8 W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return (px8) this.o.getValue();
+            return (zr8) this.o.getValue();
         }
-        return (px8) invokeV.objValue;
+        return (zr8) invokeV.objValue;
     }
 
-    public final MessageRedDotView W() {
+    public final MessageRedDotView Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -286,7 +286,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         return (MessageRedDotView) invokeV.objValue;
     }
 
-    public final LinearLayout X() {
+    public final LinearLayout Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -300,59 +300,59 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         return (LinearLayout) invokeV.objValue;
     }
 
-    public final void Y() {
+    public final void a0() {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            iw8 iw8Var = this.p;
-            if (iw8Var != null) {
-                i = iw8Var.c();
+            sq8 sq8Var = this.p;
+            if (sq8Var != null) {
+                i = sq8Var.d();
             } else {
                 i = 0;
             }
-            px8 V = V();
-            mz8.a.a(i);
-            V.b(this.f, i);
-        }
-    }
-
-    public final void b0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            px8 V = V();
-            mz8.a.c();
-            mz8.a.g();
-            V.d(this.f);
+            zr8 W = W();
+            xt8.a.a(i);
+            W.b(this.f, i);
         }
     }
 
     public final void c0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            px8 V = V();
-            mz8.a.e();
-            V.e(this.f);
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            zr8 W = W();
+            xt8.a.c();
+            xt8.a.g();
+            W.d(this.f);
         }
     }
 
-    public final void Z() {
+    public final void d0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            zr8 W = W();
+            xt8.a.e();
+            W.e(this.f);
+        }
+    }
+
+    public final void b0() {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            iw8 iw8Var = this.p;
-            if (iw8Var != null) {
-                i = iw8Var.c();
+            sq8 sq8Var = this.p;
+            if (sq8Var != null) {
+                i = sq8Var.d();
             } else {
                 i = 0;
             }
-            px8 V = V();
-            mz8.a.b(i);
-            mz8.a.f(this.f.getContext());
-            V.c(this.f, i);
+            zr8 W = W();
+            xt8.a.b(i);
+            xt8.a.f(this.f.getContext());
+            W.c(this.f, i);
         }
     }
 
-    public final void d0(TextView textView) {
+    public final void e0(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
@@ -360,7 +360,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         }
     }
 
-    public final void e0(LinearLayout linearLayout) {
+    public final void f0(LinearLayout linearLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, linearLayout) == null) {
             Intrinsics.checkNotNullParameter(linearLayout, "<set-?>");
@@ -368,7 +368,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         }
     }
 
-    public final void f0(TextView textView) {
+    public final void g0(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
@@ -376,7 +376,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         }
     }
 
-    public final void g0(ImageView imageView) {
+    public final void h0(ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, imageView) == null) {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
@@ -384,7 +384,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         }
     }
 
-    public final void h0(TbImageView tbImageView) {
+    public final void i0(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, tbImageView) == null) {
             Intrinsics.checkNotNullParameter(tbImageView, "<set-?>");
@@ -392,7 +392,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         }
     }
 
-    public final void i0(MessageRedDotView messageRedDotView) {
+    public final void j0(MessageRedDotView messageRedDotView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, messageRedDotView) == null) {
             Intrinsics.checkNotNullParameter(messageRedDotView, "<set-?>");
@@ -400,7 +400,7 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
         }
     }
 
-    public final void j0(LinearLayout linearLayout) {
+    public final void k0(LinearLayout linearLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, linearLayout) == null) {
             Intrinsics.checkNotNullParameter(linearLayout, "<set-?>");
@@ -409,16 +409,16 @@ public final class MsgTabInteractNotifyItemView extends oq8 implements View.OnCl
     }
 
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    public void p(Context context) {
+    public void q(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, context) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            W().setThreeDotMode(2);
-            TbImageView U = U();
-            U.setConrers(15);
-            U.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            U.setOnClickListener(this);
-            R().setOnClickListener(this);
+            Y().setThreeDotMode(2);
+            TbImageView V = V();
+            V.setConrers(15);
+            V.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            V.setOnClickListener(this);
+            S().setOnClickListener(this);
         }
     }
 }

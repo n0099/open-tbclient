@@ -133,7 +133,7 @@ public final class UtilsKt {
         Intrinsics.checkNotNullParameter(endSize, "endSize");
         Intrinsics.checkNotNullParameter(updateListener, "updateListener");
         final ValueAnimator ofPropertyValuesHolder = ValueAnimator.ofPropertyValuesHolder(PropertyValuesHolder.ofInt("width", startSize.getFirst().intValue(), endSize.getFirst().intValue()), PropertyValuesHolder.ofInt("height", startSize.getSecond().intValue(), endSize.getSecond().intValue()));
-        ofPropertyValuesHolder.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.xn1
+        ofPropertyValuesHolder.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.hi1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -219,24 +219,24 @@ public final class UtilsKt {
 
     public static /* synthetic */ Notification getDefaultNotification$default(Context context, int i, String str, String str2, String str3, String str4, int i2, Object obj) {
         if ((i2 & 2) != 0) {
-            i = R.drawable.obfuscated_res_0x7f080270;
+            i = R.drawable.obfuscated_res_0x7f080272;
         }
         if ((i2 & 4) != 0) {
             str = "floating_bd_video";
         }
         String str5 = str;
         if ((i2 & 8) != 0) {
-            str2 = context.getString(R.string.obfuscated_res_0x7f0f10e1);
+            str2 = context.getString(R.string.obfuscated_res_0x7f0f10ee);
             Intrinsics.checkNotNullExpressionValue(str2, "context.getString(R.stri…ing_notification_channel)");
         }
         String str6 = str2;
         if ((i2 & 16) != 0) {
-            str3 = context.getString(R.string.obfuscated_res_0x7f0f10e3);
+            str3 = context.getString(R.string.obfuscated_res_0x7f0f10f0);
             Intrinsics.checkNotNullExpressionValue(str3, "context.getString(R.stri…ating_notification_title)");
         }
         String str7 = str3;
         if ((i2 & 32) != 0) {
-            str4 = context.getString(R.string.obfuscated_res_0x7f0f10e2);
+            str4 = context.getString(R.string.obfuscated_res_0x7f0f10ef);
             Intrinsics.checkNotNullExpressionValue(str4, "context.getString(R.stri…ing_notification_content)");
         }
         return getDefaultNotification(context, i, str5, str6, str7, str4);

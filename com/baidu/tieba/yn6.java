@@ -1,98 +1,71 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.LinearInterpolator;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
-public class yn6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes9.dex */
+public final class yn6 implements l77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static void a(View view2) {
+    @Override // com.baidu.tieba.l77
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, view2) == null) && view2 != null) {
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(800L);
-            alphaAnimation.setInterpolator(new LinearInterpolator());
-            alphaAnimation.setRepeatCount(-1);
-            alphaAnimation.setRepeatMode(2);
-            view2.startAnimation(alphaAnimation);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreStatisticKey.KEY_ITEM_THROUGH_CLICK : (String) invokeV.objValue;
     }
 
-    public static void c(View view2) {
+    public yn6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, view2) == null) {
-            try {
-                ViewParent parent = view2.getRootView().getParent();
-                Method declaredMethod = parent.getClass().getDeclaredMethod("handleDispatchDoneAnimating", new Class[0]);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(parent, new Object[0]);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static Bitmap b(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bitmap)) == null) {
-            if (bitmap == null) {
-                return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static void d(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, view2) != null) || view2 == null) {
-            return;
-        }
-        try {
-            ViewParent parent = view2.getParent();
-            if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(view2);
-            }
-        } catch (Exception unused) {
-        }
-    }
-
-    public static void e(View view2) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) && (i = Build.VERSION.SDK_INT) <= 23 && i >= 17) {
-            if (i < 17) {
-                c(view2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            try {
-                ViewParent parent = view2.getRootView().getParent();
-                Method declaredMethod = parent.getClass().getDeclaredMethod("setDrawDuringWindowsAnimating", Boolean.TYPE);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(parent, Boolean.TRUE);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
+        this.a = "";
     }
 
-    public static void f(@NonNull View view2, int i) {
+    @Override // com.baidu.tieba.l77
+    public Map<String, String> a(v27 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65541, null, view2, i) == null) && view2.getVisibility() != i) {
-            view2.setVisibility(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_locate", this.a);
+            String str = a.get("item_id");
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put("obj_type", str);
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
+    }
+
+    public final yn6 b(String objLocate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objLocate)) == null) {
+            Intrinsics.checkNotNullParameter(objLocate, "objLocate");
+            this.a = objLocate;
+            return this;
+        }
+        return (yn6) invokeL.objValue;
     }
 }

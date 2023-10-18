@@ -28,9 +28,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g19;
+import com.baidu.tieba.hh6;
 import com.baidu.tieba.quickWebView.QuickWebView;
-import com.baidu.tieba.v69;
-import com.baidu.tieba.ym6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +124,7 @@ public class MemberCenterFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
-        public void c(WebView webView, String str) {
+        public void a(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 this.a.i2();
@@ -194,7 +194,7 @@ public class MemberCenterFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.g
-        public void a(WebView webView, int i, String str, String str2) {
+        public void onReceivedError(WebView webView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, webView, i, str, str2) == null) {
                 this.a.h2();
@@ -227,7 +227,7 @@ public class MemberCenterFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
-        public void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) {
                 this.a.h2();
@@ -329,7 +329,7 @@ public class MemberCenterFragment extends BaseFragment {
             if (arguments != null) {
                 this.f = arguments.getString("key_url", "");
             }
-            new v69("my_tab_vip_banner_bubble").i();
+            new g19("my_tab_vip_banner_bubble").i();
         }
     }
 
@@ -375,7 +375,7 @@ public class MemberCenterFragment extends BaseFragment {
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (quickWebView = this.e) != null && this.b != null) {
             quickWebView.setVisibility(8);
             this.b.setVisibility(0);
-            showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e42), true);
+            showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e4f), true);
         }
     }
 
@@ -398,7 +398,7 @@ public class MemberCenterFragment extends BaseFragment {
             HashMap<String, Object> hashMap = new HashMap<>();
             if (intent != null) {
                 hashMap.put(WalletPayResultActivityConfig.PAY_RESULT, intent.getStringExtra(WalletPayResultActivityConfig.PAY_RESULT));
-                ym6.a().d(this.e, "tbPayResult", hashMap);
+                hh6.a().d(this.e, "tbPayResult", hashMap);
             }
         }
     }
@@ -429,13 +429,13 @@ public class MemberCenterFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d044a, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0445, (ViewGroup) null);
             this.c = inflate;
             this.a = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
             this.b = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
             f2();
-            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f09171b);
-            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f092a1c);
+            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f091735);
+            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f092a0e);
             g2();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             TiebaStatic.log("c10387");

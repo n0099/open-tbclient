@@ -1,22 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class rh3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface rh3 {
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str.equals("mobile")) {
-                return "getPhoneNumberButton";
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void c(JSONObject jSONObject, String str);
     }
+
+    boolean a(String str, jv2 jv2Var);
+
+    void b(Context context, String str, a aVar);
 }

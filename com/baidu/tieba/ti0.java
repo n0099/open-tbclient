@@ -1,60 +1,45 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ti0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
-    public Map<String, String> b;
-    public Map<String, String> c;
+public interface ti0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "exp_config");
+    public static final ti0 b = new a();
 
-    public ti0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    @NonNull
+    String[] a();
+
+    /* loaded from: classes8.dex */
+    public class a implements ti0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ti0
+        @NonNull
+        public String[] a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
-
-    public static ti0 a(@NonNull HashMap<String, ?> hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hashMap)) == null) {
-            ti0 ti0Var = new ti0();
-            if (hashMap.get("cmd_map") instanceof String) {
-                JSONObject c = h31.c((String) hashMap.get("cmd_map"));
-                ti0Var.a = c;
-                ti0Var.b = h31.b(c);
-            }
-            if (hashMap.get("area_cmd") instanceof String) {
-                ti0Var.c = h31.b(h31.c((String) hashMap.get("area_cmd")));
-            }
-            if (hashMap.get("charge_map") instanceof String) {
-                h31.b(h31.c((String) hashMap.get("charge_map")));
-            }
-            if (hashMap.get("parallel_charge_urls") instanceof JSONObject) {
-                h31.b((JSONObject) hashMap.get("parallel_charge_urls"));
-            }
-            if (hashMap.get("defer_charge_urls") instanceof JSONObject) {
-                h31.b((JSONObject) hashMap.get("defer_charge_urls"));
-            }
-            return ti0Var;
-        }
-        return (ti0) invokeL.objValue;
     }
 }

@@ -1,72 +1,99 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class l37 {
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedLayout;
+/* loaded from: classes7.dex */
+public final class l37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public ViewGroup c;
-    public ImageView d;
-    public TextView e;
-    public TextView f;
 
-    public l37(TbPageContext<?> tbPageContext) {
+    public static final v27 a(k37 k37Var, Map<String, String> appendMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, k37Var, appendMap)) == null) {
+            Intrinsics.checkNotNullParameter(k37Var, "<this>");
+            Intrinsics.checkNotNullParameter(appendMap, "appendMap");
+            v27 v27Var = new v27();
+            v27Var.a().putAll(k37Var.a().a());
+            v27Var.a().putAll(appendMap);
+            return v27Var;
+        }
+        return (v27) invokeLL.objValue;
+    }
+
+    public static final void b(k37 k37Var, FeedLayout feedLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, k37Var, feedLayout) == null) {
+            Intrinsics.checkNotNullParameter(k37Var, "<this>");
+            Intrinsics.checkNotNullParameter(feedLayout, "feedLayout");
+            k37Var.a().b(m67.a.a(feedLayout.business_info));
+            k37Var.c().b(m67.a.a(feedLayout.log_info));
+        }
+    }
+
+    public static final Map<String, String> e(k37 k37Var, String statStrategyKey) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, k37Var, statStrategyKey)) == null) {
+            Intrinsics.checkNotNullParameter(k37Var, "<this>");
+            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
+            HashMap hashMap = new HashMap();
+            l77 l77Var = k37Var.e().get(statStrategyKey);
+            if (l77Var != null) {
+                hashMap.putAll(l77Var.a(k37Var.a()));
             }
+            return hashMap;
         }
-        this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d073b, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0911ab);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09107f);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f4b);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f4c);
-        this.e.setText(R.string.no_like_forum_hint_1);
-        this.f.setText(R.string.no_like_forum_hint_2);
+        return (Map) invokeLL.objValue;
     }
 
-    public void a() {
+    public static final n47 c(k37 k37Var, String statStrategyKey, v27 v27Var) {
+        InterceptResult invokeLLL;
+        v27 v27Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setImageResource(this.d, R.drawable.cp_mask_attention_a);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0206).tlRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).trRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).blRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).brRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).into(this.c);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, k37Var, statStrategyKey, v27Var)) == null) {
+            Intrinsics.checkNotNullParameter(k37Var, "<this>");
+            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
+            l77 l77Var = k37Var.e().get(statStrategyKey);
+            if (l77Var instanceof m77) {
+                m77 m77Var = (m77) l77Var;
+                if (v27Var == null) {
+                    v27Var2 = k37Var.a();
+                } else {
+                    v27Var2 = v27Var;
+                }
+                statStrategyKey = m77Var.c(v27Var2);
+            }
+            n47 n47Var = new n47(null, null, null, null, null, 31, null);
+            l77 l77Var2 = k37Var.e().get(statStrategyKey);
+            if (l77Var2 != null) {
+                String key = l77Var2.getKey();
+                if (v27Var == null) {
+                    v27Var = k37Var.a();
+                }
+                n47Var = new n47(key, l77Var2.a(v27Var), k37Var.c().a(), null, null, 24, null);
+                if (l77Var2 instanceof j77) {
+                    n47Var.g(((j77) l77Var2).b());
+                }
+                if (l77Var2 instanceof u37) {
+                    n47Var.f(((u37) l77Var2).d());
+                }
+            }
+            return n47Var;
         }
+        return (n47) invokeLLL.objValue;
     }
 
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+    public static /* synthetic */ n47 d(k37 k37Var, String str, v27 v27Var, int i, Object obj) {
+        if ((i & 2) != 0) {
+            v27Var = null;
         }
-        return (View) invokeV.objValue;
+        return c(k37Var, str, v27Var);
     }
 }

@@ -719,14 +719,14 @@ public class AccessibilityNodeInfoCompat {
         SparseArray<WeakReference<ClickableSpan>> spansFromViewTags = getSpansFromViewTags(view2);
         if (spansFromViewTags == null) {
             SparseArray<WeakReference<ClickableSpan>> sparseArray = new SparseArray<>();
-            view2.setTag(R.id.obfuscated_res_0x7f0923aa, sparseArray);
+            view2.setTag(R.id.obfuscated_res_0x7f0923b4, sparseArray);
             return sparseArray;
         }
         return spansFromViewTags;
     }
 
     private SparseArray<WeakReference<ClickableSpan>> getSpansFromViewTags(View view2) {
-        return (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f0923aa);
+        return (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f0923b4);
     }
 
     public static AccessibilityNodeInfoCompat obtain(View view2) {

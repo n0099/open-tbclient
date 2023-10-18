@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SearchPostForum.DataRes;
+import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes6.dex */
-public abstract class hc7<V extends View, M> implements xc7<V, M> {
+public class hc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public SearchForum a;
+    public List<SearchForum> b;
+    public ArrayList<yh> c;
+    public String d;
 
     public hc7(String str) {
         Interceptable interceptable = $ic;
@@ -32,48 +34,42 @@ public abstract class hc7<V extends View, M> implements xc7<V, M> {
                 return;
             }
         }
-        this.a = str;
+        this.d = str;
     }
 
-    @Override // com.baidu.tieba.xc7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public ArrayList<yh> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            try {
-                Context context = viewGroup.getContext();
-                if (context instanceof gv6) {
-                    context = ((gv6) context).getPageContext().getPageActivity();
-                }
-                if (context == null) {
-                    context = viewGroup.getContext();
-                }
-                return d().getConstructor(Context.class).newInstance(context);
-            } catch (Exception e) {
-                throw new IllegalStateException(e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        this.a = dataRes.exact_match;
+        this.b = dataRes.fuzzy_match;
+        this.c = new ArrayList<>();
+        gc7 gc7Var = new gc7(this.d);
+        SearchForum searchForum = this.a;
+        if (searchForum != null) {
+            gc7Var.l(searchForum);
+            this.c.add(gc7Var);
+        }
+        List<SearchForum> list = this.b;
+        if (list == null) {
+            return;
+        }
+        for (SearchForum searchForum2 : list) {
+            if (searchForum2 != null) {
+                gc7 gc7Var2 = new gc7(this.d);
+                gc7Var2.l(searchForum2);
+                this.c.add(gc7Var2);
             }
         }
-        return (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xc7
-    @NonNull
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final Class<V> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (Class) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        }
-        return (Class) invokeV.objValue;
     }
 }

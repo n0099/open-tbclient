@@ -37,7 +37,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hma;
+import com.baidu.tieba.xga;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -471,7 +471,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070424);
+        this.mNavHeight = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070420);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.CAM_X0204;
         this.mBackGroundColor = R.color.CAM_X0208;
@@ -528,7 +528,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070424);
+        this.mNavHeight = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070420);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.CAM_X0204;
         this.mBackGroundColor = R.color.CAM_X0208;
@@ -598,7 +598,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070424);
+        this.mNavHeight = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070420);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.CAM_X0204;
         this.mBackGroundColor = R.color.CAM_X0208;
@@ -879,7 +879,7 @@ public class NavigationBar extends RelativeLayout {
     public void initPadding() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            setPadding(BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07035c)), this.mTopPadding, BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07035c)), BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07035c)));
+            setPadding(BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070358)), this.mTopPadding, BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070358)), BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070358)));
         }
     }
 
@@ -892,9 +892,9 @@ public class NavigationBar extends RelativeLayout {
             View inflate = LayoutInflater.from(context).inflate(R.layout.widget_navigation_bar, (ViewGroup) this, true);
             this.mRootView = inflate;
             this.mContentLayout = (FrameLayout) inflate.findViewById(R.id.navigation_bar_content_layout);
-            this.mLeftBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0914d2);
-            this.mCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09067e);
-            this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091f22);
+            this.mLeftBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0914ec);
+            this.mCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090699);
+            this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091f42);
             this.mAbsoluteCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.absoluteCenterBox);
             this.mCenterImgBox = (LinearLayout) this.mRootView.findViewById(R.id.center_img_box);
             this.mCenterIcon = (ImageView) this.mRootView.findViewById(R.id.center_img);
@@ -906,7 +906,7 @@ public class NavigationBar extends RelativeLayout {
             findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, (int) R.drawable.navigation_cover_top_bg));
             this.barBgView = this.mRootView.findViewById(R.id.navigation_bar_view_bg);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, hma.NavigationBar);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xga.NavigationBar);
                 z = obtainStyledAttributes.getBoolean(0, true);
                 obtainStyledAttributes.recycle();
             } else {
@@ -1470,7 +1470,7 @@ public class NavigationBar extends RelativeLayout {
     public void setContentPaddingTop(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
-            this.mContentLayout.setPadding(BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07035c)), i, BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07035c)), BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f07035c)));
+            this.mContentLayout.setPadding(BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070358)), i, BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070358)), BdUtilHelper.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.obfuscated_res_0x7f070358)));
         }
     }
 

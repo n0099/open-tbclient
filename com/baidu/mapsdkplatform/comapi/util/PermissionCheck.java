@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.tts.jni.TtsLogLoad;
 import com.fun.ad.sdk.FunAdSdk;
 import com.kuaishou.weapon.p0.u;
 import java.util.Hashtable;
@@ -254,7 +253,7 @@ public class PermissionCheck {
             try {
                 JSONObject jSONObject = new JSONObject(h.c());
                 g.put(FunAdSdk.PLATFORM_MB, jSONObject.optString(FunAdSdk.PLATFORM_MB));
-                g.put(TtsLogLoad.KEY_OS, jSONObject.optString(TtsLogLoad.KEY_OS));
+                g.put("os", jSONObject.optString("os"));
                 g.put("sv", jSONObject.optString("sv"));
                 g.put("imt", "1");
                 g.put("net", jSONObject.optString("net"));

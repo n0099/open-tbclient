@@ -1,223 +1,150 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.MainThread;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hma;
+import com.baidu.tieba.pma;
+import com.baidu.tieba.tracker.core.data.AbsEventNode;
+import com.baidu.tieba.tracker.core.data.ErrCode;
+import com.baidu.tieba.tracker.core.data.TraceEventNode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.PriorityQueue;
+import com.xiaomi.mipush.sdk.PushMessageHelper;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class mma {
+public abstract class mma<R extends pma> {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static MainTabScheduleStrategy b;
-    public static boolean c;
-    public static final PriorityQueue<sma> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final R a;
+    public final hma b;
+    public AbsEventNode c;
+    public final Handler d;
+    public final Runnable e;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @MainThread
+    public abstract AbsEventNode a(R r, hma hmaVar);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    @MainThread
+    public abstract ema c(R r);
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                mma.d();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                mma.d();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sma a;
-
-        public c(sma smaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {smaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = smaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947978856, "Lcom/baidu/tieba/mma;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947978856, "Lcom/baidu/tieba/mma;");
+    public mma(R thisRef, hma traceType) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {thisRef, traceType};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = MainTabScheduleStrategy.FLUSHING;
-        c = false;
-        d = new PriorityQueue<>();
-    }
+        Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+        Intrinsics.checkNotNullParameter(traceType, "traceType");
+        this.a = thisRef;
+        this.b = traceType;
+        this.d = new Handler(Looper.getMainLooper());
+        this.e = new Runnable() { // from class: com.baidu.tieba.ima
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
-            kma.a("MainTabScheduler changeScheduleStrategy:" + mainTabScheduleStrategy);
-            b = mainTabScheduleStrategy;
-            if (mainTabScheduleStrategy != MainTabScheduleStrategy.UNSCHEDULE && !c) {
-                g(true);
-            }
-        }
-    }
-
-    public static void c(sma smaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, smaVar) == null) {
-            kma.a("MainTabScheduler execStep onStep:" + smaVar.a);
-            System.nanoTime();
-            smaVar.b();
-            SafeHandler.getInst().postAtFrontOfQueue(new c(smaVar));
-        }
-    }
-
-    public static void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || c) {
-            return;
-        }
-        c = true;
-        if (z) {
-            SafeHandler.getInst().postAtFrontOfQueue(new a());
-        } else {
-            SafeHandler.getInst().post(new b());
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            c = false;
-            if (d.isEmpty() || b == MainTabScheduleStrategy.UNSCHEDULE) {
-                return;
-            }
-            if (b == MainTabScheduleStrategy.FLUSHING) {
-                e();
-                return;
-            }
-            if (d.peek() != null && a >= d.peek().a) {
-                sma poll = d.poll();
-                if (poll == null) {
-                    return;
-                }
-                c(poll);
-            }
-            if (b == MainTabScheduleStrategy.SCHEDULE) {
-                g(false);
-            }
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            while (!d.isEmpty()) {
-                sma poll = d.poll();
-                if (poll != null) {
-                    kma.a("MainTabScheduler flushAllSteps onStep:" + poll.a);
-                    poll.b();
-                    poll.c();
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    mma.d(mma.this);
                 }
             }
+        };
+    }
+
+    public static final void d(mma this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put(PushMessageHelper.ERROR_TYPE, ErrCode.TIME_OUT.getValue());
+            linkedHashMap.put("error_info", "超时未抵达");
+            this$0.b(linkedHashMap);
         }
     }
 
-    public static void f(sma smaVar) {
+    @MainThread
+    public final void b(Map<String, String> params) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, smaVar) != null) || smaVar == null) {
-            return;
-        }
-        if (b == MainTabScheduleStrategy.FLUSHING) {
-            if (!(smaVar instanceof tma)) {
-                kma.a("MainTabScheduler registerNextStep onStep:" + smaVar.a);
-                smaVar.d();
-                smaVar.b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            this.d.removeCallbacks(this.e);
+            R r = this.a;
+            if (!dma.a.a(r.getTraceId())) {
+                r = null;
             }
-            smaVar.c();
-            return;
+            if (r != null) {
+                TraceEventNode traceEventNode = new TraceEventNode(r.V1(), r.I1(), hma.a.a);
+                traceEventNode.getTrackParams().putAll(params);
+                c(r).c(traceEventNode);
+                nma.a(this, r.getTraceId());
+            }
         }
-        smaVar.d();
-        kma.a("MainTabScheduler registerNextStep:" + smaVar.a);
-        d.add(smaVar);
-        if (b != MainTabScheduleStrategy.UNSCHEDULE && !c) {
-            g(false);
+    }
+
+    @MainThread
+    public final void g(Map<String, String> params) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            this.d.removeCallbacks(this.e);
+            R r = this.a;
+            if (!dma.a.a(r.getTraceId())) {
+                r = null;
+            }
+            if (r != null) {
+                TraceEventNode traceEventNode = new TraceEventNode(r.I1(), r.V1(), hma.b.a);
+                traceEventNode.getTrackParams().putAll(params);
+                c(r).c(traceEventNode);
+                nma.a(this, r.getTraceId());
+            }
         }
+    }
+
+    @MainThread
+    public final AbsEventNode e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return f(20000L);
+        }
+        return (AbsEventNode) invokeV.objValue;
+    }
+
+    @MainThread
+    public final AbsEventNode f(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            AbsEventNode absEventNode = this.c;
+            if (absEventNode != null) {
+                return absEventNode;
+            }
+            if (j > 0) {
+                this.d.removeCallbacks(this.e);
+                this.d.postDelayed(this.e, j);
+            }
+            AbsEventNode a = a(this.a, this.b);
+            c(this.a).c(a);
+            this.c = a;
+            return a;
+        }
+        return (AbsEventNode) invokeJ.objValue;
     }
 }

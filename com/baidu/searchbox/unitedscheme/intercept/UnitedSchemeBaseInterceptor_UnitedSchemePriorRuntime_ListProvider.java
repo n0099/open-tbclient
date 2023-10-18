@@ -1,22 +1,22 @@
 package com.baidu.searchbox.unitedscheme.intercept;
 
-import com.baidu.tieba.e94;
-import com.baidu.tieba.hf3;
-import com.baidu.tieba.if3;
-import com.baidu.tieba.jf3;
-import com.baidu.tieba.kk1;
-import com.baidu.tieba.zo2;
+import com.baidu.tieba.ij2;
+import com.baidu.tieba.n34;
+import com.baidu.tieba.q93;
+import com.baidu.tieba.r93;
+import com.baidu.tieba.s93;
+import com.baidu.tieba.ue1;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class UnitedSchemeBaseInterceptor_UnitedSchemePriorRuntime_ListProvider implements kk1 {
-    @Override // com.baidu.tieba.kk1
+public class UnitedSchemeBaseInterceptor_UnitedSchemePriorRuntime_ListProvider implements ue1 {
+    @Override // com.baidu.tieba.ue1
     public Object get() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new zo2());
-        arrayList.add(new hf3());
-        arrayList.add(new if3());
-        arrayList.add(new jf3());
-        arrayList.add(new e94());
+        arrayList.add(new ij2());
+        arrayList.add(new q93());
+        arrayList.add(new r93());
+        arrayList.add(new s93());
+        arrayList.add(new n34());
         return arrayList;
     }
 }

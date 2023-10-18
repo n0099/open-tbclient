@@ -97,7 +97,7 @@ public class ha {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static com.xiaomi.push.providers.a m545a(Context context) {
+    public static com.xiaomi.push.providers.a m544a(Context context) {
         com.xiaomi.push.providers.a aVar = f457a;
         if (aVar != null) {
             return aVar;
@@ -108,7 +108,7 @@ public class ha {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m546a(Context context) {
+    public static synchronized String m545a(Context context) {
         synchronized (ha.class) {
             if (TextUtils.isEmpty(f459a)) {
                 return "";
@@ -118,7 +118,7 @@ public class ha {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m548a(Context context) {
+    public static void m547a(Context context) {
         a = b(context);
     }
 
@@ -130,7 +130,7 @@ public class ha {
         }
         synchronized (f458a) {
             isEmpty = f460a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m546a(context) : "", j));
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m545a(context) : "", j));
         }
         if (isEmpty) {
             f456a.a(new hb(context), 5000L);
@@ -152,9 +152,9 @@ public class ha {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m549a(String str) {
+    public static synchronized void m548a(String str) {
         synchronized (ha.class) {
-            if (!j.m719d() && !TextUtils.isEmpty(str)) {
+            if (!j.m718d() && !TextUtils.isEmpty(str)) {
                 f459a = str;
             }
         }
@@ -179,7 +179,7 @@ public class ha {
     public static void b(Context context, List<a> list) {
         try {
             synchronized (com.xiaomi.push.providers.a.f829a) {
-                SQLiteDatabase writableDatabase = m545a(context).getWritableDatabase();
+                SQLiteDatabase writableDatabase = m544a(context).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 for (a aVar : list) {
                     ContentValues contentValues = new ContentValues();

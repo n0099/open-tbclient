@@ -1,13 +1,10 @@
 package com.android.support.appcompat.storage;
 
-import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
-import android.os.CancellationSignal;
 import android.provider.MediaStore;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
@@ -137,10 +134,64 @@ public class MediaFileProcessor {
         }
     }
 
-    public static Uri a(UriSource uriSource) {
+    public static int a(Context context, Uri uri, String str, String[] strArr, a0 a0Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, context, uri, str, strArr, a0Var)) == null) {
+            return c0.c(context).a(uri, str, strArr, a0Var);
+        }
+        return invokeLLLLL.intValue;
+    }
+
+    public static Uri d(Context context, InputStream inputStream, UriSource uriSource, ContentValues contentValues, String str) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, context, inputStream, uriSource, contentValues, str)) == null) {
+            return c0.c(context).d(inputStream, uriSource, contentValues, str);
+        }
+        return (Uri) invokeLLLLL.objValue;
+    }
+
+    public static int b(Context context, Uri uri, String str, String[] strArr, String str2, a0 a0Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, uri, str, strArr, str2, a0Var})) == null) {
+            return c0.c(context).b(uri, str, strArr, str2, a0Var);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static Cursor e(Context context, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, uri, strArr, str, strArr2, str2})) == null) {
+            return context.getContentResolver().query(uri, strArr, str, strArr2, str2);
+        }
+        return (Cursor) invokeCommon.objValue;
+    }
+
+    public static Cursor f(Context context, UriSource uriSource, String[] strArr, String str, String[] strArr2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, uriSource, strArr, str, strArr2, str2})) == null) {
+            return e(context, c(uriSource), strArr, str, strArr2, str2);
+        }
+        return (Cursor) invokeCommon.objValue;
+    }
+
+    public static int g(Context context, Uri uri, ContentValues contentValues, String str, String[] strArr, a0 a0Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, uri, contentValues, str, strArr, a0Var})) == null) {
+            return c0.c(context).e(uri, contentValues, str, strArr, a0Var);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static Uri c(UriSource uriSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uriSource)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uriSource)) == null) {
             int i = a.a[uriSource.ordinal()];
             if (i != 1) {
                 if (i != 2) {
@@ -160,141 +211,5 @@ public class MediaFileProcessor {
             return MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         }
         return (Uri) invokeL.objValue;
-    }
-
-    public static int delete(Context context, Uri uri, String str, String[] strArr, a0 a0Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, uri, str, strArr, a0Var)) == null) {
-            return c0.a(context).delete(uri, str, strArr, a0Var);
-        }
-        return invokeLLLLL.intValue;
-    }
-
-    public static Uri insert(Context context, InputStream inputStream, UriSource uriSource, ContentValues contentValues, String str) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65543, null, context, inputStream, uriSource, contentValues, str)) == null) {
-            return c0.a(context).insert(inputStream, uriSource, contentValues, str);
-        }
-        return (Uri) invokeLLLLL.objValue;
-    }
-
-    @TargetApi(26)
-    public static Cursor query(Context context, Uri uri, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65544, null, context, uri, strArr, bundle, cancellationSignal)) == null) {
-            return context.getContentResolver().query(uri, strArr, bundle, cancellationSignal);
-        }
-        return (Cursor) invokeLLLLL.objValue;
-    }
-
-    public static int delete(Context context, Uri uri, String str, String[] strArr, String str2, a0 a0Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, uri, str, strArr, str2, a0Var})) == null) {
-            return c0.a(context).delete(uri, str, strArr, str2, a0Var);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static Cursor query(Context context, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, uri, strArr, str, strArr2, str2})) == null) {
-            return context.getContentResolver().query(uri, strArr, str, strArr2, str2);
-        }
-        return (Cursor) invokeCommon.objValue;
-    }
-
-    public static int update(Context context, Uri uri, ContentValues contentValues, String str, String[] strArr, a0 a0Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{context, uri, contentValues, str, strArr, a0Var})) == null) {
-            return c0.a(context).update(uri, contentValues, str, strArr, a0Var);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int delete(Context context, UriSource uriSource, String str, String[] strArr, a0 a0Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, context, uriSource, str, strArr, a0Var)) == null) {
-            return delete(context, a(uriSource), str, strArr, a0Var);
-        }
-        return invokeLLLLL.intValue;
-    }
-
-    public static Cursor query(Context context, UriSource uriSource, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65547, null, context, uriSource, strArr, bundle, cancellationSignal)) == null) {
-            return query(context, a(uriSource), strArr, bundle, cancellationSignal);
-        }
-        return (Cursor) invokeLLLLL.objValue;
-    }
-
-    public static int delete(Context context, UriSource uriSource, String str, String[] strArr, String str2, a0 a0Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, uriSource, str, strArr, str2, a0Var})) == null) {
-            return delete(context, a(uriSource), str, strArr, str2, a0Var);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static Cursor query(Context context, UriSource uriSource, String[] strArr, String str, String[] strArr2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, uriSource, strArr, str, strArr2, str2})) == null) {
-            return query(context, a(uriSource), strArr, str, strArr2, str2);
-        }
-        return (Cursor) invokeCommon.objValue;
-    }
-
-    public static int update(Context context, UriSource uriSource, ContentValues contentValues, String str, String[] strArr, a0 a0Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, uriSource, contentValues, str, strArr, a0Var})) == null) {
-            return update(context, a(uriSource), contentValues, str, strArr, a0Var);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static Uri insert(Context context, Uri uri, ContentValues contentValues) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, uri, contentValues)) == null) {
-            return context.getContentResolver().insert(uri, contentValues);
-        }
-        return (Uri) invokeLLL.objValue;
-    }
-
-    public static Uri insert(Context context, UriSource uriSource, ContentValues contentValues) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, uriSource, contentValues)) == null) {
-            return insert(context, a(uriSource), contentValues);
-        }
-        return (Uri) invokeLLL.objValue;
-    }
-
-    public static Cursor query(Context context, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, uri, strArr, str, strArr2, str2, cancellationSignal})) == null) {
-            return context.getContentResolver().query(uri, strArr, str, strArr2, str2, cancellationSignal);
-        }
-        return (Cursor) invokeCommon.objValue;
-    }
-
-    public static Cursor query(Context context, UriSource uriSource, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, uriSource, strArr, str, strArr2, str2, cancellationSignal})) == null) {
-            return query(context, a(uriSource), strArr, str, strArr2, str2, cancellationSignal);
-        }
-        return (Cursor) invokeCommon.objValue;
     }
 }

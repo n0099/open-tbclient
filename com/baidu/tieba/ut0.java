@@ -1,50 +1,184 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.net.exception.RequestError;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Request;
-import org.apache.http.protocol.HTTP;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ut0 {
+public class ut0 implements CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnVideoSizeChangedListener, CyberPlayerManager.OnMediaSourceChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public zt0 a;
 
-    public static Request.Builder a(@NonNull tt0 tt0Var) throws RequestError {
-        InterceptResult invokeL;
+    public final int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tt0Var)) == null) {
-            Request.Builder builder = new Request.Builder();
-            try {
-                builder.url(tt0Var.a);
-                Object obj = tt0Var.e;
-                if (obj != null) {
-                    builder.tag(obj);
-                }
-                if (tt0Var.h) {
-                    builder.header("Content-Type", "application/x-www-form-urlencoded");
-                    builder.header(BOSTokenRequest.CHARSET, "UTF-8");
-                    builder.header(HTTP.CONN_DIRECTIVE, "close");
-                    builder.header("accept", "*/*");
-                }
-                Headers.a aVar = tt0Var.c;
-                if (aVar != null) {
-                    Headers c = aVar.c();
-                    for (int i = 0; i < c.g(); i++) {
-                        builder.header(c.f(i), c.h(i));
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i != 701) {
+                if (i != 702) {
+                    if (i != 904) {
+                        if (i != 910) {
+                            if (i != 924) {
+                                if (i != 946) {
+                                    if (i != 5000) {
+                                        if (i != 10009) {
+                                            if (i != 10103) {
+                                                if (i != 936) {
+                                                    if (i != 937) {
+                                                        if (i != 955) {
+                                                            if (i != 956) {
+                                                                if (i != 11004) {
+                                                                    if (i != 11005) {
+                                                                        if (i != 12005) {
+                                                                            if (i != 12006) {
+                                                                                return i;
+                                                                            }
+                                                                            return 12006;
+                                                                        }
+                                                                        return 12005;
+                                                                    }
+                                                                    return 11005;
+                                                                }
+                                                                return 11004;
+                                                            }
+                                                            return 956;
+                                                        }
+                                                        return 955;
+                                                    }
+                                                    return 937;
+                                                }
+                                                return 936;
+                                            }
+                                            return 10103;
+                                        }
+                                        return 10009;
+                                    }
+                                    return 5000;
+                                }
+                                return 946;
+                            }
+                            return 924;
+                        }
+                        return 910;
                     }
+                    return 904;
                 }
-                String str = tt0Var.b;
-                builder.method(str, qt0.g(str, tt0Var.d));
-                return builder;
-            } catch (Throwable th) {
-                throw new RequestError("Invalid request url: " + tt0Var.a, th);
+                return 702;
+            }
+            return 701;
+        }
+        return invokeI.intValue;
+    }
+
+    public ut0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (Request.Builder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        zt0 zt0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (zt0Var = this.a) != null) {
+            zt0Var.onCompletion();
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+    public void onPrepared() {
+        zt0 zt0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (zt0Var = this.a) != null) {
+            zt0Var.onPrepared();
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
+    public void onSeekComplete() {
+        zt0 zt0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (zt0Var = this.a) != null) {
+            zt0Var.onSeekComplete();
+        }
+    }
+
+    public void a(@Nullable zt0 zt0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zt0Var) == null) {
+            this.a = zt0Var;
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
+    public void onBufferingUpdate(int i) {
+        zt0 zt0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (zt0Var = this.a) != null) {
+            zt0Var.onBufferingUpdate(i);
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
+    public boolean onError(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, obj)) == null) {
+            zt0 zt0Var = this.a;
+            if (zt0Var != null) {
+                return zt0Var.onError(i, i2, obj);
+            }
+            return false;
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
+    public boolean onInfo(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i, i2, obj)) == null) {
+            if (this.a != null) {
+                return this.a.onInfo(b(i), i2, obj);
+            }
+            return false;
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnMediaSourceChangedListener
+    public boolean onMediaSourceChanged(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i, i2, obj)) == null) {
+            zt0 zt0Var = this.a;
+            if (zt0Var != null) {
+                return zt0Var.onMediaSourceChanged(i, i2, obj);
+            }
+            return false;
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
+    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
+        zt0 zt0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) && (zt0Var = this.a) != null) {
+            zt0Var.onVideoSizeChanged(i, i2, i3, i4);
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tbadk;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.coreExtra.model.CloudControlData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,7 +99,7 @@ public class RobotMallConfig {
             if (jSONObject == null) {
                 return DEFAULT;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("cloud_control_data_info");
+            JSONObject optJSONObject = jSONObject.optJSONObject(CloudControlData.KEY_CLOUD_CONTROL_DATA);
             if (optJSONObject == null) {
                 return DEFAULT;
             }

@@ -109,7 +109,7 @@ public class ShadowLinearLayout extends LinearLayout {
             this.i.setStyle(Paint.Style.FILL);
             this.i.setDither(true);
             this.g = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701d5);
-            float dimens = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703a9);
+            float dimens = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703a5);
             this.h = dimens;
             this.c = dimens;
             this.d = dimens;

@@ -1,5 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface rn extends sn {
-    void d(boolean z, int i, int i2, int i3, int i4);
+
+import com.baidu.bdtask.framework.ui.mvvm.IViewData;
+import com.baidu.tieba.sn;
+/* loaded from: classes8.dex */
+public interface rn<D extends IViewData, VM extends sn<? extends D>> {
+    void a(VM vm);
 }

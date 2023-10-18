@@ -1,6 +1,7 @@
 package com.baidu.webkit.logsdk.c;
 
 import android.text.TextUtils;
+import com.baidu.mobads.sdk.internal.bj;
 import com.baidu.webkit.sdk.SevenZipUtils;
 import java.io.File;
 import java.util.HashMap;
@@ -67,7 +68,7 @@ public final class b {
                             z2 = b2;
                         } else {
                             com.baidu.webkit.logsdk.a.b.a().e();
-                            long j = com.baidu.webkit.logsdk.b.b.a().getLong("timeup", 172800000L);
+                            long j = com.baidu.webkit.logsdk.b.b.a().getLong("timeup", bj.e);
                             com.baidu.webkit.logsdk.a.b.a().e();
                             long b3 = com.baidu.webkit.logsdk.b.b.b(next);
                             if (b3 != 0 && System.currentTimeMillis() - b3 >= j) {

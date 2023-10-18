@@ -1,283 +1,393 @@
 package com.baidu.tieba;
 
-import android.graphics.Point;
-import android.util.Log;
-import android.view.MotionEvent;
+import android.webkit.JavascriptInterface;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsFunction;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+import kotlin.text.Charsets;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes7.dex */
-public final class q74 {
+public final class q74 extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static s74[] b;
-    public static Point c;
-    public static float d;
-    public static float e;
-    public static boolean f;
-    public static int g;
-    public static long h;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public DatagramSocket b;
+    public int c;
+    public u74 d;
+    public k74 e;
+    public ArrayList<JsFunction> f;
+    public ArrayList<JsFunction> g;
+    public ArrayList<JsFunction> h;
+    public ArrayList<JsFunction> i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948044731, "Lcom/baidu/tieba/q74;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948044731, "Lcom/baidu/tieba/q74;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q74(JSRuntime jsRuntime) {
+        super(jsRuntime);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsRuntime};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = qr1.a;
-        c = new Point();
-        d = 1.0f;
-        e = 1.0f;
-        f = false;
+        Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
+        this.a = "%s:fail %s";
+        this.d = new u74();
+        this.e = new k74();
+        this.f = new ArrayList<>();
+        this.g = new ArrayList<>();
+        this.h = new ArrayList<>();
+        this.i = new ArrayList<>();
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    public final void F(m74 m74Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return h;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, m74Var) != null) || t74.c.c(this)) {
+            return;
         }
-        return invokeV.longValue;
+        try {
+            if (!this.d.a().offer(new l74(new DatagramPacket(m74Var.b(), m74Var.d(), m74Var.c(), InetAddress.getByName(m74Var.a()), m74Var.e()), this))) {
+                C("send", "send queue is full");
+                return;
+            }
+            if (!this.d.b()) {
+                this.d.c(true);
+                this.d.start();
+            }
+            if (!this.e.a()) {
+                this.e.b(true);
+                this.e.c(this);
+                D();
+                this.e.start();
+            }
+        } catch (Throwable unused) {
+        }
     }
 
-    public static int b() {
+    public final void y(DatagramPacket dp) {
+        String str;
+        byte[] address;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, dp) == null) {
+            Intrinsics.checkNotNullParameter(dp, "dp");
+            try {
+                byte[] bArr = new byte[dp.getLength()];
+                System.arraycopy(dp.getData(), dp.getOffset(), bArr, 0, dp.getLength());
+                InetAddress address2 = dp.getAddress();
+                if (address2 != null && (address = address2.getAddress()) != null && address.length == 4) {
+                    str = "IPv4";
+                } else {
+                    str = "IPv6";
+                }
+                Iterator<JsFunction> it = this.f.iterator();
+                while (it.hasNext()) {
+                    String inetAddress = dp.getAddress().toString();
+                    Intrinsics.checkNotNullExpressionValue(inetAddress, "dp.address.toString()");
+                    it.next().call(new o74(bArr, new p74(inetAddress, dp.getLength(), dp.getPort(), str)));
+                }
+            } catch (Throwable unused) {
+                Iterator<JsFunction> it2 = this.h.iterator();
+                while (it2.hasNext()) {
+                    x(it2.next(), "onMessage", "receive failed");
+                }
+            }
+        }
+    }
+
+    public final int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            for (int i = 49152; i <= 65535; i++) {
+                try {
+                    this.b = new DatagramSocket(i);
+                    w(i);
+                    return i;
+                } catch (Throwable unused) {
+                }
+            }
+            return -1;
         }
         return invokeV.intValue;
     }
 
-    public static boolean c() {
+    public final DatagramSocket B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (DatagramSocket) invokeV.objValue;
     }
 
-    public static void k() {
+    public final void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            g = 0;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Iterator<JsFunction> it = this.g.iterator();
+            while (it.hasNext()) {
+                it.next().call();
+            }
         }
     }
 
-    public static float d(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
+    public final int z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i)) == null) {
-            return wd4.b(motionEvent.getX(i) * d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.c;
         }
-        return invokeLI.floatValue;
+        return invokeV.intValue;
     }
 
-    public static float e(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
+    public final void C(String method, String error) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, motionEvent, i)) == null) {
-            return wd4.b(motionEvent.getY(i) * e);
-        }
-        return invokeLI.floatValue;
-    }
-
-    public static void l(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
-            Point point = c;
-            point.x = i;
-            point.y = i2;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, method, error) == null) {
+            Intrinsics.checkNotNullParameter(method, "method");
+            Intrinsics.checkNotNullParameter(error, "error");
+            Iterator<JsFunction> it = this.h.iterator();
+            while (it.hasNext()) {
+                x(it.next(), method, error);
+            }
         }
     }
 
-    public static boolean f(EventTarget eventTarget) {
+    public final xx1 E(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, eventTarget)) == null) {
-            if (eventTarget == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jsObject)) == null) {
+            xx1 G = xx1.G(jsObject);
+            if (G == null) {
+                return new xx1();
             }
-            return eventTarget.hasEventListener("touchstart", "touchmove", "touchcancel", "touchend");
+            return G;
         }
-        return invokeL.booleanValue;
+        return (xx1) invokeL.objValue;
     }
 
-    public static void g(boolean z) {
+    @JavascriptInterface
+    public final int bind(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f = z;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i != -1 && !t74.c.d(i)) {
+                try {
+                    this.b = new DatagramSocket(i);
+                    w(i);
+                    return i;
+                } catch (Throwable unused) {
+                    return A();
+                }
+            }
+            return A();
+        }
+        return invokeI.intValue;
+    }
+
+    @JavascriptInterface
+    public final void offCloseCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            this.i.remove(xz3.e(xx1.G(jsObject)).a);
         }
     }
 
-    public static void h(MotionEvent motionEvent, r74 r74Var, boolean z) {
+    @JavascriptInterface
+    public final void offErrorCallback(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65544, null, motionEvent, r74Var, z) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            this.h.remove(xz3.e(xx1.G(jsObject)).a);
+        }
+    }
+
+    @JavascriptInterface
+    public final void offListeningCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            this.g.remove(xz3.e(xx1.G(jsObject)).a);
+        }
+    }
+
+    @JavascriptInterface
+    public final void offMessageCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            this.f.remove(xz3.e(xx1.G(jsObject)).a);
+        }
+    }
+
+    @JavascriptInterface
+    public final void onCloseCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            xx1 E = E(jsObject);
+            if (E != null) {
+                this.i.add(xz3.e(E).a);
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public final void onErrorCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            xx1 E = E(jsObject);
+            if (E != null) {
+                this.h.add(xz3.e(E).a);
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public final void onListeningCallback(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            this.g.add(xz3.e(xx1.G(jsObject)).a);
+        }
+    }
+
+    @JavascriptInterface
+    public final void onMessageCallback(JsObject jsObject) {
+        xx1 E;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            if (!t74.c.c(this) && (E = E(jsObject)) != null) {
+                this.f.add(xz3.e(E).a);
+            }
+        }
+    }
+
+    public final void w(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            t74.c.a(i);
+            this.c = i;
+        }
+    }
+
+    @JavascriptInterface
+    public final void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             try {
-                if (!z) {
-                    int actionIndex = motionEvent.getActionIndex();
-                    r74Var.changedTouches = r1;
-                    s74[] s74VarArr = {new s74()};
-                    r74Var.changedTouches[0].identifier = motionEvent.getPointerId(actionIndex);
-                    r74Var.changedTouches[0].clientX = d(motionEvent, actionIndex);
-                    r74Var.changedTouches[0].clientY = e(motionEvent, actionIndex);
-                    return;
+                DatagramSocket datagramSocket = this.b;
+                if (datagramSocket != null) {
+                    datagramSocket.close();
                 }
-                int pointerCount = motionEvent.getPointerCount();
-                if (b == null || b.length != pointerCount) {
-                    b = new s74[pointerCount];
+                this.d.c(false);
+                this.d.interrupt();
+                this.e.b(false);
+                this.e.interrupt();
+                t74.c.e(this);
+                Iterator<JsFunction> it = this.i.iterator();
+                while (it.hasNext()) {
+                    it.next().call("success");
                 }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < pointerCount; i++) {
-                    s74 s74Var = new s74();
-                    s74Var.identifier = motionEvent.getPointerId(i);
-                    s74Var.clientX = d(motionEvent, i);
-                    s74Var.clientY = e(motionEvent, i);
-                    if (!s74Var.equals(b[i])) {
-                        arrayList.add(s74Var);
-                    }
-                    b[i] = s74Var;
-                }
-                if (arrayList.size() != 0) {
-                    s74[] s74VarArr2 = new s74[arrayList.size()];
-                    r74Var.changedTouches = s74VarArr2;
-                    arrayList.toArray(s74VarArr2);
-                }
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
+            } catch (Throwable unused) {
+                C("close", "close failed");
             }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0026, code lost:
-        if (r8.getActionIndex() != r3) goto L23;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void i(MotionEvent motionEvent, r74 r74Var) {
+    @JavascriptInterface
+    public final void send(JsObject jsObject) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, motionEvent, r74Var) == null) {
-            try {
-                int pointerCount = motionEvent.getPointerCount();
-                ArrayList arrayList = new ArrayList();
-                int i = 0;
-                while (i < pointerCount) {
-                    int actionMasked = motionEvent.getActionMasked();
-                    boolean z = true;
-                    if (actionMasked != 6 && actionMasked != 1 && actionMasked != 3) {
-                        z = false;
-                    }
-                    int pointerId = motionEvent.getPointerId(i);
-                    s74 s74Var = new s74();
-                    s74Var.identifier = pointerId;
-                    s74Var.clientX = d(motionEvent, i);
-                    s74Var.clientY = e(motionEvent, i);
-                    arrayList.add(s74Var);
-                    i++;
-                }
-                r74Var.touches = new s74[arrayList.size()];
-                if (!arrayList.isEmpty()) {
-                    arrayList.toArray(r74Var.touches);
-                }
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
+        if (interceptable == null || interceptable.invokeL(1048592, this, jsObject) == null) {
+            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            xx1 G = xx1.G(jsObject);
+            m74 m74Var = new m74();
+            String D = G.D("address", "");
+            Intrinsics.checkNotNullExpressionValue(D, "jsObjectMap.optString(PARAM_ADDRESS, \"\")");
+            m74Var.f(D);
+            String C = G.C("message");
+            boolean z2 = false;
+            if (C != null && C.length() != 0) {
+                z = false;
+            } else {
+                z = true;
             }
-        }
-    }
-
-    public static JSEvent j(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, motionEvent)) == null) {
-            r74 r74Var = new r74();
-            int actionMasked = motionEvent.getActionMasked();
-            String str = "touchend";
-            if (actionMasked != 0) {
-                if (actionMasked != 1) {
-                    if (actionMasked != 2) {
-                        if (actionMasked != 3) {
-                            if (actionMasked != 5) {
-                                if (actionMasked != 6) {
-                                    str = "toucherror";
-                                } else {
-                                    h(motionEvent, r74Var, false);
-                                }
-                            } else {
-                                h(motionEvent, r74Var, false);
-                            }
-                        } else {
-                            h(motionEvent, r74Var, false);
-                            str = "touchcancel";
-                        }
+            if (z) {
+                byte[] buffer = G.t("message").buffer();
+                if (buffer != null) {
+                    m74Var.h(G.s("length", buffer.length));
+                    m74Var.i(G.r("offset"));
+                    m74Var.g(buffer);
+                }
+            } else {
+                Charset charset = Charsets.UTF_8;
+                if (C != null) {
+                    byte[] bytes = C.getBytes(charset);
+                    Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
+                    m74Var.g(bytes);
+                    Charset charset2 = Charsets.UTF_8;
+                    if (C != null) {
+                        byte[] bytes2 = C.getBytes(charset2);
+                        Intrinsics.checkNotNullExpressionValue(bytes2, "(this as java.lang.String).getBytes(charset)");
+                        m74Var.h(bytes2.length);
                     } else {
-                        h(motionEvent, r74Var, true);
-                        str = "touchmove";
+                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                     }
                 } else {
-                    h(motionEvent, r74Var, false);
-                }
-                r74Var.timeStamp = motionEvent.getEventTime();
-                i(motionEvent, r74Var);
-                JSEvent jSEvent = new JSEvent(str);
-                jSEvent.data = r74Var;
-                if (!"touchmove".equals(str) && r74Var.changedTouches == null) {
-                    return null;
+                    throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                 }
             }
-            h(motionEvent, r74Var, false);
-            int i = g + 1;
-            g = i;
-            g = Math.min(i, 1000);
-            h = System.currentTimeMillis();
-            str = "touchstart";
-            r74Var.timeStamp = motionEvent.getEventTime();
-            i(motionEvent, r74Var);
-            JSEvent jSEvent2 = new JSEvent(str);
-            jSEvent2.data = r74Var;
-            return !"touchmove".equals(str) ? jSEvent2 : jSEvent2;
+            m74Var.j(G.s(ClientCookie.PORT_ATTR, -1));
+            if (m74Var.e() == -1) {
+                C("send", "port is empty");
+                return;
+            }
+            if (m74Var.a().length() == 0) {
+                z2 = true;
+            }
+            if (z2) {
+                C("send", "address is empty");
+            } else {
+                F(m74Var);
+            }
         }
-        return (JSEvent) invokeL.objValue;
     }
 
-    public static void m(int i, int i2) {
-        float f2;
-        int i3;
-        int i4;
+    public final void x(JsFunction jsFunction, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65549, null, i, i2) == null) {
-            float f3 = 1.0f;
-            if (i != 0 && (i4 = c.x) != 0) {
-                f2 = i4 / i;
-            } else {
-                f2 = 1.0f;
-            }
-            d = f2;
-            if (i2 != 0 && (i3 = c.y) != 0) {
-                f3 = i3 / i2;
-            }
-            e = f3;
-            if (a) {
-                Log.i("SwanGameTouchHelper", String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(d), Float.valueOf(e)));
+        if (interceptable == null || interceptable.invokeLLL(1048594, this, jsFunction, str, str2) == null) {
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String format = String.format(this.a, Arrays.copyOf(new Object[]{str, str2}, 2));
+            Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
+            if (jsFunction != null) {
+                jsFunction.call(new n74(format));
             }
         }
     }

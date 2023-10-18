@@ -1,231 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.flow.CoverFlowView;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.s57;
+import com.baidu.searchbox.live.frame.PageInfo;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+import tbclient.FeedVideoComponent;
+import tbclient.ThumbnailInfo;
+import tbclient.VideoField;
 /* loaded from: classes7.dex */
-public class o57 {
+public final class o57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Pattern a;
-    public TbPageContext<?> b;
-    public View c;
-    public CoverFlowView<u75> d;
-    public s57 e;
-    public x75<u75> f;
 
-    public void f(BdUniqueId bdUniqueId) {
+    public static final String a(String schema, k37 feedExtraData) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bdUniqueId) != null) || bdUniqueId == null) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends v75 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o57 a;
-
-        public a(o57 o57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, schema, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            String a = p67.a(p67.b(schema, feedExtraData.d()), "author_is_living", feedExtraData.a().a().get("author_is_living"));
+            String str = feedExtraData.a().a().get("yy_ext");
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
             }
-            this.a = o57Var;
-        }
-
-        @Override // com.baidu.tieba.v75, com.baidu.tieba.t75
-        public TbImageView d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                TbImageView tbImageView = new TbImageView(context);
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                tbImageView.setGifIconSupport(false);
-                return tbImageView;
-            }
-            return (TbImageView) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.v75, com.baidu.tieba.t75
-        public w75 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                w75 a = super.a();
-                if (a != null) {
-                    a.d(81);
-                    a.e(R.dimen.obfuscated_res_0x7f0701d5);
-                }
+            if (z) {
+                Intrinsics.checkNotNullExpressionValue(a, "{\n        result\n    }");
                 return a;
             }
-            return (w75) invokeV.objValue;
+            String a2 = p67.a(a, "yy_ext", str);
+            Intrinsics.checkNotNullExpressionValue(a2, "{\n        SchemaUtil.app…yy_ext\", yyExtInfo)\n    }");
+            return a2;
         }
-
-        @Override // com.baidu.tieba.v75, com.baidu.tieba.t75
-        public z75 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                z75 z75Var = new z75();
-                z75Var.a((int) (BdUtilHelper.getEquipmentWidth(this.a.b.getPageActivity()) / 2.5714285f));
-                return z75Var;
-            }
-            return (z75) invokeV.objValue;
-        }
+        return (String) invokeLL.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements x75<u75> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o57 a;
-
-        @Override // com.baidu.tieba.x75
-        public void a(int i, u75 u75Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, u75Var) != null) || u75Var == null) {
-            }
-        }
-
-        public b(o57 o57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o57Var;
-        }
-
-        @Override // com.baidu.tieba.x75
-        public void b(int i, String str) {
-            s57.a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) != null) || (aVar = (s57.a) this.a.d.q(i)) == null) {
-                return;
-            }
-            Matcher matcher = this.a.a.matcher(aVar.getPicLinkUrl());
-            if (matcher.find()) {
-                this.a.b.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.b.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
-            }
-        }
-    }
-
-    public o57(TbPageContext<?> tbPageContext) {
+    public static final g27 b(VideoField videoField, r47 videoSchemaData, k37 feedExtraData) {
+        InterceptResult invokeLLL;
+        String str;
+        boolean z;
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, videoField, videoSchemaData, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(videoField, "videoField");
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            q47 q47Var = new q47();
+            ThumbnailInfo thumbnailInfo = videoField.thumbnail;
+            if (thumbnailInfo != null) {
+                str = thumbnailInfo.url;
+            } else {
+                str = null;
+            }
+            q47Var.a = str;
+            Integer num = videoField.is_vertical;
+            if (num != null && num.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            q47Var.d = z;
+            Integer num2 = videoField.width;
+            Intrinsics.checkNotNullExpressionValue(num2, "videoField.width");
+            q47Var.b = num2.intValue();
+            Integer num3 = videoField.height;
+            Intrinsics.checkNotNullExpressionValue(num3, "videoField.height");
+            q47Var.c = num3.intValue();
+            StringBuilder sb = new StringBuilder();
+            sb.append(StringHelper.stringForVideoTime(videoField.duration.intValue() * 1000));
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String string = q07.a.getString(R.string.play_count_new);
+            Intrinsics.checkNotNullExpressionValue(string, "FeedAppContext.getString(R.string.play_count_new)");
+            String format = String.format(string, Arrays.copyOf(new Object[]{StringHelper.numFormatOverWan(videoField.play_count.intValue())}, 1));
+            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
+            sb.append(format);
+            sb.toString();
+            q47Var.e = videoField.url;
+            Integer num4 = videoField.duration;
+            Intrinsics.checkNotNullExpressionValue(num4, "videoField.duration");
+            q47Var.f = num4.intValue();
+            q47Var.g = 0;
+            Integer num5 = videoField.play_count;
+            Intrinsics.checkNotNullExpressionValue(num5, "videoField.play_count");
+            q47Var.h = num5.intValue();
+            String str2 = videoField.md5;
+            Map<String, String> a2 = feedExtraData.a().a();
+            q47Var.i = a2;
+            Intrinsics.checkNotNullExpressionValue(a2, "videoData.businessInfo");
+            l77 l77Var = feedExtraData.e().get(PageInfo.KEY);
+            a2.put("page_from", (l77Var == null || (a = l77Var.a(new v27())) == null || (r0 = a.get("page_from")) == null) ? "" : "");
+            return new g27(q47Var, videoSchemaData, CollectionsKt__CollectionsKt.listOf((Object[]) new n47[]{l37.d(feedExtraData, "video_click", null, 2, null), l37.d(feedExtraData, "video_click2", null, 2, null)}), null, 8, null);
+        }
+        return (g27) invokeLLL.objValue;
+    }
+
+    public static final void c(FeedVideoComponent feedVideoComponent, List<h77<?>> dataList, r47 videoSchemaData, k37 feedExtraData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, feedVideoComponent, dataList, videoSchemaData, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedVideoComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            VideoField videoField = feedVideoComponent.video_info;
+            if (videoField != null) {
+                dataList.add(new i77(b(videoField, videoSchemaData, feedExtraData), "video"));
             }
         }
-        this.a = Pattern.compile(UrlSchemaHelper.PB_URL);
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = new b(this);
-        this.b = tbPageContext;
-        d();
-    }
-
-    public void e(s57 s57Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s57Var) == null) && s57Var != null && s57Var != this.e) {
-            this.d.setData(s57Var.a());
-            this.e = s57Var;
-        }
-    }
-
-    public void g(boolean z) {
-        CoverFlowView<u75> coverFlowView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048580, this, z) != null) || (coverFlowView = this.d) == null) {
-            return;
-        }
-        if (z) {
-            coverFlowView.o();
-        } else {
-            coverFlowView.D();
-        }
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void h() {
-        CoverFlowView<u75> coverFlowView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (coverFlowView = this.d) != null) {
-            coverFlowView.C();
-        }
-    }
-
-    public final void d() {
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (tbPageContext = this.b) == null) {
-            return;
-        }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08fb, (ViewGroup) null);
-        this.c = inflate;
-        if (inflate == null) {
-            return;
-        }
-        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f0922a5);
-        a aVar = new a(this);
-        this.d.setDisableParentEvent(false);
-        this.d.setCoverFlowFactory(aVar);
-        this.d.setCallback(this.f);
     }
 }

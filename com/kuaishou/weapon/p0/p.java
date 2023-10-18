@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.tts.client.SpeechSynthesizer;
 import com.kuaishou.weapon.p0.q;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +46,7 @@ public class p {
                 qVar.c(jSONObject.optInt("wo"));
                 qVar.d(jSONObject.optInt("wpr"));
                 qVar.c(jSONObject.optString(i1.q));
-                qVar.e(jSONObject.optInt(SpeechSynthesizer.REQUEST_PROTOCOL_WS, 1));
+                qVar.e(jSONObject.optInt("ws", 1));
                 qVar.a(jSONObject.optInt("wh", 0));
                 qVar.f(jSONObject.optInt("wt"));
                 qVar.d(jSONObject.optString("wu"));

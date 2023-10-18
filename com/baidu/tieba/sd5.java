@@ -1,16 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class sd5 {
+/* loaded from: classes8.dex */
+public abstract class sd5 implements Comparable<sd5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(vd5 vd5Var);
+    }
+
+    public abstract void b(a aVar);
+
+    public abstract int c();
+
+    public abstract void d();
 
     public sd5() {
         Interceptable interceptable = $ic;
@@ -22,20 +31,24 @@ public class sd5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        d();
     }
 
-    public void a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(sd5 sd5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject != null) {
-            jSONObject.optInt("offline");
-            jSONObject.optString("title");
-            String optString = jSONObject.optString("link");
-            this.a = optString;
-            if (!TextUtils.isEmpty(optString)) {
-                this.a = this.a.replaceFirst("webview:", "http://");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sd5Var)) == null) {
+            if (sd5Var == null) {
+                return 1;
             }
+            return c() - sd5Var.c();
         }
+        return invokeL.intValue;
     }
 }

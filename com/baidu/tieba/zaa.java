@@ -1,63 +1,63 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.widget.RelativeLayout;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseView;
-import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BDLayoutMode;
-import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tbadk.switchs.UploadLogButtonSwitch;
-import com.baidu.tieba.setting.more.MsgSettingItemView;
-import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
-import com.baidu.tieba.setting.more.TbSettingTextNewDotView;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
+import com.baidu.tieba.square.data.ForumInfoData;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes9.dex */
-public class zaa extends BdBaseView<SystemHelpSettingActivity> {
+public class zaa extends BaseAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SystemHelpSettingActivity a;
-    public View b;
-    public TbSettingTextTipView c;
-    public TbSettingTextTipView d;
-    public BdSwitchView e;
-    public BdSwitchView f;
-    public TbSettingTextNewDotView g;
-    public MsgSettingItemView h;
-    public TbSettingTextTipView i;
-    public RelativeLayout j;
-    public RelativeLayout k;
-    public TextView l;
-    public TextView m;
-    public TextView n;
-    public TextView o;
-    public TbSettingTextTipView p;
-    public NavigationBar q;
-    public BdSwitchView.b r;
+    public TbPageContext a;
+    public int b;
+    public LikeModel c;
+    public int d;
+    public int e;
+    public boolean f;
+    public ForumDetailActivityConfig.FromType g;
+    public ForumInfoData[] h;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i : invokeI.longValue;
+    }
 
     /* loaded from: classes9.dex */
-    public class a implements BdSwitchView.b {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zaa a;
+        public BarImageView a;
+        public TextView b;
+        public TextView c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
+        public TextView g;
+        public TextView h;
 
         public a(zaa zaaVar) {
             Interceptable interceptable = $ic;
@@ -71,215 +71,275 @@ public class zaa extends BdBaseView<SystemHelpSettingActivity> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.a = zaaVar;
-        }
-
-        @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-        public void z(View view2, BdSwitchView.SwitchState switchState) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 == this.a.h.getSwitchView()) {
-                if (BdSwitchView.SwitchState.ON == switchState) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-                sharedPrefHelper.putBoolean("recnbar" + TbadkCoreApplication.getCurrentAccount(), !z);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921347, Boolean.valueOf(z)));
-                this.a.a.O0("recnbar", z ^ true);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zaa(SystemHelpSettingActivity systemHelpSettingActivity) {
-        super(systemHelpSettingActivity.getPageContext());
+    public zaa(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {systemHelpSettingActivity};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((BdPageContext) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.i = null;
-        this.p = null;
-        this.r = new a(this);
-        this.a = systemHelpSettingActivity;
-        systemHelpSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d0958);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-        this.q = navigationBar;
-        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f15d4));
-        this.q.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09070d);
-        this.c = tbSettingTextTipView;
-        tbSettingTextTipView.c();
-        this.c.setOnClickListener(this.a);
-        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09070e);
-        this.d = tbSettingTextTipView2;
-        tbSettingTextTipView2.c();
-        this.d.setOnClickListener(this.a);
-        this.e = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f0911dd);
-        BdUtilHelper.addToParentArea(this.a.getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
-        this.e.setOnSwitchStateChangeListener(this.a);
-        this.f = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f0921ae);
-        BdUtilHelper.addToParentArea(this.a.getPageContext().getPageActivity(), this.f, 10, 10, 10, 10);
-        this.f.setOnSwitchStateChangeListener(this.a);
-        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090852);
-        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092374);
-        this.k = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092376);
-        this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092375);
-        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0911bf);
-        this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0911c0);
-        this.n = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092373);
-        if (GlobalBuildConfig.isTiebaDebugTool()) {
-            this.i.setVisibility(0);
-        } else {
-            this.i.setVisibility(8);
-        }
-        this.i.c();
-        this.i.setOnClickListener(this.a);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091a5b);
-        if (TbadkCoreApplication.isLogin()) {
-            this.d.setVisibility(0);
-        } else {
-            this.d.setVisibility(8);
-        }
-        TbSettingTextNewDotView tbSettingTextNewDotView = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.obfuscated_res_0x7f092330);
-        this.g = tbSettingTextNewDotView;
-        tbSettingTextNewDotView.setOnClickListener(this.a);
-        this.g.setVisibility(0);
-        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091e56);
-        this.h = msgSettingItemView;
-        msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f1156);
-        this.h.setOnSwitchStateChangeListener(this.r);
-        SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-        B(sharedPrefHelper.getBoolean("recnbar" + TbadkCoreApplication.getCurrentAccount(), false));
-        this.p = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092827);
-        if (UploadLogButtonSwitch.isOn()) {
-            this.p.setVisibility(0);
-            this.p.c();
-            this.p.setOnClickListener(this.a);
-            return;
-        }
-        this.p.setVisibility(8);
+        this.b = -1;
+        this.d = 0;
+        this.e = 0;
+        this.f = true;
+        this.g = ForumDetailActivityConfig.FromType.BAR_DIR;
+        this.a = tbPageContext;
+        this.e = i;
+        this.h = new ForumInfoData[0];
     }
 
-    public void B(boolean z) {
+    public ForumInfoData[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (!z) {
-                this.h.getSwitchView().m();
-            } else {
-                this.h.getSwitchView().j();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
+        }
+        return (ForumInfoData[]) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LikeModel likeModel = this.c;
+            if (likeModel == null) {
+                return false;
+            }
+            return likeModel.d0();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ForumInfoData[] forumInfoDataArr = this.h;
+            if (forumInfoDataArr == null) {
+                return 0;
+            }
+            int i = this.d;
+            if (i > forumInfoDataArr.length) {
+                return forumInfoDataArr.length;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 100000) {
+                return String.valueOf(i / 10000) + this.a.getString(R.string.member_count_unit);
+            }
+            return String.valueOf(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            notifyDataSetChanged();
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.d = i;
+            notifyDataSetChanged();
+        }
+    }
+
+    public void f(ForumInfoData[] forumInfoDataArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, forumInfoDataArr) == null) {
+            this.h = forumInfoDataArr;
+            if (forumInfoDataArr != null) {
+                notifyDataSetChanged();
             }
         }
     }
 
-    public TbSettingTextTipView h() {
-        InterceptResult invokeV;
+    public void g(ForumDetailActivityConfig.FromType fromType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(1048582, this, fromType) == null) {
+            this.g = fromType;
         }
-        return (TbSettingTextTipView) invokeV.objValue;
     }
 
-    public TbSettingTextTipView s() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (i > this.d) {
+                return null;
+            }
+            return this.h[i];
         }
-        return (TbSettingTextTipView) invokeV.objValue;
+        return invokeI.objValue;
     }
 
-    public TbSettingTextTipView t() {
-        InterceptResult invokeV;
+    public void h(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bool) == null) {
+            this.f = bool.booleanValue();
         }
-        return (TbSettingTextTipView) invokeV.objValue;
     }
 
-    public BdSwitchView u() {
-        InterceptResult invokeV;
+    public void j(LikeModel likeModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeL(1048589, this, likeModel) == null) {
+            this.c = likeModel;
         }
-        return (BdSwitchView) invokeV.objValue;
     }
 
-    public TbSettingTextNewDotView x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return (TbSettingTextNewDotView) invokeV.objValue;
-    }
-
-    public TbSettingTextTipView y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.p;
-        }
-        return (TbSettingTextTipView) invokeV.objValue;
-    }
-
-    public BdSwitchView z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
-        }
-        return (BdSwitchView) invokeV.objValue;
-    }
-
-    public void onChangeSkinType(int i) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, view2, viewGroup)) == null) {
+            if (view2 == null || view2.getTag() == null) {
+                view2 = View.inflate(this.a.getContext(), R.layout.obfuscated_res_0x7f0d0309, null);
+                a aVar = new a(this);
+                BarImageView barImageView = (BarImageView) view2.findViewById(R.id.forum_avatar);
+                aVar.a = barImageView;
+                barImageView.setGifIconSupport(false);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918d9);
+                aVar.e = (TextView) view2.findViewById(R.id.member_count);
+                aVar.f = (TextView) view2.findViewById(R.id.thread_count);
+                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092266);
+                aVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091530);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e41);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f6c);
+                view2.setTag(aVar);
+            }
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09037e);
+            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f09037d);
+            SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(findViewById2, R.color.CAM_X0204);
+            if (i == 0) {
+                findViewById.setVisibility(0);
+            } else {
+                findViewById.setVisibility(8);
+            }
+            a aVar2 = (a) view2.getTag();
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
             BDLayoutMode layoutMode = this.a.getLayoutMode();
-            if (i == 4) {
+            if (skinType == 4) {
                 z = true;
             } else {
                 z = false;
             }
             layoutMode.setNightMode(z);
-            this.a.getLayoutMode().onModeChanged(this.b);
-            this.q.onChangeSkinType(getPageContext(), i);
-            this.e.b();
-            this.f.b();
-            this.h.c(this.a.getPageContext(), i);
-            SkinManager.setBackgroundResource(this.c, R.drawable.more_all);
-            EMManager.from(this.j).setTextColor(R.color.CAM_X0205);
-            EMManager.from(this.k).setTextColor(R.color.CAM_X0205);
-            EMManager.from(this.l).setTextColor(R.color.CAM_X0105);
-            EMManager.from(this.m).setTextColor(R.color.CAM_X0109);
-            EMManager.from(this.n).setTextColor(R.color.CAM_X0108);
-            EMManager.from(this.o).setTextColor(R.color.CAM_X0105);
+            this.a.getLayoutMode().onModeChanged(view2);
+            ForumInfoData[] forumInfoDataArr = this.h;
+            ForumInfoData forumInfoData = forumInfoDataArr[i];
+            String str = forumInfoDataArr[i].avatar;
+            aVar2.a.setTag(str);
+            aVar2.a.invalidate();
+            aVar2.a.startLoad(str, 10, false);
+            aVar2.d.setText(forumInfoData.forum_name);
+            aVar2.d.setTag(Integer.valueOf(forumInfoData.forum_id));
+            aVar2.h.setTag(forumInfoData.forum_name);
+            TextView textView = aVar2.e;
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f02ec) + " " + b(forumInfoData.member_count));
+            TextView textView2 = aVar2.f;
+            textView2.setText(this.a.getString(R.string.text_post) + " " + b(forumInfoData.thread_count));
+            aVar2.g.setText(forumInfoData.slogan);
+            if (this.e == 0) {
+                aVar2.c.setVisibility(8);
+                if (!this.f) {
+                    aVar2.b.setVisibility(8);
+                } else {
+                    aVar2.b.setVisibility(0);
+                    aVar2.b.setText((CharSequence) null);
+                    aVar2.b.setBackgroundDrawable(null);
+                    if (i != 0) {
+                        if (i != 1) {
+                            if (i != 2) {
+                                aVar2.b.setText(String.format("%02d", Integer.valueOf(i + 1)));
+                            } else {
+                                SkinManager.setBackgroundResource(aVar2.b, R.drawable.icon_brief_grade_green);
+                            }
+                        } else {
+                            SkinManager.setBackgroundResource(aVar2.b, R.drawable.icon_brief_grade_blue);
+                        }
+                    } else {
+                        SkinManager.setBackgroundResource(aVar2.b, R.drawable.icon_brief_grade_orange);
+                    }
+                }
+            } else {
+                aVar2.b.setVisibility(8);
+                aVar2.c.setVisibility(0);
+                aVar2.c.setText((CharSequence) null);
+                aVar2.c.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_rise), (Drawable) null, (Drawable) null, (Drawable) null);
+                TextView textView3 = aVar2.c;
+                textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1290) + String.valueOf(forumInfoData.mbr_inter_rank) + this.a.getString(R.string.obfuscated_res_0x7f0f0eea));
+            }
+            aVar2.h.setOnClickListener(this);
+            view2.setOnClickListener(this);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    public void i(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) && i != 0 && i2 != 0) {
+            notifyDataSetChanged();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            for (int i = 0; i < this.d; i++) {
+                int hasLikeForum = TbadkCoreApplication.getInst().hasLikeForum(this.h[i].forum_name);
+                if (hasLikeForum == 1) {
+                    this.h[i].is_like = 1;
+                } else if (hasLikeForum == -1) {
+                    this.h[i].is_like = 0;
+                }
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091530) {
+                TiebaStatic.eventStat(this.a.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
+                this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg((String) view2.getTag(), null).setCallFrom(5)));
+                return;
+            }
+            a aVar = (a) view2.getTag();
+            if (TbadkCoreApplication.getInst().isRegistedIntent(ForumDetailActivityConfig.class) && SwitchManager.getInstance().findType(BarDetailForDirSwitch.BAR_DETAIL_DIR) == 0) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.a.getPageActivity(), String.valueOf(aVar.d.getTag()), this.g)));
+                return;
+            }
+            TiebaStatic.eventStat(this.a.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
+            this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg(aVar.d.getText().toString(), null)));
         }
     }
 }

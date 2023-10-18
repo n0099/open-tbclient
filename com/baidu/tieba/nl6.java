@@ -1,35 +1,64 @@
 package com.baidu.tieba;
 
-import android.webkit.WebResourceResponse;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.core.webview.flyweight.loader.WebViewDiskLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nl6 extends ol6<WebResourceResponse> {
+public final class nl6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nl6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final pl6 b;
+    public final String a;
+    public final Bitmap b;
 
-    @Override // com.baidu.tieba.ol6
-    public boolean e(String str, String str2, Map<String, String> map) {
-        InterceptResult invokeLLL;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof nl6) {
+                nl6 nl6Var = (nl6) obj;
+                return Intrinsics.areEqual(this.a, nl6Var.a) && Intrinsics.areEqual(this.b, nl6Var.b);
+            }
             return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public nl6() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String str = this.a;
+            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
+            Bitmap bitmap = this.b;
+            return hashCode + (bitmap != null ? bitmap.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "VideoCoverWrapper(url=" + this.a + ", bitmap=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public nl6(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,47 +68,38 @@ public class nl6 extends ol6<WebResourceResponse> {
                 return;
             }
         }
-        this.b = new pl6();
-        WebViewDiskLoader webViewDiskLoader = new WebViewDiskLoader();
-        webViewDiskLoader.d(this.b);
-        d(webViewDiskLoader);
+        this.a = str;
+        this.b = bitmap;
     }
 
-    public static nl6 g() {
+    public final Bitmap a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (nl6.class) {
-                    if (c == null) {
-                        c = new nl6();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (nl6) invokeV.objValue;
+        return (Bitmap) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ol6
-    /* renamed from: h */
-    public WebResourceResponse c(String str, String str2, Map<String, String> map) {
-        InterceptResult invokeLLL;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, map)) == null) {
-            if (a() != null) {
-                return a().b(str, str2, map);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (WebResourceResponse) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void f(String str, Map<String, String> map) {
+    public final boolean c() {
+        InterceptResult invokeV;
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, map) == null) {
-            this.b.p(str, map);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (StringUtils.isNotNull(this.a) && (bitmap = this.b) != null && !bitmap.isRecycled()) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

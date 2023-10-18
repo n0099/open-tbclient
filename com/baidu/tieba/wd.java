@@ -1,78 +1,313 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.log.NetLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.nio.ByteBuffer;
+import java.nio.channels.SocketChannel;
 /* loaded from: classes8.dex */
 public class wd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Type[] a;
-    public Type b;
-    public Class<?> c;
 
-    public wd(Type type) {
+    /* loaded from: classes8.dex */
+    public interface a {
+        int a();
+
+        void close() throws IOException;
+
+        boolean isConnected();
+
+        int read(ByteBuffer byteBuffer) throws Exception;
+
+        int write(ByteBuffer byteBuffer) throws Exception;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SocketChannel a;
+
+        @Override // com.baidu.tieba.wd.a
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        public b(String str, int i, ve veVar) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), veVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.a = SocketChannel.open();
+            System.currentTimeMillis();
+            InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
+            if (inetSocketAddress.getAddress() != null) {
+                inetSocketAddress.getAddress().getHostAddress();
+                System.currentTimeMillis();
+            }
+            this.a.socket().connect(inetSocketAddress, veVar.e());
+            this.a.socket().setSoTimeout(veVar.f());
+            this.a.socket().setTcpNoDelay(veVar.g());
+            BdUtilHelper.getLocalDns();
+            BdUtilHelper.getLocalDnsBak();
+        }
+
+        @Override // com.baidu.tieba.wd.a
+        public void close() throws IOException {
+            SocketChannel socketChannel;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (socketChannel = this.a) != null) {
+                socketChannel.close();
+            }
+        }
+
+        @Override // com.baidu.tieba.wd.a
+        public boolean isConnected() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                SocketChannel socketChannel = this.a;
+                if (socketChannel != null) {
+                    return socketChannel.isConnected();
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.wd.a
+        public int read(ByteBuffer byteBuffer) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, byteBuffer)) == null) {
+                return this.a.read(byteBuffer);
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.wd.a
+        public int write(ByteBuffer byteBuffer) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteBuffer)) == null) {
+                return this.a.write(byteBuffer);
+            }
+            return invokeL.intValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c implements a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static int e = -1;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Socket a;
+        public InputStream b;
+        public OutputStream c;
+        public byte[] d;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(266712161, "Lcom/baidu/tieba/wd$c;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(266712161, "Lcom/baidu/tieba/wd$c;");
+            }
+        }
+
+        @Override // com.baidu.tieba.wd.a
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        public c(String str, int i, ve veVar) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), veVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            String str2 = null;
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.a = new Socket();
+            if (e == -1) {
+                e = AppRuntime.getAppContext().getSharedPreferences("settings2", 0).getInt("android_use_ipv6_default", 0);
+            }
+            if (e == 1 && !ad.isEmpty(str)) {
+                if (td.b().size() == 0) {
+                    td.a(str, 3);
+                }
+                if (td.b().size() > 0) {
+                    str2 = td.b().remove(0);
+                }
+            }
+            System.currentTimeMillis();
+            str2 = str2 == null ? str : str2;
+            TbLog netLog = NetLog.getInstance();
+            netLog.i("SocketImp", "socket host ： " + str + "socket ip ： " + str2);
+            InetSocketAddress inetSocketAddress = new InetSocketAddress(str2, i);
+            if (inetSocketAddress.getAddress() != null) {
+                inetSocketAddress.getAddress().getHostAddress();
+                System.currentTimeMillis();
+            }
+            this.a.connect(inetSocketAddress, veVar.e());
+            this.a.setSoTimeout(veVar.f());
+            this.a.setTcpNoDelay(veVar.g());
+            this.b = this.a.getInputStream();
+            this.c = this.a.getOutputStream();
+            this.d = new byte[1024];
+            BdUtilHelper.getLocalDns();
+            BdUtilHelper.getLocalDnsBak();
+        }
+
+        @Override // com.baidu.tieba.wd.a
+        public void close() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                try {
+                    this.b.close();
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                }
+                try {
+                    this.c.close();
+                } catch (Exception e3) {
+                    BdLog.e(e3.getMessage());
+                }
+                Socket socket = this.a;
+                if (socket != null) {
+                    try {
+                        socket.close();
+                    } catch (IOException e4) {
+                        throw e4;
+                    } catch (Throwable unused) {
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.wd.a
+        public boolean isConnected() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                Socket socket = this.a;
+                if (socket != null) {
+                    return socket.isConnected();
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.wd.a
+        public int read(ByteBuffer byteBuffer) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, byteBuffer)) == null) {
+                int read = this.b.read(this.d);
+                if (read > 0) {
+                    byteBuffer.put(this.d, 0, read);
+                }
+                return read;
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.wd.a
+        public int write(ByteBuffer byteBuffer) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteBuffer)) == null) {
+                int remaining = byteBuffer.remaining();
+                if (remaining > 0) {
+                    byte[] bArr = new byte[remaining];
+                    byteBuffer.get(bArr);
+                    this.c.write(bArr);
+                }
+                return remaining;
+            }
+            return invokeL.intValue;
+        }
+    }
+
+    public wd() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        if (type instanceof ParameterizedType) {
-            ParameterizedType parameterizedType = (ParameterizedType) type;
-            this.a = parameterizedType.getActualTypeArguments();
-            Type rawType = parameterizedType.getRawType();
-            this.b = rawType;
-            Type[] typeArr = this.a;
-            if (typeArr != null && typeArr.length > 0) {
-                try {
-                    this.c = (Class) rawType;
-                    return;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
-                }
-            }
-            return;
-        }
-        try {
-            this.c = (Class) type;
-        } catch (Exception e2) {
-            e2.printStackTrace();
         }
     }
 
-    public Class<?> a() {
-        InterceptResult invokeV;
+    public a a(String str, int i, ve veVar, boolean z) throws Exception {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), veVar, Boolean.valueOf(z)})) == null) {
+            if (z) {
+                return new b(str, i, veVar);
+            }
+            return new c(str, i, veVar);
         }
-        return (Class) invokeV.objValue;
-    }
-
-    public Type[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (Type[]) invokeV.objValue;
+        return (a) invokeCommon.objValue;
     }
 }

@@ -4,9 +4,9 @@ import com.baidu.common.config.AppIdentityManager;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.idb;
-import com.baidu.tieba.pk1;
-import com.baidu.tieba.qab;
+import com.baidu.tieba.d8b;
+import com.baidu.tieba.l5b;
+import com.baidu.tieba.ze1;
 /* loaded from: classes4.dex */
 public class InitUBCTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -24,11 +24,11 @@ public class InitUBCTask extends LaunchTask {
             return;
         }
         AppIdentityManager.getInstance().setAppName("tieba");
-        if (pk1.g()) {
-            idb.a();
+        if (ze1.g()) {
+            d8b.a();
             CloudControlManager.getInstance().requestCloudControl("0");
         }
-        qab.a();
+        l5b.a();
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.net;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetWorkError {
     public static final int NETWORK_CONNECT_EXCEPTION = -22;
     public static final int NETWORK_IO_EXCEPTION = -19;

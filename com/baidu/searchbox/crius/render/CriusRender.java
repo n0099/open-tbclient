@@ -233,7 +233,7 @@ public class CriusRender {
 
     private void renderImageView(View view2, CriusData criusData, boolean z, boolean z2) {
         if (view2 != null && criusData != null) {
-            if ("image".equalsIgnoreCase(criusData.type) || NativeConstants.TYPE_GIF.equals(criusData.type)) {
+            if ("image".equalsIgnoreCase(criusData.type) || "gif".equals(criusData.type)) {
                 view2.setMinimumWidth((int) criusData.criusNode.getLayoutWidth());
                 view2.setMinimumHeight((int) criusData.criusNode.getLayoutHeight());
                 RenderData renderData = new RenderData();

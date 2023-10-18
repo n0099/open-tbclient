@@ -1,13 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TiebaFieldsInfo;
 /* loaded from: classes5.dex */
-public final class cw6 extends xv6 {
+public class cw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public MetaData c;
+    public long d;
+    public String e;
+    public TiebaFieldsInfo f;
 
     public cw6() {
         Interceptable interceptable = $ic;
@@ -20,15 +28,6 @@ public final class cw6 extends xv6 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.xv6, com.baidu.tieba.t7.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a().b();
-            super.reset();
         }
     }
 }

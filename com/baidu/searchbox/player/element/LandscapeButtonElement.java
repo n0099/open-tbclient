@@ -34,7 +34,7 @@ public class LandscapeButtonElement extends AbsElement implements View.OnClickLi
         }
         int dp2px = BdPlayerUtils.dp2px(imageView, 16.0f);
         imageView.setLayoutParams(new ViewGroup.LayoutParams(dp2px, dp2px));
-        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080281);
+        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080283);
         imageView.setOnClickListener(this);
     }
 

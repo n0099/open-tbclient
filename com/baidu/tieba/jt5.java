@@ -1,198 +1,551 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.BdStatsItem;
+import android.app.Activity;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.searchbox.fluency.utils.FpsConstants;
-import com.baidu.tbadk.performanceLog.PerformanceLogger;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.da;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class jt5 extends PerformanceLogger {
+public class jt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ca a;
+    public Activity b;
+    public ViewGroup c;
+    public h d;
+    public g e;
+    public ba f;
+    public final Handler g;
+    public Runnable h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public TextView m;
+    public TextView n;
+    public TbImageView o;
+    public View p;
+    public ImageView q;
+    public TBSpecificationBtn r;
+    public int s;
+    public int t;
 
-    public jt5() {
+    /* loaded from: classes6.dex */
+    public interface g {
+        void dismiss();
+    }
+
+    /* loaded from: classes6.dex */
+    public interface h {
+        void onClick(int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jt5 a;
+
+        public a(jt5 jt5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jt5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jt5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.e(this.a.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements da.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jt5 a;
+
+        @Override // com.baidu.tieba.da.a
+        public void onShown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public b(jt5 jt5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jt5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jt5Var;
+        }
+
+        @Override // com.baidu.tieba.da.a
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.a = null;
+            this.a.g.removeCallbacks(this.a.h);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements ba {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jt5 a;
+
+        @Override // com.baidu.tieba.ba
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 3;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.ba
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 32;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.ba
+        public int getXOffset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.ba
+        public int getYOffset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        public c(jt5 jt5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jt5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jt5Var;
+        }
+
+        @Override // com.baidu.tieba.ba
+        public View c(LayoutInflater layoutInflater) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) != null) {
+                return (View) invokeL.objValue;
+            }
+            return this.a.k(layoutInflater);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jt5 a;
+
+        public d(jt5 jt5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jt5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jt5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.d != null) {
+                    this.a.d.onClick(1);
+                }
+                this.a.r.setClickable(false);
+                if (this.a.h != null) {
+                    this.a.g.removeCallbacks(this.a.h);
+                    this.a.g.postDelayed(this.a.h, 1000L);
+                }
+                this.a.c = null;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jt5 a;
+
+        public e(jt5 jt5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jt5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jt5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null) {
+                this.a.d.onClick(3);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jt5 a;
+
+        public f(jt5 jt5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jt5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jt5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.l();
+                if (this.a.d != null) {
+                    this.a.d.onClick(2);
+                }
+            }
+        }
+    }
+
+    public jt5(Activity activity, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void a(gt5 gt5Var) {
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, gt5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", "time");
-        String str2 = "0";
-        if (!gt5Var.s) {
-            str = "0";
-        } else {
-            str = "1";
-        }
-        logItem.append("ishttp", str);
-        if (gt5Var.b) {
-            str2 = "1";
-        }
-        logItem.append("issuccess", str2);
-        logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-        logItem.append("wt", String.valueOf(gt5Var.p));
-        logItem.append("qt", String.valueOf(gt5Var.f));
-        logItem.append("connt", String.valueOf(gt5Var.g));
-        logItem.append("rwt", String.valueOf(gt5Var.h));
-        logItem.append("fbt", String.valueOf(gt5Var.i));
-        logItem.append("abt", String.valueOf(gt5Var.j));
-        logItem.append("dect", String.valueOf(gt5Var.k));
-        logItem.append("parset", String.valueOf(gt5Var.l));
-        logItem.append("tqt", String.valueOf(gt5Var.n));
-        logItem.append("rendert", String.valueOf(gt5Var.o));
-        logItem.append("ss", String.valueOf(gt5Var.q));
-        logItem.append("hs", String.valueOf(gt5Var.r));
-        if (gt5Var.s && (i = gt5Var.t) != 0) {
-            logItem.append("salno", String.valueOf(i));
-            long j = gt5Var.u;
-            if (j != 0) {
-                logItem.append("scosttime", String.valueOf(j));
-            }
-        }
-        if (gt5Var.s) {
-            logItem.append("hrtn", String.valueOf(gt5Var.w));
-            logItem.append("hrtt", String.valueOf(gt5Var.x));
-        }
-        int i2 = gt5Var.v;
-        if (i2 != 0) {
-            logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
-        }
-        if (gt5Var.y) {
-            logItem.append("pt", "1");
-        } else {
-            logItem.append("sysct", String.valueOf(gt5Var.c));
-            logItem.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(gt5Var.e));
-            logItem.append("lt", String.valueOf(gt5Var.d));
-            logItem.append("df", String.valueOf(gt5Var.m));
-        }
-        if (gt5Var.s) {
-            logItem.append("c_logid", String.valueOf(gt5Var.A));
-            long j2 = gt5Var.z;
-            if (j2 != 0) {
-                logItem.append(PushConstants.SEQ_ID, String.valueOf(j2 & 4294967295L));
-            }
-        } else {
-            logItem.append(PushConstants.SEQ_ID, String.valueOf(gt5Var.z & 4294967295L));
-        }
-        HashMap<String, String> hashMap = gt5Var.E;
-        if (hashMap != null && !hashMap.isEmpty()) {
-            for (Map.Entry<String, String> entry : gt5Var.E.entrySet()) {
-                logItem.append(entry.getKey(), entry.getValue());
-            }
-        }
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
-    }
-
-    public void b(gt5 gt5Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gt5Var, i) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow() || gt5Var.D <= 0) {
-            return;
-        }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", "time");
-        logItem.append("pct", String.valueOf(gt5Var.D));
-        if (i != 0) {
-            if (i != 40) {
                 return;
             }
-            logItem.append("pct_type", String.valueOf(101));
-        } else {
-            logItem.append("pct_type", String.valueOf(100));
         }
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
+        this.g = new Handler();
+        this.s = 0;
+        this.t = 80;
+        this.b = activity;
+        this.c = m(activity, i);
     }
 
-    public void c(gt5 gt5Var, boolean z) {
-        String str;
-        int i;
+    public final ViewGroup m(Activity activity, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, gt5Var, z) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, activity, i)) == null) {
+            if (activity == null) {
+                return null;
+            }
+            this.t = i;
+            FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.gravity = i;
+            if (i == 80) {
+                layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds146) + UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
+            } else if (i == 48) {
+                layoutParams.topMargin = UtilHelper.getStatusBarHeight();
+            }
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+            int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+            layoutParams.leftMargin = dimenPixelSize;
+            layoutParams.rightMargin = dimenPixelSize2;
+            FrameLayout frameLayout2 = new FrameLayout(activity);
+            frameLayout.addView(frameLayout2, layoutParams);
+            return frameLayout2;
         }
-        if (!z || gt5Var.B > 0) {
-            if (!z && gt5Var.C <= 0) {
-                return;
+        return (ViewGroup) invokeLI.objValue;
+    }
+
+    public jt5 o(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.s = i;
+            return this;
+        }
+        return (jt5) invokeI.objValue;
+    }
+
+    public jt5 p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.j = str;
+            return this;
+        }
+        return (jt5) invokeL.objValue;
+    }
+
+    public void q(g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, gVar) == null) {
+            this.e = gVar;
+        }
+    }
+
+    public jt5 r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.k = str;
+            return this;
+        }
+        return (jt5) invokeL.objValue;
+    }
+
+    public jt5 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            this.l = str;
+            return this;
+        }
+        return (jt5) invokeL.objValue;
+    }
+
+    public void t(h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, hVar) == null) {
+            this.d = hVar;
+        }
+    }
+
+    public jt5 u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            this.i = str;
+            return this;
+        }
+        return (jt5) invokeL.objValue;
+    }
+
+    public final ba j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new c(this);
+        }
+        return (ba) invokeV.objValue;
+    }
+
+    public void l() {
+        ca caVar;
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (caVar = this.a) != null && (viewGroup = this.c) != null) {
+            caVar.e(viewGroup);
+            this.c.setVisibility(8);
+            this.c = null;
+            g gVar = this.e;
+            if (gVar != null) {
+                gVar.dismiss();
             }
-            BdStatsItem logItem = PerformanceLogger.getLogItem();
-            logItem.append("action", "time");
-            if (z) {
-                logItem.append("put", String.valueOf(gt5Var.B));
-            } else {
-                logItem.append("pdt", String.valueOf(gt5Var.C));
+        }
+    }
+
+    @NonNull
+    public final View k(LayoutInflater layoutInflater) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.float_tips_layout, (ViewGroup) null);
+            this.p = inflate.findViewById(R.id.float_tips_layout);
+            this.m = (TextView) inflate.findViewById(R.id.float_tips_content);
+            this.n = (TextView) inflate.findViewById(R.id.float_tips_title);
+            this.o = (TbImageView) inflate.findViewById(R.id.float_tips_bar_icon);
+            this.q = (ImageView) inflate.findViewById(R.id.float_tips_close_btn);
+            this.r = (TBSpecificationBtn) inflate.findViewById(R.id.float_tips_right_btn);
+            this.o.startLoad(this.k, 10, false);
+            this.n.setText(this.i);
+            this.m.setText(this.j);
+            this.r.setText(this.l);
+            this.r.setOnClickListener(new d(this));
+            this.p.setOnClickListener(new e(this));
+            ImageView imageView = this.q;
+            if (imageView != null) {
+                imageView.setVisibility(this.s);
+                this.q.setOnClickListener(new f(this));
             }
-            String str2 = "1";
-            if (gt5Var.s) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            logItem.append("ishttp", str);
-            if (!gt5Var.b) {
-                str2 = "0";
-            }
-            logItem.append("issuccess", str2);
-            logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-            logItem.append("qt", String.valueOf(gt5Var.f));
-            logItem.append("connt", String.valueOf(gt5Var.g));
-            logItem.append("rwt", String.valueOf(gt5Var.h));
-            logItem.append("dect", String.valueOf(gt5Var.k));
-            logItem.append("parset", String.valueOf(gt5Var.l));
-            logItem.append("rendert", String.valueOf(gt5Var.o));
-            logItem.append("ss", String.valueOf(gt5Var.q));
-            logItem.append("hs", String.valueOf(gt5Var.r));
-            if (gt5Var.s && (i = gt5Var.t) != 0) {
-                logItem.append("salno", String.valueOf(i));
-                long j = gt5Var.u;
-                if (j != 0) {
-                    logItem.append("scosttime", String.valueOf(j));
+            n();
+            return inflate;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0105);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(BdUtilHelper.getDimens(this.b, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(BdUtilHelper.getDimens(this.b, R.dimen.tbds10)).setOffsetX(0).setOffsetY(BdUtilHelper.getDimens(this.b, R.dimen.tbds5)).into(this.p);
+            View view2 = this.p;
+            if (view2 != null) {
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                if (layoutParams instanceof RelativeLayout.LayoutParams) {
+                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
+                    layoutParams2.leftMargin = -BdUtilHelper.getDimens(this.b, R.dimen.tbds10);
+                    layoutParams2.rightMargin = -BdUtilHelper.getDimens(this.b, R.dimen.tbds10);
                 }
             }
-            int i2 = gt5Var.v;
-            if (i2 != 0) {
-                logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
+            z45 z45Var = new z45();
+            z45Var.r(R.color.CAM_X0302);
+            this.r.setConfig(z45Var);
+            ImageView imageView = this.q;
+            if (imageView != null) {
+                WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            BdStatisticsManager.getInstance().performance(this.subType, logItem);
         }
     }
 
-    public void d(at5 at5Var) {
+    public boolean v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, at5Var) != null) || at5Var == null || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ViewGroup viewGroup = this.c;
+            if (viewGroup == null) {
+                return false;
+            }
+            viewGroup.setVisibility(0);
+            ca caVar = this.a;
+            if (caVar != null) {
+                caVar.e(this.c);
+            }
+            this.h = new a(this);
+            da daVar = new da();
+            daVar.d(true);
+            daVar.h(new b(this));
+            if (this.f == null) {
+                this.f = j();
+            }
+            daVar.a(this.f);
+            int i = this.t;
+            if (i == 80) {
+                daVar.e(R.anim.push_open_tip_enter);
+                daVar.f(R.anim.push_open_tip_out);
+            } else if (i == 48) {
+                daVar.e(R.anim.push_top_in);
+                daVar.f(R.anim.push_top_out);
+            }
+            ca b2 = daVar.b();
+            this.a = b2;
+            b2.p(this.b, this.c, false);
+            return true;
         }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", FpsTracer.UBC_KEY_FLUENCY);
-        logItem.append(FpsConstants.REPORT_FPS, String.valueOf(at5Var.b()));
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
-        BdStatsItem logItem2 = PerformanceLogger.getLogItem();
-        logItem2.append("action", "mem");
-        logItem2.append("memp", String.valueOf(PerformanceLoggerHelper.getInstance().getCurrentUsedMemory()));
-        BdStatisticsManager.getInstance().performance(this.subType, logItem2);
+        return invokeV.booleanValue;
     }
 }

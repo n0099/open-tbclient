@@ -1,190 +1,101 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.PlayerEvent;
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Locale;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+@JvmName(name = "BdPlayerUtils")
 /* loaded from: classes7.dex */
-public class nw0 extends pw0 {
+public final class nw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<Integer> b;
 
-    public nw0() {
+    @JvmOverloads
+    public static final int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, 0, 2, null) : invokeL.intValue;
+    }
+
+    public static final int a(View view2, float f) {
+        InterceptResult invokeLF;
+        float f2;
+        Context context;
+        Resources resources;
+        DisplayMetrics displayMetrics;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, view2, f)) == null) {
+            if (view2 != null && (context = view2.getContext()) != null && (resources = context.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
+                f2 = displayMetrics.density;
+            } else {
+                f2 = 1.0f;
+            }
+            return (int) ((f * f2) + 0.5f);
+        }
+        return invokeLF.intValue;
+    }
+
+    @JvmOverloads
+    public static final int d(String str, int i) {
+        InterceptResult invokeLI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return i;
+            }
+            try {
+                return Integer.parseInt(str);
+            } catch (NumberFormatException e) {
+                rw0.f("parseInt catch exception:", e);
+                return i;
             }
         }
-        this.b = new ArrayList<>(13);
-        e();
+        return invokeLI.intValue;
     }
 
-    public void g() {
+    public static final String b(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c(mw0.w(PlayerEvent.ACTION_ON_COMPLETE));
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c(mw0.w(PlayerEvent.ACTION_PLAYER_ATTACH));
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            c(mw0.w(PlayerEvent.ACTION_PLAYER_DETACH));
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            c(mw0.w(PlayerEvent.ACTION_ON_PREPARED));
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            c(mw0.w(PlayerEvent.ACTION_SEEK_COMPLETE));
-        }
-    }
-
-    @Override // com.baidu.tieba.pw0
-    public void c(@NonNull vw0 vw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vw0Var) == null) {
-            super.c(vw0Var);
-        }
-    }
-
-    public final boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return this.b.contains(Integer.valueOf(i));
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            vw0 w = mw0.w(PlayerEvent.ACTION_BUFFER_UPDATE);
-            w.n(2, Integer.valueOf(i));
-            w.r(1);
-            c(w);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.add(904);
-            this.b.add(701);
-            this.b.add(702);
-            this.b.add(11004);
-            this.b.add(11005);
-            this.b.add(946);
-            this.b.add(924);
-            this.b.add(5000);
-            this.b.add(937);
-            this.b.add(936);
-            this.b.add(955);
-            this.b.add(956);
-            this.b.add(910);
-            this.b.add(10103);
-            this.b.add(12005);
-            this.b.add(12006);
-            this.b.add(10009);
-        }
-    }
-
-    public boolean h(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i, i2, obj)) == null) {
-            vw0 w = mw0.w(PlayerEvent.ACTION_ON_ERROR);
-            w.n(1, Integer.valueOf(i));
-            w.n(2, Integer.valueOf(i2));
-            w.n(3, obj);
-            c(w);
-            return true;
-        }
-        return invokeIIL.booleanValue;
-    }
-
-    public void j(int i, int i2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, obj) == null) {
-            vw0 w = mw0.w(PlayerEvent.ACTION_MEDIA_SOURCE_CHANGED);
-            w.n(7, Integer.valueOf(i));
-            w.n(8, Integer.valueOf(i2));
-            w.n(3, obj);
-            c(w);
-        }
-    }
-
-    public boolean i(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i, i2, obj)) == null) {
-            e21.h("player trigger on info what:" + i);
-            if (d(i)) {
-                vw0 w = mw0.w(PlayerEvent.ACTION_ON_INFO);
-                if (i == 910) {
-                    w.r(1);
-                }
-                w.n(1, Integer.valueOf(i));
-                w.n(2, Integer.valueOf(i2));
-                w.n(3, obj);
-                c(w);
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return "";
             }
-            return false;
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            if (i2 == 0 && !z) {
+                StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4)}, 2));
+                Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(locale, format, *args)");
+                return format;
+            }
+            StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
+            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}, 3));
+            Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(locale, format, *args)");
+            return format2;
         }
-        return invokeIIL.booleanValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public void o(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
-            vw0 w = mw0.w(PlayerEvent.ACTION_VIDEO_SIZE_CHANGED);
-            w.n(5, Integer.valueOf(i));
-            w.n(6, Integer.valueOf(i2));
-            c(w);
+    public static /* synthetic */ int e(String str, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = 0;
         }
-    }
-
-    public void p(String str, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            vw0 w = mw0.w(PlayerEvent.ACTION_SET_DATA_SOURCE);
-            q01 q01Var = new q01();
-            q01Var.a = str;
-            q01Var.c = z;
-            q01Var.d = i;
-            w.n(3, q01Var);
-            w.s(1);
-            c(w);
-        }
+        return d(str, i);
     }
 }

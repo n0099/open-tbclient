@@ -183,7 +183,7 @@ public class GridPageView extends FrameLayout {
         autoGridView.setNumColumns(5);
         this.a.setFocusableInTouchMode(false);
         this.a.setStretchMode(2);
-        this.a.setVerticalSpacing((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070251));
+        this.a.setVerticalSpacing((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07024d));
         this.a.setSelector(new ColorDrawable(0));
         this.a.setAdapter((ListAdapter) new b(context));
         this.a.setOnItemClickListener(new a());

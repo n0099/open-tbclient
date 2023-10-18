@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
     public static final String APP_ATTACH = "appAttach";
     public static final String APP_RUNTIME_INIT = "appRuntimeInit";

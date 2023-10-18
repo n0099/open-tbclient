@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.hy4;
 import com.baidu.tieba.view.HeadlinesItemCountDownView;
-import com.baidu.tieba.z35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -110,15 +110,15 @@ public class HeadlinesItemInfoView extends FrameLayout {
         }
     }
 
-    public void b(z35 z35Var) {
+    public void b(hy4 hy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z35Var) != null) || z35Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hy4Var) != null) || hy4Var == null) {
             return;
         }
-        this.b.startLoad(z35Var.f(), 10, false);
-        this.c.setText(z35Var.l());
-        this.e.setText(z35Var.b());
-        this.d.setData(JavaTypesHelper.toLong(z35Var.d(), 0L), z35Var.c(), z35Var.k());
+        this.b.startLoad(hy4Var.f(), 10, false);
+        this.c.setText(hy4Var.l());
+        this.e.setText(hy4Var.b());
+        this.d.setData(JavaTypesHelper.toLong(hy4Var.d(), 0L), hy4Var.c(), hy4Var.k());
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 

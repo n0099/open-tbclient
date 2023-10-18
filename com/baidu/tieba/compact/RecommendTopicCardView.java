@@ -10,10 +10,10 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e28;
-import com.baidu.tieba.gv6;
-import com.baidu.tieba.o28;
-import com.baidu.tieba.rc7;
+import com.baidu.tieba.a77;
+import com.baidu.tieba.pp6;
+import com.baidu.tieba.pw7;
+import com.baidu.tieba.zw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,10 +25,10 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\n\u001a\u00020\u000bH\u0016J\u000e\u0010\f\u001a\u00020\u000b2\u0006\u0010\r\u001a\u00020\u000eR\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/compact/RecommendTopicCardView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "topicCardLayout", "Lcom/baidu/tieba/homepage/concern/view/RecommendTopicCardLayout;", "onChangeSkin", "", StickerDataChangeType.UPDATE, "data", "Lcom/baidu/tieba/homepage/concern/data/RecommendTopicCardData;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class RecommendTopicCardView extends FrameLayout implements rc7 {
+public final class RecommendTopicCardView extends FrameLayout implements a77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o28 a;
+    public zw7 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -81,11 +81,11 @@ public final class RecommendTopicCardView extends FrameLayout implements rc7 {
         } else {
             tbPageContext = null;
         }
-        tbPageContext = context instanceof gv6 ? ((gv6) context).getPageContext() : tbPageContext;
+        tbPageContext = context instanceof pp6 ? ((pp6) context).getPageContext() : tbPageContext;
         if (tbPageContext != null) {
-            o28 o28Var = new o28(tbPageContext);
-            this.a = o28Var;
-            if (o28Var != null && (c = o28Var.c()) != null) {
+            zw7 zw7Var = new zw7(tbPageContext);
+            this.a = zw7Var;
+            if (zw7Var != null && (c = zw7Var.c()) != null) {
                 addView(c, new FrameLayout.LayoutParams(-1, -2));
             }
         }
@@ -96,27 +96,27 @@ public final class RecommendTopicCardView extends FrameLayout implements rc7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    @Override // com.baidu.tieba.rc7
-    public void b() {
+    public final void a(pw7 data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            EMManager.from(this).setCorner(R.string.J_X06).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0206);
-            o28 o28Var = this.a;
-            if (o28Var != null) {
-                o28Var.onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            zw7 zw7Var = this.a;
+            if (zw7Var != null) {
+                zw7Var.e(data);
             }
+            b();
         }
     }
 
-    public final void update(e28 data) {
+    @Override // com.baidu.tieba.a77
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            o28 o28Var = this.a;
-            if (o28Var != null) {
-                o28Var.e(data);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            EMManager.from(this).setCorner(R.string.J_X06).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0206);
+            zw7 zw7Var = this.a;
+            if (zw7Var != null) {
+                zw7Var.onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
             }
-            b();
         }
     }
 }

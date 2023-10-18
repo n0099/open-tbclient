@@ -22,8 +22,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.suspended.TranView;
-import com.baidu.tieba.dl9;
-import com.baidu.tieba.yt5;
+import com.baidu.tieba.eo5;
+import com.baidu.tieba.qf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public ViewGroup c;
-    public yt5 d;
+    public eo5 d;
     public float e;
     public float f;
     public boolean g;
@@ -175,17 +175,17 @@ public class CommentFloatSusPendedView extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            dl9 dl9Var;
+            qf9 qf9Var;
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof dl9) || (dl9Var = (dl9) customResponsedMessage.getData()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof qf9) || (qf9Var = (qf9) customResponsedMessage.getData()) == null) {
                 return;
             }
-            this.a.m = dl9Var.d;
-            this.a.e = dl9Var.b;
-            this.a.f = dl9Var.a;
-            this.a.k = dl9Var.c;
-            this.a.h = dl9Var.e;
+            this.a.m = qf9Var.d;
+            this.a.e = qf9Var.b;
+            this.a.f = qf9Var.a;
+            this.a.k = qf9Var.c;
+            this.a.h = qf9Var.e;
             CommentFloatSusPendedView commentFloatSusPendedView = this.a;
             commentFloatSusPendedView.t((commentFloatSusPendedView.f - this.a.e) / BdUtilHelper.getEquipmentHeight(this.a.getContext()));
             if (this.a.f > this.a.e) {
@@ -305,10 +305,10 @@ public class CommentFloatSusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(yt5 yt5Var) {
+    public void setContentViewTop(eo5 eo5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, yt5Var) == null) {
-            this.d = yt5Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, eo5Var) == null) {
+            this.d = eo5Var;
         }
     }
 
@@ -461,11 +461,11 @@ public class CommentFloatSusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            yt5 yt5Var = this.d;
-            if (yt5Var == null) {
+            eo5 eo5Var = this.d;
+            if (eo5Var == null) {
                 return false;
             }
-            return yt5Var.M();
+            return eo5Var.M();
         }
         return invokeV.booleanValue;
     }

@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.FriendBotView;
 import com.baidu.tbadk.util.MaskView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h15;
+import com.baidu.tieba.pv4;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -83,7 +83,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 return;
             }
         }
-        Y();
+        Z();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -120,17 +120,17 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 return;
             }
         }
-        Y();
+        Z();
     }
 
-    public void X(String str, String str2) {
+    public void Y(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && this.F != null && !TextUtils.isEmpty(str) && str.equals(this.F.getTid())) {
-            h15 h15Var = new h15();
-            h15Var.b = 4;
-            h15Var.d = 2;
-            h15Var.j = str2;
-            this.e.setStatisticData(h15Var);
+            pv4 pv4Var = new pv4();
+            pv4Var.b = 4;
+            pv4Var.d = 2;
+            pv4Var.j = str2;
+            this.e.setStatisticData(pv4Var);
             this.e.N();
         }
     }
@@ -220,7 +220,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         }
     }
 
-    public boolean Z() {
+    public boolean a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -287,7 +287,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             BdUtilHelper.getDimens(getContext(), R.dimen.tbds16);
             this.B0 = (LinearLayout) findViewById(R.id.share_more_container);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1);
-            if (Z()) {
+            if (a0()) {
                 f = 0.25f;
             } else {
                 f = 0.5f;
@@ -311,7 +311,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             this.E0.setLayoutParams(layoutParams4);
             float f3 = dimens2;
             this.E0.setTextSize(0, f3);
-            this.E0.setText(this.G.getString(R.string.obfuscated_res_0x7f0f13a1));
+            this.E0.setText(this.G.getString(R.string.obfuscated_res_0x7f0f13b2));
             if (c0()) {
                 this.M = true;
                 setNeedAddReplyIcon(true);
@@ -354,7 +354,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             AgreeView agreeView = (AgreeView) findViewById(R.id.new_agree_view);
             LinearLayout.LayoutParams layoutParams10 = new LinearLayout.LayoutParams(0, -1);
             layoutParams10.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds18);
-            if (Z()) {
+            if (a0()) {
                 f2 = 0.25f;
             } else {
                 f2 = 0.5f;
@@ -367,7 +367,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         }
     }
 
-    public void Y() {
+    public void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             setVisibility(8);

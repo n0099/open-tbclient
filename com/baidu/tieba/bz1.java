@@ -1,42 +1,23 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class bz1 {
+public class bz1 extends wy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wr1 a;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final bz1 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-902424333, "Lcom/baidu/tieba/bz1$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-902424333, "Lcom/baidu/tieba/bz1$a;");
-                    return;
-                }
-            }
-            a = new bz1();
-        }
-    }
+    public Rect a;
+    public Paint b;
+    public PorterDuffXfermode c;
 
     public bz1() {
         Interceptable interceptable = $ic;
@@ -48,34 +29,37 @@ public class bz1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new Paint();
+        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
     }
 
-    public static bz1 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wy1
+    public void a(xy1 xy1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (bz1) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        wr1 wr1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (wr1Var = this.a) != null) {
-            wr1Var.a(i);
-            this.a = null;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, xy1Var, canvas) == null) && this.a != null) {
+            this.b.setXfermode(this.c);
+            canvas.drawRect(this.a, this.b);
         }
     }
 
-    public void c(JSONObject jSONObject) {
-        wr1 wr1Var;
+    @Override // com.baidu.tieba.wy1
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && (wr1Var = this.a) != null) {
-            wr1Var.b(jSONObject);
-            this.a = null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = gj3.g((float) jSONArray.optDouble(0));
+                    int g2 = gj3.g((float) jSONArray.optDouble(1));
+                    this.a = new Rect(g, g2, gj3.g((float) jSONArray.optDouble(2)) + g, gj3.g((float) jSONArray.optDouble(3)) + g2);
+                }
+            } catch (Exception e) {
+                if (am1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

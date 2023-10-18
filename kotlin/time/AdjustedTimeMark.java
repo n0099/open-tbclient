@@ -20,12 +20,12 @@ public final class AdjustedTimeMark extends TimeMark {
 
     @Override // kotlin.time.TimeMark
     /* renamed from: elapsedNow-UwyO8pc */
-    public long mo2142elapsedNowUwyO8pc() {
-        return Duration.m2184minusLRDsOJo(this.mark.mo2142elapsedNowUwyO8pc(), m2144getAdjustmentUwyO8pc());
+    public long mo2141elapsedNowUwyO8pc() {
+        return Duration.m2183minusLRDsOJo(this.mark.mo2141elapsedNowUwyO8pc(), m2143getAdjustmentUwyO8pc());
     }
 
     /* renamed from: getAdjustment-UwyO8pc  reason: not valid java name */
-    public final long m2144getAdjustmentUwyO8pc() {
+    public final long m2143getAdjustmentUwyO8pc() {
         return this.adjustment;
     }
 
@@ -35,7 +35,7 @@ public final class AdjustedTimeMark extends TimeMark {
 
     @Override // kotlin.time.TimeMark
     /* renamed from: plus-LRDsOJo */
-    public TimeMark mo2143plusLRDsOJo(long j) {
-        return new AdjustedTimeMark(this.mark, Duration.m2185plusLRDsOJo(m2144getAdjustmentUwyO8pc(), j), null);
+    public TimeMark mo2142plusLRDsOJo(long j) {
+        return new AdjustedTimeMark(this.mark, Duration.m2184plusLRDsOJo(m2143getAdjustmentUwyO8pc(), j), null);
     }
 }

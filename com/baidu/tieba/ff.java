@@ -1,32 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.guide.BuildException;
-import com.baidu.adp.lib.guide.Configuration;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ff {
+public class ff extends kf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Configuration a;
-    public boolean b;
-    public List<df> c;
-    public a d;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void onDismiss();
-
-        void onShown();
-    }
+    public Path v;
+    public boolean w;
+    public Rect x;
+    public final Paint y;
+    public final Paint z;
 
     public ff() {
         Interceptable interceptable = $ic;
@@ -41,163 +36,56 @@ public class ff {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = new Configuration();
+        this.y = new Paint();
+        this.z = new Paint();
+        this.y.setColor(-16777216);
+        this.y.setStyle(Paint.Style.FILL);
+        this.y.setAntiAlias(true);
+        this.z.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
-    public ff a(df dfVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.af
+    public void e(Canvas canvas, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dfVar)) == null) {
-            if (!this.b) {
-                this.c.add(dfVar);
-                return this;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, drawable) == null) {
+            canvas.save();
+            t(drawable.getBounds());
+            try {
+                canvas.clipPath(this.v);
+            } catch (Exception unused) {
             }
-            throw new BuildException("Already created, rebuild a new one.");
+            drawable.draw(canvas);
+            canvas.restore();
         }
-        return (ff) invokeL.objValue;
     }
 
-    public ff c(int i) {
-        InterceptResult invokeI;
+    public final void t(Rect rect) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (!this.b) {
-                if (i >= 0 && i <= 255) {
-                    this.a.mAlpha = i;
-                    return this;
-                }
-                throw new BuildException("Illegal alpha value, should between [0-255]");
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect) != null) || rect == null) {
+            return;
+        }
+        boolean z2 = true;
+        if (this.v != null && this.w == this.l.b) {
+            z = false;
+        } else {
+            z = true;
+        }
+        Rect rect2 = this.x;
+        if (rect2 != null && rect2.contains(rect)) {
+            z2 = z;
+        }
+        this.w = this.l.b;
+        if (z2) {
+            this.x = rect;
+            Path path = new Path();
+            this.v = path;
+            if (this.w) {
+                this.v.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+            } else {
+                path.addRoundRect(new RectF(rect), this.l.a, Path.Direction.CW);
             }
-            throw new BuildException("Already created. rebuild a new one.");
+            this.v.close();
         }
-        return (ff) invokeI.objValue;
-    }
-
-    public ff d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            if (!this.b) {
-                this.a.mAutoDismiss = z;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (ff) invokeZ.objValue;
-    }
-
-    public ff e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (!this.b) {
-                if (i > 0) {
-                    this.a.mEnterAnimationId = i;
-                    return this;
-                }
-                throw new BuildException("Illegal animation resource id.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (ff) invokeI.objValue;
-    }
-
-    public ff f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (!this.b) {
-                if (i > 0) {
-                    this.a.mExitAnimationId = i;
-                    return this;
-                }
-                throw new BuildException("Illegal animation resource id.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (ff) invokeI.objValue;
-    }
-
-    public ff g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            if (!this.b) {
-                this.a.mKeyBackEventDismiss = z;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (ff) invokeZ.objValue;
-    }
-
-    public ff h(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
-            if (!this.b) {
-                this.d = aVar;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (ff) invokeL.objValue;
-    }
-
-    public ff i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.a.mOutsideTouchable = z;
-            return this;
-        }
-        return (ff) invokeZ.objValue;
-    }
-
-    public ff j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            if (!this.b) {
-                this.a.mOverlayTarget = z;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (ff) invokeZ.objValue;
-    }
-
-    public ff k(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
-            if (!this.b) {
-                if (view2 != null) {
-                    this.a.mTargetView = view2;
-                    return this;
-                }
-                throw new BuildException("Illegal view.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (ff) invokeL.objValue;
-    }
-
-    public ef b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ef efVar = new ef();
-            efVar.i((df[]) this.c.toArray(new df[this.c.size()]));
-            efVar.j(this.a);
-            efVar.h(this.d);
-            this.c = null;
-            this.a = null;
-            this.d = null;
-            this.b = true;
-            return efVar;
-        }
-        return (ef) invokeV.objValue;
     }
 }

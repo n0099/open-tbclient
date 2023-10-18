@@ -1,102 +1,102 @@
 package org.chromium.base;
 
-import com.baidu.tieba.j9c;
+import com.baidu.tieba.g3c;
 /* loaded from: classes2.dex */
 public final class R {
 
     /* loaded from: classes2.dex */
-    public static final class anim extends j9c.a {
+    public static final class anim extends g3c.a {
     }
 
     /* loaded from: classes2.dex */
-    public static final class animator extends j9c.b {
+    public static final class animator extends g3c.b {
     }
 
     /* loaded from: classes2.dex */
-    public static final class array extends j9c.c {
+    public static final class array extends g3c.c {
     }
 
     /* loaded from: classes2.dex */
-    public static final class attr extends j9c.d {
+    public static final class attr extends g3c.d {
     }
 
     /* loaded from: classes2.dex */
-    public static final class bool extends j9c.e {
+    public static final class bool extends g3c.e {
     }
 
     /* loaded from: classes2.dex */
-    public static final class color extends j9c.f {
+    public static final class color extends g3c.f {
     }
 
     /* loaded from: classes2.dex */
-    public static final class dimen extends j9c.g {
+    public static final class dimen extends g3c.g {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable extends j9c.h {
+    public static final class drawable extends g3c.h {
     }
 
     /* loaded from: classes2.dex */
-    public static final class font extends j9c.i {
+    public static final class font extends g3c.i {
     }
 
     /* loaded from: classes2.dex */
-    public static final class fraction extends j9c.j {
+    public static final class fraction extends g3c.j {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id extends j9c.k {
+    public static final class id extends g3c.k {
     }
 
     /* loaded from: classes2.dex */
-    public static final class integer extends j9c.l {
+    public static final class integer extends g3c.l {
     }
 
     /* loaded from: classes2.dex */
-    public static final class interpolator extends j9c.m {
+    public static final class interpolator extends g3c.m {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout extends j9c.n {
+    public static final class layout extends g3c.n {
     }
 
     /* loaded from: classes2.dex */
-    public static final class menu extends j9c.o {
+    public static final class menu extends g3c.o {
     }
 
     /* loaded from: classes2.dex */
-    public static final class mipmap extends j9c.p {
+    public static final class mipmap extends g3c.p {
     }
 
     /* loaded from: classes2.dex */
-    public static final class plurals extends j9c.q {
+    public static final class plurals extends g3c.q {
     }
 
     /* loaded from: classes2.dex */
-    public static final class raw extends j9c.r {
+    public static final class raw extends g3c.r {
     }
 
     /* loaded from: classes2.dex */
-    public static final class string extends j9c.s {
+    public static final class string extends g3c.s {
     }
 
     /* loaded from: classes2.dex */
-    public static final class style extends j9c.t {
+    public static final class style extends g3c.t {
     }
 
     /* loaded from: classes2.dex */
-    public static final class styleable extends j9c.u {
+    public static final class styleable extends g3c.u {
     }
 
     /* loaded from: classes2.dex */
-    public static final class transition extends j9c.v {
+    public static final class transition extends g3c.v {
     }
 
     /* loaded from: classes2.dex */
-    public static final class xml extends j9c.w {
+    public static final class xml extends g3c.w {
     }
 
     public static void onResourcesLoaded(int i) {
-        j9c.a(i);
+        g3c.a(i);
     }
 }

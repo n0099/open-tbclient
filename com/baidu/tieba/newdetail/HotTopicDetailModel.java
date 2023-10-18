@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.e35;
+import com.baidu.tieba.d68;
 import com.baidu.tieba.homepage.BlessHttpResponseMessage;
 import com.baidu.tieba.homepage.BlessSocketResponseMessage;
 import com.baidu.tieba.hottopic.message.RequestGetTopicRelateThreadMessage;
@@ -23,14 +23,14 @@ import com.baidu.tieba.hottopic.message.ResponseHttpGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
-import com.baidu.tieba.kb8;
-import com.baidu.tieba.m05;
+import com.baidu.tieba.i99;
+import com.baidu.tieba.k99;
 import com.baidu.tieba.message.RequestBlessMessage;
-import com.baidu.tieba.nb8;
-import com.baidu.tieba.ob8;
-import com.baidu.tieba.sb8;
-import com.baidu.tieba.ve9;
-import com.baidu.tieba.xe9;
+import com.baidu.tieba.mx4;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.v58;
+import com.baidu.tieba.y58;
+import com.baidu.tieba.z58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class HotTopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public ve9 a;
+    public i99 a;
     @Nullable
     public d b;
     public boolean c;
@@ -56,7 +56,7 @@ public class HotTopicDetailModel extends BdBaseModel {
 
     /* loaded from: classes7.dex */
     public interface d {
-        void i(int i, @Nullable nb8 nb8Var);
+        void i(int i, @Nullable y58 y58Var);
     }
 
     /* loaded from: classes7.dex */
@@ -102,36 +102,36 @@ public class HotTopicDetailModel extends BdBaseModel {
             if ((!z2 && !(responsedMessage instanceof ResponseSocketHotTopicMessage)) || responsedMessage.getOrginalMessage().getTag() != this.a.getUniqueId()) {
                 return;
             }
-            ob8 ob8Var = null;
+            z58 z58Var = null;
             if (z2) {
                 ResponseHttpHotTopicMessage responseHttpHotTopicMessage = (ResponseHttpHotTopicMessage) responsedMessage;
                 if (responseHttpHotTopicMessage.getHotTopicData() != null) {
-                    ob8Var = responseHttpHotTopicMessage.getHotTopicData();
+                    z58Var = responseHttpHotTopicMessage.getHotTopicData();
                 }
             }
             if (responsedMessage instanceof ResponseSocketHotTopicMessage) {
                 ResponseSocketHotTopicMessage responseSocketHotTopicMessage = (ResponseSocketHotTopicMessage) responsedMessage;
                 if (responseSocketHotTopicMessage.getHotTopicData() != null) {
-                    ob8Var = responseSocketHotTopicMessage.getHotTopicData();
+                    z58Var = responseSocketHotTopicMessage.getHotTopicData();
                 }
             }
             int i = -1;
-            if (ob8Var != null && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
+            if (z58Var != null && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
                 int intValue = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
-                ob8Var.p = intValue;
-                nb8 nb8Var = ob8Var.k;
-                if (nb8Var != null) {
-                    nb8Var.d = intValue;
+                z58Var.p = intValue;
+                y58 y58Var = z58Var.k;
+                if (y58Var != null) {
+                    y58Var.d = intValue;
                 }
-                if (ob8Var.p == -1) {
+                if (z58Var.p == -1) {
                     this.a.c = z;
                 }
             }
             if (this.a.a != null) {
-                if (ob8Var != null) {
+                if (z58Var != null) {
                     i = responsedMessage.getError();
                 }
-                this.a.a.E(i, ob8Var);
+                this.a.a.E(i, z58Var);
             }
         }
     }
@@ -179,32 +179,32 @@ public class HotTopicDetailModel extends BdBaseModel {
             if ((!z && !(responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) || responsedMessage.getOrginalMessage().getTag() != this.a.getUniqueId()) {
                 return;
             }
-            nb8 nb8Var = null;
+            y58 y58Var = null;
             if (z) {
                 ResponseHttpGetTopicRelateThreadMessage responseHttpGetTopicRelateThreadMessage = (ResponseHttpGetTopicRelateThreadMessage) responsedMessage;
                 if (responseHttpGetTopicRelateThreadMessage.getHotThreadItemListData() != null) {
-                    nb8Var = responseHttpGetTopicRelateThreadMessage.getHotThreadItemListData();
+                    y58Var = responseHttpGetTopicRelateThreadMessage.getHotThreadItemListData();
                 }
             }
             if (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage) {
                 ResponseSocketGetTopicRelateThreadMessage responseSocketGetTopicRelateThreadMessage = (ResponseSocketGetTopicRelateThreadMessage) responsedMessage;
                 if (responseSocketGetTopicRelateThreadMessage.getHotThreadItemListData() != null) {
-                    nb8Var = responseSocketGetTopicRelateThreadMessage.getHotThreadItemListData();
+                    y58Var = responseSocketGetTopicRelateThreadMessage.getHotThreadItemListData();
                 }
             }
-            if (nb8Var != null && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
-                nb8Var.d = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
+            if (y58Var != null && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
+                y58Var.d = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
             }
-            if (nb8Var != null) {
+            if (y58Var != null) {
                 i = responsedMessage.getError();
             } else {
                 i = -1;
             }
             if (this.a.a != null) {
-                this.a.a.i(i, nb8Var);
+                this.a.a.i(i, y58Var);
             }
             if (this.a.b != null) {
-                this.a.b.i(i, nb8Var);
+                this.a.b.i(i, y58Var);
             }
         }
     }
@@ -307,27 +307,27 @@ public class HotTopicDetailModel extends BdBaseModel {
         this.i = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         this.j = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         this.k = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-        W();
+        X();
     }
 
-    public boolean Y(kb8 kb8Var) {
+    public boolean Z(v58 v58Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, kb8Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, v58Var)) == null) {
             int i = 0;
-            if (kb8Var == null || !BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+            if (v58Var == null || !BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 return false;
             }
             RequestBlessMessage requestBlessMessage = new RequestBlessMessage();
-            requestBlessMessage.setPkId(Long.valueOf(kb8Var.c));
+            requestBlessMessage.setPkId(Long.valueOf(v58Var.c));
             requestBlessMessage.setTopicId(Long.valueOf(this.e));
             requestBlessMessage.setPkIndex(1);
-            if (kb8Var.d != 0) {
+            if (v58Var.d != 0) {
                 i = 1;
             }
             requestBlessMessage.setClickType(i);
             requestBlessMessage.setPkType(1);
-            requestBlessMessage.setUserPkId(kb8Var.d);
+            requestBlessMessage.setUserPkId(v58Var.d);
             requestBlessMessage.setTag(this.unique_id);
             if (requestBlessMessage.getHttpMessage() != null) {
                 requestBlessMessage.getHttpMessage().setExtra(0);
@@ -343,13 +343,13 @@ public class HotTopicDetailModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailModel(TbPageContext<?> tbPageContext, ve9 ve9Var) {
+    public HotTopicDetailModel(TbPageContext<?> tbPageContext, i99 i99Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ve9Var};
+            Object[] objArr = {tbPageContext, i99Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -363,19 +363,19 @@ public class HotTopicDetailModel extends BdBaseModel {
         this.i = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         this.j = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         this.k = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-        W();
-        this.a = ve9Var;
+        X();
+        this.a = i99Var;
         this.h = tbPageContext;
     }
 
-    public void V(Intent intent) {
+    public void W(Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, intent) == null) && intent != null && intent.getIntExtra("extra_share_status", 2) == 1) {
-            xe9.f(this.h, "c14390");
+            k99.f(this.h, "c14390");
         }
     }
 
-    public void a0(@Nullable d dVar) {
+    public void b0(@Nullable d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, dVar) == null) {
             this.b = dVar;
@@ -389,7 +389,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         }
     }
 
-    public void b0(long j, String str) {
+    public void c0(long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048586, this, j, str) == null) {
             this.e = j;
@@ -397,7 +397,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         }
     }
 
-    public boolean M(int i) {
+    public boolean N(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -406,12 +406,12 @@ public class HotTopicDetailModel extends BdBaseModel {
                 RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
                 requestHotTopicMessage.setTopicId(Long.valueOf(this.e));
                 requestHotTopicMessage.setTopicName(this.f);
-                requestHotTopicMessage.setCall_from(c0(this.g));
+                requestHotTopicMessage.setCall_from(d0(this.g));
                 requestHotTopicMessage.setSort_type(Integer.valueOf(i));
                 requestHotTopicMessage.setScrH(Integer.valueOf(this.k));
                 requestHotTopicMessage.setScrW(Integer.valueOf(this.j));
                 requestHotTopicMessage.setSrcDip(Double.valueOf(this.i));
-                requestHotTopicMessage.setQType(Integer.valueOf(m05.c().e()));
+                requestHotTopicMessage.setQType(Integer.valueOf(uu4.c().e()));
                 if (requestHotTopicMessage.getHttpMessage() != null) {
                     requestHotTopicMessage.getHttpMessage().setExtra(Integer.valueOf(i));
                     requestHotTopicMessage.getHttpMessage().setTag(getUniqueId());
@@ -430,7 +430,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         return invokeI.booleanValue;
     }
 
-    public boolean N(int i) {
+    public boolean O(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -464,17 +464,17 @@ public class HotTopicDetailModel extends BdBaseModel {
         return invokeI.booleanValue;
     }
 
-    public boolean O(int i, e35 e35Var, long j) {
+    public boolean P(int i, mx4 mx4Var, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), e35Var, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), mx4Var, Long.valueOf(j)})) == null) {
             if (BdNetTypeUtil.isNetworkAvailableForImmediately() && !this.c) {
                 cancelLoadData();
                 RequestGetTopicRelateThreadMessage requestGetTopicRelateThreadMessage = new RequestGetTopicRelateThreadMessage();
                 requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(this.e));
                 requestGetTopicRelateThreadMessage.setTopicName(this.f);
                 requestGetTopicRelateThreadMessage.setRn(10);
-                requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(e35Var.a() + 1));
+                requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(mx4Var.a() + 1));
                 requestGetTopicRelateThreadMessage.setLastId(Long.valueOf(j));
                 requestGetTopicRelateThreadMessage.setSort_type(Integer.valueOf(i));
                 requestGetTopicRelateThreadMessage.setScrH(Integer.valueOf(this.k));
@@ -498,10 +498,10 @@ public class HotTopicDetailModel extends BdBaseModel {
         return invokeCommon.booleanValue;
     }
 
-    public void U() {
+    public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            xe9.f(this.h, "c14392");
+            k99.f(this.h, "c14392");
         }
     }
 
@@ -509,7 +509,7 @@ public class HotTopicDetailModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             cancelMessage();
             this.c = false;
             return false;
@@ -522,12 +522,12 @@ public class HotTopicDetailModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return M(1);
+            return N(1);
         }
         return invokeV.booleanValue;
     }
 
-    public final void W() {
+    public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             registerListener(new a(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050));
@@ -536,7 +536,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         }
     }
 
-    public void X() {
+    public void Y() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !BdNetTypeUtil.isNetworkAvailableForImmediately()) {
             return;
@@ -544,7 +544,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
         requestHotTopicMessage.setTopicId(Long.valueOf(this.e));
         requestHotTopicMessage.setTopicName(this.f);
-        requestHotTopicMessage.setCall_from(c0(this.g));
+        requestHotTopicMessage.setCall_from(d0(this.g));
         requestHotTopicMessage.setSort_type(1);
         requestHotTopicMessage.setScrH(Integer.valueOf(this.k));
         requestHotTopicMessage.setScrW(Integer.valueOf(this.j));
@@ -561,26 +561,26 @@ public class HotTopicDetailModel extends BdBaseModel {
         MessageManager.getInstance().sendMessage(requestHotTopicMessage);
     }
 
-    public boolean Z(sb8 sb8Var, int i) {
+    public boolean a0(d68 d68Var, int i) {
         InterceptResult invokeLI;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, sb8Var, i)) == null) {
-            if (sb8Var == null || !BdNetTypeUtil.isNetworkAvailableForImmediately() || this.d) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, d68Var, i)) == null) {
+            if (d68Var == null || !BdNetTypeUtil.isNetworkAvailableForImmediately() || this.d) {
                 return false;
             }
             RequestBlessMessage requestBlessMessage = new RequestBlessMessage();
-            requestBlessMessage.setPkId(Long.valueOf(sb8Var.g));
+            requestBlessMessage.setPkId(Long.valueOf(d68Var.g));
             requestBlessMessage.setTopicId(Long.valueOf(this.e));
             requestBlessMessage.setPkIndex(i);
-            if (sb8Var.h == 0) {
+            if (d68Var.h == 0) {
                 i2 = 0;
             } else {
                 i2 = 1;
             }
             requestBlessMessage.setClickType(i2);
             requestBlessMessage.setPkType(0);
-            requestBlessMessage.setUserPkId(sb8Var.h);
+            requestBlessMessage.setUserPkId(d68Var.h);
             requestBlessMessage.setTag(this.unique_id);
             if (requestBlessMessage.getHttpMessage() != null) {
                 requestBlessMessage.getHttpMessage().setExtra(Integer.valueOf(i));
@@ -597,10 +597,10 @@ public class HotTopicDetailModel extends BdBaseModel {
         return invokeLI.booleanValue;
     }
 
-    public final int c0(String str) {
+    public final int d0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             if ("1".equals(str)) {
                 return 1;
             }

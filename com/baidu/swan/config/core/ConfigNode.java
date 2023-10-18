@@ -1,21 +1,21 @@
 package com.baidu.swan.config.core;
 
 import android.text.TextUtils;
-import com.baidu.tieba.gv3;
-import com.baidu.tieba.hv3;
-import com.baidu.tieba.iv3;
-import com.baidu.tieba.jv3;
-import com.baidu.tieba.kv3;
-import com.baidu.tieba.lv3;
-import com.baidu.tieba.nv3;
-import com.baidu.tieba.ov3;
+import com.baidu.tieba.pp3;
+import com.baidu.tieba.qp3;
+import com.baidu.tieba.rp3;
+import com.baidu.tieba.sp3;
+import com.baidu.tieba.tp3;
+import com.baidu.tieba.up3;
+import com.baidu.tieba.wp3;
+import com.baidu.tieba.xp3;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes4.dex */
 public enum ConfigNode {
-    HOST_INFO("host_info", kv3.class, lv3.class),
-    FRAMEWORK("framework", iv3.class, jv3.class),
-    EXTENSION(ETAG.KEY_EXTENSION, gv3.class, hv3.class),
-    TIP_MSG("tipmsgs", nv3.class, ov3.class);
+    HOST_INFO("host_info", tp3.class, up3.class),
+    FRAMEWORK("framework", rp3.class, sp3.class),
+    EXTENSION(ETAG.KEY_EXTENSION, pp3.class, qp3.class),
+    TIP_MSG("tipmsgs", wp3.class, xp3.class);
     
     public String mName;
     public Class<? extends Object> mParamsProvider;

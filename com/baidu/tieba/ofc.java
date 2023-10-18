@@ -1,149 +1,85 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import com.huawei.hms.framework.common.StringUtils;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import java.text.DecimalFormat;
 /* loaded from: classes7.dex */
-public abstract class ofc<E> extends pfc<E> {
+public class ofc {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
-    public static final long d;
-    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final E[] b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948031773, "Lcom/baidu/tieba/ofc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948031773, "Lcom/baidu/tieba/ofc;");
-                return;
-            }
-        }
-        c = Integer.getInteger("sparse.shift", 0).intValue();
-        int b = ogc.a.b(Object[].class);
-        if (4 == b) {
-            e = c + 2;
-        } else if (8 == b) {
-            e = c + 3;
-        } else {
-            throw new IllegalStateException("Unknown pointer size");
-        }
-        d = ogc.a.a(Object[].class) + (32 << (e - c));
-    }
-
-    public ofc(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        int b = rfc.b(i);
-        this.a = b - 1;
-        this.b = (E[]) new Object[(b << c) + 64];
-    }
-
-    public final long a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return b(j, this.a);
-        }
-        return invokeJ.longValue;
-    }
-
-    public final E d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            return e(this.b, j);
-        }
-        return (E) invokeJ.objValue;
-    }
-
-    public final long b(long j, long j2) {
+    public static String a(double d) {
         InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return d + ((j & j2) << e);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == j) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return String.valueOf(j);
+            }
+            return new DecimalFormat("#.##").format(d);
         }
-        return invokeCommon.longValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public final E c(E[] eArr, long j) {
-        InterceptResult invokeLJ;
+    public static String b(double d) {
+        InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, eArr, j)) == null) {
-            return (E) ogc.a.e(eArr, j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == j) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return String.valueOf(j);
+            }
+            return new DecimalFormat("#.#").format(d);
         }
-        return (E) invokeLJ.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public final E e(E[] eArr, long j) {
-        InterceptResult invokeLJ;
+    public static double c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, eArr, j)) == null) {
-            return (E) ogc.a.f(eArr, j);
-        }
-        return (E) invokeLJ.objValue;
-    }
-
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == null && isEmpty()) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0.0d;
+            }
+            try {
+                return Double.valueOf(str).doubleValue();
+            } catch (Throwable unused) {
+                RLog.error(StringUtils.TAG, "safeParseDouble " + str, new Object[0]);
+                return 0.0d;
             }
         }
+        return invokeL.doubleValue;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator<E> iterator() {
-        InterceptResult invokeV;
+    public static long d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new UnsupportedOperationException();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0L;
+            }
+            try {
+                return Long.valueOf(str).longValue();
+            } catch (Throwable unused) {
+                RLog.error(StringUtils.TAG, "safeParseLong " + str, new Object[0]);
+                return 0L;
+            }
         }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public final void f(E[] eArr, long j, E e2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            ogc.a.j(eArr, j, e2);
-        }
-    }
-
-    public final void g(E[] eArr, long j, E e2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            ogc.a.h(eArr, j, e2);
-        }
+        return invokeL.longValue;
     }
 }

@@ -90,7 +90,7 @@ public final class AwaitAll<T> {
                     i++;
                     arrayList.add(deferred.getCompleted());
                 }
-                cancellableContinuation.resumeWith(Result.m852constructorimpl(arrayList));
+                cancellableContinuation.resumeWith(Result.m851constructorimpl(arrayList));
             }
         }
     }

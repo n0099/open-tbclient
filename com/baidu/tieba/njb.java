@@ -1,181 +1,675 @@
 package com.baidu.tieba;
 
-import android.media.AudioRecord;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.SharedPreferences;
+import android.os.Looper;
+import android.os.SystemClock;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.sjb;
+import com.baidu.tieba.spb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import java.nio.ByteBuffer;
+import com.fun.ad.sdk.FunAdConfig;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.Module;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.charset.Charset;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.UUID;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class njb {
+public final class njb {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] b;
-    public static int c;
-    public static int d;
-    public static int e;
-    public static njb f;
-    public static byte[] g;
+    public static sjb a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioRecord a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948005795, "Lcom/baidu/tieba/njb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948005795, "Lcom/baidu/tieba/njb;");
-                return;
-            }
-        }
-        b = new int[]{1, 0, 5, 7, 6};
-        c = RecordConstants.MOVIE_ENCODE_SAMPLE_RATE;
-        d = 2048;
-        e = 24;
-        g = new byte[0];
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(Map<String, PidLoaderCreator> map);
     }
 
-    public njb(int i) {
-        int[] iArr;
+    public static <T extends ijb> T a(Random random, List<T> list, ojb<T> ojbVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, random, list, ojbVar)) == null) {
+            if (random == null || list == null || list.isEmpty()) {
+                return null;
+            }
+            LogPrinter.v("Start select for class:%s with size:%d", list.iterator().next().getClass().getSimpleName(), Integer.valueOf(list.size()));
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            T t = null;
+            for (int i = 0; i < size; i++) {
+                T t2 = list.get(i);
+                if (ojbVar != null) {
+                    if (!ojbVar.a(t2)) {
+                        continue;
+                    }
+                    if (t == null && t2.b() != t.b()) {
+                        break;
+                    }
+                    arrayList.add(t2);
+                    t = t2;
+                } else {
+                    if (!t2.a()) {
+                        continue;
+                    }
+                    if (t == null) {
+                    }
+                    arrayList.add(t2);
+                    t = t2;
+                }
+            }
+            if (arrayList.isEmpty()) {
+                LogPrinter.v("No one is selected", new Object[0]);
+                return null;
+            }
+            return (T) arrayList.get(random.nextInt(arrayList.size()));
+        }
+        return (T) invokeLLL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:41:0x009e  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00af  */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00dd A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x00b3 A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void f(final FunAdConfig funAdConfig, Set<Ssp> set, final a aVar) {
+        char c;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, funAdConfig, set, aVar) == null) {
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                throw new RuntimeException("Wrong thread");
+            }
+            final HashMap hashMap = new HashMap();
+            final ArrayList arrayList = new ArrayList();
+            final long currentTimeMillis = System.currentTimeMillis();
+            for (Ssp ssp : set) {
+                if (!TextUtils.isEmpty(ssp.sspId)) {
+                    if (funAdConfig.forbiddenPlatforms.contains(ssp.type)) {
+                        LogPrinter.d("Ssp:%s is not initialized for type is forbidden", ssp.type);
+                    } else {
+                        long currentTimeMillis2 = System.currentTimeMillis();
+                        String str2 = ssp.type;
+                        str2.hashCode();
+                        int hashCode = str2.hashCode();
+                        if (hashCode == 3160) {
+                            if (str2.equals(FunAdSdk.PLATFORM_BZ)) {
+                                c = 0;
+                                if (c == 0) {
+                                }
+                                if (str == null) {
+                                }
+                            }
+                            c = 65535;
+                            if (c == 0) {
+                            }
+                            if (str == null) {
+                            }
+                        } else if (hashCode == 3175) {
+                            if (str2.equals(FunAdSdk.PLATFORM_CJ)) {
+                                c = 1;
+                                if (c == 0) {
+                                }
+                                if (str == null) {
+                                }
+                            }
+                            c = 65535;
+                            if (c == 0) {
+                            }
+                            if (str == null) {
+                            }
+                        } else if (hashCode != 3178) {
+                            if (hashCode == 98810 && str2.equals(FunAdSdk.PLATFORM_CSJ)) {
+                                c = 3;
+                                str = c == 0 ? c != 1 ? c != 2 ? c != 3 ? null : "com.fun.ad.sdk.channel.CsjModule" : "com.fun.ad.sdk.channel.CMModule" : "com.fun.ad.sdk.channel.CjModule" : "com.fun.ad.sdk.channel.BzModule";
+                                if (str == null) {
+                                    LogPrinter.d("sdk for %s init start", ssp.type);
+                                    g(ssp.type, str, funAdConfig, hashMap, ssp.sspId);
+                                    LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
+                                } else {
+                                    arrayList.add(ssp);
+                                }
+                            }
+                            c = 65535;
+                            if (c == 0) {
+                            }
+                            if (str == null) {
+                            }
+                        } else {
+                            if (str2.equals(FunAdSdk.PLATFORM_CM)) {
+                                c = 2;
+                                if (c == 0) {
+                                }
+                                if (str == null) {
+                                }
+                            }
+                            c = 65535;
+                            if (c == 0) {
+                            }
+                            if (str == null) {
+                            }
+                        }
+                    }
+                }
+            }
+            if (arrayList.isEmpty()) {
+                e(currentTimeMillis, aVar, funAdConfig, hashMap);
+            } else {
+                new Thread(new Runnable() { // from class: com.baidu.tieba.tib
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            njb.h(arrayList, funAdConfig, hashMap, currentTimeMillis, aVar);
+                        }
+                    }
+                }).start();
             }
         }
-        int minBufferSize = AudioRecord.getMinBufferSize(c, 16, 2);
-        int i4 = d;
-        int i5 = e * i4;
-        i5 = i5 < minBufferSize ? ((minBufferSize / i4) + 1) * i4 * 2 : i5;
-        if (i != -100) {
+    }
+
+    public static /* synthetic */ void h(List list, FunAdConfig funAdConfig, Map map, long j, a aVar) {
+        String str;
+        String str2;
+        String str3;
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            Ssp ssp = (Ssp) it.next();
+            if (!funAdConfig.forbiddenPlatforms.contains(ssp.type)) {
+                long currentTimeMillis = System.currentTimeMillis();
+                LogPrinter.d("sdk for %s init start", ssp.type);
+                String str4 = ssp.type;
+                str4.hashCode();
+                char c = 65535;
+                switch (str4.hashCode()) {
+                    case 3116:
+                        if (str4.equals(FunAdSdk.PLATFORM_AM)) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 3127:
+                        if (str4.equals(FunAdSdk.PLATFORM_AX)) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 3343:
+                        if (str4.equals(FunAdSdk.PLATFORM_HW)) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case 3370:
+                        if (str4.equals("is")) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 3407:
+                        if (str4.equals(FunAdSdk.PLATFORM_JY)) {
+                            c = 4;
+                            break;
+                        }
+                        break;
+                    case 3432:
+                        if (str4.equals(FunAdSdk.PLATFORM_KS)) {
+                            c = 5;
+                            break;
+                        }
+                        break;
+                    case 3477:
+                        if (str4.equals(FunAdSdk.PLATFORM_MB)) {
+                            c = 6;
+                            break;
+                        }
+                        break;
+                    case 3483:
+                        if (str4.equals(FunAdSdk.PLATFORM_MH)) {
+                            c = 7;
+                            break;
+                        }
+                        break;
+                    case 3488:
+                        if (str4.equals(FunAdSdk.PLATFORM_MM)) {
+                            c = '\b';
+                            break;
+                        }
+                        break;
+                    case 3560:
+                        if (str4.equals(FunAdSdk.PLATFORM_OW)) {
+                            c = '\t';
+                            break;
+                        }
+                        break;
+                    case 3575:
+                        if (str4.equals(FunAdSdk.PLATFORM_PG)) {
+                            c = '\n';
+                            break;
+                        }
+                        break;
+                    case 3693:
+                        if (str4.equals(FunAdSdk.PLATFORM_TA)) {
+                            c = 11;
+                            break;
+                        }
+                        break;
+                    case 96437:
+                        if (str4.equals(FunAdSdk.PLATFORM_ADX)) {
+                            c = '\f';
+                            break;
+                        }
+                        break;
+                    case 102199:
+                        if (str4.equals(FunAdSdk.PLATFORM_GDT)) {
+                            c = '\r';
+                            break;
+                        }
+                        break;
+                    case 107876:
+                        if (str4.equals(FunAdSdk.PLATFORM_MAX)) {
+                            c = 14;
+                            break;
+                        }
+                        break;
+                    case 113873:
+                        if (str4.equals(FunAdSdk.PLATFORM_SIG)) {
+                            c = 15;
+                            break;
+                        }
+                        break;
+                    case 3023727:
+                        if (str4.equals(FunAdSdk.PLATFORM_BIGO)) {
+                            c = 16;
+                            break;
+                        }
+                        break;
+                    case 3418016:
+                        if (str4.equals("oppo")) {
+                            c = 17;
+                            break;
+                        }
+                        break;
+                    case 3620012:
+                        if (str4.equals("vivo")) {
+                            c = 18;
+                            break;
+                        }
+                        break;
+                    case 93498907:
+                        if (str4.equals("baidu")) {
+                            c = 19;
+                            break;
+                        }
+                        break;
+                    case 110532770:
+                        if (str4.equals(FunAdSdk.PLATFORM_TOBID)) {
+                            c = 20;
+                            break;
+                        }
+                        break;
+                    case 293190201:
+                        if (str4.equals(FunAdSdk.PLATFORM_GROMORE)) {
+                            c = 21;
+                            break;
+                        }
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.am.AmModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 1:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.AxModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 2:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.HwModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 3:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.is.IsModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 4:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.JyModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 5:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.KsModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 6:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.MbModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 7:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.MhModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case '\b':
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.MmModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case '\t':
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.OwModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case '\n':
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.pg.PgModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 11:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.TAModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case '\f':
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.adx.AdxModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case '\r':
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.GdtModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 14:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.max.MaxModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 15:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.SigModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 16:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.bigo.BigoModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 17:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.oppo.OppoModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 18:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.VivoModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 19:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.BaiduModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 20:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.ToBidModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    case 21:
+                        str = ssp.type;
+                        str2 = ssp.sspId;
+                        str3 = "com.fun.ad.sdk.channel.GmModule";
+                        g(str, str3, funAdConfig, map, str2);
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                    default:
+                        LogPrinter.d("sdk for %s init end, used time :%s", ssp.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                        break;
+                }
+            } else {
+                LogPrinter.d("Ssp:%s is not initialized for type is forbidden", ssp.type);
+            }
+        }
+        e(j, aVar, funAdConfig, map);
+    }
+
+    public static boolean i(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        sjb sjbVar;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, jSONObject)) == null) {
+            if (str == null || jSONObject == null || (sjbVar = a) == null) {
+                return false;
+            }
+            for (sjb.a aVar : sjbVar.a) {
+                if (str.equals(aVar.a)) {
+                    for (Map.Entry<String, Set<Object>> entry : aVar.b.entrySet()) {
+                        Object opt = jSONObject.opt(entry.getKey());
+                        if (opt != null) {
+                            Iterator<Object> it = entry.getValue().iterator();
+                            while (true) {
+                                if (it.hasNext()) {
+                                    if (opt.equals(it.next())) {
+                                        z2 = true;
+                                        continue;
+                                        break;
+                                    }
+                                } else {
+                                    z2 = false;
+                                    continue;
+                                    break;
+                                }
+                            }
+                            if (!z2) {
+                            }
+                        }
+                        z = false;
+                    }
+                    z = true;
+                    if (z) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static <T> T b(String str, ekb<T> ekbVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, ekbVar)) == null) {
+            if (str == null || ekbVar == null) {
+                return null;
+            }
             try {
-                AudioRecord audioRecord = new AudioRecord(i, c, 16, 2, i5);
-                this.a = audioRecord;
-                if (audioRecord.getState() != 1) {
-                    this.a = null;
+                byte[] decode = Base64.decode(str, 0);
+                if (decode == null) {
+                    return null;
+                }
+                try {
+                    return ekbVar.a(new ObjectInputStream(new ByteArrayInputStream(decode)));
+                } catch (IOException e) {
+                    LogPrinter.e(e);
+                    return null;
                 }
             } catch (Exception unused) {
-                this.a = null;
-            }
-            if (this.a != null) {
-                akb.d("audio_source:(if) ---> " + i);
+                return null;
             }
         }
-        if (this.a == null) {
-            for (int i6 : b) {
-                try {
-                    AudioRecord audioRecord2 = new AudioRecord(i6, c, 16, 2, i5);
-                    this.a = audioRecord2;
-                    if (audioRecord2.getState() != 1) {
-                        this.a = null;
+        return (T) invokeLL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(FunAdSdk.getAppContext());
+                String string = defaultSharedPreferences.getString("u_tok", "");
+                if (TextUtils.isEmpty(string)) {
+                    string = UUID.randomUUID().toString();
+                    try {
+                        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                        messageDigest.update(string.getBytes(Charset.forName("UTF-8")));
+                        string = Base64.encodeToString(messageDigest.digest(), 2);
+                    } catch (Throwable unused) {
+                        if (string.length() >= 24) {
+                            string = string.substring(0, 24);
+                        }
                     }
-                } catch (Exception unused2) {
-                    this.a = null;
+                    defaultSharedPreferences.edit().putString("u_tok", string).apply();
                 }
-                if (this.a != null) {
-                    akb.d("audio_source:(for) ---> " + i6);
-                    return;
+                b = string;
+            }
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0020 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0021  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String d(gkb gkbVar) {
+        InterceptResult invokeL;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gkbVar)) == null) {
+            if (gkbVar != null) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                    gkbVar.srzable(objectOutputStream);
+                    objectOutputStream.flush();
+                    bArr = byteArrayOutputStream.toByteArray();
+                } catch (IOException unused) {
                 }
-            }
-        }
-    }
-
-    public int a(@NonNull ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, byteBuffer, i)) == null) {
-            AudioRecord audioRecord = this.a;
-            if (audioRecord == null) {
-                return 0;
-            }
-            return audioRecord.read(byteBuffer, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
-            return;
-        }
-        synchronized (g) {
-            g();
-            if (f == this) {
-                f = null;
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (g) {
-                if (f == this) {
-                    return;
+                if (bArr != null) {
+                    return null;
                 }
-                if (f != null) {
-                    f.g();
-                    f = null;
+                return Base64.encodeToString(bArr, 0);
+            }
+            bArr = null;
+            if (bArr != null) {
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static void e(long j, a aVar, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), aVar, funAdConfig, map}) == null) {
+            spb.a aVar2 = spb.a;
+            aVar2.a = System.currentTimeMillis() - 0;
+            aVar2.b = SystemClock.currentThreadTimeMillis() - 0;
+            LogPrinter.d("All ssp initialized with %dms consumed.", Long.valueOf(System.currentTimeMillis() - j));
+            funAdConfig.moduleInitManager.tryCallbackComplete();
+            aVar.a(map);
+        }
+    }
+
+    public static void g(String str, String str2, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map, String str3) {
+        Module module;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65542, null, str, str2, funAdConfig, map, str3) == null) {
+            try {
+                module = (Module) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0]);
+                LogPrinter.d("Module for %s created", str2);
+            } catch (Exception e) {
+                LogPrinter.e(e, "Module for %s not found", str2);
+                module = null;
+            }
+            if (module == null) {
+                return;
+            }
+            try {
+                PidLoaderCreator init = module.init(funAdConfig, str3);
+                if (init == null) {
+                    LogPrinter.e("Module for %s init failed", str);
+                } else {
+                    map.put(str, init);
                 }
-                f();
-                f = this;
+            } catch (Exception unused) {
             }
         }
-    }
-
-    public AudioRecord d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (AudioRecord) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AudioRecord audioRecord = this.a;
-            if (audioRecord != null) {
-                return audioRecord.getRecordingState();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void f() {
-        AudioRecord audioRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (audioRecord = this.a) == null) {
-            return;
-        }
-        audioRecord.startRecording();
-    }
-
-    public final void g() {
-        AudioRecord audioRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.a) == null) {
-            return;
-        }
-        this.a = null;
-        audioRecord.stop();
-        audioRecord.release();
     }
 }

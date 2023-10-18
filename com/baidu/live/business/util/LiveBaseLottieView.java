@@ -60,7 +60,7 @@ public class LiveBaseLottieView extends LottieAnimationView {
         this.g = new b();
     }
 
-    public final void B(String str) {
+    public final void C(String str) {
         this.b = str;
         LottieTask<LottieComposition> lottieTask = this.a;
         if (lottieTask != null) {
@@ -76,7 +76,7 @@ public class LiveBaseLottieView extends LottieAnimationView {
     public void setAnimationFromUrl(String str) {
         this.b = str;
         if (!TextUtils.isEmpty(str)) {
-            B(str);
+            C(str);
         }
     }
 

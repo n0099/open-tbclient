@@ -1,74 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.MutableContextWrapper;
-import android.view.View;
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.Lifecycle;
-import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ad.AbsDataRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class c16 {
+public class c16 extends AbsDataRecorder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947621953, "Lcom/baidu/tieba/c16;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c16() {
+        super(AbsDataRecorder.Scene.FRS_HOT);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947621953, "Lcom/baidu/tieba/c16;");
-        }
-    }
-
-    @JvmStatic
-    public static final Lifecycle a(Context context) {
-        InterceptResult invokeL;
-        Context context2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context instanceof MutableContextWrapper) {
-                context2 = ((MutableContextWrapper) context).getBaseContext();
-            } else {
-                context2 = context;
-            }
-            if (context2 instanceof FragmentActivity) {
-                return ((FragmentActivity) context2).getLifecycle();
-            }
-            if (!GlobalBuildConfig.isDebug()) {
-                return null;
-            }
-            throw new IllegalStateException("context isn't FragmentActivity:" + context);
-        }
-        return (Lifecycle) invokeL.objValue;
-    }
-
-    @JvmStatic
-    public static final void b(View view2, Context context) {
-        Context context2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, view2, context) == null) {
-            if (view2 != null) {
-                context2 = view2.getContext();
-            } else {
-                context2 = null;
-            }
-            if (context2 instanceof MutableContextWrapper) {
-                ((MutableContextWrapper) context2).setBaseContext(context);
-            } else if (!GlobalBuildConfig.isDebug()) {
-            } else {
-                throw new IllegalStateException("context can't replace :" + context2);
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbsDataRecorder.Scene) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }

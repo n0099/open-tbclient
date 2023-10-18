@@ -1,19 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.mario.audio.AudioParams;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class j80 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface j80 {
+    void a(boolean z, AudioParams audioParams);
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return i80.a();
-        }
-        return invokeV.booleanValue;
-    }
+    void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j);
+
+    void onAudioStop(boolean z);
 }

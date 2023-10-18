@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,23 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class o02 {
+public class o02 extends n02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String f;
-    public static final MediaType g;
+    public static Map<String, Class<? extends wy1>> m;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Map<String, String> b;
-    public Map<String, String> c;
-    public boolean d;
-    public String e;
+    public List<wy1> k;
+    public boolean l;
 
     static {
         InterceptResult invokeClinit;
@@ -45,134 +36,116 @@ public class o02 {
                 return;
             }
         }
-        boolean z = qr1.a;
-        f = String.format("%s/ma/call", a82.b());
-        g = n23.a;
+        HashMap hashMap = new HashMap();
+        m = hashMap;
+        hashMap.put("setFillStyle", tz1.class);
+        m.put("fillRect", iz1.class);
+        m.put("setStrokeStyle", c02.class);
+        m.put("strokeStyle", j02.class);
+        m.put("setLineCap", wz1.class);
+        m.put("setLineJoin", yz1.class);
+        m.put("setLineWidth", zz1.class);
+        m.put("setLineDash", xz1.class);
+        m.put("setMiterLimit", a02.class);
+        m.put("strokeRect", i02.class);
+        m.put("moveTo", mz1.class);
+        m.put("lineTo", lz1.class);
+        m.put("stroke", h02.class);
+        m.put("fill", hz1.class);
+        m.put("beginPath", zy1.class);
+        m.put("rect", oz1.class);
+        m.put("clearRect", bz1.class);
+        m.put("closePath", dz1.class);
+        m.put("arc", yy1.class);
+        m.put("bezierCurveTo", az1.class);
+        m.put("quadraticCurveTo", nz1.class);
+        m.put("scale", sz1.class);
+        m.put("rotate", qz1.class);
+        m.put("translate", m02.class);
+        m.put("transform", l02.class);
+        m.put("setTransform", f02.class);
+        m.put("font", kz1.class);
+        m.put("setFontSize", uz1.class);
+        m.put("setTextAlign", d02.class);
+        m.put("setTextBaseline", e02.class);
+        m.put("fillText", jz1.class);
+        m.put("strokeText", k02.class);
+        m.put("clip", cz1.class);
+        m.put("drawImage", gz1.class);
+        m.put("save", rz1.class);
+        m.put("restore", pz1.class);
+        m.put("setShadow", b02.class);
+        m.put("setGlobalAlpha", vz1.class);
     }
 
-    public final void b() {
-        gb3 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (b0 = gb3.b0()) == null) {
-            return;
-        }
-        int k = b0.k();
-        String i = lk3.i(tw2.T().getCoreVersion(), k);
-        if (k == 0) {
-            this.c.put("swan_ver", i);
-        } else if (k == 1) {
-            this.c.put("game_ver", i);
-        }
-    }
-
-    public o02() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o02(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = f + "?";
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = false;
-        this.e = "";
-        d();
-        e();
-    }
-
-    public final void a() {
-        gb3 b0;
-        PMSAppInfo f0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (b0 = gb3.b0()) == null || (f0 = b0.W().f0()) == null) {
-            return;
-        }
-        this.c.put("app_ver", String.valueOf(f0.versionCode));
-    }
-
-    public final void e() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Map<String, String> map = this.b;
-            if (SwanAppAllianceLoginHelper.d.f()) {
-                i = 2;
-            } else {
-                i = 0;
+        this.k = new ArrayList();
+        this.l = false;
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONArray jSONArray = new JSONArray(jSONObject.optString(NotificationCompat.WearableExtender.KEY_ACTIONS));
+            int length = jSONArray.length();
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                String optString = optJSONObject.optString("method");
+                JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+                Class<? extends wy1> cls = m.get(optString);
+                if (cls != null) {
+                    wy1 newInstance = cls.newInstance();
+                    newInstance.b(optJSONArray);
+                    this.k.add(newInstance);
+                }
             }
-            map.put("mnpunion", String.valueOf(i));
-            this.b.put("Referer", no3.b());
-        }
-    }
-
-    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback) == null) {
-            if (!this.d) {
-                responseCallback.onFail(new InvalidParameterException("no service has been set"));
-                return;
-            }
-            String b = yo3.b(this.a, this.c);
-            this.a = b;
-            this.a = c82.b(b);
-            ji4 ji4Var = new ji4(this.a, RequestBody.create(g, this.e), responseCallback);
-            ji4Var.c = this.b;
-            ji4Var.g = true;
-            g82.i("CallServiceRequest", "Start request cloud ability: " + this.c.get("service"));
-            ki4.g().e(ji4Var);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (bv3.getContext() == null) {
-                g82.c("CallServiceRequest", Log.getStackTraceString(new AssertionError("Assertion failed: SwanConfigRuntime.getContext() == null")));
-                return;
-            }
-            this.c.put("host_os", hr4.f());
-            this.c.put("host_os_ver", hr4.g());
-            this.c.put("host_app", bv3.getContext().c());
-            this.c.put("host_app_ver", bv3.getContext().h());
-            this.c.put("sdk_ver", bv3.getContext().b());
-            this.c.put("ua", pr4.b(bv3.getContext().h()));
-            this.c.put("ut", c82.f());
-            this.c.put("network", hr4.e());
-            this.c.put("bundle_Id", fb3.K().getAppId());
-            this.c.put("cuid", bv3.getContext().g());
-            this.c.put("uuid", bv3.getContext().e());
-            Map<String, String> map = this.c;
-            map.put("sid", nu2.g0().k() + "");
-            this.c.put("source", "swan_sdk");
-            this.c.put("timestamp", String.valueOf(System.currentTimeMillis()));
-            b();
-            a();
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                this.e = "";
-            } else {
-                this.e = jSONObject.toString();
+            this.l = jSONObject.optInt("reserve") != 0;
+        } catch (Exception e) {
+            if (am1.a) {
+                e.printStackTrace();
             }
         }
     }
 
-    public void g(String str) {
+    public List<wy1> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TextUtils.isEmpty(str)) {
-            this.c.put("service", str);
-            this.d = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.k;
         }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.n02, com.baidu.tieba.g12, com.baidu.tieba.ov2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.isValid();
+        }
+        return invokeV.booleanValue;
     }
 }

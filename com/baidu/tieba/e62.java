@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,19 +10,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e62 extends d62 {
+public final class e62 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, Class<? extends m42>> m;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<m42> k;
-    public boolean l;
+    public final a62 a;
+    public boolean b;
+    public boolean c;
+    public r62 d;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final e62 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-879306486, "Lcom/baidu/tieba/e62$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-879306486, "Lcom/baidu/tieba/e62$b;");
+                    return;
+                }
+            }
+            a = new e62(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -36,116 +62,121 @@ public class e62 extends d62 {
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        m = hashMap;
-        hashMap.put("setFillStyle", j52.class);
-        m.put("fillRect", y42.class);
-        m.put("setStrokeStyle", s52.class);
-        m.put("strokeStyle", z52.class);
-        m.put("setLineCap", m52.class);
-        m.put("setLineJoin", o52.class);
-        m.put("setLineWidth", p52.class);
-        m.put("setLineDash", n52.class);
-        m.put("setMiterLimit", q52.class);
-        m.put("strokeRect", y52.class);
-        m.put("moveTo", c52.class);
-        m.put("lineTo", b52.class);
-        m.put("stroke", x52.class);
-        m.put("fill", x42.class);
-        m.put("beginPath", p42.class);
-        m.put("rect", e52.class);
-        m.put("clearRect", r42.class);
-        m.put("closePath", t42.class);
-        m.put("arc", o42.class);
-        m.put("bezierCurveTo", q42.class);
-        m.put("quadraticCurveTo", d52.class);
-        m.put("scale", i52.class);
-        m.put("rotate", g52.class);
-        m.put("translate", c62.class);
-        m.put("transform", b62.class);
-        m.put("setTransform", v52.class);
-        m.put("font", a52.class);
-        m.put("setFontSize", k52.class);
-        m.put("setTextAlign", t52.class);
-        m.put("setTextBaseline", u52.class);
-        m.put("fillText", z42.class);
-        m.put("strokeText", a62.class);
-        m.put("clip", s42.class);
-        m.put("drawImage", w42.class);
-        m.put("save", h52.class);
-        m.put("restore", f52.class);
-        m.put("setShadow", r52.class);
-        m.put("setGlobalAlpha", l52.class);
+        e = am1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e62(String str) {
-        super(str);
+    public static e62 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (e62) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
+        }
+    }
+
+    public e62() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = new ArrayList();
-        this.l = false;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONArray jSONArray = new JSONArray(jSONObject.optString(NotificationCompat.WearableExtender.KEY_ACTIONS));
-            int length = jSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
-                String optString = optJSONObject.optString("method");
-                JSONArray optJSONArray = optJSONObject.optJSONArray("data");
-                Class<? extends m42> cls = m.get(optString);
-                if (cls != null) {
-                    m42 newInstance = cls.newInstance();
-                    newInstance.b(optJSONArray);
-                    this.k.add(newInstance);
-                }
+        b62 b62Var = new b62();
+        this.a = b62Var;
+        b62Var.a(new d62(this.a.getLooper()));
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (e) {
+                p22.i("WhitePageMonitor", Log.getStackTraceString(new Throwable(">>> check skeleton_dev, callback = " + this.d)));
             }
-            this.l = jSONObject.optInt("reserve") != 0;
-        } catch (Exception e) {
-            if (qr1.a) {
-                e.printStackTrace();
+            r62 r62Var = this.d;
+            if (r62Var != null) {
+                r62Var.a();
+                this.d = null;
             }
         }
     }
 
-    public List<m42> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.k;
-        }
-        return (List) invokeV.objValue;
+    public /* synthetic */ e62(a aVar) {
+        this();
     }
 
-    public boolean i() {
-        InterceptResult invokeV;
+    public void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            i(j);
+            j(false);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.d62, com.baidu.tieba.w62, com.baidu.tieba.f13
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public void g(r62 r62Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.isValid();
+        if (interceptable == null || interceptable.invokeL(1048581, this, r62Var) == null) {
+            this.d = r62Var;
         }
-        return invokeV.booleanValue;
+    }
+
+    public void h(z52 z52Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, z52Var) == null) {
+            this.a.b(z52Var);
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void i(long j) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            if (e) {
+                Log.d("WhitePageMonitor", ">> update first white screen timestamp, delay " + j + " ms");
+            }
+            if (j < 3000 && j > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.b = z;
+        }
     }
 }

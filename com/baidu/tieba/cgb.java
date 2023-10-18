@@ -1,18 +1,29 @@
 package com.baidu.tieba;
-
-import android.util.Pair;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class cgb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface cgb {
+    void a(int i);
 
-    public static void a(String str, String str2, LinkedList<Pair<String, Object>> linkedList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, str, str2, linkedList) == null) && dgb.c().g() != null) {
-            dgb.c().g().b(54, null, null, null, null, null, str, null, str2, null, linkedList);
-        }
-    }
+    void b(String str);
+
+    boolean c();
+
+    cgb d();
+
+    void e(boolean z);
+
+    void f(String str);
+
+    void g(String str);
+
+    String getAAID();
+
+    String getOAID();
+
+    int getStatusCode();
+
+    String getVAID();
+
+    void h(boolean z);
+
+    boolean isSupport();
 }

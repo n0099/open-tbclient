@@ -1,883 +1,612 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xjb;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.tieba.ugb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
-import com.google.android.material.badge.BadgeDrawable;
 import java.io.File;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vgb extends ugb {
+public class vgb {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean n;
+    public static volatile vgb o;
     public transient /* synthetic */ FieldHolder $fh;
-    public int h;
-    public int i;
-    public int j;
-    public pgb k;
-    public long l;
-    public boolean m;
-    public boolean n;
-    public qgb o;
-    public boolean p;
-    public boolean q;
-    public rgb r;
+    public File a;
+    public File b;
+    public boolean c;
+    public boolean d;
+    public long e;
+    public int f;
+    public int g;
+    public long h;
+    public long i;
+    public long j;
+    public int k;
+    public int l;
+    public HashMap<String, ugb> m;
 
-    /* loaded from: classes8.dex */
-    public class a implements xjb.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-        public final /* synthetic */ vgb b;
-
-        public a(vgb vgbVar, StringBuilder sb) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948241240, "Lcom/baidu/tieba/vgb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vgbVar, sb};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = vgbVar;
-            this.a = sb;
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948241240, "Lcom/baidu/tieba/vgb;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.xjb.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(",createMuteAudio ffmpegerror:");
-                sb.append(i);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                akb.j("FFmpegChain", sb2);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                if (i != 1001 || i2 < 0) {
-                    return false;
-                }
-                akb.j("FFmpegChain", " createMuteAudio 进度i1 = " + i2);
-                vgb vgbVar = this.b;
-                vgbVar.i((int) (((float) vgbVar.i) + (((((float) i2) * 1.0f) / 100.0f) * 10.0f)));
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements xjb.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-        public final /* synthetic */ vgb b;
-
-        public b(vgb vgbVar, StringBuilder sb) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vgbVar, sb};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vgbVar;
-            this.a = sb;
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(",concatAudio ffmpegerror:");
-                sb.append(i);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                akb.j("FFmpegChain", sb2);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                akb.j("FFmpegChain", " concatMuteAudio 进度i1 = " + i2);
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements xjb.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-        public final /* synthetic */ pgb b;
-        public final /* synthetic */ vgb c;
-
-        public c(vgb vgbVar, StringBuilder sb, pgb pgbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vgbVar, sb, pgbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = vgbVar;
-            this.a = sb;
-            this.b = pgbVar;
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.c) {
-                    this.c.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(",dealAudioPlayData ffmpegerror:");
-                sb.append(i);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                pgb pgbVar = this.b;
-                if (pgbVar != null && pgbVar.a() != null) {
-                    this.a.append(",audioformat:");
-                    this.a.append(this.b.a().f());
-                    this.a.append(",audiopath:");
-                    this.a.append(this.b.a().h());
-                }
-                akb.j("FFmpegChain", sb2);
-                synchronized (this.c) {
-                    this.c.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                if (i != 1001 || i2 < 0) {
-                    return false;
-                }
-                akb.j("FFmpegChain", " dealAudioPlayData 进度i1 = " + i2);
-                vgb vgbVar = this.c;
-                vgbVar.i(vgbVar.i + ((int) ((((((float) (this.c.j + (-1))) + ((((float) i2) * 1.0f) / 100.0f)) * 1.0f) / ((float) this.c.h)) * 60.0f)));
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements xjb.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-        public final /* synthetic */ vgb b;
-
-        public d(vgb vgbVar, StringBuilder sb) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vgbVar, sb};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vgbVar;
-            this.a = sb;
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("concatAudio ffmpegerror:");
-                sb.append(i);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                akb.j("FFmpegChain", sb2);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                if (i != 1001 || i2 < 0) {
-                    return false;
-                }
-                akb.j("FFmpegChain", " concatAudio 进度i1 = " + i2);
-                vgb vgbVar = this.b;
-                vgbVar.i((int) (((float) vgbVar.i) + (((((float) i2) * 1.0f) / 100.0f) * 10.0f)));
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements xjb.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-        public final /* synthetic */ vgb b;
-
-        public e(vgb vgbVar, StringBuilder sb) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vgbVar, sb};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vgbVar;
-            this.a = sb;
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("mixAudio ffmpegerror:");
-                sb.append(i);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                akb.j("FFmpegChain", sb2);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.xjb.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                if (i != 1001 || i2 < 0) {
-                    return false;
-                }
-                akb.j("FFmpegChain", " mixAudio 进度i1 = " + i2);
-                vgb vgbVar = this.b;
-                vgbVar.i((int) (((float) vgbVar.i) + (((((float) i2) * 1.0f) / 100.0f) * 20.0f)));
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
+        n = AppConfig.isDebug();
     }
 
     public vgb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final void A() {
-        String str;
-        String a2;
-        qgb qgbVar;
-        pgb pgbVar;
-        qgb qgbVar2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pgb pgbVar2 = this.k;
-            boolean z = pgbVar2 != null && pgbVar2.c();
-            if (!z && ((qgbVar2 = this.o) == null || !FileUtils.isExists(qgbVar2.h()))) {
-                g("nosource to create mute audio");
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            if (z && (qgbVar = this.o) != null && (pgbVar = this.k) != null && !qgbVar.equals(pgbVar.a())) {
-                z = false;
-            }
-            StringBuilder sb = new StringBuilder();
-            str = "";
-            if (!z) {
-                try {
-                } catch (Throwable th) {
-                    sb.append(th.getMessage());
-                }
-                if (this.o == null) {
-                    return;
-                }
-                str = a(this.o.h(), "_mute.aac");
-                pib.l(this.o.h(), str, -1, -1, 0.0f, -1, 0.0f, -1.0f, false, new a(this, sb));
-                try {
-                    synchronized (this) {
-                        wait();
-                    }
-                } catch (InterruptedException e2) {
-                    sb.append(e2.getMessage());
-                }
-                if (FileUtils.isExists(a2) && TextUtils.isEmpty(sb.toString())) {
-                    akb.j("FFmpegChain", "createconcatMuteAudio 生成成功");
-                    this.k = new pgb(new AudioPlayData(a2, 0, -1, 1.0f));
-                    return;
-                }
-                g(sb.toString());
-            }
-            pgb pgbVar3 = this.k;
-            str = pgbVar3 != null ? pgbVar3.a().h() : "";
-            i(this.i + 10);
-            if (FileUtils.isExists(str) && TextUtils.isEmpty(sb.toString())) {
-                akb.j("FFmpegChain", "createMuteAudio 生成成功");
-                pgb pgbVar4 = new pgb(new AudioPlayData(str, 0, -1, 1.0f));
-                this.k = pgbVar4;
-                if (pgbVar4.a() == null || this.k.a().e() <= 0) {
-                    return;
-                }
-                long e3 = this.k.a().e();
-                long j = this.l;
-                if (e3 >= j) {
-                    return;
-                }
-                int e4 = (int) ((j / this.k.a().e()) + 1);
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < e4; i++) {
-                    arrayList.add(str);
-                }
-                a2 = a(str, "_concat.aac");
-                pib.b(arrayList, a2, this.g, new b(this, sb), false, true);
-                try {
-                } catch (InterruptedException e5) {
-                    sb.append(e5.getMessage());
-                }
-                synchronized (this) {
-                    wait();
-                    if (FileUtils.isExists(a2)) {
-                        akb.j("FFmpegChain", "createconcatMuteAudio 生成成功");
-                        this.k = new pgb(new AudioPlayData(a2, 0, -1, 1.0f));
-                        return;
-                    }
-                }
-            }
-            g(sb.toString());
         }
+        n();
     }
 
-    public final void B(rgb rgbVar) {
+    public static vgb f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rgbVar) == null) {
-            if (rgbVar == null || fkb.e(rgbVar.c())) {
-                g("concatAudio tempDataForOutPut data error");
-                return;
-            }
-            List<tgb> c2 = rgbVar.c();
-            StringBuilder sb = new StringBuilder();
-            for (tgb tgbVar : c2) {
-                if (!fkb.e(tgbVar.a())) {
-                    ArrayList arrayList = new ArrayList();
-                    for (pgb pgbVar : tgbVar.a()) {
-                        if (pgbVar.b() != null) {
-                            arrayList.add(pgbVar.b().audioPath);
-                        }
-                    }
-                    if (!fkb.e(arrayList)) {
-                        String str = this.g;
-                        if (TextUtils.isEmpty(str)) {
-                            str = FileUtils.getParentDir((String) arrayList.get(0));
-                        }
-                        String str2 = str + System.currentTimeMillis() + "_trackconcat.aac";
-                        pib.b(arrayList, str2, this.g, new d(this, sb), false, true);
-                        try {
-                            synchronized (this) {
-                                wait();
-                            }
-                        } catch (InterruptedException e2) {
-                            sb.append(e2.getMessage());
-                        }
-                        if (FileUtils.isExists(str2) && TextUtils.isEmpty(sb.toString())) {
-                            akb.j("FFmpegChain", "concatAudio 生成成功");
-                            pgb pgbVar2 = new pgb(new AudioPlayData(str2, 0, -1, 1.0f));
-                            tgbVar.a().clear();
-                            tgbVar.a().add(pgbVar2);
-                        } else {
-                            g(sb.toString());
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (o == null) {
+                synchronized (vgb.class) {
+                    if (o == null) {
+                        o = new vgb();
                     }
                 }
             }
+            return o;
         }
+        return (vgb) invokeV.objValue;
     }
 
-    public final void C(rgb rgbVar) {
-        String str;
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rgbVar) == null) {
-            if (rgbVar == null || fkb.b(rgbVar.c()) < 2) {
-                str = "mixAudio tempDataForOutPut data error";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.j;
+        }
+        return invokeV.longValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.l;
+        }
+        return invokeV.intValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.h;
+        }
+        return invokeV.longValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void A(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i > 0 && i <= wgb.k) {
+                this.f = i;
             } else {
-                List<tgb> c2 = rgbVar.c();
-                StringBuilder sb = new StringBuilder();
-                ArrayList arrayList = new ArrayList();
-                for (tgb tgbVar : c2) {
-                    if (tgbVar != null && !fkb.e(tgbVar.a())) {
-                        pgb pgbVar = tgbVar.a().get(0);
-                        if (pgbVar.b() != null) {
-                            arrayList.add(pgbVar.b().audioPath);
-                        }
-                    }
-                }
-                if (arrayList.size() >= 2) {
-                    String str2 = this.g;
-                    if (TextUtils.isEmpty(str2)) {
-                        str2 = FileUtils.getParentDir((String) arrayList.get(0));
-                    }
-                    String str3 = str2 + System.currentTimeMillis() + "_mix.aac";
-                    pib.k(arrayList, str3, -1, new e(this, sb));
-                    try {
-                        synchronized (this) {
-                            wait();
-                        }
-                    } catch (InterruptedException e2) {
-                        sb.append(e2.getMessage());
-                    }
-                    if (!FileUtils.isExists(str3) || !TextUtils.isEmpty(sb.toString())) {
-                        g(sb.toString());
-                        return;
-                    }
-                    akb.j("FFmpegChain", "mixAudio 生成成功");
-                    pgb pgbVar2 = new pgb(new AudioPlayData(str3, 0, -1, 1.0f));
-                    ArrayList arrayList2 = new ArrayList();
-                    arrayList2.add(pgbVar2);
-                    ArrayList arrayList3 = new ArrayList();
-                    arrayList3.add(new tgb(arrayList2));
-                    this.r = new rgb(arrayList3);
-                    return;
-                }
-                str = "mixAudio inputList data error";
-            }
-            g(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.ugb
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = true;
-            synchronized (this) {
-                notifyAll();
-            }
-            o();
-        }
-    }
-
-    @Override // com.baidu.tieba.ugb
-    public void d(rgb rgbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, rgbVar) == null) {
-            if (rgbVar == null || fkb.e(rgbVar.c())) {
-                g("input data error: null or length=0");
-                return;
-            }
-            this.m = false;
-            this.n = false;
-            this.p = false;
-            this.q = false;
-            if (!j(rgbVar)) {
-                l(rgbVar);
-                return;
-            }
-            String a2 = rgbVar.a();
-            this.g = a2;
-            if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.g)) {
-                new File(this.g).mkdir();
-            }
-            this.e = false;
-            this.f = false;
-            this.k = rgbVar.b();
-            x(rgbVar);
-            y(rgbVar);
-            this.i = 0;
-            if (this.m && !this.f && !this.e) {
-                A();
-            }
-            if (this.n && !this.f && !this.e) {
-                this.i = 10;
-                i(10);
-                z(rgbVar);
-            }
-            if (this.p && !this.f && !this.e) {
-                this.i = 70;
-                i(70);
-                B(this.r);
-            }
-            if (this.q && !this.f && !this.e) {
-                this.i = 80;
-                i(80);
-                C(this.r);
-            }
-            if (this.e || this.f) {
-                return;
-            }
-            l(this.r);
-        }
-    }
-
-    @Override // com.baidu.tieba.ugb
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    public final void q(pgb pgbVar, int i) {
-        int i2;
-        pgb pgbVar2;
-        StringBuilder sb;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048582, this, pgbVar, i) == null) || this.e || this.f) {
-            return;
-        }
-        AudioPlayData b2 = pgbVar.b();
-        if (b2 == null) {
-            sb = new StringBuilder();
-            str = "dealAudioPlayData audioPlayData = null,trackIndx:";
-        } else if (this.o != null) {
-            if (!pgbVar.c() && (pgbVar2 = this.k) != null && pgbVar2.b() != null) {
-                b2.audioPath = this.k.b().audioPath;
-                pgbVar.d(this.k.a());
-            }
-            StringBuilder sb2 = new StringBuilder();
-            String str2 = b2.audioPath;
-            String a2 = a(str2, System.currentTimeMillis() + "_ffmpeg.aac");
-            try {
-                boolean z = pgbVar.a() != null && "audio/mp4a-latm".equals(pgbVar.a().f());
-                String str3 = b2.audioPath;
-                int g = this.o.g();
-                int d2 = this.o.d();
-                float f = b2.volume;
-                int c2 = this.o.c();
-                float f2 = (b2.start * 1.0f) / 1000.0f;
-                float f3 = ((b2.end - b2.start) * 1.0f) / 1000.0f;
-                i2 = 0;
-                try {
-                    pib.l(str3, a2, g, d2, f, c2, f2, f3, !z, new c(this, sb2, pgbVar));
-                    try {
-                        synchronized (this) {
-                            wait();
-                        }
-                    } catch (InterruptedException e2) {
-                        sb2.append(e2.getMessage());
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    sb2.append(th.getMessage());
-                    if (FileUtils.isExists(a2)) {
-                    }
-                    g(sb2.toString());
-                    return;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                i2 = 0;
-            }
-            if (FileUtils.isExists(a2) || !TextUtils.isEmpty(sb2.toString())) {
-                g(sb2.toString());
-                return;
-            }
-            akb.j("FFmpegChain", "dealAudioPlayData 生成成功");
-            r(this.r, new pgb(new AudioPlayData(a2, i2, -1, 1.0f)), i);
-            return;
-        } else {
-            sb = new StringBuilder();
-            str = "dealAudioPlayData mTargetInfo = null ,trackIndx:";
-        }
-        sb.append(str);
-        sb.append(i);
-        g(sb.toString());
-    }
-
-    public final void r(rgb rgbVar, pgb pgbVar, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048583, this, rgbVar, pgbVar, i) == null) || rgbVar == null || rgbVar.c() == null || rgbVar.c().get(i) == null) {
-            return;
-        }
-        rgbVar.c().get(i).a().add(pgbVar);
-    }
-
-    public final void s(tgb tgbVar, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, tgbVar, i) == null) || tgbVar == null || fkb.e(tgbVar.a()) || this.f || this.e) {
-            return;
-        }
-        for (int i2 = 0; !this.e && !this.f && i2 < tgbVar.a().size(); i2++) {
-            pgb pgbVar = tgbVar.a().get(i2);
-            this.j++;
-            if (v(pgbVar)) {
-                q(pgbVar, i);
-            } else {
-                r(this.r, pgbVar, i);
-                i(this.i + ((int) (((this.j * 1.0f) / this.h) * 60.0f)));
+                this.f = wgb.k;
             }
         }
     }
 
-    public final boolean t(pgb pgbVar) {
+    public boolean a(String str) {
         InterceptResult invokeL;
+        ugb ugbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, pgbVar)) == null) {
-            if (pgbVar == null || pgbVar.b() == null || !FileUtils.isExists(pgbVar.b().audioPath)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.c;
+            }
+            HashMap<String, ugb> hashMap = this.m;
+            if (hashMap != null && (ugbVar = hashMap.get(str)) != null) {
+                return ugbVar.e();
+            }
+            return this.c;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public long b(String str) {
+        InterceptResult invokeL;
+        ugb ugbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.i;
+            }
+            HashMap<String, ugb> hashMap = this.m;
+            if (hashMap != null && (ugbVar = hashMap.get(str)) != null) {
+                return ugbVar.a();
+            }
+            return this.i;
+        }
+        return invokeL.longValue;
+    }
+
+    public int c(String str) {
+        InterceptResult invokeL;
+        ugb ugbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.l;
+            }
+            HashMap<String, ugb> hashMap = this.m;
+            if (hashMap != null && (ugbVar = hashMap.get(str)) != null) {
+                return ugbVar.b();
+            }
+            return this.l;
+        }
+        return invokeL.intValue;
+    }
+
+    public long d(String str) {
+        InterceptResult invokeL;
+        ugb ugbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.h;
+            }
+            HashMap<String, ugb> hashMap = this.m;
+            if (hashMap != null && (ugbVar = hashMap.get(str)) != null) {
+                return ugbVar.d();
+            }
+            return this.h;
+        }
+        return invokeL.longValue;
+    }
+
+    public int e(String str) {
+        InterceptResult invokeL;
+        ugb ugbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.g;
+            }
+            HashMap<String, ugb> hashMap = this.m;
+            if (hashMap != null && (ugbVar = hashMap.get(str)) != null) {
+                return ugbVar.c();
+            }
+            return this.g;
+        }
+        return invokeL.intValue;
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void u(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            if (j <= 0) {
+                this.i = wgb.g;
+            } else {
+                this.i = j;
+            }
+        }
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            if (i > 0 && i <= wgb.i) {
+                this.k = i;
+            } else {
+                this.k = wgb.i;
+            }
+        }
+    }
+
+    public void w(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+            if (j > 0 && j <= wgb.h) {
+                this.j = j;
+            } else {
+                this.j = wgb.h;
+            }
+        }
+    }
+
+    public void x(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+            if (j > 0 && j <= 20971520) {
+                this.h = j;
+            } else {
+                this.h = 20971520L;
+            }
+        }
+    }
+
+    public void y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            if (i > 0 && i <= wgb.j) {
+                this.g = i;
+            } else {
+                this.g = wgb.j;
+            }
+        }
+    }
+
+    public void z(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+            if (j <= 0) {
+                this.e = wgb.e;
+            } else {
+                this.e = j;
+            }
+        }
+    }
+
+    public final boolean B(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null || jSONObject.length() == 0) {
                 return false;
             }
-            if (pgbVar.b().start <= 0 && pgbVar.b().end <= 0 && pgbVar.b().volume == 1.0f) {
-                return (pgbVar.a() == null || "audio/mp4a-latm".equals(pgbVar.a().f())) ? false : true;
+            if (jSONObject.optInt("switch") != wgb.p) {
+                t(wgb.a);
+            } else {
+                t(wgb.b);
+            }
+            if (jSONObject.optInt(DownloadStatisticConstants.UBC_VALUE_CLEAR) != wgb.q) {
+                r(wgb.c);
+            } else {
+                r(wgb.d);
+            }
+            long j2 = 1000;
+            z(jSONObject.optInt("upload_interval") * 60 * 1000);
+            A(jSONObject.optInt("max_count_per_round"));
+            u(jSONObject.optInt("expired_time") * 24 * 60 * 60 * 1000);
+            v(jSONObject.optInt("total_max_count"));
+            w(jSONObject.optInt("total_max_size") * 1024 * 1024);
+            y(jSONObject.optInt("single_max_count"));
+            x(jSONObject.optInt("single_max_size") * 1024 * 1024);
+            JSONObject optJSONObject = jSONObject.optJSONObject("set");
+            if (optJSONObject != null && optJSONObject.length() > 0) {
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                    if (optJSONObject2 != null && optJSONObject2.length() != 0) {
+                        ugb g = new ugb.b(next).g();
+                        if (optJSONObject2.optInt("switch") != wgb.p) {
+                            g.f(wgb.a);
+                        } else {
+                            g.f(wgb.b);
+                        }
+                        int optInt = optJSONObject2.optInt("expired_time", 0);
+                        if (optInt > 0) {
+                            g.g(optInt * 24 * 60 * 60 * j2);
+                        }
+                        int optInt2 = optJSONObject2.optInt("single_max_count", 0);
+                        if (optInt2 > 0) {
+                            g.i(optInt2);
+                        }
+                        int optInt3 = optJSONObject2.optInt("single_max_size", 0);
+                        if (optInt3 > 0) {
+                            j = 1024;
+                            g.j(optInt3 * 1024 * 1024);
+                        } else {
+                            j = 1024;
+                        }
+                        if (optJSONObject2.has("only_wifi")) {
+                            g.h(optJSONObject2.optInt("only_wifi"));
+                        }
+                        if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
+                            if (this.m == null) {
+                                this.m = new HashMap<>();
+                            }
+                            this.m.put(next, g);
+                        }
+                        j2 = 1000;
+                    }
+                }
+                return true;
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final boolean v(pgb pgbVar) {
+    public boolean C(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, pgbVar)) == null) {
-            if (pgbVar == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject != null && jSONObject.length() != 0) {
+                if (n) {
+                    Log.d("VoyagerConfig", "update Config: " + jSONObject.toString());
+                }
+                if (B(jSONObject)) {
+                    boolean D = D();
+                    if (D && !this.c && this.d) {
+                        ((khb) ServiceManager.getService(khb.a)).f();
+                    }
+                    return D;
+                }
             }
-            return t(pgbVar) || pgbVar.a() == null || pgbVar.a().k(this.o) != 0;
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public final void x(rgb rgbVar) {
+    public boolean D() {
+        InterceptResult invokeV;
+        ugb ugbVar;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, rgbVar) == null) {
-            List<tgb> c2 = rgbVar.c();
-            HashMap hashMap = new HashMap();
-            if (c2.size() > 1) {
-                this.q = true;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < c2.size(); i2++) {
-                if (!fkb.e(c2.get(i2).a())) {
-                    this.h += fkb.b(c2.get(i2).a());
-                    List<pgb> a2 = c2.get(i2).a();
-                    if (!fkb.e(a2)) {
-                        if (a2.size() > 1) {
-                            this.p = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("en", this.c);
+                jSONObject.put("c", this.d);
+                jSONObject.put(TaskUIData.key, this.e);
+                jSONObject.put("utc", this.f);
+                jSONObject.put("et", this.i);
+                jSONObject.put("mfc", this.k);
+                jSONObject.put("mfs", this.j);
+                jSONObject.put("an", this.l);
+                jSONObject.put("stmc", this.g);
+                jSONObject.put("stms", this.h);
+                if (this.m != null && this.m.size() > 0) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    for (String str : this.m.keySet()) {
+                        if (!TextUtils.isEmpty(str) && (ugbVar = this.m.get(str)) != null) {
+                            JSONObject jSONObject3 = new JSONObject();
+                            if (ugbVar.e()) {
+                                i = wgb.o;
+                            } else {
+                                i = wgb.p;
+                            }
+                            jSONObject3.put("en", i);
+                            jSONObject3.put("et", ugbVar.a());
+                            jSONObject3.put("stmc", ugbVar.c());
+                            jSONObject3.put("stms", ugbVar.d());
+                            jSONObject3.put("an", ugbVar.b());
+                            jSONObject2.put(str, jSONObject3);
                         }
-                        for (pgb pgbVar : a2) {
-                            if (pgbVar != null && pgbVar.b() != null && !pgbVar.c()) {
-                                long j = pgbVar.b().end - pgbVar.b().start;
-                                if (j > this.l) {
-                                    this.l = j;
-                                }
-                                this.m = true;
-                                this.n = true;
+                    }
+                    if (jSONObject2.length() > 0) {
+                        jSONObject.put("set", jSONObject2);
+                    }
+                }
+            } catch (JSONException e) {
+                if (n) {
+                    e.printStackTrace();
+                }
+            }
+            if (!this.a.exists()) {
+                try {
+                    this.a.createNewFile();
+                } catch (IOException e2) {
+                    if (n) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            return nhb.g(jSONObject.toString(), this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/config/");
+            this.b = file;
+            if (!file.exists()) {
+                this.b.mkdirs();
+            }
+            File file2 = new File(this.b, "voyager_config.txt");
+            this.a = file2;
+            if (file2.exists()) {
+                q();
+            } else {
+                s();
+            }
+        }
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.c = wgb.a;
+            this.d = wgb.c;
+            this.e = wgb.e;
+            this.f = wgb.f;
+            this.i = wgb.g;
+            this.k = wgb.i;
+            this.j = wgb.h;
+            this.g = wgb.j;
+            this.h = wgb.l;
+            this.l = wgb.m;
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            String f = nhb.f(this.a);
+            if (n) {
+                Log.d("VoyagerConfig", "read from local: " + f);
+            }
+            if (TextUtils.isEmpty(f)) {
+                s();
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(f);
+                this.c = jSONObject.optBoolean("en", wgb.a);
+                this.d = jSONObject.optBoolean("c", wgb.c);
+                this.e = jSONObject.optLong(TaskUIData.key, wgb.e);
+                this.f = jSONObject.optInt("utc", wgb.f);
+                this.i = jSONObject.optLong("et", wgb.g);
+                this.k = jSONObject.optInt("mfc", wgb.i);
+                this.j = jSONObject.optLong("mfs", wgb.h);
+                this.l = jSONObject.optInt("an", wgb.m);
+                this.g = jSONObject.optInt("stmc", wgb.j);
+                this.h = jSONObject.optLong("stms", wgb.l);
+                JSONObject optJSONObject = jSONObject.optJSONObject("set");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    Iterator<String> keys = optJSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                        if (optJSONObject2 != null && optJSONObject2.length() != 0) {
+                            ugb g = new ugb.b(next).g();
+                            if (optJSONObject2.optInt("en") != wgb.p) {
+                                g.f(wgb.a);
+                            } else {
+                                g.f(wgb.b);
                             }
-                            if (t(pgbVar)) {
-                                this.n = true;
+                            long optInt = optJSONObject2.optInt("et", 0);
+                            if (optInt > 0) {
+                                g.g(optInt);
+                            } else {
+                                g.g(this.i);
                             }
-                            if (pgbVar != null && pgbVar.a() != null) {
-                                Integer num = (Integer) hashMap.get(pgbVar.a());
-                                if (num == null) {
-                                    num = 0;
+                            int optInt2 = optJSONObject2.optInt("stmc", 0);
+                            if (optInt2 > 0) {
+                                g.i(optInt2);
+                            } else {
+                                g.i(this.g);
+                            }
+                            long optLong = optJSONObject2.optLong("stms", 0L);
+                            if (optLong > 0) {
+                                g.j(optLong);
+                            } else {
+                                g.j(this.h);
+                            }
+                            if (optJSONObject2.optInt("an") != wgb.n) {
+                                g.h(wgb.m);
+                            } else {
+                                g.h(wgb.n);
+                            }
+                            if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
+                                if (this.m == null) {
+                                    this.m = new HashMap<>();
                                 }
-                                hashMap.put(pgbVar.a(), Integer.valueOf(num.intValue() + 1));
+                                this.m.put(next, g);
                             }
                         }
                     }
                 }
-            }
-            if (hashMap.size() > 1) {
-                this.n = true;
-            }
-            for (qgb qgbVar : hashMap.keySet()) {
-                if (((Integer) hashMap.get(qgbVar)).intValue() > i && "audio/mp4a-latm".equals(qgbVar.f())) {
-                    this.o = qgbVar;
-                    i = ((Integer) hashMap.get(qgbVar)).intValue();
+            } catch (JSONException e) {
+                if (n) {
+                    e.printStackTrace();
                 }
-            }
-            if (this.o == null) {
-                this.o = qgb.b();
-            }
-        }
-    }
-
-    public final void y(rgb rgbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, rgbVar) == null) {
-            if (this.n) {
-                if (rgbVar == null || fkb.e(rgbVar.c())) {
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < rgbVar.c().size(); i++) {
-                    arrayList.add(new tgb(new ArrayList()));
-                }
-                rgbVar = new rgb(arrayList);
-            }
-            this.r = rgbVar;
-        }
-    }
-
-    public final void z(rgb rgbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, rgbVar) == null) {
-            List<tgb> c2 = rgbVar.c();
-            int size = c2.size();
-            for (int i = 0; i < size; i++) {
-                s(c2.get(i), i);
             }
         }
     }

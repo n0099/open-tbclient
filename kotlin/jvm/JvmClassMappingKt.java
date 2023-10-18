@@ -2,6 +2,7 @@ package kotlin.jvm;
 
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.mobads.sdk.api.IAdInterListener;
 import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
 import java.lang.annotation.Annotation;
 import kotlin.Deprecated;
@@ -82,7 +83,7 @@ public final class JvmClassMappingKt {
                     }
                     return cls;
                 case 104431:
-                    if (name.equals("int")) {
+                    if (name.equals(IAdInterListener.AdProdType.PRODUCT_INTERSTITIAL)) {
                         return Integer.class;
                     }
                     return cls;

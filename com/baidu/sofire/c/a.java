@@ -21,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.p0.i1;
-import com.meizu.cloud.pushsdk.notification.model.AdvertisementOption;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,19 +33,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0174a a;
+    public C0176a a;
     public SQLiteDatabase b;
     public Context c;
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0174a extends SQLiteOpenHelper {
+    public class C0176a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0174a(a aVar, Context context) {
+        public C0176a(a aVar, Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.a(aVar));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -142,10 +141,10 @@ public class a {
             }
         }
         this.c = context.getApplicationContext();
-        C0174a c0174a = new C0174a(this, context.getApplicationContext());
-        this.a = c0174a;
+        C0176a c0176a = new C0176a(this, context.getApplicationContext());
+        this.a = c0176a;
         try {
-            this.b = c0174a.getWritableDatabase();
+            this.b = c0176a.getWritableDatabase();
         } catch (Throwable th) {
             com.baidu.sofire.k.b.a(th);
         }
@@ -187,7 +186,7 @@ public class a {
             contentValues.put("l", apkInfo.libPath);
             contentValues.put("v", apkInfo.versionName);
             contentValues.put("apk", apkInfo.dexPath);
-            contentValues.put(AdvertisementOption.AD_PACKAGE, Integer.valueOf(apkInfo.apkParseSuc));
+            contentValues.put("ap", Integer.valueOf(apkInfo.apkParseSuc));
             contentValues.put("cl", apkInfo.className);
             contentValues.put("st", Long.valueOf(apkInfo.startTime));
             contentValues.put("du", Integer.valueOf(apkInfo.duration));
@@ -239,7 +238,7 @@ public class a {
                                     apkInfo2.libPath = cursor.getString(cursor.getColumnIndex("l"));
                                     apkInfo2.versionName = cursor.getString(cursor.getColumnIndex("v"));
                                     apkInfo2.dexPath = cursor.getString(cursor.getColumnIndex("apk"));
-                                    apkInfo2.apkParseSuc = cursor.getInt(cursor.getColumnIndex(AdvertisementOption.AD_PACKAGE));
+                                    apkInfo2.apkParseSuc = cursor.getInt(cursor.getColumnIndex("ap"));
                                     apkInfo2.className = cursor.getString(cursor.getColumnIndex("cl"));
                                     apkInfo2.applicationTheme = cursor.getInt(cursor.getColumnIndex("th"));
                                     apkInfo2.startTime = cursor.getLong(cursor.getColumnIndex("st"));
@@ -350,7 +349,7 @@ public class a {
                                 apkInfo.libPath = cursor.getString(cursor.getColumnIndex("l"));
                                 apkInfo.versionName = cursor.getString(cursor.getColumnIndex("v"));
                                 apkInfo.dexPath = cursor.getString(cursor.getColumnIndex("apk"));
-                                apkInfo.apkParseSuc = cursor.getInt(cursor.getColumnIndex(AdvertisementOption.AD_PACKAGE));
+                                apkInfo.apkParseSuc = cursor.getInt(cursor.getColumnIndex("ap"));
                                 apkInfo.className = cursor.getString(cursor.getColumnIndex("cl"));
                                 apkInfo.applicationTheme = cursor.getInt(cursor.getColumnIndex("th"));
                                 apkInfo.startTime = cursor.getLong(cursor.getColumnIndex("st"));
@@ -465,7 +464,7 @@ public class a {
                                 apkInfo2.libPath = cursor.getString(cursor.getColumnIndex("l"));
                                 apkInfo2.versionName = cursor.getString(cursor.getColumnIndex("v"));
                                 apkInfo2.dexPath = cursor.getString(cursor.getColumnIndex("apk"));
-                                apkInfo2.apkParseSuc = cursor.getInt(cursor.getColumnIndex(AdvertisementOption.AD_PACKAGE));
+                                apkInfo2.apkParseSuc = cursor.getInt(cursor.getColumnIndex("ap"));
                                 apkInfo2.className = cursor.getString(cursor.getColumnIndex("cl"));
                                 apkInfo2.applicationTheme = cursor.getInt(cursor.getColumnIndex("th"));
                                 apkInfo2.startTime = cursor.getLong(cursor.getColumnIndex("st"));

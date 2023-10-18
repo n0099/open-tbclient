@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.biz.aibot.sugslice;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-@Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0005\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004j\u0002\b\u0005¨\u0006\u0006"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/sugslice/SugSourceType;", "", "(Ljava/lang/String;I)V", EngineName.DEFAULT_ENGINE, "CHAT_ROOM", "AI_BOT", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0005\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004j\u0002\b\u0005¨\u0006\u0006"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/sugslice/SugSourceType;", "", "(Ljava/lang/String;I)V", "DEFAULT", "CHAT_ROOM", "AI_BOT", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class SugSourceType {
     public static final /* synthetic */ SugSourceType[] $VALUES;
@@ -50,7 +49,7 @@ public final class SugSourceType {
                 return;
             }
         }
-        DEFAULT = new SugSourceType(EngineName.DEFAULT_ENGINE, 0);
+        DEFAULT = new SugSourceType("DEFAULT", 0);
         CHAT_ROOM = new SugSourceType("CHAT_ROOM", 1);
         AI_BOT = new SugSourceType("AI_BOT", 2);
         $VALUES = $values();

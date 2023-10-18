@@ -1,95 +1,107 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes9.dex */
-public final class zc7<T> extends ic7<T> implements m97, xb7, PreLoadImageProvider {
+public class zc7 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static ThreadData b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T c;
-    public final String d;
 
-    public zc7(@NonNull T t, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948355227, "Lcom/baidu/tieba/zc7;")) == null) {
+            return;
         }
-        this.c = t;
-        this.d = str;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948355227, "Lcom/baidu/tieba/zc7;");
+        }
     }
 
-    @Override // com.baidu.tieba.yc7
-    @NonNull
-    public String a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ThreadData b2 = b();
+            if (b2 == null || !TbSingleton.getInstance().isPbPreloadSwitchOn() || !ThreadCardUtils.isPreloadType(b2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static ThreadData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yc7
-    @NonNull
-    public T b() {
+    public static boolean d() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            T t = this.c;
-            if (t instanceof PreLoadImageProvider) {
-                return ((PreLoadImageProvider) t).getImages();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ThreadData b2 = b();
+            if (b2 == null) {
+                return false;
             }
-            return null;
+            if ((UbsABTestHelper.isConcernFeedTest() && b2.isFromConcern()) || (UbsABTestHelper.isConcernFeedTest() && b2.isFromHomPage)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z || !a()) {
+                return false;
+            }
+            return true;
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xb7
-    public void d(@NonNull Object obj) {
+    public static synchronized void e(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            T t = this.c;
-            if (t instanceof xb7) {
-                ((xb7) t).d(obj);
+        if (interceptable == null || interceptable.invokeL(65541, null, threadData) == null) {
+            synchronized (zc7.class) {
+                a = threadData.getTid();
+                b = threadData;
             }
         }
     }
 
-    @Override // com.baidu.tieba.m97
-    public void setPosition(int i) {
+    public static synchronized void f(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            T t = this.c;
-            if (t instanceof m97) {
-                ((m97) t).setPosition(i);
+        if (interceptable == null || interceptable.invokeL(65542, null, obj) == null) {
+            synchronized (zc7.class) {
+                if (obj instanceof ThreadData) {
+                    e((ThreadData) obj);
+                }
             }
         }
     }

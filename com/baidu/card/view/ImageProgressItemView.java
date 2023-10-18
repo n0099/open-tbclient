@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a45;
+import com.baidu.tieba.iy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ImageProgressItemView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a45 a;
+    public iy4 a;
     public TbImageView b;
     public RoundTbImageView c;
     public TbImageView d;
@@ -51,15 +51,15 @@ public class ImageProgressItemView extends FrameLayout {
         }
     }
 
-    public void b(a45 a45Var) {
+    public void b(iy4 iy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a45Var) == null) {
-            this.a = a45Var;
-            if (a45Var == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iy4Var) == null) {
+            this.a = iy4Var;
+            if (iy4Var == null) {
                 return;
             }
-            this.c.startLoad(a45Var.a(), 10, false);
-            this.e.setText(String.format("%s人", a45Var.b()));
+            this.c.startLoad(iy4Var.a(), 10, false);
+            this.e.setText(String.format("%s人", iy4Var.b()));
             d();
         }
     }
@@ -136,12 +136,12 @@ public class ImageProgressItemView extends FrameLayout {
     }
 
     public final void d() {
-        a45 a45Var;
+        iy4 iy4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (a45Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (iy4Var = this.a) == null) {
             return;
         }
-        if (a45Var.c()) {
+        if (iy4Var.c()) {
             setAlpha(1.0f);
         } else {
             setAlpha(0.4f);

@@ -1,68 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ClickBackCard;
-import tbclient.ClickBackCardItem;
-@JvmName(name = "ClickBackCardBuilder")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class w45 {
+public class w45 implements x45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ImageView a;
 
-    public static final ClickBackCard a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.x45
+    public void onDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                ClickBackCard.Builder builder = new ClickBackCard.Builder();
-                builder.card_name = jSONObject.optString("card_name");
-                JSONArray optJSONArray = jSONObject.optJSONArray("card_list");
-                ArrayList arrayList = new ArrayList();
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        ClickBackCardItem.Builder builder2 = new ClickBackCardItem.Builder();
-                        builder2.text = optJSONObject.optString("text");
-                        builder2.jump_url = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                        builder2.business_id = Long.valueOf(optJSONObject.optLong("business_id"));
-                        builder2.business_type = optJSONObject.optString("business_type");
-                        ClickBackCardItem build = builder2.build(true);
-                        Intrinsics.checkNotNullExpressionValue(build, "builder1.build(true)");
-                        arrayList.add(build);
-                    }
-                    builder.card_list = arrayList;
-                }
-                return builder.build(true);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return (ClickBackCard) invokeL.objValue;
     }
 
-    public static final ClickBackCard b(String str) {
-        InterceptResult invokeL;
-        boolean z;
+    @Override // com.baidu.tieba.x45
+    public void onShow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            return a(new JSONObject(str));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return (ClickBackCard) invokeL.objValue;
+    }
+
+    public w45(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ImageView(context);
+    }
+
+    @Override // com.baidu.tieba.x45
+    public void a(t45 t45Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t45Var) == null) {
+            ImageView imageView = this.a;
+            int i = t45Var.c;
+            int i2 = -2;
+            if (i < 0) {
+                i = -2;
+            }
+            int i3 = t45Var.c;
+            if (i3 >= 0) {
+                i2 = i3;
+            }
+            imageView.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
+            SkinManager.setImageResource(this.a, t45Var.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.x45
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (View) invokeV.objValue;
     }
 }

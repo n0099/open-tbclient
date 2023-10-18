@@ -1,99 +1,220 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.IBinder;
+import android.view.View;
+import android.widget.PopupWindow;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class hb extends gb<SocketMessage, SocketMessageTask, cb, SocketResponsedMessage> {
+public class hb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ia i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hb(MessageManager messageManager) {
-        super(messageManager);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {messageManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((MessageManager) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.i = null;
-        this.i = new ia(messageManager);
-        this.e = lb.c();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.x9
-    /* renamed from: A */
-    public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, socketMessage, socketMessageTask) == null) {
-            this.i.f(socketMessage, socketMessageTask);
-        }
-    }
-
-    @Override // com.baidu.tieba.x9
-    public LinkedList<SocketMessage> e(int i, BdUniqueId bdUniqueId) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bdUniqueId)) == null) {
-            return this.i.e(i, bdUniqueId);
-        }
-        return (LinkedList) invokeIL.objValue;
-    }
-
-    @Override // com.baidu.tieba.x9
-    public void h(int i, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bdUniqueId) == null) {
-            this.i.h(i, bdUniqueId);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gb
-    /* renamed from: y */
-    public SocketMessage m(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+    public static final boolean a(Dialog dialog, Activity activity) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, socketMessage, socketMessageTask)) == null) {
-            return this.a.getController().k(socketMessage, socketMessageTask);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !h(activity.getWindow().getDecorView())) {
+                return false;
+            }
+            dialog.dismiss();
+            return true;
         }
-        return (SocketMessage) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public ia x() {
-        InterceptResult invokeV;
+    public static final boolean d(PopupWindow popupWindow, Activity activity) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, popupWindow, activity)) == null) {
+            if (popupWindow != null && activity != null) {
+                if (g(activity) || !h(activity.getWindow().getDecorView())) {
+                    return false;
+                }
+                popupWindow.dismiss();
+                return true;
+            }
+            return c(popupWindow);
         }
-        return (ia) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void z(BdUniqueId bdUniqueId) {
+    public static final boolean b(Dialog dialog, BdPageContext<?> bdPageContext) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            this.i.B(bdUniqueId);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, dialog, bdPageContext)) == null) {
+            if (bdPageContext != null && bdPageContext.getPageActivity() != null) {
+                return a(dialog, bdPageContext.getPageActivity());
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static final boolean j(Dialog dialog, BdPageContext<?> bdPageContext) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, dialog, bdPageContext)) == null) {
+            if (bdPageContext != null && bdPageContext.getPageActivity() != null) {
+                return i(dialog, bdPageContext.getPageActivity());
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static final boolean k(PopupWindow popupWindow, View view2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, popupWindow, view2)) == null) {
+            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
+                try {
+                    popupWindow.showAsDropDown(view2);
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static final boolean c(PopupWindow popupWindow) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, popupWindow)) == null) {
+            if (popupWindow == null || g(popupWindow.getContentView().getContext()) || !h(popupWindow.getContentView())) {
+                return false;
+            }
+            popupWindow.dismiss();
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean e(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            if (activity == null || g(activity)) {
+                return false;
+            }
+            if (!h(activity.getWindow().getDecorView()) && activity.getWindow().isActive()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean f(BdPageContext<?> bdPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bdPageContext)) == null) {
+            if (bdPageContext == null) {
+                return false;
+            }
+            return e(bdPageContext.getPageActivity());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (context instanceof Activity) {
+                return ((Activity) context).isFinishing();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean h(View view2) {
+        InterceptResult invokeL;
+        IBinder windowToken;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
+            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
+                try {
+                    if (windowToken.isBinderAlive()) {
+                        if (windowToken.pingBinder()) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return false;
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean i(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing()) {
+                return false;
+            }
+            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            if (activity.getWindow() != null && h(activity.getWindow().getDecorView())) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception unused2) {
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static final boolean l(PopupWindow popupWindow, View view2, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65547, null, popupWindow, view2, i, i2)) == null) {
+            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
+                try {
+                    popupWindow.showAsDropDown(view2, i, i2);
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            return false;
+        }
+        return invokeLLII.booleanValue;
+    }
+
+    public static final boolean m(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{popupWindow, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
+                try {
+                    popupWindow.showAtLocation(view2, i, i2, i3);
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 }

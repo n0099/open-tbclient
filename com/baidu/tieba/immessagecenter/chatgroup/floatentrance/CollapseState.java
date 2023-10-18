@@ -1,7 +1,6 @@
 package com.baidu.tieba.immessagecenter.chatgroup.floatentrance;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +40,7 @@ public class CollapseState implements Cloneable {
                     return;
                 }
             }
-            DEFAULT = new Icon(EngineName.DEFAULT_ENGINE, 0);
+            DEFAULT = new Icon("DEFAULT", 0);
             Icon icon = new Icon("FORUM", 1);
             FORUM = icon;
             $VALUES = new Icon[]{DEFAULT, icon};
@@ -174,7 +173,7 @@ public class CollapseState implements Cloneable {
                     return;
                 }
             }
-            DEFAULT = new Tip(EngineName.DEFAULT_ENGINE, 0);
+            DEFAULT = new Tip("DEFAULT", 0);
             AT_ME = new Tip("AT_ME", 1);
             Tip tip = new Tip("THREE_EXP", 2);
             THREE_EXP = tip;

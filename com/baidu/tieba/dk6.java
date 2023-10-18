@@ -1,306 +1,216 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Intent;
-import android.text.TextUtils;
-import android.util.Pair;
-import android.webkit.WebView;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.controller.CustomRule;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebContainerActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.switchs.InitWriteWebDelaySwitch;
-import com.baidu.tieba.browser.exception.TbWebViewException;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.rl6;
-import com.baidu.tieba.write.WriteWebViewCacheManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.card.ala.AlaVideoContainer;
+import com.baidu.tieba.mv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class dk6 {
+public class dk6 implements jv9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ddc<String, Pair<Boolean, String>> a;
-    public static final List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public AlaVideoContainer a;
+    public ThreadData b;
+    public AlaInfoData c;
+    public boolean d;
+    public mv9 e;
+    public mv9.b f;
+
+    @Override // com.baidu.tieba.jv9
+    public boolean isFullScreen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jv9
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jv9
+    public void startPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements ql6 {
+    public class a implements mv9.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dk6 a;
 
-        public a() {
+        public a(dk6 dk6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dk6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ql6
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return !TextUtils.isEmpty(str);
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomRule {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = dk6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.controller.MessageRule
-        public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tieba.mv9.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, customMessage, customMessageTask)) == null) {
-                if (!al6.isOn()) {
-                    return customMessage;
-                }
-                if (customMessage == null) {
-                    return null;
-                }
-                Object data = customMessage.getData();
-                if (!(data instanceof TbWebContainerActivityConfig)) {
-                    return customMessage;
-                }
-                Intent intent = ((TbWebContainerActivityConfig) data).getIntent();
-                if (intent == null) {
-                    return customMessage;
-                }
-                String stringExtra = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
-                if (TextUtils.isEmpty(stringExtra)) {
-                    return customMessage;
-                }
-                if (vk6.a.b(stringExtra)) {
-                    TbLog hybridLog = HybridLog.getInstance();
-                    hybridLog.e("UrlCountMapHelper", "1s内连续检查到3次相同的url, 发生循环，放弃拦截 url = " + stringExtra);
-                    return customMessage;
-                }
-                TbPageContext<?> currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(TbadkCoreApplication.getInst().getCurrentActivity());
-                if (currentPageContext == null) {
-                    return customMessage;
-                }
-                if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(currentPageContext, new String[]{stringExtra}) == 0) {
-                    return null;
-                }
-                vk6.a.c();
-                return customMessage;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
             }
-            return (CustomMessage) invokeLL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947707482, "Lcom/baidu/tieba/dk6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947707482, "Lcom/baidu/tieba/dk6;");
-                return;
-            }
-        }
-        b = new ArrayList();
-    }
-
-    public dk6() {
+    public dk6(AlaVideoContainer alaVideoContainer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {alaVideoContainer};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = false;
+        this.f = new a(this);
+        this.a = alaVideoContainer;
+        if (alaVideoContainer != null) {
+            mv9 mv9Var = new mv9();
+            this.e = mv9Var;
+            mv9Var.l(this.a.getVideoView());
+            this.e.i(this.f);
         }
     }
 
-    public static List<String> a() {
+    public final void b() {
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (threadData = this.b) == null || threadData.getThreadVideoInfo() == null) {
+        }
+    }
+
+    public void c() {
+        AlaVideoContainer alaVideoContainer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alaVideoContainer = this.a) != null) {
+            alaVideoContainer.q();
+        }
+    }
+
+    @Override // com.baidu.tieba.jv9
+    public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AlaVideoContainer alaVideoContainer = this.a;
+            if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
+                return this.a.getVideoView().getCurrentPositionSync();
+            }
+            return 0;
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static void c() {
+    @Override // com.baidu.tieba.jv9
+    public String getPlayUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            rl6.a aVar = new rl6.a();
-            aVar.c(new a());
-            ul6.b().c(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ThreadData threadData = this.b;
+            if (threadData != null && threadData.getThreadVideoInfo() != null) {
+                return this.b.getThreadVideoInfo().video_url;
+            }
+            return null;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static /* synthetic */ void f() {
-        c();
-        om6.a().execute(new Runnable() { // from class: com.baidu.tieba.ck6
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.jv9
+    public View getVideoContainer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AlaVideoContainer alaVideoContainer = this.a;
+            if (alaVideoContainer != null) {
+                return alaVideoContainer.getView();
+            }
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
 
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    tm6.a();
+    @Override // com.baidu.tieba.jv9
+    public boolean isPlayStarted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jv9
+    public void stopPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            AlaVideoContainer alaVideoContainer = this.a;
+            if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
+                this.a.getVideoView().stopPlayback();
+                this.a.p();
+                mv9 mv9Var = this.e;
+                if (mv9Var != null) {
+                    mv9Var.n();
                 }
             }
-        });
-        ek6.f().i();
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            MessageManager.getInstance().addMessageRule(new b(2002001));
+            this.d = false;
         }
     }
 
-    public static void b(final Application application, dk6 dk6Var) {
+    public void d(ThreadData threadData, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, application, dk6Var) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (mm6.getContext() == null) {
-                mm6.b(application);
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{threadData, str, str2, Boolean.valueOf(z)}) != null) || threadData == null) {
+            return;
+        }
+        this.b = threadData;
+        if (this.a != null && threadData.getThreadAlaInfo() != null) {
+            AlaInfoData threadAlaInfo = this.b.getThreadAlaInfo();
+            this.c = threadAlaInfo;
+            this.a.setVideoThumbnail(threadAlaInfo.cover);
+            if (z) {
+                this.a.setTitle(this.b.getTitle());
+            } else {
+                this.a.setTitle("");
             }
-            if (nm6.a()) {
-                pm6.a().f(new Runnable() { // from class: com.baidu.tieba.yj6
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            WebView.setWebContentsDebuggingEnabled(true);
-                        }
-                    }
-                });
-            }
-            pm6.a().c(new Runnable() { // from class: com.baidu.tieba.zj6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        dk6.f();
-                    }
-                }
-            });
-            pm6.a().f(new Runnable() { // from class: com.baidu.tieba.ak6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ek6.f().h(application);
-                    }
-                }
-            });
-            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                wl6.n().r();
-                if (!InitWriteWebDelaySwitch.isOn()) {
-                    pm6.a().f(new Runnable() { // from class: com.baidu.tieba.bk6
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                WriteWebViewCacheManager.f().i();
-                            }
-                        }
-                    });
-                }
-            }
-            i();
-            kn6.b("newHybrid", "init WebView Env 耗时：" + (System.currentTimeMillis() - currentTimeMillis) + "ms");
+            this.a.setPlayCount(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.b.getThreadAlaInfo().audience_count)));
         }
-    }
-
-    public static void d(ddc<String, Pair<Boolean, String>> ddcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, ddcVar) == null) {
-            a = ddcVar;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            nm6.b(z);
-        }
-    }
-
-    public static Pair<Boolean, String> k(String str) throws TbWebViewException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            ddc<String, Pair<Boolean, String>> ddcVar = a;
-            if (ddcVar == null) {
-                if (!nm6.a()) {
-                    return new Pair<>(Boolean.FALSE, null);
-                }
-                throw new TbWebViewException("TBWebKit need call initUserAgent first !");
-            }
-            return ddcVar.call(str);
-        }
-        return (Pair) invokeL.objValue;
     }
 }

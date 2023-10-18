@@ -1,26 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.channels.ReadableByteChannel;
-import okhttp3.ResponseBody;
 /* loaded from: classes9.dex */
-public class zk4 implements bl4 {
+public class zk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ResponseBody a;
+    public final String a;
 
-    public zk4(@NonNull ResponseBody responseBody) {
+    public zk4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {responseBody};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,26 +26,15 @@ public class zk4 implements bl4 {
                 return;
             }
         }
-        this.a = responseBody;
+        this.a = str2;
     }
 
-    @Override // com.baidu.tieba.bl4
-    public ReadableByteChannel a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.source();
+            return this.a;
         }
-        return (ReadableByteChannel) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bl4
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.contentLength();
-        }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -1,51 +1,133 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.webpanel.PanelScrollView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public interface m31 {
-    static {
-        a aVar = a.a;
+public final class m31 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public t31 a;
+    public PanelScrollView b;
+    public final Activity c;
+    public final ViewGroup d;
+
+    public m31(Activity activity, ViewGroup rootView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, rootView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        Intrinsics.checkNotNullParameter(rootView, "rootView");
+        this.c = activity;
+        this.d = rootView;
+        this.a = n31.a().a(this.c);
+        this.b = new PanelScrollView(this.c);
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-653073663, "Lcom/baidu/tieba/m31$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-653073663, "Lcom/baidu/tieba/m31$a;");
-                    return;
-                }
+    public final void a(v31 listener) {
+        PanelScrollView panelScrollView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            t31 t31Var = this.a;
+            if (t31Var != null && (panelScrollView = this.b) != null) {
+                panelScrollView.k(t31Var, listener);
             }
-            a = new a();
+            PanelScrollView panelScrollView2 = this.b;
+            if (panelScrollView2 != null) {
+                this.d.setClipChildren(false);
+                this.d.addView(panelScrollView2, new FrameLayout.LayoutParams(-1, -1));
+            }
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+    public final PanelScrollView b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (PanelScrollView) invokeV.objValue;
+    }
+
+    public final View.OnTouchListener c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (View.OnTouchListener) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            PanelScrollView panelScrollView = this.b;
+            if (panelScrollView != null) {
+                panelScrollView.r();
+            }
+            t31 t31Var = this.a;
+            if (t31Var != null) {
+                t31Var.onDestroy();
+            }
+        }
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            t31 t31Var = this.a;
+            if (t31Var != null) {
+                return t31Var.f();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void d(String javaScript) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, javaScript) == null) {
+            Intrinsics.checkNotNullParameter(javaScript, "javaScript");
+            t31 t31Var = this.a;
+            if (t31Var != null) {
+                t31Var.q(javaScript);
+            }
+        }
+    }
+
+    public final void f(x31 nadWebPanelModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nadWebPanelModel) == null) {
+            Intrinsics.checkNotNullParameter(nadWebPanelModel, "nadWebPanelModel");
+            t31 t31Var = this.a;
+            if (t31Var != null) {
+                t31Var.j(nadWebPanelModel);
+            }
+            PanelScrollView panelScrollView = this.b;
+            if (panelScrollView != null) {
+                panelScrollView.setPanelData(nadWebPanelModel);
             }
         }
     }

@@ -3,62 +3,24 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.yy.transvod.player.log.TLog;
 /* loaded from: classes8.dex */
-public final class u0c<TResult> implements k0c<TResult> {
+public class u0c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m0c a;
-    public Executor b;
-    public final Object c;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public long d;
+    public long e;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o0c a;
-        public final /* synthetic */ u0c b;
-
-        public a(u0c u0cVar, o0c o0cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u0cVar, o0cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = u0cVar;
-            this.a = o0cVar;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onFailure(this.a.d());
-                    }
-                }
-            }
-        }
-    }
-
-    public u0c(Executor executor, m0c m0cVar) {
+    public u0c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor, m0cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,27 +30,91 @@ public final class u0c<TResult> implements k0c<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = m0cVar;
-        this.b = executor;
+        this.a = false;
+        this.b = true;
+        this.c = 0;
+        this.d = 0L;
+        this.e = 0L;
     }
 
-    @Override // com.baidu.tieba.k0c
-    public final void cancel() {
+    public synchronized boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (this.c < 2) {
+                    return false;
+                }
+                if (Math.abs(this.d - this.e) < 100) {
+                    z = true;
+                }
+                return z;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                z = this.a;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                TLog.g(this, "[surface] surfaceCreated");
+                if (this.c > 0) {
+                    this.e = this.d;
+                }
+                this.c++;
+                this.d = System.currentTimeMillis();
+                this.b = true;
+                this.a = true;
             }
         }
     }
 
-    @Override // com.baidu.tieba.k0c
-    public final void onComplete(o0c<TResult> o0cVar) {
+    public synchronized void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o0cVar) == null) || o0cVar.h() || o0cVar.f()) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                TLog.g(this, "[surface] surfaceDestroy");
+                this.b = true;
+                this.a = false;
+            }
         }
-        this.b.execute(new a(this, o0cVar));
+    }
+
+    public synchronized boolean a(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (this.b == z) {
+                    this.b = z2;
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public synchronized void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            synchronized (this) {
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ public class a {
 
     /* renamed from: com.huawei.hms.framework.network.grs.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0582a implements com.huawei.hms.framework.network.grs.b {
+    public static class C0565a implements com.huawei.hms.framework.network.grs.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -41,7 +41,7 @@ public class a {
         public GrsBaseInfo e;
         public com.huawei.hms.framework.network.grs.e.a f;
 
-        public C0582a(String str, Map<String, String> map, IQueryUrlsCallBack iQueryUrlsCallBack, Context context, GrsBaseInfo grsBaseInfo, com.huawei.hms.framework.network.grs.e.a aVar) {
+        public C0565a(String str, Map<String, String> map, IQueryUrlsCallBack iQueryUrlsCallBack, Context context, GrsBaseInfo grsBaseInfo, com.huawei.hms.framework.network.grs.e.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -387,7 +387,7 @@ public class a {
             com.huawei.hms.framework.network.grs.e.b bVar = new com.huawei.hms.framework.network.grs.e.b();
             Map<String, String> a = a(str, bVar, context);
             if (!bVar.a()) {
-                this.c.a(new com.huawei.hms.framework.network.grs.g.k.c(this.a, context), new C0582a(str, a, iQueryUrlsCallBack, context, this.a, this.b), str, this.d);
+                this.c.a(new com.huawei.hms.framework.network.grs.g.k.c(this.a, context), new C0565a(str, a, iQueryUrlsCallBack, context, this.a, this.b), str, this.d);
                 return;
             }
             Logger.i(e, "get unexpired cache localUrls");

@@ -1,281 +1,234 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
+import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.internal.ManufacturerUtils;
-/* loaded from: classes7.dex */
-public class s50 {
+import java.util.Map;
+import java.util.Set;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public class s50 implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile s50 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public SharedPreferences a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(boolean z, String str);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948102267, "Lcom/baidu/tieba/s50;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948102267, "Lcom/baidu/tieba/s50;");
-        }
-    }
-
-    public s50() {
+    @JvmOverloads
+    public s50(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context.getSharedPreferences(str, 0);
     }
 
-    public static s50 a() {
-        InterceptResult invokeV;
+    public final void c(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (s50.class) {
-                    if (a == null) {
-                        a = new s50();
-                        return a;
-                    }
-                    return null;
-                }
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
-            return null;
+            sharedPreferences.edit().putBoolean(str, z).apply();
         }
-        return (s50) invokeV.objValue;
     }
 
-    public static boolean c(Context context) {
+    public final void d(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.edit().putLong(str, j).apply();
+        }
+    }
+
+    public final void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.edit().putString(str, str2).apply();
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getFloat(str, f);
+        }
+        return invokeLF.floatValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getInt(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getLong(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public String getString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public Set<String> getStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getStringSet(str, set);
+        }
+        return (Set) invokeLL.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo("com.huawei.hwid", 0) != null;
-            } catch (Throwable unused) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
+            return sharedPreferences.contains(str);
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean d() {
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.edit().remove(str).apply();
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, onSharedPreferenceChangeListener) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                String str = Build.BRAND;
-                boolean equalsIgnoreCase = !TextUtils.isEmpty(str) ? str.equalsIgnoreCase("vivo") : false;
-                try {
-                    if (Build.VERSION.SDK_INT < 28) {
-                        return false;
-                    }
-                } catch (Throwable unused) {
-                }
-                return equalsIgnoreCase;
-            } catch (Throwable unused2) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
+            return sharedPreferences.edit();
         }
-        return invokeV.booleanValue;
+        return (SharedPreferences.Editor) invokeV.objValue;
     }
 
-    public static boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                if (Build.VERSION.SDK_INT < 29) {
-                    return false;
-                }
-                return context.getPackageManager().getPackageInfo("com.meizu.flyme.openidsdk", 0) != null;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f() {
+    @Override // android.content.SharedPreferences
+    public Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            try {
-                String str = Build.BRAND;
-                boolean equalsIgnoreCase = !TextUtils.isEmpty(str) ? str.equalsIgnoreCase(ManufacturerUtils.SAMSUNG) : false;
-                try {
-                    if (Build.VERSION.SDK_INT < 29) {
-                        return false;
-                    }
-                } catch (Throwable unused) {
-                }
-                return equalsIgnoreCase;
-            } catch (Throwable unused2) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
+            return sharedPreferences.getAll();
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            try {
-                if (Build.VERSION.SDK_INT < 29) {
-                    return false;
-                }
-                return context.getPackageManager().getPackageInfo("com.zui.deviceidservice", 0) != null;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            try {
-                if (Build.VERSION.SDK_INT < 29) {
-                    return false;
-                }
-                String str = Build.BRAND;
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                return str.equalsIgnoreCase(RomUtils.MANUFACTURER_NUBIA);
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                if (Build.VERSION.SDK_INT < 29) {
-                    return false;
-                }
-                return context.getPackageManager().getPackageInfo("com.asus.msa.SupplementaryDID", 0) != null;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b(Context context, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
-            if (k()) {
-                t50.a(context, aVar);
-            } else if (d()) {
-                v50.a(context, aVar);
-            } else if (c(context)) {
-                n50.a(context, aVar);
-            } else if (j()) {
-                q50.a(context, aVar);
-            } else if (f()) {
-                u50.a(context, aVar);
-            } else if (e(context)) {
-                p50.a(context, aVar);
-            } else if (h()) {
-                r50.a(context, aVar);
-            } else if (g(context)) {
-                o50.a(context, aVar);
-            } else if (i(context)) {
-                m50.a(context, aVar);
-            } else {
-                aVar.a(false, null);
-            }
-        }
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                String str = Build.BRAND;
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                if (!str.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI) && !str.equalsIgnoreCase("redmi")) {
-                    if (!str.equalsIgnoreCase("blackshark")) {
-                        return false;
-                    }
-                }
-                return true;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(11:3|4|5|(9:7|(1:11)|14|15|16|17|(1:22)|19|20)|25|15|16|17|(0)|19|20) */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x0023, code lost:
-        if (r1.equalsIgnoreCase("oneplus") != false) goto L14;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:31:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean k() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                String str = Build.BRAND;
-                if (!TextUtils.isEmpty(str)) {
-                    if (!str.equalsIgnoreCase("oppo") && !str.equalsIgnoreCase("realme")) {
-                    }
-                    z = true;
-                    if (Build.VERSION.SDK_INT < 28) {
-                        return false;
-                    }
-                    return z;
-                }
-                z = false;
-                if (Build.VERSION.SDK_INT < 28) {
-                }
-                return z;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
+        return (Map) invokeV.objValue;
     }
 }

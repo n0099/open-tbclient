@@ -1,62 +1,55 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.stat.ShareLoginStat;
-import com.baidu.tieba.pa2;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class sa2 extends ma2 implements View.OnClickListener {
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes8.dex */
+public class sa2 implements ra2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sa2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout G0;
-    public RelativeLayout H0;
+    public final Map<String, qa2> a;
 
-    @Override // com.baidu.tieba.ma2
-    public boolean H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ sa2 b;
+
+        public a(sa2 sa2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sa2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sa2Var;
+            this.a = str;
         }
-        return invokeV.booleanValue;
-    }
 
-    @Override // com.baidu.tieba.ma2
-    public boolean e2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ma2
-    public boolean g2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ma2
-    public void l2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.h(this.a);
+            }
         }
     }
 
@@ -70,91 +63,129 @@ public class sa2 extends ma2 implements View.OnClickListener {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap();
     }
 
-    public static sa2 X2() {
+    public static sa2 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new sa2();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (sa2.class) {
+                    if (b == null) {
+                        b = new sa2();
+                    }
+                }
+            }
+            return b;
         }
         return (sa2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ma2
-    public void W1(View view2) {
+    public synchronized sa2 b(String str, UbcFlowEvent ubcFlowEvent) {
+        InterceptResult invokeLL;
+        qa2 qa2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            X1(view2);
-            v2(-1);
-            E2(-16777216);
-            x2(K(R.string.obfuscated_res_0x7f0f14db));
-            z2(true);
-            L2(false);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
+            synchronized (this) {
+                if (c(str) && (qa2Var = this.a.get(str)) != null) {
+                    qa2Var.a(str, ubcFlowEvent);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (sa2) invokeLL.objValue;
+    }
+
+    public synchronized sa2 f(String str, ta2 ta2Var) {
+        InterceptResult invokeLL;
+        qa2 qa2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, ta2Var)) == null) {
+            synchronized (this) {
+                if (c(str) && (qa2Var = this.a.get(str)) != null) {
+                    qa2Var.e(str, ta2Var);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (sa2) invokeLL.objValue;
+    }
+
+    public void j(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public final boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091759) {
-                nu2.t0().a();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090304) {
-                Y2();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return !TextUtils.isEmpty(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final synchronized void h(String str) {
+        qa2 qa2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                if (c(str) && (qa2Var = this.a.get(str)) != null) {
+                    this.a.remove(str);
+                    qa2Var.h(str);
+                }
             }
         }
     }
 
-    public final void W2(View view2) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091759);
-            this.G0 = relativeLayout;
-            relativeLayout.setOnClickListener(this);
-            if (nu2.y0().d() || !ap3.G()) {
-                this.G0.setVisibility(8);
-            }
-            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090304);
-            this.H0 = relativeLayout2;
-            relativeLayout2.setOnClickListener(this);
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            j(str, 0L);
         }
     }
 
-    public final void Y2() {
+    public synchronized sa2 e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        qa2 qa2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (ma2.F0) {
-                Log.d("SwanAppBaseFragment", "startSettingFragment");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (c(str) && (qa2Var = this.a.get(str)) != null) {
+                    qa2Var.d(str, z);
+                    if (z2) {
+                        i(str);
+                    }
+                    return this;
+                }
+                return this;
             }
-            pa2 N1 = N1();
-            if (N1 == null) {
-                ya3.f(getContext(), R.string.obfuscated_res_0x7f0f01d3).G();
-                return;
-            }
-            pa2.b i = N1.i("navigateTo");
-            i.n(pa2.g, pa2.i);
-            i.k("authority", null).a();
-            w03.o(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
         }
+        return (sa2) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    @Nullable
-    public View y0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
+    public synchronized sa2 g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0933, viewGroup, false);
-            W1(inflate);
-            W2(inflate);
-            if (V1()) {
-                inflate = Y1(inflate);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c(str) && !this.a.containsKey(str)) {
+                    qa2 qa2Var = new qa2();
+                    this.a.put(str, qa2Var);
+                    qa2Var.f(str);
+                    return this;
+                }
+                return this;
             }
-            return E1(inflate, this);
         }
-        return (View) invokeLLL.objValue;
+        return (sa2) invokeL.objValue;
     }
 }

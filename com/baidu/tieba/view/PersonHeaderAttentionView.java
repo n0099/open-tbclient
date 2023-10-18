@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kxa;
-import com.baidu.tieba.p37;
+import com.baidu.tieba.csa;
+import com.baidu.tieba.yx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,7 +41,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public TextView i;
     public TextView j;
     public int k;
-    public kxa l;
+    public csa l;
     public UserData m;
     public View n;
     public View o;
@@ -52,7 +52,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public p37 a;
+        public yx6 a;
         public final /* synthetic */ PersonHeaderAttentionView b;
 
         public a(PersonHeaderAttentionView personHeaderAttentionView) {
@@ -71,7 +71,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
                 }
             }
             this.b = personHeaderAttentionView;
-            this.a = new p37();
+            this.a = new yx6();
         }
 
         @Override // android.view.View.OnClickListener
@@ -96,7 +96,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
                             PersonHeaderAttentionView personHeaderAttentionView = this.b;
                             personHeaderAttentionView.n(personHeaderAttentionView.m.getSex());
                             return;
-                        } else if (this.b.m.getPersonPrivate().M() != 1 && !equals && (!z || this.b.m.getPersonPrivate().M() != 2)) {
+                        } else if (this.b.m.getPersonPrivate().N() != 1 && !equals && (!z || this.b.m.getPersonPrivate().N() != 2)) {
                             PersonHeaderAttentionView personHeaderAttentionView2 = this.b;
                             personHeaderAttentionView2.n(personHeaderAttentionView2.m.getSex());
                             return;
@@ -218,10 +218,10 @@ public class PersonHeaderAttentionView extends LinearLayout {
         m(0);
     }
 
-    public void setOnViewResponseListener(kxa kxaVar) {
+    public void setOnViewResponseListener(csa csaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, kxaVar) == null) {
-            this.l = kxaVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, csaVar) == null) {
+            this.l = csaVar;
         }
     }
 
@@ -245,23 +245,23 @@ public class PersonHeaderAttentionView extends LinearLayout {
             this.a = context;
             setOrientation(0);
             setGravity(16);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d047e, (ViewGroup) this, true);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf7);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf4);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bf8);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091bef);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091bec);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf2);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c05);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0479, (ViewGroup) this, true);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c1f);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091c1c);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c20);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c17);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c14);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c1a);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091c19);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c2d);
             this.i = textView;
             textView.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c04);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c2c);
             this.j = textView2;
             textView2.setVisibility(8);
-            this.n = findViewById(R.id.obfuscated_res_0x7f0908fa);
-            this.o = findViewById(R.id.obfuscated_res_0x7f0908f8);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0908f9);
+            this.n = findViewById(R.id.obfuscated_res_0x7f090915);
+            this.o = findViewById(R.id.obfuscated_res_0x7f090913);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090914);
             this.p = findViewById;
             findViewById.setVisibility(8);
         }

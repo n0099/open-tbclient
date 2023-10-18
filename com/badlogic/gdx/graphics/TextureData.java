@@ -1,11 +1,6 @@
 package com.badlogic.gdx.graphics;
 
 import com.badlogic.gdx.graphics.Pixmap;
-import com.baidu.tieba.d3;
-import com.baidu.tieba.j3;
-import com.baidu.tieba.j5;
-import com.baidu.tieba.k5;
-import com.baidu.tieba.p5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,15 +18,11 @@ public interface TextureData {
 
     Pixmap.Format d();
 
+    boolean e();
+
     boolean f();
 
-    boolean g();
-
-    int getHeight();
-
     TextureDataType getType();
-
-    int getWidth();
 
     boolean isPrepared();
 
@@ -100,33 +91,6 @@ public interface TextureData {
                 return (TextureDataType[]) $VALUES.clone();
             }
             return (TextureDataType[]) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static TextureData a(d3 d3Var, Pixmap.Format format, boolean z) {
-            InterceptResult invokeLLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, d3Var, format, z)) == null) {
-                if (d3Var == null) {
-                    return null;
-                }
-                if (d3Var.g().endsWith(".cim")) {
-                    return new k5(d3Var, j3.a(d3Var), format, z);
-                }
-                if (d3Var.g().endsWith(".etc1")) {
-                    return new j5(d3Var, z);
-                }
-                if (!d3Var.g().endsWith(".ktx") && !d3Var.g().endsWith(".zktx")) {
-                    return new k5(d3Var, new Pixmap(d3Var), format, z);
-                }
-                return new p5(d3Var, z);
-            }
-            return (TextureData) invokeLLZ.objValue;
         }
     }
 }

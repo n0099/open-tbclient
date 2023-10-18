@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import android.app.Activity;
+import android.content.Intent;
 /* loaded from: classes5.dex */
 public interface bs1 {
-    void a(JSONObject jSONObject, as1 as1Var);
-
-    void b(JSONObject jSONObject, as1 as1Var, cs1 cs1Var);
+    void onActivityResult(Activity activity, int i, int i2, Intent intent);
 }

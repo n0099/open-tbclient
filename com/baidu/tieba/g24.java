@@ -1,145 +1,114 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+@Autowired
 /* loaded from: classes6.dex */
 public class g24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile HashMap<String, List<z24>> a;
 
-    public g24() {
+    @Inject(force = false)
+    public static w24 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return j46.a();
         }
-        this.a = new HashMap<>();
+        return (w24) invokeV.objValue;
     }
 
-    public synchronized void a(String str, z24 z24Var) {
+    @Inject(force = false)
+    public static b34 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, z24Var) == null) {
-            synchronized (this) {
-                if (e(str, z24Var)) {
-                    return;
-                }
-                List<z24> c = c(str);
-                if (!c.contains(z24Var)) {
-                    c.add(z24Var);
-                }
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, c);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new k24();
         }
+        return (b34) invokeV.objValue;
     }
 
-    public synchronized void b(String str, b34 b34Var) {
+    @Inject(force = false)
+    public static a34 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, b34Var) == null) {
-            synchronized (this) {
-                for (z24 z24Var : new ArrayList(c(str))) {
-                    if (z24Var != null) {
-                        z24Var.a(b34Var);
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new j24();
         }
+        return (a34) invokeV.objValue;
     }
 
-    public synchronized void g(String str, z24 z24Var) {
+    @Inject(force = false)
+    public static x24 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, z24Var) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                if (z24Var == null) {
-                    this.a.remove(str);
-                    return;
-                }
-                List<z24> c = c(str);
-                if (c.contains(z24Var)) {
-                    c.remove(z24Var);
-                    if (c.isEmpty()) {
-                        this.a.remove(str);
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return qv3.a();
         }
+        return (x24) invokeV.objValue;
     }
 
-    public final List<z24> c(String str) {
-        InterceptResult invokeL;
+    @Inject(force = false)
+    public static z24 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new ArrayList();
-            }
-            List<z24> list = this.a.get(str);
-            if (list == null) {
-                return new ArrayList();
-            }
-            return list;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return vv3.a();
         }
-        return (List) invokeL.objValue;
+        return (z24) invokeV.objValue;
     }
 
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
+    @Inject(force = false)
+    public static y24 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                List<z24> list = this.a.get(str);
-                if (list != null) {
-                    if (!list.isEmpty()) {
-                        z = true;
-                    }
-                }
-                return z;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return sv3.a();
         }
-        return invokeL.booleanValue;
+        return (y24) invokeV.objValue;
     }
 
-    public synchronized void f(String str) {
+    @Inject(force = false)
+    public static c34 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                g(str, null);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return new l24();
         }
+        return (c34) invokeV.objValue;
     }
 
-    public final boolean e(String str, z24 z24Var) {
-        InterceptResult invokeLL;
+    @Inject(force = false)
+    public static d34 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, z24Var)) == null) {
-            if (!TextUtils.isEmpty(str) && z24Var != null) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new m24();
         }
-        return invokeLL.booleanValue;
+        return (d34) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static e34 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return new n24();
+        }
+        return (e34) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static f34 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return new o24();
+        }
+        return (f34) invokeV.objValue;
     }
 }

@@ -43,7 +43,7 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
     }
 
     public static boolean isTaskCancelled(u<?> uVar) {
-        if (!uVar.n() && (!uVar.p() || !(uVar.k() instanceof CancellationException))) {
+        if (!uVar.p() && (!uVar.r() || !(uVar.m() instanceof CancellationException))) {
             return false;
         }
         return true;
@@ -67,20 +67,20 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
                 if (DiskCacheReadProducer.isTaskCancelled(uVar)) {
                     producerListener.onProducerFinishWithCancellation(producerContext, DiskCacheReadProducer.PRODUCER_NAME, null);
                     consumer.onCancellation();
-                } else if (uVar.p()) {
-                    producerListener.onProducerFinishWithFailure(producerContext, DiskCacheReadProducer.PRODUCER_NAME, uVar.k(), null);
+                } else if (uVar.r()) {
+                    producerListener.onProducerFinishWithFailure(producerContext, DiskCacheReadProducer.PRODUCER_NAME, uVar.m(), null);
                     DiskCacheReadProducer.this.mInputProducer.produceResults(consumer, producerContext);
                 } else {
-                    EncodedImage l = uVar.l();
-                    if (l != null) {
+                    EncodedImage n = uVar.n();
+                    if (n != null) {
                         ProducerListener2 producerListener2 = producerListener;
                         ProducerContext producerContext2 = producerContext;
-                        producerListener2.onProducerFinishWithSuccess(producerContext2, DiskCacheReadProducer.PRODUCER_NAME, DiskCacheReadProducer.getExtraMap(producerListener2, producerContext2, true, l.getSize()));
+                        producerListener2.onProducerFinishWithSuccess(producerContext2, DiskCacheReadProducer.PRODUCER_NAME, DiskCacheReadProducer.getExtraMap(producerListener2, producerContext2, true, n.getSize()));
                         producerListener.onUltimateProducerReached(producerContext, DiskCacheReadProducer.PRODUCER_NAME, true);
                         producerContext.putOriginExtra("disk");
                         consumer.onProgressUpdate(1.0f);
-                        consumer.onNewResult(l, 1);
-                        l.close();
+                        consumer.onNewResult(n, 1);
+                        n.close();
                     } else {
                         ProducerListener2 producerListener22 = producerListener;
                         ProducerContext producerContext3 = producerContext;
@@ -124,7 +124,7 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
             bufferedDiskCache = this.mDefaultBufferedDiskCache;
         }
         AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-        bufferedDiskCache.get(encodedCacheKey, atomicBoolean).e(onFinishDiskReads(consumer, producerContext));
+        bufferedDiskCache.get(encodedCacheKey, atomicBoolean).g(onFinishDiskReads(consumer, producerContext));
         subscribeTaskForRequestCancellation(atomicBoolean, producerContext);
     }
 }

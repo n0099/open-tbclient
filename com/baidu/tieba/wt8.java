@@ -1,226 +1,133 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.MsgContentMergeUtil;
-import com.baidu.tieba.wt8;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.CommonStatisticUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__IterablesKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class wt8 extends p95<List<? extends ChatMsg>> {
+public final class wt8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final wt8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<BaseFragmentActivity> b;
-    public FastRequest c;
 
-    /* loaded from: classes8.dex */
-    public static final class a extends FastRequest.b<MsgContentMergeUtil.Result> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wt8 c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ List<ChatMsg> e;
-
-        public a(wt8 wt8Var, long j, List<? extends ChatMsg> list) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282222, "Lcom/baidu/tieba/wt8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt8Var, Long.valueOf(j), list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = wt8Var;
-            this.d = j;
-            this.e = list;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.List */
-        /* JADX WARN: Multi-variable type inference failed */
-        public static final void j(wt8 this$0, List oriMsgList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, this$0, oriMsgList) == null) {
-                Intrinsics.checkNotNullParameter(this$0, "this$0");
-                Intrinsics.checkNotNullParameter(oriMsgList, "$oriMsgList");
-                this$0.a = oriMsgList;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948282222, "Lcom/baidu/tieba/wt8;");
+                return;
             }
         }
-
-        /* JADX WARN: Type inference failed for: r5v1, types: [java.util.List, T] */
-        public static final void l(wt8 this$0, long j, MsgContentMergeUtil.Result result, List oriMsgList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{this$0, Long.valueOf(j), result, oriMsgList}) == null) {
-                Intrinsics.checkNotNullParameter(this$0, "this$0");
-                Intrinsics.checkNotNullParameter(result, "$result");
-                Intrinsics.checkNotNullParameter(oriMsgList, "$oriMsgList");
-                this$0.a = MsgContentMergeUtil.a.a(j, result, oriMsgList);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: i */
-        public void d(int i, String errMsg, MsgContentMergeUtil.Result result) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, errMsg, result) == null) {
-                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                super.d(i, errMsg, result);
-                final wt8 wt8Var = this.c;
-                final List<ChatMsg> list = this.e;
-                lg.e(new Runnable() { // from class: com.baidu.tieba.ot8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            wt8.a.j(wt8.this, list);
-                        }
-                    }
-                });
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: k */
-        public void g(final MsgContentMergeUtil.Result result) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
-                Intrinsics.checkNotNullParameter(result, "result");
-                super.g(result);
-                final wt8 wt8Var = this.c;
-                final long j = this.d;
-                final List<ChatMsg> list = this.e;
-                lg.e(new Runnable() { // from class: com.baidu.tieba.rt8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            wt8.a.l(wt8.this, j, result, list);
-                        }
-                    }
-                });
-            }
-        }
+        a = new wt8();
     }
 
-    public wt8(TbPageContext<BaseFragmentActivity> tbPageContext) {
+    public wt8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = tbPageContext;
-    }
-
-    public static final void b(wt8 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            FastRequest fastRequest = this$0.c;
-            if (fastRequest != null) {
-                fastRequest.O();
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.u95
-    public void a(Object... args) {
-        TbPageContext<BaseFragmentActivity> tbPageContext;
+    public final void a(String value) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, args) == null) {
-            Intrinsics.checkNotNullParameter(args, "args");
-            Object obj = args[0];
-            if (obj != null) {
-                long longValue = ((Long) obj).longValue();
-                Object obj2 = args[1];
-                if (obj2 != null) {
-                    List<ChatMsg> list = (List) obj2;
-                    if (this.c == null && (tbPageContext = this.b) != null) {
-                        Intrinsics.checkNotNull(tbPageContext);
-                        this.c = new FastRequest(tbPageContext, CmdConfigHttp.CMD_GET_CHAT_ROOM_INIT_INFO, TbConfig.GET_CHAT_ROOM_INIT_INFO);
-                        this.b = null;
-                    }
-                    ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-                    for (ChatMsg chatMsg : list) {
-                        String senderUid = chatMsg.getSenderUid();
-                        Intrinsics.checkNotNullExpressionValue(senderUid, "it.senderUid");
-                        arrayList.add(fl8.c(senderUid));
-                    }
-                    ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-                    for (ChatMsg chatMsg2 : list) {
-                        long msgId = chatMsg2.getMsgId();
-                        String msgKey = chatMsg2.getMsgKey();
-                        Intrinsics.checkNotNullExpressionValue(msgKey, "it.msgKey");
-                        arrayList2.add(new MsgContentMergeUtil.ChatRoomInitInfo(msgId, msgKey));
-                    }
-                    FastRequest fastRequest = this.c;
-                    Intrinsics.checkNotNull(fastRequest);
-                    fastRequest.N("chatroom_id", String.valueOf(longValue));
-                    fastRequest.N("uks", DataExt.toJson(arrayList));
-                    fastRequest.N("msgs", DataExt.toJson(arrayList2));
-                    fastRequest.V(2000);
-                    fastRequest.Q(2000);
-                    fastRequest.W(1);
-                    fastRequest.P(new a(this, longValue, list));
-                    lg.g(new Runnable() { // from class: com.baidu.tieba.qt8
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                wt8.b(wt8.this);
-                            }
-                        }
-                    });
-                    return;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.List<com.baidu.android.imsdk.chatmessage.messages.ChatMsg>");
-            }
-            throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
+        if (interceptable == null || interceptable.invokeL(1048576, this, value) == null) {
+            Intrinsics.checkNotNullParameter(value, "value");
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.IM_TAB_SHOW_KEY);
+            statisticItem.param("obj_param1", value).param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.tieba.u95
-    public void onDestroy() {
-        FastRequest fastRequest;
+    public final void b(ImMessageCenterShowItemData data, Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fastRequest = this.c) != null) {
-            fastRequest.onDestroy();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data, context) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(context, "context");
+            if (!TextUtils.isEmpty(data.getFriendName()) && Intrinsics.areEqual(context.getString(R.string.tieba_user_notify), data.getFriendName())) {
+                TiebaStatic.log(new StatisticItem("c14446").param("uid", TbadkCoreApplication.getCurrentAccount()));
+            }
+        }
+    }
+
+    public final void c(ImMessageCenterShowItemData data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            int i = 2;
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_GROUP_ITEM).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", data.getForumId()).param("room_id", data.getRoomId()).param("obj_type", 2);
+            if (data.getUnReadCount() > 0) {
+                i = 1;
+            }
+            TiebaStatic.log(param.param("obj_source", i));
+        }
+    }
+
+    public final void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            if (Intrinsics.areEqual("801001117", String.valueOf(j))) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SITE_SERVICE_ENTRANCE).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            } else if (Intrinsics.areEqual("3222425470", String.valueOf(j))) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SYSTEM_SERVICE).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            }
+        }
+    }
+
+    public final void d(ImMessageCenterShowItemData data, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, data, context) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(context, "context");
+            if (Intrinsics.areEqual(CommonStatisticKey.TbMemberOfficialStatic.TB_MEMBER_OFFICIAL_ID, data.getFriendId())) {
+                CommonStatisticUtils.staticTbMemberNotify(CommonStatisticKey.TbMemberOfficialStatic.MEMBER_MSG_CENTER_NOTIFY_CLICK, null, data.getFriendName());
+            }
+            TiebaStatic.eventStat(context, "list_to_chat", "chatlistclick", 1, new Object[0]);
+        }
+    }
+
+    public final void e(ImMessageCenterShowItemData data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_ITEM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", "2").param("obj_param1", data.getUnReadCount()).param(TiebaStatic.Params.FRIEND_UID, data.getFriendId()));
+        }
+    }
+
+    public final void f(ImMessageCenterShowItemData data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.IM_REC_FORUM_ITEM_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", data.getForumId());
+            statisticItem.param("fname", data.getForumId());
+            TiebaStatic.log(statisticItem);
         }
     }
 }

@@ -1,125 +1,67 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.tv5;
+import android.content.Context;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ApkDetail;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes5.dex */
-public class dw5 extends yv5 {
+public class dw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tv5.c a;
-    public TbPageContext b;
-    public BdRecyclerView c;
-    public PbListView d;
 
-    public dw5(TbPageContext tbPageContext, BdRecyclerView bdRecyclerView, tv5.c cVar) {
+    public static boolean a(Context context, qda qdaVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdRecyclerView, cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, qdaVar)) == null) {
+            boolean z = false;
+            if (context != null && qdaVar != null && qdaVar.b()) {
+                TiePlusHelper tiePlusHelper = new TiePlusHelper(context);
+                TiebaPlusInfo a = qdaVar.a();
+                if (a == null) {
+                    return false;
+                }
+                tiePlusHelper.Q(a.app_id);
+                tiePlusHelper.R(a.title);
+                z = true;
+                tiePlusHelper.Z(true);
+                tiePlusHelper.W(a.download_url);
+                tiePlusHelper.b0(a.app_package);
+                tiePlusHelper.c0(a.app_power);
+                tiePlusHelper.d0(a.app_privacy);
+                tiePlusHelper.Y(a.app_effect);
+                uw5 uw5Var = new uw5(context, tiePlusHelper, true);
+                tiePlusHelper.U(uw5Var);
+                ItemData itemData = new ItemData();
+                itemData.parseProto(a);
+                itemData.fileType = "app";
+                StringBuilder sb = new StringBuilder();
+                sb.append(itemData.pkgName);
+                sb.append(".v");
+                ApkDetail apkDetail = itemData.apkDetail;
+                if (apkDetail != null) {
+                    sb.append(apkDetail.version);
+                }
+                DownloadData downloadData = new DownloadData(sb.toString());
+                downloadData.setUrl(itemData.buttonLink);
+                downloadData.setName(itemData.mTitle);
+                downloadData.setSource(2);
+                downloadData.setType(12);
+                downloadData.setItemData(itemData);
+                tiePlusHelper.a0(itemData);
+                tiePlusHelper.V(downloadData);
+                uw5Var.g(a.app_company);
+                uw5Var.h(a.app_icon);
+                uw5Var.i(a.title);
+                uw5Var.j(a.app_version);
+                uw5Var.show();
             }
+            return z;
         }
-        this.b = tbPageContext;
-        this.c = bdRecyclerView;
-        this.a = cVar;
-        PbListView pbListView = new PbListView(getActivity());
-        this.d = pbListView;
-        pbListView.c();
-        this.d.s(R.color.transparent);
-        this.d.w(this.a.a);
-        this.d.P(this.a.b);
-        this.d.B();
-        this.d.L(R.dimen.tbfontsize33);
-        this.d.J(SkinManager.getColor(R.color.CAM_X0107));
-        this.d.F(R.color.CAM_X0110);
-        this.d.v();
-    }
-
-    private Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            return this.b.getPageActivity();
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yv5
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a.g) {
-                e();
-            } else {
-                d();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yv5
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.U();
-            this.d.H(this.a.c);
-            this.d.G(null);
-        }
-    }
-
-    @Override // com.baidu.tieba.yv5
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.g();
-            this.d.H(this.a.e);
-            this.d.G(null);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.g();
-            this.d.H(this.a.d);
-            this.d.G(null);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.g();
-            this.d.H(this.a.f);
-            this.d.G(this.a.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.bw5
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d.e(i);
-        }
+        return invokeLL.booleanValue;
     }
 }

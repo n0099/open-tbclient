@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class ub3<T> implements ku2<byte[], T> {
+public class ub3 implements sb3<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a(@NonNull T t, @NonNull mu2 mu2Var) throws Exception;
+    public JSONArray b;
 
     public ub3() {
         Interceptable interceptable = $ic;
@@ -29,31 +30,40 @@ public abstract class ub3<T> implements ku2<byte[], T> {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.ku2
-    public /* bridge */ /* synthetic */ byte[] call(Object obj) throws Exception {
-        return call2((ub3<T>) obj);
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = null;
+        }
     }
 
-    @Override // com.baidu.tieba.ku2
-    /* renamed from: call  reason: avoid collision after fix types in other method */
-    public final byte[] call2(T t) throws Exception {
-        InterceptResult invokeL;
+    public JSONObject c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("stageError", this.b);
+            } catch (JSONException e) {
+                if (sb3.a) {
+                    Log.e("WhiteCollector", Log.getStackTraceString(e));
+                }
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            mu2 mu2Var = new mu2(byteArrayOutputStream);
-            a(t, mu2Var);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            mu2Var.close();
-            byteArrayOutputStream.close();
-            return byteArray;
+            return jSONObject;
         }
-        return (byte[]) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
+            if (this.b == null) {
+                this.b = new JSONArray();
+            }
+            this.b.put(jSONObject);
+            if (sb3.a) {
+                Log.d("WhiteCollector", "FEStage: " + jSONObject);
+            }
+        }
     }
 }

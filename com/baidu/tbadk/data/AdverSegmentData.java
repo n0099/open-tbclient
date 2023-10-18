@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.ji;
+import com.baidu.tieba.gd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +15,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Advertisement;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AdverSegmentData implements Comparable<AdverSegmentData>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3218263913492238871L;
     public transient /* synthetic */ FieldHolder $fh;
+    public String activityId;
     public String adSegmentId;
     public String clickStatisticsUrl;
     public String floatingText;
@@ -162,7 +163,7 @@ public class AdverSegmentData implements Comparable<AdverSegmentData>, Serializa
             if (StringUtils.isNull(this.viewStatisticsUrl) && StringUtils.isNull(this.clickStatisticsUrl)) {
                 return;
             }
-            String c = ji.c(TbadkApplication.getInst().getAndroidId());
+            String c = gd.c(TbadkApplication.getInst().getAndroidId());
             String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
             StringBuilder sb = new StringBuilder();
             sb.append("&ANDROIDID=");
@@ -265,6 +266,7 @@ public class AdverSegmentData implements Comparable<AdverSegmentData>, Serializa
             this.jumpExternalScheme = advertisement.scheme;
             this.jumpExternalPackageName = advertisement.package_name;
             this.mDisplayAdIcon = advertisement.display_ad_icon;
+            this.activityId = advertisement.activity_id;
             handleStaticUrl();
         }
     }
@@ -282,6 +284,7 @@ public class AdverSegmentData implements Comparable<AdverSegmentData>, Serializa
             this.jumpExternalScheme = jSONObject.optString("scheme");
             this.jumpExternalPackageName = jSONObject.optString("package_name");
             this.mDisplayAdIcon = jSONObject.optString("display_ad_icon");
+            this.activityId = jSONObject.optString("activity_id");
             handleStaticUrl();
         }
     }

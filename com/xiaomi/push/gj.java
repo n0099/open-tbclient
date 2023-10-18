@@ -82,7 +82,7 @@ public class gj implements gn {
         }
         Parcelable[] parcelableArr = new Parcelable[gjVarArr.length];
         for (int i = 0; i < gjVarArr.length; i++) {
-            parcelableArr[i] = gjVarArr[i].m528a();
+            parcelableArr[i] = gjVarArr[i].m527a();
         }
         return parcelableArr;
     }
@@ -114,12 +114,12 @@ public class gj implements gn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m528a() {
+    public Parcelable m527a() {
         return a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m529a() {
+    public String m528a() {
         return this.a;
     }
 
@@ -154,7 +154,7 @@ public class gj implements gn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m530a(String str) {
+    public void m529a(String str) {
         if (!TextUtils.isEmpty(str)) {
             str = gx.a(str);
         }

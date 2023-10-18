@@ -1,56 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class kz0 extends rz0 {
+/* loaded from: classes7.dex */
+public class kz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sv0 o;
 
-    public kz0() {
+    public static void a(Runnable runnable, @NonNull String str, int i, long j) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) != null) || runnable == null) {
+            return;
+        }
+        if (i != 0 && i != 1 && i != 2 && i != 3) {
+            i2 = 3;
+        } else {
+            i2 = i;
+        }
+        sz0.b().a().a(runnable, str, i2, j);
+    }
+
+    public static void b(Runnable runnable, @NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Long.valueOf(j)}) != null) || runnable == null) {
+            return;
+        }
+        sz0.b().a().b(runnable, str, j);
+    }
+
+    public static void c(@NonNull Runnable runnable, @NonNull String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, null, runnable, str, i) == null) {
+            a(runnable, str, i, 0L);
         }
     }
 
-    public void o0() {
+    public static void d(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            L(new rv0());
-        }
-    }
-
-    public void p0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            sv0 sv0Var = new sv0();
-            this.o = sv0Var;
-            L(sv0Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.rz0, com.baidu.tieba.sz0
-    public void S() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            L(new aw0());
-            L(new cw0());
-            L(new bw0());
-            L(new dw0());
-            p0();
-            o0();
+        if (interceptable == null || interceptable.invokeLL(65539, null, runnable, str) == null) {
+            b(runnable, str, 0L);
         }
     }
 }

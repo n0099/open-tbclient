@@ -1,33 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.e1;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class u1<T, P extends e1<T>> extends h1<T, P> {
+public class u1 implements b1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract T c(g1 g1Var, String str, d3 d3Var, P p);
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u1(l1 l1Var) {
-        super(l1Var);
+    public u1(SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l1Var};
+            Object[] objArr = {sharedPreferences};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }

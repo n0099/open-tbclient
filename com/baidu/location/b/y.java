@@ -755,7 +755,7 @@ public class y {
                 return true;
             }
             double distanceTo = location.distanceTo(location2);
-            return ((double) location.distanceTo(v)) > (((((double) com.baidu.location.e.k.S) * distanceTo) * distanceTo) + (((double) com.baidu.location.e.k.f1047T) * distanceTo)) + ((double) com.baidu.location.e.k.U);
+            return ((double) location.distanceTo(v)) > (((((double) com.baidu.location.e.k.S) * distanceTo) * distanceTo) + (((double) com.baidu.location.e.k.f1046T) * distanceTo)) + ((double) com.baidu.location.e.k.U);
         }
         return invokeL.booleanValue;
     }

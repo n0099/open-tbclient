@@ -1,30 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.proxy.IAdDownloader;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.Bitmap;
+import android.net.http.SslError;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.webkit.SslErrorHandler;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
 /* loaded from: classes5.dex */
-public final class c61 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final IAdDownloader a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface c61 extends i51 {
+    void A0(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947626603, "Lcom/baidu/tieba/c61;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947626603, "Lcom/baidu/tieba/c61;");
-                return;
-            }
-        }
-        a = new em0();
-    }
+    boolean F(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    void F0(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    boolean I0(AbsNadBrowserView absNadBrowserView, String str);
+
+    void J(AbsNadBrowserView absNadBrowserView, String str);
+
+    void S0(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
+
+    void T0(AbsNadBrowserView absNadBrowserView, d61 d61Var, String str, String str2);
+
+    void W0();
+
+    void Z();
+
+    f61 b0(AbsNadBrowserView absNadBrowserView, String str);
+
+    void c(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
+
+    void f(AbsNadBrowserView absNadBrowserView, String str);
+
+    void g(AbsNadBrowserView absNadBrowserView);
+
+    void k1(AbsNadBrowserView absNadBrowserView, int i);
+
+    void l0(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
+
+    void q(AbsNadBrowserView absNadBrowserView, String str);
+
+    void x(AbsNadBrowserView absNadBrowserView, float f, float f2);
+
+    void z0(AbsNadBrowserView absNadBrowserView, String str, boolean z);
 }

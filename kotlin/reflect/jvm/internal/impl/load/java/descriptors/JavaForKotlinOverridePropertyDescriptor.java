@@ -7,7 +7,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.PropertyDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.SimpleFunctionDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.Visibility;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class JavaForKotlinOverridePropertyDescriptor extends JavaPropertyDescriptor {
     /* JADX WARN: Illegal instructions before constructor call */
     /*

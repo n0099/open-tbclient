@@ -1,107 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.network.http.IHttpNet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.PublicKey;
-import javax.crypto.SecretKey;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class oa {
     public static /* synthetic */ Interceptable $ic;
-    public static oa c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SecretKey a;
-    public byte[] b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448312859, "Lcom/baidu/tieba/oa;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448312859, "Lcom/baidu/tieba/oa;");
-        }
-    }
+    public volatile boolean a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public Map<String, List<String>> h;
+    public byte[] i;
+    public int j;
 
     public oa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
+        this.a = false;
+        this.b = -1;
+        this.c = -1;
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "net error";
     }
 
-    public static oa a() {
-        InterceptResult invokeV;
+    public void a(IHttpNet iHttpNet) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (oa.class) {
-                    if (c == null) {
-                        c = new oa();
-                    }
-                }
-            }
-            return c;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, iHttpNet) != null) || iHttpNet == null) {
+            return;
         }
-        return (oa) invokeV.objValue;
+        this.b = iHttpNet.getResponseCode();
+        this.d = iHttpNet.getContentEncoding();
+        this.e = iHttpNet.getContentType();
+        this.f = iHttpNet.getContentLength() + "";
+        this.h = iHttpNet.b();
     }
 
-    public SecretKey b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (SecretKey) invokeV.objValue;
-    }
-
-    public byte[] c() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public void d(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-            try {
-                PublicKey e = ki.e(bArr);
-                String g = ki.g(32);
-                byte[] bArr2 = new byte[g.length()];
-                for (int i = 0; i < g.length(); i++) {
-                    bArr2[i] = (byte) g.charAt(i);
-                }
-                this.a = ki.f(g);
-                this.b = ki.d(e, bArr2);
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-                this.a = null;
-                this.b = new byte[0];
+            if (this.b == 200) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

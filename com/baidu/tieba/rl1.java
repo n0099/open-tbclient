@@ -1,35 +1,44 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.database.ContentObserver;
+import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rl1 {
+public class rl1 extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public int b;
-    public rl1 c;
+    public tl1 a;
 
-    public rl1(Bitmap bitmap, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rl1(tl1 tl1Var) {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Integer.valueOf(i)};
+            Object[] objArr = {tl1Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.a = bitmap;
-        this.b = i;
+        this.a = tl1Var;
+    }
+
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        tl1 tl1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (tl1Var = this.a) != null) {
+            tl1Var.b = tl1Var.a.a(0, null);
+        }
     }
 }

@@ -17,9 +17,7 @@ public interface Graphics {
 
     boolean d();
 
-    float e();
-
-    a f();
+    a e();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */

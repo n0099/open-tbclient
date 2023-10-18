@@ -2,6 +2,7 @@ package androidx.constraintlayout.solver;
 
 import androidx.constraintlayout.solver.LinearSystem;
 import androidx.constraintlayout.solver.SolverVariable;
+import com.baidu.mobads.sdk.internal.cj;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ArrayRow implements LinearSystem.Row {
@@ -575,7 +576,7 @@ public class ArrayRow implements LinearSystem.Row {
             }
         }
         if (!z) {
-            return str2 + "0.0";
+            return str2 + cj.d;
         }
         return str2;
     }

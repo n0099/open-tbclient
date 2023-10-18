@@ -5,7 +5,7 @@ import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class LandingPageSpeedStats extends AbstractSpeedStats {
     public static final String DATABACK_2_DRAW = "databack2draw";
     public static final String MIDDLE_2_LANDING_GAP = "middle2LandingGap";

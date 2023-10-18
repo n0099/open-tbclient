@@ -22,7 +22,7 @@ public class a {
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0126a<T> {
+    public interface InterfaceC0128a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -102,9 +102,9 @@ public class a {
         }
     }
 
-    public void a(String str, InterfaceC0126a<c> interfaceC0126a) {
+    public void a(String str, InterfaceC0128a<c> interfaceC0128a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC0126a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC0128a) == null) {
             Uri.Builder builder = new Uri.Builder();
             if (HttpClient.isHttpsEnable) {
                 builder.scheme("https");
@@ -118,11 +118,11 @@ public class a {
             a(builder, "action", "0");
             String authToken = HttpClient.getAuthToken();
             if (authToken == null) {
-                interfaceC0126a.a((InterfaceC0126a<c>) new c(PanoStateError.d));
+                interfaceC0128a.a((InterfaceC0128a<c>) new c(PanoStateError.d));
                 return;
             }
             a(builder, "token", authToken);
-            this.a.get(a(builder), new b(this, interfaceC0126a));
+            this.a.get(a(builder), new b(this, interfaceC0128a));
         }
     }
 }

@@ -1,17 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.download.DownloadData;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface qf7 {
-    void a(DownloadData downloadData);
+    void d();
 
-    void b(DownloadData downloadData);
+    void hideLoadingView();
 
-    void c(DownloadData downloadData);
+    void p(String str);
 
-    void d(DownloadData downloadData);
-
-    void e(DownloadData downloadData);
-
-    void f(DownloadData downloadData, int i);
+    void q1(List<tf7> list, boolean z, boolean z2);
 }

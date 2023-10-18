@@ -1,135 +1,193 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.ol8;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.loading.LoadingView;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.chatdialog.GroupChatDialogFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class pl8 implements or5 {
+public class pl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ol8.a b;
-    public tj8 c;
-    public long d;
-    public int e;
+    public ul8 a;
+    public TbPageContext b;
+    public GroupChatDialogFragment c;
+    @Nullable
+    public fl8 d;
+    public gi5 e;
+    public LoadingView f;
+    public NoDataView g;
+    public String h;
+    public final View.OnClickListener i;
 
-    public pl8() {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pl8 a;
+
+        public a(pl8 pl8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pl8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pl8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                if (this.a.e != null) {
+                    this.a.e.dettachView(this.a.a.m());
+                    this.a.e = null;
+                }
+                if (this.a.d != null) {
+                    this.a.i();
+                    this.a.c.U1();
+                }
+            }
+        }
+    }
+
+    public pl8(@NonNull GroupChatDialogFragment groupChatDialogFragment, @NonNull TbPageContext tbPageContext, @NonNull fl8 fl8Var, ul8 ul8Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {groupChatDialogFragment, tbPageContext, fl8Var, ul8Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = new a(this);
+        this.c = groupChatDialogFragment;
+        this.b = tbPageContext;
+        this.d = fl8Var;
+        this.a = ul8Var;
+        this.h = str;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            LoadingView loadingView = this.f;
+            if (loadingView != null) {
+                loadingView.onChangeSkinType(i);
+            }
+            gi5 gi5Var = this.e;
+            if (gi5Var != null) {
+                gi5Var.onChangeSkinType();
+            }
+            NoDataView noDataView = this.g;
+            if (noDataView != null) {
+                noDataView.f(this.b, i);
             }
         }
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public void e() {
+        LoadingView loadingView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (loadingView = this.f) != null) {
+            loadingView.dettachView(this.a.m());
         }
-        return invokeV.longValue;
     }
 
-    public tj8 c() {
-        InterceptResult invokeV;
+    public void f() {
+        gi5 gi5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (gi5Var = this.e) != null) {
+            gi5Var.dettachView(this.a.m());
+            this.e = null;
         }
-        return (tj8) invokeV.objValue;
     }
 
-    public ol8.a d() {
-        InterceptResult invokeV;
+    public void g() {
+        NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (noDataView = this.g) != null) {
+            noDataView.setVisibility(8);
         }
-        return (ol8.a) invokeV.objValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static pl8 a(ChatMessage chatMessage, ol8.a aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, chatMessage, aVar)) == null) {
-            pl8 pl8Var = new pl8();
-            if (chatMessage == null) {
-                return pl8Var;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.a.n() != null) {
+                this.a.n().setVisibility(8);
             }
-            aVar.h /= 100;
-            pl8Var.k(chatMessage.getReadCountPv());
-            pl8Var.j(aVar);
-            pl8Var.g(chatMessage.getTime());
-            if (chatMessage.getObjContent() instanceof tj8) {
-                pl8Var.i((tj8) chatMessage.getObjContent());
+            if (this.f == null) {
+                LoadingView loadingView = new LoadingView(vg6.b());
+                this.f = loadingView;
+                loadingView.onChangeSkinType();
             }
-            return pl8Var;
-        }
-        return (pl8) invokeLL.objValue;
-    }
-
-    public void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.d = j;
+            this.f.attachView(this.a.m());
         }
     }
 
-    public void h(boolean z) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.a.n() != null) {
+                this.a.n().setVisibility(8);
+            }
+            e();
+            if (this.e == null) {
+                this.e = new gi5(vg6.b(), this.i);
+            }
+            this.e.j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds300));
+            this.e.attachView(this.a.m(), true);
+            this.e.o();
+            this.e.onChangeSkinType();
+            this.e.e(R.color.transparent);
         }
     }
 
-    public void i(tj8 tj8Var) {
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, tj8Var) == null) {
-            this.c = tj8Var;
-        }
-    }
-
-    public void j(ol8.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            NoDataViewFactory.ImgType imgType = NoDataViewFactory.ImgType.WEBVIEW;
+            String string = vg6.b().getResources().getString(R.string.obfuscated_res_0x7f0f096c);
+            if (this.h.equals("message_tab")) {
+                imgType = NoDataViewFactory.ImgType.CREATE;
+                string = vg6.b().getResources().getString(R.string.obfuscated_res_0x7f0f0cdf);
+            }
+            if (this.a.n() != null) {
+                this.a.n().setVisibility(8);
+            }
+            if (this.g == null) {
+                this.g = NoDataViewFactory.b(vg6.b(), this.a.r(), NoDataViewFactory.d.b(imgType, 400), NoDataViewFactory.e.d(null, string), null, true);
+            }
+            this.g.f(this.b, TbadkApplication.getInst().getSkinType());
+            this.g.setVisibility(0);
         }
     }
 }

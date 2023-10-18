@@ -15,20 +15,20 @@ import com.baidu.tbadk.core.data.ForumRuleBaseData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.forumRule.model.ForumRuleEditModel;
-import com.baidu.tieba.go7;
-import com.baidu.tieba.oo7;
+import com.baidu.tieba.pi7;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.xi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity> implements go7 {
+/* loaded from: classes6.dex */
+public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity> implements pi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public oo7 b;
+    public xi7 b;
     public ForumRuleEditModel c;
     public String d;
     public String e;
@@ -75,8 +75,8 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // com.baidu.tieba.go7
-    public void H0(int i, String str, boolean z) {
+    @Override // com.baidu.tieba.pi7
+    public void I0(int i, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
             if (i == 0) {
@@ -86,18 +86,18 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
                     intent.putExtra("group_name", getString(R.string.save_success));
                     intent.putExtra("from", true);
                 } else {
-                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f07b7));
+                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f07bd));
                     intent.putExtra("from", false);
                 }
                 setResult(-1, intent);
                 finish();
                 return;
             }
-            new BdTopToast(this, 2000).setIcon(false).setContent(str).show((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091618));
+            new BdTopToast(this, 2000).setIcon(false).setContent(str).show((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091632));
         }
     }
 
-    @Override // com.baidu.tieba.go7
+    @Override // com.baidu.tieba.pi7
     public void y0(int i, ForumRuleBaseData forumRuleBaseData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048587, this, i, forumRuleBaseData, str) == null) {
@@ -118,7 +118,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.f)) {
                 this.b.P(this.i, false);
             }
-            new BdTopToast(this, 2000).setIcon(false).setContent(str).show((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091618));
+            new BdTopToast(this, 2000).setIcon(false).setContent(str).show((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091632));
         }
     }
 
@@ -147,7 +147,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     public void N0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.c.Q(str);
+            this.c.R(str);
         }
     }
 
@@ -156,21 +156,21 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            oo7 oo7Var = this.b;
-            if (oo7Var != null) {
-                oo7Var.u(i);
+            xi7 xi7Var = this.b;
+            if (xi7Var != null) {
+                xi7Var.u(i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.go7
+    @Override // com.baidu.tieba.pi7
     public void h0(ForumRuleBaseData forumRuleBaseData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, forumRuleBaseData, z) == null) {
             if (TextUtils.isEmpty(this.d)) {
-                new BdTopToast(this, 2000).setIcon(false).setContent(getString(R.string.obfuscated_res_0x7f0f07b4)).show((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091618));
+                new BdTopToast(this, 2000).setIcon(false).setContent(getString(R.string.obfuscated_res_0x7f0f07ba)).show((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091632));
             } else {
-                this.c.P(this.d, forumRuleBaseData, z);
+                this.c.Q(this.d, forumRuleBaseData, z);
             }
         }
     }
@@ -181,8 +181,8 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             M0(bundle);
-            this.a = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d030e, (ViewGroup) null);
-            this.b = new oo7(getPageContext(), this, this.a, this.d, this.e, this.f, this.g, this.h, this);
+            this.a = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d030f, (ViewGroup) null);
+            this.b = new xi7(getPageContext(), this, this.a, this.d, this.e, this.f, this.g, this.h, this);
             this.c = new ForumRuleEditModel(getPageContext(), this, this.d);
             setContentView(this.a);
             setSwipeBackEnabled(false);

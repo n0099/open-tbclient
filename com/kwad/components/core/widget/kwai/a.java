@@ -5,7 +5,6 @@ import android.view.View;
 import androidx.annotation.CallSuper;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.kwad.sdk.utils.af;
 import com.kwad.sdk.utils.bg;
 import java.util.HashSet;
@@ -61,7 +60,7 @@ public abstract class a implements com.kwad.sdk.core.h.a, bg.a {
             } else {
                 ql();
             }
-            this.Ks.sendEmptyMessageDelayed(TTAdConstant.STYLE_SIZE_RADIO_2_3, 500L);
+            this.Ks.sendEmptyMessageDelayed(666, 500L);
         }
     }
 
@@ -97,8 +96,8 @@ public abstract class a implements com.kwad.sdk.core.h.a, bg.a {
     public abstract boolean dK();
 
     public final void qi() {
-        this.Ks.removeMessages(TTAdConstant.STYLE_SIZE_RADIO_2_3);
-        this.Ks.sendEmptyMessage(TTAdConstant.STYLE_SIZE_RADIO_2_3);
+        this.Ks.removeMessages(666);
+        this.Ks.sendEmptyMessage(666);
     }
 
     public final void qj() {

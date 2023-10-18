@@ -1,61 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.x0c;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class r0c {
     public static /* synthetic */ Interceptable $ic;
-    public static x0c a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public ArrayList<Long> b;
+    public long c;
+    public int d;
+    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948069252, "Lcom/baidu/tieba/r0c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948069252, "Lcom/baidu/tieba/r0c;");
+    public r0c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new x0c();
+        this.b = new ArrayList<>();
+        this.c = 0L;
+        this.d = 0;
+        this.e = false;
+        this.a = i;
     }
 
-    public static <TResult> TResult a(o0c<TResult> o0cVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
+    public synchronized long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, o0cVar)) == null) {
-            x0c.c("await must not be called on the UI thread");
-            if (o0cVar.g()) {
-                return (TResult) x0c.b(o0cVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.b.isEmpty()) {
+                    return 0L;
+                }
+                long longValue = this.b.remove(0).longValue();
+                this.c -= longValue;
+                if (!this.b.isEmpty()) {
+                    long size = this.c / this.b.size();
+                }
+                return longValue;
             }
-            x0c.b bVar = new x0c.b();
-            o0cVar.c(bVar);
-            o0cVar.b(bVar);
-            bVar.a.await();
-            return (TResult) x0c.b(o0cVar);
         }
-        return (TResult) invokeL.objValue;
+        return invokeV.longValue;
     }
 
-    public static <TResult> o0c<TResult> b(Callable<TResult> callable) {
-        InterceptResult invokeL;
+    public synchronized void b(long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(q0c.a(), callable) : (o0c) invokeL.objValue;
-    }
-
-    public static <TResult> o0c<TResult> call(Callable<TResult> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(q0c.b(), callable) : (o0c) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            synchronized (this) {
+                this.b.add(Long.valueOf(j));
+                this.c += j;
+                if (this.b.size() > this.a) {
+                    this.c -= this.b.remove(0).longValue();
+                }
+                long size = this.c / this.b.size();
+                if (this.d == 0) {
+                    return;
+                }
+                if (this.e && this.b.size() <= this.d) {
+                    long size2 = this.c / this.b.size();
+                }
+            }
+        }
     }
 }

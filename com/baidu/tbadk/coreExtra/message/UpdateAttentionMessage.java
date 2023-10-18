@@ -7,9 +7,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.httpNet.HttpResponse;
-import com.baidu.tieba.di;
-import com.baidu.tieba.je5;
-import com.baidu.tieba.nu6;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.r85;
+import com.baidu.tieba.wo6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttentionData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class UpdateAttentionData {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int EACH_ATTENTION = 2;
@@ -74,7 +74,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
             String optString = jSONObject.optString("block_content");
             String optString2 = jSONObject.optString("block_confirm");
             String optString3 = jSONObject.optString("block_cancel");
-            if (!di.isEmpty(optString) && !di.isEmpty(this.blockUrl) && !di.isEmpty(optString2) && !di.isEmpty(optString3)) {
+            if (!ad.isEmpty(optString) && !ad.isEmpty(this.blockUrl) && !ad.isEmpty(optString2) && !ad.isEmpty(optString3)) {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                 this.blockData = blockPopInfoData;
                 blockPopInfoData.block_info = optString;
@@ -116,7 +116,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
             UpdateAttentionData data;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage) && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
-                nu6.b().b(new je5(data));
+                wo6.b().c(new r85(data));
             }
         }
     }

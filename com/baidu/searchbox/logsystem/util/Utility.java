@@ -22,6 +22,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.mobads.sdk.internal.cj;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
@@ -251,7 +252,7 @@ public class Utility {
                 }
                 String str3 = Build.VERSION.RELEASE;
                 if (TextUtils.isEmpty(str3)) {
-                    replace2 = "0.0";
+                    replace2 = cj.d;
                 } else {
                     replace2 = str3.replace("_", "-");
                 }

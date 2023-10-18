@@ -1,6 +1,7 @@
 package com.baidu.platform.comapi.longlink;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +43,7 @@ public final class ELongLinkStatus {
                 return;
             }
         }
-        ELongLinkStatus eLongLinkStatus = new ELongLinkStatus("OK", 0, 0);
+        ELongLinkStatus eLongLinkStatus = new ELongLinkStatus(bx.k, 0, 0);
         OK = eLongLinkStatus;
         SendFormatError = new ELongLinkStatus("SendFormatError", 1, eLongLinkStatus.getStatusCode() + 1);
         SendUnRegistered = new ELongLinkStatus("SendUnRegistered", 2, OK.getStatusCode() + 2);

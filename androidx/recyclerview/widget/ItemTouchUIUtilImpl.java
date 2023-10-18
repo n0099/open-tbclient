@@ -35,11 +35,11 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
     @Override // androidx.recyclerview.widget.ItemTouchUIUtil
     public void clearView(View view2) {
         if (Build.VERSION.SDK_INT >= 21) {
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f0911ea);
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f091202);
             if (tag instanceof Float) {
                 ViewCompat.setElevation(view2, ((Float) tag).floatValue());
             }
-            view2.setTag(R.id.obfuscated_res_0x7f0911ea, null);
+            view2.setTag(R.id.obfuscated_res_0x7f091202, null);
         }
         view2.setTranslationX(0.0f);
         view2.setTranslationY(0.0f);
@@ -47,10 +47,10 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
 
     @Override // androidx.recyclerview.widget.ItemTouchUIUtil
     public void onDraw(Canvas canvas, RecyclerView recyclerView, View view2, float f, float f2, int i, boolean z) {
-        if (Build.VERSION.SDK_INT >= 21 && z && view2.getTag(R.id.obfuscated_res_0x7f0911ea) == null) {
+        if (Build.VERSION.SDK_INT >= 21 && z && view2.getTag(R.id.obfuscated_res_0x7f091202) == null) {
             Float valueOf = Float.valueOf(ViewCompat.getElevation(view2));
             ViewCompat.setElevation(view2, findMaxElevation(recyclerView, view2) + 1.0f);
-            view2.setTag(R.id.obfuscated_res_0x7f0911ea, valueOf);
+            view2.setTag(R.id.obfuscated_res_0x7f091202, valueOf);
         }
         view2.setTranslationX(f);
         view2.setTranslationY(f2);

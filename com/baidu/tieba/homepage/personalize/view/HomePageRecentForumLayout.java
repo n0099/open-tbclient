@@ -1,7 +1,6 @@
 package com.baidu.tieba.homepage.personalize.view;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,29 +21,34 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewCommonUtil;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.boa;
 import com.baidu.tieba.card.ala.secondfloor.CommonSpaceItemDecoration;
-import com.baidu.tieba.di;
-import com.baidu.tieba.h78;
+import com.baidu.tieba.h58;
 import com.baidu.tieba.homepage.personalize.adapter.RecommendRecentForumListAdapter;
 import com.baidu.tieba.homepagecore.data.ForumSignInResultRespondedMessage;
-import com.baidu.tieba.jta;
-import com.baidu.tieba.k7a;
-import com.baidu.tieba.mu6;
-import com.baidu.tieba.nu6;
-import com.baidu.tieba.qu6;
-import com.baidu.tieba.wa8;
-import com.baidu.tieba.xa8;
-import com.baidu.tieba.yda;
+import com.baidu.tieba.i58;
+import com.baidu.tieba.o8a;
+import com.baidu.tieba.s18;
+import com.baidu.tieba.vo6;
+import com.baidu.tieba.wo6;
+import com.baidu.tieba.x1a;
+import com.baidu.tieba.zo6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,10 +66,10 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     public RecommendRecentForumListAdapter e;
     public ImageView f;
     public ImageView g;
-    public h78 h;
+    public s18 h;
     public BdUniqueId i;
     public boolean j;
-    public k7a k;
+    public x1a k;
     public HttpMessageListener l;
     public BdResourceCallback<BdImage> m;
 
@@ -107,7 +111,7 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
                     this.a.j = false;
                 } else {
                     this.a.j = false;
-                    wa8 data = ((ForumSignInResultRespondedMessage) httpResponsedMessage).getData();
+                    h58 data = ((ForumSignInResultRespondedMessage) httpResponsedMessage).getData();
                     if (data != null) {
                         this.a.k(data);
                     }
@@ -148,10 +152,10 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
                 if (i == 0 && (this.a.d.getLayoutManager() instanceof LinearLayoutManager) && this.a.h != null) {
                     LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.a.d.getLayoutManager();
                     int findFirstVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
-                    this.a.h.m(findFirstVisibleItemPosition);
+                    this.a.h.l(findFirstVisibleItemPosition);
                     View findViewByPosition = linearLayoutManager.findViewByPosition(findFirstVisibleItemPosition);
                     if (findViewByPosition != null) {
-                        this.a.h.l(findViewByPosition.getLeft());
+                        this.a.h.i(findViewByPosition.getLeft());
                     }
                 }
             }
@@ -159,7 +163,7 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     }
 
     /* loaded from: classes6.dex */
-    public class c extends qu6<xa8> {
+    public class c extends zo6<i58> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageRecentForumLayout b;
@@ -186,11 +190,11 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qu6
-        public void onEvent(@NonNull xa8 xa8Var) {
+        @Override // com.baidu.tieba.zo6
+        public void onEvent(@NonNull i58 i58Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xa8Var) == null) {
-                this.b.i(xa8Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, i58Var) == null) {
+                this.b.i(i58Var);
             }
         }
     }
@@ -261,11 +265,11 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     }
 
     public final void g(boolean z) {
-        h78 h78Var;
+        s18 s18Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!z && (h78Var = this.h) != null && h78Var.c() != null && !di.isEmpty(jta.g(this.h.c()))) {
-                BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResource(jta.g(this.h.c()), 45, this.m, this.i);
+            if (!z && (s18Var = this.h) != null && s18Var.c() != null && !ad.isEmpty(boa.g(this.h.c()))) {
+                BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResource(boa.g(this.h.c()), 45, this.m, this.i);
                 if (bdImage != null) {
                     setBackground(bdImage.getAsBitmapDrawable());
                     return;
@@ -287,13 +291,13 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
         }
     }
 
-    public void i(@NonNull xa8 xa8Var) {
+    public void i(@NonNull i58 i58Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, xa8Var) != null) || this.j) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, i58Var) != null) || this.j) {
             return;
         }
         this.j = true;
-        this.k.d(xa8Var.a(), this.i);
+        this.k.d(i58Var.a(), this.i);
     }
 
     @Override // android.view.ViewGroup
@@ -320,11 +324,11 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0874, (ViewGroup) this, true);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092770);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f00);
+            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0866, (ViewGroup) this, true);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092767);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f1b);
             this.g = (ImageView) findViewById(R.id.arrow_img);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090be7);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090c03);
             this.d = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity(), 0, false));
             RecommendRecentForumListAdapter recommendRecentForumListAdapter = new RecommendRecentForumListAdapter(this.a);
@@ -340,63 +344,64 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            nu6.b().a(new mu6(this.i, xa8.class), new c(this, xa8.class));
+            wo6.b().b(new vo6(this.i, i58.class), new c(this, i58.class));
             this.l.setTag(this.i);
             this.l.setSelfListener(true);
             MessageManager.getInstance().registerListener(this.l);
         }
     }
 
-    public final void k(wa8 wa8Var) {
+    public final void k(h58 h58Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, wa8Var) == null) && wa8Var != null && this.h != null && !ListUtils.isEmpty(wa8Var.a()) && !ListUtils.isEmpty(this.h.f())) {
-            this.k.c(this.h.f(), wa8Var.a());
+        if ((interceptable == null || interceptable.invokeL(1048581, this, h58Var) == null) && h58Var != null && this.h != null && !ListUtils.isEmpty(h58Var.a()) && !ListUtils.isEmpty(this.h.f())) {
+            this.k.c(this.h.f(), h58Var.a());
             this.e.notifyDataSetChanged();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        h78 h78Var;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || view2 == null) {
             return;
         }
-        if ((view2 == this.c || view2 == this.g) && (h78Var = this.h) != null && !TextUtils.isEmpty(h78Var.g())) {
-            UrlManager.getInstance().dealOneLink(this.a, new String[]{this.h.g()});
-            yda.a().e(true);
+        if (view2 == this.c || view2 == this.g) {
+            TiebaStatic.log(new StatisticItem("c15536").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+            UrlManager.getInstance().dealOneLink(this.a, new String[]{TbConfig.ONE_KEY_SIGN_PAGE_URL});
+            o8a.a().e(true);
         }
     }
 
-    public void setData(h78 h78Var) {
+    public void setData(s18 s18Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h78Var) == null) {
-            if (h78Var != null && this.e != null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, s18Var) == null) {
+            if (s18Var != null && this.e != null) {
                 if (this.k == null) {
-                    this.k = new k7a();
+                    this.k = new x1a();
                 }
-                this.h = h78Var;
-                this.e.setData(h78Var.f());
+                this.h = s18Var;
+                this.e.setData(s18Var.f());
                 this.e.notifyDataSetChanged();
-                if (!di.isEmpty(this.h.g())) {
-                    this.c.setVisibility(8);
-                    this.g.setVisibility(8);
-                } else {
-                    this.c.setVisibility(8);
-                    this.g.setVisibility(8);
+                this.c.setVisibility(0);
+                this.g.setVisibility(0);
+                this.c.setText(getResources().getText(R.string.signallforum));
+                String sharedPrefKeyWithAccount = SharedPrefHelper.getSharedPrefKeyWithAccount("key_recent_forum_is_show");
+                if (!SharedPrefHelper.getInstance().getBoolean(sharedPrefKeyWithAccount, false)) {
+                    SharedPrefHelper.getInstance().putBoolean(sharedPrefKeyWithAccount, true);
                 }
+                TiebaStatic.log(new StatisticItem("c15537").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                 if (this.d.getLayoutManager() instanceof LinearLayoutManager) {
                     LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.d.getLayoutManager();
-                    if (this.h.h()) {
-                        if (h78Var.e() != Integer.MIN_VALUE && h78Var.d() != Integer.MIN_VALUE && !yda.a().c()) {
-                            linearLayoutManager.scrollToPositionWithOffset(h78Var.e(), h78Var.d());
+                    if (this.h.g()) {
+                        if (s18Var.e() != Integer.MIN_VALUE && s18Var.d() != Integer.MIN_VALUE && !o8a.a().c()) {
+                            linearLayoutManager.scrollToPositionWithOffset(s18Var.e(), s18Var.d());
                         }
                     } else {
                         linearLayoutManager.scrollToPosition(0);
-                        yda.a().f(false);
+                        o8a.a().f(false);
                     }
                 }
-                this.h.o(true);
+                this.h.m(true);
                 g(false);
                 h(TbadkApplication.getInst().getSkinType());
                 return;

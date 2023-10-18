@@ -32,7 +32,7 @@ public class SimpleFloatingRePlayElement extends AbsElement {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // kotlin.jvm.functions.Function0
         public final View invoke() {
-            View inflate = LayoutInflater.from(SimpleFloatingRePlayElement.this.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0172, (ViewGroup) null);
+            View inflate = LayoutInflater.from(SimpleFloatingRePlayElement.this.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) null);
             Intrinsics.checkNotNull(inflate);
             return inflate;
         }
@@ -81,7 +81,7 @@ public class SimpleFloatingRePlayElement extends AbsElement {
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
         getView().setId(ViewCompat.generateViewId());
-        getView().findViewById(R.id.obfuscated_res_0x7f091cb7).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sn1
+        getView().findViewById(R.id.obfuscated_res_0x7f091cdf).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ci1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

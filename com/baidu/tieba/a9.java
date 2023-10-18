@@ -1,64 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.util.KVStorageFactory;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes5.dex */
-public class a9 {
+public abstract class a9<V> extends FutureTask<V> {
     public static /* synthetic */ Interceptable $ic;
-    public static File a;
-    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdAsyncTask<?, ?, ?> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448298165, "Lcom/baidu/tieba/a9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448298165, "Lcom/baidu/tieba/a9;");
+    public abstract void a();
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a9(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
+        super(callable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callable, bdAsyncTask};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Callable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new File(AppRuntime.getAppContext().getExternalFilesDir(null), "abjson");
-        b = KVStorageFactory.getDefaultSharedPreferences().getBoolean("abtest_mock", false);
+        this.a = null;
+        this.a = bdAsyncTask;
     }
 
-    public static boolean c() {
+    public BdAsyncTask<?, ?, ?> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a.exists() && a.isDirectory() && a.list() != null && a.list().length > 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static File a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
+        return (BdAsyncTask) invokeV.objValue;
     }
 }

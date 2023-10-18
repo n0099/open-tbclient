@@ -31,24 +31,24 @@ public class KernelErrorElement extends AbsElement {
 
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
-        LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0173, null);
+        LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0171, null);
         this.mRootView = linearLayout;
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091caf);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091cd7);
         this.mTextNetError = textView;
         textView.setOnClickListener(this.mParent);
     }
 
     private void onSwitchFullStyle() {
         Drawable[] compoundDrawables = this.mTextNetError.getCompoundDrawables();
-        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701ca));
-        compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701da), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701da));
+        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c6));
+        compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701d6), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701d6));
         this.mTextNetError.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
     }
 
     private void onSwitchHalfStyle() {
         Drawable[] compoundDrawables = this.mTextNetError.getCompoundDrawables();
-        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c8));
-        compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701d9), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701d9));
+        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c4));
+        compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701d3), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701d3));
         this.mTextNetError.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
     }
 

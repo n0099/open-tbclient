@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.sharechennel;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ShareEntity {
     public static final int SHARE_TYPE_QQ = 4;
     public static final int SHARE_TYPE_SINA_WEIBO = 1;

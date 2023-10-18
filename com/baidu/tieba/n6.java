@@ -1,27 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 /* loaded from: classes7.dex */
-public class n6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface n6 {
+    boolean a(Bitmap bitmap, Canvas canvas);
 
-    public n6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        new e3(1.0f, 1.0f, 1.0f, 1.0f);
-    }
+    int b(int i);
+
+    boolean c(int i);
+
+    void close();
+
+    int getFrameCount();
+
+    int getHeight();
+
+    int getWidth();
 }

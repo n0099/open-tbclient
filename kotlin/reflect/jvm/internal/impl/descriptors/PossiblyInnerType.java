@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.descriptors;
 
 import java.util.List;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class PossiblyInnerType {
     public final List<TypeProjection> arguments;
     public final ClassifierDescriptorWithTypeParameters classifierDescriptor;

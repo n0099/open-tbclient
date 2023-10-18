@@ -1,7 +1,6 @@
 package com.baidu.nadcore.download.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -13,13 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n71;
-import com.baidu.tieba.so0;
-import com.baidu.tieba.to0;
-import com.baidu.tieba.wm0;
-import com.baidu.tieba.ym0;
+import com.baidu.tieba.a21;
+import com.baidu.tieba.th0;
+import com.baidu.tieba.vh0;
 /* loaded from: classes3.dex */
-public class AdInstallTipsView extends LinearLayout implements ym0, View.OnClickListener {
+public class AdInstallTipsView extends LinearLayout implements vh0, View.OnClickListener {
     public ImageView a;
     public TextView b;
     public FrameLayout c;
@@ -28,105 +25,40 @@ public class AdInstallTipsView extends LinearLayout implements ym0, View.OnClick
     public FrameLayout f;
     public TextView g;
     public CountDownTextView h;
-    public wm0<AdInstallTipsView> i;
-    public b j;
+    public th0<AdInstallTipsView> i;
+    public a j;
 
     /* loaded from: classes3.dex */
-    public interface b {
+    public interface a {
         void a(ClogBuilder.Area area, boolean z, long j, long j2);
-
-        void onCancel();
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements to0 {
-        @Override // com.baidu.tieba.to0
-        public void a() {
-        }
-
-        public a() {
-        }
-
-        @Override // com.baidu.tieba.to0
-        public void b(Bitmap bitmap) {
-            AdInstallTipsView.this.a.setImageBitmap(bitmap);
-        }
     }
 
     public AdInstallTipsView(Context context) {
         this(context, null);
     }
 
-    @Override // com.baidu.tieba.ym0
-    public void a(long j) {
-        boolean z;
-        ClogBuilder.Area area;
-        e().a(j);
-        if (this.h.getVisibility() == 0) {
-            z = true;
-        } else {
-            z = false;
-        }
-        if (z) {
-            area = ClogBuilder.Area.INSTALL_NOW_BUTTON;
-        } else {
-            area = ClogBuilder.Area.INSTALL_LATER_BUTTON;
-        }
-        ClogBuilder.Area area2 = area;
-        b bVar = this.j;
-        if (bVar != null) {
-            bVar.a(area2, false, this.i.e(), this.i.j());
-        }
-    }
-
-    public void setAction(b bVar) {
-        this.j = bVar;
+    public void setAction(a aVar) {
+        this.j = aVar;
     }
 
     public AdInstallTipsView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    @Override // com.baidu.tieba.ym0
-    public void b(long j, long j2) {
-        e().b(j, j2);
-    }
-
-    @Override // com.baidu.tieba.ym0
-    public void c(long j, long j2) {
-        e().c(j, j2);
-        b bVar = this.j;
-        if (bVar != null) {
-            bVar.onCancel();
-        }
-    }
-
-    @Override // com.baidu.tieba.ym0
-    public void onProgress(long j, long j2) {
-        e().onProgress(j, j2);
-    }
-
     public AdInstallTipsView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        f();
+        a();
     }
 
-    public final CountDownTextView e() {
-        if (this.h.getVisibility() == 0) {
-            return this.h;
-        }
-        return this.e;
-    }
-
-    public final void f() {
-        g(LayoutInflater.from(getContext()).inflate(R.layout.nad_install_tips_view, this));
+    public final void a() {
+        b(LayoutInflater.from(getContext()).inflate(R.layout.nad_install_tips_view, this));
         setBackground(getResources().getDrawable(R.drawable.nad_install_tips_bg));
         setOrientation(0);
         setGravity(16);
-        this.i = new wm0<>(this);
+        this.i = new th0<>(this);
     }
 
-    public final void g(View view2) {
+    public final void b(View view2) {
         this.a = (ImageView) view2.findViewById(R.id.ad_install_tips_apk_icon);
         this.b = (TextView) view2.findViewById(R.id.ad_install_tips_apk_name);
         this.d = (TextView) view2.findViewById(R.id.ad_install_tips_delay_install_text);
@@ -152,7 +84,7 @@ public class AdInstallTipsView extends LinearLayout implements ym0, View.OnClick
         this.c.setOnClickListener(this);
         this.f.setOnClickListener(this);
         setOnClickListener(this);
-        n71.a(getContext(), this.c, 10.0f);
+        a21.a(getContext(), this.c, 10.0f);
     }
 
     @Override // android.view.View.OnClickListener
@@ -173,26 +105,9 @@ public class AdInstallTipsView extends LinearLayout implements ym0, View.OnClick
             area = ClogBuilder.Area.INSTALL_LATER_BUTTON;
         }
         ClogBuilder.Area area2 = area;
-        b bVar = this.j;
-        if (bVar != null) {
-            bVar.a(area2, true, this.i.e(), this.i.j());
+        a aVar = this.j;
+        if (aVar != null) {
+            aVar.a(area2, true, this.i.a(), this.i.b());
         }
-    }
-
-    public void update(String str, String str2, long j, boolean z) {
-        so0.a().c(str, new a());
-        this.b.setText(str2);
-        if (z) {
-            this.d.setVisibility(8);
-            this.e.setVisibility(0);
-            this.g.setVisibility(0);
-            this.h.setVisibility(8);
-        } else {
-            this.d.setVisibility(0);
-            this.e.setVisibility(8);
-            this.g.setVisibility(8);
-            this.h.setVisibility(0);
-        }
-        this.i.h(j);
     }
 }

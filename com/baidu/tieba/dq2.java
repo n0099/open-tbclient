@@ -1,53 +1,64 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class dq2 extends ap2<qr2> {
+public class dq2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final eq2[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ap2
-    @NonNull
-    public String b() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947713124, "Lcom/baidu/tieba/dq2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947713124, "Lcom/baidu/tieba/dq2;");
+                return;
+            }
+        }
+        a = new eq2[]{new bq2(), new cq2()};
+    }
+
+    public static String a() {
         InterceptResult invokeV;
+        eq2[] eq2VarArr;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (eq2 eq2Var : a) {
+                sb.append(eq2Var.b());
+                sb.append(eq2Var.enable() ? 1 : 0);
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 
-    public dq2() {
+    @NonNull
+    public static List<eq2> b() {
+        InterceptResult invokeV;
+        eq2[] eq2VarArr;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (eq2 eq2Var : a) {
+                if (eq2Var.enable()) {
+                    arrayList.add(eq2Var);
+                }
             }
+            return arrayList;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ap2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull qr2 qr2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, qr2Var) == null) {
-            String str = command.what;
-            d(qr2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Surface) {
-                qr2Var.setSurface((Surface) obj);
-            }
-        }
+        return (List) invokeV.objValue;
     }
 }

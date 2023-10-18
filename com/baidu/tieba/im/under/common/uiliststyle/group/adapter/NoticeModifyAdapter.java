@@ -16,7 +16,7 @@ import com.baidu.tieba.im.base.core.uilist.BaseSysAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbNoticeModifySysMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.NoticeModifySysItem;
-import com.baidu.tieba.mo8;
+import com.baidu.tieba.wi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,12 +59,12 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysItem, Hol
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919b4);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09103b);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091040);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ebf);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919b7);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919b6);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919dd);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091055);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09105a);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090eda);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919e0);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919df);
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
@@ -101,24 +101,24 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysItem, Hol
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseSysAdapter
     @NonNull
-    /* renamed from: P */
-    public Holder K(@NonNull ViewGroup viewGroup) {
+    /* renamed from: Q */
+    public Holder L(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ff, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01fe, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public void R(long j) {
+    public void S(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             this.l = j;
         }
     }
 
-    public void S(long j) {
+    public void T(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             this.m = j;
@@ -127,8 +127,8 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysItem, Hol
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseSysAdapter
-    /* renamed from: Q */
-    public void M(int i, @NonNull ViewGroup viewGroup, @NonNull NoticeModifySysItem noticeModifySysItem, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: R */
+    public void N(int i, @NonNull ViewGroup viewGroup, @NonNull NoticeModifySysItem noticeModifySysItem, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, noticeModifySysItem, holder, list, Integer.valueOf(i2)}) == null) {
             EMManager.from(holder.a).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0625);
@@ -141,13 +141,13 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysItem, Hol
                 holder.c.setText(tbMsg.getUserFrom().getUsername());
                 int role = tbMsg.getUserFrom().getRole();
                 if (role == 1) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f0960);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0967);
                 } else if (role == 2 || role == 3) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f0963);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f096a);
                 }
-                holder.d.setText(R.string.obfuscated_res_0x7f0f0958);
-                holder.e.setText(R.string.obfuscated_res_0x7f0f184f);
-                mo8.d("c15095", 2, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
+                holder.d.setText(R.string.obfuscated_res_0x7f0f095f);
+                holder.e.setText(R.string.obfuscated_res_0x7f0f182b);
+                wi8.d("c15095", 2, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
             }
         }
     }

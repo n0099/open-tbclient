@@ -152,7 +152,7 @@ public class EmotionPreview extends LinearLayout {
             setBackgroundResource(R.drawable.bg_expression_bubble);
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
             setPadding(dimens, dimens, dimens, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070225));
-            this.b = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070393);
+            this.b = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f07038f);
         }
     }
 

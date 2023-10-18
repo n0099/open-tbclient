@@ -21,28 +21,28 @@ import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.txt.UnifyTextView;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj0;
-import com.baidu.tieba.bs0;
-import com.baidu.tieba.ce1;
-import com.baidu.tieba.cn0;
-import com.baidu.tieba.ds0;
-import com.baidu.tieba.er0;
-import com.baidu.tieba.es0;
-import com.baidu.tieba.hl0;
-import com.baidu.tieba.in0;
-import com.baidu.tieba.ip0;
-import com.baidu.tieba.ir0;
-import com.baidu.tieba.l61;
-import com.baidu.tieba.li0;
-import com.baidu.tieba.mp0;
-import com.baidu.tieba.mr0;
-import com.baidu.tieba.ni0;
-import com.baidu.tieba.p61;
-import com.baidu.tieba.rh0;
-import com.baidu.tieba.rr0;
-import com.baidu.tieba.sr0;
-import com.baidu.tieba.w31;
-import com.baidu.tieba.x31;
+import com.baidu.tieba.an0;
+import com.baidu.tieba.bm0;
+import com.baidu.tieba.bn0;
+import com.baidu.tieba.c11;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.fi0;
+import com.baidu.tieba.fk0;
+import com.baidu.tieba.fm0;
+import com.baidu.tieba.id0;
+import com.baidu.tieba.jk0;
+import com.baidu.tieba.jm0;
+import com.baidu.tieba.jy0;
+import com.baidu.tieba.kd0;
+import com.baidu.tieba.ky0;
+import com.baidu.tieba.m81;
+import com.baidu.tieba.oc0;
+import com.baidu.tieba.om0;
+import com.baidu.tieba.pm0;
+import com.baidu.tieba.y01;
+import com.baidu.tieba.yd0;
+import com.baidu.tieba.ym0;
+import com.baidu.tieba.zh0;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,8 +66,8 @@ public final class NadRewardImageView extends LinearLayout {
     public final Lazy f;
     public final Lazy g;
     public final Lazy h;
-    public li0 i;
-    public sr0 j;
+    public id0 i;
+    public pm0 j;
     public Function0<Unit> k;
     public final Object l;
     public final WeakReference<Context> m;
@@ -116,17 +116,17 @@ public final class NadRewardImageView extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static final class a extends in0<rh0> {
+    public static final class a extends fi0<oc0> {
         public a(Class cls) {
             super(cls);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.in0
-        public void onEvent(rh0 event) {
+        @Override // com.baidu.tieba.fi0
+        public void onEvent(oc0 event) {
             Intrinsics.checkNotNullParameter(event, "event");
-            sr0 sr0Var = NadRewardImageView.this.j;
-            if ((sr0Var == null || sr0Var.p()) && event.a != null && NadRewardImageView.this.getDownloadBtn().getDownloadStatus() != AdDownloadStatus.DOWNLOADING) {
+            pm0 pm0Var = NadRewardImageView.this.j;
+            if ((pm0Var == null || pm0Var.p()) && event.a != null && NadRewardImageView.this.getDownloadBtn().getDownloadStatus() != AdDownloadStatus.DOWNLOADING) {
                 NadRewardImageView.this.getDownloadBtn().performClick();
             }
         }
@@ -173,17 +173,17 @@ public final class NadRewardImageView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             List<MonitorUrl> list;
-            li0 li0Var = NadRewardImageView.this.i;
-            if (li0Var != null) {
-                li0Var.l();
+            id0 id0Var = NadRewardImageView.this.i;
+            if (id0Var != null) {
+                id0Var.l();
             }
-            sr0 sr0Var = NadRewardImageView.this.j;
-            if (sr0Var != null) {
-                list = sr0Var.e;
+            pm0 pm0Var = NadRewardImageView.this.j;
+            if (pm0Var != null) {
+                list = pm0Var.e;
             } else {
                 list = null;
             }
-            ni0.b(list);
+            kd0.b(list);
         }
     }
 
@@ -223,7 +223,7 @@ public final class NadRewardImageView extends LinearLayout {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final AdImageView invoke() {
-                View findViewById = NadRewardImageView.this.findViewById(R.id.obfuscated_res_0x7f090315);
+                View findViewById = NadRewardImageView.this.findViewById(R.id.obfuscated_res_0x7f090319);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.avatar)");
                 return (AdImageView) findViewById;
             }
@@ -251,7 +251,7 @@ public final class NadRewardImageView extends LinearLayout {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final UnifyTextView invoke() {
-                View findViewById = NadRewardImageView.this.findViewById(R.id.obfuscated_res_0x7f09259d);
+                View findViewById = NadRewardImageView.this.findViewById(R.id.obfuscated_res_0x7f0925a7);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.title)");
                 return (UnifyTextView) findViewById;
             }
@@ -293,7 +293,7 @@ public final class NadRewardImageView extends LinearLayout {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final AdImageView invoke() {
-                View findViewById = NadRewardImageView.this.findViewById(R.id.obfuscated_res_0x7f09107f);
+                View findViewById = NadRewardImageView.this.findViewById(R.id.obfuscated_res_0x7f091099);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.image)");
                 return (AdImageView) findViewById;
             }
@@ -329,7 +329,7 @@ public final class NadRewardImageView extends LinearLayout {
         this.l = new Object();
         this.m = new WeakReference<>(context);
         LayoutInflater from = LayoutInflater.from(context);
-        ip0 a2 = mp0.a();
+        fk0 a2 = jk0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
         from.inflate(a2.t(), this);
     }
@@ -343,8 +343,8 @@ public final class NadRewardImageView extends LinearLayout {
         this.k = clickCallback;
     }
 
-    public final void setData(sr0 sr0Var) {
-        this.j = sr0Var;
+    public final void setData(pm0 pm0Var) {
+        this.j = pm0Var;
         g();
         h();
         l();
@@ -356,21 +356,21 @@ public final class NadRewardImageView extends LinearLayout {
 
     public final void e(String str) {
         String str2;
-        mr0 mr0Var;
+        jm0 jm0Var;
         List<MonitorUrl> list;
         boolean z;
-        mr0 mr0Var2;
+        jm0 jm0Var2;
         ClogBuilder u = new ClogBuilder().j(str).y(ClogBuilder.LogType.CLICK).u(ClogBuilder.Page.WELFAREIMAGELP);
-        sr0 sr0Var = this.j;
+        pm0 pm0Var = this.j;
         String str3 = null;
-        if (sr0Var != null && (mr0Var2 = sr0Var.f) != null) {
-            str2 = mr0Var2.d;
+        if (pm0Var != null && (jm0Var2 = pm0Var.f) != null) {
+            str2 = jm0Var2.d;
         } else {
             str2 = null;
         }
-        w31.e(u.p(str2));
-        sr0 sr0Var2 = this.j;
-        if (sr0Var2 != null && (list = sr0Var2.e) != null) {
+        jy0.e(u.p(str2));
+        pm0 pm0Var2 = this.j;
+        if (pm0Var2 != null && (list = pm0Var2.e) != null) {
             ArrayList<MonitorUrl> arrayList = new ArrayList();
             for (Object obj : list) {
                 String str4 = ((MonitorUrl) obj).clickUrl;
@@ -384,15 +384,15 @@ public final class NadRewardImageView extends LinearLayout {
                 }
             }
             for (MonitorUrl monitorUrl : arrayList) {
-                x31.b(monitorUrl.clickUrl);
+                ky0.b(monitorUrl.clickUrl);
             }
         }
         if (Intrinsics.areEqual(str, "detailButton")) {
-            sr0 sr0Var3 = this.j;
-            if (sr0Var3 != null && (mr0Var = sr0Var3.f) != null) {
-                str3 = mr0Var.c;
+            pm0 pm0Var3 = this.j;
+            if (pm0Var3 != null && (jm0Var = pm0Var3.f) != null) {
+                str3 = jm0Var.c;
             }
-            bj0.c(str3, getContext());
+            yd0.c(str3, getContext());
             return;
         }
         Function0<Unit> function0 = this.k;
@@ -408,21 +408,21 @@ public final class NadRewardImageView extends LinearLayout {
         }
         Activity activity = (Activity) context;
         if (activity != null) {
-            cn0.b.c(activity, this.l, new a(rh0.class));
+            zh0.b.c(activity, this.l, new a(oc0.class));
         }
     }
 
     public final void g() {
         String str;
-        mr0 mr0Var;
+        jm0 jm0Var;
         AdImageView avatar = getAvatar();
-        sr0 sr0Var = this.j;
-        if (sr0Var != null && (mr0Var = sr0Var.f) != null) {
-            str = mr0Var.f;
+        pm0 pm0Var = this.j;
+        if (pm0Var != null && (jm0Var = pm0Var.f) != null) {
+            str = jm0Var.f;
         } else {
             str = null;
         }
-        avatar.r(str);
+        avatar.s(str);
         avatar.setOnClickListener(new b());
     }
 
@@ -434,14 +434,14 @@ public final class NadRewardImageView extends LinearLayout {
     */
     public final void h() {
         String str;
-        mr0 mr0Var;
-        mr0 mr0Var2;
+        jm0 jm0Var;
+        jm0 jm0Var2;
         String str2;
         boolean z;
         UnifyTextView brandName = getBrandName();
-        sr0 sr0Var = this.j;
+        pm0 pm0Var = this.j;
         boolean z2 = true;
-        if (sr0Var != null && (mr0Var2 = sr0Var.f) != null && (str2 = mr0Var2.e) != null) {
+        if (pm0Var != null && (jm0Var2 = pm0Var.f) != null && (str2 = jm0Var2.e) != null) {
             if (str2.length() > 0) {
                 z = true;
             } else {
@@ -454,9 +454,9 @@ public final class NadRewardImageView extends LinearLayout {
         } else {
             brandName.setVisibility(8);
         }
-        sr0 sr0Var2 = this.j;
-        if (sr0Var2 != null && (mr0Var = sr0Var2.f) != null) {
-            str = mr0Var.e;
+        pm0 pm0Var2 = this.j;
+        if (pm0Var2 != null && (jm0Var = pm0Var2.f) != null) {
+            str = jm0Var.e;
         } else {
             str = null;
         }
@@ -469,30 +469,30 @@ public final class NadRewardImageView extends LinearLayout {
         boolean z;
         String str2;
         String str3;
-        ir0 ir0Var;
-        ir0 ir0Var2;
-        ir0 ir0Var3;
-        ir0 ir0Var4;
+        fm0 fm0Var;
+        fm0 fm0Var2;
+        fm0 fm0Var3;
+        fm0 fm0Var4;
         TextView detailBtn = getDetailBtn();
         Resources resources = detailBtn.getResources();
-        ip0 a2 = mp0.a();
+        fk0 a2 = jk0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
         float dimension = resources.getDimension(a2.i());
         GradientDrawable gradientDrawable = new GradientDrawable();
-        sr0 sr0Var = this.j;
+        pm0 pm0Var = this.j;
         String str4 = null;
-        if (sr0Var != null && (ir0Var4 = sr0Var.m) != null) {
-            str = ir0Var4.r;
+        if (pm0Var != null && (fm0Var4 = pm0Var.m) != null) {
+            str = fm0Var4.r;
         } else {
             str = null;
         }
-        gradientDrawable.setColor(l61.a(str, R.color.nad_reward_image_style_btn_color));
+        gradientDrawable.setColor(y01.a(str, R.color.nad_reward_image_style_btn_color));
         gradientDrawable.setCornerRadius(dimension);
         Unit unit = Unit.INSTANCE;
         detailBtn.setBackground(gradientDrawable);
-        sr0 sr0Var2 = this.j;
+        pm0 pm0Var2 = this.j;
         boolean z2 = false;
-        if (sr0Var2 != null && sr0Var2.o()) {
+        if (pm0Var2 != null && pm0Var2.o()) {
             z = true;
         } else {
             z = false;
@@ -503,20 +503,20 @@ public final class NadRewardImageView extends LinearLayout {
             detailBtn.setVisibility(8);
         }
         detailBtn.setOnClickListener(new d());
-        sr0 sr0Var3 = this.j;
-        if (sr0Var3 != null && (ir0Var3 = sr0Var3.m) != null && ir0Var3.g) {
+        pm0 pm0Var3 = this.j;
+        if (pm0Var3 != null && (fm0Var3 = pm0Var3.m) != null && fm0Var3.g) {
             str3 = detailBtn.getContext().getString(R.string.nad_reward_detail_btn_open_app);
         } else {
-            sr0 sr0Var4 = this.j;
-            if (sr0Var4 != null && (ir0Var2 = sr0Var4.m) != null) {
-                str2 = ir0Var2.b;
+            pm0 pm0Var4 = this.j;
+            if (pm0Var4 != null && (fm0Var2 = pm0Var4.m) != null) {
+                str2 = fm0Var2.b;
             } else {
                 str2 = null;
             }
             if (!((str2 == null || StringsKt__StringsJVMKt.isBlank(str2)) ? true : true)) {
-                sr0 sr0Var5 = this.j;
-                if (sr0Var5 != null && (ir0Var = sr0Var5.m) != null) {
-                    str4 = ir0Var.b;
+                pm0 pm0Var5 = this.j;
+                if (pm0Var5 != null && (fm0Var = pm0Var5.m) != null) {
+                    str4 = fm0Var.b;
                 }
             } else {
                 str4 = detailBtn.getContext().getString(R.string.nad_reward_detail_btn_text);
@@ -534,22 +534,22 @@ public final class NadRewardImageView extends LinearLayout {
     */
     public final void l() {
         boolean z;
-        sr0 sr0Var;
+        pm0 pm0Var;
         String str;
         boolean z2;
         String str2;
         CharSequence charSequence;
-        mr0 mr0Var;
-        mr0 mr0Var2;
-        rr0 m;
-        mr0 mr0Var3;
-        mr0 mr0Var4;
+        jm0 jm0Var;
+        jm0 jm0Var2;
+        om0 m;
+        jm0 jm0Var3;
+        jm0 jm0Var4;
         String str3;
         boolean z3;
         UnifyTextView title = getTitle();
-        sr0 sr0Var2 = this.j;
+        pm0 pm0Var2 = this.j;
         boolean z4 = true;
-        if (sr0Var2 != null && (mr0Var4 = sr0Var2.f) != null && (str3 = mr0Var4.g) != null) {
+        if (pm0Var2 != null && (jm0Var4 = pm0Var2.f) != null && (str3 = jm0Var4.g) != null) {
             if (str3.length() > 0) {
                 z3 = true;
             } else {
@@ -562,10 +562,10 @@ public final class NadRewardImageView extends LinearLayout {
                 } else {
                     title.setVisibility(8);
                 }
-                sr0Var = this.j;
+                pm0Var = this.j;
                 String str4 = null;
-                if (sr0Var == null && (mr0Var3 = sr0Var.f) != null) {
-                    str = mr0Var3.g;
+                if (pm0Var == null && (jm0Var3 = pm0Var.f) != null) {
+                    str = jm0Var3.g;
                 } else {
                     str = null;
                 }
@@ -578,13 +578,13 @@ public final class NadRewardImageView extends LinearLayout {
                     Drawable drawable = ContextCompat.getDrawable(title.getContext(), R.drawable.nad_tag_icon);
                     float dimension = title.getResources().getDimension(R.dimen.nad_dimen_100dp);
                     Resources resources = title.getResources();
-                    ip0 a2 = mp0.a();
+                    fk0 a2 = jk0.a();
                     Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
                     float dimension2 = resources.getDimension(a2.n());
                     Intrinsics.checkNotNull(drawable);
                     float intrinsicHeight = dimension2 / drawable.getIntrinsicHeight();
-                    sr0 sr0Var3 = this.j;
-                    if (sr0Var3 != null && (m = sr0Var3.m()) != null) {
+                    pm0 pm0Var3 = this.j;
+                    if (pm0Var3 != null && (m = pm0Var3.m()) != null) {
                         str2 = m.b();
                     } else {
                         str2 = null;
@@ -593,15 +593,15 @@ public final class NadRewardImageView extends LinearLayout {
                         z4 = false;
                     }
                     if (z4) {
-                        sr0 sr0Var4 = this.j;
-                        if (sr0Var4 != null && (mr0Var2 = sr0Var4.f) != null) {
-                            str4 = mr0Var2.g;
+                        pm0 pm0Var4 = this.j;
+                        if (pm0Var4 != null && (jm0Var2 = pm0Var4.f) != null) {
+                            str4 = jm0Var2.g;
                         }
-                        charSequence = ce1.b(str4, 2, getTitle(), title.getContext(), drawable, (int) dimension, intrinsicHeight);
+                        charSequence = m81.b(str4, 2, getTitle(), title.getContext(), drawable, (int) dimension, intrinsicHeight);
                     } else {
-                        sr0 sr0Var5 = this.j;
-                        if (sr0Var5 != null && (mr0Var = sr0Var5.f) != null) {
-                            str4 = mr0Var.g;
+                        pm0 pm0Var5 = this.j;
+                        if (pm0Var5 != null && (jm0Var = pm0Var5.f) != null) {
+                            str4 = jm0Var.g;
                         }
                         charSequence = str4;
                     }
@@ -613,9 +613,9 @@ public final class NadRewardImageView extends LinearLayout {
         z = false;
         if (!z) {
         }
-        sr0Var = this.j;
+        pm0Var = this.j;
         String str42 = null;
-        if (sr0Var == null) {
+        if (pm0Var == null) {
         }
         str = null;
         if (str == null) {
@@ -630,50 +630,50 @@ public final class NadRewardImageView extends LinearLayout {
         String str;
         boolean z;
         Object obj;
-        er0 er0Var;
+        bm0 bm0Var;
         String str2;
-        ir0 ir0Var;
-        mr0 mr0Var;
-        ir0 ir0Var2;
-        sr0 sr0Var;
-        ir0 ir0Var3;
-        er0 er0Var2;
-        bs0 c2;
-        ir0 ir0Var4;
-        li0 li0Var = this.i;
-        if (li0Var != null) {
-            li0Var.j();
+        fm0 fm0Var;
+        jm0 jm0Var;
+        fm0 fm0Var2;
+        pm0 pm0Var;
+        fm0 fm0Var3;
+        bm0 bm0Var2;
+        ym0 c2;
+        fm0 fm0Var4;
+        id0 id0Var = this.i;
+        if (id0Var != null) {
+            id0Var.j();
         }
         String str3 = null;
         this.i = null;
         NadMiniVideoDownloadView downloadBtn = getDownloadBtn();
         Resources resources = downloadBtn.getResources();
-        ip0 a2 = mp0.a();
+        fk0 a2 = jk0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
         float dimension = resources.getDimension(a2.i());
         GradientDrawable gradientDrawable = new GradientDrawable();
-        sr0 sr0Var2 = this.j;
-        if (sr0Var2 != null && (ir0Var4 = sr0Var2.m) != null) {
-            str = ir0Var4.r;
+        pm0 pm0Var2 = this.j;
+        if (pm0Var2 != null && (fm0Var4 = pm0Var2.m) != null) {
+            str = fm0Var4.r;
         } else {
             str = null;
         }
-        gradientDrawable.setColor(l61.a(str, R.color.nad_reward_image_style_btn_color));
+        gradientDrawable.setColor(y01.a(str, R.color.nad_reward_image_style_btn_color));
         gradientDrawable.setCornerRadius(dimension);
         Unit unit = Unit.INSTANCE;
         downloadBtn.setBackground(gradientDrawable);
         downloadBtn.setTextColor(ContextCompat.getColor(downloadBtn.getContext(), R.color.nad_reward_image_btn_text_color));
         downloadBtn.setProgressColor(ContextCompat.getColor(downloadBtn.getContext(), R.color.nad_reward_image_btn_download_progress));
-        sr0 sr0Var3 = this.j;
-        if (sr0Var3 != null && (c2 = sr0Var3.c()) != null) {
+        pm0 pm0Var3 = this.j;
+        if (pm0Var3 != null && (c2 = pm0Var3.c()) != null) {
             z = c2.e();
         } else {
             z = false;
         }
         downloadBtn.setIconArrowSwitch(z);
-        sr0 sr0Var4 = this.j;
+        pm0 pm0Var4 = this.j;
         boolean z2 = true;
-        if ((sr0Var4 == null || !sr0Var4.p() || (sr0Var = this.j) == null || (ir0Var3 = sr0Var.m) == null || (er0Var2 = ir0Var3.p) == null || !er0Var2.e) ? false : false) {
+        if ((pm0Var4 == null || !pm0Var4.p() || (pm0Var = this.j) == null || (fm0Var3 = pm0Var.m) == null || (bm0Var2 = fm0Var3.p) == null || !bm0Var2.e) ? false : false) {
             downloadBtn.setVisibility(0);
             obj = downloadBtn;
         } else {
@@ -681,58 +681,58 @@ public final class NadRewardImageView extends LinearLayout {
             obj = null;
         }
         if (obj != null) {
-            sr0 sr0Var5 = this.j;
-            if (sr0Var5 != null && (ir0Var2 = sr0Var5.m) != null) {
-                er0Var = ir0Var2.p;
+            pm0 pm0Var5 = this.j;
+            if (pm0Var5 != null && (fm0Var2 = pm0Var5.m) != null) {
+                bm0Var = fm0Var2.p;
             } else {
-                er0Var = null;
+                bm0Var = null;
             }
-            sr0 sr0Var6 = this.j;
-            if (sr0Var6 != null && (mr0Var = sr0Var6.f) != null) {
-                str2 = mr0Var.d;
+            pm0 pm0Var6 = this.j;
+            if (pm0Var6 != null && (jm0Var = pm0Var6.f) != null) {
+                str2 = jm0Var.d;
             } else {
                 str2 = null;
             }
-            sr0 sr0Var7 = this.j;
-            if (sr0Var7 != null && (ir0Var = sr0Var7.m) != null) {
-                str3 = ir0Var.t;
+            pm0 pm0Var7 = this.j;
+            if (pm0Var7 != null && (fm0Var = pm0Var7.m) != null) {
+                str3 = fm0Var.t;
             }
-            hl0 d2 = hl0.d(er0Var, str2, str3);
+            eg0 d2 = eg0.d(bm0Var, str2, str3);
             Intrinsics.checkNotNullExpressionValue(d2, "AdDownloadBean.from(adMo….enhanceModel?.btnScheme)");
             d2.q.a = ClogBuilder.Page.WELFAREIMAGELP.type;
-            this.i = new li0(d2, getDownloadBtn());
+            this.i = new id0(d2, getDownloadBtn());
         }
         downloadBtn.setOnClickListener(new e());
     }
 
     public final void k() {
-        es0 es0Var;
+        bn0 bn0Var;
         String str;
-        ds0 e2;
-        List<es0> c2;
+        an0 e2;
+        List<bn0> c2;
         FrameLayout imageContainer = getImageContainer();
         ViewGroup.LayoutParams layoutParams = imageContainer.getLayoutParams();
-        layoutParams.height = (p61.c.e(imageContainer.getContext()) * 9) / 16;
+        layoutParams.height = (c11.c.e(imageContainer.getContext()) * 9) / 16;
         imageContainer.setLayoutParams(layoutParams);
         imageContainer.setOnClickListener(new f());
-        sr0 sr0Var = this.j;
+        pm0 pm0Var = this.j;
         String str2 = null;
-        if (sr0Var != null && (e2 = sr0Var.e()) != null && (c2 = e2.c()) != null) {
-            es0Var = c2.get(0);
+        if (pm0Var != null && (e2 = pm0Var.e()) != null && (c2 = e2.c()) != null) {
+            bn0Var = c2.get(0);
         } else {
-            es0Var = null;
+            bn0Var = null;
         }
         AdImageView imageBg = getImageBg();
-        if (es0Var != null) {
-            str = es0Var.a();
+        if (bn0Var != null) {
+            str = bn0Var.a();
         } else {
             str = null;
         }
         imageBg.b(str, 90, 5);
         AdImageView image = getImage();
-        if (es0Var != null) {
-            str2 = es0Var.a();
+        if (bn0Var != null) {
+            str2 = bn0Var.a();
         }
-        image.r(str2);
+        image.s(str2);
     }
 }

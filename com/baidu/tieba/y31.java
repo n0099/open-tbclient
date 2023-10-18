@@ -1,107 +1,381 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.webpanel.PanelScrollView;
+import com.baidu.nadcore.webpanel.model.AdData;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class y31 {
+public final class y31 extends z31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClogBuilder.LogType a;
-    public String b;
-    public String c;
-    public boolean d;
-    public String e;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
+    public final Object e;
+    public v31 f;
+    public q31 g;
+    public x31 h;
+    public boolean i;
+    public final a41 j;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public y31(ClogBuilder.LogType logType, String str, String str2, boolean z) {
-        this(logType, str, str2, z, "");
+    /* loaded from: classes8.dex */
+    public static final class a extends fi0<y21> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y31 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(y31 y31Var, Class cls) {
+            super(cls);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y31Var, cls};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Class) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = y31Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fi0
+        public void onEvent(y21 event) {
+            AbsNadBrowserView m;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+                Intrinsics.checkNotNullParameter(event, "event");
+                if (!TextUtils.isEmpty(event.a()) && (m = this.b.j.m()) != null) {
+                    AbsNadBrowserView.C(m, event.a(), null, 2, null);
+                }
+            }
+        }
+    }
+
+    public y31(a41 container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {logType, str, str2, Boolean.valueOf(z)};
+            Object[] objArr = {container};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((ClogBuilder.LogType) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), (String) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(container, "container");
+        this.j = container;
+        this.a = "bdmedialive://bdmedialive/common/closeWebview";
+        this.b = "bdmedialive://bdmedialive/common/panelSwitchHalfScreen";
+        this.c = "bdmedialive://bdmedialive/common/panelSwitchFullScreen";
+        this.d = "nadcorevendor://vendor/ad/webPanelControl";
+        this.e = new Object();
     }
 
-    public y31(ClogBuilder.LogType logType, String str, String str2, boolean z, String str3) {
+    public final void l(int i) {
+        LinearLayout e;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {logType, str, str2, Boolean.valueOf(z), str3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (e = this.j.e()) != null) {
+            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
+            layoutParams.height = i;
+            e.setLayoutParams(layoutParams);
+        }
+    }
+
+    public final void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public final void o(q31 helper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, helper) == null) {
+            Intrinsics.checkNotNullParameter(helper, "helper");
+            this.g = helper;
+        }
+    }
+
+    public final void p(v31 v31Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, v31Var) == null) {
+            this.f = v31Var;
+        }
+    }
+
+    public final void q(x31 x31Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, x31Var) == null) {
+            this.h = x31Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.z31
+    public boolean c(b41 container, String url) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, container, url)) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+            Intrinsics.checkNotNullParameter(url, "url");
+            if (TextUtils.isEmpty(url)) {
+                return false;
+            }
+            if (TextUtils.equals(this.a, url)) {
+                g();
+                return true;
+            } else if (TextUtils.equals(this.b, url)) {
+                s();
+                return true;
+            } else if (TextUtils.equals(this.c, url)) {
+                r();
+                return true;
+            } else if (!StringsKt__StringsJVMKt.startsWith$default(url, this.d, false, 2, null)) {
+                return false;
+            } else {
+                return f(new de0(url));
             }
         }
-        this.c = "";
-        this.a = logType;
-        this.b = str;
-        this.c = str2;
-        this.d = z;
-        this.e = str3;
+        return invokeLL.booleanValue;
     }
 
-    public d41 a(int i, String str) {
-        InterceptResult invokeIL;
+    public final void i(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            return b(i, str, "normal");
-        }
-        return (d41) invokeIL.objValue;
-    }
-
-    public d41 b(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
-            d41 d41Var = new d41();
-            try {
-                d41Var.g("1030").h(this.c).b("f1", this.a.type).b("f2", str2).b("f3", URLEncoder.encode(this.b, "utf-8")).b("f4", String.valueOf(i)).b("f5", str);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            AbsNadBrowserView m = this.j.m();
+            if (z) {
+                if (i == 1) {
+                    if (m != null) {
+                        AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'1','value':'start'})", null, 2, null);
+                    }
+                } else if (i == 2 && m != null) {
+                    AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'2','value':'start'})", null, 2, null);
+                }
+            } else if (i == 1) {
+                if (m != null) {
+                    AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'1','value':'end'})", null, 2, null);
+                }
+            } else if (i == 2) {
+                l31.b.b(true);
+                if (m != null) {
+                    AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'2','value':'end'})", null, 2, null);
+                }
             }
-            return d41Var;
         }
-        return (d41) invokeILL.objValue;
     }
 
-    public boolean c() {
+    @Override // com.baidu.tieba.z31
+    public void d(b41 container, String url) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container, url) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+            Intrinsics.checkNotNullParameter(url, "url");
+            AbsNadBrowserView m = container.m();
+            if (m != null) {
+                AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'0'})", null, 2, null);
+            }
+        }
+    }
+
+    public final boolean f(de0 de0Var) {
+        InterceptResult invokeL;
+        boolean z;
+        q31 q31Var;
+        q31 q31Var2;
+        q31 q31Var3;
+        q31 q31Var4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, de0Var)) == null) {
+            HashMap<String, String> d = de0Var.d();
+            Intrinsics.checkNotNullExpressionValue(d, "model.params");
+            String str = (String) vx0.b(d, "params");
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            JSONObject c = ux0.c(str);
+            Intrinsics.checkNotNullExpressionValue(c, "JSONUtils.newJSONObject(paramsJson)");
+            String optString = c.optString("type");
+            if (c.optInt(PackageTable.DISABLE, 0) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (optString != null) {
+                switch (optString.hashCode()) {
+                    case -2119262164:
+                        if (optString.equals("slideUp") && (q31Var = this.g) != null) {
+                            q31Var.j(z);
+                            break;
+                        }
+                        break;
+                    case -796944909:
+                        if (optString.equals("slideDown") && (q31Var2 = this.g) != null) {
+                            q31Var2.i(z);
+                            break;
+                        }
+                        break;
+                    case -102095252:
+                        if (optString.equals("slideControl") && (q31Var3 = this.g) != null) {
+                            q31Var3.h(z);
+                            break;
+                        }
+                        break;
+                    case 1538155302:
+                        if (optString.equals("topAreaClick") && (q31Var4 = this.g) != null) {
+                            q31Var4.k(z);
+                            break;
+                        }
+                        break;
+                }
+            }
+            String str2 = (String) vx0.b(d, WebChromeClient.KEY_ARG_CALLBACK);
+            if (!TextUtils.isEmpty(str2)) {
+                Map<String, String> v = me0.v(optString, c.optInt(PackageTable.DISABLE, 0));
+                vx0.e(v, WebChromeClient.KEY_ARG_CALLBACK, str2);
+                AbsNadBrowserView m = this.j.m();
+                if (m != null) {
+                    AbsNadBrowserView.C(m, me0.p(v), null, 2, null);
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void g() {
+        v31 v31Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (v31Var = this.f) != null) {
+            v31Var.a(1);
+        }
+    }
+
+    public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
         }
         return invokeV.booleanValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public final void j() {
+        AbsNadBrowserView m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (m = this.j.m()) != null) {
+            AbsNadBrowserView.C(m, "javascript:window.onDxdInvoke({'key':'3'})", null, 2, null);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            bi0.a().d(this.e, 1, new a(this, y21.class));
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            bi0.a().a(this.e);
+        }
+    }
+
+    public final void m(int i) {
+        LinearLayout e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (e = this.j.e()) != null && (e.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
+            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
+            if (layoutParams != null) {
+                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
+                layoutParams2.topMargin = i;
+                e.setLayoutParams(layoutParams2);
+                return;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type android.widget.FrameLayout.LayoutParams");
+        }
+    }
+
+    public final void r() {
+        AdData adData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            q31 q31Var = this.g;
+            if (q31Var != null) {
+                l(q31Var.f() + PanelScrollView.B);
+                m(0);
+                di0 a2 = bi0.a();
+                x31 x31Var = this.h;
+                if (x31Var != null) {
+                    adData = x31Var.a();
+                } else {
+                    adData = null;
+                }
+                a2.b(new s31(3, adData));
+                this.i = true;
+            }
+            x31 x31Var2 = this.h;
+            if (x31Var2 != null) {
+                e41.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, x31Var2.f());
+            }
+            l31.b.b(true);
+        }
+    }
+
+    public final void s() {
+        AdData adData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            q31 q31Var = this.g;
+            if (q31Var != null) {
+                l((q31Var.f() - q31Var.e()) + PanelScrollView.B);
+                m(q31Var.e());
+                di0 a2 = bi0.a();
+                x31 x31Var = this.h;
+                if (x31Var != null) {
+                    adData = x31Var.a();
+                } else {
+                    adData = null;
+                }
+                a2.b(new s31(4, adData));
+                this.i = true;
+            }
+            x31 x31Var2 = this.h;
+            if (x31Var2 != null) {
+                e41.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", "down", x31Var2.f());
+            }
+            l31.b.b(false);
+        }
     }
 }

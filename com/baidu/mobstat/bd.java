@@ -50,7 +50,7 @@ public class bd implements bj.b {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            DecimalFormat decimalFormat = new DecimalFormat("0.0");
+            DecimalFormat decimalFormat = new DecimalFormat(com.baidu.mobads.sdk.internal.cj.d);
             DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
             decimalFormatSymbols.setDecimalSeparator(IStringUtil.EXTENSION_SEPARATOR);
             decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);

@@ -1,45 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ui0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ui0 {
+    public static final ui0 a = new a();
 
-    public static String a(String str, Map<String, String> map, Map<String, String> map2, String str2) {
-        InterceptResult invokeLLLL;
-        String str3;
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, map, map2, str2)) == null) {
-            if (map != null) {
-                str3 = map.get(str);
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = map.get("default");
-                }
-            } else {
-                str3 = null;
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                str = str3;
-            }
-            if (map2 != null) {
-                str4 = map2.get(str);
-            } else {
-                str4 = null;
-            }
-            if (TextUtils.equals(str4, "__CMD_NONE__")) {
-                return null;
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                return str4;
-            }
-            return str2;
+    int a(String str, int i);
+
+    double b(String str, double d);
+
+    /* loaded from: classes8.dex */
+    public class a implements ui0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ui0
+        public int a(String str, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? i : invokeLI.intValue;
         }
-        return (String) invokeLLLL.objValue;
+
+        @Override // com.baidu.tieba.ui0
+        public double b(String str, double d) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d)})) == null) ? d : invokeCommon.doubleValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 }

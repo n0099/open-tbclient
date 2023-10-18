@@ -20,7 +20,7 @@ public final class ResourceUtils {
     public static Drawable getDefaultImageStub(Context context) {
         if (context != null) {
             try {
-                return context.getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e24);
+                return context.getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e26);
             } catch (Exception unused) {
                 return new ColorDrawableEx(DEFAULT_BG_COLOR);
             }

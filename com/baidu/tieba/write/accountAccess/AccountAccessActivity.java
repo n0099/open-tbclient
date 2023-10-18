@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.f1b;
-import com.baidu.tieba.g1b;
+import com.baidu.tieba.awa;
+import com.baidu.tieba.bwa;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public g1b a;
-    public f1b b;
+    public bwa a;
+    public awa b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -91,7 +91,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            this.a.k();
+            this.a.l();
         }
     }
 
@@ -130,7 +130,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new g1b(this);
+            this.a = new bwa(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -149,11 +149,11 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     } else {
                         z = false;
                     }
-                    newWriteModel2.i0(z);
+                    newWriteModel2.j0(z);
                 }
-                f1b f1bVar = new f1b(this.a, this.c);
-                this.b = f1bVar;
-                this.a.l(f1bVar);
+                awa awaVar = new awa(this.a, this.c);
+                this.b = awaVar;
+                this.a.m(awaVar);
                 this.b.h(M0());
                 return;
             }

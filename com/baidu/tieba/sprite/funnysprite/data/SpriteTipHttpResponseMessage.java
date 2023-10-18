@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.safe.UiUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.boa;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.jta;
-import com.baidu.tieba.lg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,9 +133,9 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeV(65537, this) != null) || (themeColorInfo = this.bgUrlTheme) == null) {
             return;
         }
-        String g = jta.g(themeColorInfo);
-        if (!di.isEmpty(g)) {
-            lg.c(new a(this, g));
+        String g = boa.g(themeColorInfo);
+        if (!ad.isEmpty(g)) {
+            UiUtils.post(new a(this, g));
         }
     }
 
@@ -261,8 +261,8 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
                     this.sendText = optJSONObject.optString("send_text");
                     this.version = optJSONObject.optString("version");
                     this.disappearSeconds = optJSONObject.optInt("disappear_seconds", -1);
-                    this.textColorTheme = jta.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-                    this.bgUrlTheme = jta.j(optJSONObject.optJSONObject("icon_url"));
+                    this.textColorTheme = boa.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+                    this.bgUrlTheme = boa.j(optJSONObject.optJSONObject("icon_url"));
                     this.buttonInfo = b.a(optJSONObject.optJSONObject("button_info"));
                     preLoadBgUrl();
                 }

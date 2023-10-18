@@ -1,16 +1,16 @@
 package com.baidu.tieba.im.dispatcher;
 
 import android.content.Context;
-import com.baidu.tieba.pp5;
-import com.baidu.tieba.qp5;
-import com.baidu.tieba.y9a;
+import com.baidu.tieba.l4a;
+import com.baidu.tieba.vj5;
+import com.baidu.tieba.wj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class AiBotChatDispatcher implements y9a {
+public class AiBotChatDispatcher implements l4a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AI_SINGLE_CHAT_PAID = "paid";
     public static final String AI_SINGLE_CHAT_PIC_URL = "picUrl";
@@ -37,7 +37,7 @@ public class AiBotChatDispatcher implements y9a {
         }
     }
 
-    @Override // com.baidu.tieba.y9a
+    @Override // com.baidu.tieba.l4a
     public void dispatch(JSONObject jSONObject, Context context) {
         int i;
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class AiBotChatDispatcher implements y9a {
             String optString7 = jSONObject.optString(AI_SINGLE_IS_ANIMATION);
             String optString8 = jSONObject.optString(AI_SINGLE_THEME_COLOR);
             int optInt = jSONObject.optInt(AI_SINGLE_PAGE_STATE);
-            qp5 a = pp5.a();
+            wj5 a = vj5.a();
             if (optInt == 1) {
                 i = 1;
             } else {

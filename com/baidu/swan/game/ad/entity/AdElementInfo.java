@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.mobads.sdk.internal.o;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -361,12 +362,12 @@ public class AdElementInfo implements Parcelable {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             addSkipMonitorTrackers(optJSONArray2.optString(i2));
                         }
-                    } else if (next.equals("vstart")) {
+                    } else if (next.equals(o.a)) {
                         JSONArray optJSONArray3 = optJSONObject.optJSONArray(next);
                         for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                             addStartMonitorTrackers(optJSONArray3.optString(i3));
                         }
-                    } else if (next.equals("vclose")) {
+                    } else if (next.equals(o.c)) {
                         JSONArray optJSONArray4 = optJSONObject.optJSONArray(next);
                         for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
                             addCloseMonitorTrackers(optJSONArray4.optString(i4));

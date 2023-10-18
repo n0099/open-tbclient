@@ -7,18 +7,18 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.ac5;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.c4b;
-import com.baidu.tieba.h3b;
-import com.baidu.tieba.i3b;
-import com.baidu.tieba.ij5;
-import com.baidu.tieba.jj5;
-import com.baidu.tieba.p3b;
-import com.baidu.tieba.wi5;
+import com.baidu.tieba.cd5;
+import com.baidu.tieba.cya;
+import com.baidu.tieba.dya;
+import com.baidu.tieba.gl6;
+import com.baidu.tieba.i65;
+import com.baidu.tieba.kya;
+import com.baidu.tieba.od5;
+import com.baidu.tieba.pd5;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.xya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,14 +37,14 @@ public final class AddVoiceListener extends BizBase {
     public transient /* synthetic */ FieldHolder $fh;
     public final EditorTools g;
 
-    @Override // com.baidu.tieba.k3b
-    public i3b[] f() {
+    @Override // com.baidu.tieba.fya
+    public dya[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
-        return (i3b[]) invokeV.objValue;
+        return (dya[]) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
@@ -121,7 +121,7 @@ public final class AddVoiceListener extends BizBase {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AddVoiceListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, c4b writePageState, EditorTools editor) {
+    public AddVoiceListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, xya writePageState, EditorTools editor) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,7 +133,7 @@ public final class AddVoiceListener extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (c4b) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (xya) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -147,7 +147,7 @@ public final class AddVoiceListener extends BizBase {
         this.g = editor;
     }
 
-    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.k3b
+    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.fya
     public Function1<JSONObject, Unit> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -194,7 +194,7 @@ public final class AddVoiceListener extends BizBase {
                         Intrinsics.checkNotNullParameter(json, "json");
                         VoiceData.VoiceModel voiceModel = this.this$0.k().getVoiceModel();
                         if (voiceModel != null && (jsonForWrite = voiceModel.toJsonForWrite()) != null) {
-                            xq6.a(json, "voice", jsonForWrite.optJSONObject("voice"));
+                            gl6.a(json, "voice", jsonForWrite.optJSONObject("voice"));
                         }
                     }
                 }
@@ -203,14 +203,14 @@ public final class AddVoiceListener extends BizBase {
         return (Function1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.k3b
-    public h3b[] d() {
+    @Override // com.baidu.tieba.fya
+    public cya[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new h3b[]{new p3b(new Integer[]{10, 11}, new AddVoiceListener$editorActionHandlers$1(this))} : (h3b[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new cya[]{new kya(new Integer[]{10, 11}, new AddVoiceListener$editorActionHandlers$1(this))} : (cya[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.k3b
+    @Override // com.baidu.tieba.fya
     public WrapListener[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,18 +218,18 @@ public final class AddVoiceListener extends BizBase {
     }
 
     public final void v(String str) {
-        jj5 jj5Var;
+        pd5 pd5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             try {
-                ac5.a(ac5.b(new JSONObject(str).optString("voiceId")));
+                i65.a(i65.b(new JSONObject(str).optString("voiceId")));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             k().setVoiceModel(null);
-            ij5 p = this.g.p(6);
-            if (p != null && (jj5Var = p.m) != null) {
-                jj5Var.O(new wi5(52, 0, null));
+            od5 p = this.g.p(6);
+            if (p != null && (pd5Var = p.m) != null) {
+                pd5Var.O(new cd5(52, 0, null));
             }
         }
     }
@@ -248,9 +248,9 @@ public final class AddVoiceListener extends BizBase {
             if (i().getPageActivity() instanceof VoiceManager.j) {
                 Activity pageActivity = i().getPageActivity();
                 if (pageActivity != null) {
-                    VoiceManager P0 = ((VoiceManager.j) pageActivity).P0();
-                    if (P0 != null) {
-                        P0.startPlay(new a(voiceModel));
+                    VoiceManager O0 = ((VoiceManager.j) pageActivity).O0();
+                    if (O0 != null) {
+                        O0.startPlay(new a(voiceModel));
                         return;
                     }
                     return;
@@ -260,11 +260,11 @@ public final class AddVoiceListener extends BizBase {
         }
     }
 
-    public final void w(wi5 wi5Var) {
+    public final void w(cd5 cd5Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, wi5Var) == null) {
-            int i = wi5Var.a;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cd5Var) == null) {
+            int i = cd5Var.a;
             if (i != 10) {
                 if (i == 11) {
                     JSONObject jSONObject = new JSONObject();
@@ -281,9 +281,9 @@ public final class AddVoiceListener extends BizBase {
                     g().invoke("writePageNa.deleteVoice", new JSONObject());
                     return;
                 }
-                throw new IllegalStateException("AddVoiceListener有没处理的action code:" + wi5Var.a);
+                throw new IllegalStateException("AddVoiceListener有没处理的action code:" + cd5Var.a);
             }
-            Object obj = wi5Var.c;
+            Object obj = cd5Var.c;
             if (obj instanceof VoiceData.VoiceModel) {
                 if (obj != null) {
                     VoiceData.VoiceModel voiceModel2 = (VoiceData.VoiceModel) obj;
@@ -306,9 +306,9 @@ public final class AddVoiceListener extends BizBase {
         if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (i().getPageActivity() instanceof VoiceManager.j)) {
             Activity pageActivity = i().getPageActivity();
             if (pageActivity != null) {
-                VoiceManager P0 = ((VoiceManager.j) pageActivity).P0();
-                if (P0 != null) {
-                    P0.stopPlay();
+                VoiceManager O0 = ((VoiceManager.j) pageActivity).O0();
+                if (O0 != null) {
+                    O0.stopPlay();
                     return;
                 }
                 return;

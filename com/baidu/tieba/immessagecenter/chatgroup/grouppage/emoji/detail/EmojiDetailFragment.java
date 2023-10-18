@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao5;
+import com.baidu.tieba.gi5;
 import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.EmojiDetailRecyclerAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiDetailUserInfo;
-import com.baidu.tieba.jt8;
-import com.baidu.tieba.nt8;
+import com.baidu.tieba.tn8;
+import com.baidu.tieba.xn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,13 +35,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class EmojiDetailFragment extends BaseFragment implements jt8 {
+public class EmojiDetailFragment extends BaseFragment implements tn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EmojiDetailRecyclerAdapter a;
     public final TbPageContext<BaseFragmentActivity> b;
     @NonNull
-    public final nt8 c;
+    public final xn8 c;
     public final BdUniqueId d;
     public boolean e;
     public View f;
@@ -112,7 +112,7 @@ public class EmojiDetailFragment extends BaseFragment implements jt8 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 b bVar = new b();
                 bVar.a = view2;
-                bVar.b = (BdRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090993);
+                bVar.b = (BdRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0909ae);
                 return bVar;
             }
             return (b) invokeL.objValue;
@@ -120,17 +120,17 @@ public class EmojiDetailFragment extends BaseFragment implements jt8 {
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements jt8 {
+    public static class c implements tn8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<jt8> a;
+        public final WeakReference<tn8> a;
 
-        public c(jt8 jt8Var) {
+        public c(tn8 tn8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jt8Var};
+                Object[] objArr = {tn8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -140,24 +140,24 @@ public class EmojiDetailFragment extends BaseFragment implements jt8 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(jt8Var);
+            this.a = new WeakReference<>(tn8Var);
         }
 
-        @Override // com.baidu.tieba.jt8
+        @Override // com.baidu.tieba.tn8
         public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
-            jt8 jt8Var;
+            tn8 tn8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) && (jt8Var = this.a.get()) != null) {
-                jt8Var.a(z, list);
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) && (tn8Var = this.a.get()) != null) {
+                tn8Var.a(z, list);
             }
         }
 
-        @Override // com.baidu.tieba.jt8
+        @Override // com.baidu.tieba.tn8
         public void onFailure(int i, String str) {
-            jt8 jt8Var;
+            tn8 tn8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (jt8Var = this.a.get()) != null) {
-                jt8Var.onFailure(i, str);
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (tn8Var = this.a.get()) != null) {
+                tn8Var.onFailure(i, str);
             }
         }
     }
@@ -181,7 +181,7 @@ public class EmojiDetailFragment extends BaseFragment implements jt8 {
         this.e = false;
         this.k = new a(this);
         this.b = tbPageContext;
-        this.c = new nt8(tbPageContext, emojiData, j, this.d);
+        this.c = new xn8(tbPageContext, emojiData, j, this.d);
         this.j = new c(this);
     }
 
@@ -197,7 +197,7 @@ public class EmojiDetailFragment extends BaseFragment implements jt8 {
         }
     }
 
-    @Override // com.baidu.tieba.jt8
+    @Override // com.baidu.tieba.tn8
     public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
@@ -257,9 +257,9 @@ public class EmojiDetailFragment extends BaseFragment implements jt8 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             hideLoading();
             showNetRefreshView(this.g.a, null, false);
-            ao5 ao5Var = this.mRefreshView;
-            if (ao5Var != null) {
-                ao5Var.getAttachedView().setClickable(false);
+            gi5 gi5Var = this.mRefreshView;
+            if (gi5Var != null) {
+                gi5Var.getAttachedView().setClickable(false);
                 this.mRefreshView.e(R.color.transparent);
             }
         }
@@ -303,7 +303,7 @@ public class EmojiDetailFragment extends BaseFragment implements jt8 {
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.jt8
+    @Override // com.baidu.tieba.tn8
     public void onFailure(int i, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) && isLoadingViewAttached()) {

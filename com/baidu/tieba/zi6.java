@@ -1,98 +1,39 @@
 package com.baidu.tieba;
 
-import android.widget.TextView;
+import android.text.TextUtils;
+import android.webkit.URLUtil;
+import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fza;
-import com.baidu.tieba.yi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes9.dex */
-public class zi6 implements yi6 {
+public class zi6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fza a;
-    public TextView b;
-    public yi6.c c;
-    public yi6.b d;
-    public yi6.a e;
+    public String a;
+    public String b;
+    public final String c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public boolean h;
+    public boolean i;
+    public List<Pair<String, Long>> j;
+    public final Map<String, Pair<Long, Long>> k;
 
-    /* loaded from: classes9.dex */
-    public class a implements fza.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zi6 a;
-
-        public a(zi6 zi6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zi6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zi6Var;
-        }
-
-        @Override // com.baidu.tieba.fza.a
-        public void onProgress(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-                this.a.b.setText(this.a.h(f));
-            }
-        }
-
-        @Override // com.baidu.tieba.fza.a
-        public void a(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-                if (this.a.e != null) {
-                    this.a.e.a(f);
-                }
-                TextView textView = this.a.b;
-                zi6 zi6Var = this.a;
-                textView.setText(zi6Var.h(zi6Var.getProgress()));
-            }
-        }
-
-        @Override // com.baidu.tieba.fza.a
-        public float getSpeed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.d != null) {
-                    return this.a.d.getSpeed();
-                }
-                return 1.0f;
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.baidu.tieba.fza.a
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.c != null) {
-                this.a.c.onFinished();
-            }
-        }
-    }
-
-    public zi6(fza fzaVar, TextView textView, yi6.c cVar, yi6.b bVar, yi6.a aVar) {
+    public zi6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fzaVar, textView, cVar, bVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,218 +43,183 @@ public class zi6 implements yi6 {
                 return;
             }
         }
-        this.a = fzaVar;
-        this.b = textView;
-        this.c = cVar;
-        this.d = bVar;
-        this.e = aVar;
-        i();
+        this.h = false;
+        this.i = false;
+        this.k = new ConcurrentHashMap();
+        this.d = System.currentTimeMillis();
+        this.c = UUID.randomUUID().toString();
+        this.e = System.currentTimeMillis();
     }
 
-    @Override // com.baidu.tieba.yi6
-    public boolean setMaxDuration(int i) {
-        InterceptResult invokeI;
+    public static boolean l(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                fzaVar.setMaxDuration(i);
-                this.a.invalidate();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (URLUtil.isAssetUrl(str) || URLUtil.isFileUrl(str)) {
                 return true;
             }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yi6
-    public boolean setMinDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                fzaVar.setMinDuration(i);
-                this.a.invalidate();
-                return true;
+            if (!URLUtil.isHttpUrl(str) && !URLUtil.isHttpsUrl(str)) {
+                return false;
             }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yi6
-    public boolean setProgress(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                fzaVar.setProgress(j);
-                return true;
+            if (!str.contains("tieba.baidu.com") && !str.contains("tieba.baidu-int.com")) {
+                return false;
             }
-            return false;
+            return true;
         }
-        return invokeJ.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yi6
-    public boolean setShowDeleteLastTip(boolean z) {
-        InterceptResult invokeZ;
+    public void a(String str, String str2, Long l) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                fzaVar.setShowDeleteLastTip(z);
-                return true;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, l) == null) {
+            try {
+                this.k.put(str, Pair.create(Long.valueOf(Long.parseLong(str2)), l));
+            } catch (Exception unused) {
             }
-            return false;
         }
-        return invokeZ.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yi6
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                fzaVar.a();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yi6
-    public boolean b() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                return fzaVar.b();
-            }
-            return false;
+            return this.g;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.yi6
-    public int getMaxDuration() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                return fzaVar.getMaxDuration();
-            }
-            return 0;
+            return this.c;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yi6
-    public float getProgress() {
+    public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                return fzaVar.getProgress();
-            }
-            return 0.0f;
+            return this.d;
         }
-        return invokeV.floatValue;
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.yi6
-    public int getSlideNum() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                return fzaVar.getSlideNum();
-            }
-            return 0;
+            return this.b;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean i() {
+    public List<Pair<String, Long>> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.j;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public Map<String, Pair<Long, Long>> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar == null) {
-                return false;
-            }
-            fzaVar.setOnProgressListener(new a(this));
-            return true;
+            return this.k;
         }
-        return invokeV.booleanValue;
+        return (Map) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yi6
-    public boolean pause() {
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                fzaVar.stop();
-                return true;
-            }
-            return false;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yi6
-    public boolean reset() {
+    public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                fzaVar.reset();
-                return true;
-            }
-            return false;
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.yi6
-    public boolean start() {
+    public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            fza fzaVar = this.a;
-            if (fzaVar != null) {
-                fzaVar.start();
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.h;
         }
         return invokeV.booleanValue;
     }
 
-    public final String h(float f) {
-        InterceptResult invokeF;
+    public void m(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (f >= getMaxDuration()) {
-                f = getMaxDuration();
-            }
-            if (f > 60.0f) {
-                return ((int) (f / 60.0f)) + "'" + String.format("%.1f", Float.valueOf(f % 60.0f));
-            }
-            return String.format("%.1f", Float.valueOf(f));
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.h = z;
         }
-        return (String) invokeF.objValue;
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.d = j;
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void p(List<Pair<String, Long>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
+            this.j = list;
+        }
+    }
+
+    public void q(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.f = j;
+        }
+    }
+
+    public void r(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.e = j;
+        }
+    }
+
+    public void s(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && l(str)) {
+            this.g = System.currentTimeMillis();
+            this.a = str;
+            th6.b("newHybrid", "startLoadUrl:" + str);
+        }
     }
 }

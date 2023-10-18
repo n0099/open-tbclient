@@ -1,5 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface lf8 {
-    boolean a(int i, boolean z, Object obj);
+
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+/* loaded from: classes7.dex */
+public interface lf8<SdkMsg> {
+    void a(SdkMsg sdkmsg, TbBaseMsg tbBaseMsg, String str);
+
+    int b(SdkMsg sdkmsg);
+
+    String c(SdkMsg sdkmsg);
 }

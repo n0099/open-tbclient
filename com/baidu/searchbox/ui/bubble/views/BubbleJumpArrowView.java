@@ -13,7 +13,7 @@ public class BubbleJumpArrowView extends BubbleTextView {
 
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleTextView, com.baidu.searchbox.ui.bubble.views.BubbleBaseView
     public int getBubbleViewResId() {
-        return R.layout.obfuscated_res_0x7f0d0195;
+        return R.layout.obfuscated_res_0x7f0d0193;
     }
 
     public ImageView getJumpArrowImageView() {
@@ -25,9 +25,9 @@ public class BubbleJumpArrowView extends BubbleTextView {
         if (!super.initViewIfNeed()) {
             return false;
         }
-        this.mJumpArrow = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090515);
-        this.mStartIcon = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09051d);
-        FontSizeViewExtKt.setScaledSizeRes(this.mJumpArrow, 0, R.dimen.obfuscated_res_0x7f0701f1, R.dimen.obfuscated_res_0x7f0701f1);
+        this.mJumpArrow = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090516);
+        this.mStartIcon = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09051e);
+        FontSizeViewExtKt.setScaledSizeRes(this.mJumpArrow, 0, R.dimen.obfuscated_res_0x7f0701ec, R.dimen.obfuscated_res_0x7f0701ec);
         return true;
     }
 
@@ -36,7 +36,7 @@ public class BubbleJumpArrowView extends BubbleTextView {
         if (imageView == null) {
             return;
         }
-        imageView.setBackground(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08049c));
+        imageView.setBackground(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08049e));
         this.mJumpArrow.setVisibility(0);
     }
 
@@ -51,7 +51,7 @@ public class BubbleJumpArrowView extends BubbleTextView {
         super.updateViewUI();
         ImageView imageView = this.mJumpArrow;
         if (imageView != null) {
-            FontSizeViewExtKt.setScaledSizeRes(imageView, 0, R.dimen.obfuscated_res_0x7f0701f1, R.dimen.obfuscated_res_0x7f0701f1);
+            FontSizeViewExtKt.setScaledSizeRes(imageView, 0, R.dimen.obfuscated_res_0x7f0701ec, R.dimen.obfuscated_res_0x7f0701ec);
         }
     }
 

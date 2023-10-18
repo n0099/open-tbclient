@@ -1,55 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.mutiprocess.face.EmotionReloadEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ThemeColorInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public final class zk5 {
+public class zk5 implements lk5<EmotionReloadEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a() {
-        InterceptResult invokeV;
-        boolean z;
+    public zk5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (ql5.b.a().a("show_write_tip")) {
-                nh5 a = pl5.b.a().a();
-                if (a != null && a.b == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    return true;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public static final int b(boolean z) {
-        InterceptResult invokeZ;
-        ThemeColorInfo themeColorInfo;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lk5
+    /* renamed from: a */
+    public boolean onEvent(EmotionReloadEvent emotionReloadEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            if (!z) {
-                return SkinManager.getColor(R.color.CAM_X0110);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, emotionReloadEvent)) == null) {
+            if (emotionReloadEvent == null) {
+                return false;
             }
-            nh5 a = pl5.b.a().a();
-            if (a != null) {
-                themeColorInfo = a.f;
-            } else {
-                themeColorInfo = null;
-            }
-            if (a() && themeColorInfo != null) {
-                return SkinManager.getColorFromServerColor(themeColorInfo, R.color.CAM_X0301);
-            }
-            return SkinManager.getColor(R.color.CAM_X0302);
+            MessageManager.getInstance().runTask(2004603, (Class) null);
+            return true;
         }
-        return invokeZ.intValue;
+        return invokeL.booleanValue;
     }
 }

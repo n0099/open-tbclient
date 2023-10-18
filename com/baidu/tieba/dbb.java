@@ -1,94 +1,55 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.nio.channels.ReadableByteChannel;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public final class dbb implements ReadableByteChannel {
+public class dbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final InputStream a;
-    public final AtomicBoolean b;
 
-    public dbb(@NonNull InputStream inputStream) {
+    public static void a(String str, hbb hbbVar, gbb gbbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, hbbVar, gbbVar) == null) {
+            if (veb.a) {
+                veb.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + gbbVar.toString());
             }
-        }
-        this.b = new AtomicBoolean(true);
-        this.a = inputStream;
-    }
-
-    public static ReadableByteChannel a(@NonNull InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            if (inputStream instanceof FileInputStream) {
-                return ((FileInputStream) inputStream).getChannel();
-            }
-            return new dbb(inputStream);
-        }
-        return (ReadableByteChannel) invokeL.objValue;
-    }
-
-    @Override // java.nio.channels.Channel, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.compareAndSet(true, false)) {
-            this.a.close();
-        }
-    }
-
-    @Override // java.nio.channels.Channel
-    public boolean isOpen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.nio.channels.ReadableByteChannel
-    public int read(ByteBuffer byteBuffer) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer)) == null) {
-            if (byteBuffer.hasArray()) {
-                int read = this.a.read(byteBuffer.array(), byteBuffer.arrayOffset() + byteBuffer.position(), byteBuffer.remaining());
-                if (read > 0) {
-                    byteBuffer.position(byteBuffer.position() + read);
-                    return read;
+            bbb h = yab.d().h();
+            if (h != null) {
+                ArrayList arrayList = null;
+                if (gbbVar != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", gbbVar.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", gbbVar.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", gbbVar.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", gbbVar.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", gbbVar.d + ""));
                 }
-                return read;
+                h.a("perf_record_arperf", str, hbbVar.a, hbbVar.b, hbbVar.c, hbbVar.d, hbbVar.e, null, arrayList);
             }
-            byte[] bArr = new byte[Math.min(16384, Math.min(Math.max(this.a.available(), 4096), byteBuffer.remaining()))];
-            int read2 = this.a.read(bArr);
-            if (read2 > 0) {
-                byteBuffer.put(bArr, 0, read2);
-            }
-            return read2;
         }
-        return invokeL.intValue;
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (veb.a) {
+                veb.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
+            }
+            bbb h = yab.d().h();
+            if (h != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", teb.a(yab.d().b())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(teb.b(yab.d().b()))));
+                }
+                h.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
+            }
+        }
     }
 }

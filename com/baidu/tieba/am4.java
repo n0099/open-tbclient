@@ -1,107 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class am4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile am4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
+    public final zl4<String> a;
+    public String b;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public int c;
-        public fk4 d;
-        public List<gk4> e;
-        public List<hk4> f;
-        public PMSAppInfo g;
-        public boolean h;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                fk4 fk4Var = this.d;
-                if (fk4Var == null) {
-                    return super.hashCode();
-                }
-                return fk4Var.hashCode();
-            }
-            return invokeV.intValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            fk4 fk4Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (super.equals(obj)) {
-                    return true;
-                }
-                if (obj == null || (fk4Var = this.d) == null || !(obj instanceof a)) {
-                    return false;
-                }
-                return fk4Var.equals(((a) obj).d);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("PMS Item: ");
-                sb.append(this.b);
-                if (this.d != null) {
-                    sb.append(",pkgMain=");
-                    sb.append(this.d);
-                }
-                if (this.g != null) {
-                    sb.append(",appInfo=");
-                    sb.append(this.g);
-                }
-                return sb.toString();
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public am4() {
+    @SuppressLint({"BDThrowableCheck"})
+    public am4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        zl4<String> zl4Var = new zl4<>();
+        this.a = zl4Var;
+        if (context == null) {
+            return;
+        }
+        zl4Var.a(new dm4(context));
+        this.a.a(new fm4(context));
+        this.a.a(new em4(context));
+        this.a.a(new hm4(context));
+        this.a.a(new bm4(context));
+        this.a.a(new gm4(context));
+    }
+
+    public static am4 b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (c == null) {
+                synchronized (am4.class) {
+                    if (c == null) {
+                        c = new am4(context);
+                    }
+                }
+            }
+            return c;
+        }
+        return (am4) invokeL.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                synchronized (this) {
+                    if (TextUtils.isEmpty(this.b)) {
+                        String b = this.a.b();
+                        this.b = b;
+                        this.a.d(b);
+                    }
+                }
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

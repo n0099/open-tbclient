@@ -1,27 +1,76 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qw3 {
+public class qw3 extends vx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile pw3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized pw3 a() {
-        InterceptResult invokeV;
-        pw3 pw3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (qw3.class) {
-                if (a == null) {
-                    a = new pw3();
-                }
-                pw3Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948106204, "Lcom/baidu/tieba/qw3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return pw3Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948106204, "Lcom/baidu/tieba/qw3;");
+                return;
+            }
         }
-        return (pw3) invokeV.objValue;
+        boolean z = am1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qw3() {
+        super("getDownloadConfig");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vx3
+    public qx1 a(JSONObject jSONObject, ti2 ti2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ti2Var)) == null) {
+            if (jSONObject == null) {
+                ti2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (jSONObject.has("wifiResumeDownloadFlag")) {
+                zw3.a().c(jSONObject.optBoolean("wifiResumeDownloadFlag", false));
+            }
+            if (jSONObject.has("install_guide_switch")) {
+                ex3.r(jSONObject.optBoolean("install_guide_switch"));
+            }
+            if (jSONObject.has("install_guide_count")) {
+                ex3.q(jSONObject.optInt("install_guide_count"));
+            }
+            if (jSONObject.has("get_install_result")) {
+                ex3.s(jSONObject.optBoolean("get_install_result"));
+            }
+            ti2Var.onSuccess(null);
+            return null;
+        }
+        return (qx1) invokeLL.objValue;
     }
 }

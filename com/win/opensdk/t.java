@@ -2,7 +2,6 @@ package com.win.opensdk;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -93,7 +92,7 @@ public class t implements E {
                     str = f12.c.getLoad();
                 }
                 this.a.b(str);
-            } else if (this.a.b.b().equals(NativeConstants.TYPE_GIF)) {
+            } else if (this.a.b.b().equals("gif")) {
                 F1 f13 = this.a.b.a;
                 if (f13 != null && f13.b()) {
                     str = f13.c.getLoad();

@@ -1,11 +1,76 @@
 package com.baidu.tieba;
 
-import com.squareup.wire.Message;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes7.dex */
-public interface r59 {
-    void a(boolean z, Message message, boolean z2, long j, String str, int i);
+public class r59 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<String> a;
+    public e59 b;
+    public LinkedHashMap<String, h59> c;
 
-    void b(long j, String str, String str2, int i);
-
-    void c(long j, String str, Message message, boolean z);
+    public r59(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dataRes};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (dataRes == null) {
+            return;
+        }
+        String str = dataRes.grade_intro_title;
+        String str2 = dataRes.grade_intro_link;
+        new q59(dataRes);
+        new s59(dataRes.special_list);
+        new j59(dataRes.cooperate_list);
+        new n59(dataRes.theme_list);
+        new f59(dataRes.banner_list);
+        new v59(dataRes.task_list);
+        new u59(dataRes.rank, dataRes.user);
+        new l59(dataRes.daily_list);
+        e59 e59Var = new e59();
+        this.b = e59Var;
+        e59Var.a(dataRes);
+        List<VipBasicList> list = dataRes.basic_list;
+        if (list != null && list.size() > 0) {
+            this.c = new LinkedHashMap<>();
+            for (VipBasicList vipBasicList : dataRes.basic_list) {
+                List<VipSpecialItem> list2 = vipBasicList.item;
+                if (list2 != null && list2.size() > 0) {
+                    h59 h59Var = new h59(vipBasicList);
+                    if (h59Var.c != 3 || h59Var.a().size() >= 2) {
+                        this.c.put(h59Var.d, h59Var);
+                    }
+                }
+            }
+        }
+        List<String> list3 = dataRes.card_order;
+        if (list3 != null && list3.size() > 0) {
+            this.a = new ArrayList<>();
+            for (String str3 : dataRes.card_order) {
+                if (!StringUtils.isNull(str3)) {
+                    this.a.add(str3);
+                }
+            }
+        }
+    }
 }

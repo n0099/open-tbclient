@@ -3,39 +3,39 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-/* loaded from: classes6.dex */
-public class kza {
+/* loaded from: classes7.dex */
+public final class kza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static final String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return str + ".jpg";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str, long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            if (i == 0) {
-                return jkb.b(str);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    switch (i) {
+                        case 9:
+                        default:
+                            return "TEXT";
+                        case 10:
+                            return "RECORD";
+                        case 11:
+                            return "RICH_TEXT";
+                        case 12:
+                            return "EVALUATION";
+                        case 13:
+                            return "LOCAL_CHANNEL";
+                        case 14:
+                            return "QUESTION";
+                        case 15:
+                            return "DYNAMIC";
+                    }
+                }
+                return "REPLY_FLOOR";
             }
-            return jkb.b(str) + "_" + j;
+            return "REPLY";
         }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            return str + File.separator + str2 + ".jpg";
-        }
-        return (String) invokeLL.objValue;
+        return (String) invokeI.objValue;
     }
 }

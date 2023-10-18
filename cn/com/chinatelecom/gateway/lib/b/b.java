@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import cn.com.chinatelecom.gateway.lib.c.f;
 import cn.com.chinatelecom.gateway.lib.c.q;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,7 +69,7 @@ public class b {
                 }
                 c = 65535;
             } else if (hashCode != 78159) {
-                if (hashCode == 66247144 && str.equals("ERROR")) {
+                if (hashCode == 66247144 && str.equals(bx.l)) {
                     c = 1;
                 }
                 c = 65535;

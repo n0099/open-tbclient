@@ -9,6 +9,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import com.baidu.mobads.sdk.internal.cj;
 import com.baidu.searchbox.command.CommandUtils;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.util.BaiduIdentityManager;
@@ -63,7 +64,7 @@ public final class a {
             String str3 = TextUtils.isEmpty(str2) ? "NULL" : str2;
             String str4 = Build.VERSION.RELEASE;
             if (TextUtils.isEmpty(str4)) {
-                str4 = "0.0";
+                str4 = cj.d;
             }
             String h = h(context);
             String str5 = TextUtils.isEmpty(null) ? "j2" : null;

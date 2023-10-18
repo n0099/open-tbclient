@@ -1,174 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tieba.oe;
-import com.baidu.tieba.qr5;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes9.dex */
-public class zr5<T extends qr5> extends xr5<T> {
+public final class zr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zr5(int i, String str, Class<T> cls) {
-        super(i, str, cls);
+    public static void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable != null && interceptable.invokeZ(65536, null, z) != null) || z) {
+            return;
+        }
+        throw new IllegalArgumentException();
+    }
+
+    @NonNull
+    public static <T> T b(@Nullable T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
+            if (t != null) {
+                return t;
             }
+            throw null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public static void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+            e(z, null);
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
-    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
-    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
-    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r1v9 */
-    /* JADX WARN: Type inference failed for: r7v10 */
-    /* JADX WARN: Type inference failed for: r7v12 */
-    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r7v18 */
-    /* JADX WARN: Type inference failed for: r7v36 */
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
-        InterceptResult invokeL;
-        String str;
-        ?? arrayList;
-        String str2;
-        qr5 qr5Var;
-        byte[] bArr;
-        qr5 qr5Var2;
+    @NonNull
+    public static <T> T c(@Nullable T t, @NonNull Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            qr5 qr5Var3 = null;
-            if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, t, obj)) == null) {
+            if (t != null) {
+                return t;
             }
-            ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
-            qr5 qr5Var4 = (qr5) a();
-            try {
-                try {
-                    if (readCacheMessage.isNeedUid()) {
-                        str = TbadkCoreApplication.getCurrentAccount();
-                        if (str == null) {
-                            str = "";
-                        }
-                    } else {
-                        str = null;
-                    }
-                    if (qr5Var4 != null) {
-                        if (readCacheMessage.getRequestData() == null) {
-                            try {
-                                if (qr5Var4 instanceof pr5) {
-                                    y45.k();
-                                    List<oe.b<byte[]>> a = ii.a(y45.j(this.b, str));
-                                    if (a != null) {
-                                        arrayList = new ArrayList(a.size());
-                                        for (oe.b<byte[]> bVar : a) {
-                                            if (bVar != null && (bArr = bVar.b) != null && (qr5Var2 = (qr5) a()) != null) {
-                                                ((pr5) qr5Var2).initByByteArray(bArr);
-                                                arrayList.add(qr5Var2);
-                                            }
-                                        }
-                                        qr5Var3 = arrayList;
-                                    }
-                                } else if (qr5Var4 instanceof sr5) {
-                                    y45.k();
-                                    List<oe.b<String>> b = ii.b(y45.m(this.b, str));
-                                    if (b != null) {
-                                        arrayList = new ArrayList(b.size());
-                                        for (oe.b<String> bVar2 : b) {
-                                            if (bVar2 != null && (str2 = bVar2.b) != null && (qr5Var = (qr5) a()) != null) {
-                                                ((sr5) qr5Var).initByString(str2);
-                                                arrayList.add(qr5Var);
-                                            }
-                                        }
-                                        qr5Var3 = arrayList;
-                                    }
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                qr5Var3 = qr5Var4;
-                                e.printStackTrace();
-                                return new ReadCacheRespMsg(this.a, qr5Var3);
-                            } catch (Throwable th) {
-                                th = th;
-                                qr5Var3 = qr5Var4;
-                                new ReadCacheRespMsg(this.a, qr5Var3);
-                                throw th;
-                            }
-                        } else {
-                            String cacheKey = readCacheMessage.getRequestData().getCacheKey();
-                            String cacheTableName = readCacheMessage.getRequestData().getCacheTableName();
-                            try {
-                                if (qr5Var4 instanceof pr5) {
-                                    y45.k();
-                                    byte[] bArr2 = y45.j(cacheTableName, str).get(cacheKey);
-                                    if (bArr2 != null) {
-                                        ((pr5) qr5Var4).initByByteArray(bArr2);
-                                        ArrayList arrayList2 = new ArrayList();
-                                        arrayList2.add(qr5Var4);
-                                        cacheTableName = arrayList2;
-                                        qr5Var3 = cacheTableName;
-                                    }
-                                } else if (qr5Var4 instanceof sr5) {
-                                    y45.k();
-                                    String str3 = y45.m(cacheTableName, str).get(cacheKey);
-                                    if (str3 != null) {
-                                        ((sr5) qr5Var4).initByString(str3);
-                                        ?? arrayList3 = new ArrayList();
-                                        arrayList3.add(qr5Var4);
-                                        cacheTableName = arrayList3;
-                                        qr5Var3 = cacheTableName;
-                                    }
-                                }
-                            } catch (Exception e2) {
-                                qr5Var3 = cacheTableName;
-                                e = e2;
-                                e.printStackTrace();
-                                return new ReadCacheRespMsg(this.a, qr5Var3);
-                            } catch (Throwable th2) {
-                                qr5Var3 = cacheTableName;
-                                th = th2;
-                                new ReadCacheRespMsg(this.a, qr5Var3);
-                                throw th;
-                            }
-                        }
-                    }
-                    return new ReadCacheRespMsg(this.a, qr5Var3);
-                } catch (Exception e3) {
-                    e = e3;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-            }
-        } else {
-            return (CustomResponsedMessage) invokeL.objValue;
+            throw new NullPointerException(String.valueOf(obj));
         }
+        return (T) invokeLL.objValue;
+    }
+
+    public static void e(boolean z, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, str) != null) || z) {
+            return;
+        }
+        throw new IllegalStateException(str);
     }
 }

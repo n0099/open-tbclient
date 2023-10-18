@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc8;
+import com.baidu.tieba.s68;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,15 +38,15 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicSearchAdapter.a a;
-        public final /* synthetic */ hc8 b;
+        public final /* synthetic */ s68 b;
         public final /* synthetic */ VideoHotTopicSearchAdapter c;
 
-        public a(HotVideoViewHolder hotVideoViewHolder, VideoHotTopicSearchAdapter.a aVar, hc8 hc8Var, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
+        public a(HotVideoViewHolder hotVideoViewHolder, VideoHotTopicSearchAdapter.a aVar, s68 s68Var, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hotVideoViewHolder, aVar, hc8Var, videoHotTopicSearchAdapter};
+                Object[] objArr = {hotVideoViewHolder, aVar, s68Var, videoHotTopicSearchAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,7 +57,7 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
                 }
             }
             this.a = aVar;
-            this.b = hc8Var;
+            this.b = s68Var;
             this.c = videoHotTopicSearchAdapter;
         }
 
@@ -94,19 +94,19 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09269d);
-        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092666);
-        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09265e);
-        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092949);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092948);
-        this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911a0);
+        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0926a6);
+        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09266f);
+        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092667);
+        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09293e);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09293d);
+        this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911ba);
     }
 
-    public void a(@NonNull HotVideoViewHolder hotVideoViewHolder, int i, hc8 hc8Var, TbPageContext tbPageContext, long j, VideoHotTopicSearchAdapter.a aVar, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
+    public void a(@NonNull HotVideoViewHolder hotVideoViewHolder, int i, s68 s68Var, TbPageContext tbPageContext, long j, VideoHotTopicSearchAdapter.a aVar, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
         EMRichTextAnyIconSpan eMRichTextAnyIconSpan;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{hotVideoViewHolder, Integer.valueOf(i), hc8Var, tbPageContext, Long.valueOf(j), aVar, videoHotTopicSearchAdapter}) == null) {
-            if (hc8Var.i()) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{hotVideoViewHolder, Integer.valueOf(i), s68Var, tbPageContext, Long.valueOf(j), aVar, videoHotTopicSearchAdapter}) == null) {
+            if (s68Var.i()) {
                 this.d.setVisibility(0);
                 this.f.setVisibility(8);
                 EMManager.from(this.d).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
@@ -114,21 +114,21 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
             }
             this.d.setVisibility(8);
             this.f.setVisibility(0);
-            if (hc8Var.a() > 0) {
+            if (s68Var.a() > 0) {
                 hotVideoViewHolder.b.setVisibility(0);
-                hotVideoViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0a2c), StringHelper.numberUniformFormatExtra(hc8Var.a())));
+                hotVideoViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0a33), StringHelper.numberUniformFormatExtra(s68Var.a())));
             } else {
                 hotVideoViewHolder.b.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(hc8Var.b())) {
+            if (!TextUtils.isEmpty(s68Var.b())) {
                 hotVideoViewHolder.c.setVisibility(0);
-                hotVideoViewHolder.c.setText(hc8Var.b());
+                hotVideoViewHolder.c.setText(s68Var.b());
             } else {
                 hotVideoViewHolder.c.setVisibility(8);
             }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(HotSelectActivityConfig.HOT_TOPIC_SING + hc8Var.e() + HotSelectActivityConfig.HOT_TOPIC_SING);
-            if (hc8Var.j()) {
-                if (j == hc8Var.d().longValue()) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(HotSelectActivityConfig.HOT_TOPIC_SING + s68Var.e() + HotSelectActivityConfig.HOT_TOPIC_SING);
+            if (s68Var.j()) {
+                if (j == s68Var.d().longValue()) {
                     spannableStringBuilder.insert(1, (CharSequence) "v");
                     EMManager.from(hotVideoViewHolder.a).setTextColor(R.color.CAM_X0304);
                     eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_videotopic31, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
@@ -144,7 +144,7 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
             hotVideoViewHolder.a.setText(spannableStringBuilder);
             EMManager.from(hotVideoViewHolder.b).setTextColor(R.color.CAM_X0110);
             EMManager.from(hotVideoViewHolder.c).setTextColor(R.color.CAM_X0108);
-            hotVideoViewHolder.e.setOnClickListener(new a(this, aVar, hc8Var, videoHotTopicSearchAdapter));
+            hotVideoViewHolder.e.setOnClickListener(new a(this, aVar, s68Var, videoHotTopicSearchAdapter));
         }
     }
 }

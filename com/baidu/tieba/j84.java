@@ -1,68 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-@Service
 /* loaded from: classes6.dex */
-public class j84 implements ns1 {
+public class j84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public j84() {
+    public static boolean a(View view2, vv2 vv2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ns1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c54.g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ns1
-    public boolean b() {
-        InterceptResult invokeV;
-        ma2 m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (gb3.M() != null && gb3.M().w0()) {
-                pa2 U = tw2.T().U();
-                if (U == null || (m = U.m()) == null || !(m instanceof d74)) {
-                    return true;
-                }
-                return ((d74) m).F3();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, vv2Var)) == null) {
+            hn1 Y = cr2.V().Y();
+            if (Y != null && Y.c(view2, vv2Var)) {
+                return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ns1
-    public String c(String str) throws MalformedURLException {
+    public static boolean f(View view2, vv2 vv2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, vv2Var)) == null) {
+            hn1 Y = cr2.V().Y();
+            if (Y != null && Y.a(view2, vv2Var)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            hn1 Y = cr2.V().Y();
+            if (Y != null) {
+                return Y.getContext();
+            }
+            return null;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static void c(ok3 ok3Var) {
+        hn1 Y;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, ok3Var) == null) && (Y = cr2.V().Y()) != null) {
+            Y.e(ok3Var);
+        }
+    }
+
+    public static boolean d(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return c54.d(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            hn1 Y = cr2.V().Y();
+            if (Y != null && Y.removeView(view2)) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static void e(ok3 ok3Var) {
+        hn1 Y;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ok3Var) == null) && (Y = cr2.V().Y()) != null) {
+            Y.f(ok3Var);
+        }
     }
 }

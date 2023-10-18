@@ -13,7 +13,7 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class b extends com.tencent.open.a {
     @Override // com.tencent.open.a
-    public void a(String str, String str2, List<String> list, a.C0769a c0769a) {
+    public void a(String str, String str2, List<String> list, a.C0704a c0704a) {
         SLog.v("openSDK_LOG.SecureJsBridge", "-->getResult, objectName: " + str + " | methodName: " + str2);
         int size = list.size();
         for (int i = 0; i < size; i++) {
@@ -26,12 +26,12 @@ public class b extends com.tencent.open.a {
         a.b bVar = this.a.get(str);
         if (bVar != null) {
             SLog.d("openSDK_LOG.SecureJsBridge", "-->handler != null");
-            bVar.call(str2, list, c0769a);
+            bVar.call(str2, list, c0704a);
             return;
         }
         SLog.e("openSDK_LOG.SecureJsBridge", "-->handler == null objName: " + str);
-        if (c0769a != null) {
-            c0769a.a();
+        if (c0704a != null) {
+            c0704a.a();
         }
     }
 

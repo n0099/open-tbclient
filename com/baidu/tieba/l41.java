@@ -1,135 +1,214 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.webview.activity.NadWebViewActivity;
+import com.baidu.nadcore.webview.activity.NadWebViewActivityStandard;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.q51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
-public class l41 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+@Service
+/* loaded from: classes7.dex */
+public final class l41 extends be0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    public static ArrayList<String> a(o41 o41Var) {
-        InterceptResult invokeL;
-        g41[][] e;
+    @Override // com.baidu.tieba.be0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, o41Var)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>(2);
-            for (g41[] g41VarArr : o41Var.e()) {
-                String[] strArr = new String[g41VarArr.length];
-                for (int i = 0; i < g41VarArr.length; i++) {
-                    strArr[i] = g41VarArr[i].b;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "easybrowse" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.be0
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interceptorEasybrowse" : (String) invokeV.objValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a implements q51.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l41 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ HashMap c;
+        public final /* synthetic */ he0 d;
+        public final /* synthetic */ de0 e;
+
+        public a(l41 l41Var, Context context, HashMap hashMap, he0 he0Var, de0 de0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l41Var, context, hashMap, he0Var, de0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                arrayList.add("CREATE INDEX IF NOT EXISTS i_" + o41Var.g() + "_" + TextUtils.join("_", strArr) + " ON " + o41Var.g() + " (" + TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, strArr) + SmallTailInfo.EMOTION_SUFFIX);
             }
-            return arrayList;
+            this.a = l41Var;
+            this.b = context;
+            this.c = hashMap;
+            this.d = he0Var;
+            this.e = de0Var;
         }
-        return (ArrayList) invokeL.objValue;
+
+        @Override // com.baidu.tieba.q51.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = 0;
+                boolean i2 = this.a.i(this.b, this.c, false);
+                String str = this.a.a;
+                v51.a(str, "调起SDK落地页, 结果 " + i2);
+                l41 l41Var = this.a;
+                he0 he0Var = this.d;
+                de0 de0Var = this.e;
+                if (!i2) {
+                    i = 1001;
+                }
+                l41Var.c(he0Var, de0Var, i, i2);
+            }
+        }
+
+        @Override // com.baidu.tieba.q51.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                v51.c(this.b, "初始化失败，降级为原生打开");
+            }
+        }
     }
 
-    public static String b(o41 o41Var) {
-        InterceptResult invokeL;
+    public l41() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, o41Var)) == null) {
-            return "CREATE TABLE IF NOT EXISTS " + o41Var.g() + " (" + f(o41Var.d()) + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        this.a = "EasyBrowseInterceptor";
     }
 
-    public static String f(g41[] g41VarArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.be0
+    public boolean d(Context context, de0 schemeModel, Map<String, Object> map, he0 he0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, g41VarArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int length = g41VarArr.length;
-            String str = "";
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, schemeModel, map, he0Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
             int i = 0;
-            while (i < length) {
-                g41 g41Var = g41VarArr[i];
-                sb.append(str);
-                sb.append(g41Var.b);
-                sb.append(getType(g41Var));
-                sb.append(c(g41Var));
-                i++;
-                str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
+            if (!j()) {
+                v51.c(context, "未命中新架构");
+                return false;
             }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getType(g41 g41Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, g41Var)) == null) {
-            int i = g41Var.a;
-            if (i == 1 || i == 2 || i == 3) {
-                return " INTEGER";
-            }
-            if (i == 4) {
-                return " TEXT";
-            }
-            throw new IllegalArgumentException("Unsupported field type " + g41Var.a);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(g41 g41Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, g41Var)) == null) {
-            int i = g41Var.d;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            return " PRIMARY KEY AUTOINCREMENT";
-                        }
-                        throw new IllegalArgumentException("Unsupported field attribute " + g41Var.d);
+            HashMap<String, String> d = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            ky0.b((String) vx0.b(d, "charge_url"));
+            int b = m41.b(context.getApplicationContext(), new a(this, context, d, he0Var, schemeModel));
+            if (b == 0) {
+                c(he0Var, schemeModel, 1001, false);
+                v51.d(new IllegalStateException("web app init failed, state=" + b));
+                return false;
+            } else if (2 != b && 1 != b) {
+                if (4 == b) {
+                    v51.c(context, "初始化失败，降级为原生打开");
+                    h(context, schemeModel, he0Var);
+                    return true;
+                } else if (5 == b) {
+                    v51.c(context, "低版本不支持t7，降级为原生打开");
+                    h(context, schemeModel, he0Var);
+                    return true;
+                } else {
+                    boolean i2 = i(context, d, false);
+                    String str = this.a;
+                    v51.a(str, "调起SDK落地页, 结果 " + i2);
+                    if (!i2) {
+                        i = 1001;
                     }
-                    return " PRIMARY KEY";
+                    c(he0Var, schemeModel, i, i2);
+                    return true;
                 }
-                return " DEFAULT 0";
+            } else {
+                v51.c(context, "正在初始化，降级为原生打开");
+                h(context, schemeModel, he0Var);
+                return true;
             }
-            return "";
         }
-        return (String) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static String d(g41... g41VarArr) {
-        InterceptResult invokeL;
+    public final void h(Context context, de0 de0Var, he0 he0Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, g41VarArr)) == null) {
-            return e(g41VarArr, null);
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, de0Var, he0Var) == null) {
+            HashMap<String, String> d = de0Var.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            d.put("downgrade_to_native", "1");
+            boolean i2 = i(context, de0Var.d(), true);
+            if (i2) {
+                i = 0;
+            } else {
+                i = 1001;
+            }
+            c(he0Var, de0Var, i, i2);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String e(g41[] g41VarArr, String str) {
-        InterceptResult invokeLL;
+    public final boolean i(Context context, HashMap<String, String> hashMap, boolean z) {
+        InterceptResult invokeLLZ;
+        String str;
+        Class cls;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, g41VarArr, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int length = g41VarArr.length;
-            String str2 = "";
-            int i = 0;
-            while (i < length) {
-                g41 g41Var = g41VarArr[i];
-                sb.append(str2);
-                if (str != null && str.length() != 0) {
-                    sb.append(str);
-                    sb.append(".");
-                }
-                sb.append(g41Var.b);
-                i++;
-                str2 = StringUtil.ARRAY_ELEMENT_SEPARATOR;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, context, hashMap, z)) == null) {
+            if (!z && !i41.a().b(hashMap, i41.b())) {
+                v51.a(this.a, "调起SDK落地页, Activity 调起失败, 内核未成功初始化");
+                return false;
             }
-            return sb.toString();
+            if (hashMap != null) {
+                str = hashMap.remove("newbrowser");
+            } else {
+                str = null;
+            }
+            if (Intrinsics.areEqual("1", str)) {
+                cls = NadWebViewActivityStandard.class;
+            } else {
+                cls = NadWebViewActivity.class;
+            }
+            Intent intent = new Intent(context, cls);
+            intent.putExtra("map", hashMap);
+            return u01.d(context, intent);
         }
-        return (String) invokeLL.objValue;
+        return invokeLLZ.booleanValue;
     }
 }

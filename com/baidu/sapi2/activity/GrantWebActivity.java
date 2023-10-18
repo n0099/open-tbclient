@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.task.UpgradeInfo;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -225,9 +226,9 @@ public class GrantWebActivity extends BaseActivity {
         hashMap.put("tpl", SapiAccountManager.getInstance().getConfignation().tpl);
         hashMap.put("u", this.u);
         if (z2 && !YYOption.IsLive.VALUE_TRUE.equals(this.w)) {
-            hashMap.put("force", "false");
+            hashMap.put(UpgradeInfo.KEY_INT_FORCE_UPGRADE, "false");
         } else {
-            hashMap.put("force", YYOption.IsLive.VALUE_TRUE);
+            hashMap.put(UpgradeInfo.KEY_INT_FORCE_UPGRADE, YYOption.IsLive.VALUE_TRUE);
         }
         String str2 = str + SapiUtils.mapToUrlParams(hashMap, false) + "#app_auth";
         Log.d(y, "url = " + str2);
@@ -245,7 +246,7 @@ public class GrantWebActivity extends BaseActivity {
             this.t = data.getQueryParameter("channel_id");
             this.u = data.getQueryParameter("u");
             this.v = data.getQueryParameter("nu");
-            this.w = data.getQueryParameter("force");
+            this.w = data.getQueryParameter(UpgradeInfo.KEY_INT_FORCE_UPGRADE);
             this.x = data.getQueryParameter("wap_tpl");
         }
         if (TextUtils.isEmpty(this.t)) {

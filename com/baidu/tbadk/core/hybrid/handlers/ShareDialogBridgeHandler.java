@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.t85;
-import com.baidu.tieba.v85;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.d35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class ShareDialogBridgeHandler extends NamedBridgeHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t85 mBridge;
+    public b35 mBridge;
 
     @Override // com.baidu.tbadk.core.hybrid.NamedBridgeHandler
     public String scope() {
@@ -30,27 +30,27 @@ public class ShareDialogBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareDialogBridgeHandler(t85 t85Var) {
-        super(t85Var);
+    public ShareDialogBridgeHandler(b35 b35Var) {
+        super(b35Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t85Var};
+            Object[] objArr = {b35Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((t85) newInitContext.callArgs[0]);
+                super((b35) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mBridge = t85Var;
+        this.mBridge = b35Var;
     }
 
-    @v85(isAsync = false, value = "showShareDialog")
+    @d35(isAsync = false, value = "showShareDialog")
     public void showShareDialog(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
@@ -69,7 +69,7 @@ public class ShareDialogBridgeHandler extends NamedBridgeHandler {
             shareItem.imageUri = Uri.parse(optString3);
         }
         shareItem.linkUrl = optString4;
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mBridge.getContext(), shareItem, true);
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mBridge.f(), shareItem, true);
         shareDialogConfig.setIsSupportNightMode(true);
         shareDialogConfig.setIsCopyLink(true);
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));

@@ -6,7 +6,6 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.lightdownload.LightFileUtils;
 import com.baidu.searchbox.download.unified.SourceConstant;
-import com.baidu.tieba.cl8;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.tieba.im.lib.socket.msg.data.BubbleInfo;
@@ -18,6 +17,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.data.ReplyEmojiMsgInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.ChatActivityInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatConf;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatResource;
+import com.baidu.tieba.mf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,7 +63,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public List<AbilityItem> longPressMsgBtn;
     @Nullable
     @SerializedName("mask_info")
-    public List<cl8> maskInfoList;
+    public List<mf8> maskInfoList;
     public String prologue;
     @Nullable
     @SerializedName("quick_talk")
@@ -286,6 +286,10 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public static final int BANNED = 1;
         public static final int UNBANNED = 0;
         public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("ban_all_forum_toast")
+        public String banAllForumToast;
+        @SerializedName("bazhu_type")
+        public int bazhuType;
         @Nullable
         @SerializedName("bubble_info")
         public BubbleInfo bubbleInfo;
@@ -326,11 +330,29 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
             }
         }
 
+        public int getBaZhuType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.bazhuType;
+            }
+            return invokeV.intValue;
+        }
+
+        public String getBanAllForumContent() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.banAllForumToast;
+            }
+            return (String) invokeV.objValue;
+        }
+
         @Nullable
         public BubbleInfo getBubbleInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return this.bubbleInfo;
             }
             return (BubbleInfo) invokeV.objValue;
@@ -339,7 +361,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public String getCannotTalkText() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return this.cannotTalkText;
             }
             return (String) invokeV.objValue;
@@ -349,7 +371,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public List<EnableDegradeUserData> getEnableDegradeUserDataList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 return this.enableDegradeUserDataList;
             }
             return (List) invokeV.objValue;
@@ -358,7 +380,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public int getForumLevel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 return this.forumLevel;
             }
             return invokeV.intValue;
@@ -367,7 +389,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public int getIdentityRole() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 return this.identityRole;
             }
             return invokeV.intValue;
@@ -376,7 +398,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public int getIsBeenTalkBanned() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 return this.isBeenTalkBanned;
             }
             return invokeV.intValue;
@@ -385,7 +407,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public int getIsCanTalk() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 return this.isCanTalk;
             }
             return invokeV.intValue;
@@ -394,7 +416,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public int getIsCanViewChatroom() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                 return this.isCanViewChatroom;
             }
             return invokeV.intValue;
@@ -403,7 +425,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public int getIsSubscription() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 return this.isSubscription;
             }
             return invokeV.intValue;
@@ -413,7 +435,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public List<EnableDegradeUserData> getSecondDegradeUserDataList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                 return this.secondDegradeUserDataList;
             }
             return (List) invokeV.objValue;
@@ -422,7 +444,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public boolean isCanReaction() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
                 if (this.isCanReaction == 1) {
                     return true;
                 }
@@ -434,7 +456,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public boolean isSubscription() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
                 if (this.isSubscription == 1) {
                     return true;
                 }
@@ -445,14 +467,14 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
 
         public void setBubbleInfo(BubbleInfo bubbleInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, bubbleInfo) == null) {
+            if (interceptable == null || interceptable.invokeL(1048590, this, bubbleInfo) == null) {
                 this.bubbleInfo = bubbleInfo;
             }
         }
 
         public void setIsBeenTalkBanned(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
                 this.isBeenTalkBanned = i;
             }
         }
@@ -587,7 +609,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     }
 
     @Nullable
-    public List<cl8> getMaskInfoList() {
+    public List<mf8> getMaskInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {

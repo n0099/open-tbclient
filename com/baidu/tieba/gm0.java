@@ -1,11 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.nadcore.download.retain.RetainDialogActivity;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,48 +7,85 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.HashMap;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gm0 {
+public final class gm0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Boolean> a;
-    public hl0 b;
-    public WeakReference<rl0> c;
+    @JvmField
+    public String a;
+    @JvmField
+    public String b;
+    @JvmField
+    public String c;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947798591, "Lcom/baidu/tieba/gm0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947798591, "Lcom/baidu/tieba/gm0;");
+                return;
+            }
         }
+        d = new a(null);
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final gm0 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-771314111, "Lcom/baidu/tieba/gm0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-771314111, "Lcom/baidu/tieba/gm0$b;");
-                    return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new gm0(null);
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final gm0 a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("panel");
+                if (optJSONObject == null) {
+                    optJSONObject = ux0.c(jSONObject.optString("panel"));
+                }
+                if (optJSONObject == null) {
+                    return null;
+                }
+                gm0 gm0Var = new gm0();
+                gm0Var.a = optJSONObject.optString("title");
+                gm0Var.b = optJSONObject.optString("brand_name");
+                gm0Var.c = optJSONObject.optString("avatar");
+                optJSONObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST);
+                return gm0Var;
+            }
+            return (gm0) invokeL.objValue;
         }
     }
 
@@ -62,101 +93,13 @@ public class gm0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new HashMap<>();
-    }
-
-    public static gm0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (gm0) invokeV.objValue;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hl0 hl0Var = this.b;
-            if (hl0Var != null && hl0Var.c != AdDownloadStatus.COMPLETED) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        WeakReference<rl0> weakReference;
-        rl0 rl0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (weakReference = this.c) != null && (rl0Var = weakReference.get()) != null) {
-            rl0Var.h();
-        }
-    }
-
-    public /* synthetic */ gm0(a aVar) {
-        this();
-    }
-
-    public final boolean b(rl0 rl0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rl0Var)) == null) {
-            WeakReference<rl0> weakReference = new WeakReference<>(rl0Var);
-            this.c = weakReference;
-            rl0 rl0Var2 = weakReference.get();
-            if (rl0Var2 != null && rl0Var2.getData() != null) {
-                this.b = rl0Var2.getData();
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.put(this.b.e(), Boolean.TRUE);
-            Intent intent = new Intent();
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            intent.putExtra("ext", this.b.p.a);
-            intent.putExtra("alsPage", ClogBuilder.Page.AD_DIALOG);
-            intent.putExtra("percent", (int) (this.b.i * 100.0f));
-            intent.setClassName(sj0.b().getPackageName(), RetainDialogActivity.class.getName());
-            h61.d(sj0.b(), intent);
-        }
-    }
-
-    public boolean e(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (!(obj instanceof rl0) || tn0.b().a().a("key_ad_interrupt_dialog_switch", 1) == 0) {
-                return false;
-            }
-            boolean b2 = b((rl0) obj);
-            int a2 = tn0.b().a().a("key_ad_interrupt_dialog_target_percnet", 50);
-            if (!b2) {
-                return false;
-            }
-            hl0 hl0Var = this.b;
-            if (hl0Var.i * 100.0f < a2 || this.a.get(hl0Var.e()) != null) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

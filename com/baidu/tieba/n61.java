@@ -1,55 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n61 {
+public abstract class n61 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
+    public long a;
+    public long b;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public abstract void c();
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final n61 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract void d();
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-621673918, "Lcom/baidu/tieba/n61$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-621673918, "Lcom/baidu/tieba/n61$b;");
-                    return;
-                }
-            }
-            a = new n61(null);
-        }
-    }
-
-    public n61() {
+    public n61(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -59,52 +32,33 @@ public class n61 {
                 return;
             }
         }
-        this.a = false;
-        this.b = "";
+        this.a = j;
+        this.b = j2;
     }
 
-    @NonNull
-    public static n61 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (n61) invokeV.objValue;
-    }
-
-    public /* synthetic */ n61(a aVar) {
-        this();
-    }
-
-    public String a() {
+    public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.a) {
-                StringBuilder sb = new StringBuilder();
-                if (p61.b(sj0.b())) {
-                    sb.append("BDOS/1.0");
-                    sb.append(" ");
-                    sb.append("(");
-                    sb.append("HarmonyOS");
-                    sb.append(" ");
-                    String a2 = p61.a();
-                    if (TextUtils.isEmpty(a2)) {
-                        a2 = "0.0";
-                    }
-                    sb.append(a2);
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                }
-                String sb2 = sb.toString();
-                this.b = sb2;
-                if (!TextUtils.isEmpty(sb2)) {
-                    this.b = m71.a(this.b);
-                }
-                this.a = true;
-            }
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d();
+        }
     }
 }

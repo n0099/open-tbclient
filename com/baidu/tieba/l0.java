@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class l0 {
     public static /* synthetic */ Interceptable $ic;
-    public static q7<String, l0> e;
+    public static a3<String, l0> e;
     public static int f;
     public static final b g;
-    public static final x6 h;
+    public static final s2 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final x6 a;
-    public final x6 b;
-    public final x6 c;
+    public final s2 a;
+    public final s2 b;
+    public final s2 c;
     public final int d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,13 +33,13 @@ public class l0 {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this == obj : invokeL.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public x6 a;
-        public x6 b;
-        public x6 c;
+        public s2 a;
+        public s2 b;
+        public s2 c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -66,10 +66,10 @@ public class l0 {
                 return (l0) invokeV.objValue;
             }
             String f = l0.f(this.a, this.b, this.c);
-            l0 l0Var = (l0) l0.e.d(f, null);
+            l0 l0Var = (l0) l0.e.c(f, null);
             if (l0Var == null) {
                 l0 l0Var2 = new l0(this.a, this.b, this.c, null);
-                l0.e.i(f, l0Var2);
+                l0.e.h(f, l0Var2);
                 return l0Var2;
             }
             return l0Var;
@@ -123,18 +123,18 @@ public class l0 {
                 return;
             }
         }
-        e = new q7<>();
+        e = new a3<>();
         f = 0;
         g = new b();
-        h = new x6();
+        h = new s2();
     }
 
-    public l0(x6 x6Var, x6 x6Var2, x6 x6Var3) {
+    public l0(s2 s2Var, s2 s2Var2, s2 s2Var3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x6Var, x6Var2, x6Var3};
+            Object[] objArr = {s2Var, s2Var2, s2Var3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -144,16 +144,16 @@ public class l0 {
                 return;
             }
         }
-        this.a = x6Var;
-        this.b = x6Var2;
-        this.c = x6Var3;
+        this.a = s2Var;
+        this.b = s2Var2;
+        this.c = s2Var3;
         int i3 = f;
         f = i3 + 1;
         this.d = i3;
     }
 
-    public /* synthetic */ l0(x6 x6Var, x6 x6Var2, x6 x6Var3, a aVar) {
-        this(x6Var, x6Var2, x6Var3);
+    public /* synthetic */ l0(s2 s2Var, s2 s2Var2, s2 s2Var3, a aVar) {
+        this(s2Var, s2Var2, s2Var3);
     }
 
     public int g() {
@@ -200,15 +200,15 @@ public class l0 {
         return (b) invokeL.objValue;
     }
 
-    public static String e(x6 x6Var) {
+    public static String e(s2 s2Var) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, x6Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, s2Var)) == null) {
             StringBuilder sb = new StringBuilder();
-            int h2 = x6Var.h();
+            int h2 = s2Var.h();
             for (int i = 0; i < h2; i++) {
-                if (x6Var.e(i)) {
+                if (s2Var.e(i)) {
                     str = "1";
                 } else {
                     str = "0";
@@ -224,7 +224,7 @@ public class l0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i0Var)) == null) {
-            x6 e2 = i0Var.e();
+            s2 e2 = i0Var.e();
             if (!e2.d(this.a)) {
                 return false;
             }
@@ -239,24 +239,24 @@ public class l0 {
         return invokeL.booleanValue;
     }
 
-    public static String f(x6 x6Var, x6 x6Var2, x6 x6Var3) {
+    public static String f(s2 s2Var, s2 s2Var2, s2 s2Var3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, x6Var, x6Var2, x6Var3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, s2Var, s2Var2, s2Var3)) == null) {
             StringBuilder sb = new StringBuilder();
-            if (!x6Var.g()) {
+            if (!s2Var.g()) {
                 sb.append("{all:");
-                sb.append(e(x6Var));
+                sb.append(e(s2Var));
                 sb.append("}");
             }
-            if (!x6Var2.g()) {
+            if (!s2Var2.g()) {
                 sb.append("{one:");
-                sb.append(e(x6Var2));
+                sb.append(e(s2Var2));
                 sb.append("}");
             }
-            if (!x6Var3.g()) {
+            if (!s2Var3.g()) {
                 sb.append("{exclude:");
-                sb.append(e(x6Var3));
+                sb.append(e(s2Var3));
                 sb.append("}");
             }
             return sb.toString();

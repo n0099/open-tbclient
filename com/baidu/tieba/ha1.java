@@ -1,311 +1,134 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.oa1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ha1 extends aa1 {
+public class ha1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ha1 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public ViewTreeObserver.OnGlobalLayoutListener b;
-    public View.OnLayoutChangeListener c;
-    public boolean d;
-    public final wa1 e;
-    public final ea1 f;
 
-    /* loaded from: classes6.dex */
-    public static final class a implements View.OnLayoutChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final /* synthetic */ ha1 b;
-
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(ha1 ha1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ha1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ha1Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947816881, "Lcom/baidu/tieba/ha1;")) == null) {
+            return;
         }
-
-        @Override // android.view.View.OnLayoutChangeListener
-        public void onLayoutChange(View v, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{v, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-                Intrinsics.checkNotNullParameter(v, "v");
-                Rect rect = new Rect();
-                v.getWindowVisibleDisplayFrame(rect);
-                String str = this.b.a;
-                ib1.a(str, "preBottom: " + this.a + " bottom: " + rect.bottom);
-                int i9 = rect.bottom;
-                int i10 = this.a;
-                if (i9 != i10 && i10 != 0) {
-                    AbsNadBrowserView m = this.b.f.m();
-                    if (m != null) {
-                        int i11 = this.a - rect.bottom;
-                        if (i11 <= 200) {
-                            if (i3 == i7 && this.b.d) {
-                                ma1.b(this.b.e, m.getHeight(), 0, m.getHeight(), 0);
-                                ha1 ha1Var = this.b;
-                                ha1Var.w(ha1Var.f.m(), -1, -1);
-                            }
-                            this.b.d = false;
-                        } else {
-                            this.b.d = true;
-                            if (i3 == i7) {
-                                ma1.b(this.b.e, m.getHeight() - i11, i11, m.getHeight(), 0);
-                                ha1 ha1Var2 = this.b;
-                                ha1Var2.w(ha1Var2.f.m(), -1, -1);
-                            }
-                        }
-                        this.a = rect.bottom;
-                        return;
-                    }
-                    return;
-                }
-                this.a = rect.bottom;
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947816881, "Lcom/baidu/tieba/ha1;");
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b implements wa1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ha1 a;
-
-        public b(ha1 ha1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ha1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ha1Var;
-        }
-
-        @Override // com.baidu.tieba.wa1
-        public final void loadUrl(String str, Map<String, String> map) {
-            AbsNadBrowserView m;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) && (m = this.a.f.m()) != null) {
-                AbsNadBrowserView.E(m, str, map, false, 4, null);
-            }
-        }
-    }
-
-    public ha1(ea1 container) {
+    public ha1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {container};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(container, "container");
-        this.f = container;
-        this.a = "KeyboardPlugin";
-        this.e = new b(this);
-    }
-
-    @Override // com.baidu.tieba.aa1
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            s();
-            t();
-            super.d();
-        }
-    }
-
-    @Override // com.baidu.tieba.aa1
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (ab1.c()) {
-                s();
-                t();
-            } else {
-                v();
-                u();
-            }
-            super.m();
-        }
-    }
-
-    public final void t() {
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f.e() != null && this.c != null && (e = this.f.e()) != null) {
-            e.removeOnLayoutChangeListener(this.c);
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c = new a(this);
-            LinearLayout e = this.f.e();
-            if (e != null) {
-                e.addOnLayoutChangeListener(this.c);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.aa1
-    public void h(AbsNadBrowserView webView, String str, Bitmap bitmap) {
-        String str2;
-        AbsNadBrowserView m;
-        String str3;
-        oa1.e j;
-        oa1.e j2;
+    public static synchronized ha1 f() {
+        InterceptResult invokeV;
+        ha1 ha1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            oa1.d l = this.f.l();
-            if (l != null && (j2 = l.j()) != null) {
-                str2 = j2.b();
-            } else {
-                str2 = null;
-            }
-            if (str2 != null && (m = this.f.m()) != null) {
-                oa1.d l2 = this.f.l();
-                if (l2 != null && (j = l2.j()) != null) {
-                    str3 = j.b();
-                } else {
-                    str3 = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (ha1.class) {
+                if (a == null) {
+                    synchronized (ha1.class) {
+                        if (a == null) {
+                            a = new ha1();
+                        }
+                    }
                 }
-                AbsNadBrowserView.C(m, str3, null, 2, null);
+                ha1Var = a;
             }
-            super.h(webView, str, bitmap);
+            return ha1Var;
         }
+        return (ha1) invokeV.objValue;
     }
 
-    public final void w(View view2, int i, int i2) {
+    public boolean a(Activity activity, String str, la1 la1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i, i2) != null) || view2 == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, la1Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            ga1.a().c(activity, str, la1Var);
+            return true;
         }
-        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-        if (layoutParams instanceof FrameLayout.LayoutParams) {
-            view2.setLayoutParams(new FrameLayout.LayoutParams(i, i2));
-        } else if (layoutParams instanceof LinearLayout.LayoutParams) {
-            view2.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
-        } else if (layoutParams instanceof RelativeLayout.LayoutParams) {
-            view2.setLayoutParams(new RelativeLayout.LayoutParams(i, i2));
-        } else if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            view2.setLayoutParams(new ViewGroup.MarginLayoutParams(i, i2));
-        } else if (layoutParams instanceof ViewGroup.LayoutParams) {
-            view2.setLayoutParams(new ViewGroup.LayoutParams(i, i2));
-        }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.aa1
-    public void k(AbsNadBrowserView webView, String str) {
-        String str2;
-        AbsNadBrowserView m;
-        String str3;
-        oa1.e j;
-        oa1.e j2;
+    public boolean b(Activity activity, String str, la1 la1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            oa1.d l = this.f.l();
-            if (l != null && (j2 = l.j()) != null) {
-                str2 = j2.a();
-            } else {
-                str2 = null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, la1Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            if (str2 != null && (m = this.f.m()) != null) {
-                oa1.d l2 = this.f.l();
-                if (l2 != null && (j = l2.j()) != null) {
-                    str3 = j.a();
-                } else {
-                    str3 = null;
-                }
-                AbsNadBrowserView.C(m, str3, null, 2, null);
-            }
-            super.k(webView, str);
+            ga1.a().e(activity, str, la1Var);
+            return true;
         }
+        return invokeLLL.booleanValue;
     }
 
-    public final void s() {
-        ViewTreeObserver viewTreeObserver;
+    public boolean c(Activity activity, JSONObject jSONObject, la1 la1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f.e() != null && this.b != null) {
-            LinearLayout e = this.f.e();
-            if (e != null) {
-                viewTreeObserver = e.getViewTreeObserver();
-            } else {
-                viewTreeObserver = null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, jSONObject, la1Var)) == null) {
+            if (jSONObject == null) {
+                return false;
             }
-            if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
-                viewTreeObserver.removeOnGlobalLayoutListener(this.b);
-            }
+            ga1.a().i(activity, jSONObject, la1Var);
+            return true;
         }
+        return invokeLLL.booleanValue;
     }
 
-    public final void u() {
+    public boolean e(Context context, JSONObject jSONObject, la1 la1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f.e() == null) {
-                ib1.a(this.a, "init keyboard config failed");
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, jSONObject, la1Var)) == null) {
+            if (jSONObject == null) {
+                return false;
             }
-            LinearLayout e = this.f.e();
-            if (e != null) {
-                if (this.b == null) {
-                    this.b = new ga1(e);
-                }
-                ViewTreeObserver viewTreeObserver = e.getViewTreeObserver();
-                Intrinsics.checkNotNullExpressionValue(viewTreeObserver, "it.viewTreeObserver");
-                if (viewTreeObserver.isAlive()) {
-                    ib1.a(this.a, "add layout listener");
-                    viewTreeObserver.addOnGlobalLayoutListener(this.b);
-                }
-            }
+            ga1.a().d(context, jSONObject, la1Var);
+            return true;
         }
+        return invokeLLL.booleanValue;
+    }
+
+    public boolean d(Context context, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return false;
+            }
+            ga1.a().f(context, jSONObject);
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -1,19 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
-import com.baidu.swan.apps.view.SwanAppErrorDialog;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
-import com.baidu.swan.facade.requred.webview.LoadingActivity;
-import com.baidu.tieba.by3;
-import com.baidu.tieba.hh2;
+import com.baidu.appsearchlib.Info;
+import com.baidu.tieba.cb3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,73 +10,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dy3 implements by3.b {
+public class dy3 extends vx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-
-    @Override // com.baidu.tieba.by3.b
-    public Bitmap d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (Bitmap) invokeV.objValue;
-    }
 
     /* loaded from: classes5.dex */
-    public class b implements zp3<Boolean> {
+    public class a implements cb3.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ih2 a;
-        public final /* synthetic */ dy3 b;
+        public final /* synthetic */ ti2 a;
 
-        /* loaded from: classes5.dex */
-        public class a implements hh2.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Boolean a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, Boolean bool) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, bool};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = bool;
-            }
-
-            @Override // com.baidu.tieba.hh2.e
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.b;
-                    bVar.b.i(this.a, bVar.a);
-                }
-            }
-        }
-
-        public b(dy3 dy3Var, ih2 ih2Var) {
+        public a(dy3 dy3Var, ti2 ti2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dy3Var, ih2Var};
+                Object[] objArr = {dy3Var, ti2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -97,125 +40,20 @@ public class dy3 implements by3.b {
                     return;
                 }
             }
-            this.b = dy3Var;
-            this.a = ih2Var;
+            this.a = ti2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zp3
-        /* renamed from: b */
-        public void a(Boolean bool) {
+        @Override // com.baidu.tieba.cb3.f
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                if (dy3.b) {
-                    Log.i("SailorSoDownloadAdapter", "startDownload onCallback: " + bool);
-                }
-                if (!bool.booleanValue()) {
-                    this.b.i(bool, this.a);
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == -1) {
+                    dy3.c(this.a, "202");
+                } else if (i == 1) {
+                    dy3.c(this.a, BasicPushStatus.SUCCESS_CODE);
                 } else {
-                    SwanAppInitHelper.doWebViewInit(fb3.K(), new a(this, bool));
+                    this.a.onFail(101, "noPermission");
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ih2 a;
-        public final /* synthetic */ dy3 b;
-
-        public a(dy3 dy3Var, ih2 ih2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dy3Var, ih2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dy3Var;
-            this.a = ih2Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(1048576, this, dialogInterface, i) != null) || -2 == i) {
-                return;
-            }
-            this.b.j();
-            this.b.l(this.a);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(dy3 dy3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dy3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Context appContext = AppRuntime.getAppContext();
-                Intent intent = new Intent(appContext, LoadingActivity.class);
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                intent.putExtra("so_lib_name", ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-                pn3.g(appContext, intent);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(dy3 dy3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dy3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fb3.K().p("loading_hide");
             }
         }
     }
@@ -233,10 +71,12 @@ public class dy3 implements by3.b {
                 return;
             }
         }
-        b = qr1.a;
+        c = am1.a;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dy3() {
+        super("addShortcutToDesktop");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,93 +84,50 @@ public class dy3 implements by3.b {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
     }
 
-    @Override // com.baidu.tieba.by3.b
-    public fo4 a() {
-        InterceptResult invokeV;
+    public static void c(ti2 ti2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new it4();
-        }
-        return (fo4) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            fb3.M().post(new d(this));
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            fb3.M().post(new c(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.by3.b
-    public void b(boolean z, ih2 ih2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, ih2Var) == null) {
-            if (this.a) {
-                if (!z) {
-                    j();
-                }
-                l(ih2Var);
-            } else if (z) {
-                l(ih2Var);
-            } else {
-                k(new a(this, ih2Var));
-            }
-        }
-    }
-
-    public final void i(Boolean bool, ih2 ih2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, bool, ih2Var) == null) {
-            this.a = false;
-            h();
-            if (ih2Var != null) {
-                if (bool.booleanValue()) {
-                    ih2Var.onSuccess();
-                } else {
-                    ih2Var.onFail();
+        if (interceptable == null || interceptable.invokeLL(65539, null, ti2Var, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", str);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
                 }
             }
+            ti2Var.onSuccess(jSONObject);
         }
     }
 
-    public void k(DialogInterface.OnClickListener onClickListener) {
+    @Override // com.baidu.tieba.vx3
+    public qx1 a(JSONObject jSONObject, ti2 ti2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            BaseActivityDialog.e r = SwanAppErrorDialog.r();
-            r.B(R.string.obfuscated_res_0x7f0f020d);
-            r.u(R.string.obfuscated_res_0x7f0f020c);
-            r.w(R.string.obfuscated_res_0x7f0f020a, onClickListener);
-            r.z(R.string.obfuscated_res_0x7f0f020b, onClickListener);
-            r.D();
-        }
-    }
-
-    public final void l(ih2 ih2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ih2Var) == null) {
-            this.a = true;
-            if (b) {
-                Log.i("SailorSoDownloadAdapter", "startDownload: ");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ti2Var)) == null) {
+            p53 c0 = p53.c0();
+            if (c0 != null && c0.w() != null && c0.X() != null) {
+                if (cb3.s(c0.w(), c0.X().L(), c0.X().I()) == 1) {
+                    c(ti2Var, Info.kBaiduPIDValue);
+                    return null;
+                }
+                cb3.j(c0.w(), c0.X(), 1, new a(this, ti2Var));
+                return null;
             }
-            vk2 vk2Var = vk2.d;
-            wk2 wk2Var = new wk2();
-            wk2Var.h(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, new b(this, ih2Var));
-            vk2Var.C(wk2Var);
+            ti2Var.onFail(100, "swan or activity is null");
+            if (c) {
+                Log.d("AddShortcutToDesktop", "swan or activity is null");
+                return null;
+            }
+            return null;
         }
+        return (qx1) invokeLL.objValue;
     }
 }

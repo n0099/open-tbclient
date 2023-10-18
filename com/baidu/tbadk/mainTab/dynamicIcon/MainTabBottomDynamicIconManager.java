@@ -11,9 +11,9 @@ import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ho5;
-import com.baidu.tieba.i31;
-import com.baidu.tieba.io5;
+import com.baidu.tieba.ni5;
+import com.baidu.tieba.oi5;
+import com.baidu.tieba.vx0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,8 +25,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class MainTabBottomDynamicIconManager implements io5 {
+/* loaded from: classes5.dex */
+public class MainTabBottomDynamicIconManager implements oi5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_CHANNEL = "channel";
     public static final String TAG_ENTER_FORUM = "enterForum";
@@ -42,7 +42,7 @@ public class MainTabBottomDynamicIconManager implements io5 {
     public long mShowEndTime;
     public long mShowStartTime;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final MainTabBottomDynamicIconManager a;
@@ -107,7 +107,7 @@ public class MainTabBottomDynamicIconManager implements io5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (i31.c(this.mIconDataMap) || this.hasShowHashCode != this.mIconDataMap.hashCode()) {
+            if (vx0.c(this.mIconDataMap) || this.hasShowHashCode != this.mIconDataMap.hashCode()) {
                 return false;
             }
             return true;
@@ -169,9 +169,9 @@ public class MainTabBottomDynamicIconManager implements io5 {
         }
     }
 
-    public ho5 getValidDynamicStyle() {
+    public ni5 getValidDynamicStyle() {
         InterceptResult invokeV;
-        ho5 dynamicStyleData;
+        ni5 dynamicStyleData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             DynamicIconData iconData = getInstance().getIconData("style");
@@ -180,32 +180,7 @@ public class MainTabBottomDynamicIconManager implements io5 {
             }
             return null;
         }
-        return (ho5) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.io5
-    public void onIconLoadedFinish() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Iterator<Map.Entry<String, DynamicIconData>> it = this.mIconDataMap.entrySet().iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    Map.Entry<String, DynamicIconData> next = it.next();
-                    if (next.getValue() != null && !next.getValue().isAllStatusIconLoadedFinish()) {
-                        z = false;
-                        break;
-                    }
-                } else {
-                    z = true;
-                    break;
-                }
-            }
-            this.mIsAllIconLoadedFinished = z;
-            if (z) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921551, Boolean.TRUE));
-            }
-        }
+        return (ni5) invokeV.objValue;
     }
 
     public void loadImages() {
@@ -226,6 +201,31 @@ public class MainTabBottomDynamicIconManager implements io5 {
                     entry.getValue().setIconLoadedFinishCallback(this);
                     entry.getValue().loadImages();
                 }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.oi5
+    public void onIconLoadedFinish() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Iterator<Map.Entry<String, DynamicIconData>> it = this.mIconDataMap.entrySet().iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    Map.Entry<String, DynamicIconData> next = it.next();
+                    if (next.getValue() != null && !next.getValue().isAllStatusIconLoadedFinish()) {
+                        z = false;
+                        break;
+                    }
+                } else {
+                    z = true;
+                    break;
+                }
+            }
+            this.mIsAllIconLoadedFinished = z;
+            if (z) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921551, Boolean.TRUE));
             }
         }
     }

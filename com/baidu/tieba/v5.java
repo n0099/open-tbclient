@@ -1,98 +1,36 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public class v5 {
+public abstract class v5 extends x5<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThreadPoolExecutor a;
 
-    /* loaded from: classes8.dex */
-    public class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public AtomicInteger a;
+    public abstract void g(int i, BdUniqueId bdUniqueId);
 
-        public a(v5 v5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger();
-        }
+    public abstract void h(BdUniqueId bdUniqueId);
 
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, "NetThread" + this.a.getAndIncrement());
-                thread.setDaemon(true);
-                return thread;
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v5(int i) {
-        boolean z;
-        int i2;
-        BlockingQueue linkedBlockingQueue;
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i == Integer.MAX_VALUE) {
-            z = true;
-        } else {
-            z = false;
-        }
-        if (z) {
-            i2 = 0;
-        } else {
-            i2 = i;
-        }
-        TimeUnit timeUnit = TimeUnit.SECONDS;
-        if (z) {
-            linkedBlockingQueue = new SynchronousQueue();
-        } else {
-            linkedBlockingQueue = new LinkedBlockingQueue();
-        }
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i, 60L, timeUnit, linkedBlockingQueue, new a(this));
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(!z);
-        new q7();
-        new q7();
     }
 }

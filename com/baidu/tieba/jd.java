@@ -1,88 +1,112 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Type;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
+import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
-public class jd implements gd {
+public class jd {
     public static /* synthetic */ Interceptable $ic;
+    public static Field a;
+    public static Field b;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
 
-    public jd(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Handler a;
+
+        public a(Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = handler;
+        }
+
+        @Override // android.os.Handler
+        public void dispatchMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                try {
+                    super.dispatchMessage(message);
+                } catch (Exception unused) {
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
+                try {
+                    if (this.a != null) {
+                        this.a.handleMessage(message);
+                    }
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308147, "Lcom/baidu/tieba/jd;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308147, "Lcom/baidu/tieba/jd;");
                 return;
             }
         }
-        this.a = jSONObject;
+        try {
+            if (Build.VERSION.SDK_INT < 28) {
+                Field declaredField = Toast.class.getDeclaredField("mTN");
+                a = declaredField;
+                declaredField.setAccessible(true);
+                Field declaredField2 = a.getType().getDeclaredField("mHandler");
+                b = declaredField2;
+                declaredField2.setAccessible(true);
+            }
+        } catch (Exception unused) {
+        }
     }
 
-    @Override // com.baidu.tieba.gd
-    public Object a(wd wdVar) {
-        InterceptResult invokeL;
+    public static void a(Toast toast) {
+        Object obj;
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wdVar)) == null) {
-            Class<?> a = wdVar.a();
-            Type[] b = wdVar.b();
-            if (dc.e(a, Map.class)) {
-                Map<String, Object> b2 = ud.b(wdVar, this.a.length());
-                if (b2 != null) {
-                    Iterator<String> keys = this.a.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (next instanceof String) {
-                            String str = next;
-                            Object a2 = ae.a(this.a.opt(str)).a(new wd(b[1]));
-                            if (a2 != null) {
-                                b2.put(str, a2);
-                            }
-                        }
-                    }
+        if (interceptable == null || interceptable.invokeL(65537, null, toast) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 28 || a == null || b == null || (obj = a.get(toast)) == null || (handler = (Handler) b.get(obj)) == null) {
+                    return;
                 }
-                return b2;
-            } else if (a == SparseArray.class) {
-                SparseArray sparseArray = new SparseArray(this.a.length());
-                Iterator<String> keys2 = this.a.keys();
-                while (keys2.hasNext()) {
-                    String next2 = keys2.next();
-                    if (next2 instanceof String) {
-                        String str2 = next2;
-                        try {
-                            int parseInt = Integer.parseInt(str2);
-                            Object a3 = ae.a(this.a.opt(String.valueOf(str2))).a(new wd(b[0]));
-                            if (a3 != null) {
-                                sparseArray.put(parseInt, a3);
-                            }
-                        } catch (NumberFormatException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                return sparseArray;
-            } else if (dc.e(a, ec.class)) {
-                return OrmObject.objectWithJson(this.a, a);
-            } else {
-                return null;
+                b.set(obj, new a(handler));
+            } catch (Exception unused) {
             }
         }
-        return invokeL.objValue;
     }
 }

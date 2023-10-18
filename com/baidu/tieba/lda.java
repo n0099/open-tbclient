@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class lda implements mda {
+import tbclient.FrsPage.GconAccount;
+/* loaded from: classes7.dex */
+public class lda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
 
     public lda() {
         Interceptable interceptable = $ic;
@@ -26,16 +28,34 @@ public class lda implements mda {
         }
     }
 
-    @Override // com.baidu.tieba.mda
-    public boolean a(NetworkStatRecord networkStatRecord) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
-            if ((networkStatRecord != null && networkStatRecord.from == 3 && GlobalBuildConfig.isDebug()) || networkStatRecord == null || networkStatRecord.exception == null) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(GconAccount gconAccount) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gconAccount) != null) || gconAccount == null) {
+            return;
+        }
+        boolean z = true;
+        if (gconAccount.has_account.intValue() != 1) {
+            z = false;
+        }
+        this.a = z;
+        this.b = gconAccount.menu_name;
     }
 }

@@ -1,11 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.mutiprocess.IEvent;
 /* loaded from: classes7.dex */
 public interface mk5 {
-    boolean b();
-
-    void handleHide();
-
-    void handleShow();
-
-    boolean isVisible();
+    void a(IEvent iEvent);
 }

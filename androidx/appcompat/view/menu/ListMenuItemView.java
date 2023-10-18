@@ -234,20 +234,20 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     public void onFinishInflate() {
         super.onFinishInflate();
         ViewCompat.setBackground(this, this.mBackground);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09259d);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0925a7);
         this.mTitleView = textView;
         int i = this.mTextAppearance;
         if (i != -1) {
             textView.setTextAppearance(this.mTextAppearanceContext, i);
         }
-        this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f092207);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09230b);
+        this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f092211);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092315);
         this.mSubMenuArrowView = imageView;
         if (imageView != null) {
             imageView.setImageDrawable(this.mSubMenuArrow);
         }
-        this.mGroupDivider = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb8);
-        this.mContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907b0);
+        this.mGroupDivider = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed3);
+        this.mContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907cc);
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView

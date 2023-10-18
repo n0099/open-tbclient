@@ -35,7 +35,7 @@ import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmClassName;
 import kotlin.reflect.jvm.internal.impl.storage.NotNullLazyValue;
 import kotlin.reflect.jvm.internal.impl.storage.StorageKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class LazyJavaPackageFragment extends PackageFragmentDescriptorImpl {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LazyJavaPackageFragment.class), "binaryClasses", "getBinaryClasses$descriptors_jvm()Ljava/util/Map;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LazyJavaPackageFragment.class), "partToFacade", "getPartToFacade()Ljava/util/HashMap;"))};
     public final Annotations annotations;
@@ -46,7 +46,7 @@ public final class LazyJavaPackageFragment extends PackageFragmentDescriptorImpl
     public final JvmPackageScope scope;
     public final NotNullLazyValue<List<FqName>> subPackages;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 

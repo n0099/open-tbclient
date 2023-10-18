@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes6.dex */
 public interface hf {
-    void H(View view2, int i, int i2, long j);
+    void refresh();
 }

@@ -1,49 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.hardware.Camera;
+import android.view.MotionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jy1 extends iy1 {
+public class jy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int b(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
+    }
+
     /* loaded from: classes6.dex */
-    public class a extends ResponseCallback {
+    public static class a implements Camera.AutoFocusCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ jy1 d;
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public a(jy1 jy1Var, String str, String str2, CallbackHandler callbackHandler) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jy1Var, str, str2, callbackHandler};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,185 +43,70 @@ public class jy1 extends iy1 {
                     return;
                 }
             }
-            this.d = jy1Var;
             this.a = str;
-            this.b = str2;
-            this.c = callbackHandler;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // android.hardware.Camera.AutoFocusCallback
+        public void onAutoFocus(boolean z, Camera camera) {
+            Camera.Parameters parameters;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                jy1 jy1Var = this.d;
-                CallbackHandler callbackHandler = this.c;
-                String str = this.b;
-                jy1Var.r(callbackHandler, str, null, "downloadFile:fail" + exc.getMessage());
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.d.s(response, this.a, this.b, this.c);
-                return response;
-            }
-            return invokeLI.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jy1(dc3 dc3Var) {
-        super(dc3Var, "/swanAPI/cloudDownloadFile");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((dc3) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, camera) != null) || camera == null || (parameters = camera.getParameters()) == null) {
                 return;
             }
+            parameters.setFocusMode(this.a);
+            camera.setParameters(parameters);
         }
     }
 
-    @Override // com.baidu.tieba.iy1, com.baidu.tieba.dd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
-        InterceptResult invokeLLLL;
+    public static Rect a(float f, float f2, float f3, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
-            return super.d(context, unitedSchemeEntity, callbackHandler, gb3Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int i3 = (int) (((f / i) * 2000.0f) - 1000.0f);
+            int i4 = (int) (((f2 / i2) * 2000.0f) - 1000.0f);
+            int intValue = Float.valueOf(f3 * 300.0f).intValue() / 2;
+            RectF rectF = new RectF(b(i3 - intValue, -1000, 1000), b(i4 - intValue, -1000, 1000), b(i3 + intValue, -1000, 1000), b(i4 + intValue, -1000, 1000));
+            return new Rect(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
         }
-        return invokeLLLL.booleanValue;
+        return (Rect) invokeCommon.objValue;
     }
 
-    public final void r(CallbackHandler callbackHandler, String str, String str2, String str3) {
+    public static String c(Camera.Parameters parameters) {
+        InterceptResult invokeL;
+        List<String> supportedFocusModes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, callbackHandler, str, str2, str3) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                k(callbackHandler, str, 1001, "downloadFile:fail");
-            } else {
-                k(callbackHandler, str, 1001, gy1.k(str3));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.iy1
-    public void j(Response response, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) {
-            if (!response.isSuccessful()) {
-                k(callbackHandler, str, 1001, "downloadFile:fail");
-                return;
-            }
-            String header = response.header("Content-Type", "");
-            if (header != null && header.contains("application/json")) {
-                JSONObject m = gy1.m(response);
-                if (m != null && response.isSuccessful()) {
-                    String optString = m.optString("errno", String.valueOf(0));
-                    String optString2 = m.optString("errmsg");
-                    if (gy1.o(optString)) {
-                        r(callbackHandler, str, optString, optString2);
-                        return;
-                    }
-                    String optString3 = m.optString("DownloadUrl");
-                    if (TextUtils.isEmpty(optString3)) {
-                        r(callbackHandler, str, optString, optString2);
-                        return;
-                    } else {
-                        p(optString3, callbackHandler, str);
-                        return;
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, parameters)) == null) {
+            if (parameters != null && (supportedFocusModes = parameters.getSupportedFocusModes()) != null) {
+                if (supportedFocusModes.contains("macro")) {
+                    return "macro";
                 }
-                k(callbackHandler, str, 1001, "downloadFile:fail");
-                return;
-            }
-            k(callbackHandler, str, 1001, "downloadFile:fail");
-        }
-    }
-
-    public void p(String str, CallbackHandler callbackHandler, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, callbackHandler, str2) == null) {
-            if (gb3.M() == null) {
-                r(callbackHandler, str2, null, null);
-            } else {
-                q(str, str2, callbackHandler);
-            }
-        }
-    }
-
-    public final void q(String str, String str2, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, callbackHandler) == null) {
-            ji4 ji4Var = new ji4(str, new a(this, str, str2, callbackHandler));
-            ji4Var.f = true;
-            ji4Var.g = false;
-            ji4Var.h = true;
-            ki4.g().d(ji4Var);
-        }
-    }
-
-    public final void s(Response response, String str, String str2, CallbackHandler callbackHandler) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, response, str, str2, callbackHandler) == null) {
-            if (!response.isSuccessful()) {
-                r(callbackHandler, str2, null, "downloadFile:fail");
-                return;
-            }
-            try {
-                str3 = jc3.A(i23.s(response.headers()), kr4.t(str));
-            } catch (JSONException e) {
-                e.printStackTrace();
-                str3 = null;
-            }
-            if (TextUtils.isEmpty(str3)) {
-                r(callbackHandler, str2, null, null);
-                return;
-            }
-            String g = tw2.T().G().g(str3);
-            if (TextUtils.isEmpty(g)) {
-                r(callbackHandler, str2, null, null);
-            } else if (t(response, str3)) {
-                m(callbackHandler, str2, gy1.n(null, g, "downloadFile:ok"));
-            } else {
-                r(callbackHandler, str2, null, null);
-            }
-        }
-    }
-
-    public boolean t(Response response, String str) {
-        InterceptResult invokeLL;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, response, str)) == null) {
-            if (response.body() != null) {
-                inputStream = response.body().byteStream();
-            } else {
-                inputStream = null;
-            }
-            File file = new File(str);
-            if (file.exists()) {
-                file.delete();
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    if (iy1.c) {
-                        e.printStackTrace();
-                    }
+                if (supportedFocusModes.contains("continuous-picture")) {
+                    return "continuous-picture";
                 }
             }
-            return nr4.a(inputStream, file);
+            return "auto";
         }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(MotionEvent motionEvent, Camera camera, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLII(65539, null, motionEvent, camera, i, i2) == null) && motionEvent != null && camera != null) {
+            Rect a2 = a(motionEvent.getX(), motionEvent.getY(), 1.0f, i, i2);
+            camera.cancelAutoFocus();
+            Camera.Parameters parameters = camera.getParameters();
+            if (parameters == null) {
+                return;
+            }
+            if (parameters.getMaxNumFocusAreas() > 0) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new Camera.Area(a2, 800));
+                parameters.setFocusAreas(arrayList);
+            }
+            String focusMode = parameters.getFocusMode();
+            parameters.setFocusMode(c(parameters));
+            camera.setParameters(parameters);
+            camera.autoFocus(new a(focusMode));
+        }
     }
 }

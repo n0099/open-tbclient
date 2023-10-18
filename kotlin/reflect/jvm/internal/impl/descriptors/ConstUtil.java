@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.descriptors;
 
 import kotlin.jvm.JvmStatic;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ConstUtil {
     public static final ConstUtil INSTANCE = new ConstUtil();
 

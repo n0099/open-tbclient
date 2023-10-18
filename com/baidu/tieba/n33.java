@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.tieba.mq2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class n33 {
+public class n33 extends rc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile m33 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized m33 a() {
-        InterceptResult invokeV;
-        m33 m33Var;
+    public static void onEvent(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (n33.class) {
-                if (a == null) {
-                    a = new m33();
-                }
-                m33Var = a;
-            }
-            return m33Var;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            mq2.a X = o53.K().q().X();
+            sc3 sc3Var = new sc3();
+            sc3Var.b = str;
+            sc3Var.a = ic3.n(X.H());
+            sc3Var.f = X.I();
+            sc3Var.c = X.U();
+            ic3.x("1088", sc3Var);
         }
-        return (m33) invokeV.objValue;
     }
 }

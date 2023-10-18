@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.DeviceUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.common.security.DeviceInfoManager;
+import com.baidu.searchbox.network.outback.ConnectManager;
+import com.baidu.searchbox.network.outback.callback.ExtraInfoCallback;
+import com.baidu.searchbox.network.outback.core.internal.Util;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import okhttp3.Interceptor;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
-public class g10 {
+public class g10 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
 
     public g10() {
         Interceptable interceptable = $ic;
@@ -33,54 +31,30 @@ public class g10 {
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.d) {
-                return false;
-            }
-            if (!this.c) {
-                this.c = c();
-            }
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (DeviceInfoManager.INSTANCE.getHarmonyVersion(AppRuntime.getAppContext(), "pub_param", "").errorCode == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.b) {
-                StringBuilder sb = new StringBuilder();
-                if (DeviceUtils.isHarmonyOS(AppRuntime.getAppContext())) {
-                    this.d = true;
-                    String str = DeviceInfoManager.INSTANCE.getHarmonyVersion(AppRuntime.getAppContext(), "pub_param", "").deviceId;
-                    if (TextUtils.isEmpty(str)) {
-                        str = "0.0";
-                    }
-                    sb.append("HMS");
-                    sb.append("_");
-                    sb.append(str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            for (ExtraInfoCallback extraInfoCallback : ExtraInfoCallback.getExtraInfoDispatcher().getAllCallbacks()) {
+                if (extraInfoCallback != null) {
+                    extraInfoCallback.onReceiveClientIP(str);
                 }
-                this.a = sb.toString();
-                this.b = true;
             }
-            return this.a;
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
+            Response proceed = chain.proceed(chain.request());
+            String header = proceed.header("X-Bfe-Svbbrers");
+            if (!Util.isTextEmpty(header)) {
+                ConnectManager.updateClientIP(header);
+                a(header);
+            }
+            return proceed;
+        }
+        return (Response) invokeL.objValue;
     }
 }

@@ -91,12 +91,12 @@ public class ShareThreadAdapter extends BaseStyleNormalAdapter<ShareThreadSysIte
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
     @NonNull
-    /* renamed from: g0 */
-    public ViewHolder M(@NonNull ViewGroup viewGroup) {
+    /* renamed from: h0 */
+    public ViewHolder N(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return f0(viewGroup.getContext());
+            return g0(viewGroup.getContext());
         }
         return (ViewHolder) invokeL.objValue;
     }
@@ -104,45 +104,45 @@ public class ShareThreadAdapter extends BaseStyleNormalAdapter<ShareThreadSysIte
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
     @NonNull
-    /* renamed from: h0 */
-    public ViewHolder O(@NonNull ViewGroup viewGroup) {
+    /* renamed from: i0 */
+    public ViewHolder P(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return f0(viewGroup.getContext());
+            return g0(viewGroup.getContext());
         }
         return (ViewHolder) invokeL.objValue;
     }
 
-    public void j0(long j) {
+    public void k0(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
             this.n = j;
         }
     }
 
-    public void k0(String str) {
+    public void l0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.o = str;
         }
     }
 
-    public void l0(long j) {
+    public void m0(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
             this.m = j;
         }
     }
 
-    public final ViewHolder f0(Context context) {
+    public final ViewHolder g0(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             ChatShareCard chatShareCard = new ChatShareCard(context);
             chatShareCard.V = 1;
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090eb0);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090ecb);
             chatShareCard.setChatRoomId(this.m);
             chatShareCard.setFid(this.n);
             chatShareCard.setFname(this.o);
@@ -154,8 +154,8 @@ public class ShareThreadAdapter extends BaseStyleNormalAdapter<ShareThreadSysIte
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter
-    /* renamed from: i0 */
-    public void T(int i, @NonNull ViewGroup viewGroup, @NonNull ShareThreadSysItem shareThreadSysItem, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
+    /* renamed from: j0 */
+    public void U(int i, @NonNull ViewGroup viewGroup, @NonNull ShareThreadSysItem shareThreadSysItem, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), viewGroup, shareThreadSysItem, viewHolder, list, Integer.valueOf(i2)}) == null) {

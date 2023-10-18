@@ -1,130 +1,40 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kcc;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.agc;
+import com.baidu.tieba.zfc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.UtilityFunctions;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.model.PayFinishInfo;
+import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes8.dex */
-public final class tdc<T, U> implements kcc.b<T, T>, edc<U, U, Boolean> {
+public class tdc implements agc.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ddc<? super T, ? extends U> a;
-    public final edc<? super U, ? super U, Boolean> b;
+    public Activity a;
+    public Dialog b;
+    public agc c;
+    public agc.b d;
+    public IPayCallback<CurrencyChargeMessage> e;
+    public rcc f;
+    public boolean g;
 
-    /* loaded from: classes8.dex */
-    public class a extends qcc<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public U e;
-        public boolean f;
-        public final /* synthetic */ qcc g;
-        public final /* synthetic */ tdc h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(tdc tdcVar, qcc qccVar, qcc qccVar2) {
-            super(qccVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tdcVar, qccVar, qccVar2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((qcc) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = tdcVar;
-            this.g = qccVar2;
-        }
-
-        @Override // com.baidu.tieba.lcc
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.g.onCompleted();
-            }
-        }
-
-        @Override // com.baidu.tieba.lcc
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.g.onError(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.lcc
-        public void onNext(T t) {
-            Object obj;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                try {
-                    U call = this.h.a.call(t);
-                    U u = this.e;
-                    this.e = call;
-                    if (this.f) {
-                        try {
-                            if (!this.h.b.call(u, call).booleanValue()) {
-                                this.g.onNext(t);
-                                return;
-                            } else {
-                                e(1L);
-                                return;
-                            }
-                        } catch (Throwable th) {
-                            wcc.g(th, this.g, obj);
-                            return;
-                        }
-                    }
-                    this.f = true;
-                    this.g.onNext(t);
-                } catch (Throwable th2) {
-                    wcc.g(th2, this.g, t);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final tdc<?, ?> a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-405927496, "Lcom/baidu/tieba/tdc$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-405927496, "Lcom/baidu/tieba/tdc$b;");
-                    return;
-                }
-            }
-            a = new tdc<>(UtilityFunctions.b());
-        }
-    }
-
-    public tdc(ddc<? super T, ? extends U> ddcVar) {
+    public tdc(Activity activity, boolean z, Dialog dialog, agc agcVar, agc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback, rcc rccVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ddcVar};
+            Object[] objArr = {activity, Boolean.valueOf(z), dialog, agcVar, bVar, iPayCallback, rccVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -134,67 +44,64 @@ public final class tdc<T, U> implements kcc.b<T, T>, edc<U, U, Boolean> {
                 return;
             }
         }
-        this.a = ddcVar;
-        this.b = this;
+        RLog.info("PayWayViewCallback", "create PayWayViewCallback");
+        this.a = activity;
+        this.b = dialog;
+        this.c = agcVar;
+        this.d = bVar;
+        this.e = iPayCallback;
+        this.f = rccVar;
+        this.g = z;
     }
 
-    public qcc<? super T> call(qcc<? super T> qccVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.agc.a
+    public void a(nec necVar, jec jecVar, AppCustomExpand appCustomExpand) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qccVar)) == null) {
-            return new a(this, qccVar, qccVar);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, necVar, jecVar, appCustomExpand) == null) {
+            nec necVar2 = new nec(PayType.ALI_PAY_SIGN, necVar.b, necVar.c, necVar.d, necVar.e, necVar.f, necVar.g);
+            RLog.info("PayWayViewCallback", "onStartSignPay payType=" + necVar2.a + ", payAmount=" + jecVar + ", alwaysConfirm=" + necVar.g);
+            this.f.p(this.a, jecVar, necVar2, this.b, this.c, appCustomExpand, this.d, this.e);
         }
-        return (qcc) invokeL.objValue;
     }
 
-    public tdc(edc<? super U, ? super U, Boolean> edcVar) {
+    @Override // com.baidu.tieba.agc.a
+    public void b(nec necVar, jec jecVar, AppCustomExpand appCustomExpand) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {edcVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, necVar, jecVar, appCustomExpand) == null) {
+            RLog.info("PayWayViewCallback", "onStartPay payType=" + necVar.a + ", payAmount=" + jecVar);
+            this.f.k(this.a, necVar, jecVar, this.b, this.c, appCustomExpand, this.d, this.e);
         }
-        this.a = UtilityFunctions.b();
-        this.b = edcVar;
     }
 
-    public static <T> tdc<T, T> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.agc.a
+    public void c(mec mecVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return (tdc<T, T>) b.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mecVar) == null) {
+            RLog.info("PayWayViewCallback", "showSplitOrderView info:" + mecVar);
+            cfc.a(this.b, PayDialogType.PAY_WAY_DIALOG);
+            rcc rccVar = this.f;
+            Activity activity = this.a;
+            zfc.b bVar = mecVar.b;
+            rccVar.a(activity, bVar.a, bVar.d, bVar.e, PaySplitOrderViewSource.SOURCE_FROM_PAY_WAY_DIALOG, bVar.f, this.e);
         }
-        return (tdc) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.edc
-    public Boolean call(U u, U u2) {
-        InterceptResult invokeLL;
-        boolean z;
+    @Override // com.baidu.tieba.agc.a
+    public void onRefreshViewFail(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u, u2)) == null) {
-            if (u != u2 && (u == null || !u.equals(u2))) {
-                z = false;
-            } else {
-                z = true;
-            }
-            return Boolean.valueOf(z);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            PayFinishInfo b = dfc.b(PayDialogType.PAY_WAY_DIALOG, i, str, this.g);
+            RLog.info("PayWayViewCallback", "showPayWayDialog onRefreshViewFail message:" + b);
+            this.f.l(b);
+            cfc.b(this.b, PayDialogType.PAY_WAY_DIALOG);
         }
-        return (Boolean) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.kcc.b, com.baidu.tieba.ddc
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((qcc) ((qcc) obj));
+    @Override // com.baidu.tieba.agc.a
+    public void toHelpCenterPage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f.u(this.a);
+        }
     }
 }

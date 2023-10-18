@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonChangeData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_PERSON_INFO = "person_change_data";
@@ -44,7 +44,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
     public String userId;
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class Forum {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

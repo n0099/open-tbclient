@@ -31,9 +31,9 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fy5;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.vb;
+import com.baidu.tieba.ns5;
+import com.baidu.tieba.t55;
+import com.baidu.tieba.t6;
 import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.tieba.write.view.xrichtext.RichImageItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +53,7 @@ public class RichTextEditor extends LinearLayout {
     public int c;
     public WriteImagesInfo d;
     public View.OnClickListener e;
-    public lb5.a f;
+    public t55.a f;
     public long g;
     public View.OnFocusChangeListener h;
     public TextWatcher i;
@@ -182,7 +182,7 @@ public class RichTextEditor extends LinearLayout {
             this.a.p(view2);
             this.a.d.getChosedFiles().remove(imageFileInfo);
             if (imageFileInfo.isTempFile()) {
-                vb.f().a(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                t6.g().a(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
             }
             if (this.a.l != null) {
                 this.a.l.a(imageFileInfo, view2);
@@ -236,7 +236,7 @@ public class RichTextEditor extends LinearLayout {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null && (fy5.c(spanned.toString()) - (i4 - i3)) + fy5.c(charSequence.toString()) > this.a) {
+                if (spanned != null && charSequence != null && (ns5.c(spanned.toString()) - (i4 - i3)) + ns5.c(charSequence.toString()) > this.a) {
                     if (this.b.k != null) {
                         this.b.k.a();
                     }
@@ -313,7 +313,7 @@ public class RichTextEditor extends LinearLayout {
         this.m = new c(this);
         setOrientation(1);
         setLayoutTransition(null);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812b3));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812b1));
         setShowDividers(2);
         this.a = new a(this);
     }
@@ -383,7 +383,7 @@ public class RichTextEditor extends LinearLayout {
         }
     }
 
-    public void setOnSpanGroupChangedListener(lb5.a aVar) {
+    public void setOnSpanGroupChangedListener(t55.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
             this.f = aVar;
@@ -642,7 +642,7 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setForumId(this.g);
             spanGroupEditText.setOnClickListener(this.e);
             spanGroupEditText.addTextChangedListener(this.i);
-            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f091253, Boolean.TRUE);
+            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f09126c, Boolean.TRUE);
             return spanGroupEditText;
         }
         return (SpanGroupEditText) invokeL.objValue;

@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.p;
 
 import android.content.Context;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,7 +40,7 @@ public class h extends c {
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
             super.b(hashMap);
             hashMap.put("method", "deltags");
-            hashMap.put(TaskProcess.keyTags, this.f);
+            hashMap.put("tags", this.f);
         }
     }
 }

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.NadRoundProgressBar;
-import com.baidu.tieba.hl0;
+import com.baidu.tieba.eg0;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import kotlin.Metadata;
 import kotlin.jvm.JvmOverloads;
@@ -38,9 +38,26 @@ public final class NadCarouselDownloadView extends NadMiniVideoDownloadView {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
+    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView, com.baidu.tieba.xg0
+    public void c(String str, eg0 data) {
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.m = str;
+        AdDownloadStatus adDownloadStatus = data.c;
+        this.n = adDownloadStatus;
+        if (adDownloadStatus == AdDownloadStatus.DOWNLOADING) {
+            setProgress((int) (data.i * 100));
+        } else if (adDownloadStatus == AdDownloadStatus.COMPLETED) {
+            setProgress(100);
+        } else {
+            setStateImageRes(g(data));
+        }
+        setText(this.m);
+        postInvalidate();
+    }
+
     @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView
-    public void h() {
-        super.h();
+    public void i() {
+        super.i();
     }
 
     public final void setIconAndRoundProgressVisible(boolean z) {
@@ -91,22 +108,5 @@ public final class NadCarouselDownloadView extends NadMiniVideoDownloadView {
         AdImageView mImageView = this.i;
         Intrinsics.checkNotNullExpressionValue(mImageView, "mImageView");
         mImageView.setVisibility(8);
-    }
-
-    @Override // com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView, com.baidu.tieba.am0
-    public void update(String str, hl0 data) {
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.m = str;
-        AdDownloadStatus adDownloadStatus = data.c;
-        this.n = adDownloadStatus;
-        if (adDownloadStatus == AdDownloadStatus.DOWNLOADING) {
-            setProgress((int) (data.i * 100));
-        } else if (adDownloadStatus == AdDownloadStatus.COMPLETED) {
-            setProgress(100);
-        } else {
-            setStateImageRes(f(data));
-        }
-        setText(this.m);
-        postInvalidate();
     }
 }

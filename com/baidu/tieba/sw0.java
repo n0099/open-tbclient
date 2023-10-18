@@ -1,114 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.StatisticsEvent;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
 /* loaded from: classes8.dex */
-public class sw0 extends pw0 {
+public class sw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public sw0() {
+    public static boolean a(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(rw0.w(StatisticsEvent.ACTION_PLAYER_PAUSE));
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c(rw0.w(StatisticsEvent.ACTION_PLAYER_RESUME));
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c(rw0.w(StatisticsEvent.ACTION_PLAYER_START));
-        }
-    }
-
-    public void d(int i, int i2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, obj) == null) {
-            vw0 w = rw0.w(StatisticsEvent.ACTION_PLAYER_ERROR);
-            w.n(2, String.valueOf(obj));
-            w.n(4, Integer.valueOf(i2));
-            c(w);
-        }
-    }
-
-    public void e(int i, int i2, Object obj) {
-        vw0 w;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
-            if (i != 701) {
-                if (i != 702) {
-                    if (i != 904 && i != 956) {
-                        if (i != 10009) {
-                            if (i != 11004) {
-                                if (i != 11005) {
-                                    w = null;
-                                } else {
-                                    w = rw0.w(StatisticsEvent.ACTION_ERROR_RETRY_END);
-                                }
-                            } else {
-                                w = rw0.w(StatisticsEvent.ACTION_ERROR_RETRY_START);
-                                w.n(4, Integer.valueOf(i2));
-                            }
-                        } else {
-                            w = rw0.w("statistics_player_carlton");
-                            w.n(2, String.valueOf(obj));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                String[] split = str.split(":");
+                String[] split2 = str2.split(":");
+                if (split.length != 0 && split2.length != 0) {
+                    try {
+                        Calendar calendar = Calendar.getInstance();
+                        long timeInMillis = calendar.getTimeInMillis();
+                        calendar.set(11, nw0.c(split[0]));
+                        calendar.set(12, nw0.c(split[1]));
+                        long timeInMillis2 = calendar.getTimeInMillis();
+                        calendar.set(11, nw0.c(split2[0]));
+                        calendar.set(12, nw0.c(split2[1]));
+                        long timeInMillis3 = calendar.getTimeInMillis();
+                        if (timeInMillis < timeInMillis2 || timeInMillis > timeInMillis3) {
+                            return false;
                         }
-                    } else {
-                        w = rw0.w(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
-                        w.n(2, String.valueOf(obj));
+                        return true;
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                } else {
-                    w = rw0.w(StatisticsEvent.ACTION_BUFFER_END);
                 }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void b(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
+            rw0.b("BdVideoSys", "SCREEN_ORIENTATION_LANDSCAPE");
+            if (z) {
+                activity.setRequestedOrientation(8);
             } else {
-                w = rw0.w(StatisticsEvent.ACTION_BUFFER_START);
+                activity.setRequestedOrientation(0);
             }
-            if (w != null) {
-                c(w);
-            }
+            activity.getWindow().setFlags(1024, 1024);
         }
     }
 
-    public void f(int i) {
+    public static void c(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            vw0 w = rw0.w(StatisticsEvent.ACTION_PLAYER_COMPLETE);
-            w.n(1, Integer.valueOf(i));
-            c(w);
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            vw0 w = rw0.w(StatisticsEvent.ACTION_PLAYER_STOP);
-            w.n(1, Integer.valueOf(i));
-            c(w);
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, activity, z) == null) && activity != null) {
+            if (z) {
+                activity.getWindow().addFlags(128);
+            } else {
+                activity.getWindow().clearFlags(128);
+            }
         }
     }
 }

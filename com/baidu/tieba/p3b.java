@@ -1,58 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.write.data.QuestionTagListData;
 /* loaded from: classes7.dex */
-public final class p3b implements h3b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Integer[] a;
-    public final Function1<wi5, Unit> b;
-
-    public p3b(Integer[] codes, Function1<? super wi5, Unit> onEditorAction) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {codes, onEditorAction};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(codes, "codes");
-        Intrinsics.checkNotNullParameter(onEditorAction, "onEditorAction");
-        this.a = codes;
-        this.b = onEditorAction;
-    }
-
-    @Override // com.baidu.tieba.h3b
-    public Integer[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (Integer[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h3b
-    public void b(wi5 action) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            this.b.invoke(action);
-        }
-    }
+public interface p3b {
+    void a(@NonNull QuestionTagListData.QuestionTag questionTag);
 }

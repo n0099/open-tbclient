@@ -1,31 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.model.data.LiveRoomEntity;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
-import com.baidu.live.feed.search.model.data.SearchResultBean;
-import java.util.List;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface hb0 {
-    void Q(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
+public class hb0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void V0(List<String> list);
-
-    void h(int i);
-
-    void hideLoading();
-
-    void i();
-
-    void m(ib0 ib0Var);
-
-    void o(List<String> list);
-
-    void p(SearchResultBean searchResultBean);
-
-    void showToast(String str);
-
-    void u0(List<? extends LiveRoomEntity> list);
-
-    void y0();
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return BdUploadHandler.MEDIA_SOURCE_KEY.equals(str);
+        }
+        return invokeL.booleanValue;
+    }
 }

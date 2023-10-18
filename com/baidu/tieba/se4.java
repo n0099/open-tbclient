@@ -1,38 +1,48 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.GetRequest;
+import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class se4 extends ne4 {
+import com.baidubce.AbstractBceClient;
+import java.util.Map;
+import okhttp3.MediaType;
+import org.json.JSONObject;
+@Deprecated
+/* loaded from: classes8.dex */
+public class se4 {
     public static /* synthetic */ Interceptable $ic;
+    public static CookieManager a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int j;
-    public te4 k;
-    public te4 l;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    /* loaded from: classes8.dex */
+    public interface c {
+        void a(Map<String, String> map, byte[] bArr, String str);
+    }
+
+    /* loaded from: classes8.dex */
+    public static class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ se4 a;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ we4 b;
 
-        public a(se4 se4Var) {
+        public a(Map map, we4 we4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {se4Var};
+                Object[] objArr = {map, we4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,35 +52,41 @@ public class se4 extends ne4 {
                     return;
                 }
             }
-            this.a = se4Var;
+            this.a = map;
+            this.b = we4Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.se4.c
+        public void a(Map<String, String> map, byte[] bArr, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.c == null || this.a.j < -1) {
-                return;
-            }
-            if (this.a.j == -1) {
-                this.a.c.o();
-            } else {
-                this.a.c.u(this.a.j);
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
+                PostByteRequest.PostByteRequestBuilder postByteRequest = tc4.g().postByteRequest();
+                bd4.a(postByteRequest, this.a);
+                postByteRequest.url(xe4.j(str, this.a)).content(bArr).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
+                if (map != null) {
+                    postByteRequest.addHeaders(map);
+                }
+                if (!TextUtils.isEmpty(se4.b)) {
+                    postByteRequest.userAgent(se4.b);
+                }
+                postByteRequest.cookieManager(se4.a).enableStat(true).build().executeStat(this.b);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends AnimatorListenerAdapter {
+    /* loaded from: classes8.dex */
+    public static class b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ se4 a;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ we4 b;
 
-        public b(se4 se4Var) {
+        public b(Map map, we4 we4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {se4Var};
+                Object[] objArr = {map, we4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -80,137 +96,95 @@ public class se4 extends ne4 {
                     return;
                 }
             }
-            this.a = se4Var;
+            this.a = map;
+            this.b = we4Var;
         }
 
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        @Override // com.baidu.tieba.se4.c
+        public void a(Map<String, String> map, byte[] bArr, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                se4 se4Var = this.a;
-                RecommendItemModel y = se4Var.y(se4Var.j);
-                this.a.k.b.setImageURI(y.iconUrl);
-                this.a.k.c.setText(y.appName);
-                this.a.k.a.setAlpha(1.0f);
-                se4 se4Var2 = this.a;
-                RecommendItemModel y2 = this.a.y(se4Var2.x(se4Var2.j));
-                this.a.l.b.setImageURI(y2.iconUrl);
-                this.a.l.c.setText(y2.appName);
-                this.a.l.a.setAlpha(0.0f);
-                se4.super.k();
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
+                GetRequest.GetRequestBuilder requestSubFrom = tc4.g().getRequest().url(xe4.j(str, this.a)).requestSubFrom(10);
+                if (!TextUtils.isEmpty(se4.b)) {
+                    requestSubFrom.userAgent(se4.b);
+                }
+                if (map != null) {
+                    requestSubFrom.addHeaders(map);
+                }
+                requestSubFrom.cookieManager(se4.a).enableStat(true).build().executeStat(this.b);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public se4(@NonNull Context context, @NonNull qe4 qe4Var) {
-        super(context, qe4Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, qe4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (qe4) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948148519, "Lcom/baidu/tieba/se4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948148519, "Lcom/baidu/tieba/se4;");
                 return;
             }
         }
-        this.j = -2;
-    }
-
-    @Override // com.baidu.tieba.ne4, com.baidu.tieba.oe4
-    public void e(ve4 ve4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ve4Var) == null) {
-            super.e(ve4Var);
-            if (z(ve4Var)) {
-                return;
-            }
-            this.j = -2;
-            this.l.b.setImageURI(ve4Var.a.iconUrl);
-            this.l.c.setText(ve4Var.a.appName);
+        a = ad4.b().f();
+        gc4 b2 = hc4.b();
+        if (b2 != null && tc4.g().c()) {
+            b = b2.getUserAgent();
         }
     }
 
-    public final int x(int i) {
-        InterceptResult invokeI;
+    @SuppressLint({"BDThrowableCheck"})
+    @Deprecated
+    public static void a(String str, Map<String, String> map, Map<String, String> map2, we4<String> we4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int i2 = i + 1;
-            if (i2 == this.b.b.size()) {
-                return -1;
-            }
-            return i2;
+        if ((interceptable != null && interceptable.invokeLLLL(65537, null, str, map, map2, we4Var) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return invokeI.intValue;
+        if (we4Var != null) {
+            we4Var.onStart();
+        }
+        yc4 b2 = ad4.b();
+        if (PMSConstants.a(b2)) {
+            b2.m(xe4.j(str, map), null, new b(map, we4Var));
+            return;
+        }
+        GetRequest.GetRequestBuilder requestSubFrom = tc4.g().getRequest().url(xe4.j(str, map)).requestSubFrom(10);
+        if (!TextUtils.isEmpty(b)) {
+            requestSubFrom.userAgent(b);
+        }
+        if (map2 != null) {
+            requestSubFrom.addHeaders(map2);
+        }
+        requestSubFrom.cookieManager(a).enableStat(true).build().executeStat(we4Var);
     }
 
-    public final RecommendItemModel y(int i) {
-        InterceptResult invokeI;
+    @SuppressLint({"BDThrowableCheck"})
+    @Deprecated
+    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, we4<String> we4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i == -1) {
-                return this.b.a;
-            }
-            return this.b.b.get(i);
+        if ((interceptable != null && interceptable.invokeLLLLL(65538, null, str, map, map2, jSONObject, we4Var) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (RecommendItemModel) invokeI.objValue;
-    }
-
-    public final boolean z(ve4 ve4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ve4Var)) == null) {
-            if (ve4Var != null && ve4Var.b != null && ve4Var.a != null) {
-                return false;
-            }
-            return true;
+        if (we4Var != null) {
+            we4Var.onStart();
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ne4
-    public View i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a);
-            te4 te4Var = new te4(this.a);
-            this.l = te4Var;
-            te4Var.a.setAlpha(0.0f);
-            frameLayout.addView(this.l.a);
-            te4 te4Var2 = new te4(this.a);
-            this.k = te4Var2;
-            te4Var2.a.setAlpha(0.0f);
-            this.k.b.setActualImageResource(17170445);
-            this.k.c.setText((CharSequence) null);
-            frameLayout.addView(this.k.a);
-            this.k.a.setOnClickListener(new a(this));
-            return frameLayout;
+        yc4 b2 = ad4.b();
+        if (PMSConstants.a(b2)) {
+            b2.m(xe4.j(str, map), jSONObject.toString(), new a(map, we4Var));
+            return;
         }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ne4
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (z(this.b)) {
-                this.k.a.setAlpha(1.0f);
-                this.k.b.setActualImageResource(R.drawable.obfuscated_res_0x7f080184);
-                this.k.c.setText(R.string.obfuscated_res_0x7f0f15c9);
-                super.k();
-                return;
-            }
-            this.j = x(this.j);
-            this.l.a.animate().setDuration(160L).alpha(1.0f);
-            this.k.a.animate().setDuration(160L).alpha(0.0f).setListener(new b(this));
+        pc4 postStringRequest = tc4.g().postStringRequest();
+        bd4.a(postStringRequest, map);
+        postStringRequest.url(xe4.j(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
+        if (map2 != null) {
+            postStringRequest.addHeaders(map2);
         }
+        if (!TextUtils.isEmpty(b)) {
+            postStringRequest.userAgent(b);
+        }
+        postStringRequest.cookieManager(a).enableStat(true).build().executeStat(we4Var);
     }
 }

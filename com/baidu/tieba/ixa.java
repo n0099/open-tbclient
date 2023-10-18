@@ -1,40 +1,66 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.IdRes;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.vcode.VcodeTool;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ixa {
+public class ixa implements hxa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    @IdRes
-    public int b;
-    @IdRes
-    public int c;
-    public Object d;
-    public int e;
-    public int f;
+    @NonNull
+    public final NewVcodeView a;
+    @NonNull
+    public final NewWriteModel b;
+    public final NewWriteModel.d c;
+
+    @Override // com.baidu.tieba.hxa
+    public void c(NewWriteModel.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.hxa
+    public void e(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.hxa
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public class a implements NewWriteModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ixa a;
+        public final /* synthetic */ ixa a;
 
-        public a() {
+        public a(ixa ixaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ixaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,84 +70,43 @@ public final class ixa {
                     return;
                 }
             }
-            this.a = new ixa();
+            this.a = ixaVar;
         }
 
-        public final ixa a() {
-            InterceptResult invokeV;
-            boolean z;
+        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, m85 m85Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.a != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, m85Var, writeData, antiData}) == null) {
+                this.a.a.showPostThreadLoadingView(false);
                 if (z) {
-                    return this.a;
+                    Intent intent = new Intent();
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
+                    intent.putExtras(bundle);
+                    sda.k(writeData);
+                    vga.a(writeData, postWriteCallBackData.getThreadId());
+                    this.a.a.getContext().setResult(-1, intent);
+                    this.a.a.getContext().finish();
+                } else if (m85Var != null && !TextUtils.isEmpty(m85Var.c())) {
+                    if (this.a.a.getWebView() != null) {
+                        this.a.a.getWebView().loadUrl(m85Var.c());
+                    }
+                } else {
+                    if (postWriteCallBackData != null) {
+                        this.a.a.showToast(false, postWriteCallBackData.getErrorString());
+                    }
+                    this.a.a.getContext().finish();
                 }
-                throw new IllegalStateException("必须设置引导视图 GuideView".toString());
             }
-            return (ixa) invokeV.objValue;
-        }
-
-        public final a b(Object viewTag) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewTag)) == null) {
-                Intrinsics.checkNotNullParameter(viewTag, "viewTag");
-                this.a.c(viewTag);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a c(@IdRes int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.a.d(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a d(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-                Intrinsics.checkNotNullParameter(view2, "view");
-                this.a.e(view2);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a e(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.a.f(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a f(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.a.g(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
         }
     }
 
-    public ixa() {
+    public ixa(@NonNull NewVcodeView newVcodeView, @NonNull NewWriteModel newWriteModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {newVcodeView, newWriteModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -131,95 +116,81 @@ public final class ixa {
                 return;
             }
         }
-        this.b = -1;
-        this.c = -1;
+        a aVar = new a(this);
+        this.c = aVar;
+        this.a = newVcodeView;
+        this.b = newWriteModel;
+        newWriteModel.l0(aVar);
     }
 
-    public final View b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hxa
+    public boolean b(WebView webView, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            if (view2 != null) {
-                return view2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
+            if (TextUtils.isEmpty(str) || !str.contains("objc:jsAiCodeBack")) {
+                return false;
             }
-            Intrinsics.throwUninitializedPropertyAccessException("guideView");
-            return null;
+            String jsCallback = VcodeTool.getJsCallback(str);
+            if (!TextUtils.isEmpty(jsCallback) && !"0".equals(jsCallback)) {
+                g(jsCallback);
+                return true;
+            }
+            this.a.getContext().finish();
+            return true;
         }
-        return (View) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x001a, code lost:
-        r5 = com.baidu.tieba.hxa.c(r5);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final PointF a(ViewGroup rootView) {
-        InterceptResult invokeL;
-        View findViewById;
-        RectF rectF;
-        float f;
-        int i;
+    @Override // com.baidu.tieba.hxa
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rootView)) == null) {
-            Intrinsics.checkNotNullParameter(rootView, "rootView");
-            Object obj = this.d;
-            if (obj != null) {
-                findViewById = rootView.findViewWithTag(obj);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a.showWebView(false);
+            if (this.b.d0() == null) {
+                return;
+            }
+            String vcodeUrl = this.b.d0().getVcodeUrl();
+            if (!TextUtils.isEmpty(vcodeUrl) && this.a.getWebView() != null) {
+                this.a.getWebView().loadUrl(vcodeUrl);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hxa
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.showPostThreadLoadingView(false);
+            this.b.cancelLoadData();
+        }
+    }
+
+    public final void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            if (!BdUtilHelper.isNetOk()) {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0e4f);
+                this.a.getContext().finish();
+            } else if (!TextUtils.isEmpty(str)) {
+                this.a.showPostThreadLoadingView(true);
+                if (this.b.d0() != null) {
+                    this.b.d0().setVcode(str);
+                    this.b.d0().setVcodeType("6");
+                }
+                this.b.o0();
             } else {
-                findViewById = rootView.findViewById(this.c);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0e4f);
+                this.a.getContext().finish();
             }
-            if (findViewById == null || rectF == null) {
-                rectF = new RectF();
-            }
-            View findViewById2 = b().findViewById(this.b);
-            float f2 = rectF.left + this.e;
-            if (findViewById2 != null) {
-                f = rectF.bottom - (findViewById2.getTop() + findViewById2.getHeight());
-                i = this.f;
-            } else {
-                f = rectF.bottom;
-                i = this.f;
-            }
-            return new PointF(f2, f + i);
-        }
-        return (PointF) invokeL.objValue;
-    }
-
-    public final void c(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this.d = obj;
         }
     }
 
-    public final void d(int i) {
+    @Override // com.baidu.tieba.hxa
+    public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void e(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<set-?>");
-            this.a = view2;
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) {
+            this.a.showWebViewDelay(500);
         }
     }
 }

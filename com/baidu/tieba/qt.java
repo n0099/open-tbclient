@@ -1,105 +1,144 @@
 package com.baidu.tieba;
 
+import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.ctrl.model.TaskEnvTag;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.ctrl.model.TaskStatusRuntime;
+import com.baidu.card.Align;
+import com.baidu.card.view.UnfollowedDecorView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class qt extends pt<TaskStatus> {
+public class qt extends yr implements qs<ThreadData>, rs {
     public static /* synthetic */ Interceptable $ic;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public UnfollowedDecorView a;
+    public Align b;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TaskStatus.key : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448315370, "Lcom/baidu/tieba/qt;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448315370, "Lcom/baidu/tieba/qt;");
+                return;
+            }
+        }
+        c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qt(rt rtVar) {
-        super(rtVar);
+    public qt(TbPageContext tbPageContext, Align align) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rtVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {tbPageContext, align};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rt) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
+            }
+        }
+        setInsertIndex(-1);
+        UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(tbPageContext.getPageActivity());
+        this.a = unfollowedDecorView;
+        unfollowedDecorView.setId(R.id.decor_item_right_id);
+        setDecorView(this.a);
+        autoAlignParent(align);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qs
+    /* renamed from: a */
+    public void onBindDataToView(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+            this.a.b(threadData);
+        }
+    }
+
+    public void autoAlignParent(jv4 jv4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jv4Var) == null) {
+            if (jv4Var.isSupportTop()) {
+                autoAlignParent(Align.ALIGN_RIGHT_TOP);
+            } else if (jv4Var.isSupportBottom()) {
+                kt ktVar = this.threadCard;
+                if (ktVar != null) {
+                    ktVar.p(this);
+                }
+            } else {
+                autoAlignParent(Align.ALIGN_RIGHT_TOP);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pt
-    /* renamed from: c */
-    public TaskStatus a(String str) {
-        InterceptResult invokeL;
-        long j;
+    public void autoAlignParent(Align align) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int i = jSONObject.getInt(TaskStatus.keyCurStatus);
-                int i2 = jSONObject.getInt(TaskStatus.keyCurStatusCode);
-                String curStatusCodeMsg = jSONObject.getString(TaskStatus.keyCurStatusCodeMsg);
-                int i3 = jSONObject.getInt(TaskStatus.keyInterruptErrorNo);
-                long j2 = jSONObject.getLong(TaskStatus.keyCurActiveTime);
-                JSONObject jSONObject2 = jSONObject.getJSONObject("process");
-                int i4 = jSONObject2.getInt(TaskProcess.keyClickNumber);
-                long j3 = jSONObject2.getLong(TaskProcess.keyStayDurTimeMs);
-                long j4 = jSONObject2.getLong(TaskProcess.keyMaxStayTime);
-                int i5 = jSONObject2.getInt(TaskProcess.keyMaxRepeatTimes);
-                int i6 = jSONObject2.getInt(TaskProcess.keyMaxNoClickTimes);
-                int i7 = jSONObject2.getInt(TaskProcess.keyCurNoClickTimes);
-                JSONArray optJSONArray = jSONObject2.optJSONArray(TaskProcess.keyDuplicateIds);
-                HashSet hashSet = new HashSet();
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    j = j2;
-                    for (int i8 = 0; i8 < length; i8++) {
-                        hashSet.add(optJSONArray.optString(i8));
-                    }
-                } else {
-                    j = j2;
-                }
-                JSONArray optJSONArray2 = jSONObject2.optJSONArray(TaskProcess.keyTags);
-                HashSet hashSet2 = new HashSet();
-                if (optJSONArray2 != null) {
-                    int length2 = optJSONArray2.length();
-                    int i9 = 0;
-                    while (i9 < length2) {
-                        int i10 = length2;
-                        TaskEnvTag b = TaskEnvTag.Companion.b(optJSONArray2.optString(i9));
-                        if (b != null) {
-                            hashSet2.add(b);
-                        }
-                        i9++;
-                        length2 = i10;
-                    }
-                }
-                Intrinsics.checkExpressionValueIsNotNull(curStatusCodeMsg, "curStatusCodeMsg");
-                return new TaskStatus(i, i2, curStatusCodeMsg, i3, j, TaskStatusRuntime.Companion.a(), new TaskProcess(i4, j3, i7, j4, i5, i6, hashSet2, hashSet));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, align) != null) || align == this.b) {
+            return;
         }
-        return (TaskStatus) invokeL.objValue;
+        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
+        if (align == Align.ALIGN_RIGHT_TOP) {
+            int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds60);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
+            layoutParams.addRule(11);
+            layoutParams.addRule(10);
+            layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+            layoutParams.topMargin = dimenPixelSize2;
+            setLayoutParams(layoutParams);
+            this.a.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.a.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.a.setLayoutParams(layoutParams);
+        } else if (align == Align.ALIGN_RIGHT_CENTER) {
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
+            layoutParams2.addRule(11);
+            layoutParams2.addRule(15);
+            layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+            layoutParams2.bottomMargin = 0;
+            setLayoutParams(layoutParams2);
+            this.a.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.a.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.a.setLayoutParams(layoutParams2);
+        } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
+            int i = c;
+            int dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+            int dimens2 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int dimens3 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i);
+            layoutParams3.addRule(11);
+            layoutParams3.addRule(12);
+            layoutParams3.rightMargin = dimens2;
+            layoutParams3.bottomMargin = dimens3;
+            setLayoutParams(layoutParams3);
+            this.a.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+            this.a.setPadding(dimens, dimens, dimens, dimens);
+            this.a.setLayoutParams(layoutParams3);
+        }
+        this.b = align;
+    }
+
+    @Override // com.baidu.tieba.rs
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            this.a.onChangeSkinType();
+        }
     }
 }

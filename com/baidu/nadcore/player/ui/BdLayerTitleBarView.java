@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.video.videoplayer.ui.full.BdVideoBattery;
 import com.baidu.nadcore.video.videoplayer.widget.BdTextProgressView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c21;
+import com.baidu.tieba.pw0;
 import java.util.Calendar;
 import java.util.Locale;
 /* loaded from: classes3.dex */
@@ -39,14 +39,14 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
 
     public void a(boolean z) {
         if (z) {
-            startAnimation(c21.d());
+            startAnimation(pw0.d());
         }
         setVisibility(4);
     }
 
     public void c(boolean z) {
         if (z) {
-            startAnimation(c21.c());
+            startAnimation(pw0.c());
         }
         f();
         setVisibility(0);

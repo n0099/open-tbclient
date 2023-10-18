@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeParameterMarker;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public interface TypeParameterDescriptor extends ClassifierDescriptor, TypeParameterMarker {
     int getIndex();
 

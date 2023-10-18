@@ -1,268 +1,551 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.data.constant.PwLogConstant;
-import com.baidu.searchbox.live.interfaces.LiveConstants;
-import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.collectTab.CollectFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.mainTab.FragmentDelegate;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.FragmentTabStructure;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.myCollection.CollectTabActivity;
+import com.baidu.tieba.pt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r89 implements EventDispatcherService {
+public class r89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FragmentTabHost a;
+    public int b;
+    public Fragment c;
+    public final NavigationBar d;
+    public final NoNetworkView e;
+    public CollectTabActivity f;
+    public boolean g;
+    public List h;
+    @NonNull
+    public final d i;
+    public final pt4.d j;
+    public ViewPager.OnPageChangeListener k;
 
-    public final void a(Map<String, ?> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+    /* loaded from: classes7.dex */
+    public class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final String b;
+        public final TextView c;
+        public final ImageView d;
+        public final /* synthetic */ r89 e;
+
+        /* loaded from: classes7.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    UrlManager.getInstance().dealOneLink(this.a.b);
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class b implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public b(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    this.a.e.d(false);
+                    this.a.e.f.setSwipeBackEnabled(true);
+                    this.a.f();
+                }
+            }
+        }
+
+        public d(@NonNull r89 r89Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r89Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = r89Var;
+            this.a = TbConfig.TIEBA_ADDRESS + "mo/q/hybrid-main-usercenter/userPermission?permission=collect&customfullscreen=1&nonavigationbar=1";
+            this.b = c();
+            this.c = (TextView) view2.findViewById(R.id.right_textview);
+            this.d = (ImageView) view2.findViewById(R.id.navigationBarBtnMore);
+            d();
+        }
+
+        public void e(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_topbar_more40, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+                SkinManager.setNavbarTitleColor(this.c, R.color.navi_op_text, R.color.navi_op_text_skin);
+            }
+        }
+
+        @NonNull
+        public final String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("url", this.a);
+                hashMap.put("openType", 1);
+                hashMap.put("disableLoading", 1);
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("page", "h5/openWebView");
+                hashMap2.put(YunDialogManager.PAGE_PARAMS_KEY, hashMap);
+                return UrlUtils.appendParam("tiebaapp://router/portal", "params", lw.a(DataExt.toJson(hashMap2)));
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                f();
+                e(TbadkCoreApplication.getInst().getSkinType());
+                this.c.setText(R.string.obfuscated_res_0x7f0f05b2);
+                this.d.setOnClickListener(new a(this));
+                this.c.setOnClickListener(new b(this));
+            }
+        }
+
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.d.setVisibility(0);
+                this.c.setVisibility(8);
+            }
+        }
+
+        public void g() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.d.setVisibility(8);
+                this.c.setVisibility(0);
+            }
         }
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+    /* loaded from: classes7.dex */
+    public class a implements pt4.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r89 a;
+
+        @Override // com.baidu.tieba.pt4.d
+        @NonNull
+        public String getKey() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "myCollectDeleteOn" : (String) invokeV.objValue;
+        }
+
+        public a(r89 r89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r89Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r89Var;
+        }
+
+        @Override // com.baidu.tieba.pt4.c
+        public void a(@NonNull String str) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                try {
+                    if (new JSONObject(str).optInt("deleteOn") == 1) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        this.a.d(true);
+                        this.a.f.setSwipeBackEnabled(false);
+                        this.a.i.g();
+                    }
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            }
         }
     }
 
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r89 a;
+
+        public b(r89 r89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r89Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r89Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.j()) {
+                    BdUtilHelper.showToast(this.a.f, "请先退出编辑状态");
+                } else if (this.a.f != null) {
+                    this.a.f.finish();
+                }
+            }
         }
     }
 
-    public r89() {
+    /* loaded from: classes7.dex */
+    public class c implements ViewPager.OnPageChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r89 a;
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            }
+        }
+
+        public c(r89 r89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r89Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r89Var;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) {
+                return;
+            }
+            this.a.o(i);
+            this.a.d(false);
+        }
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public r89(CollectTabActivity collectTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {collectTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = -1;
+        this.g = false;
+        this.j = new a(this);
+        this.k = new c(this);
+        this.f = collectTabActivity;
+        FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.obfuscated_res_0x7f092390);
+        this.a = fragmentTabHost;
+        fragmentTabHost.setup(this.f.getSupportFragmentManager());
+        this.a.setOnPageChangeListener(this.k);
+        this.d = (NavigationBar) this.f.findViewById(R.id.navigation_bar);
+        this.e = (NoNetworkView) this.f.findViewById(R.id.view_no_network);
+        this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
+        this.d.setCenterTextTitle(this.f.getPageContext().getString(R.string.my_mark));
+        this.i = new d(this, this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0211, this.f));
+        this.d.onChangeSkinType(this.f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        k(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.i.c.setEnabled(z);
+            if (!z) {
+                this.i.f();
             }
         }
     }
 
-    public static void g(ArrayList<String> arrayList) {
+    public final void o(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, arrayList) != null) || arrayList == null || arrayList.size() == 0) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            FragmentTabHost.c g = this.a.g(i);
+            this.b = g.a;
+            this.c = g.c;
         }
     }
 
-    public final void i(Map<String, ?> map) {
+    @SuppressLint({"ResourceAsColor"})
+    public void d(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            String str = (String) map.get("data");
-            if (!TextUtils.isEmpty(str) && str != null) {
-                try {
-                    z59.o(new JSONObject(str));
-                } catch (JSONException unused) {
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            Fragment fragment = this.c;
+            if (fragment instanceof CollectFragment) {
+                CollectFragment collectFragment = (CollectFragment) fragment;
+                if (!collectFragment.e2()) {
+                    z = false;
+                }
+                n(collectFragment.e2());
+                i = collectFragment.c2();
+            } else {
+                i = -1;
+            }
+            this.g = z;
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            int i2 = R.color.navi_op_text;
+            if (skinType != 2) {
+                TextView textView = this.i.c;
+                if (this.g) {
+                    i2 = R.color.CAM_X0302;
+                }
+                SkinManager.setNavbarTitleColor(textView, i2, R.color.navi_op_text_skin);
+            } else {
+                SkinManager.setNavbarTitleColor(this.i.c, R.color.navi_op_text, R.color.navi_op_text_skin);
+            }
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("is_edit_state", this.g);
+            bundle.putInt("fragment_type", i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022208, bundle));
+        }
+    }
+
+    public void i(ArrayList<FragmentDelegate> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
+            this.h = arrayList;
+            this.a.s();
+            for (int i = 0; i < arrayList.size(); i++) {
+                FragmentDelegate fragmentDelegate = arrayList.get(i);
+                if (fragmentDelegate != null && fragmentDelegate.isAvailable()) {
+                    e(fragmentDelegate, (FragmentTabIndicator) fragmentDelegate.getTabIndicator(this.f.getPageContext().getPageActivity()));
                 }
             }
+            this.a.j(0);
+            this.a.setCurrentTab(0);
+            if (arrayList.size() == 1) {
+                this.a.getFragmentTabWidget().setVisibility(8);
+            }
+            o(0);
         }
     }
 
-    public final void b(String str, Map<String, ?> map) {
+    public final void e(FragmentDelegate fragmentDelegate, FragmentTabIndicator fragmentTabIndicator) {
+        FragmentTabStructure fragmentTabStructure;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) != null) || map == null || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentDelegate, fragmentTabIndicator) != null) || (fragmentTabStructure = fragmentDelegate.getFragmentTabStructure()) == null) {
             return;
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        for (String str2 : map.keySet()) {
-            Object obj = map.get(str2);
-            if (obj != null) {
-                statisticItem.addParam(str2, obj.toString());
-            }
-        }
-        statisticItem.addParam("uid", BdStatisticsManager.getInstance().getUid());
-        TiebaStatic.log(statisticItem);
+        FragmentTabHost.c cVar = new FragmentTabHost.c();
+        cVar.c = fragmentTabStructure.frag;
+        cVar.a = fragmentTabStructure.type;
+        fragmentTabIndicator.setText(fragmentTabStructure.textResId);
+        fragmentTabIndicator.setTextSize(0, this.f.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
+        fragmentTabIndicator.setTextColorResId(R.color.s_actionbar_text_color);
+        fragmentTabIndicator.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+        fragmentTabIndicator.setTipPosType(1);
+        cVar.b = fragmentTabIndicator;
+        cVar.d = fragmentDelegate;
+        this.a.b(cVar);
     }
 
-    public final void d(Map<String, ?> map) {
+    public Fragment f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("roomId", map.get("roomId"));
-                jSONObject.put("isClosed", map.get("isClosed"));
-                jSONObject.put("liveId", map.get("liveId"));
-                jSONObject.put("type", map.get("type"));
-                jSONObject.put("sid", map.get("sid"));
-                jSONObject.put(YyLiveRoomConfig.KEY_SSID, map.get(YyLiveRoomConfig.KEY_SSID));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (Fragment) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ListUtils.getCount(this.h);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            pt4.a().c(this.j);
         }
     }
 
-    public void e(String str, Map<String, String> map) {
+    public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, map) != null) || di.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            pt4.a().e(this.j);
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        if (map != null) {
-            for (String str2 : map.keySet()) {
-                statisticItem.param(str2, map.get(str2));
-            }
-        }
-        TiebaStatic.log(statisticItem);
     }
 
-    public void f(Map<String, ?> map) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, map) != null) || map == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        String obj = map.remove("key").toString();
-        for (String str : map.keySet()) {
-            hashMap.put(str, map.get(str).toString());
-        }
-        e(obj, hashMap);
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.searchbox.live.interfaces.service.EventDispatcherService
-    public void onEvent(String str, Map<String, ?> map) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map) == null) {
-            switch (str.hashCode()) {
-                case -2147386482:
-                    if (str.equals("sync_webview_cookie")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1369745389:
-                    if (str.equals("living_room_is_closed")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1326603888:
-                    if (str.equals(LiveConstants.SdkToHostEvents.DO_LOG)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1284765503:
-                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_DUR)) {
-                        c = '\n';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -841542404:
-                    if (str.equals(LiveConstants.SdkToHostEvents.GO_FEEDBACK)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -807428011:
-                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_START)) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -442093365:
-                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_FAIL)) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 152519529:
-                    if (str.equals("live_show_close")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1480780598:
-                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_SUC)) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1766660371:
-                    if (str.equals(LiveConstants.SdkToHostEvents.BUY_TBEAN_RESULT)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1785162541:
-                    if (str.equals(LiveConstants.SdkToHostEvents.KEY_PRE_DOWANLOAD_SWAN)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.a.r(i);
+            this.i.e(i);
+            if (this.a.getTabWrapper() != null) {
+                if (h() <= 1) {
+                    this.a.getTabWrapper().setVisibility(8);
+                } else {
+                    this.a.getTabWrapper().setVisibility(0);
+                }
             }
-            switch (c) {
-                case 0:
-                    h();
-                    return;
-                case 1:
-                    c();
-                    return;
-                case 2:
-                    f(map);
-                    return;
-                case 3:
-                    g((ArrayList) map.get(str));
-                    return;
-                case 4:
-                    a(map);
-                    return;
-                case 5:
-                    i(map);
-                    return;
-                case 6:
-                    d(map);
-                    return;
-                case 7:
-                    b("c15400", map);
-                    return;
-                case '\b':
-                    b("c15401", map);
-                    return;
-                case '\t':
-                    b("c15402", map);
-                    return;
-                case '\n':
-                    b("c15403", map);
-                    return;
-                default:
-                    return;
-            }
+            this.d.onChangeSkinType(this.f.getPageContext(), i);
+            this.e.onChangeSkinType(this.f.getPageContext(), i);
         }
     }
 }

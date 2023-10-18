@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,182 +11,59 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Date;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class rb3 {
+public class rb3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements Comparator<File> {
         public static /* synthetic */ Interceptable $ic;
-        public static final ub3<a> e;
-        public static final tb3<a> f;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
 
-        /* renamed from: com.baidu.tieba.rb3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0450a extends ub3<a> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public C0450a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ub3
-            /* renamed from: b */
-            public void a(@NonNull a aVar, @NonNull mu2 mu2Var) throws Exception {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, mu2Var) == null) {
-                    mu2Var.writeInt(aVar.a);
-                    mu2Var.writeInt(aVar.b);
-                    mu2Var.writeInt(aVar.c);
-                    mu2Var.writeInt(aVar.d);
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public static class b extends tb3<a> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public b() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.tb3
-            /* renamed from: b */
-            public a a(@NonNull lu2 lu2Var) throws Exception {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lu2Var)) == null) {
-                    a aVar = new a();
-                    aVar.a = lu2Var.readInt();
-                    aVar.b = lu2Var.readInt();
-                    aVar.c = lu2Var.readInt();
-                    aVar.d = lu2Var.readInt();
-                    return aVar;
-                }
-                return (a) invokeL.objValue;
-            }
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-466462839, "Lcom/baidu/tieba/rb3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-466462839, "Lcom/baidu/tieba/rb3$a;");
-                    return;
-                }
-            }
-            e = new C0450a();
-            f = new b();
-        }
-
-        public a() {
+        public a(rb3 rb3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rb3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public static a b() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(File file, File file2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (rb3.a) {
-                    Log.w("SwanAppCommonConfigData", "NetworkConfig createNullObject()");
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
+                long lastModified = file.lastModified();
+                long lastModified2 = file2.lastModified();
+                if (lastModified == lastModified2) {
+                    return 0;
                 }
-                a aVar = new a();
-                aVar.a = 10000;
-                aVar.b = 60000;
-                return aVar;
+                if (lastModified - lastModified2 > 0) {
+                    return 1;
+                }
+                return -1;
             }
-            return (a) invokeV.objValue;
-        }
-
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return b();
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("networkTimeout");
-                if (optJSONObject == null) {
-                    return b();
-                }
-                a aVar = new a();
-                if (optJSONObject.optInt("request") > 0 && optJSONObject.optInt("request") <= 60000) {
-                    aVar.a = optJSONObject.optInt("request", 10000);
-                } else {
-                    aVar.a = 10000;
-                }
-                aVar.b = optJSONObject.optInt("connectSocket", 60000);
-                aVar.c = optJSONObject.optInt("uploadFile");
-                aVar.d = optJSONObject.optInt("downloadFile");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public static int c(a aVar) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {
-                if (aVar != null && aVar.a > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    return aVar.a;
-                }
-                return 10000;
-            }
-            return invokeL.intValue;
+            return invokeLL.intValue;
         }
     }
 
@@ -203,6 +80,132 @@ public final class rb3 {
                 return;
             }
         }
-        a = qr1.a;
+        b = am1.a;
+    }
+
+    public rb3() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        try {
+            str = AppRuntime.getAppContext().getFilesDir().getPath();
+        } catch (Exception e) {
+            if (!b) {
+                str = "";
+            } else {
+                throw e;
+            }
+        }
+        if (!TextUtils.isEmpty(str)) {
+            this.a = str + File.separator + "aiapps_folder/stability";
+            return;
+        }
+        this.a = "";
+    }
+
+    public final void a(int i) {
+        File[] c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (c = c()) != null && c.length != 0) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Arrays.sort(c, new a(this));
+            ArrayList<File> arrayList = new ArrayList(c.length);
+            int i2 = 0;
+            for (File file : c) {
+                if (i2 < i) {
+                    if (file.lastModified() - currentTimeMillis > com.baidu.mobads.sdk.internal.bj.e) {
+                        arrayList.add(file);
+                    }
+                } else {
+                    arrayList.add(file);
+                }
+                i2++;
+            }
+            for (File file2 : arrayList) {
+                sl4.j(file2);
+            }
+        }
+    }
+
+    public final File b(long j) {
+        InterceptResult invokeJ;
+        String h0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                return null;
+            }
+            if (p53.h0() == null) {
+                h0 = "";
+            } else {
+                h0 = p53.h0();
+            }
+            return new File(this.a + File.separator + h0 + "_" + j + "_swan_stability_traces.log");
+        }
+        return (File) invokeJ.objValue;
+    }
+
+    public File[] c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                return null;
+            }
+            try {
+                return new File(this.a).listFiles();
+            } catch (Exception e) {
+                if (b) {
+                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
+                }
+                return null;
+            }
+        }
+        return (File[]) invokeV.objValue;
+    }
+
+    public File d(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        String h0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                a(9);
+                JSONObject jSONObject = new JSONObject();
+                if (p53.h0() == null) {
+                    h0 = "";
+                } else {
+                    h0 = p53.h0();
+                }
+                jSONObject.put("_app_id", h0);
+                jSONObject.put("_date", di3.b(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
+                jSONArray.put(jSONObject);
+                File b2 = b(currentTimeMillis);
+                if (b2 == null) {
+                    return null;
+                }
+                if (!so2.b(b2.getPath(), jSONArray.toString(), false)) {
+                    return null;
+                }
+                return b2;
+            } catch (Exception e) {
+                if (b) {
+                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
+                }
+                return null;
+            }
+        }
+        return (File) invokeL.objValue;
     }
 }

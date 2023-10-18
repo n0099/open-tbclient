@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.img.ImageFileInfo;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class gq4<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gq4 {
+    void a(List<dq4> list, List<ImageFileInfo> list2, String str);
 
-    public abstract T a();
+    void onPreLoad();
 }

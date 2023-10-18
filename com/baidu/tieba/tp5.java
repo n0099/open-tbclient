@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: ChatFloatEntranceService.java */
+import com.baidu.tbadk.template.state.ViewType;
 /* loaded from: classes8.dex */
-public final /* synthetic */ class tp5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface tp5 {
+    void a(ViewType viewType, String str);
 
-    public static up5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return (up5) ServiceManager.getService(up5.a);
-        }
-        return (up5) invokeV.objValue;
-    }
+    void b(ViewType viewType);
+
+    void c(ViewType viewType, vp5 vp5Var);
+
+    void onChangeSkinType(int i);
+
+    void onDestroy();
 }

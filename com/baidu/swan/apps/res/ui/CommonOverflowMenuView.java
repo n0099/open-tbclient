@@ -13,29 +13,29 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nu2;
-import com.baidu.tieba.qa3;
-import com.baidu.tieba.ra3;
-import com.baidu.tieba.ug3;
+import com.baidu.tieba.a53;
+import com.baidu.tieba.db3;
+import com.baidu.tieba.wo2;
+import com.baidu.tieba.z43;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class CommonOverflowMenuView extends LinearLayout implements qa3.g {
+public class CommonOverflowMenuView extends LinearLayout implements z43.g {
     public int a;
     public int b;
     public ColorStateList c;
     public List<ImageView> d;
     public List<TextView> e;
-    public HashMap<ra3, ImageView> f;
+    public HashMap<a53, ImageView> f;
     public View g;
     public LinearLayout h;
     public SwanAppScrollView i;
     public Object j;
 
     /* loaded from: classes4.dex */
-    public class a implements ug3 {
+    public class a implements db3 {
         public a() {
         }
     }
@@ -53,10 +53,10 @@ public class CommonOverflowMenuView extends LinearLayout implements qa3.g {
     }
 
     public final void a(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c5, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c2, (ViewGroup) this, true);
         this.g = inflate;
-        this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091740);
-        this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f091743);
+        this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09175a);
+        this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f09175d);
         setFocusable(true);
         setFocusableInTouchMode(true);
         b();
@@ -103,7 +103,7 @@ public class CommonOverflowMenuView extends LinearLayout implements qa3.g {
         for (TextView textView : this.e) {
             textView.setTextColor(this.c);
         }
-        for (Map.Entry<ra3, ImageView> entry : this.f.entrySet()) {
+        for (Map.Entry<a53, ImageView> entry : this.f.entrySet()) {
             entry.getValue().setImageDrawable(entry.getKey().b());
         }
     }
@@ -123,13 +123,13 @@ public class CommonOverflowMenuView extends LinearLayout implements qa3.g {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        nu2.M().f(this.j, new a());
+        wo2.M().f(this.j, new a());
         b();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        nu2.M().g(this.j);
+        wo2.M().g(this.j);
     }
 }

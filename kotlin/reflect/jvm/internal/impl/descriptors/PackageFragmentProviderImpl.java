@@ -9,7 +9,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.sequences.SequencesKt___SequencesKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class PackageFragmentProviderImpl implements PackageFragmentProvider {
     public final Collection<PackageFragmentDescriptor> packageFragments;
 

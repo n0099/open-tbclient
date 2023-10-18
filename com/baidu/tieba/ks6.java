@@ -1,84 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.view.SingleLinkCardView;
-import com.baidu.tieba.j67;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ks6 implements j67.n {
+public class ks6 implements yh {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public FeatureCardCompetition a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923707, "Lcom/baidu/tieba/ks6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947923707, "Lcom/baidu/tieba/ks6;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
 
     public ks6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.j67.s
-    public void a(@NonNull ViewGroup viewGroup) {
+    public FeatureCardCompetition a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof SingleLinkCardView)) {
-            ((SingleLinkCardView) viewGroup).d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (FeatureCardCompetition) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j67.n
-    @NonNull
-    public ViewGroup create(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yh
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new SingleLinkCardView(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b;
         }
-        return (ViewGroup) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j67.n
-    public void update(@NonNull ViewGroup viewGroup, @NonNull t77 t77Var) {
+    public void b(FeatureCardCompetition featureCardCompetition) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, t77Var) == null) && (viewGroup instanceof SingleLinkCardView)) {
-            q97 d = t77Var.d();
-            if (d.i() == 6) {
-                PbGoodsData pbGoodsData = new PbGoodsData();
-                pbGoodsData.title = d.h();
-                pbGoodsData.picUrl = d.f();
-                pbGoodsData.price = d.c();
-                pbGoodsData.linkUrl = d.e();
-                pbGoodsData.sort = d.g();
-                pbGoodsData.linkFrom = d.d();
-                pbGoodsData.goodsUrlH5 = d.a();
-                ((SingleLinkCardView) viewGroup).a(pbGoodsData);
-                return;
-            }
-            PbLinkData pbLinkData = new PbLinkData();
-            pbLinkData.title = d.h();
-            pbLinkData.linkUrl = d.e();
-            pbLinkData.picUrl = d.f();
-            pbLinkData.linkFrom = d.d();
-            pbLinkData.extTxt = d.c();
-            pbLinkData.sort = d.g();
-            pbLinkData.urlType = d.i();
-            pbLinkData.content1 = d.a();
-            pbLinkData.content2 = d.b();
-            ((SingleLinkCardView) viewGroup).a(pbLinkData);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardCompetition) != null) || featureCardCompetition == null) {
+            return;
         }
+        this.a = featureCardCompetition;
+        String str = featureCardCompetition.title;
+        Integer num = featureCardCompetition.floor;
+        Integer num2 = featureCardCompetition.type;
     }
 }

@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.PluginClassLoader;
 import dalvik.system.BaseDexClassLoader;
 import java.io.File;
 import java.util.Iterator;
@@ -49,7 +48,7 @@ public final class b extends BaseDexClassLoader {
         while (true) {
             this.axD = classLoader;
             if (this.axD.getParent() == null) {
-                Log.i(PluginClassLoader.TAG, "mParent is " + this.axD.getClass().getName());
+                Log.i("PluginClassLoader", "mParent is " + this.axD.getClass().getName());
                 return;
             }
             classLoader = this.axD.getParent();
@@ -80,7 +79,7 @@ public final class b extends BaseDexClassLoader {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
             List<String> list = this.axE;
             if (list != null && list.contains(str)) {
-                Log.i(PluginClassLoader.TAG, "loadClass " + str + " from host by interface");
+                Log.i("PluginClassLoader", "loadClass " + str + " from host by interface");
                 return super.loadClass(str, z);
             }
             List<String> list2 = this.axF;

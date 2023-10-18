@@ -1,103 +1,37 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.text.Editable;
+import android.text.Html;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.xml.sax.Attributes;
+import org.xml.sax.ContentHandler;
+import org.xml.sax.Locator;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 /* loaded from: classes8.dex */
-public class uf6 {
+public class uf6 implements Html.TagHandler, ContentHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NEGFeedBackView a;
-    public TbPageContext b;
-    public ViewGroup c;
-    public BdUniqueId d;
-    public NEGFeedBackView.NEGFeedbackEventCallback e;
+    public XMLReader a;
+    public ContentHandler b;
+    public int c;
+    public final boolean d;
+    public final Map<String, sf6> e;
 
-    /* loaded from: classes8.dex */
-    public class a implements NEGFeedBackView.NEGFeedbackEventCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onCheckedChanged(NegativeFeedBackData negativeFeedBackData, CompoundButton compoundButton, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(1048576, this, negativeFeedBackData, compoundButton, z) == null) {
-            }
-        }
-
-        public a(uf6 uf6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uf6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, NegativeFeedBackData negativeFeedBackData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, str, negativeFeedBackData) == null) && arrayList != null && negativeFeedBackData != null) {
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < arrayList.size(); i++) {
-                    sb.append(arrayList.get(i) + ",");
-                }
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                if ("ala_frs_demo_hell_live_feed_back_type".equals(negativeFeedBackData.getType())) {
-                    TiebaStatic.log(new StatisticItem("c12803").param("tid", negativeFeedBackData.getTid()));
-                } else if ("ala_frs_stage_live_feed_back_type".equals(negativeFeedBackData.getType())) {
-                    TiebaStatic.log(new StatisticItem("c12807").param("tid", negativeFeedBackData.getTid()));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onNEGFeedbackWindowShow(NegativeFeedBackData negativeFeedBackData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, negativeFeedBackData) != null) || negativeFeedBackData == null) {
-                return;
-            }
-            if ("ala_frs_demo_hell_live_feed_back_type".equals(negativeFeedBackData.getType())) {
-                TiebaStatic.log(new StatisticItem("c12802").param("tid", negativeFeedBackData.getTid()));
-            } else if ("ala_frs_stage_live_feed_back_type".equals(negativeFeedBackData.getType())) {
-                TiebaStatic.log(new StatisticItem("c12806").param("tid", negativeFeedBackData.getTid()));
-            }
-        }
-    }
-
-    public uf6(TbPageContext tbPageContext, ViewGroup viewGroup) {
+    public uf6(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -107,87 +41,164 @@ public class uf6 {
                 return;
             }
         }
-        this.e = new a(this);
-        this.b = tbPageContext;
-        this.c = viewGroup;
+        this.e = new HashMap();
+        this.d = z;
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    public boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!this.e.containsKey(str) || this.e.get(str) == null) {
+                return false;
+            }
+            return true;
         }
-        return (View) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void c() {
-        NEGFeedBackView nEGFeedBackView;
+    @Override // org.xml.sax.ContentHandler
+    public void endPrefixMapping(String str) throws SAXException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (nEGFeedBackView = this.a) != null) {
-            nEGFeedBackView.onChangeSkinType();
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b.endPrefixMapping(str);
         }
     }
 
-    public void b(ThreadData threadData, String str) {
-        boolean z;
+    @Override // org.xml.sax.ContentHandler
+    public void setDocumentLocator(Locator locator) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData, str) == null) && threadData != null && threadData.getThreadAlaInfo() != null && this.b != null && this.c != null) {
-            int i = 0;
-            if (threadData.getAuthor() != null && threadData.getAuthor().getUserId() != null && threadData.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                z = true;
+        if (interceptable == null || interceptable.invokeL(1048587, this, locator) == null) {
+            this.b.setDocumentLocator(locator);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void skippedEntity(String str) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.b.skippedEntity(str);
+        }
+    }
+
+    public final void b(String str, XMLReader xMLReader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, xMLReader) == null) {
+            if (a(str)) {
+                this.c--;
+            }
+            if (this.c == 0) {
+                this.a.setContentHandler(this.b);
+                this.a = null;
+                this.b = null;
+            }
+        }
+    }
+
+    public void c(String str, sf6 sf6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, sf6Var) == null) {
+            this.e.put(str.toLowerCase(), sf6Var);
+        }
+    }
+
+    public final void d(String str, XMLReader xMLReader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, xMLReader) == null) {
+            if (a(str)) {
+                this.c++;
+            }
+            if (this.b == null) {
+                this.b = xMLReader.getContentHandler();
+                this.a = xMLReader;
+                xMLReader.setContentHandler(this);
+            }
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void processingInstruction(String str, String str2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
+            this.b.processingInstruction(str, str2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void startPrefixMapping(String str, String str2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+            this.b.startPrefixMapping(str, str2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void characters(char[] cArr, int i, int i2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i, i2) == null) {
+            this.b.characters(cArr, i, i2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void ignorableWhitespace(char[] cArr, int i, int i2) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, cArr, i, i2) == null) {
+            this.b.ignorableWhitespace(cArr, i, i2);
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void endDocument() throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.endDocument();
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void startDocument() throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.b.startDocument();
+        }
+    }
+
+    @Override // org.xml.sax.ContentHandler
+    public void endElement(String str, String str2, String str3) throws SAXException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
+            String lowerCase = str2.toLowerCase();
+            if (lowerCase.equalsIgnoreCase("head")) {
+                handleTag(false, lowerCase, null, this.a);
+            } else if (a(lowerCase)) {
+                this.e.get(lowerCase).a(this.d, lowerCase);
+            }
+        }
+    }
+
+    @Override // android.text.Html.TagHandler
+    public void handleTag(boolean z, String str, Editable editable, XMLReader xMLReader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), str, editable, xMLReader}) == null) {
+            if (z) {
+                d(str.toLowerCase(), xMLReader);
             } else {
-                z = false;
-            }
-            if (TbadkCoreApplication.isLogin() && threadData.getThreadAlaInfo().dislikeInfo != null && !z && threadData.getThreadAlaInfo().dislikeInfo.size() > 0) {
-                if (this.a == null) {
-                    NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.b);
-                    this.a = nEGFeedBackView;
-                    nEGFeedBackView.setUniqueId(this.d);
-                    this.a.setId(R.id.negative_feedback_view);
-                    this.a.setDefaultReasonArray(new String[]{this.b.getString(R.string.bad_quality), "", ""});
-                    this.a.setEventCallback(this.e);
-                    this.a.attachToViewUpperRightConnerFromFrsLive(this.c, BdUtilHelper.getDimens(this.b.getPageActivity(), R.dimen.tbds120), BdUtilHelper.getDimens(this.b.getPageActivity(), R.dimen.tbds20));
-                    this.a.onChangeSkinType();
-                }
-                if (this.a.getVisibility() != 0) {
-                    this.a.setVisibility(0);
-                }
-                NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
-                negativeFeedBackData.setTid(threadData.getTid());
-                negativeFeedBackData.setFid(threadData.getFid());
-                negativeFeedBackData.setNid(threadData.getNid());
-                negativeFeedBackData.setType(str);
-                negativeFeedBackData.setFeedBackReasonMap(threadData.getThreadAlaInfo().dislikeInfo);
-                this.a.setData(negativeFeedBackData);
-            } else {
-                NEGFeedBackView nEGFeedBackView2 = this.a;
-                if (nEGFeedBackView2 != null && nEGFeedBackView2.getVisibility() != 8) {
-                    this.a.setVisibility(8);
-                }
-                i = BdUtilHelper.getDimens(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
-            }
-            if (this.c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-                layoutParams.rightMargin = i;
-                this.c.setLayoutParams(layoutParams);
-            }
-            if (this.c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-                layoutParams2.rightMargin = i;
-                this.c.setLayoutParams(layoutParams2);
-            }
-            NEGFeedBackView nEGFeedBackView3 = this.a;
-            if (nEGFeedBackView3 != null) {
-                nEGFeedBackView3.dismissPopupWindow();
+                b(str.toLowerCase(), xMLReader);
             }
         }
     }
 
-    public void d(BdUniqueId bdUniqueId) {
+    @Override // org.xml.sax.ContentHandler
+    public void startElement(String str, String str2, String str3, Attributes attributes) throws SAXException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.d = bdUniqueId;
+        if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, str3, attributes) == null) {
+            String lowerCase = str2.toLowerCase();
+            if (lowerCase.equalsIgnoreCase("head")) {
+                handleTag(true, lowerCase, null, this.a);
+            } else if (a(lowerCase)) {
+                this.e.get(lowerCase).b(this.d, lowerCase, attributes);
+            }
         }
     }
 }

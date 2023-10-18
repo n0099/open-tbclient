@@ -13,7 +13,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.NullabilityQua
 import kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.NullabilityQualifierWithMigrationStatus;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class AnnotationTypeQualifierResolverKt {
     public static final FqName TYPE_QUALIFIER_NICKNAME_FQNAME = new FqName("javax.annotation.meta.TypeQualifierNickname");
     public static final FqName TYPE_QUALIFIER_FQNAME = new FqName("javax.annotation.meta.TypeQualifier");

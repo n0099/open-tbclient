@@ -1,30 +1,46 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public boolean f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public int k;
+    public int l;
+    public String m;
+    public String n;
+    public String o;
+    public long p;
+    public long q;
+    public boolean r;
+    public boolean s;
+    public int t;
+    public boolean u;
+    public boolean v;
+    public boolean w;
 
-    public fg0(Context context) {
+    public fg0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,155 +50,156 @@ public class fg0 {
                 return;
             }
         }
-        this.a = context;
+        this.d = "";
+        this.e = 0L;
+        this.f = false;
+        this.g = 0;
+        this.h = 0;
+        this.i = 0;
+        this.p = -1L;
+        this.q = -1L;
+        this.s = false;
+        this.t = 0;
+        this.u = true;
+        this.v = false;
+        this.w = qi0.b().a().a("uad_notification_progress_switch", 1) == 1;
     }
 
-    public boolean a(String str, File file) {
-        InterceptResult invokeLL;
+    @NonNull
+    public static fg0 a(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, file)) == null) {
-            boolean b = b(str, file);
-            if (file.isDirectory()) {
-                File file2 = new File(file, ".nomedia");
-                if (!file2.exists()) {
-                    try {
-                        file2.createNewFile();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            fg0 fg0Var = new fg0();
+            JSONObject c = ux0.c(str);
+            fg0Var.a = c.optString("page");
+            fg0Var.b = c.optString("business");
+            fg0Var.c = c.optString("source");
+            fg0Var.d = c.optString("content_type");
+            fg0Var.e = c.optLong(BreakpointSQLiteKey.CONTENT_LENGTH);
+            boolean z6 = false;
+            if (c.optInt("is_dirty", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-            return b;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:80:0x00de A[Catch: IOException -> 0x00da, TRY_LEAVE, TryCatch #0 {IOException -> 0x00da, blocks: (B:76:0x00d6, B:80:0x00de), top: B:88:0x00d6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x00d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        InputStream inputStream;
-        InputStream open;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            AssetManager assets = this.a.getAssets();
-            FileOutputStream fileOutputStream = null;
-            try {
-                String[] list = assets.list(str);
-                if (list.length > 0) {
-                    if (!file.isDirectory() && file.exists()) {
-                        file.delete();
-                    }
-                    if (file.isDirectory() && !file.exists()) {
-                        file.mkdirs();
-                    }
-                    for (String str2 : list) {
-                        if (!TextUtils.isEmpty(str2)) {
-                            b(str + File.separator + str2, new File(file, str2));
-                        }
-                    }
-                    open = null;
+            fg0Var.f = z;
+            fg0Var.g = c.optInt("close_v_download", 0);
+            fg0Var.h = c.optInt("no_click_opt");
+            fg0Var.i = c.optInt("open_after_install");
+            fg0Var.j = c.optString("action_area");
+            fg0Var.k = c.optInt("notification_show_count");
+            fg0Var.l = c.optInt("tips_show_count");
+            fg0Var.p = c.optLong("als_app_save_day");
+            fg0Var.q = c.optLong("finished_install_time", -1L);
+            if (c.optInt("lazy_launch_switch", 0) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            fg0Var.s = z2;
+            fg0Var.t = c.optInt("lazy_launch_internal", 0);
+            if (c.optInt("is_start_download", 0) == 1) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            fg0Var.v = z3;
+            int optInt = c.optInt("need_notification_progress", Integer.MIN_VALUE);
+            if (optInt == Integer.MIN_VALUE) {
+                if (qi0.b().a().a("uad_notification_progress_switch", 1) == 1) {
+                    z5 = true;
                 } else {
-                    File parentFile = file.getParentFile();
-                    if (parentFile != null && !parentFile.exists()) {
-                        parentFile.mkdirs();
-                    }
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    file.createNewFile();
-                    open = assets.open(str);
-                    try {
-                        FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                        try {
-                            byte[] bArr = new byte[1024];
-                            while (true) {
-                                int read = open.read(bArr);
-                                if (read == -1) {
-                                    break;
-                                }
-                                fileOutputStream2.write(bArr, 0, read);
-                            }
-                            fileOutputStream2.flush();
-                            fileOutputStream = fileOutputStream2;
-                        } catch (Exception e) {
-                            e = e;
-                            fileOutputStream = fileOutputStream2;
-                            Exception exc = e;
-                            inputStream = open;
-                            e = exc;
-                            try {
-                                e.printStackTrace();
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (IOException e2) {
-                                        e2.printStackTrace();
-                                        return false;
-                                    }
-                                }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                return false;
-                            } catch (Throwable th) {
-                                th = th;
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (IOException e3) {
-                                        e3.printStackTrace();
-                                        throw th;
-                                    }
-                                }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            fileOutputStream = fileOutputStream2;
-                            Throwable th3 = th;
-                            inputStream = open;
-                            th = th3;
-                            if (fileOutputStream != null) {
-                            }
-                            if (inputStream != null) {
-                            }
-                            throw th;
-                        }
-                    } catch (Exception e4) {
-                        e = e4;
-                    } catch (Throwable th4) {
-                        th = th4;
-                    }
+                    z5 = false;
                 }
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                        return true;
-                    }
+                fg0Var.w = z5;
+            } else {
+                if (optInt == 1) {
+                    z4 = true;
+                } else {
+                    z4 = false;
                 }
-                if (open != null) {
-                    open.close();
-                    return true;
-                }
-                return true;
-            } catch (Exception e6) {
-                e = e6;
-                inputStream = null;
-            } catch (Throwable th5) {
-                th = th5;
-                inputStream = null;
+                fg0Var.w = z4;
             }
-        } else {
-            return invokeLL.booleanValue;
+            int optInt2 = c.optInt("package_launch_switch", Integer.MIN_VALUE);
+            if (optInt2 == Integer.MIN_VALUE) {
+                if (qi0.b().a().a("package_launch_switch", 1) == 1) {
+                    z6 = true;
+                }
+                fg0Var.u = z6;
+            } else {
+                if (optInt2 == 1) {
+                    z6 = true;
+                }
+                fg0Var.u = z6;
+            }
+            return fg0Var;
         }
+        return (fg0) invokeL.objValue;
+    }
+
+    public static String b(@NonNull fg0 fg0Var) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fg0Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("page", fg0Var.a);
+                jSONObject.put("business", fg0Var.b);
+                jSONObject.put("source", fg0Var.c);
+                jSONObject.put("content_type", fg0Var.d);
+                jSONObject.put(BreakpointSQLiteKey.CONTENT_LENGTH, fg0Var.e);
+                int i5 = 1;
+                if (fg0Var.f) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("is_dirty", i);
+                jSONObject.put("close_v_download", fg0Var.g);
+                jSONObject.put("no_click_opt", fg0Var.h);
+                jSONObject.put("open_after_install", fg0Var.i);
+                jSONObject.put("action_area", fg0Var.j);
+                jSONObject.put("notification_show_count", fg0Var.k);
+                jSONObject.put("tips_show_count", fg0Var.l);
+                jSONObject.put("als_app_save_day", fg0Var.p);
+                jSONObject.put("finished_install_time", fg0Var.q);
+                if (fg0Var.s) {
+                    i2 = 1;
+                } else {
+                    i2 = 0;
+                }
+                jSONObject.put("lazy_launch_switch", i2);
+                jSONObject.put("lazy_launch_internal", fg0Var.t);
+                if (fg0Var.u) {
+                    i3 = 1;
+                } else {
+                    i3 = 0;
+                }
+                jSONObject.put("package_launch_switch", i3);
+                if (fg0Var.v) {
+                    i4 = 1;
+                } else {
+                    i4 = 0;
+                }
+                jSONObject.put("is_start_download", i4);
+                if (!fg0Var.w) {
+                    i5 = 0;
+                }
+                jSONObject.put("need_notification_progress", i5);
+            } catch (JSONException unused) {
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

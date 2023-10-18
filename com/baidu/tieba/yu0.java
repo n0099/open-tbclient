@@ -1,85 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
-import java.util.List;
-import java.util.regex.Pattern;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthStrategyHelper")
-/* loaded from: classes8.dex */
-public final class yu0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile vu0 a;
-    public transient /* synthetic */ FieldHolder $fh;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+/* loaded from: classes9.dex */
+public interface yu0 {
+    void a(@Nullable ts0 ts0Var);
 
-    public static final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host", "vdept3.bdstatic.com");
-                jSONObject2.put("auth", "1_1_1_3");
-                jSONArray.put(jSONObject2);
-                jSONObject.put("hosts", jSONArray);
-            } catch (Exception e) {
-                sk0.c("AuthStrategyHelper", e.toString());
-            }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
-            return jSONObject3;
-        }
-        return (String) invokeV.objValue;
-    }
+    void b(@NonNull vs0 vs0Var);
 
-    public static final List<uu0> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = xu0.a(o21.k().getString("host_auth_config", a()));
-            }
-            vu0 vu0Var = a;
-            if (vu0Var != null) {
-                return vu0Var.a();
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
+    void c(int i, @NonNull ss0 ss0Var);
 
-    public static final synchronized uu0 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (yu0.class) {
-                if (str == null) {
-                    return null;
-                }
-                List<uu0> b = b();
-                if (b == null) {
-                    return null;
-                }
-                try {
-                    String host = new URL(str).getHost();
-                    for (uu0 uu0Var : b) {
-                        if (Pattern.matches(uu0Var.b(), host)) {
-                            return uu0Var;
-                        }
-                    }
-                } catch (Exception e) {
-                    sk0.a("AuthStrategyHelper", e.getMessage());
-                }
-                return null;
-            }
-        }
-        return (uu0) invokeL.objValue;
-    }
+    void d(@NonNull sr0 sr0Var);
+
+    void e(ss0 ss0Var);
+
+    void f(@NonNull vs0 vs0Var);
+
+    String getType();
+
+    void release();
 }

@@ -1,248 +1,400 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.IntentSender;
-import android.content.ServiceConnection;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.session.XRSessionAnchor;
-import com.baidu.platform.comapi.map.NodeType;
-import com.baidu.searchbox.IntentConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.FatalException;
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicReference;
+import com.squareup.wire2.FieldEncoding;
+import java.io.EOFException;
+import java.io.IOException;
+import java.net.ProtocolException;
+import kotlin.jvm.internal.ByteCompanionObject;
+import okio.BufferedSource;
+import okio.ByteString;
 /* loaded from: classes5.dex */
-public class bxb {
+public final class bxb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Runnable> a;
-    public Context b;
-    public volatile int c;
-    public com.google.a.b.a.a.a.a d;
-    public BroadcastReceiver e;
-    public Context f;
-    public final ServiceConnection g;
-    public final AtomicReference<swb> h;
+    public final BufferedSource a;
+    public long b;
+    public long c;
+    public int d;
+    public int e;
+    public int f;
+    public long g;
+    public FieldEncoding h;
 
-    public bxb() {
+    public bxb(BufferedSource bufferedSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bufferedSource};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static Bundle l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putCharSequence("package.name", XRSessionAnchor.apkinfo);
-            return bundle;
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public final void p() {
-        swb andSet;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (andSet = this.h.getAndSet(null)) != null) {
-            andSet.a();
-        }
-    }
-
-    public final synchronized void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                Log.i("ARCore-InstallService", "Install service disconnected");
-                this.c = ixb.a;
-                this.d = null;
-                p();
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public bxb(byte b) {
-        this();
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Byte.valueOf(b)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayDeque();
-        this.c = ixb.a;
-        this.g = new dxb(this);
-        this.h = new AtomicReference<>();
+        this.b = 0L;
+        this.c = Long.MAX_VALUE;
+        this.e = 2;
+        this.f = -1;
+        this.g = -1L;
+        this.a = bufferedSource;
     }
 
-    public static void b(Activity activity, Bundle bundle, cxb cxbVar) {
+    public final void a(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, activity, bundle, cxbVar) == null) {
-            PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("resolution.intent");
-            if (pendingIntent != null) {
-                try {
-                    activity.startIntentSenderForResult(pendingIntent.getIntentSender(), NodeType.E_STREET_POI, new Intent(activity, activity.getClass()), 0, 0, 0);
-                    return;
-                } catch (IntentSender.SendIntentException e) {
-                    cxbVar.b(new FatalException("Installation Intent failed", e));
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (this.e == i) {
+                this.e = 6;
+                return;
+            }
+            long j = this.b;
+            long j2 = this.c;
+            if (j <= j2) {
+                if (j == j2) {
+                    this.c = this.g;
+                    this.g = -1L;
+                    this.e = 6;
                     return;
                 }
+                this.e = 7;
+                return;
             }
-            Log.e("ARCore-InstallService", "Did not get pending intent.");
-            cxbVar.b(new FatalException("Installation intent failed to unparcel."));
+            throw new IOException("Expected to end at " + this.c + " but was " + this.b);
         }
     }
 
-    public final synchronized void k(Runnable runnable) {
+    public final long b() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
-            synchronized (this) {
-                int i = this.c - 1;
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
-                            runnable.run();
-                        }
-                        return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e == 2) {
+                long j = this.c - this.b;
+                this.a.require(j);
+                this.e = 6;
+                this.b = this.c;
+                this.c = this.g;
+                this.g = -1L;
+                return j;
+            }
+            throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.e);
+        }
+        return invokeV.longValue;
+    }
+
+    public int i() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int i = this.e;
+            if (i != 5 && i != 2) {
+                throw new ProtocolException("Expected FIXED32 or LENGTH_DELIMITED but was " + this.e);
+            }
+            this.a.require(4L);
+            this.b += 4;
+            int readIntLe = this.a.readIntLe();
+            a(5);
+            return readIntLe;
+        }
+        return invokeV.intValue;
+    }
+
+    public long j() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            int i = this.e;
+            if (i != 1 && i != 2) {
+                throw new ProtocolException("Expected FIXED64 or LENGTH_DELIMITED but was " + this.e);
+            }
+            this.a.require(8L);
+            this.b += 8;
+            long readLongLe = this.a.readLongLe();
+            a(1);
+            return readLongLe;
+        }
+        return invokeV.longValue;
+    }
+
+    public long m() throws IOException {
+        InterceptResult invokeV;
+        byte readByte;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i != 2) {
+                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
+            }
+            long j = 0;
+            for (int i2 = 0; i2 < 64; i2 += 7) {
+                this.b++;
+                j |= (readByte & ByteCompanionObject.MAX_VALUE) << i2;
+                if ((this.a.readByte() & 128) == 0) {
+                    a(0);
+                    return j;
+                }
+            }
+            throw new ProtocolException("WireInput encountered a malformed varint");
+        }
+        return invokeV.longValue;
+    }
+
+    public long c() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e == 2) {
+                int i = this.d + 1;
+                this.d = i;
+                if (i <= 65) {
+                    long j = this.g;
+                    this.g = -1L;
+                    this.e = 6;
+                    return j;
+                }
+                throw new IOException("Wire recursion limit exceeded");
+            }
+            throw new IllegalStateException("Unexpected call to beginMessage()");
+        }
+        return invokeV.longValue;
+    }
+
+    public int l() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i != 2) {
+                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
+            }
+            int e = e();
+            a(0);
+            return e;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(long j) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (this.e == 6) {
+                int i = this.d - 1;
+                this.d = i;
+                if (i >= 0 && this.g == -1) {
+                    if (this.b != this.c && i != 0) {
+                        throw new IOException("Expected to end at " + this.c + " but was " + this.b);
                     }
-                    this.a.offer(runnable);
+                    this.c = j;
                     return;
                 }
-                throw new com.google.ar.core.ab();
+                throw new IllegalStateException("No corresponding call to beginMessage()");
             }
+            throw new IllegalStateException("Unexpected call to endMessage()");
         }
     }
 
-    public static void n(Activity activity, cxb cxbVar) {
+    public final void n(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, activity, cxbVar) == null) {
-            try {
-                activity.startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("market://details?id=com.google.ar.core")));
-            } catch (ActivityNotFoundException e) {
-                cxbVar.b(new FatalException("Failed to launch installer.", e));
-            }
-        }
-    }
-
-    public synchronized void e(Context context, ArCoreApk.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, aVar) == null) {
-            synchronized (this) {
-                try {
-                    k(new exb(this, context, aVar));
-                } catch (com.google.ar.core.ab unused) {
-                    Log.e("ARCore-InstallService", "Play Store install service could not be bound.");
-                    aVar.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            while (this.b < this.c && !this.a.exhausted()) {
+                int e = e();
+                if (e != 0) {
+                    int i2 = e >> 3;
+                    int i3 = e & 7;
+                    if (i3 != 0) {
+                        if (i3 != 1) {
+                            if (i3 != 2) {
+                                if (i3 != 3) {
+                                    if (i3 != 4) {
+                                        if (i3 == 5) {
+                                            this.e = 5;
+                                            i();
+                                        } else {
+                                            throw new ProtocolException("Unexpected field encoding: " + i3);
+                                        }
+                                    } else if (i2 == i) {
+                                        return;
+                                    } else {
+                                        throw new ProtocolException("Unexpected end group");
+                                    }
+                                } else {
+                                    n(i2);
+                                }
+                            } else {
+                                long e2 = e();
+                                this.b += e2;
+                                this.a.skip(e2);
+                            }
+                        } else {
+                            this.e = 1;
+                            j();
+                        }
+                    } else {
+                        this.e = 0;
+                        m();
+                    }
+                } else {
+                    throw new ProtocolException("Unexpected tag 0");
                 }
             }
+            throw new EOFException();
         }
     }
 
-    public synchronized void a() {
+    public final int e() throws IOException {
+        InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                p();
-                int i = this.c - 1;
-                if (i == 1 || i == 2) {
-                    this.b.unbindService(this.g);
-                    this.b = null;
-                    this.c = ixb.a;
-                }
-                if (this.e != null) {
-                    this.f.unregisterReceiver(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.b++;
+            byte readByte = this.a.readByte();
+            if (readByte >= 0) {
+                return readByte;
+            }
+            int i2 = readByte & ByteCompanionObject.MAX_VALUE;
+            this.b++;
+            byte readByte2 = this.a.readByte();
+            if (readByte2 >= 0) {
+                i = readByte2 << 7;
+            } else {
+                i2 |= (readByte2 & ByteCompanionObject.MAX_VALUE) << 7;
+                this.b++;
+                byte readByte3 = this.a.readByte();
+                if (readByte3 >= 0) {
+                    i = readByte3 << 14;
+                } else {
+                    i2 |= (readByte3 & ByteCompanionObject.MAX_VALUE) << 14;
+                    this.b++;
+                    byte readByte4 = this.a.readByte();
+                    if (readByte4 >= 0) {
+                        i = readByte4 << 21;
+                    } else {
+                        int i3 = i2 | ((readByte4 & ByteCompanionObject.MAX_VALUE) << 21);
+                        this.b++;
+                        byte readByte5 = this.a.readByte();
+                        int i4 = i3 | (readByte5 << 28);
+                        if (readByte5 < 0) {
+                            for (int i5 = 0; i5 < 5; i5++) {
+                                this.b++;
+                                if (this.a.readByte() >= 0) {
+                                    return i4;
+                                }
+                            }
+                            throw new ProtocolException("Malformed VARINT");
+                        }
+                        return i4;
+                    }
                 }
             }
+            return i2 | i;
         }
+        return invokeV.intValue;
     }
 
-    public void c(Activity activity, cxb cxbVar) {
+    public int f() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, cxbVar) == null) {
-            swb swbVar = new swb(activity, cxbVar);
-            swb andSet = this.h.getAndSet(swbVar);
-            if (andSet != null) {
-                andSet.a();
-            }
-            swbVar.start();
-            if (this.e == null) {
-                fxb fxbVar = new fxb(this, cxbVar);
-                this.e = fxbVar;
-                this.f = activity;
-                activity.registerReceiver(fxbVar, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
-            }
-            try {
-                k(new gxb(this, activity, cxbVar));
-            } catch (com.google.ar.core.ab unused) {
-                Log.w("ARCore-InstallService", "requestInstall bind failed, launching fullscreen.");
-                n(activity, cxbVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.e;
+            if (i == 7) {
+                this.e = 2;
+                return this.f;
+            } else if (i == 6) {
+                while (this.b < this.c && !this.a.exhausted()) {
+                    int e = e();
+                    if (e != 0) {
+                        int i2 = e >> 3;
+                        this.f = i2;
+                        int i3 = e & 7;
+                        if (i3 != 0) {
+                            if (i3 != 1) {
+                                if (i3 != 2) {
+                                    if (i3 != 3) {
+                                        if (i3 != 4) {
+                                            if (i3 == 5) {
+                                                this.h = FieldEncoding.FIXED32;
+                                                this.e = 5;
+                                                return i2;
+                                            }
+                                            throw new ProtocolException("Unexpected field encoding: " + i3);
+                                        }
+                                        throw new ProtocolException("Unexpected end group");
+                                    }
+                                    n(i2);
+                                } else {
+                                    this.h = FieldEncoding.LENGTH_DELIMITED;
+                                    this.e = 2;
+                                    int e2 = e();
+                                    if (e2 >= 0) {
+                                        if (this.g == -1) {
+                                            long j = this.c;
+                                            this.g = j;
+                                            long j2 = this.b + e2;
+                                            this.c = j2;
+                                            if (j2 <= j) {
+                                                return this.f;
+                                            }
+                                            throw new EOFException();
+                                        }
+                                        throw new IllegalStateException();
+                                    }
+                                    throw new ProtocolException("Negative length: " + e2);
+                                }
+                            } else {
+                                this.h = FieldEncoding.FIXED64;
+                                this.e = 1;
+                                return i2;
+                            }
+                        } else {
+                            this.h = FieldEncoding.VARINT;
+                            this.e = 0;
+                            return i2;
+                        }
+                    } else {
+                        throw new ProtocolException("Unexpected tag 0");
+                    }
+                }
+                return -1;
+            } else {
+                throw new IllegalStateException("Unexpected call to nextTag()");
             }
         }
+        return invokeV.intValue;
     }
 
-    public synchronized void d(Context context) {
+    public FieldEncoding g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            synchronized (this) {
-                this.b = context;
-                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.g, 1)) {
-                    this.c = ixb.b;
-                    return;
-                }
-                this.c = ixb.a;
-                this.b = null;
-                Log.w("ARCore-InstallService", "bindService returned false.");
-                context.unbindService(this.g);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
         }
+        return (FieldEncoding) invokeV.objValue;
     }
 
-    public final synchronized void f(IBinder iBinder) {
+    public ByteString h() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iBinder) == null) {
-            synchronized (this) {
-                com.google.a.b.a.a.a.a a = com.google.a.b.a.a.a.b.a(iBinder);
-                Log.i("ARCore-InstallService", "Install service connected");
-                this.d = a;
-                this.c = ixb.c;
-                for (Runnable runnable : this.a) {
-                    runnable.run();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.readByteString(b());
         }
+        return (ByteString) invokeV.objValue;
+    }
+
+    public String k() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.readUtf8(b());
+        }
+        return (String) invokeV.objValue;
     }
 }

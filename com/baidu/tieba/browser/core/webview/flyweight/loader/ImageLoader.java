@@ -8,13 +8,14 @@ import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.fl6;
-import com.baidu.tieba.hm6;
+import com.baidu.tieba.ei6;
+import com.baidu.tieba.gg6;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.vn6;
-import com.baidu.tieba.xl6;
+import com.baidu.tieba.of6;
+import com.baidu.tieba.qg6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +31,7 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class ImageLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static final fl6 a;
+    public static final of6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +47,7 @@ public class ImageLoader {
                 return;
             }
         }
-        a = new fl6();
+        a = new of6();
     }
 
     public static WebResourceResponse a(String str, Map<String, String> map, Pair<InputStream, Long> pair) {
@@ -84,7 +85,7 @@ public class ImageLoader {
                 i = 200;
             }
             WebResourceResponse webResourceResponse = new WebResourceResponse(str, "UTF-8", pair.first);
-            webResourceResponse.setStatusCodeAndReasonPhrase(i, "OK");
+            webResourceResponse.setStatusCodeAndReasonPhrase(i, bx.k);
             webResourceResponse.setResponseHeaders(hashMap);
             return webResourceResponse;
         }
@@ -95,7 +96,7 @@ public class ImageLoader {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, map, pair)) == null) {
-            return a(vn6.b(str), map, pair);
+            return a(ei6.b(str), map, pair);
         }
         return (WebResourceResponse) invokeLLL.objValue;
     }
@@ -114,14 +115,14 @@ public class ImageLoader {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            hm6 f = xl6.e().f(str);
+            qg6 f = gg6.e().f(str);
             if (f == null) {
-                f = xl6.e().f(vn6.c(str2));
+                f = gg6.e().f(ei6.c(str2));
             }
             if (f == null) {
                 return null;
             }
-            String c = vn6.c(str2);
+            String c = ei6.c(str2);
             String str3 = "";
             for (String str4 : f.f) {
                 if (c.endsWith(str4)) {

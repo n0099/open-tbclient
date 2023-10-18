@@ -1,5 +1,5 @@
 package com.baidu.tbadk.pay;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface IyyPayResultCallback {
     void onFail(int i, String str);
 

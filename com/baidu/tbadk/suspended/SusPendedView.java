@@ -16,21 +16,21 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xt5;
-import com.baidu.tieba.yt5;
+import com.baidu.tieba.do5;
+import com.baidu.tieba.eo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SusPendedView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public yt5 d;
+    public eo5 d;
     public float e;
     public float f;
     public boolean g;
@@ -47,7 +47,7 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,10 +191,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(yt5 yt5Var) {
+    public void setContentViewTop(eo5 eo5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, yt5Var) == null) {
-            this.d = yt5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, eo5Var) == null) {
+            this.d = eo5Var;
         }
     }
 
@@ -230,11 +230,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yt5 yt5Var = this.d;
-            if (yt5Var == null) {
+            eo5 eo5Var = this.d;
+            if (eo5Var == null) {
                 return false;
             }
-            return yt5Var.M();
+            return eo5Var.M();
         }
         return invokeV.booleanValue;
     }
@@ -403,9 +403,9 @@ public class SusPendedView extends LinearLayout {
                 float f = this.f;
                 float f2 = this.e;
                 if (f > f2 && this.g) {
-                    yt5 yt5Var = this.d;
-                    if (yt5Var instanceof xt5) {
-                        ((xt5) yt5Var).e0(f - f2);
+                    eo5 eo5Var = this.d;
+                    if (eo5Var instanceof do5) {
+                        ((do5) eo5Var).d0(f - f2);
                     }
                     LinearLayout linearLayout = this.a;
                     float f3 = this.f;

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
-import com.baidu.tieba.vfa;
+import com.baidu.tieba.laa;
 import java.util.Collection;
 import java.util.List;
 import kotlin.Metadata;
@@ -37,15 +37,15 @@ public final class InitAutoRestartDownloadTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         TbDownloadManager tbDownloadManager = new TbDownloadManager();
-        List<vfa> e = tbDownloadManager.m().e();
-        if (ListUtils.isEmpty(e)) {
+        List<laa> g = tbDownloadManager.m().g();
+        if (ListUtils.isEmpty(g)) {
             return;
         }
-        for (vfa vfaVar : CollectionsKt___CollectionsKt.toMutableList((Collection) e)) {
+        for (laa laaVar : CollectionsKt___CollectionsKt.toMutableList((Collection) g)) {
             DownloadData downloadData = new DownloadData();
-            downloadData.setId(vfaVar.r());
-            downloadData.setUrl(vfaVar.d());
-            String c = vfaVar.c();
+            downloadData.setId(laaVar.r());
+            downloadData.setUrl(laaVar.d());
+            String c = laaVar.c();
             Intrinsics.checkNotNullExpressionValue(c, "downloadMultiInfo.detailInfo()");
             ItemData string2Item = string2Item(c);
             boolean z = false;

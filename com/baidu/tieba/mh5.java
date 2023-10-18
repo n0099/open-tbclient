@@ -1,19 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.adp.widget.ImageView.BdImage;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
 /* loaded from: classes7.dex */
-public class mh5 {
+public final class mh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ItemData b;
-    public String c;
-    public int d;
-    public int e;
+    @JvmField
+    public ImageFileInfo a;
+    @JvmField
+    public hh5 b;
+    @JvmField
+    public boolean c;
+    @JvmField
+    public BdImage d;
+    @JvmField
+    public boolean e;
 
     public mh5() {
         Interceptable interceptable = $ic;

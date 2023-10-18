@@ -46,25 +46,25 @@ import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.adc;
-import com.baidu.tieba.di;
-import com.baidu.tieba.du8;
-import com.baidu.tieba.eh8;
-import com.baidu.tieba.fh8;
-import com.baidu.tieba.gh8;
-import com.baidu.tieba.gp8;
-import com.baidu.tieba.hh8;
-import com.baidu.tieba.hz4;
+import com.baidu.tieba.ad;
+import com.baidu.tieba.db8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.base.core.slice.SliceFragment;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
 import com.baidu.tieba.im.biz.aibot.inputslice.InputSlice;
 import com.baidu.tieba.im.biz.aibot.keyboardtool.PanelType;
 import com.baidu.tieba.impersonal.databinding.SliceInputBinding;
-import com.baidu.tieba.jh8;
-import com.baidu.tieba.kh8;
-import com.baidu.tieba.lg8;
-import com.baidu.tieba.tg8;
+import com.baidu.tieba.no8;
+import com.baidu.tieba.ob8;
+import com.baidu.tieba.pb8;
+import com.baidu.tieba.pt4;
+import com.baidu.tieba.qb8;
+import com.baidu.tieba.qj8;
+import com.baidu.tieba.rb8;
+import com.baidu.tieba.tb8;
+import com.baidu.tieba.ub8;
+import com.baidu.tieba.va8;
+import com.baidu.tieba.x6c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,31 +81,31 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
 @Metadata(d1 = {"\u0000Ò\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B\u001d\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\b\u0010D\u001a\u00020EH\u0002J\u0010\u0010F\u001a\u00020E2\u0006\u0010G\u001a\u00020\u000bH\u0016J\u0010\u0010H\u001a\u00020E2\u0006\u0010I\u001a\u00020)H\u0002J\b\u0010J\u001a\u00020EH\u0002J\b\u0010K\u001a\u00020\u000bH\u0016J\b\u0010L\u001a\u00020\u000bH\u0016J\b\u0010M\u001a\u00020NH\u0016J\b\u0010O\u001a\u00020EH\u0003J\b\u0010P\u001a\u00020EH\u0002J\u0010\u0010Q\u001a\u00020E2\u0006\u0010\u0016\u001a\u00020\u0017H\u0002J\u0010\u0010R\u001a\u00020)2\u0006\u0010S\u001a\u00020,H\u0002J\b\u0010T\u001a\u00020)H\u0002J\u0012\u0010U\u001a\u00020E2\b\u0010V\u001a\u0004\u0018\u00010WH\u0016J\u0010\u0010X\u001a\u00020E2\u0006\u0010Y\u001a\u00020ZH\u0016J$\u0010[\u001a\u00020N2\u0006\u0010\\\u001a\u00020]2\b\u0010^\u001a\u0004\u0018\u00010\u00052\b\u0010V\u001a\u0004\u0018\u00010WH\u0016J\b\u0010_\u001a\u00020EH\u0016J\u0010\u0010`\u001a\u00020E2\u0006\u0010\u0016\u001a\u00020\u0017H\u0016J\u0018\u0010a\u001a\u00020E2\u0006\u0010b\u001a\u00020\u000b2\u0006\u0010c\u001a\u00020)H\u0016J\b\u0010d\u001a\u00020EH\u0016J\b\u0010e\u001a\u00020EH\u0016J\u0010\u0010f\u001a\u00020E2\u0006\u0010S\u001a\u00020,H\u0002J\b\u0010g\u001a\u00020EH\u0002J\b\u0010h\u001a\u00020EH\u0016J\u0010\u0010i\u001a\u00020E2\u0006\u0010j\u001a\u00020\bH\u0002J\u0010\u0010k\u001a\u00020E2\u0006\u0010\u0016\u001a\u00020\u0017H\u0002J\u0010\u0010l\u001a\u00020E2\u0006\u0010m\u001a\u00020)H\u0002J\u0012\u0010n\u001a\u00020E2\b\u0010o\u001a\u0004\u0018\u00010pH\u0016J(\u0010q\u001a\u00020E2\u001e\u0010o\u001a\u001a\u0012\u0004\u0012\u00020,\u0012\u0004\u0012\u00020,\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u00110+H\u0016J\u0006\u0010r\u001a\u00020ER\u000e\u0010\n\u001a\u00020\u000bX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u000bX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000bX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000bX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u000bX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082D¢\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0011\u0010\u0019\u001a\u00020\u001a¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u001cR\u000e\u0010\u001d\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u001e\u001a\u00020\u001fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010!\"\u0004\b\"\u0010#R\u0010\u0010$\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010%\u001a\u0004\u0018\u00010&X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020)X\u0082\u000e¢\u0006\u0002\n\u0000R(\u0010*\u001a\u001c\u0012\u0004\u0012\u00020,\u0012\u0004\u0012\u00020,\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u0011\u0018\u00010+X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010-\u001a\u00020.X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010/\u001a\u000200X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00101\u001a\u00020,X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00102\u001a\u000203X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00104\u001a\u000205X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00106\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00107\u001a\u00020,X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00108\u001a\u000209X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010:\u001a\u00020;X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010<\u001a\u00020=X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010>\u001a\u00020?X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b@\u0010A\"\u0004\bB\u0010C¨\u0006s"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/inputslice/InputSlice;", "Lcom/baidu/tieba/im/base/core/slice/SliceFragment;", "Lcom/baidu/tieba/im/biz/aibot/keyboardtool/InputPanel;", "Lcom/baidu/tieba/im/biz/aibot/IPageChangeNotify;", "mParentRootView", "Landroid/view/ViewGroup;", "mBodyView", "mUid", "", "(Landroid/view/ViewGroup;Landroid/view/ViewGroup;Ljava/lang/String;)V", "APPLY_WHITELIST_USER", "", "APPROVED_USER", "APPROVE_REJECT_USER", "APPROVING_USER", "INPUT_VIEW_MAX_LENGTH", "START_HEIGHT", "", "alertBuilder", "Lcom/baidu/tbadk/core/dialog/TBAlertBuilder;", "applyInternalRequest", "Lcom/baidu/tbadk/net/FastRequest;", "chatDetail", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail;", "mChatChangeHeight", "mHybridNotifyListener", "Lcom/baidu/tbadk/browser/utils/HybridNotifyManager$HybridNotifyListener;", "getMHybridNotifyListener", "()Lcom/baidu/tbadk/browser/utils/HybridNotifyManager$HybridNotifyListener;", "mInputChangeHeight", "mInputComCallback", "Lcom/baidu/tieba/im/biz/aibot/keyboardtool/InputComCallback;", "getMInputComCallback", "()Lcom/baidu/tieba/im/biz/aibot/keyboardtool/InputComCallback;", "setMInputComCallback", "(Lcom/baidu/tieba/im/biz/aibot/keyboardtool/InputComCallback;)V", "mInputText", "mInputView", "Landroid/widget/EditText;", "mInputViewHeight", "mIsKeyBoardShow", "", "mKeyboardCallBack", "Lrx/functions/Action4;", "Lcom/baidu/tieba/im/biz/aibot/keyboardtool/PanelType;", "mKeyboardHelper", "Lcom/baidu/tieba/im/biz/aibot/keyboardtool/KeyboardHelper;", "mKeyboardStateListener", "Lcom/baidu/tieba/im/biz/aibot/keyboardtool/OnKeyboardStateListener;", "mLastPanelType", "mOnClickListener", "Landroid/view/View$OnClickListener;", "mOnTouchListener", "Landroid/view/View$OnTouchListener;", "mPageState", "mPanelType", "mSoftKeyListener", "Landroid/view/View$OnKeyListener;", "mTextInputLayoutListener", "Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;", "mTextInputListener", "Landroid/text/TextWatcher;", "sliceInputBinding", "Lcom/baidu/tieba/impersonal/databinding/SliceInputBinding;", "getSliceInputBinding", "()Lcom/baidu/tieba/impersonal/databinding/SliceInputBinding;", "setSliceInputBinding", "(Lcom/baidu/tieba/impersonal/databinding/SliceInputBinding;)V", "afterSendTextMsg", "", CommonTbJsBridge.CHANGE_SKIN_TYPE, WriteMulitImageActivityConfig.SKIN_TYPE, "checkSendIconClickAble", "canSend", "createDraft", "getInoutViewDiffHeight", "getPanelHeight", "getViewContainer", "Landroid/view/View;", "initEdittextParam", "initKeyboardHelper", "inputViewShowState", "interceptInputRefresh", "panel", "isChatPageState", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", MissionEvent.MESSAGE_DESTROY, "onSetChatDetail", "onSetPageState", "state", "refreshPage", "onSoftKeyboardClosed", "onSoftKeyboardOpened", "refreshState", "requestApplyInternal", "reset", "setDraft", MediaTrackConfig.AE_IMPORT_DRAFT, "setInputViewConfig", "setInputViewLimit", Constants.EXTRA_CONFIG_LIMIT, "setOnInputStateChangedListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "Lcom/baidu/tieba/im/biz/aibot/keyboardtool/OnInputPanelStateChangedListener;", "setOnLayoutAnimatorHandleListener", "showInternalDialog", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class InputSlice extends SliceFragment implements gh8, lg8 {
+public final class InputSlice extends SliceFragment implements qb8, va8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int A;
     public int B;
     public EditText C;
-    public final kh8 D;
+    public final ub8 D;
     public final View.OnClickListener E;
     public final View.OnTouchListener F;
     public final TextWatcher G;
     public final ViewTreeObserver.OnGlobalLayoutListener H;
-    public final hz4.d I;
+    public final pt4.d I;
     public final View.OnKeyListener J;
     public final ViewGroup e;
     public final ViewGroup f;
     public final String g;
     public SliceInputBinding h;
-    public adc<PanelType, PanelType, Float, Float> i;
-    public final hh8 j;
+    public x6c<PanelType, PanelType, Float, Float> i;
+    public final rb8 j;
     public PanelType k;
     public AibotChatDetail l;
     public final int m;
     public final float n;
     public PanelType o;
-    public eh8 p;
+    public ob8 p;
     public String q;
     public int r;
     public int s;
@@ -143,27 +143,27 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gh8
-    public void B1(jh8 jh8Var) {
+    @Override // com.baidu.tieba.qb8
+    public void A1(tb8 tb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jh8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, tb8Var) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dh8
+    @Override // com.baidu.tieba.nb8
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
         }
     }
 
     /* loaded from: classes6.dex */
-    public static final class b implements hz4.d {
+    public static final class b implements pt4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InputSlice a;
 
-        @Override // com.baidu.tieba.hz4.d
+        @Override // com.baidu.tieba.pt4.d
         public String getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -188,7 +188,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
             this.a = inputSlice;
         }
 
-        @Override // com.baidu.tieba.hz4.c
+        @Override // com.baidu.tieba.pt4.c
         public void a(String data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -199,12 +199,12 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class c implements kh8 {
+    public static final class c implements ub8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InputSlice a;
 
-        @Override // com.baidu.tieba.kh8
+        @Override // com.baidu.tieba.ub8
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -229,11 +229,11 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
             this.a = inputSlice;
         }
 
-        @Override // com.baidu.tieba.kh8
+        @Override // com.baidu.tieba.ub8
         public void b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                tg8.a.a(2, this.a.g);
+                db8.a.a(2, this.a.g);
                 TbSingleton.getInstance().setKeyboardHeight(i);
             }
         }
@@ -336,7 +336,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
     public static final class f extends FastRequest.b<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ InputSlice c;
+        public final /* synthetic */ InputSlice d;
 
         public f(InputSlice inputSlice) {
             Interceptable interceptable = $ic;
@@ -353,41 +353,41 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
                     return;
                 }
             }
-            this.c = inputSlice;
+            this.d = inputSlice;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: i */
-        public void d(int i, String errMsg, Unit unit) {
+        /* renamed from: l */
+        public void f(int i, String errMsg, Unit unit) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, errMsg, unit) == null) {
                 Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                super.d(i, errMsg, unit);
+                super.f(i, errMsg, unit);
                 String string = TbadkCoreApplication.getInst().getString(R.string.internal_testing_experience_error);
                 Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(\n   …testing_experience_error)");
-                du8.a(this.c.getPageContext().getPageActivity(), Boolean.FALSE, string);
+                no8.a(this.d.getPageContext().getPageActivity(), Boolean.FALSE, string);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: j */
-        public void g(Unit result) {
+        /* renamed from: m */
+        public void i(Unit result) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
                 Intrinsics.checkNotNullParameter(result, "result");
-                super.g(result);
+                super.i(result);
                 String string = TbadkCoreApplication.getInst().getString(R.string.internal_testing_experience_success);
                 Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(\n   …sting_experience_success)");
-                du8.a(this.c.getPageContext().getPageActivity(), Boolean.TRUE, string);
-                this.c.s2().c.setHint(R.string.internal_testing_experience_qualification_progress);
-                AibotChatDetail aibotChatDetail = this.c.l;
+                no8.a(this.d.getPageContext().getPageActivity(), Boolean.TRUE, string);
+                this.d.s2().c.setHint(R.string.internal_testing_experience_qualification_progress);
+                AibotChatDetail aibotChatDetail = this.d.l;
                 if (aibotChatDetail != null) {
-                    aibotChatDetail.setAuditStatus(this.c.z);
+                    aibotChatDetail.setAuditStatus(this.d.z);
                 }
-                EMManager.from(this.c.s2().b).setCorner(R.string.J_X01).setBackGroundRealColor(SkinManager.getColor(0, (int) R.color.CAM_X0614));
-                this.c.G2(true);
+                EMManager.from(this.d.s2().b).setCorner(R.string.J_X01).setBackGroundRealColor(SkinManager.getColor(0, (int) R.color.CAM_X0614));
+                this.d.G2(true);
             }
         }
     }
@@ -417,7 +417,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         this.e = mParentRootView;
         this.f = mBodyView;
         this.g = mUid;
-        this.j = new hh8();
+        this.j = new rb8();
         PanelType panelType = PanelType.NONE;
         this.k = panelType;
         this.m = 400;
@@ -429,7 +429,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         this.B = 2;
         this.D = new c(this);
         this.E = new d(this);
-        this.F = new View.OnTouchListener() { // from class: com.baidu.tieba.zg8
+        this.F = new View.OnTouchListener() { // from class: com.baidu.tieba.jb8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -441,7 +441,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
             }
         };
         this.G = new e(this);
-        this.H = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.wg8
+        this.H = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.gb8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -454,7 +454,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
             }
         };
         this.I = new b(this);
-        this.J = new View.OnKeyListener() { // from class: com.baidu.tieba.ah8
+        this.J = new View.OnKeyListener() { // from class: com.baidu.tieba.kb8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -497,13 +497,13 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
                 }
                 this$0.D2();
                 if (!this$0.x2()) {
-                    tg8.a.b(7);
+                    db8.a.b(7);
                     if (this$0.s2().c.isFocusable()) {
-                        eh8 r2 = this$0.r2();
+                        ob8 r2 = this$0.r2();
                         if (r2 != null) {
                             r2.a();
                         }
-                        SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yg8
+                        SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.ib8
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -550,20 +550,20 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (this$0.u) {
-                i = hh8.m;
+                i = rb8.m;
             } else {
                 i = 0;
             }
-            hh8.s = Math.abs(this$0.r - this$0.s2().c.getHeight());
+            rb8.s = Math.abs(this$0.r - this$0.s2().c.getHeight());
             if (this$0.r > this$0.s2().c.getHeight()) {
                 this$0.s = (i + this$0.r) - this$0.s2().c.getHeight();
-                eh8 r2 = this$0.r2();
+                ob8 r2 = this$0.r2();
                 if (r2 != null) {
                     r2.c(this$0.s, 0.1f);
                 }
             } else if (this$0.r < this$0.s2().c.getHeight()) {
                 this$0.s = (i + this$0.s2().c.getHeight()) - this$0.r;
-                eh8 r22 = this$0.r2();
+                ob8 r22 = this$0.r2();
                 if (r22 != null) {
                     r22.c(this$0.s, 0.1f);
                 }
@@ -576,7 +576,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aibotChatDetail) == null) {
             v2(aibotChatDetail);
-            s2().c.setFilters(new InputFilter[]{new gp8(getPageContext(), this.m)});
+            s2().c.setFilters(new InputFilter[]{new qj8(getPageContext(), this.m)});
             if (Build.VERSION.SDK_INT >= 29 && (ContextCompat.getDrawable(requireContext(), R.drawable.obfuscated_res_0x7f0801e9) instanceof GradientDrawable)) {
                 Drawable drawable = ContextCompat.getDrawable(requireContext(), R.drawable.obfuscated_res_0x7f0801e9);
                 if (drawable != null) {
@@ -587,7 +587,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
                     throw new NullPointerException("null cannot be cast to non-null type android.graphics.drawable.GradientDrawable");
                 }
             }
-            WebPManager.setPureDrawableByColorInt(s2().d, R.drawable.obfuscated_res_0x7f0813b6, Color.parseColor(aibotChatDetail.getConfigData().getThemeColor()), WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawableByColorInt(s2().d, R.drawable.obfuscated_res_0x7f0813b4, Color.parseColor(aibotChatDetail.getConfigData().getThemeColor()), WebPManager.ResourceStateType.NORMAL);
         }
     }
 
@@ -607,18 +607,26 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         }
     }
 
-    public final void H2(eh8 eh8Var) {
+    public final void H2(ob8 ob8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, eh8Var) == null) {
-            Intrinsics.checkNotNullParameter(eh8Var, "<set-?>");
-            this.p = eh8Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ob8Var) == null) {
+            Intrinsics.checkNotNullParameter(ob8Var, "<set-?>");
+            this.p = ob8Var;
         }
     }
 
-    @Override // com.baidu.tieba.lg8
-    public void I(AibotChatDetail chatDetail) {
+    public final void I2(SliceInputBinding sliceInputBinding) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, chatDetail) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sliceInputBinding) == null) {
+            Intrinsics.checkNotNullParameter(sliceInputBinding, "<set-?>");
+            this.h = sliceInputBinding;
+        }
+    }
+
+    @Override // com.baidu.tieba.va8
+    public void J(AibotChatDetail chatDetail) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, chatDetail) == null) {
             Intrinsics.checkNotNullParameter(chatDetail, "chatDetail");
             try {
                 this.l = chatDetail;
@@ -629,18 +637,10 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         }
     }
 
-    public final void I2(SliceInputBinding sliceInputBinding) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, sliceInputBinding) == null) {
-            Intrinsics.checkNotNullParameter(sliceInputBinding, "<set-?>");
-            this.h = sliceInputBinding;
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment
     public void changeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             super.changeSkinType(i);
             if (StringUtils.isNull(this.q)) {
                 p2(false);
@@ -665,10 +665,10 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gh8
-    public void s(adc<PanelType, PanelType, Float, Float> listener) {
+    @Override // com.baidu.tieba.qb8
+    public void t(x6c<PanelType, PanelType, Float, Float> listener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, listener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, listener) == null) {
             Intrinsics.checkNotNullParameter(listener, "listener");
             this.i = listener;
         }
@@ -750,16 +750,16 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
                 f2 = f3;
             } else {
                 f3 = this.n;
-                f2 = -hh8.m;
+                f2 = -rb8.m;
             }
         } else {
-            f3 = -hh8.m;
+            f3 = -rb8.m;
             f2 = this.n;
         }
-        adc<PanelType, PanelType, Float, Float> adcVar = this.i;
-        if (adcVar != null) {
-            Intrinsics.checkNotNull(adcVar);
-            adcVar.call(this.k, this.o, Float.valueOf(f3), Float.valueOf(f2));
+        x6c<PanelType, PanelType, Float, Float> x6cVar = this.i;
+        if (x6cVar != null) {
+            Intrinsics.checkNotNull(x6cVar);
+            x6cVar.b(this.k, this.o, Float.valueOf(f3), Float.valueOf(f2));
         }
         this.o = this.k;
     }
@@ -777,12 +777,23 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         }
     }
 
+    @Override // com.baidu.tieba.va8
+    public void D1(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.B = i;
+            if (this.C != null && !x2()) {
+                s();
+            }
+        }
+    }
+
     public final void D2() {
         AibotChatDetail aibotChatDetail;
         AibotChatDetail.UserInfo userInfo;
         String uk;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.w == null) {
                 this.w = new FastRequest(getPageContext(), CmdConfigHttp.CMD_HTTP_APPLY_INNTERNAL, TbConfig.GET_AIBOT_APPLY_INTERNAL);
             }
@@ -790,22 +801,11 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
             if (currentAccount != null && (aibotChatDetail = this.l) != null && (userInfo = aibotChatDetail.getUserInfo()) != null && (uk = userInfo.getUk()) != null) {
                 FastRequest fastRequest = this.w;
                 Intrinsics.checkNotNull(fastRequest);
-                fastRequest.N("user_id", currentAccount);
-                fastRequest.N("type", "aichat");
-                fastRequest.N(DBTableDefine.GroupMessageColumns.COLUMN_FROM_USER, uk);
-                fastRequest.P(new f(this));
-                fastRequest.O();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lg8
-    public void E1(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.B = i;
-            if (this.C != null && !x2()) {
-                r();
+                fastRequest.O("user_id", currentAccount);
+                fastRequest.O("type", "aichat");
+                fastRequest.O(DBTableDefine.GroupMessageColumns.COLUMN_FROM_USER, uk);
+                fastRequest.Q(new f(this));
+                fastRequest.P();
             }
         }
     }
@@ -839,7 +839,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
                 tBAlertBuilder3.setDescLightStyle(true);
                 TBAlertBuilder tBAlertBuilder4 = this.v;
                 Intrinsics.checkNotNull(tBAlertBuilder4);
-                tBAlertBuilder4.setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f09ca, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.internal_testing_experience_confirm, TBAlertConfig.OperateBtnStyle.MAIN_BG, new View.OnClickListener() { // from class: com.baidu.tieba.xg8
+                tBAlertBuilder4.setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f09d3, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.internal_testing_experience_confirm, TBAlertConfig.OperateBtnStyle.MAIN_BG, new View.OnClickListener() { // from class: com.baidu.tieba.hb8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -863,50 +863,50 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
             } else if (auditStatus == this.z) {
                 String string2 = TbadkCoreApplication.getInst().getString(R.string.internal_testing_experience_success);
                 Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(\n   …sting_experience_success)");
-                du8.a(getPageContext().getPageActivity(), Boolean.TRUE, string2);
+                no8.a(getPageContext().getPageActivity(), Boolean.TRUE, string2);
             }
         }
     }
 
-    @Override // com.baidu.tieba.dh8
-    public int V() {
+    @Override // com.baidu.tieba.nb8
+    public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return Math.abs(this.t - s2().c.getHeight());
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.gh8
-    public void l() {
+    @Override // com.baidu.tieba.qb8
+    public void m() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || w2(PanelType.INPUT_KEYBOARD)) {
             return;
         }
         C2(PanelType.INPUT_KEYBOARD);
         this.u = true;
-        this.s = hh8.m;
-        eh8 r2 = r2();
+        this.s = rb8.m;
+        ob8 r2 = r2();
         if (r2 != null) {
-            r2.c(hh8.m, 0.25f);
+            r2.c(rb8.m, 0.25f);
         }
     }
 
-    @Override // com.baidu.tieba.dh8
-    public int n() {
+    @Override // com.baidu.tieba.nb8
+    public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return hh8.n;
+            return rb8.n;
         }
         return invokeV.intValue;
     }
 
     public final void o2() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && !di.isEmpty(this.q)) {
-            eh8 r2 = r2();
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && !ad.isEmpty(this.q)) {
+            ob8 r2 = r2();
             if (r2 != null) {
                 String str = this.q;
                 Intrinsics.checkNotNull(str);
@@ -921,7 +921,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             q2();
-            hz4.b.a().e(this.I);
+            pt4.b.a().e(this.I);
             super.onDestroy();
         }
     }
@@ -933,39 +933,39 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         }
     }
 
-    @Override // com.baidu.tieba.gh8
-    public void r() {
+    public final ob8 r2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048598, this) != null) || w2(PanelType.NONE)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            ob8 ob8Var = this.p;
+            if (ob8Var != null) {
+                return ob8Var;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mInputComCallback");
+            return null;
+        }
+        return (ob8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qb8
+    public void s() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048600, this) != null) || w2(PanelType.NONE)) {
             return;
         }
         C2(PanelType.NONE);
         this.u = false;
         this.s = 0;
-        eh8 r2 = r2();
+        ob8 r2 = r2();
         if (r2 != null) {
             r2.c(0, 0.25f);
         }
     }
 
-    public final eh8 r2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            eh8 eh8Var = this.p;
-            if (eh8Var != null) {
-                return eh8Var;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mInputComCallback");
-            return null;
-        }
-        return (eh8) invokeV.objValue;
-    }
-
     public final SliceInputBinding s2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             SliceInputBinding sliceInputBinding = this.h;
             if (sliceInputBinding != null) {
                 return sliceInputBinding;
@@ -988,8 +988,8 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gh8
-    public View y() {
+    @Override // com.baidu.tieba.qb8
+    public View z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
@@ -1010,7 +1010,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
             Intrinsics.checkNotNullExpressionValue(c2, "inflate(inflater, container, false)");
             I2(c2);
             this.C = s2().c;
-            hz4.b.a().c(this.I);
+            pt4.b.a().c(this.I);
             RelativeLayout root = s2().getRoot();
             Intrinsics.checkNotNullExpressionValue(root, "sliceInputBinding.root");
             return root;
@@ -1028,7 +1028,7 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
             s2().c.addTextChangedListener(this.G);
             s2().c.getViewTreeObserver().addOnGlobalLayoutListener(this.H);
             s2().c.setOnKeyListener(this.J);
-            if (!di.isEmpty(TbSingleton.getInstance().getAiBotDraft(this.g))) {
+            if (!ad.isEmpty(TbSingleton.getInstance().getAiBotDraft(this.g))) {
                 String aiBotDraft = TbSingleton.getInstance().getAiBotDraft(this.g);
                 Intrinsics.checkNotNull(aiBotDraft);
                 E2(aiBotDraft);
@@ -1041,18 +1041,18 @@ public final class InputSlice extends SliceFragment implements gh8, lg8 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && getContext() != null && (context = getContext()) != null) {
             if (TbSingleton.getInstance().getKeyboardHeight() == 0) {
-                TbSingleton.getInstance().setKeyboardHeight((fh8.b(context) / 5) * 2);
+                TbSingleton.getInstance().setKeyboardHeight((pb8.b(context) / 5) * 2);
             }
-            hh8 hh8Var = this.j;
+            rb8 rb8Var = this.j;
             Context requireContext = requireContext();
             Intrinsics.checkNotNullExpressionValue(requireContext, "requireContext()");
-            hh8Var.l(requireContext);
-            hh8Var.j(this.e);
-            hh8Var.g(this.f);
-            hh8Var.h(this);
-            hh8Var.o(TbSingleton.getInstance().getKeyboardHeight());
-            hh8Var.q(true);
-            hh8Var.p(this.D);
+            rb8Var.l(requireContext);
+            rb8Var.j(this.e);
+            rb8Var.g(this.f);
+            rb8Var.h(this);
+            rb8Var.o(TbSingleton.getInstance().getKeyboardHeight());
+            rb8Var.q(true);
+            rb8Var.p(this.D);
         }
     }
 

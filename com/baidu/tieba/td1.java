@@ -1,47 +1,46 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import com.airbnb.lottie.LottieComposition;
+import com.airbnb.lottie.LottieCompositionFactory;
+import com.airbnb.lottie.LottieListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.tieba.yr0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes8.dex */
-public class td1 extends Dialog implements View.OnClickListener {
+public class td1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final b a;
 
     /* loaded from: classes8.dex */
-    public interface b {
-        void a(boolean z);
+    public interface f {
+        void a(LottieComposition lottieComposition);
+
+        void b();
     }
 
     /* loaded from: classes8.dex */
-    public class a implements DialogInterface.OnDismissListener {
+    public class a implements LottieListener<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ td1 a;
+        public final /* synthetic */ f a;
 
-        public a(td1 td1Var) {
+        public a(td1 td1Var, f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {td1Var};
+                Object[] objArr = {td1Var, fVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,123 +50,242 @@ public class td1 extends Dialog implements View.OnClickListener {
                     return;
                 }
             }
-            this.a = td1Var;
+            this.a = fVar;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(Throwable th) {
+            f fVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.a.a(false);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && (fVar = this.a) != null) {
+                fVar.b();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public td1(Context context, @NonNull AdBaseModel adBaseModel, @NonNull b bVar) {
-        super(context);
+    /* loaded from: classes8.dex */
+    public class b implements LottieListener<LottieComposition> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public b(td1 td1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {td1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(LottieComposition lottieComposition) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
+                if (lottieComposition != null) {
+                    f fVar = this.a;
+                    if (fVar != null) {
+                        fVar.a(lottieComposition);
+                        return;
+                    }
+                    return;
+                }
+                f fVar2 = this.a;
+                if (fVar2 != null) {
+                    fVar2.b();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements LottieListener<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public c(td1 td1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {td1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(Throwable th) {
+            f fVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && (fVar = this.a) != null) {
+                fVar.b();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements LottieListener<LottieComposition> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public d(td1 td1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {td1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(LottieComposition lottieComposition) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
+                if (lottieComposition != null) {
+                    f fVar = this.a;
+                    if (fVar != null) {
+                        fVar.a(lottieComposition);
+                        return;
+                    }
+                    return;
+                }
+                f fVar2 = this.a;
+                if (fVar2 != null) {
+                    fVar2.b();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public static td1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-407416953, "Lcom/baidu/tieba/td1$e;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-407416953, "Lcom/baidu/tieba/td1$e;");
+                    return;
+                }
+            }
+            a = new td1(null);
+        }
+    }
+
+    public td1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, adBaseModel, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        c(adBaseModel);
-        this.a = bVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.getId() == R.id.nad_reward_stay_continue) {
-                this.a.a(false);
-            } else if (view2.getId() == R.id.nad_reward_stay_cancel) {
-                this.a.a(true);
             }
         }
     }
 
-    public final void b(AdBaseModel adBaseModel) {
-        yr0.b bVar;
-        String string;
-        String string2;
-        String string3;
-        yr0 yr0Var;
+    public static td1 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
-            if (adBaseModel != null && (yr0Var = adBaseModel.p) != null) {
-                bVar = yr0Var.f;
-            } else {
-                bVar = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return e.a;
+        }
+        return (td1) invokeV.objValue;
+    }
+
+    public /* synthetic */ td1(a aVar) {
+        this();
+    }
+
+    public void a(File file, f fVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, file, fVar) == null) && file != null && file.exists()) {
+            try {
+                b(new FileInputStream(file), fVar);
+            } catch (FileNotFoundException e2) {
+                e2.printStackTrace();
+                if (fVar != null) {
+                    fVar.b();
+                }
             }
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_reward_stay_view, (ViewGroup) null);
-            if (bVar != null && !TextUtils.isEmpty(bVar.a)) {
-                string = bVar.a;
-            } else {
-                string = getContext().getResources().getString(R.string.nad_reward_stay_title);
-            }
-            if (bVar != null && !TextUtils.isEmpty(bVar.b)) {
-                string2 = bVar.b;
-            } else {
-                string2 = getContext().getResources().getString(R.string.nad_reward_stay_confirm);
-            }
-            if (bVar != null && !TextUtils.isEmpty(bVar.c)) {
-                string3 = bVar.c;
-            } else {
-                string3 = getContext().getResources().getString(R.string.nad_reward_stay_cancel);
-            }
-            ((TextView) inflate.findViewById(R.id.nad_reward_stay_content)).setText(string);
-            TextView textView = (TextView) inflate.findViewById(R.id.nad_reward_stay_continue);
-            textView.setText(string2);
-            textView.setOnClickListener(this);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.nad_reward_stay_cancel);
-            textView2.setText(string3);
-            textView2.setOnClickListener(this);
-            setContentView(inflate);
-            setOnDismissListener(new a(this));
         }
     }
 
-    public final void c(@NonNull AdBaseModel adBaseModel) {
+    public void b(InputStream inputStream, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
-            Window window = getWindow();
-            window.requestFeature(1);
-            b(adBaseModel);
-            window.getDecorView().setPadding(0, 0, 0, 0);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.width = -1;
-            attributes.height = -2;
-            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003ea;
-            attributes.gravity = 17;
-            window.setAttributes(attributes);
-            window.setBackgroundDrawableResource(17170445);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream, fVar) == null) {
+            try {
+                LottieCompositionFactory.fromZipStream(new ZipInputStream(inputStream), null).addListener(new b(this, fVar)).addFailureListener(new a(this, fVar));
+            } catch (Exception unused) {
+                if (fVar != null) {
+                    fVar.b();
+                }
+            }
         }
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    public void c(String str, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Window window = getWindow();
-            if (window == null) {
-                super.show();
-                return;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, fVar) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File r = ee1.r(str);
+        if (r != null && r.exists()) {
+            a(r, fVar);
+            return;
+        }
+        try {
+            LottieCompositionFactory.fromUrl(pe0.b(), str).addListener(new d(this, fVar)).addFailureListener(new c(this, fVar));
+        } catch (Exception unused) {
+            if (fVar != null) {
+                fVar.b();
             }
-            window.setFlags(8, 8);
-            super.show();
-            i71.a(window);
-            window.clearFlags(8);
         }
     }
 }

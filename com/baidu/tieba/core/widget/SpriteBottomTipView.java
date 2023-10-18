@@ -33,13 +33,13 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.ad;
 import com.baidu.tieba.core.widget.SpriteBottomTipView;
-import com.baidu.tieba.d07;
-import com.baidu.tieba.di;
-import com.baidu.tieba.fia;
+import com.baidu.tieba.gr5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.sa5;
-import com.baidu.tieba.yw5;
+import com.baidu.tieba.mu6;
+import com.baidu.tieba.vca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +56,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000h\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0019\u0018\u0000 42\u00020\u00012\u00020\u0002:\u0006345678B#\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010\tJ\b\u0010%\u001a\u00020 H\u0002J\u0010\u0010&\u001a\u00020 2\u0006\u0010'\u001a\u00020\u0004H\u0002J\u0010\u0010(\u001a\u00020 2\u0006\u0010'\u001a\u00020\u0004H\u0002J\u0006\u0010)\u001a\u00020 J\u0006\u0010*\u001a\u00020\u0017J\u0006\u0010+\u001a\u00020\u0011J\u0006\u0010,\u001a\u00020\u0011J\u000e\u0010-\u001a\u00020 2\u0006\u0010'\u001a\u00020\u0004J\u0010\u0010.\u001a\u00020 2\u0006\u0010/\u001a\u00020\u0004H\u0016J\u0010\u00100\u001a\u00020 2\u0006\u00101\u001a\u00020\u001aH\u0002J\b\u00102\u001a\u00020 H\u0002R\u0012\u0010\n\u001a\u00060\u000bR\u00020\u0000X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R7\u0010\u001c\u001a\u001f\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u001e\u0012\b\b\u001f\u0012\u0004\b\b(\f\u0012\u0004\u0012\u00020 \u0018\u00010\u001dX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$¨\u00069"}, d2 = {"Lcom/baidu/tieba/core/widget/SpriteBottomTipView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/edgefloat/IChangeSkinType;", "layoutId", "", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(ILandroid/content/Context;Landroid/util/AttributeSet;)V", "animationHandler", "Lcom/baidu/tieba/core/widget/SpriteBottomTipView$ShowAnimationHandler;", "isVisibility", "", "mBtn", "Lcom/baidu/tbadk/core/view/commonBtn/TBSpecificationBtn;", "mDesc", "Landroid/widget/TextView;", "mIconClose", "Landroid/widget/ImageView;", "mIconImg", "Lcom/baidu/tbadk/widget/image/TbImage;", "mRoot", "Landroid/view/View;", "mSkinType", "mTipVieParams", "Lcom/baidu/tieba/core/widget/SpriteBottomTipView$TipViewParams;", "mTitle", "onVisibilityChangedListener", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "", "getOnVisibilityChangedListener", "()Lkotlin/jvm/functions/Function1;", "setOnVisibilityChangedListener", "(Lkotlin/jvm/functions/Function1;)V", "changeBtnSkin", "changeDescSkin", WriteMulitImageActivityConfig.SKIN_TYPE, "changeTitleSkin", "dismiss", "getContentView", "getDescView", "getTitleView", "onChangeSkin", "onChangeSkinType", "type", "setData", "params", "show", "Builder", "Companion", "OnClickCallback", "OnDismissCallback", "ShowAnimationHandler", "TipViewParams", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class SpriteBottomTipView extends LinearLayout implements d07 {
+public final class SpriteBottomTipView extends LinearLayout implements mu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -138,15 +138,6 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
             return (SpriteBottomTipView) invokeV.objValue;
         }
 
-        public final Context getContext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.a;
-            }
-            return (Context) invokeV.objValue;
-        }
-
         public final a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -211,7 +202,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a h(@ColorInt Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, num)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, num)) == null) {
                 this.b.K(num);
                 return this;
             }
@@ -221,7 +212,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a i(@ColorRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
                 this.b.L(i);
                 return this;
             }
@@ -231,7 +222,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a j(@ColorInt Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, num)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, num)) == null) {
                 this.b.M(num);
                 return this;
             }
@@ -241,7 +232,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a k(@DimenRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
                 this.b.N(i);
                 return this;
             }
@@ -251,7 +242,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a l(@DrawableRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
                 this.b.V(i);
                 return this;
             }
@@ -261,7 +252,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a m(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
                 this.b.P(str);
                 return this;
             }
@@ -271,7 +262,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a n(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
                 this.b.Q(i);
                 return this;
             }
@@ -281,7 +272,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a o(@DrawableRes Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, num)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, num)) == null) {
                 this.b.R(num);
                 return this;
             }
@@ -291,7 +282,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a p(@DrawableRes Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, num)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, num)) == null) {
                 this.b.S(num);
                 return this;
             }
@@ -301,7 +292,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a q(b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, bVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, bVar)) == null) {
                 this.b.T(bVar);
                 return this;
             }
@@ -311,7 +302,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a r(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
                 this.b.W(z);
                 return this;
             }
@@ -321,7 +312,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a s(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
                 this.b.b0(str);
                 return this;
             }
@@ -331,7 +322,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a t(@ColorInt Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, num)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, num)) == null) {
                 this.b.X(num);
                 return this;
             }
@@ -341,7 +332,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a u(@ColorRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
                 this.b.Y(i);
                 return this;
             }
@@ -351,7 +342,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a v(@ColorInt Integer num) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, num)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, num)) == null) {
                 this.b.Z(num);
                 return this;
             }
@@ -361,7 +352,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a w(@DimenRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
                 this.b.a0(i);
                 return this;
             }
@@ -371,7 +362,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         public final a x(@StringRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
                 this.b.c0(i);
                 return this;
             }
@@ -489,7 +480,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
             UtilHelper.getDimenPixelSize(R.dimen.T_X08);
             this.n = R.dimen.T_X08;
             this.o = R.color.CAM_X0101;
-            this.q = fia.f("#CC7F47");
+            this.q = vca.f("#CC7F47");
             this.v = R.drawable.pic_use_header_28_n;
             this.E = R.layout.funny_sprite_bottom_tip_layout;
         }
@@ -965,7 +956,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         Intrinsics.checkNotNullParameter(context, "context");
         this.k = 3;
         LayoutInflater.from(context).inflate(i, this);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091f9f);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091faa);
         Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.root)");
         this.a = findViewById;
         View findViewById2 = findViewById(R.id.tip_icon);
@@ -987,7 +978,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         this.e.setRadiusById(R.string.J_X06);
         this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.h = new d(this, this);
-        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fv6
+        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.op6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -999,7 +990,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
                 }
             }
         });
-        this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dv6
+        this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mp6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1011,7 +1002,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
                 }
             }
         });
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ev6
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.np6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1065,7 +1056,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (yw5.a()) {
+            if (gr5.a()) {
                 return;
             }
             e eVar = this$0.g;
@@ -1080,7 +1071,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
         }
     }
 
-    @Override // com.baidu.tieba.d07
+    @Override // com.baidu.tieba.mu6
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -1112,7 +1103,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
             eVar = null;
         }
         int i4 = 0;
-        if (!di.isEmpty(eVar.C())) {
+        if (!ad.isEmpty(eVar.C())) {
             i = 0;
         } else {
             i = 8;
@@ -1124,7 +1115,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar3 = null;
         }
-        if (!di.isEmpty(eVar3.m())) {
+        if (!ad.isEmpty(eVar3.m())) {
             i2 = 0;
         } else {
             i2 = 8;
@@ -1136,7 +1127,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar4 = null;
         }
-        if (!di.isEmpty(eVar4.h())) {
+        if (!ad.isEmpty(eVar4.h())) {
             i3 = 0;
         } else {
             i3 = 8;
@@ -1282,7 +1273,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
             }
             b2 = eVar8.b();
         }
-        if (!di.isEmpty(b2)) {
+        if (!ad.isEmpty(b2)) {
             Object loadResourceFromMemery = BdResourceLoader.getInstance().loadResourceFromMemery(b2, 59, new Object[0]);
             if (loadResourceFromMemery instanceof BdImage) {
                 bdImage = (BdImage) loadResourceFromMemery;
@@ -1380,7 +1371,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
                 this.d.k();
                 return;
             }
-            sa5 sa5Var = new sa5();
+            a55 a55Var = new a55();
             e eVar5 = this.g;
             if (eVar5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
@@ -1401,7 +1392,7 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
                 }
                 Integer f = eVar2.f();
                 Intrinsics.checkNotNull(f);
-                sa5Var.s(c2, f.intValue());
+                a55Var.s(c2, f.intValue());
             } else {
                 e eVar8 = this.g;
                 if (eVar8 == null) {
@@ -1415,9 +1406,9 @@ public final class SpriteBottomTipView extends LinearLayout implements d07 {
                 } else {
                     eVar2 = eVar9;
                 }
-                sa5Var.r(e2, SkinManager.getColor(eVar2.c()));
+                a55Var.r(e2, SkinManager.getColor(eVar2.c()));
             }
-            this.d.setConfig(sa5Var);
+            this.d.setConfig(a55Var);
             this.d.k();
         }
     }

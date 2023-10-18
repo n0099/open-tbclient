@@ -2,7 +2,6 @@ package com.meizu.cloud.pushsdk.platform.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.meizu.cloud.pushinternal.DebugLogger;
@@ -103,7 +102,7 @@ public class a {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str);
         linkedHashMap.put("pushId", str3);
-        linkedHashMap.put(TaskProcess.keyTags, str4);
+        linkedHashMap.put("tags", str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         DebugLogger.i("PushAPI", "subScribeTags post map " + linkedHashMap2);
@@ -135,7 +134,7 @@ public class a {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str);
         linkedHashMap.put("pushId", str3);
-        linkedHashMap.put(TaskProcess.keyTags, str4);
+        linkedHashMap.put("tags", str4);
         LinkedHashMap linkedHashMap2 = new LinkedHashMap(linkedHashMap);
         linkedHashMap2.put("sign", com.meizu.cloud.pushsdk.platform.b.a(linkedHashMap, str2));
         DebugLogger.i("PushAPI", "subScribeTags post map " + linkedHashMap2);

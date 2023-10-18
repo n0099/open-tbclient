@@ -6,19 +6,15 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AdOperator {
     public final TYPE a;
-    public final a b;
-    public final String c;
-    public String d;
+    public String b;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public String a;
-
         public a(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.a = jSONObject.optString("text");
+            jSONObject.optString("text");
         }
 
         public static a a(JSONObject jSONObject) {
@@ -35,11 +31,11 @@ public class AdOperator {
         }
         if (type != null) {
             this.a = type;
-            this.b = a.a(jSONObject.optJSONObject("desc"));
+            a.a(jSONObject.optJSONObject("desc"));
             JSONObject optJSONObject = jSONObject.optJSONObject(NativeConstants.ID_BUTTON);
             optJSONObject = optJSONObject == null ? new JSONObject() : optJSONObject;
-            this.c = optJSONObject.optString("text");
-            this.d = optJSONObject.optString("scheme");
+            optJSONObject.optString("text");
+            this.b = optJSONObject.optString("scheme");
             return;
         }
         throw ParseError.contentError(12, "operator type:" + jSONObject.optString("type"));

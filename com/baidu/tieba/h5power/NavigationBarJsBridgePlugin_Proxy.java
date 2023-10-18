@@ -3,11 +3,11 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qka;
-import com.baidu.tieba.ska;
-import com.baidu.tieba.tx4;
-import com.baidu.tieba.uka;
-import com.baidu.tieba.xm6;
+import com.baidu.tieba.bs4;
+import com.baidu.tieba.gfa;
+import com.baidu.tieba.gh6;
+import com.baidu.tieba.ifa;
+import com.baidu.tieba.kfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,17 +19,17 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class NavigationBarJsBridgePlugin_Proxy extends qka {
+public class NavigationBarJsBridgePlugin_Proxy extends gfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tx4 mJsBridge;
+    public bs4 mJsBridge;
 
-    public NavigationBarJsBridgePlugin_Proxy(tx4 tx4Var) {
+    public NavigationBarJsBridgePlugin_Proxy(bs4 bs4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tx4Var};
+            Object[] objArr = {bs4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,49 +39,49 @@ public class NavigationBarJsBridgePlugin_Proxy extends qka {
                 return;
             }
         }
-        this.mJsBridge = tx4Var;
+        this.mJsBridge = bs4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.qka
-    public ska dispatch(WebView webView, uka ukaVar, ska skaVar) {
+    @Override // com.baidu.tieba.gfa
+    public ifa dispatch(WebView webView, kfa kfaVar, ifa ifaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ukaVar, skaVar)) == null) {
-            if (skaVar == null) {
-                skaVar = new ska();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, kfaVar, ifaVar)) == null) {
+            if (ifaVar == null) {
+                ifaVar = new ifa();
             }
-            String b = ukaVar.b();
-            ukaVar.e();
+            String b = kfaVar.b();
+            kfaVar.e();
             if (b.equals("navigationBar/isDisableGoBack")) {
-                skaVar.s(true);
-                ska c = this.mJsBridge.c(webView);
+                ifaVar.s(true);
+                ifa c = this.mJsBridge.c(webView);
                 if (c != null) {
-                    skaVar.y(c.f());
-                    skaVar.u(c.b());
-                    skaVar.o(c.a());
-                    skaVar.x(c.e());
+                    ifaVar.y(c.f());
+                    ifaVar.u(c.b());
+                    ifaVar.o(c.a());
+                    ifaVar.x(c.e());
                 }
-                skaVar.z(0);
+                ifaVar.z(0);
             }
-            return skaVar;
+            return ifaVar;
         }
-        return (ska) invokeLLL.objValue;
+        return (ifa) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qka
-    public xm6 getJsBridge() {
+    @Override // com.baidu.tieba.gfa
+    public gh6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (xm6) invokeV.objValue;
+        return (gh6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qka
-    public List<ska> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.gfa
+    public List<ifa> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

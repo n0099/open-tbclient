@@ -1,95 +1,113 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.List;
 /* loaded from: classes7.dex */
-public interface mo5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaLiveSdk", "IMSdkService");
-    public static final Comparator<ChatMsg> b = new a();
-
-    void a(long j);
-
-    void b(@NonNull Context context, @NonNull String str, long j, @NonNull ChatMsg chatMsg, boolean z, @NonNull cp5 cp5Var);
-
-    void c(@NonNull Context context, long j, @Nullable ep5 ep5Var);
-
-    void d(@NonNull Context context, long j, @NonNull wo5 wo5Var);
-
-    void e(@NonNull Context context, boolean z, int i, @NonNull bp5 bp5Var);
-
-    void f(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull wo5 wo5Var);
-
-    void g(@NonNull xo5 xo5Var);
-
-    void h(@NonNull Context context, long j, long j2, int i, boolean z, boolean z2, @Nullable q95<List<? extends ChatMsg>> q95Var, @NonNull ap5 ap5Var);
-
-    void i(@NonNull Context context, long j, @NonNull List<ChatMsg> list, @NonNull zo5 zo5Var);
-
-    void j(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull wo5 wo5Var);
-
-    void k(@NonNull xo5 xo5Var);
-
-    void l(@NonNull Context context, long j, @NonNull to5 to5Var);
-
-    void m(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull vo5 vo5Var);
-
-    void n(@NonNull Context context, long j, @NonNull ChatMsg chatMsg, @NonNull dp5 dp5Var);
-
-    void o(@NonNull Context context, long j, @NonNull wo5 wo5Var);
-
-    void p(@NonNull Context context, long j, long j2, @NonNull String str, long j3, int i, @NonNull yo5 yo5Var);
-
-    void q(@NonNull Context context, int i, long j, @NonNull List<Long> list, @NonNull vo5 vo5Var);
-
-    void r(@NonNull Context context, long j, @NonNull uo5 uo5Var);
+public class mo5 extends oo5<qk6, CardViewHolder<kj6>> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public NEGFeedBackView.NEGFeedbackEventCallback g;
+    public bk6<qk6> h;
 
     /* loaded from: classes7.dex */
-    public class a implements Comparator<ChatMsg> {
+    public class a extends bk6<qk6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mo5 b;
 
-        public a() {
+        public a(mo5 mo5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mo5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = mo5Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ChatMsg chatMsg, ChatMsg chatMsg2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tieba.bk6
+        /* renamed from: d */
+        public void a(View view2, qk6 qk6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMsg, chatMsg2)) == null) {
-                if (TextUtils.equals(chatMsg.getMsgKey(), chatMsg2.getMsgKey())) {
-                    return 0;
-                }
-                if (chatMsg.getMsgId() - chatMsg2.getMsgId() > 0) {
-                    return 1;
-                }
-                return -1;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, qk6Var) == null) {
+                this.b.u(view2, qk6Var);
             }
-            return invokeLL.intValue;
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mo5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = null;
+        this.h = new a(this);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: N */
+    public CardViewHolder<kj6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            kj6 kj6Var = new kj6(this.c, this.mPageId);
+            kj6Var.F(C());
+            kj6Var.a0(this.mPageId);
+            return new CardViewHolder<>(kj6Var);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lh
+    /* renamed from: O */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qk6 qk6Var, CardViewHolder<kj6> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qk6Var, cardViewHolder})) == null) {
+            qk6Var.A(qk6Var.position + 1);
+            kj6 a2 = cardViewHolder.a();
+            a2.d0(i + 1);
+            a2.j(qk6Var);
+            a2.l(this.h);
+            a2.E(this.g);
+            M(cardViewHolder.getView(), qk6Var, i, i);
+            return cardViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

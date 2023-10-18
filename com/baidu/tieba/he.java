@@ -1,30 +1,30 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface he {
+public class he extends je {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Exception a;
 
-    /* loaded from: classes6.dex */
-    public interface a extends he {
-        void b();
-
-        void c();
-
-        String h(je<?> jeVar);
+    public he(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {exc};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = exc;
     }
-
-    /* loaded from: classes6.dex */
-    public interface b extends he {
-        String d(je<?> jeVar);
-
-        void e();
-
-        void f();
-
-        String g(je<?> jeVar);
-
-        void release();
-    }
-
-    boolean a();
-
-    int getMaxSize();
 }

@@ -1,181 +1,300 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.os.Build;
+import android.security.keystore.KeyGenParameterSpec;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsAdSDK;
-import com.kwad.sdk.api.KsLoadManager;
-import com.kwad.sdk.api.KsRewardVideoAd;
-import com.kwad.sdk.api.KsScene;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes8.dex */
-public class yub extends bub<lub> {
+import java.util.Map;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.GCMParameterSpec;
+import org.chromium.net.AndroidKeyStore;
+/* loaded from: classes9.dex */
+public class yub {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, SecretKey> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yub(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid, moduleConfigKs);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid, moduleConfigKs};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948344067, "Lcom/baidu/tieba/yub;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948344067, "Lcom/baidu/tieba/yub;");
                 return;
             }
         }
+        a = new HashMap();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static SecretKey a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new pub(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            lub lubVar = (lub) obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            evb.d("GCMKS", "load key");
+            SecretKey secretKey = null;
+            try {
+                KeyStore keyStore = KeyStore.getInstance(AndroidKeyStore.TAG);
+                keyStore.load(null);
+                Key key = keyStore.getKey(str, null);
+                if (key instanceof SecretKey) {
+                    secretKey = (SecretKey) key;
+                } else {
+                    evb.d("GCMKS", "generate key");
+                    KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", AndroidKeyStore.TAG);
+                    keyGenerator.init(new KeyGenParameterSpec.Builder(str, 3).setBlockModes("GCM").setEncryptionPaddings("NoPadding").setKeySize(256).build());
+                    secretKey = keyGenerator.generateKey();
+                }
+            } catch (IOException e) {
+                evb.c("GCMKS", "IOException : " + e.getMessage());
+            } catch (InvalidAlgorithmParameterException e2) {
+                evb.c("GCMKS", "InvalidAlgorithmParameterException : " + e2.getMessage());
+            } catch (KeyStoreException e3) {
+                evb.c("GCMKS", "KeyStoreException : " + e3.getMessage());
+            } catch (NoSuchAlgorithmException e4) {
+                evb.c("GCMKS", "NoSuchAlgorithmException : " + e4.getMessage());
+            } catch (NoSuchProviderException e5) {
+                evb.c("GCMKS", "NoSuchProviderException : " + e5.getMessage());
+            } catch (UnrecoverableKeyException e6) {
+                evb.c("GCMKS", "UnrecoverableKeyException : " + e6.getMessage());
+            } catch (CertificateException e7) {
+                evb.c("GCMKS", "CertificateException : " + e7.getMessage());
+            } catch (Exception e8) {
+                evb.c("GCMKS", "Exception: " + e8.getMessage());
+            }
+            a.put(str, secretKey);
+            return secretKey;
         }
+        return (SecretKey) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    public static SecretKey c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String tid = getTid(valueOf);
-            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
-            HashMap hashMap = new HashMap();
-            hashMap.put("thirdUserId", FunAdSdk.getFunAdConfig().userId);
-            hashMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, buildExtra);
-            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).rewardCallbackExtraData(hashMap).build();
-            onLoadStart(funAdSlot, tid);
-            KsLoadManager loadManager = KsAdSDK.getLoadManager();
-            if (loadManager == null) {
-                onError(FunAdSdk.PLATFORM_KS);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (a.get(str) == null) {
+                a(str);
+            }
+            return a.get(str);
+        }
+        return (SecretKey) invokeL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                try {
+                    return new String(e(str, bvb.b(str2)), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    evb.c("GCMKS", "decrypt: UnsupportedEncodingException : " + e.getMessage());
+                    return "";
+                }
+            }
+            evb.c("GCMKS", "alias or encrypt content is null");
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static byte[] e(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, bArr)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (!TextUtils.isEmpty(str) && bArr != null) {
+                if (!b()) {
+                    evb.c("GCMKS", "sdk version is too low");
+                    return bArr2;
+                } else if (bArr.length <= 12) {
+                    evb.c("GCMKS", "Decrypt source data is invalid.");
+                    return bArr2;
+                } else {
+                    return f(c(str), bArr);
+                }
+            }
+            evb.c("GCMKS", "alias or encrypt content is null");
+            return bArr2;
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static String g(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                try {
+                    return bvb.a(h(str, str2.getBytes("UTF-8")));
+                } catch (UnsupportedEncodingException e) {
+                    evb.c("GCMKS", "encrypt: UnsupportedEncodingException : " + e.getMessage());
+                    return "";
+                }
+            }
+            evb.c("GCMKS", "alias or encrypt content is null");
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static byte[] f(SecretKey secretKey, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, secretKey, bArr)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (secretKey == null) {
+                evb.c("GCMKS", "Decrypt secret key is null");
+                return bArr2;
+            } else if (bArr == null) {
+                evb.c("GCMKS", "content is null");
+                return bArr2;
+            } else if (!b()) {
+                evb.c("GCMKS", "sdk version is too low");
+                return bArr2;
+            } else if (bArr.length <= 12) {
+                evb.c("GCMKS", "Decrypt source data is invalid.");
+                return bArr2;
             } else {
-                loadManager.loadRewardVideoAd(build, new a(this, tid));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements KsLoadManager.RewardVideoAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ yub b;
-
-        public a(yub yubVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yubVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                byte[] copyOf = Arrays.copyOf(bArr, 12);
+                try {
+                    Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+                    cipher.init(2, secretKey, new GCMParameterSpec(128, copyOf));
+                    return cipher.doFinal(bArr, 12, bArr.length - 12);
+                } catch (InvalidAlgorithmParameterException e) {
+                    evb.c("GCMKS", "InvalidAlgorithmParameterException : " + e.getMessage());
+                    return bArr2;
+                } catch (InvalidKeyException e2) {
+                    evb.c("GCMKS", "InvalidKeyException : " + e2.getMessage());
+                    return bArr2;
+                } catch (NoSuchAlgorithmException e3) {
+                    evb.c("GCMKS", "NoSuchAlgorithmException : " + e3.getMessage());
+                    return bArr2;
+                } catch (BadPaddingException e4) {
+                    evb.c("GCMKS", "BadPaddingException : " + e4.getMessage());
+                    return bArr2;
+                } catch (IllegalBlockSizeException e5) {
+                    evb.c("GCMKS", "IllegalBlockSizeException : " + e5.getMessage());
+                    return bArr2;
+                } catch (NoSuchPaddingException e6) {
+                    evb.c("GCMKS", "NoSuchPaddingException : " + e6.getMessage());
+                    return bArr2;
+                } catch (Exception e7) {
+                    evb.c("GCMKS", "Exception: " + e7.getMessage());
+                    return bArr2;
                 }
             }
-            this.b = yubVar;
-            this.a = str;
         }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.b.onError(i, str, this.a);
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
-        public void onRewardVideoResult(@Nullable List<KsRewardVideoAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
-        public void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.d();
-                if (list != null && !list.isEmpty()) {
-                    KsRewardVideoAd ksRewardVideoAd = list.get(0);
-                    if (ksRewardVideoAd == null) {
-                        LogPrinter.e("onNativeAdLoad error: ad is null or empty", new Object[0]);
-                        this.b.onError(0, "No Fill", this.a);
-                        return;
-                    }
-                    lub lubVar = new lub(ksRewardVideoAd);
-                    yub yubVar = this.b;
-                    String str = this.a;
-                    yubVar.getClass();
-                    ksRewardVideoAd.setRewardAdInteractionListener(new zub(yubVar, lubVar, str));
-                    yub yubVar2 = this.b;
-                    String str2 = this.a;
-                    yubVar2.getClass();
-                    if (ksRewardVideoAd != null) {
-                        ksRewardVideoAd.setRewardPlayAgainInteractionListener(new avb(yubVar2, lubVar, str2));
-                    }
-                    this.b.onAdLoaded(lubVar, this.a);
-                    return;
-                }
-                LogPrinter.e("onNativeAdLoad error: adList is null or empty", new Object[0]);
-                this.b.onError(0, "No Fill", this.a);
-            }
-        }
+        return (byte[]) invokeLL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public static byte[] i(SecretKey secretKey, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            lub lubVar = (lub) obj;
-            onShowStart(lubVar);
-            if (!((KsRewardVideoAd) lubVar.a).isAdEnable()) {
-                LogPrinter.e("Ad isn't ready now", new Object[0]);
-                onAdError(lubVar, 0, "F:ad disable");
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, secretKey, bArr)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (bArr == null) {
+                evb.c("GCMKS", "content is null");
+                return bArr2;
+            } else if (secretKey == null) {
+                evb.c("GCMKS", "secret key is null");
+                return bArr2;
+            } else if (!b()) {
+                evb.c("GCMKS", "sdk version is too low");
+                return bArr2;
+            } else {
+                try {
+                    Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+                    cipher.init(1, secretKey);
+                    byte[] doFinal = cipher.doFinal(bArr);
+                    byte[] iv = cipher.getIV();
+                    if (iv != null && iv.length == 12) {
+                        byte[] copyOf = Arrays.copyOf(iv, iv.length + doFinal.length);
+                        System.arraycopy(doFinal, 0, copyOf, iv.length, doFinal.length);
+                        return copyOf;
+                    }
+                    evb.c("GCMKS", "IV is invalid.");
+                    return bArr2;
+                } catch (InvalidKeyException e) {
+                    evb.c("GCMKS", "InvalidKeyException : " + e.getMessage());
+                    return bArr2;
+                } catch (NoSuchAlgorithmException e2) {
+                    evb.c("GCMKS", "NoSuchAlgorithmException : " + e2.getMessage());
+                    return bArr2;
+                } catch (BadPaddingException e3) {
+                    evb.c("GCMKS", "BadPaddingException : " + e3.getMessage());
+                    return bArr2;
+                } catch (IllegalBlockSizeException e4) {
+                    evb.c("GCMKS", "IllegalBlockSizeException : " + e4.getMessage());
+                    return bArr2;
+                } catch (NoSuchPaddingException e5) {
+                    evb.c("GCMKS", "NoSuchPaddingException : " + e5.getMessage());
+                    return bArr2;
+                } catch (Exception e6) {
+                    evb.c("GCMKS", "Exception: " + e6.getMessage());
+                    return bArr2;
+                }
             }
-            ((KsRewardVideoAd) lubVar.a).showRewardVideoAd(activity, e());
-            return true;
         }
-        return invokeLLLL.booleanValue;
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] h(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, bArr)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (!TextUtils.isEmpty(str) && bArr != null) {
+                if (!b()) {
+                    evb.c("GCMKS", "sdk version is too low");
+                    return bArr2;
+                }
+                return i(c(str), bArr);
+            }
+            evb.c("GCMKS", "alias or encrypt content is null");
+            return bArr2;
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

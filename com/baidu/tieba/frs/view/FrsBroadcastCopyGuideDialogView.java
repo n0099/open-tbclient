@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,16 +51,16 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0359, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0358, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_broadcast_guide_main);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090c6d);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c6b);
-            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ecf);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090c8a);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c88);
+            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090eea);
             this.f = (TextView) this.a.findViewById(R.id.to_next_tv);
-            this.c.setText(R.string.obfuscated_res_0x7f0f0782);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0781);
-            this.f.setText(R.string.obfuscated_res_0x7f0f048e);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0788);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0787);
+            this.f.setText(R.string.obfuscated_res_0x7f0f0491);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0302);

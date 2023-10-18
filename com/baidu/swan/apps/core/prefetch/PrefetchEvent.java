@@ -10,20 +10,20 @@ import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.ai2;
-import com.baidu.tieba.cu2;
-import com.baidu.tieba.dw2;
-import com.baidu.tieba.e73;
-import com.baidu.tieba.fb3;
-import com.baidu.tieba.gb3;
-import com.baidu.tieba.gf2;
-import com.baidu.tieba.hl2;
-import com.baidu.tieba.l43;
-import com.baidu.tieba.qr1;
-import com.baidu.tieba.re3;
-import com.baidu.tieba.tw2;
-import com.baidu.tieba.uh2;
-import com.baidu.tieba.ye3;
+import com.baidu.tieba.a93;
+import com.baidu.tieba.am1;
+import com.baidu.tieba.cr2;
+import com.baidu.tieba.dc2;
+import com.baidu.tieba.h93;
+import com.baidu.tieba.jc2;
+import com.baidu.tieba.lo2;
+import com.baidu.tieba.mq2;
+import com.baidu.tieba.n13;
+import com.baidu.tieba.o53;
+import com.baidu.tieba.p53;
+import com.baidu.tieba.p92;
+import com.baidu.tieba.qf2;
+import com.baidu.tieba.uy2;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -103,7 +103,7 @@ public class PrefetchEvent extends SwanAppIPCData {
     }
 
     /* loaded from: classes4.dex */
-    public static class c extends hl2 {
+    public static class c extends qf2 {
         public c(@Nullable Map<String, String> map, String str) {
             super(str, map);
         }
@@ -150,7 +150,7 @@ public class PrefetchEvent extends SwanAppIPCData {
     }
 
     public static void recordClickPrefetchEvent() {
-        HybridUbcFlow p = l43.p("startup");
+        HybridUbcFlow p = uy2.p("startup");
         if (p != null) {
             p.F(new UbcFlowEvent(KEY_CLICK_PREFETCH));
         }
@@ -193,7 +193,7 @@ public class PrefetchEvent extends SwanAppIPCData {
 
     public static c createMessage(@NonNull PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo) {
         String str;
-        if (gf2.n(pMSAppInfo)) {
+        if (p92.n(pMSAppInfo)) {
             str = MODULE;
         } else {
             str = "preload";
@@ -213,17 +213,17 @@ public class PrefetchEvent extends SwanAppIPCData {
         if (map == null) {
             return null;
         }
-        dw2.a W = fb3.K().q().W();
-        if (!gf2.a(W.f0())) {
+        mq2.a X = o53.K().q().X();
+        if (!p92.a(X.g0())) {
             return null;
         }
         recordClickPrefetchEvent();
         HashMap hashMap = new HashMap(map);
-        hashMap.put("appKey", W.H());
-        hashMap.put("schema", W.W());
+        hashMap.put("appKey", X.I());
+        hashMap.put("schema", X.X());
         hashMap.put("state", "click");
         hashMap.put("scene", SCENE_FROM_APP_READY);
-        hashMap.put("version", W.v1());
+        hashMap.put("version", X.x1());
         hashMap.remove(EVENT_DATA_WEBVIEW_ID);
         hashMap.remove(EVENT_DATA_EXTRA_DATA);
         hashMap.remove(EVENT_DATA_SHOW_PERFORMANCE_PANEL);
@@ -232,30 +232,30 @@ public class PrefetchEvent extends SwanAppIPCData {
     }
 
     public static c createFromReLaunch(String str) {
-        gb3 b0;
-        if (!TextUtils.equals(str, "relaunch") || (b0 = gb3.b0()) == null) {
+        p53 c0;
+        if (!TextUtils.equals(str, "relaunch") || (c0 = p53.c0()) == null) {
             return null;
         }
-        PMSAppInfo f0 = b0.W().f0();
-        if (!gf2.a(f0)) {
+        PMSAppInfo g0 = c0.X().g0();
+        if (!p92.a(g0)) {
             return null;
         }
         recordClickPrefetchEvent();
         PrefetchEvent prefetchEvent = new PrefetchEvent();
-        prefetchEvent.appId = b0.getAppId();
+        prefetchEvent.appId = c0.getAppId();
         prefetchEvent.state = "click";
         prefetchEvent.scene = str;
-        prefetchEvent.schema = b0.W().W();
-        prefetchEvent.pageUrl = re3.d(tw2.T(), b0.W(), b0.Q());
-        prefetchEvent.appConfig = b0.Q().n;
-        prefetchEvent.appPath = cu2.e.i(b0.getAppId(), b0.k0()).getPath() + File.separator;
-        prefetchEvent.pageType = b0.Q().h(prefetchEvent.pageUrl);
-        prefetchEvent.rootPath = uh2.c(b0, prefetchEvent.pageUrl);
-        prefetchEvent.isT7Available = ai2.U().p0();
-        prefetchEvent.sConsole = String.valueOf(b0.W().m0());
-        prefetchEvent.version = b0.k0();
-        if (f0 != null && !TextUtils.isEmpty(f0.userActionApis)) {
-            prefetchEvent.userActionApis = f0.userActionApis;
+        prefetchEvent.schema = c0.X().X();
+        prefetchEvent.pageUrl = a93.d(cr2.V(), c0.X(), c0.R());
+        prefetchEvent.appConfig = c0.R().n;
+        prefetchEvent.appPath = lo2.e.i(c0.getAppId(), c0.l0()).getPath() + File.separator;
+        prefetchEvent.pageType = c0.R().h(prefetchEvent.pageUrl);
+        prefetchEvent.rootPath = dc2.c(c0, prefetchEvent.pageUrl);
+        prefetchEvent.isT7Available = jc2.V().q0();
+        prefetchEvent.sConsole = String.valueOf(c0.X().n0());
+        prefetchEvent.version = c0.l0();
+        if (g0 != null && !TextUtils.isEmpty(g0.userActionApis)) {
+            prefetchEvent.userActionApis = g0.userActionApis;
         }
         return createMessage(prefetchEvent, MODULE);
     }
@@ -285,11 +285,11 @@ public class PrefetchEvent extends SwanAppIPCData {
             hashMap.put(EVENT_DATA_DEBUG_SCONSOLE, prefetchEvent.sConsole);
         }
         hashMap.put(EVENT_DATA_T7_AVAILABLE, String.valueOf(prefetchEvent.isT7Available));
-        e73.a(hashMap, "prefetch event");
+        n13.a(hashMap, "prefetch event");
         if (!TextUtils.isEmpty(prefetchEvent.pageUrl)) {
             hashMap.put(EVENT_KEY_PAGE_URL, prefetchEvent.pageUrl);
-            ye3.a(prefetchEvent.pageUrl, hashMap);
-        } else if (qr1.a) {
+            h93.a(prefetchEvent.pageUrl, hashMap);
+        } else if (am1.a) {
             Log.e("PrefetchEvent", "page url is empty, it's impossible !!!");
         }
         if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {

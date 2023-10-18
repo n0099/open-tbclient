@@ -151,7 +151,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
 
         @Override // kotlinx.coroutines.DisposableHandle
         public void dispose() {
-            if (!mo2346remove()) {
+            if (!mo2345remove()) {
                 return;
             }
             undeliveredElement();
@@ -482,7 +482,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
 
     private final void helpClose(Closed<?> closed) {
         Receive receive;
-        Object m2338constructorimpl$default = InlineList.m2338constructorimpl$default(null, 1, null);
+        Object m2337constructorimpl$default = InlineList.m2337constructorimpl$default(null, 1, null);
         while (true) {
             LockFreeLinkedListNode prevNode = closed.getPrevNode();
             if (prevNode instanceof Receive) {
@@ -492,17 +492,17 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
             }
             if (receive == null) {
                 break;
-            } else if (!receive.mo2346remove()) {
+            } else if (!receive.mo2345remove()) {
                 receive.helpRemove();
             } else {
-                m2338constructorimpl$default = InlineList.m2343plusFjFbRPM(m2338constructorimpl$default, receive);
+                m2337constructorimpl$default = InlineList.m2342plusFjFbRPM(m2337constructorimpl$default, receive);
             }
         }
-        if (m2338constructorimpl$default != null) {
-            if (!(m2338constructorimpl$default instanceof ArrayList)) {
-                ((Receive) m2338constructorimpl$default).resumeReceiveClosed(closed);
-            } else if (m2338constructorimpl$default != null) {
-                ArrayList arrayList = (ArrayList) m2338constructorimpl$default;
+        if (m2337constructorimpl$default != null) {
+            if (!(m2337constructorimpl$default instanceof ArrayList)) {
+                ((Receive) m2337constructorimpl$default).resumeReceiveClosed(closed);
+            } else if (m2337constructorimpl$default != null) {
+                ArrayList arrayList = (ArrayList) m2337constructorimpl$default;
                 int size = arrayList.size() - 1;
                 if (size >= 0) {
                     while (true) {
@@ -523,19 +523,19 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
 
     @Override // kotlinx.coroutines.channels.SendChannel
     /* renamed from: trySend-JP2dKIU  reason: not valid java name */
-    public final Object mo2301trySendJP2dKIU(E e) {
+    public final Object mo2300trySendJP2dKIU(E e) {
         Object offerInternal = offerInternal(e);
         if (offerInternal == AbstractChannelKt.OFFER_SUCCESS) {
-            return ChannelResult.Companion.m2321successJP2dKIU(Unit.INSTANCE);
+            return ChannelResult.Companion.m2320successJP2dKIU(Unit.INSTANCE);
         }
         if (offerInternal == AbstractChannelKt.OFFER_FAILED) {
             Closed<?> closedForSend = getClosedForSend();
             if (closedForSend == null) {
-                return ChannelResult.Companion.m2320failurePtdJZtk();
+                return ChannelResult.Companion.m2319failurePtdJZtk();
             }
-            return ChannelResult.Companion.m2319closedJP2dKIU(helpCloseAndGetSendException(closedForSend));
+            return ChannelResult.Companion.m2318closedJP2dKIU(helpCloseAndGetSendException(closedForSend));
         } else if (offerInternal instanceof Closed) {
-            return ChannelResult.Companion.m2319closedJP2dKIU(helpCloseAndGetSendException((Closed) offerInternal));
+            return ChannelResult.Companion.m2318closedJP2dKIU(helpCloseAndGetSendException((Closed) offerInternal));
         } else {
             throw new IllegalStateException(Intrinsics.stringPlus("trySend returned ", offerInternal).toString());
         }
@@ -583,12 +583,12 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
         Function1<E, Unit> function1 = this.onUndeliveredElement;
         if (function1 == null || (callUndeliveredElementCatchingException$default = OnUndeliveredElementKt.callUndeliveredElementCatchingException$default(function1, e, null, 2, null)) == null) {
             Result.Companion companion = Result.Companion;
-            continuation.resumeWith(Result.m852constructorimpl(ResultKt.createFailure(sendException)));
+            continuation.resumeWith(Result.m851constructorimpl(ResultKt.createFailure(sendException)));
             return;
         }
         ExceptionsKt__ExceptionsKt.addSuppressed(callUndeliveredElementCatchingException$default, sendException);
         Result.Companion companion2 = Result.Companion;
-        continuation.resumeWith(Result.m852constructorimpl(ResultKt.createFailure(callUndeliveredElementCatchingException$default)));
+        continuation.resumeWith(Result.m851constructorimpl(ResultKt.createFailure(callUndeliveredElementCatchingException$default)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -671,7 +671,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
             Object offerInternal = offerInternal(e);
             if (offerInternal == AbstractChannelKt.OFFER_SUCCESS) {
                 Result.Companion companion = Result.Companion;
-                orCreateCancellableContinuation.resumeWith(Result.m852constructorimpl(Unit.INSTANCE));
+                orCreateCancellableContinuation.resumeWith(Result.m851constructorimpl(Unit.INSTANCE));
                 break;
             } else if (offerInternal != AbstractChannelKt.OFFER_FAILED) {
                 if (offerInternal instanceof Closed) {
@@ -739,7 +739,7 @@ public abstract class AbstractSendChannel<E> implements SendChannel<E> {
 
     @Override // kotlinx.coroutines.channels.SendChannel
     /* renamed from: invokeOnClose */
-    public void mo2360invokeOnClose(Function1<? super Throwable, Unit> function1) {
+    public void mo2359invokeOnClose(Function1<? super Throwable, Unit> function1) {
         if (!onCloseHandler$FU.compareAndSet(this, null, function1)) {
             Object obj = this.onCloseHandler;
             if (obj == AbstractChannelKt.HANDLER_INVOKED) {

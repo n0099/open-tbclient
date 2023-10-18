@@ -1,73 +1,58 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.banner2.UnifiedBannerView;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class ktb extends jtb<UnifiedBannerView> {
+public final class ktb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public gtb b;
+    public InputStream c;
+    public final Map<String, String> d;
+    public final List<bub> e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ktb(UnifiedBannerView unifiedBannerView) {
-        super(unifiedBannerView);
+    public ktb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {unifiedBannerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = gtb.b;
+        this.d = new HashMap();
+        this.e = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.jtb
-    public String e() {
-        InterceptResult invokeV;
+    public jtb a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            A a = this.a;
-            return (a == 0 || ((UnifiedBannerView) a).getExtraInfo() == null) ? "" : (String) ((UnifiedBannerView) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new rtb(context, this.a, this.b, this.c, this.d, this.e, null) : (jtb) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.jtb
-    public void b(Map<String, Object> map) {
+    public ktb b(InputStream inputStream) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            ((UnifiedBannerView) this.a).sendLossNotification(map);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            this.c = inputStream;
+            return this;
         }
-    }
-
-    @Override // com.baidu.tieba.jtb
-    public void d(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            ((UnifiedBannerView) this.a).sendWinNotification(map);
-        }
-    }
-
-    @Override // com.baidu.tieba.jtb
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((UnifiedBannerView) this.a).getECPM();
-        }
-        return invokeV.intValue;
+        return (ktb) invokeL.objValue;
     }
 }

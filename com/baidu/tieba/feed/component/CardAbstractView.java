@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h77;
-import com.baidu.tieba.li;
-import com.baidu.tieba.mb7;
-import com.baidu.tieba.rc7;
-import com.baidu.tieba.sc7;
+import com.baidu.tieba.a77;
+import com.baidu.tieba.b77;
+import com.baidu.tieba.id;
+import com.baidu.tieba.q17;
+import com.baidu.tieba.v57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,7 +25,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u00012\u00020\u0003B\u001b\b\u0007\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\u0010\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u0002H\u0014J\b\u0010\u000e\u001a\u00020\fH\u0016R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/feed/component/CardAbstractView;", "Lcom/baidu/tieba/feed/component/CardFrameView;", "Lcom/baidu/tieba/feed/component/uistate/CardAbstractUiState;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "textView", "Landroid/widget/TextView;", "doUpdateState", "", "state", "onChangeSkin", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardAbstractView extends CardFrameView<h77> implements rc7 {
+public final class CardAbstractView extends CardFrameView<q17> implements a77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView c;
@@ -81,7 +81,7 @@ public final class CardAbstractView extends CardFrameView<h77> implements rc7 {
         this.c.setMaxLines(5);
         this.c.setEllipsize(TextUtils.TruncateAt.END);
         this.c.setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds15));
-        this.c.setMovementMethod(mb7.a);
+        this.c.setMovementMethod(v57.a);
         this.c.setClickable(false);
         this.c.setLongClickable(false);
         addView(this.c, new FrameLayout.LayoutParams(-1, -2));
@@ -91,10 +91,10 @@ public final class CardAbstractView extends CardFrameView<h77> implements rc7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    @Override // com.baidu.tieba.rc7
+    @Override // com.baidu.tieba.a77
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || sc7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || b77.a(this)) {
             return;
         }
         EMManager.from(this.c).setTextColor(R.color.CAM_X0105);
@@ -103,13 +103,13 @@ public final class CardAbstractView extends CardFrameView<h77> implements rc7 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.feed.component.CardFrameView
     /* renamed from: g */
-    public void e(h77 state) {
+    public void e(q17 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
             int i = 5;
             if (!TextUtils.isEmpty(state.h().b())) {
-                i = 5 - li.a(getWidth(), this.c.getPaint(), state.h().b().toString(), 2);
+                i = 5 - id.a(getWidth(), this.c.getPaint(), state.h().b().toString(), 2);
             }
             ThreadCardUtils.cutAndSetTextByMaxLine(this.c, state.h().a(), i, getWidth());
             b();

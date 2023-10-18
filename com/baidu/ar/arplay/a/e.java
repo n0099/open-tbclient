@@ -10,6 +10,7 @@ import com.baidu.ar.arplay.core.message.ARPMessage;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.down.manage.DownloadConstants;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.download.util.LocalDataScanHelper;
 import com.tencent.connect.common.Constants;
@@ -107,7 +108,7 @@ public class e {
                     public boolean onError(MediaPlayer mediaPlayer2, int i2, int i3) {
                         b bVar3 = bVar2;
                         com.baidu.ar.arplay.a.a.b bVar4 = bVar3.dg;
-                        bVar4.dX = "ERROR";
+                        bVar4.dX = bx.l;
                         bVar4.dY = i2;
                         e.a(bVar3);
                         return true;

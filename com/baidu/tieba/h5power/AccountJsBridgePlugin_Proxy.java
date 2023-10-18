@@ -5,18 +5,17 @@ import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BindVerifyActivity;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.kx4;
-import com.baidu.tieba.qka;
-import com.baidu.tieba.rka;
-import com.baidu.tieba.ska;
-import com.baidu.tieba.uka;
-import com.baidu.tieba.xm6;
+import com.baidu.tieba.gfa;
+import com.baidu.tieba.gh6;
+import com.baidu.tieba.hfa;
+import com.baidu.tieba.ifa;
+import com.baidu.tieba.kfa;
+import com.baidu.tieba.sr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -25,17 +24,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class AccountJsBridgePlugin_Proxy extends qka {
+public class AccountJsBridgePlugin_Proxy extends gfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kx4 mJsBridge;
+    public sr4 mJsBridge;
 
-    public AccountJsBridgePlugin_Proxy(kx4 kx4Var) {
+    public AccountJsBridgePlugin_Proxy(sr4 sr4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kx4Var};
+            Object[] objArr = {sr4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,7 +44,7 @@ public class AccountJsBridgePlugin_Proxy extends qka {
                 return;
             }
         }
-        this.mJsBridge = kx4Var;
+        this.mJsBridge = sr4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
@@ -56,171 +55,171 @@ public class AccountJsBridgePlugin_Proxy extends qka {
         this.mNotificationNameList.add("realNameAuthResult");
     }
 
-    @Override // com.baidu.tieba.qka
-    public ska dispatch(WebView webView, uka ukaVar, ska skaVar) {
+    @Override // com.baidu.tieba.gfa
+    public ifa dispatch(WebView webView, kfa kfaVar, ifa ifaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ukaVar, skaVar)) == null) {
-            if (skaVar == null) {
-                skaVar = new ska();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, kfaVar, ifaVar)) == null) {
+            if (ifaVar == null) {
+                ifaVar = new ifa();
             }
-            String b = ukaVar.b();
-            JSONObject e = ukaVar.e();
+            String b = kfaVar.b();
+            JSONObject e = kfaVar.e();
             if (b.equals("account/startLoginModule")) {
-                skaVar.s(true);
-                ska r = this.mJsBridge.r(webView, e.optString("cssUrl"));
+                ifaVar.s(true);
+                ifa r = this.mJsBridge.r(webView, e.optString("cssUrl"));
                 if (r != null) {
-                    skaVar.y(r.f());
-                    skaVar.u(r.b());
-                    skaVar.o(r.a());
-                    skaVar.x(r.e());
+                    ifaVar.y(r.f());
+                    ifaVar.u(r.b());
+                    ifaVar.o(r.a());
+                    ifaVar.x(r.e());
                 }
-                skaVar.z(0);
+                ifaVar.z(0);
             } else if (b.equals("account/loadThirdPartyLogin")) {
-                skaVar.s(true);
-                ska g = this.mJsBridge.g(webView, e.optInt("socialType"), e.optString("activityId"));
+                ifaVar.s(true);
+                ifa g = this.mJsBridge.g(webView, e.optInt("socialType"), e.optString("activityId"));
                 if (g != null) {
-                    skaVar.y(g.f());
-                    skaVar.u(g.b());
-                    skaVar.o(g.a());
-                    skaVar.x(g.e());
+                    ifaVar.y(g.f());
+                    ifaVar.u(g.b());
+                    ifaVar.o(g.a());
+                    ifaVar.x(g.e());
                 }
-                skaVar.z(0);
+                ifaVar.z(0);
             } else if (b.equals("account/startDownloadCss")) {
-                skaVar.s(true);
-                ska q = this.mJsBridge.q(webView, e.optString(TTDownloadField.TT_DOWNLOAD_URL));
+                ifaVar.s(true);
+                ifa q = this.mJsBridge.q(webView, e.optString("downloadUrl"));
                 if (q != null) {
-                    skaVar.y(q.f());
-                    skaVar.u(q.b());
-                    skaVar.o(q.a());
-                    skaVar.x(q.e());
+                    ifaVar.y(q.f());
+                    ifaVar.u(q.b());
+                    ifaVar.o(q.a());
+                    ifaVar.x(q.e());
                 }
-                skaVar.z(0);
+                ifaVar.z(0);
             } else if (b.equals("account/bindMobileNumber")) {
-                skaVar.s(true);
-                ska c = this.mJsBridge.c(webView);
+                ifaVar.s(true);
+                ifa c = this.mJsBridge.c(webView);
                 if (c != null) {
-                    skaVar.y(c.f());
-                    skaVar.u(c.b());
-                    skaVar.o(c.a());
-                    skaVar.x(c.e());
+                    ifaVar.y(c.f());
+                    ifaVar.u(c.b());
+                    ifaVar.o(c.a());
+                    ifaVar.x(c.e());
                 }
-                skaVar.z(0);
+                ifaVar.z(0);
             } else if (b.equals("account/commonLogin")) {
-                skaVar.s(true);
-                ska p = this.mJsBridge.p(webView, e.optString("type"), e.optString("addObserverNotify"), e.optString("activityId"), e.optString("cssUrl"));
+                ifaVar.s(true);
+                ifa p = this.mJsBridge.p(webView, e.optString("type"), e.optString("addObserverNotify"), e.optString("activityId"), e.optString("cssUrl"));
                 this.mNotificationNameList.add("commonLogin");
                 if (p != null) {
-                    skaVar.y(p.f());
-                    skaVar.u(p.b());
-                    skaVar.o(p.a());
-                    skaVar.x(p.e());
-                    if (!skaVar.h()) {
-                        skaVar.n(false);
-                        addObserver(webView, "commonLogin", skaVar, false);
+                    ifaVar.y(p.f());
+                    ifaVar.u(p.b());
+                    ifaVar.o(p.a());
+                    ifaVar.x(p.e());
+                    if (!ifaVar.h()) {
+                        ifaVar.n(false);
+                        addObserver(webView, "commonLogin", ifaVar, false);
                     }
                 }
-                skaVar.z(0);
+                ifaVar.z(0);
             } else if (b.equals("account/getAlipayUserId")) {
-                skaVar.s(true);
-                ska f = this.mJsBridge.f(webView);
+                ifaVar.s(true);
+                ifa f = this.mJsBridge.f(webView);
                 this.mNotificationNameList.add("aliAuthResult");
                 if (f != null) {
-                    skaVar.y(f.f());
-                    skaVar.u(f.b());
-                    skaVar.o(f.a());
-                    skaVar.x(f.e());
-                    if (!skaVar.h()) {
-                        skaVar.n(false);
-                        addObserver(webView, "aliAuthResult", skaVar, false);
+                    ifaVar.y(f.f());
+                    ifaVar.u(f.b());
+                    ifaVar.o(f.a());
+                    ifaVar.x(f.e());
+                    if (!ifaVar.h()) {
+                        ifaVar.n(false);
+                        addObserver(webView, "aliAuthResult", ifaVar, false);
                     }
                 }
-                skaVar.z(0);
+                ifaVar.z(0);
             } else if (b.equals("account/authState")) {
-                skaVar.s(true);
-                ska d = this.mJsBridge.d(webView, e.optString("scene"));
+                ifaVar.s(true);
+                ifa d = this.mJsBridge.d(webView, e.optString("scene"));
                 this.mNotificationNameList.add("authStateResult");
                 if (d != null) {
-                    skaVar.y(d.f());
-                    skaVar.u(d.b());
-                    skaVar.o(d.a());
-                    skaVar.x(d.e());
-                    if (!skaVar.h()) {
-                        skaVar.n(false);
-                        addObserver(webView, "authStateResult", skaVar, false);
+                    ifaVar.y(d.f());
+                    ifaVar.u(d.b());
+                    ifaVar.o(d.a());
+                    ifaVar.x(d.e());
+                    if (!ifaVar.h()) {
+                        ifaVar.n(false);
+                        addObserver(webView, "authStateResult", ifaVar, false);
                     }
                 }
-                skaVar.z(0);
+                ifaVar.z(0);
             } else if (b.equals("account/realNameAuth")) {
-                skaVar.s(true);
-                ska n = this.mJsBridge.n(webView, e.optString("scene"), e.optBoolean("needCbKey"), e.optString("customRealNameUrl"), e.optInt(BindVerifyActivity.KEY_REAL_NAME_LEVEL));
+                ifaVar.s(true);
+                ifa n = this.mJsBridge.n(webView, e.optString("scene"), e.optBoolean("needCbKey"), e.optString("customRealNameUrl"), e.optInt(BindVerifyActivity.KEY_REAL_NAME_LEVEL));
                 this.mNotificationNameList.add("realNameAuthResult");
                 if (n != null) {
-                    skaVar.y(n.f());
-                    skaVar.u(n.b());
-                    skaVar.o(n.a());
-                    skaVar.x(n.e());
-                    if (!skaVar.h()) {
-                        skaVar.n(false);
-                        addObserver(webView, "realNameAuthResult", skaVar, false);
+                    ifaVar.y(n.f());
+                    ifaVar.u(n.b());
+                    ifaVar.o(n.a());
+                    ifaVar.x(n.e());
+                    if (!ifaVar.h()) {
+                        ifaVar.n(false);
+                        addObserver(webView, "realNameAuthResult", ifaVar, false);
                     }
                 }
-                skaVar.z(0);
+                ifaVar.z(0);
             }
-            return skaVar;
+            return ifaVar;
         }
-        return (ska) invokeLLL.objValue;
+        return (ifa) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qka
-    public xm6 getJsBridge() {
+    @Override // com.baidu.tieba.gfa
+    public gh6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (xm6) invokeV.objValue;
+        return (gh6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qka
-    public List<ska> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.gfa
+    public List<ifa> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            ska skaVar = null;
+            ifa ifaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals(CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN)) {
-                skaVar = this.mJsBridge.s(webView, hashMap);
+                ifaVar = this.mJsBridge.s(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.LOGIN_RESULT_TO_H5)) {
-                skaVar = this.mJsBridge.l(webView, hashMap);
+                ifaVar = this.mJsBridge.l(webView, hashMap);
             } else if (str.equals("aliAuthResult")) {
-                skaVar = this.mJsBridge.k(webView, hashMap);
+                ifaVar = this.mJsBridge.k(webView, hashMap);
             } else if (str.equals("authStateResult")) {
-                skaVar = this.mJsBridge.e(webView, hashMap);
+                ifaVar = this.mJsBridge.e(webView, hashMap);
             } else if (str.equals("realNameAuthResult")) {
-                skaVar = this.mJsBridge.o(webView, hashMap);
+                ifaVar = this.mJsBridge.o(webView, hashMap);
             }
-            if (skaVar != null) {
-                skaVar.z(0);
+            if (ifaVar != null) {
+                ifaVar.z(0);
             }
-            List<rka> list = this.mAsyncCallBackMethodList.get(str);
-            if (skaVar != null && list != null) {
-                Iterator<rka> it = list.iterator();
-                if (!TextUtils.isEmpty(skaVar.e())) {
+            List<hfa> list = this.mAsyncCallBackMethodList.get(str);
+            if (ifaVar != null && list != null) {
+                Iterator<hfa> it = list.iterator();
+                if (!TextUtils.isEmpty(ifaVar.e())) {
                     while (it.hasNext()) {
-                        rka next = it.next();
-                        if (next.b().equals(skaVar.e())) {
-                            ska skaVar2 = new ska();
-                            skaVar2.w(next.a());
-                            skaVar2.y(skaVar.f());
-                            skaVar2.u(skaVar.b());
-                            skaVar2.o(skaVar.a());
-                            skaVar2.j = skaVar.j;
-                            skaVar2.A(skaVar.l());
-                            arrayList.add(skaVar2);
+                        hfa next = it.next();
+                        if (next.b().equals(ifaVar.e())) {
+                            ifa ifaVar2 = new ifa();
+                            ifaVar2.w(next.a());
+                            ifaVar2.y(ifaVar.f());
+                            ifaVar2.u(ifaVar.b());
+                            ifaVar2.o(ifaVar.a());
+                            ifaVar2.j = ifaVar.j;
+                            ifaVar2.A(ifaVar.l());
+                            arrayList.add(ifaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -228,15 +227,15 @@ public class AccountJsBridgePlugin_Proxy extends qka {
                     }
                 } else {
                     while (it.hasNext()) {
-                        rka next2 = it.next();
-                        ska skaVar3 = new ska();
-                        skaVar3.w(next2.a());
-                        skaVar3.y(skaVar.f());
-                        skaVar3.u(skaVar.b());
-                        skaVar3.o(skaVar.a());
-                        skaVar3.j = skaVar.j;
-                        skaVar3.A(skaVar.l());
-                        arrayList.add(skaVar3);
+                        hfa next2 = it.next();
+                        ifa ifaVar3 = new ifa();
+                        ifaVar3.w(next2.a());
+                        ifaVar3.y(ifaVar.f());
+                        ifaVar3.u(ifaVar.b());
+                        ifaVar3.o(ifaVar.a());
+                        ifaVar3.j = ifaVar.j;
+                        ifaVar3.A(ifaVar.l());
+                        arrayList.add(ifaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

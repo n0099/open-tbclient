@@ -1,102 +1,122 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.AudioManager;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class gt2 extends ap2<rt2> {
+public class gt2 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<MediaModel> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioManager b;
 
-    @Override // com.baidu.tieba.ap2
-    @NonNull
-    public String b() {
+    public static void a() {
+        ArrayList<MediaModel> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (arrayList = a) != null) {
+            arrayList.clear();
+            a = null;
+        }
+    }
+
+    public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setVolume" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
     }
 
-    public gt2() {
+    public static ArrayList<MediaModel> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList != null && arrayList.size() != 0 && a.get(0) != null) {
+                return a.get(0).getType();
             }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int c(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        ArrayList<MediaModel> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaModel)) == null) {
+            if (mediaModel == null || (arrayList = a) == null) {
+                return -1;
+            }
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                if (mediaModel.equals(a.get(i))) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean f(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaModel)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null) {
+                return false;
+            }
+            return arrayList.contains(mediaModel);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mediaModel)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList != null && arrayList.size() != 0) {
+                return a.contains(mediaModel);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void h(MediaModel mediaModel) {
+        ArrayList<MediaModel> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) && (arrayList = a) != null) {
+            arrayList.remove(mediaModel);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ap2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rt2 rt2Var) {
+    public static void i(MediaModel mediaModel) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rt2Var) != null) || command.obj == null) {
+        if ((interceptable != null && interceptable.invokeL(65544, null, mediaModel) != null) || mediaModel == null) {
             return;
         }
-        if (!rt2Var.P()) {
-            d(rt2Var, command.what, "Not Set!! Volume: " + command.obj, false);
-            return;
+        if (a == null) {
+            a = new ArrayList<>();
         }
-        Object obj = command.obj;
-        if (obj instanceof Double) {
-            try {
-                double doubleValue = ((Double) obj).doubleValue();
-                d(rt2Var, command.what, "Volume: " + command.obj, false);
-                if (doubleValue > 1.0d) {
-                    doubleValue = 1.0d;
-                }
-                if (doubleValue < 0.0d) {
-                    doubleValue = 0.0d;
-                }
-                f(doubleValue, rt2Var.getContext());
-            } catch (Exception unused) {
-                if (ap2.a) {
-                    Log.e(b(), "setVolume param type error");
-                }
-            }
-        }
-    }
-
-    public final void f(double d, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), context}) == null) {
-            if (this.b == null) {
-                this.b = (AudioManager) context.getSystemService("audio");
-            }
-            AudioManager audioManager = this.b;
-            if (audioManager == null) {
-                return;
-            }
-            int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d);
-            if (round == this.b.getStreamVolume(3)) {
-                if (ap2.a) {
-                    Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX);
-                    return;
-                }
-                return;
-            }
-            if (d > 0.0d && round == 0) {
-                round = 1;
-            }
-            if (ap2.a) {
-                Log.d("【InlineCommand】", "setVolumeInt" + round);
-            }
-            this.b.setStreamVolume(3, round, 0);
-        }
+        a.add(mediaModel);
     }
 }

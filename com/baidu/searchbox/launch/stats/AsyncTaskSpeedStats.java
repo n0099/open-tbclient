@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
     public HashMap<String, Long> mLaunchTaskDuration = new HashMap<>();
 

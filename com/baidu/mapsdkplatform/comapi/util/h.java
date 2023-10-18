@@ -25,7 +25,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.tts.jni.TtsLogLoad;
 import com.fun.ad.sdk.FunAdSdk;
 import com.kuaishou.weapon.p0.u;
 import com.tencent.open.SocialOperation;
@@ -319,7 +318,7 @@ public class h {
             jsonBuilder.putStringValue("glv", u);
             jsonBuilder.putStringValue(FunAdSdk.PLATFORM_MB, i());
             jsonBuilder.putStringValue("sv", k());
-            jsonBuilder.putStringValue(TtsLogLoad.KEY_OS, m());
+            jsonBuilder.putStringValue("os", m());
             jsonBuilder.key("dpi_x").value(n());
             jsonBuilder.key("dpi_y").value(n());
             jsonBuilder.putStringValue("net", q);
@@ -358,7 +357,7 @@ public class h {
             jsonBuilder.putStringValue("glv", u);
             jsonBuilder.putStringValue(FunAdSdk.PLATFORM_MB, i());
             jsonBuilder.putStringValue("sv", k());
-            jsonBuilder.putStringValue(TtsLogLoad.KEY_OS, m());
+            jsonBuilder.putStringValue("os", m());
             jsonBuilder.key("dpi_x").value(n());
             jsonBuilder.key("dpi_y").value(n());
             jsonBuilder.putStringValue("net", q);
@@ -402,7 +401,7 @@ public class h {
             A.put("channel", AppMD5.encodeUrlParamsValue(o()));
             A.put(FunAdSdk.PLATFORM_MB, AppMD5.encodeUrlParamsValue(i()));
             A.put("sv", AppMD5.encodeUrlParamsValue(k()));
-            A.put(TtsLogLoad.KEY_OS, AppMD5.encodeUrlParamsValue(m()));
+            A.put("os", AppMD5.encodeUrlParamsValue(m()));
             A.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(n()), Integer.valueOf(n()))));
             A.put("cuid", AppMD5.encodeUrlParamsValue(z));
             A.put(u.w, AppMD5.encodeUrlParamsValue(a.getPackageName()));

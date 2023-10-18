@@ -51,7 +51,7 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0219a implements fta {
+        public class C0221a implements xna {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
@@ -59,17 +59,17 @@ public class CaptureStatic {
 
             /* renamed from: com.baidu.tieba.CaptureStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0220a extends DefaultDownloadCallback {
+            public class C0222a extends DefaultDownloadCallback {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0219a a;
+                public final /* synthetic */ C0221a a;
 
-                public C0220a(C0219a c0219a) {
+                public C0222a(C0221a c0221a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0219a};
+                        Object[] objArr = {c0221a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -79,7 +79,7 @@ public class CaptureStatic {
                             return;
                         }
                     }
-                    this.a = c0219a;
+                    this.a = c0221a;
                 }
 
                 @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -122,7 +122,7 @@ public class CaptureStatic {
                 }
             }
 
-            public C0219a(a aVar, CustomResponsedMessage customResponsedMessage, IntentConfig intentConfig) {
+            public C0221a(a aVar, CustomResponsedMessage customResponsedMessage, IntentConfig intentConfig) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +141,7 @@ public class CaptureStatic {
                 this.b = intentConfig;
             }
 
-            @Override // com.baidu.tieba.fta
+            @Override // com.baidu.tieba.xna
             public void a() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.getData() instanceof IntentConfig)) {
@@ -159,14 +159,14 @@ public class CaptureStatic {
                     Logger.addLog("write", 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo", 0, "", new Object[0]);
                     DefaultLog.getInstance().i("write", "打开视频编辑页3，libcbffmpeg.so不存在，尝试下载");
                     RequestParams requestParams = new RequestParams();
-                    requestParams.setRunType(ql.a);
+                    requestParams.setRunType(ng.a);
                     requestParams.setRunNode("aps");
-                    requestParams.addChannel(new pl("com.baidu.tieba.soloader.libcbffmpeg", new C0220a(this)));
+                    requestParams.addChannel(new mg("com.baidu.tieba.soloader.libcbffmpeg", new C0222a(this)));
                     PmsManager.getInstance().execute(requestParams);
                 }
             }
 
-            @Override // com.baidu.tieba.fta
+            @Override // com.baidu.tieba.xna
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -202,7 +202,7 @@ public class CaptureStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
                 DefaultLog.getInstance().i("write", "打开视频编辑页1，开始检测so");
-                zsa.b(TbadkCoreApplication.getInst(), new C0219a(this, customResponsedMessage, (IntentConfig) customResponsedMessage.getData()));
+                rna.b(TbadkCoreApplication.getInst(), new C0221a(this, customResponsedMessage, (IntentConfig) customResponsedMessage.getData()));
             }
         }
     }

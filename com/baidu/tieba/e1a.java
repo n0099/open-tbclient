@@ -1,48 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.os.Handler;
-import android.os.Looper;
-import android.provider.Settings;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.b1a;
-import com.baidu.tieba.f1a;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class e1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> a;
-    public SensorManager b;
-    public b1a c;
-    public Sensor d;
-    public boolean e;
-    public boolean f;
-    public f1a g;
-    public boolean h;
-    public boolean i;
-    public b1a.a j;
-    public f1a.a k;
+    public final TbPageContext<?> a;
+    public final DragImageView.h b;
+    public final boolean c;
+    public Map<AdvertAppInfo, d1a> d;
+    public d1a e;
 
     /* loaded from: classes5.dex */
-    public class a implements b1a.a {
+    public class a implements ry8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e1a a;
+        public final /* synthetic */ d1a a;
 
-        public a(e1a e1aVar) {
+        public a(e1a e1aVar, d1a d1aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e1aVar};
+                Object[] objArr = {e1aVar, d1aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,85 +46,39 @@ public class e1a {
                     return;
                 }
             }
-            this.a = e1aVar;
+            this.a = d1aVar;
         }
 
-        @Override // com.baidu.tieba.b1a.a
-        public void a(int i) {
-            Activity activity;
+        @Override // com.baidu.tieba.ry8
+        public void a(int i, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.a == null || (activity = (Activity) this.a.a.get()) == null || !this.a.i) {
-                return;
-            }
-            int requestedOrientation = activity.getRequestedOrientation();
-            if (!this.a.h) {
-                if (i > 225 && i < 315) {
-                    if (requestedOrientation == 8) {
-                        activity.setRequestedOrientation(0);
-                    }
-                } else if (i > 45 && i < 135 && requestedOrientation == 0) {
-                    activity.setRequestedOrientation(8);
-                }
-            } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                if (!this.a.f) {
-                    if (i > 55 && i < 125) {
-                        if (requestedOrientation != 8) {
-                            activity.setRequestedOrientation(8);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, hashMap) == null) {
+                AdvertAppInfo a = this.a.a();
+                if (i != 0 && a != null) {
+                    String str = "image";
+                    if (hashMap != null) {
+                        String str2 = (String) hashMap.get("da_area");
+                        if (!TextUtils.isEmpty(str2)) {
+                            str = str2;
                         }
-                    } else if (requestedOrientation != 0) {
-                        activity.setRequestedOrientation(0);
                     }
+                    if (uz9.h(i)) {
+                        i1a.f(a, 0, str, i);
+                    } else {
+                        i1a.m(a, 0, str);
+                    }
+                    zy8.c(a);
                 }
-                this.a.e = false;
-            } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
-                if (!this.a.e && requestedOrientation != 1) {
-                    activity.setRequestedOrientation(1);
-                }
-                this.a.f = false;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements f1a.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e1a a;
-
-        public b(e1a e1aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e1aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e1aVar;
-        }
-
-        @Override // com.baidu.tieba.f1a.a
-        public void onChange(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
-                return;
-            }
-            this.a.h = z;
-        }
-    }
-
-    public e1a(Activity activity) {
+    public e1a(@NonNull TbPageContext<?> tbPageContext, boolean z, DragImageView.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z), hVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -140,78 +88,83 @@ public class e1a {
                 return;
             }
         }
-        this.e = false;
-        this.f = false;
-        this.h = false;
-        this.i = false;
-        this.j = new a(this);
-        this.k = new b(this);
-        if (activity == null) {
-            return;
+        this.a = tbPageContext;
+        this.c = z;
+        this.b = hVar;
+        this.d = new HashMap();
+    }
+
+    public d1a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            d1a d1aVar = new d1a(this.a);
+            d1aVar.b();
+            d1aVar.setBusinessType(99);
+            d1aVar.setFromCDN(this.c);
+            d1aVar.E(this.b);
+            d1aVar.setAfterClickSchemeListener(new a(this, d1aVar));
+            return d1aVar;
         }
-        this.a = new WeakReference<>(activity);
-        this.b = (SensorManager) activity.getApplicationContext().getSystemService("sensor");
-        this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
-        this.c = new b1a(this.j);
-        if (activity.getClass().getName().contains("SwanAppActivity")) {
-            activity.setRequestedOrientation(1);
+        return (d1a) invokeV.objValue;
+    }
+
+    public View b(AdvertAppInfo advertAppInfo, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z)) == null) {
+            if (advertAppInfo != null && (advertAppInfo.h instanceof AdCard)) {
+                d1a d1aVar = this.d.get(advertAppInfo);
+                if (d1aVar == null) {
+                    d1aVar = a();
+                    this.d.put(advertAppInfo, d1aVar);
+                }
+                d1aVar.e((AdCard) advertAppInfo.h);
+                this.e = d1aVar;
+                if (z) {
+                    d1aVar.y();
+                }
+                return d1aVar.t();
+            }
+            return null;
+        }
+        return (View) invokeLZ.objValue;
+    }
+
+    public void c() {
+        d1a d1aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (d1aVar = this.e) != null) {
+            d1aVar.y();
         }
     }
 
-    public void i(boolean z) {
+    public void d() {
+        d1a d1aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.i = z;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (d1aVar = this.e) != null) {
+            d1aVar.C();
         }
     }
 
-    public void j() {
-        Activity activity;
-        Sensor sensor;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SensorManager sensorManager = this.b;
-            if (sensorManager != null && (sensor = this.d) != null) {
-                sensorManager.registerListener(this.c, sensor, 2);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            for (d1a d1aVar : this.d.values()) {
+                if (d1aVar != null) {
+                    d1aVar.D();
+                }
             }
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference != null && (activity = weakReference.get()) != null) {
-                f1a f1aVar = new f1a(activity.getApplicationContext(), new Handler(Looper.getMainLooper()));
-                this.g = f1aVar;
-                f1aVar.b(this.k);
-                activity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), true, this.g);
-            }
+            this.d.clear();
         }
     }
 
-    public void k() {
-        Activity activity;
+    public void f(AdvertAppInfo advertAppInfo) {
+        d1a d1aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SensorManager sensorManager = this.b;
-            if (sensorManager != null) {
-                sensorManager.unregisterListener(this.c);
-            }
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference != null && this.g != null && (activity = weakReference.get()) != null) {
-                activity.getContentResolver().unregisterContentObserver(this.g);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) && advertAppInfo != null && (d1aVar = this.d.get(advertAppInfo)) != null) {
+            d1aVar.D();
+            this.d.remove(advertAppInfo);
         }
-    }
-
-    public void l() {
-        WeakReference<Activity> weakReference;
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (weakReference = this.a) == null || (activity = weakReference.get()) == null) {
-            return;
-        }
-        if (activity.getRequestedOrientation() == 1) {
-            activity.setRequestedOrientation(0);
-            this.e = true;
-            return;
-        }
-        activity.setRequestedOrientation(1);
-        this.f = true;
     }
 }

@@ -1,78 +1,127 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.pm.provider.BundleOpProvider;
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.searchbox.pms.db.PackageTable;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 /* loaded from: classes8.dex */
-public class sf1 {
+public class sf1<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public T a;
 
-    public static pf1 a(Uri uri) {
-        InterceptResult invokeL;
-        long j;
+    public sf1(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
-            pf1 pf1Var = new pf1();
-            if (uri != null) {
-                String queryParameter = uri.getQueryParameter("downloaded_size");
-                long j2 = 0;
-                if (!TextUtils.isEmpty(queryParameter)) {
-                    j = Long.valueOf(queryParameter).longValue();
-                } else {
-                    j = 0;
-                }
-                String queryParameter2 = uri.getQueryParameter(PackageTable.TOTAL_SIZE);
-                if (!TextUtils.isEmpty(queryParameter2)) {
-                    j2 = Long.valueOf(queryParameter2).longValue();
-                }
-                pf1Var.a = j;
-                pf1Var.b = j2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return pf1Var;
         }
-        return (pf1) invokeL.objValue;
+        this.a = t;
     }
 
-    public static Uri b() {
+    public boolean d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            if (!(this.a instanceof File) || System.currentTimeMillis() - ((File) this.a).lastModified() <= j) {
+                return false;
+            }
+            return true;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).build();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (Uri) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public static Uri c(String str, long j, long j2) {
-        InterceptResult invokeCommon;
+    public Class<?> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).appendQueryParameter("downloaded_size", String.valueOf(j)).appendQueryParameter(PackageTable.TOTAL_SIZE, String.valueOf(j2)).build();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getClass();
         }
-        return (Uri) invokeCommon.objValue;
+        return (Class) invokeV.objValue;
     }
 
-    public static Uri d(String str) {
-        InterceptResult invokeL;
+    public byte[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            T t = this.a;
+            if (t instanceof Bitmap) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ((Bitmap) this.a).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                return byteArrayOutputStream.toByteArray();
+            } else if (t instanceof File) {
+                return g11.g((File) t);
+            } else {
+                if (t instanceof byte[]) {
+                    return (byte[]) t;
+                }
+                return null;
+            }
         }
-        return (Uri) invokeL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public static Uri e(String str) {
-        InterceptResult invokeL;
+    public boolean e() {
+        InterceptResult invokeV;
+        boolean delete;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            T t = this.a;
+            if (t instanceof Bitmap) {
+                if (!((Bitmap) t).isRecycled()) {
+                    ((Bitmap) this.a).recycle();
+                }
+            } else if (t instanceof File) {
+                delete = ((File) t).delete();
+                this.a = null;
+                return delete;
+            }
+            delete = true;
+            this.a = null;
+            return delete;
         }
-        return (Uri) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            T t = this.a;
+            if (t instanceof Bitmap) {
+                return ((Bitmap) t).getByteCount();
+            }
+            if (t instanceof File) {
+                return (int) ((File) t).length();
+            }
+            if (t instanceof byte[]) {
+                return ((byte[]) t).length;
+            }
+            return 1;
+        }
+        return invokeV.intValue;
     }
 }

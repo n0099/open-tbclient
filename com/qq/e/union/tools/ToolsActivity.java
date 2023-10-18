@@ -64,10 +64,10 @@ public class ToolsActivity extends Activity {
             SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("gdt_mock", 0);
             this.j = sharedPreferences;
             this.k = sharedPreferences.edit();
-            Button button = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090792);
-            Button button2 = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090539);
+            Button button = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0907af);
+            Button button2 = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09053b);
             this.a = (Spinner) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09008f);
-            this.b = (Spinner) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090812);
+            this.b = (Spinner) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09082e);
             this.c = (CheckBox) findViewById(com.baidu.tieba.R.id.isFullscreenCheckBox);
             this.d = new ArrayList(Arrays.asList(getResources().getStringArray(com.baidu.tieba.R.array.obfuscated_res_0x7f030019)));
             this.e = new ArrayList(Arrays.asList(getResources().getStringArray(com.baidu.tieba.R.array.obfuscated_res_0x7f030011)));
@@ -93,7 +93,7 @@ public class ToolsActivity extends Activity {
             }
             this.a.setOnItemSelectedListener(new a(this));
             this.b.setOnItemSelectedListener(new b(this));
-            button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y2c
+            button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vwb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public class ToolsActivity extends Activity {
                     }
                 }
             });
-            button2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.z2c
+            button2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.wwb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +117,7 @@ public class ToolsActivity extends Activity {
                     }
                 }
             });
-            this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a3c
+            this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xwb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

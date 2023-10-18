@@ -3,7 +3,7 @@ package com.baidu.searchbox.launch.stats;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SpeedStatsManager extends AbstractSpeedStats {
     public static final int STAGE_ACTIVITY = 3;
     public static final int STAGE_APP_CREATE = 2;

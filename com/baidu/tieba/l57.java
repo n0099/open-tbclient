@@ -1,221 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ImageView.BdImage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class l57 extends BaseAdapter {
+import kotlin.collections.CollectionsKt__CollectionsJVMKt;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.Agree;
+import tbclient.FeedSocialComponent;
+/* loaded from: classes7.dex */
+public final class l57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<vv4> a;
-    public String b;
-    public Context c;
-    public en5 d;
-    public int e;
-    public int f;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static final void a(FeedSocialComponent feedSocialComponent, List<h77<?>> dataList, k37 feedExtraData, r47 videoSchemaData) {
+        boolean z;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements bn5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-
-        public a(l57 l57Var, ViewGroup viewGroup) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l57Var, viewGroup};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = viewGroup;
-        }
-
-        @Override // com.baidu.tieba.bn5
-        public void a(BdImage bdImage, String str, boolean z) {
-            HeadImageView headImageView;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLZ(1048576, this, bdImage, str, z) == null) && (headImageView = (HeadImageView) this.a.findViewWithTag(str)) != null && bdImage != null) {
-                headImageView.invalidate();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HeadImageView a;
-        public TextView b;
-        public ImageView c;
-
-        public b(l57 l57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(l57 l57Var, a aVar) {
-            this(l57Var);
-        }
-    }
-
-    public l57(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = context;
-        this.d = new en5();
-        this.f = (int) this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f070368);
-        this.e = BdUtilHelper.getEquipmentWidth(this.c) / 2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public vv4 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<vv4> list = this.a;
-            if (list != null && i >= 0 && i < list.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return (vv4) invokeI.objValue;
-    }
-
-    public void b(List<vv4> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
-            this.a = list;
-            this.b = str;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<vv4> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 != null) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d020f, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911ad);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911bf);
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091199);
-                bVar.c = imageView;
-                SkinManager.setImageResource(imageView, R.drawable.icon_site_ok);
-                view2.setTag(bVar);
-            }
-            bVar.a.setTag(null);
-            bVar.a.setDefaultResource(R.drawable.pic_image_h_not);
-            bVar.a.startLoad(null, 12, false);
-            bVar.a.invalidate();
-            vv4 item = getItem(i);
-            if (item != null) {
-                if (!TextUtils.isEmpty(item.g())) {
-                    item.g();
-                    String textOmit = BdUtilHelper.getTextOmit(bVar.b.getPaint(), item.g(), this.e);
-                    bVar.b.setText(textOmit + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, feedSocialComponent, dataList, feedExtraData, videoSchemaData) == null) {
+            Intrinsics.checkNotNullParameter(feedSocialComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            l47 l47Var = new l47();
+            Agree agree = feedSocialComponent.agree;
+            if (agree != null) {
+                Integer num = agree.agree_type;
+                Intrinsics.checkNotNullExpressionValue(num, "agree.agree_type");
+                l47Var.e = num.intValue();
+                Integer num2 = feedSocialComponent.agree.has_agree;
+                Intrinsics.checkNotNullExpressionValue(num2, "agree.has_agree");
+                if (num2.intValue() > 0) {
+                    z = true;
                 } else {
-                    bVar.b.setText("");
+                    z = false;
                 }
-                String b2 = item.b();
-                if (!TextUtils.isEmpty(b2) && b2.equals(this.b)) {
-                    bVar.c.setVisibility(0);
-                } else {
-                    bVar.c.setVisibility(8);
-                }
-                ImageFileInfo e = item.e();
-                if (e != null) {
-                    e.clearPageActions();
-                    int i2 = this.f;
-                    e.addPageAction(on5.g(i2, i2));
-                    BdImage c = this.d.c(e, false);
-                    bVar.a.setTag(e.toCachedKey(false));
-                    if (c != null) {
-                        bVar.a.invalidate();
-                    } else {
-                        this.d.e(e, new a(this, viewGroup), false, false);
-                    }
-                }
-            } else {
-                bVar.b.setText("");
+                l47Var.f = z;
+                l47Var.g = feedSocialComponent.agree.agree_num.longValue();
+                Long l = feedSocialComponent.agree.diff_agree_num;
+                Intrinsics.checkNotNullExpressionValue(l, "agree.diff_agree_num");
+                l47Var.h = l.longValue();
+                Long l2 = feedSocialComponent.agree.disagree_num;
+                Intrinsics.checkNotNullExpressionValue(l2, "agree.disagree_num");
+                l47Var.i = l2.longValue();
             }
-            return view2;
+            l47Var.a = feedSocialComponent.share_num.intValue();
+            l47Var.b = feedSocialComponent.comment_num.intValue();
+            l47Var.c = String.valueOf(feedSocialComponent.tid);
+            Long fid = feedSocialComponent.fid;
+            Intrinsics.checkNotNullExpressionValue(fid, "fid");
+            l47Var.d = fid.longValue();
+            l47Var.l = feedExtraData.a();
+            videoSchemaData.h(l47Var.f);
+            videoSchemaData.g(l47Var.g);
+            String str = l47Var.l.a().get("user_id");
+            if (str == null) {
+                str = "";
+            }
+            videoSchemaData.k(str);
+            String str2 = l47Var.l.a().get("has_concerned_user");
+            if (str2 == null) {
+                str2 = "0";
+            }
+            videoSchemaData.i(str2);
+            l47Var.j = videoSchemaData;
+            List listOf = CollectionsKt__CollectionsKt.listOf((Object[]) new n47[]{l37.d(feedExtraData, "comment_btn_click", null, 2, null), l37.d(feedExtraData, "comment_btn_click2", null, 2, null), l37.d(feedExtraData, "comment_btn_click3", null, 2, null), l37.d(feedExtraData, "bottom_comment_click_selector1", null, 2, null)});
+            List listOf2 = CollectionsKt__CollectionsJVMKt.listOf(l37.d(feedExtraData, "bottom_share_click_selector1", null, 2, null));
+            List listOf3 = CollectionsKt__CollectionsJVMKt.listOf(l37.d(feedExtraData, "bottom_agree_click_selector1", null, 2, null));
+            p27 p27Var = new p27(l47Var, null, null, null, null, null, null, 126, null);
+            p27Var.o(CollectionsKt___CollectionsKt.plus((Collection) p27Var.h(), (Iterable) listOf));
+            p27Var.q(CollectionsKt___CollectionsKt.plus((Collection) p27Var.n(), (Iterable) listOf2));
+            p27Var.p(CollectionsKt___CollectionsKt.plus((Collection) p27Var.m(), (Iterable) listOf3));
+            dataList.add(new i77(p27Var, "social_bar"));
         }
-        return (View) invokeILL.objValue;
     }
 }

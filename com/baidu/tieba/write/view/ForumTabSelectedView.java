@@ -25,10 +25,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.ad7;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.ri7;
-import com.baidu.tieba.sa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -152,7 +152,7 @@ public class ForumTabSelectedView extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null) {
                 BdUtilHelper.hideSoftKeyPad(this.a.getContext(), this.a);
-                ri7.a(this.a.h.getPageActivity(), this.a.h);
+                ad7.a(this.a.h.getPageActivity(), this.a.h);
             }
         }
     }
@@ -248,13 +248,13 @@ public class ForumTabSelectedView extends LinearLayout {
                     TabLayout.Tab tabAt = tabLayout.getTabAt(i);
                     if (tabAt != null && (tabAt.getCustomView() instanceof FrameLayout) && (h = h(tabAt, null)) != null) {
                         h.k();
-                        sa5 sa5Var = (sa5) h.getStyleConfig();
+                        a55 a55Var = (a55) h.getStyleConfig();
                         if (tabAt.isSelected()) {
-                            sa5Var.u(R.color.CAM_X0302);
+                            a55Var.u(R.color.CAM_X0302);
                         } else if (n(tabAt)) {
-                            sa5Var.w(R.color.CAM_X0302);
+                            a55Var.v(R.color.CAM_X0302);
                         } else {
-                            sa5Var.w(R.color.CAM_X0107);
+                            a55Var.v(R.color.CAM_X0107);
                         }
                     }
                 }
@@ -291,9 +291,9 @@ public class ForumTabSelectedView extends LinearLayout {
     public void setTabColorUnSelected(TabLayout.Tab tab) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65545, this, tab) == null) && tab != null && tab.getCustomView() != null) {
-            sa5 sa5Var = (sa5) h(tab, null).getStyleConfig();
+            a55 a55Var = (a55) h(tab, null).getStyleConfig();
             if (!n(tab)) {
-                sa5Var.w(R.color.CAM_X0107);
+                a55Var.v(R.color.CAM_X0107);
             }
         }
     }
@@ -315,7 +315,7 @@ public class ForumTabSelectedView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             j(this.d);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
-            this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080bdf, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+            this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080be1, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
         }
     }
 
@@ -356,7 +356,7 @@ public class ForumTabSelectedView extends LinearLayout {
     public void setTabColorSelected(TabLayout.Tab tab) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65544, this, tab) == null) && tab != null && tab.getCustomView() != null) {
-            ((sa5) h(tab, null).getStyleConfig()).u(R.color.CAM_X0302);
+            ((a55) h(tab, null).getStyleConfig()).u(R.color.CAM_X0302);
             View g = g(tab);
             if (g != null) {
                 g.setVisibility(8);
@@ -405,15 +405,15 @@ public class ForumTabSelectedView extends LinearLayout {
             int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006);
             int dimens3 = BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X003);
             TBSpecificationBtn tBSpecificationBtn2 = new TBSpecificationBtn(getContext());
-            sa5 sa5Var = new sa5();
-            sa5Var.n(dimens2);
-            sa5Var.p(dimens3);
+            a55 a55Var = new a55();
+            a55Var.n(dimens2);
+            a55Var.p(dimens3);
             if (frsTabItemData.tabId == 505) {
-                sa5Var.w(R.color.CAM_X0302);
+                a55Var.v(R.color.CAM_X0302);
             } else {
-                sa5Var.w(R.color.CAM_X0107);
+                a55Var.v(R.color.CAM_X0107);
             }
-            tBSpecificationBtn2.setConfig(sa5Var);
+            tBSpecificationBtn2.setConfig(a55Var);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(dimens, 0, dimens, 0);
             tBSpecificationBtn2.setLayoutParams(layoutParams);
@@ -439,7 +439,7 @@ public class ForumTabSelectedView extends LinearLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d031f, (ViewGroup) null);
+            this.d = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0320, (ViewGroup) null);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002), 0, 0, 0);
             this.d.setLayoutParams(layoutParams);
@@ -454,7 +454,7 @@ public class ForumTabSelectedView extends LinearLayout {
             this.c = new EMTextView(getContext());
             this.c.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             EMManager.from(this.c).setTextSize(R.dimen.T_X08);
-            this.c.setText(R.string.obfuscated_res_0x7f0f07eb);
+            this.c.setText(R.string.obfuscated_res_0x7f0f07f1);
             this.c.setOnClickListener(this.i);
             addView(this.c);
         }

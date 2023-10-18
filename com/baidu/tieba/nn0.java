@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,45 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nn0 implements xn0 {
+public final class nn0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object d;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final mn0 b;
-    public boolean c;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final nn0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-569986533, "Lcom/baidu/tieba/nn0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-569986533, "Lcom/baidu/tieba/nn0$b;");
-                    return;
-                }
-            }
-            a = new nn0(null);
-        }
-    }
+    public final String a;
 
     static {
         InterceptResult invokeClinit;
@@ -65,13 +32,87 @@ public class nn0 implements xn0 {
                 return;
             }
         }
-        d = new Object();
+        b = new a(null);
     }
 
-    public nn0() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this != obj) {
+                return (obj instanceof nn0) && Intrinsics.areEqual(this.a, ((nn0) obj).a);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.a;
+            if (str != null) {
+                return str.hashCode();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "TagItem(text=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final nn0 a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject != null) {
+                    String optString = jSONObject.optString("text");
+                    Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"text\")");
+                    return new nn0(optString);
+                }
+                return null;
+            }
+            return (nn0) invokeL.objValue;
+        }
+    }
+
+    public nn0(String text) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {text};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,139 +122,7 @@ public class nn0 implements xn0 {
                 return;
             }
         }
-        this.b = new mn0();
-        this.c = false;
-    }
-
-    public static nn0 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (nn0) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.d = true;
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.d = false;
-        }
-    }
-
-    public /* synthetic */ nn0(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.xn0
-    public int a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return i;
-            }
-            g("global");
-            if (!i31.a(this.b.a(), str)) {
-                return i;
-            }
-            String str2 = (String) i31.b(this.b.a(), str);
-            if (str2 != null) {
-                try {
-                    return Integer.parseInt(str2);
-                } catch (NumberFormatException unused) {
-                }
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.xn0
-    public double b(String str, double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d2)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return d2;
-            }
-            g("global");
-            if (!i31.a(this.b.a(), str)) {
-                return d2;
-            }
-            String str2 = (String) i31.b(this.b.a(), str);
-            if (str2 != null) {
-                try {
-                    return Double.parseDouble(str2);
-                } catch (NumberFormatException unused) {
-                }
-            }
-            return d2;
-        }
-        return invokeCommon.doubleValue;
-    }
-
-    public void e(@Nullable String str) throws ADConfigError {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (str != null && !TextUtils.isEmpty(str)) {
-                JSONObject c = h31.c(str);
-                if (c.has("error_code")) {
-                    if (TextUtils.equals(c.optString("error_code"), "0")) {
-                        if (c.has("error_message")) {
-                            if (TextUtils.equals(c.optString("error_message"), "success")) {
-                                String optString = c.optString("data");
-                                if (!TextUtils.isEmpty(optString)) {
-                                    JSONObject c2 = h31.c(optString);
-                                    String optString2 = c2.optString("sign");
-                                    if (!TextUtils.isEmpty(optString2)) {
-                                        if (TextUtils.equals(optString2, t31.a().b("nad_app_quick_config").getString("_ad_adc_conf_sign", ""))) {
-                                            return;
-                                        }
-                                        t31.a().b("nad_app_quick_config").h("_ad_adc_conf_sign", optString2);
-                                        synchronized (d) {
-                                            this.b.update(c2);
-                                        }
-                                        return;
-                                    }
-                                    throw ADConfigError.error("2", ADConfigError.REASON_NULL_SIGN);
-                                }
-                                throw ADConfigError.error("7", ADConfigError.REASON_NULL_DATA);
-                            }
-                            throw ADConfigError.error("5", ADConfigError.REASON_WRONG_MSG);
-                        }
-                        throw ADConfigError.error("6", ADConfigError.REASON_NULL_MSG);
-                    }
-                    throw ADConfigError.error("3", ADConfigError.REASON_WRONG_CODE);
-                }
-                throw ADConfigError.error("4", ADConfigError.REASON_NULL_CODE);
-            }
-            throw ADConfigError.error("1", ADConfigError.REASON_NULL_RESPONSE_BODY);
-        }
-    }
-
-    public final void g(String str) {
-        Map<String, ?> all;
-        Map<String, ?> all2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            t31 a2 = t31.a();
-            q31 b2 = a2.b("nad.launch.config." + str);
-            if ("global".equals(str)) {
-                if (!this.c && (all2 = b2.getAll()) != null) {
-                    i31.f(this.b.a(), all2);
-                    this.c = true;
-                }
-            } else if (((Map) i31.b(this.b.b(), str)) == null && (all = b2.getAll()) != null) {
-                i31.e(this.b.b(), str, all);
-            }
-        }
+        Intrinsics.checkNotNullParameter(text, "text");
+        this.a = text;
     }
 }

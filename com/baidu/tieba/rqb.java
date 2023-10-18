@@ -1,27 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes7.dex */
-public class rqb implements TTNativeExpressAd.ExpressAdInteractionListener {
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+/* loaded from: classes8.dex */
+public class rqb implements ArCoreApk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ drb b;
-    public final /* synthetic */ oqb c;
+    public final /* synthetic */ sqb a;
 
-    public rqb(oqb oqbVar, drb drbVar) {
+    public rqb(sqb sqbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {oqbVar, drbVar};
+            Object[] objArr = {sqbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,44 +34,81 @@ public class rqb implements TTNativeExpressAd.ExpressAdInteractionListener {
                 return;
             }
         }
-        this.c = oqbVar;
-        this.b = drbVar;
+        this.a = sqbVar;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdClicked(View view2, int i) {
+    public static Uri b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            LogPrinter.d();
-            this.c.onAdClicked((oqb) this.b, this.a, new String[0]);
-            this.a = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build();
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static ArCoreApk.Availability c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                if (d(context) != null) {
+                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
+                }
+                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
+            } catch (UnavailableDeviceNotCompatibleException unused) {
+                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
+            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
+                return ArCoreApk.Availability.UNKNOWN_ERROR;
+            }
+        }
+        return (ArCoreApk.Availability) invokeL.objValue;
+    }
+
+    @Override // com.google.ar.core.ArCoreApk.a
+    public void a(ArCoreApk.Availability availability) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
+            synchronized (this.a) {
+                sqb.c(this.a, availability);
+                sqb.f(this.a, false);
+            }
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdShow(View view2, int i) {
+    public static PendingIntent d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-            LogPrinter.d();
-            this.c.onAdShow((oqb) this.b, false, new String[0]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
+                if (call == null) {
+                    return null;
+                }
+                PendingIntent pendingIntent = (PendingIntent) call.getParcelable("intent");
+                if (pendingIntent != null) {
+                    return pendingIntent;
+                }
+                String string = call.getString("exceptionType", "");
+                if (string.isEmpty()) {
+                    return null;
+                }
+                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
+                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
+                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
+                        String string2 = call.getString("exceptionText", null);
+                        if (string2 != null) {
+                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
+                        }
+                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
+                    }
+                    throw new UnavailableUserDeclinedInstallationException();
+                }
+                throw new UnavailableDeviceNotCompatibleException();
+            } catch (ReflectiveOperationException | RuntimeException e) {
+                Log.i("ARCore-SetupContentResolver", "Post-install failed", e);
+                return null;
+            }
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderFail(View view2, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
-            LogPrinter.e("onRenderFail message: " + str + ", code = " + i, new Object[0]);
-            this.c.onError(i, str);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view2, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            LogPrinter.d();
-            this.c.onAdLoaded(this.b, new String[0]);
-        }
+        return (PendingIntent) invokeL.objValue;
     }
 }

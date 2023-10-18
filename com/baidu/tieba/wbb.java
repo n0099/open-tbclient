@@ -1,72 +1,155 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.lang.reflect.InvocationTargetException;
-import java.util.NoSuchElementException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wbb {
+public class wbb implements dcb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public jbb a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public wbb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (b()) {
-                try {
-                    return (String) Class.forName("okhttp3.internal.Version").getMethod(TTDownloadField.TT_USERAGENT, new Class[0]).invoke(null, new Object[0]);
-                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return "";
         }
-        return (String) invokeV.objValue;
+        this.d = true;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dcb
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                Class.forName("okhttp3.OkHttpClient");
-                return true;
-            } catch (Exception unused) {
-                return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            jbb jbbVar = this.a;
+            if (jbbVar == null || bArr == null) {
+                return 0;
             }
+            this.b += bArr.length;
+            jbbVar.putBytes(bArr, i);
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return invokeLI.intValue;
     }
 
-    public static boolean c() throws RuntimeException {
+    @Override // com.baidu.tieba.dcb
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a = a();
-            if (!a.isEmpty()) {
-                String[] split = a.split("/");
-                if (split.length == 2) {
-                    String[] split2 = split[1].split("\\.");
-                    if (split2.length == 3) {
-                        try {
-                            if (Integer.parseInt(split2[0]) == 3) {
-                                if (Integer.parseInt(split2[1]) >= 9) {
-                                    return true;
-                                }
-                            }
-                            return false;
-                        } catch (NumberFormatException unused) {
-                            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
-                        }
-                    }
-                    throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
-                }
-                throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (jbb) lfb.a("com.baidu.ugc.audioedit.AudioChangeOperator");
             }
-            throw new NoSuchElementException();
+            jbb jbbVar = this.a;
+            if (jbbVar != null) {
+                jbbVar.initVoiceChanger(i, i2, i3, i4);
+            }
+            return this.a != null;
         }
-        return invokeV.booleanValue;
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            jbb jbbVar = this.a;
+            if (jbbVar == null || jbbVar.availableBytes() <= 0) {
+                return new byte[0];
+            }
+            byte[] bArr = new byte[4096];
+            int bytes = this.a.getBytes(bArr, 4096);
+            this.c += bytes;
+            if (bytes == 0) {
+                return null;
+            }
+            if (4096 == bytes) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[bytes];
+            System.arraycopy(bArr, 0, bArr2, 0, bytes);
+            return bArr2;
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(int[] iArr) {
+        jbb jbbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (jbbVar = this.a) == null) {
+            return;
+        }
+        jbbVar.setVoiceChangeType(iArr);
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public void c() {
+        jbb jbbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (jbbVar = this.a) == null) {
+            return;
+        }
+        jbbVar.flush();
+    }
+
+    public void c(int[] iArr, int[] iArr2, double[] dArr) {
+        jbb jbbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (jbbVar = this.a) == null) {
+            return;
+        }
+        jbbVar.setVoiceChangeType(iArr, iArr2, dArr);
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public void d() {
+        jbb jbbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (jbbVar = this.a) == null) {
+            return;
+        }
+        jbbVar.close();
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public void e() {
+        jbb jbbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (jbbVar = this.a) == null) {
+            return;
+        }
+        jbbVar.clearQueues();
     }
 }

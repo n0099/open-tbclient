@@ -1,33 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.crypto.SecretKey;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xzb implements zzb {
+public class xzb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wzb a;
-    public SecretKey b;
+    public String a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public transient b2c j;
+    public transient a2c k;
+    public int l;
+    public boolean m;
+    public int n;
+    public int o;
 
-    public xzb(wzb wzbVar) {
+    public xzb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wzbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,72 +41,86 @@ public class xzb implements zzb {
                 return;
             }
         }
-        this.a = wzbVar;
-        b();
+        this.a = null;
+        this.b = 1;
+        this.c = 1;
+        this.d = 0;
+        this.e = 1;
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.i = false;
+        this.k = null;
+        this.l = 0;
+        this.m = false;
+        this.n = 1;
+        this.o = 4000;
     }
 
-    public static boolean c(String str) {
+    public static xzb a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && Pattern.matches("^\\[!([A-Fa-f0-9]*)]", str) : invokeL.booleanValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            xzb xzbVar = new xzb();
             try {
-                Matcher matcher = Pattern.compile("^\\[!([A-Fa-f0-9]*)]").matcher(str);
-                return matcher.find() ? matcher.group(1) : "";
-            } catch (IllegalStateException | IndexOutOfBoundsException unused) {
-                Log.e("ExclamationMark", "getRawString exception");
-                return "";
+                JSONObject jSONObject = new JSONObject(str);
+                xzbVar.a = jSONObject.optString("cacheDirectory");
+                xzbVar.b = jSONObject.optInt("avcCodec");
+                xzbVar.c = jSONObject.optInt("hevcCodec");
+                xzbVar.d = jSONObject.optInt("audioCodec");
+                xzbVar.e = jSONObject.optInt("videoSeekMode");
+                xzbVar.f = jSONObject.optBoolean("clearRender");
+                xzbVar.g = jSONObject.optBoolean("usingSurfaceView");
+                xzbVar.h = jSONObject.optBoolean("hardDecodeOutputToBuffer");
+                xzbVar.i = jSONObject.optBoolean("forceNotCrop");
+                xzbVar.l = jSONObject.optInt("samplerFilter");
+                xzbVar.m = jSONObject.optBoolean("isSubProcess");
+                xzbVar.n = jSONObject.optInt("pcdnCatonTime");
+                xzbVar.o = jSONObject.optInt("pcdnCatonCount");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return xzbVar;
+        }
+        return (xzb) invokeL.objValue;
+    }
+
+    public static String b(xzb xzbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, xzbVar)) == null) {
+            if (xzbVar == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cacheDirectory", xzbVar.a);
+                jSONObject.put("avcCodec", xzbVar.b);
+                jSONObject.put("hevcCodec", xzbVar.c);
+                jSONObject.put("audioCodec", xzbVar.d);
+                jSONObject.put("videoSeekMode", xzbVar.e);
+                jSONObject.put("clearRender", xzbVar.f);
+                jSONObject.put("usingSurfaceView", xzbVar.g);
+                jSONObject.put("hardDecodeOutputToBuffer", xzbVar.h);
+                jSONObject.put("forceNotCrop", xzbVar.i);
+                jSONObject.put("samplerFilter", xzbVar.l);
+                jSONObject.put("isSubProcess", xzbVar.m);
+                jSONObject.put("pcdnCatonTime", xzbVar.n);
+                jSONObject.put("pcdnCatonCount", xzbVar.o);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zzb
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.b == null) {
-                str3 = "mKey is null, return default value";
-            } else if (!c(str)) {
-                return str2;
-            } else {
-                try {
-                    return new String(b0c.b(this.b, rzb.b(d(str))), "UTF-8");
-                } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                    str3 = "UnsupportedEncodingException||GeneralSecurityException||IllegalArgumentException";
-                }
-            }
-            Log.e("ExclamationMark", str3);
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final SecretKey b() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                String a = this.a.a("/code/code1", null);
-                String a2 = this.a.a("/code/code2", null);
-                String a3 = this.a.a("/code/code3", null);
-                String a4 = this.a.a("/code/code4", null);
-                if (a != null && a2 != null && a3 != null && a4 != null) {
-                    this.b = b0c.a(rzb.b(a), rzb.b(a2), rzb.b(a3), rzb.b(a4), 10000);
-                }
-            } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-                Log.e("ExclamationMark", "Exception when reading the 'K&I' for 'Config'.");
-                this.b = null;
-            }
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PlayerOptions [cacheDirectory=" + this.a + ", avcCodec=" + this.b + ", hevcCodec=" + this.c + ", audioCodec=" + this.d + ", videoSeekMode=" + this.e + ", clearRender=" + this.f + ", usingSurfaceView=" + this.g + ", hardDecodeOutputToBuffer=" + this.h + ", forceNotCrop=" + this.i + ", samplerFilter=" + this.l + ", isSubProcess=" + this.m + ", pcdnCatonTime=" + this.n + ", pcdnCatonCount=" + this.o + PreferencesUtil.RIGHT_MOUNT;
         }
-        return (SecretKey) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -1,24 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class f33 {
+public class f33 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @NonNull
-    public abstract String a();
-
-    public abstract void b();
-
-    public abstract void c();
-
-    public abstract void d(String str, JSONObject jSONObject, String str2);
 
     public f33() {
         Interceptable interceptable = $ic;
@@ -32,5 +25,39 @@ public abstract class f33 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return c(context).getInt("softinput.height", i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public static boolean b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            return c(context).edit().putInt("softinput.height", i).commit();
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static SharedPreferences c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (a == null) {
+                synchronized (f33.class) {
+                    if (a == null) {
+                        a = new ce3("swan.publisher", false);
+                    }
+                }
+            }
+            return a;
+        }
+        return (SharedPreferences) invokeL.objValue;
     }
 }

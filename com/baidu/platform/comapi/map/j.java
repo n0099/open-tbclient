@@ -1,6 +1,7 @@
 package com.baidu.platform.comapi.map;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapBundleKey;
@@ -118,7 +119,7 @@ public abstract class j {
             } else {
                 int i4 = this.j;
                 if (i4 == 3) {
-                    this.h.key("ty").value(3100);
+                    this.h.key("ty").value(FeatureCodes.TRACK_3D);
                 } else if (i4 == 4) {
                     this.h.key("ty").value(3200);
                 } else {

@@ -1,330 +1,226 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.b71;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.prologue.business.data.ParseError;
+import com.baidu.prologue.business.data.SplashStyleRecorder;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import com.facebook.common.util.UriUtil;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class zd1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public Runnable f;
-    public final Handler g;
-    public final boolean h;
-    public final int i;
-    public boolean j;
-    public boolean k;
-    public b71.b l;
-    public boolean m;
-    public String n;
-    public String o;
 
-    /* loaded from: classes9.dex */
-    public class a implements b71.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public final /* synthetic */ TelephonyManager c;
-        public final /* synthetic */ Context d;
-        public final /* synthetic */ zd1 e;
-
-        public a(zd1 zd1Var, TelephonyManager telephonyManager, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zd1Var, telephonyManager, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = zd1Var;
-            this.c = telephonyManager;
-            this.d = context;
-            this.a = 0;
-            this.b = 0;
-        }
-
-        @Override // com.baidu.tieba.b71.a
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
-                            sk0.a("NadPSLogger", "监听到通话状态：OFFHOOK");
-                            b(i);
-                            if (this.a == 0) {
-                                this.e.b = System.currentTimeMillis();
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    sk0.a("NadPSLogger", "监听到通话状态：RINGING");
-                    b(i);
-                    this.e.k = true;
-                    return;
-                }
-                sk0.a("NadPSLogger", "监听到通话状态：IDLE");
-                b(i);
-                if (this.a == 2) {
-                    this.e.c = System.currentTimeMillis();
-                    zd1 zd1Var = this.e;
-                    zd1Var.k(this.c, zd1Var.l, this.d);
-                }
-            }
-        }
-
-        public final void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.a = this.b;
-                this.b = i;
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ TelephonyManager b;
-        public final /* synthetic */ b71.b c;
-        public final /* synthetic */ zd1 d;
-
-        public b(zd1 zd1Var, Context context, TelephonyManager telephonyManager, b71.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zd1Var, context, telephonyManager, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = zd1Var;
-            this.a = context;
-            this.b = telephonyManager;
-            this.c = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && b71.a(this.a)) {
-                if (this.b.getCallState() == 0) {
-                    if (this.d.m) {
-                        this.d.m = !b71.c(this.a, this.b, this.c);
-                    }
-                    this.d.e = System.currentTimeMillis();
-                    this.d.o();
-                    return;
-                }
-                this.d.l(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    public zd1() {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject2 != null && optJSONObject2.has(SpeedStatsUtils.UBC_VALUE_SPLASH) && (optJSONObject = optJSONObject2.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) != null && optJSONObject.has("src_ext_info")) {
+                    return new JSONObject(optJSONObject.optString("src_ext_info")).has("query_ret_code");
+                }
+                return false;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
             }
         }
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-        this.e = 0L;
-        this.g = new Handler(Looper.getMainLooper());
-        this.h = tn0.b().a().a("psl_switch", 1) == 1;
-        this.i = tn0.b().a().a("psl_time", 20);
-        this.j = false;
-        this.k = false;
-        this.m = false;
+        return invokeL.booleanValue;
     }
 
-    public final int m(long j) {
-        InterceptResult invokeJ;
+    public static int b(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            if (j <= 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject2 == null || !optJSONObject2.has(SpeedStatsUtils.UBC_VALUE_SPLASH) || (optJSONObject = optJSONObject2.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) == null) {
+                    return 0;
+                }
+                if (!TextUtils.isEmpty(optJSONObject.optString("ukey"))) {
+                    return 1;
+                }
+                if (optJSONObject.optInt("isCPC") == 1) {
+                    return 3;
+                }
+                if (optJSONObject.optInt("realTimeLoading") != 1) {
+                    return 0;
+                }
+                return 2;
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return 0;
             }
-            return (int) TimeUnit.MILLISECONDS.toSeconds(j);
         }
-        return invokeJ.intValue;
+        return invokeL.intValue;
     }
 
-    public final void k(@NonNull TelephonyManager telephonyManager, @NonNull b71.b bVar, @NonNull Context context) {
+    public static String c(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
+        JSONObject optJSONObject2;
+        ge1 d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, telephonyManager, bVar, context) == null) {
-            long j = this.b;
-            if (j != 0) {
-                long j2 = this.c;
-                if (j2 != 0 && j2 > j) {
-                    this.g.removeCallbacks(this.f);
-                    if (this.m) {
-                        this.m = !b71.c(context, telephonyManager, bVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                JSONObject optJSONObject3 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject3 == null || !optJSONObject3.has(SpeedStatsUtils.UBC_VALUE_SPLASH) || (optJSONObject = optJSONObject3.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) == null) {
+                    return "";
+                }
+                if (!TextUtils.isEmpty(optJSONObject.optString("ukey"))) {
+                    ge1 p = ee1.p(optJSONObject.optString("ukey"));
+                    if (p == null) {
+                        return "";
                     }
-                    this.e = System.currentTimeMillis();
-                    o();
-                    return;
+                    return p.O;
+                } else if (optJSONObject.optInt("isCPC") == 1 || optJSONObject.optInt("realTimeLoading") != 1 || (optJSONArray = optJSONObject3.optJSONArray("ad")) == null || (optJSONObject2 = optJSONArray.optJSONObject(0)) == null || (d = ge1.d(optJSONObject2)) == null) {
+                    return "";
+                } else {
+                    return d.O;
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return "";
             }
-            l(context, telephonyManager, bVar);
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void l(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull b71.b bVar) {
+    public static List<ge1> d(JSONArray jSONArray, String str, boolean z) throws ParseError {
+        InterceptResult invokeLLZ;
+        List<ge1> r;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, telephonyManager, bVar) == null) {
-            Runnable runnable = this.f;
-            if (runnable != null) {
-                this.g.removeCallbacks(runnable);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, jSONArray, str, z)) == null) {
+            if (jSONArray == null || jSONArray.length() == 0 || (r = ge1.r(jSONArray)) == null || r.size() == 0) {
+                return null;
+            }
+            if (z) {
+                for (ge1 ge1Var : r) {
+                    ge1Var.y = true;
+                    if (fe1.t()) {
+                        ee1.j(ge1Var);
+                    }
+                }
             } else {
-                this.f = new b(this, context, telephonyManager, bVar);
+                HashMap<String, ge1> t = ee1.t();
+                if (t != null && t.size() != 0) {
+                    ee1.i(r);
+                    ee1.E(r);
+                } else {
+                    ee1.E(r);
+                }
+                ee1.B(r);
             }
-            if (!this.m) {
-                this.m = b71.b(context, telephonyManager, bVar);
-            }
-            this.g.postDelayed(this.f, TimeUnit.SECONDS.toMillis(this.i));
+            de1.m().g();
+            return r;
         }
+        return (List) invokeLLZ.objValue;
     }
 
-    public final boolean n() {
-        InterceptResult invokeV;
+    public static List<ge1> e(String str, String str2) throws ParseError {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.c;
-            if (j != 0) {
-                long j2 = this.b;
-                if (j2 != 0 && j > j2) {
-                    return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    return f(new JSONObject(str), str2);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    throw new ParseError(1, "afd/entry retun invalid json");
                 }
             }
-            return false;
+            throw new ParseError(1, "afd/entry retun null");
         }
-        return invokeV.booleanValue;
+        return (List) invokeLL.objValue;
     }
 
-    public final void o() {
-        String str;
-        String str2;
+    public static List<ge1> f(JSONObject jSONObject, String str) throws ParseError {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.j) {
-            return;
-        }
-        this.j = true;
-        if (TextUtils.isEmpty(this.n)) {
-            return;
-        }
-        String str3 = "1";
-        if (n()) {
-            str = "1";
-        } else {
-            str = "0";
-        }
-        String str4 = "-1";
-        if (!n()) {
-            str2 = "-1";
-        } else {
-            str2 = "" + m(this.c - this.b);
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(PreferencesUtil.LEFT_MOUNT);
-        sb.append(this.i);
-        sb.append(",");
-        sb.append(m(this.e - this.d));
-        sb.append(",");
-        if (n()) {
-            str4 = "" + m(this.b - this.a);
-        }
-        sb.append(str4);
-        sb.append(",");
-        if (!this.k) {
-            str3 = "0";
-        }
-        sb.append(str3);
-        sb.append(PreferencesUtil.RIGHT_MOUNT);
-        String sb2 = sb.toString();
-        ClogBuilder m = new ClogBuilder().y(ClogBuilder.LogType.PHONE_STATE_LISTEN).p(this.n).k(str).l(str2).m(sb2);
-        if (!TextUtils.isEmpty(this.o)) {
-            m.n(this.o);
-        } else {
-            m.n("");
-        }
-        w31.e(m);
-        sk0.a("NadPSLogger", "==========结束监听并打点==========");
-        sk0.a("NadPSLogger", "log_type：" + ClogBuilder.LogType.PHONE_STATE_LISTEN.type);
-        sk0.a("NadPSLogger", "da_ext1 是否监听到主动呼出：" + str);
-        sk0.a("NadPSLogger", "da_ext2 主动呼出时长：" + str2);
-        sk0.a("NadPSLogger", "da_ext3 云控监听时长，实际监听时长，拨号前停留时长，期间有无呼入：" + sb2);
-    }
-
-    @Deprecated
-    public void p(@NonNull Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, str, str2) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (!this.h || !b71.a(applicationContext)) {
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, jSONObject, str)) == null) {
+            List<ge1> arrayList = new ArrayList<>();
+            if (jSONObject != null) {
+                int i = 0;
+                if (jSONObject.optInt("errno", 0) > 0 || (optJSONObject = jSONObject.optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME)) == null) {
+                    return null;
+                }
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
+                JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
+                if (optJSONObject2 != null) {
+                    String optString = optJSONObject2.optString("cmd");
+                    SplashStyleRecorder.b(optJSONObject2.optJSONObject("style_desc"));
+                    fe1.M(optJSONObject2.optString("src_ext_info"));
+                    if (TextUtils.equals(StickerDataChangeType.UPDATE, optString)) {
+                        fe1.L(optJSONObject2.optString("src_ext_info"));
+                        arrayList = d(optJSONArray, str, false);
+                        String optString2 = optJSONObject2.optString("empty_ext_info");
+                        if (!TextUtils.isEmpty(optString2)) {
+                            gy0.a().b("splash_sp_name").i("empty_ext_info", optString2, false);
+                        }
+                    } else if (TextUtils.equals("query", optString)) {
+                        int optInt = optJSONObject2.optInt("realTimeLoading");
+                        int optInt2 = optJSONObject2.optInt("isCPC");
+                        if (optInt != 1 && optInt2 != 1) {
+                            String optString3 = optJSONObject2.optString("ukey");
+                            if (TextUtils.isEmpty(optString3)) {
+                                BaseVM.h(32);
+                                return arrayList;
+                            }
+                            List<ge1> w = ee1.w();
+                            if (w == null) {
+                                return arrayList;
+                            }
+                            Iterator<ge1> it = w.iterator();
+                            while (true) {
+                                if (!it.hasNext()) {
+                                    break;
+                                }
+                                ge1 next = it.next();
+                                if (TextUtils.equals(next.c, optString3)) {
+                                    tx0.b(arrayList, next);
+                                    break;
+                                }
+                            }
+                            if (arrayList.size() == 0) {
+                                BaseVM.h(64);
+                            }
+                        } else {
+                            List<ge1> d = d(optJSONArray, str, true);
+                            if (d == null || d.size() == 0) {
+                                BaseVM.h(128);
+                            }
+                            arrayList = d;
+                        }
+                        if (arrayList != null && arrayList.size() > 0 && arrayList.get(0) != null) {
+                            ge1 ge1Var = arrayList.get(0);
+                            if (optInt == 1) {
+                                i = 1;
+                            }
+                            ge1Var.D = i;
+                        }
+                    }
+                }
+                return arrayList;
             }
-            this.b = 0L;
-            this.c = 0L;
-            this.d = 0L;
-            this.e = 0L;
-            this.a = 0L;
-            this.a = System.currentTimeMillis();
-            this.j = false;
-            this.k = false;
-            this.n = str;
-            this.o = str2;
-            TelephonyManager telephonyManager = (TelephonyManager) applicationContext.getSystemService("phone");
-            b71.b bVar = new b71.b();
-            this.l = bVar;
-            bVar.b(new a(this, telephonyManager, applicationContext));
-            l(applicationContext, telephonyManager, this.l);
-            this.d = System.currentTimeMillis();
-            sk0.a("NadPSLogger", "==========开始监听==========");
+            return null;
         }
+        return (List) invokeLL.objValue;
     }
 }

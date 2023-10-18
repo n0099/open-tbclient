@@ -1,6 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors;
 
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -67,10 +66,10 @@ import kotlin.reflect.jvm.internal.impl.types.TypeProjectionImpl;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.utils.CollectionsKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class LazyJavaClassDescriptor extends ClassDescriptorBase implements JavaClassDescriptor {
     public static final Companion Companion = new Companion(null);
-    public static final Set<String> PUBLIC_METHOD_NAMES_IN_OBJECT = SetsKt__SetsKt.setOf((Object[]) new String[]{"equals", TTDownloadField.TT_HASHCODE, "getClass", "wait", "notify", "notifyAll", "toString"});
+    public static final Set<String> PUBLIC_METHOD_NAMES_IN_OBJECT = SetsKt__SetsKt.setOf((Object[]) new String[]{"equals", "hashCode", "getClass", "wait", "notify", "notifyAll", "toString"});
     public final ClassDescriptor additionalSupertypeClassDescriptor;
     public final Annotations annotations;
     public final LazyJavaResolverContext c;
@@ -89,13 +88,13 @@ public final class LazyJavaClassDescriptor extends ClassDescriptorBase implement
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getCompanionObjectDescriptor */
-    public ClassDescriptor mo2100getCompanionObjectDescriptor() {
+    public ClassDescriptor mo2099getCompanionObjectDescriptor() {
         return null;
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getUnsubstitutedPrimaryConstructor */
-    public ClassConstructorDescriptor mo2101getUnsubstitutedPrimaryConstructor() {
+    public ClassConstructorDescriptor mo2100getUnsubstitutedPrimaryConstructor() {
         return null;
     }
 
@@ -124,7 +123,7 @@ public final class LazyJavaClassDescriptor extends ClassDescriptorBase implement
         return false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -134,7 +133,7 @@ public final class LazyJavaClassDescriptor extends ClassDescriptorBase implement
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public final class LazyJavaClassTypeConstructor extends AbstractClassTypeConstructor {
         public final NotNullLazyValue<List<TypeParameterDescriptor>> parameters;
 
@@ -233,7 +232,7 @@ public final class LazyJavaClassDescriptor extends ClassDescriptorBase implement
                 }
                 JavaClassifierType next = it.next();
                 KotlinType transformJavaType = LazyJavaClassDescriptor.this.c.getTypeResolver().transformJavaType(next, JavaTypeResolverKt.toAttributes$default(TypeUsage.SUPERTYPE, false, null, 3, null));
-                if (transformJavaType.getConstructor().mo2107getDeclarationDescriptor() instanceof NotFoundClasses.MockClassDescriptor) {
+                if (transformJavaType.getConstructor().mo2106getDeclarationDescriptor() instanceof NotFoundClasses.MockClassDescriptor) {
                     arrayList2.add(next);
                 }
                 TypeConstructor constructor = transformJavaType.getConstructor();
@@ -252,7 +251,7 @@ public final class LazyJavaClassDescriptor extends ClassDescriptorBase implement
             CollectionsKt.addIfNotNull(arrayList, purelyImplementedSupertype);
             if (!arrayList2.isEmpty()) {
                 ErrorReporter errorReporter = LazyJavaClassDescriptor.this.c.getComponents().getErrorReporter();
-                ClassDescriptor mo2107getDeclarationDescriptor = mo2107getDeclarationDescriptor();
+                ClassDescriptor mo2106getDeclarationDescriptor = mo2106getDeclarationDescriptor();
                 ArrayList arrayList3 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(arrayList2, 10));
                 for (JavaType javaType : arrayList2) {
                     if (javaType != null) {
@@ -261,7 +260,7 @@ public final class LazyJavaClassDescriptor extends ClassDescriptorBase implement
                         throw new TypeCastException("null cannot be cast to non-null type org.jetbrains.kotlin.load.java.structure.JavaClassifierType");
                     }
                 }
-                errorReporter.reportIncompleteHierarchy(mo2107getDeclarationDescriptor, arrayList3);
+                errorReporter.reportIncompleteHierarchy(mo2106getDeclarationDescriptor, arrayList3);
             }
             if (!arrayList.isEmpty()) {
                 return CollectionsKt___CollectionsKt.toList(arrayList);
@@ -274,11 +273,11 @@ public final class LazyJavaClassDescriptor extends ClassDescriptorBase implement
             Annotations annotations = LazyJavaClassDescriptor.this.getAnnotations();
             FqName fqName = JvmAnnotationNames.PURELY_IMPLEMENTS_ANNOTATION;
             Intrinsics.checkExpressionValueIsNotNull(fqName, "JvmAnnotationNames.PURELY_IMPLEMENTS_ANNOTATION");
-            AnnotationDescriptor mo2102findAnnotation = annotations.mo2102findAnnotation(fqName);
-            if (mo2102findAnnotation == null) {
+            AnnotationDescriptor mo2101findAnnotation = annotations.mo2101findAnnotation(fqName);
+            if (mo2101findAnnotation == null) {
                 return null;
             }
-            Object singleOrNull = CollectionsKt___CollectionsKt.singleOrNull(mo2102findAnnotation.getAllValueArguments().values());
+            Object singleOrNull = CollectionsKt___CollectionsKt.singleOrNull(mo2101findAnnotation.getAllValueArguments().values());
             if (!(singleOrNull instanceof StringValue)) {
                 singleOrNull = null;
             }
@@ -292,7 +291,7 @@ public final class LazyJavaClassDescriptor extends ClassDescriptorBase implement
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.reflect.jvm.internal.impl.types.AbstractClassTypeConstructor, kotlin.reflect.jvm.internal.impl.types.AbstractTypeConstructor, kotlin.reflect.jvm.internal.impl.types.TypeConstructor
         /* renamed from: getDeclarationDescriptor */
-        public ClassDescriptor mo2107getDeclarationDescriptor() {
+        public ClassDescriptor mo2106getDeclarationDescriptor() {
             return LazyJavaClassDescriptor.this;
         }
 

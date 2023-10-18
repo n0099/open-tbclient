@@ -1,75 +1,81 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.util.SparseArray;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public final class x8 {
+public class x8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static long a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        long j;
-        long j2;
-        long j3;
-        char c;
+    public static final l7 a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, bArr, i, i2)) == null) {
-            long j4 = (i2 & 4294967295L) ^ (i * (-4132994306676758123L));
-            for (int i3 = 0; i3 < i / 8; i3++) {
-                int i4 = i3 * 8;
-                long j5 = ((bArr[i4 + 0] & 255) + ((bArr[i4 + 1] & 255) << 8) + ((bArr[i4 + 2] & 255) << 16) + ((bArr[i4 + 3] & 255) << 24) + ((bArr[i4 + 4] & 255) << 32) + ((bArr[i4 + 5] & 255) << 40) + ((bArr[i4 + 6] & 255) << 48) + ((bArr[i4 + 7] & 255) << 56)) * (-4132994306676758123L);
-                j4 = (j4 ^ ((j5 ^ (j5 >>> 47)) * (-4132994306676758123L))) * (-4132994306676758123L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
-            switch (i % 8) {
-                case 1:
-                    j = -4132994306676758123L;
-                    j4 = (j4 ^ (bArr[i & (-8)] & 255)) * (-4132994306676758123L);
-                    break;
-                case 2:
-                    j2 = (bArr[(i & (-8)) + 1] & 255) << 8;
-                    j4 ^= j2;
-                    j = -4132994306676758123L;
-                    break;
-                case 3:
-                    j2 = (bArr[(i & (-8)) + 2] & 255) << 16;
-                    j4 ^= j2;
-                    j = -4132994306676758123L;
-                    break;
-                case 4:
-                    j2 = (bArr[(i & (-8)) + 3] & 255) << 24;
-                    j4 ^= j2;
-                    j = -4132994306676758123L;
-                    break;
-                case 5:
-                    j2 = (bArr[(i & (-8)) + 4] & 255) << 32;
-                    j4 ^= j2;
-                    j = -4132994306676758123L;
-                    break;
-                case 6:
-                    j3 = bArr[(i & (-8)) + 5] & 255;
-                    c = '(';
-                    j2 = j3 << c;
-                    j4 ^= j2;
-                    j = -4132994306676758123L;
-                    break;
-                case 7:
-                    j3 = bArr[(i & (-8)) + 6] & 255;
-                    c = TransactionIdCreater.FILL_BYTE;
-                    j2 = j3 << c;
-                    j4 ^= j2;
-                    j = -4132994306676758123L;
-                    break;
-                default:
-                    j = -4132994306676758123L;
-                    break;
+            Class<?> cls = obj.getClass();
+            if (cls != Boolean.TYPE && cls != Boolean.class) {
+                if (cls == Bundle.class) {
+                    return new g7((Bundle) obj);
+                }
+                if (cls != Byte.TYPE && cls != Byte.class) {
+                    if (cls != Character.TYPE && cls != Character.class) {
+                        if (cls != Double.TYPE && cls != Double.class) {
+                            if (cls != Float.TYPE && cls != Float.class) {
+                                if (cls != Integer.TYPE && cls != Integer.class) {
+                                    if (cls != Long.TYPE && cls != Long.class) {
+                                        if (cls != Short.TYPE && cls != Short.class) {
+                                            if (cls == String.class) {
+                                                return new v7((String) obj);
+                                            }
+                                            if (cls.isArray()) {
+                                                return new e7(obj);
+                                            }
+                                            if (cls == SparseArray.class) {
+                                                return new u7((SparseArray) obj);
+                                            }
+                                            if (obj instanceof List) {
+                                                return new n7((List) obj);
+                                            }
+                                            if (obj instanceof Queue) {
+                                                return new r7((Queue) obj);
+                                            }
+                                            if (obj instanceof Map) {
+                                                return new p7((Map) obj);
+                                            }
+                                            if (obj instanceof Set) {
+                                                return new s7((Set) obj);
+                                            }
+                                            if (!b7.e(cls, OrmObject.class)) {
+                                                return null;
+                                            }
+                                            return new q7((OrmObject) obj);
+                                        }
+                                        return new t7(((Short) obj).shortValue());
+                                    }
+                                    return new o7(((Long) obj).longValue());
+                                }
+                                return new m7(((Integer) obj).intValue());
+                            }
+                            return new k7(((Float) obj).floatValue());
+                        }
+                        return new j7(((Double) obj).doubleValue());
+                    }
+                    return new i7(((Character) obj).charValue());
+                }
+                return new h7(((Byte) obj).byteValue());
             }
-            long j6 = (j4 ^ (j4 >>> 47)) * j;
-            return j6 ^ (j6 >>> 47);
+            return new f7(((Boolean) obj).booleanValue());
         }
-        return invokeLII.longValue;
+        return (l7) invokeL.objValue;
     }
 }

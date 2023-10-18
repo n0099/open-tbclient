@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.util.capitalizeDecapitalize.CapitalizeDecapitalizeKt;
 import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class PropertiesConventionUtilKt {
     public static final List<Name> getPropertyNamesCandidatesByAccessorName(Name name) {
         String asString = name.asString();

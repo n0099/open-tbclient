@@ -1,366 +1,180 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
 public class y84 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String b = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public qi2 a;
-    public ke4 b;
-    public Context c;
-    public n32 d;
-    public n32 e;
-    public n32 f;
-    public a94 g;
-    public d94 h;
-    public c94 i;
-    public c94 j;
-    public z84 k;
-    public f l;
+    public List<String> a;
 
-    /* loaded from: classes8.dex */
-    public interface f {
-        void a();
-
-        void b(int i);
-
-        void c(String str);
-
-        void d(String str);
-
-        void e(String str);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y84 a;
-
-        public a(y84 y84Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y84Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y84Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948284020, "Lcom/baidu/tieba/y84;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.y84.f
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                d94 d94Var = new d94();
-                d94Var.errMsg = "showKeyboard:ok";
-                d94Var.height = i;
-                sd4.call(this.a.d, true, d94Var);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.tieba.y84.f
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a.k != null) {
-                this.a.k.c(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.y84.f
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.a.k != null) {
-                this.a.k.b(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.y84.f
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.a.k != null) {
-                this.a.k.d(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.y84.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.j();
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948284020, "Lcom/baidu/tieba/y84;");
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y84 a;
-
-        public b(y84 y84Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y84Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public final String g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return "popview";
                 }
+                return "list";
             }
-            this.a = y84Var;
+            return "carousel";
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!le4.p().n(this.a.b)) {
-                    this.a.h.errMsg = "showKeyboard:fail";
-                    sd4.call(this.a.d, false, this.a.h);
-                    return;
-                }
-                this.a.b.j(this.a.g);
-            }
-        }
+        return (String) invokeI.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y84 a;
-
-        public c(y84 y84Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y84Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y84Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (le4.p().s(this.a.b)) {
-                    this.a.i.errMsg = "hideKeyboard:ok";
-                    sd4.call(this.a.e, true, this.a.i);
-                    return;
-                }
-                this.a.i.errMsg = "hideKeyboard:fail";
-                sd4.call(this.a.e, false, this.a.i);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y84 a;
-
-        public d(y84 y84Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y84Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y84Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                le4.p().s(this.a.b);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ y84 b;
-
-        public e(y84 y84Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y84Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = y84Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.b.m(this.a)) {
-                    this.b.j.errMsg = "updateKeyboard:ok";
-                    sd4.call(this.b.f, true, this.b.j);
-                    return;
-                }
-                this.b.j.errMsg = "updateKeyboard:fail";
-                sd4.call(this.b.f, false, this.b.j);
-            }
-        }
-    }
-
-    public y84(qi2 qi2Var, z84 z84Var) {
+    public y84() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qi2Var, z84Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = null;
-        this.l = new a(this);
-        this.a = qi2Var;
-        Context appContext = AppRuntime.getAppContext();
-        this.c = appContext;
-        ke4 ke4Var = new ke4(appContext);
-        this.b = ke4Var;
-        ke4Var.i(this.l);
-        this.k = z84Var;
+        this.a = new ArrayList();
     }
 
-    public void j() {
+    public final String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ap3.e0(new d(this));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            return String.format("%s_%s:%s", str, str2, str3);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public void b(int i, String str, String str2, String str3) {
+        String P;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String g = g(i);
+            if (p53.M() == null) {
+                P = null;
+            } else {
+                P = p53.M().P();
+            }
+            rc3 rc3Var = new rc3();
+            rc3Var.b = "click";
+            rc3Var.g = g;
+            rc3Var.e = str;
+            if (str2 != null) {
+                rc3Var.a("target_appkey", str2);
+            }
+            rc3Var.a("current_appkey", P);
+            if (!TextUtils.isEmpty(str3)) {
+                rc3Var.a("location", str3);
+            }
+            ic3.g(rc3Var);
         }
     }
 
-    public void k(JsObject jsObject) {
-        ke4 ke4Var;
+    public void c(int i, e94 e94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-            this.i = new c94();
-            n32 F = n32.F(jsObject);
-            this.e = F;
-            if (F == null) {
-                this.e = new n32();
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, e94Var) == null) {
+            String g = g(i);
+            JSONArray f = f(e94Var);
+            rc3 rc3Var = new rc3();
+            rc3Var.b = "show";
+            rc3Var.g = g;
+            if (f != null) {
+                rc3Var.a(GameGuideConfigInfo.KEY_GAME_LIST, f);
             }
-            if (this.a != null && (ke4Var = this.b) != null && ke4Var.g()) {
-                ap3.e0(new c(this));
+            ic3.g(rc3Var);
+        }
+    }
+
+    public void e(int i, e94 e94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, e94Var) == null) {
+            String g = g(i);
+            JSONArray f = f(e94Var);
+            rc3 rc3Var = new rc3();
+            rc3Var.b = "show";
+            rc3Var.g = g;
+            if (f != null) {
+                rc3Var.a(GameGuideConfigInfo.KEY_GAME_LIST, f);
+            }
+            ic3.g(rc3Var);
+            this.a.clear();
+        }
+    }
+
+    public void d(int i, String str, String str2) {
+        String P;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            String g = g(i);
+            String a = a(g, str, str2);
+            if (this.a.contains(a)) {
                 return;
             }
-            c94 c94Var = this.i;
-            c94Var.errMsg = "hideKeyboard:fail";
-            sd4.call(this.e, false, c94Var);
+            if (p53.M() == null) {
+                P = null;
+            } else {
+                P = p53.M().P();
+            }
+            rc3 rc3Var = new rc3();
+            rc3Var.b = "click";
+            rc3Var.g = g;
+            rc3Var.e = str;
+            if (str2 != null) {
+                rc3Var.a("target_appkey", str2);
+            }
+            rc3Var.a("current_appkey", P);
+            ic3.g(rc3Var);
+            this.a.add(a);
         }
     }
 
-    public void m(JsObject jsObject) {
+    public final JSONArray f(e94 e94Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
-            this.j = new c94();
-            n32 F = n32.F(jsObject);
-            this.f = F;
-            if (F == null) {
-                this.f = new n32();
-            }
-            if (this.a != null && this.b != null) {
-                ap3.e0(new e(this, this.f.B("value")));
-                return;
-            }
-            c94 c94Var = this.j;
-            c94Var.errMsg = "updateKeyboard:fail";
-            sd4.call(this.f, false, c94Var);
-        }
-    }
-
-    public void l(JsObject jsObject) {
-        ke4 ke4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            this.h = new d94();
-            n32 F = n32.F(jsObject);
-            this.d = F;
-            if (F == null) {
-                this.d = new n32();
-            }
-            if (this.a != null && (ke4Var = this.b) != null && !ke4Var.g()) {
-                a94 a94Var = new a94();
-                this.g = a94Var;
-                try {
-                    if (a94Var.a(this.d)) {
-                        ap3.f0(new b(this), 500L);
-                    } else {
-                        this.h.errMsg = "showKeyboard:fail";
-                        sd4.call(this.d, false, this.h);
-                    }
-                    return;
-                } catch (JSTypeMismatchException unused) {
-                    d94 d94Var = this.h;
-                    d94Var.errMsg = "showKeyboard:fail";
-                    sd4.call(this.d, false, d94Var);
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e94Var)) == null) {
+            if (e94Var != null && e94Var.b != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (RecommendItemModel recommendItemModel : e94Var.b) {
+                    jSONArray.put(recommendItemModel.appKey);
                 }
+                return jSONArray;
             }
-            d94 d94Var2 = this.h;
-            d94Var2.errMsg = "showKeyboard:fail";
-            sd4.call(this.d, false, d94Var2);
+            return null;
         }
+        return (JSONArray) invokeL.objValue;
     }
 }

@@ -16,7 +16,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.constants.EnumValue;
 import kotlin.reflect.jvm.internal.impl.resolve.constants.StringValue;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class AnnotationUtilKt {
     public static final Name DEPRECATED_LEVEL_NAME;
     public static final Name DEPRECATED_MESSAGE_NAME;

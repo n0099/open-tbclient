@@ -8,27 +8,27 @@ import com.baidu.browser.sailor.BdSailorWebViewClientExt;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
-import com.baidu.tieba.br3;
-import com.baidu.tieba.c13;
-import com.baidu.tieba.fb3;
-import com.baidu.tieba.qh3;
-import com.baidu.tieba.uc2;
-import com.baidu.tieba.xo3;
-import com.baidu.tieba.yq3;
+import com.baidu.tieba.d72;
+import com.baidu.tieba.gj3;
+import com.baidu.tieba.hl3;
+import com.baidu.tieba.kl3;
+import com.baidu.tieba.lv2;
+import com.baidu.tieba.o53;
+import com.baidu.tieba.zb3;
 /* loaded from: classes4.dex */
 public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackHandler {
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
+    public boolean R1() {
+        return false;
+    }
+
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
     public boolean S1() {
         return false;
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-    public boolean T1() {
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ox1
-    public String Z() {
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.yr1
+    public String Y() {
         return "swan_app_web_mode_widget";
     }
 
@@ -40,21 +40,21 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public void onPageFinished(BdSailorWebView bdSailorWebView, String str) {
-            uc2 uc2Var = SwanWebModeWidget.this.U;
-            if (uc2Var != null) {
-                uc2Var.e(str);
+            d72 d72Var = SwanWebModeWidget.this.U;
+            if (d72Var != null) {
+                d72Var.e(str);
             }
-            br3.a().h(str);
-            yq3.c().q(str);
-            SwanWebModeWidget.this.W1();
-            yq3.c().l(str);
+            kl3.a().h(str);
+            hl3.c().q(str);
+            SwanWebModeWidget.this.V1();
+            hl3.c().l(str);
             super.onPageFinished(bdSailorWebView, str);
         }
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public boolean shouldOverrideUrlLoading(BdSailorWebView bdSailorWebView, String str) {
-            uc2 uc2Var = SwanWebModeWidget.this.U;
-            if (uc2Var != null && uc2Var.a(str)) {
+            d72 d72Var = SwanWebModeWidget.this.U;
+            if (d72Var != null && d72Var.a(str)) {
                 return true;
             }
             return false;
@@ -62,15 +62,15 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public void onPageStarted(BdSailorWebView bdSailorWebView, String str, Bitmap bitmap) {
-            SwanWebModeWidget.this.f1071T = xo3.t();
+            SwanWebModeWidget.this.f1072T = gj3.t();
             super.onPageStarted(bdSailorWebView, str, bitmap);
         }
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public void onReceivedError(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
-            uc2 uc2Var = SwanWebModeWidget.this.U;
-            if (uc2Var != null) {
-                uc2Var.c(i, str, str2);
+            d72 d72Var = SwanWebModeWidget.this.U;
+            if (d72Var != null) {
+                d72Var.c(i, str, str2);
             }
             super.onReceivedError(bdSailorWebView, i, str, str2);
         }
@@ -84,53 +84,53 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstContentfulPaintExt(BdSailorWebView bdSailorWebView, String str) {
             super.onFirstContentfulPaintExt(bdSailorWebView, str);
-            br3.a().c(str);
+            kl3.a().c(str);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstImagePaintExt(BdSailorWebView bdSailorWebView, String str) {
             super.onFirstImagePaintExt(bdSailorWebView, str);
-            br3.a().d(str);
+            kl3.a().d(str);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstScreenPaintFinishedExt(BdSailorWebView bdSailorWebView, String str) {
             super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
-            br3.a().f(str);
-            if (TextUtils.equals(yq3.c().f(), "3")) {
-                qh3.s(fb3.K().q().W());
+            kl3.a().f(str);
+            if (TextUtils.equals(hl3.c().f(), "3")) {
+                zb3.s(o53.K().q().X());
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstTextPaintExt(BdSailorWebView bdSailorWebView, String str) {
             super.onFirstTextPaintExt(bdSailorWebView, str);
-            br3.a().e(str);
+            kl3.a().e(str);
         }
     }
 
     public SwanWebModeWidget(Context context) {
         super(context);
-        W0(new SwanWebModeClient());
-        X0(new SwanWebWidgetClientExt());
+        V0(new SwanWebModeClient());
+        W0(new SwanWebWidgetClientExt());
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void S0(SwanAppWebViewManager.d dVar) {
-        super.S0(dVar);
+    public void R0(SwanAppWebViewManager.d dVar) {
+        super.R0(dVar);
         dVar.b = true;
     }
 
-    public void W1() {
-        int b = c13.b();
-        c13.g(b, c13.a(b));
+    public void V1() {
+        int b = lv2.b();
+        lv2.g(b, lv2.a(b));
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ga2
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.p42
     public boolean n() {
-        uc2 uc2Var = this.U;
-        if (uc2Var != null) {
-            uc2Var.goBack();
+        d72 d72Var = this.U;
+        if (d72Var != null) {
+            d72Var.goBack();
         }
         return super.n();
     }

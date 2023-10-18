@@ -1,33 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
-/* loaded from: classes8.dex */
-public class ye4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import java.util.Map;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public interface ye4 {
 
-    public static void a(Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, callback) == null) {
-            b(callback, "6");
-        }
+    /* loaded from: classes9.dex */
+    public interface a {
+        void b(String str, String str2, JSONObject jSONObject);
+
+        void onFail(Exception exc);
+
+        void onStart();
+
+        void onSuccess(String str, int i);
     }
 
-    public static void b(Callback callback, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callback, str) != null) || gb3.M() == null) {
-            return;
-        }
-        HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
-        newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
-        newBuilder.addQueryParameter(GameGuideConfigInfo.KEY_APP_KEY, gb3.M().O());
-        newBuilder.addQueryParameter("source", "4");
-        ((n94) gb3.M().i0()).call(new Request.Builder().url(newBuilder.build()).build(), callback);
-    }
+    void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, a aVar);
+
+    void z(String str, Map<String, String> map, Map<String, String> map2, a aVar);
 }

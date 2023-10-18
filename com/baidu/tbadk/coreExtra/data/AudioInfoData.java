@@ -2,8 +2,8 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r15;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class AudioInfoData extends r15 implements Serializable {
+/* loaded from: classes5.dex */
+public class AudioInfoData extends zv4 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3295150133270063363L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class AudioInfoData extends r15 implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.r15
+    @Override // com.baidu.tieba.zv4
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || str == null) {
@@ -84,7 +84,7 @@ public class AudioInfoData extends r15 implements Serializable {
         }
     }
 
-    @Override // com.baidu.tieba.r15
+    @Override // com.baidu.tieba.zv4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {

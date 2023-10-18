@@ -24,33 +24,33 @@ import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj0;
-import com.baidu.tieba.bq0;
-import com.baidu.tieba.bs0;
-import com.baidu.tieba.dq0;
-import com.baidu.tieba.er0;
-import com.baidu.tieba.h31;
-import com.baidu.tieba.hr0;
-import com.baidu.tieba.iq0;
-import com.baidu.tieba.ir0;
-import com.baidu.tieba.jq0;
-import com.baidu.tieba.jr0;
-import com.baidu.tieba.k71;
-import com.baidu.tieba.kq0;
-import com.baidu.tieba.lq0;
-import com.baidu.tieba.lr0;
-import com.baidu.tieba.mq0;
-import com.baidu.tieba.ni0;
-import com.baidu.tieba.nq0;
-import com.baidu.tieba.p61;
-import com.baidu.tieba.qj0;
-import com.baidu.tieba.rq0;
-import com.baidu.tieba.ur0;
-import com.baidu.tieba.vd1;
-import com.baidu.tieba.vq0;
-import com.baidu.tieba.w61;
-import com.baidu.tieba.xd1;
-import com.baidu.tieba.zr0;
+import com.baidu.tieba.al0;
+import com.baidu.tieba.bm0;
+import com.baidu.tieba.c11;
+import com.baidu.tieba.em0;
+import com.baidu.tieba.f81;
+import com.baidu.tieba.fl0;
+import com.baidu.tieba.fm0;
+import com.baidu.tieba.gl0;
+import com.baidu.tieba.gm0;
+import com.baidu.tieba.h81;
+import com.baidu.tieba.hl0;
+import com.baidu.tieba.il0;
+import com.baidu.tieba.im0;
+import com.baidu.tieba.j11;
+import com.baidu.tieba.jl0;
+import com.baidu.tieba.kd0;
+import com.baidu.tieba.kl0;
+import com.baidu.tieba.ne0;
+import com.baidu.tieba.ol0;
+import com.baidu.tieba.rm0;
+import com.baidu.tieba.sl0;
+import com.baidu.tieba.ux0;
+import com.baidu.tieba.wm0;
+import com.baidu.tieba.x11;
+import com.baidu.tieba.yd0;
+import com.baidu.tieba.yk0;
+import com.baidu.tieba.ym0;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
@@ -64,9 +64,9 @@ import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000ª\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001:\u0001]B\u0007¢\u0006\u0004\b\\\u0010\u0004J\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\t\u0010\u0004J\u000f\u0010\n\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\n\u0010\u0004J\u0017\u0010\r\u001a\u00020\u00022\u0006\u0010\f\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u000f\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u000f\u0010\u0004J\u0017\u0010\u0010\u001a\u00020\u00022\u0006\u0010\f\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\u0010\u0010\u000eJ\u000f\u0010\u0011\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0011\u0010\u0004J\u000f\u0010\u0012\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0012\u0010\u0004J\u0017\u0010\u0015\u001a\u00020\u00022\u0006\u0010\u0014\u001a\u00020\u0013H\u0016¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0017\u0010\u0004J\u0017\u0010\u001a\u001a\u00020\u00022\u0006\u0010\u0019\u001a\u00020\u0018H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001c\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u001c\u0010\u0004J\u000f\u0010\u001d\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u001d\u0010\u0004J\u000f\u0010\u001e\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u001e\u0010\u0004J\u0017\u0010\u001f\u001a\u00020\u00022\u0006\u0010\u0019\u001a\u00020\u0018H\u0002¢\u0006\u0004\b\u001f\u0010\u001bJ\u0017\u0010!\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020 H\u0016¢\u0006\u0004\b!\u0010\"J\u001d\u0010'\u001a\u00020\u00022\u0006\u0010$\u001a\u00020#2\u0006\u0010&\u001a\u00020%¢\u0006\u0004\b'\u0010(R\u0016\u0010*\u001a\u00020)8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b*\u0010+R\u0016\u0010-\u001a\u00020,8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b-\u0010.R\u0016\u00100\u001a\u00020/8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b0\u00101R\u0016\u00102\u001a\u00020,8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b2\u0010.R\u001e\u00105\u001a\n\u0012\u0004\u0012\u000204\u0018\u0001038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b5\u00106R\u0018\u00108\u001a\u0004\u0018\u0001078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00109R\u0016\u0010:\u001a\u00020%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b:\u0010;R\u0016\u0010<\u001a\u00020%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b<\u0010;R\u0018\u0010>\u001a\u0004\u0018\u00010=8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010?R\u0016\u0010@\u001a\u0002048\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b@\u0010AR\u0016\u0010C\u001a\u00020B8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bC\u0010DR\u0016\u0010E\u001a\u0002048\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bE\u0010AR\u0016\u0010F\u001a\u00020=8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bF\u0010GR\u001d\u0010M\u001a\u00020H8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bI\u0010J\u001a\u0004\bK\u0010LR\u0018\u0010N\u001a\u0004\u0018\u0001048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bN\u0010AR\u0018\u0010P\u001a\u0004\u0018\u00010O8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bP\u0010QR\u0018\u0010S\u001a\u0004\u0018\u00010R8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bS\u0010TR\u0016\u0010U\u001a\u00020,8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bU\u0010.R\u0018\u0010W\u001a\u0004\u0018\u00010V8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bW\u0010XR\u0016\u0010Z\u001a\u00020Y8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bZ\u0010[¨\u0006^"}, d2 = {"Lcom/baidu/nadcore/max/uicomponent/PanelComponent;", "Lcom/baidu/nadcore/component/AbsComponentPlugin;", "", "attachToParent", "()V", "Lcom/baidu/nadcore/max/event/NestedScrollEvent;", "event", "handleNestedEvent", "(Lcom/baidu/nadcore/max/event/NestedScrollEvent;)V", "initClickListener", "initCountDownTimer", "Lorg/json/JSONObject;", "paramJson", "initEnhanceData", "(Lorg/json/JSONObject;)V", "initPanelInfo", "initPanelPosition", "initPanelUI", "injectService", "Landroid/view/ViewGroup;", "parent", "onCreateView", "(Landroid/view/ViewGroup;)V", MissionEvent.MESSAGE_DESTROY, "Landroid/content/Intent;", "intent", "onNewIntent", "(Landroid/content/Intent;)V", MissionEvent.MESSAGE_PAUSE, "onRelease", "onResume", "parseData", "Lcom/baidu/nadcore/component/api/IComponentEvent;", "receiveEvent", "(Lcom/baidu/nadcore/component/api/IComponentEvent;)V", "", "duration", "", MapBundleKey.MapObjKey.OBJ_SL_VISI, "setUserInfoAreaVisible", "(JZ)V", "Lcom/baidu/nadcore/widget/AdImageView;", "authorAvatar", "Lcom/baidu/nadcore/widget/AdImageView;", "Landroid/widget/TextView;", "authorAvatarText", "Landroid/widget/TextView;", "Landroid/widget/LinearLayout;", "authorContainer", "Landroid/widget/LinearLayout;", "authorName", "Lcom/baidu/nadcore/widget/uiwidget/IEnhancementBtnView;", "Landroid/view/View;", "enhanceButtonView", "Lcom/baidu/nadcore/widget/uiwidget/IEnhancementBtnView;", "Lcom/baidu/nadcore/model/AdLpParams$EnhanceModel;", "enhanceModel", "Lcom/baidu/nadcore/model/AdLpParams$EnhanceModel;", "isFinishEnhanceAnim", "Z", "isNagivationBarChange", "", "navigationBarHeight", "Ljava/lang/Integer;", "panelBgView", "Landroid/view/View;", "Lcom/baidu/nadcore/model/AdLpParams$PanelModel;", "panelModel", "Lcom/baidu/nadcore/model/AdLpParams$PanelModel;", "panelRoot", "panelRootBottom", "I", "Lcom/baidu/nadcore/max/service/IPanelService;", "panelService$delegate", "Lkotlin/Lazy;", "getPanelService", "()Lcom/baidu/nadcore/max/service/IPanelService;", "panelService", "parentRoot", "Lcom/baidu/nadcore/model/CmdPolicy;", "switchModel", "Lcom/baidu/nadcore/model/CmdPolicy;", "Lcom/baidu/nadcore/utils/UniversalCountDownTimer;", "timeoutTimer", "Lcom/baidu/nadcore/utils/UniversalCountDownTimer;", "title", "Landroid/view/animation/AlphaAnimation;", "userInfoAreaAnimation", "Landroid/view/animation/AlphaAnimation;", "Landroid/widget/RelativeLayout;", "userInfoContainer", "Landroid/widget/RelativeLayout;", "<init>", "EnhanceBtnListener", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class PanelComponent extends AbsComponentPlugin {
-    public bs0 d;
-    public jr0 e;
-    public ir0 f;
+    public ym0 d;
+    public gm0 e;
+    public fm0 f;
     public View g;
     public TextView h;
     public RelativeLayout i;
@@ -75,10 +75,10 @@ public final class PanelComponent extends AbsComponentPlugin {
     public TextView l;
     public TextView m;
     public View n;
-    public xd1<View> o;
+    public h81<View> o;
     public boolean p;
     public AlphaAnimation q;
-    public k71 r;
+    public x11 r;
     public int s;
     public boolean t;
     public Integer u;
@@ -89,14 +89,14 @@ public final class PanelComponent extends AbsComponentPlugin {
         }
 
         /* loaded from: classes3.dex */
-        public static final class a implements mq0 {
+        public static final class a implements jl0 {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             public a() {
             }
 
-            @Override // com.baidu.tieba.mq0
+            @Override // com.baidu.tieba.jl0
             public void d(long j, boolean z) {
-                PanelComponent.this.V(j, z);
+                PanelComponent.this.X(j, z);
             }
         }
 
@@ -108,26 +108,26 @@ public final class PanelComponent extends AbsComponentPlugin {
         }
     });
 
-    public final mq0 M() {
-        return (mq0) this.w.getValue();
+    public final jl0 O() {
+        return (jl0) this.w.getValue();
     }
 
     /* loaded from: classes3.dex */
-    public final class a extends vd1 {
+    public final class a extends f81 {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a() {
         }
 
-        @Override // com.baidu.tieba.vd1
+        @Override // com.baidu.tieba.f81
         public void a(String str) {
-            kq0 kq0Var = (kq0) PanelComponent.this.c().p(kq0.class);
-            if (kq0Var != null) {
+            hl0 hl0Var = (hl0) PanelComponent.this.g().q(hl0.class);
+            if (hl0Var != null) {
                 String str2 = ClogBuilder.LogType.FREE_CLICK.type;
                 Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.LogType.FREE_CLICK.type");
                 if (str == null) {
                     str = "";
                 }
-                kq0Var.a(str2, str);
+                hl0Var.a(str2, str);
             }
         }
 
@@ -135,47 +135,47 @@ public final class PanelComponent extends AbsComponentPlugin {
         /* JADX WARN: Removed duplicated region for block: B:23:0x0053  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0086  */
         /* JADX WARN: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
-        @Override // com.baidu.tieba.vd1
+        @Override // com.baidu.tieba.f81
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void b(ur0 clickBean) {
+        public void b(rm0 clickBean) {
             boolean z;
             boolean z2;
-            kq0 kq0Var;
+            hl0 hl0Var;
             String str;
             Intrinsics.checkNotNullParameter(clickBean, "clickBean");
             if (clickBean.c) {
-                ir0 ir0Var = PanelComponent.this.f;
-                if (ir0Var == null || ir0Var.a != 1) {
-                    bs0 bs0Var = PanelComponent.this.d;
-                    if (bs0Var != null) {
-                        z = bs0Var.t();
+                fm0 fm0Var = PanelComponent.this.f;
+                if (fm0Var == null || fm0Var.a != 1) {
+                    ym0 ym0Var = PanelComponent.this.d;
+                    if (ym0Var != null) {
+                        z = ym0Var.t();
                     } else {
                         z = false;
                     }
                     if (!z) {
                         z2 = false;
                         if (!z2) {
-                            ir0 ir0Var2 = PanelComponent.this.f;
-                            if (ir0Var2 != null) {
-                                str = ir0Var2.t;
+                            fm0 fm0Var2 = PanelComponent.this.f;
+                            if (fm0Var2 != null) {
+                                str = fm0Var2.t;
                             } else {
                                 str = null;
                             }
-                            bj0.c(str, PanelComponent.this.getContext());
+                            yd0.c(str, PanelComponent.this.b());
                         } else {
-                            lq0 lq0Var = (lq0) PanelComponent.this.c().p(lq0.class);
-                            if (lq0Var != null) {
-                                lq0Var.i(false, true, false);
+                            il0 il0Var = (il0) PanelComponent.this.g().q(il0.class);
+                            if (il0Var != null) {
+                                il0Var.i(false, true, false);
                             }
                         }
-                        PanelComponent.this.c().j(new dq0(PanelEventTypeEnum.CLICK_PANEL_UI));
-                        kq0Var = (kq0) PanelComponent.this.c().p(kq0.class);
-                        if (kq0Var == null) {
+                        PanelComponent.this.g().j(new al0(PanelEventTypeEnum.CLICK_PANEL_UI));
+                        hl0Var = (hl0) PanelComponent.this.g().q(hl0.class);
+                        if (hl0Var == null) {
                             String str2 = ClogBuilder.LogType.FREE_CLICK.type;
                             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.LogType.FREE_CLICK.type");
-                            kq0Var.a(str2, NativeConstants.ID_BUTTON);
+                            hl0Var.a(str2, NativeConstants.ID_BUTTON);
                             return;
                         }
                         return;
@@ -184,16 +184,16 @@ public final class PanelComponent extends AbsComponentPlugin {
                 z2 = true;
                 if (!z2) {
                 }
-                PanelComponent.this.c().j(new dq0(PanelEventTypeEnum.CLICK_PANEL_UI));
-                kq0Var = (kq0) PanelComponent.this.c().p(kq0.class);
-                if (kq0Var == null) {
+                PanelComponent.this.g().j(new al0(PanelEventTypeEnum.CLICK_PANEL_UI));
+                hl0Var = (hl0) PanelComponent.this.g().q(hl0.class);
+                if (hl0Var == null) {
                 }
             } else {
-                PanelComponent.this.c().j(new dq0(PanelEventTypeEnum.CLICK_PANEL_UI));
+                PanelComponent.this.g().j(new al0(PanelEventTypeEnum.CLICK_PANEL_UI));
             }
         }
 
-        @Override // com.baidu.tieba.vd1
+        @Override // com.baidu.tieba.f81
         public void d() {
             PanelComponent.this.p = true;
         }
@@ -207,7 +207,7 @@ public final class PanelComponent extends AbsComponentPlugin {
         @Override // android.view.View.OnClickListener
         public final void onClick(View v) {
             String str;
-            lq0 lq0Var;
+            il0 il0Var;
             Intrinsics.checkNotNullExpressionValue(v, "v");
             int id = v.getId();
             if (id == R.id.ad_video_title) {
@@ -221,23 +221,23 @@ public final class PanelComponent extends AbsComponentPlugin {
             } else {
                 str = "icon";
             }
-            bs0 bs0Var = PanelComponent.this.d;
-            if (bs0Var != null && !bs0Var.t() && (lq0Var = (lq0) PanelComponent.this.c().p(lq0.class)) != null) {
-                lq0Var.i(false, true, false);
+            ym0 ym0Var = PanelComponent.this.d;
+            if (ym0Var != null && !ym0Var.t() && (il0Var = (il0) PanelComponent.this.g().q(il0.class)) != null) {
+                il0Var.i(false, true, false);
             }
-            PanelComponent.this.c().j(new dq0(PanelEventTypeEnum.CLICK_PANEL_UI));
-            kq0 kq0Var = (kq0) PanelComponent.this.c().p(kq0.class);
-            if (kq0Var != null) {
+            PanelComponent.this.g().j(new al0(PanelEventTypeEnum.CLICK_PANEL_UI));
+            hl0 hl0Var = (hl0) PanelComponent.this.g().q(hl0.class);
+            if (hl0Var != null) {
                 String str2 = ClogBuilder.LogType.FREE_CLICK.type;
                 Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.LogType.FREE_CLICK.type");
-                kq0Var.a(str2, str);
+                hl0Var.a(str2, str);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class c extends k71.b {
-        @Override // com.baidu.tieba.k71.b
+    public static final class c extends x11.b {
+        @Override // com.baidu.tieba.x11.b
         public void e() {
         }
 
@@ -245,20 +245,20 @@ public final class PanelComponent extends AbsComponentPlugin {
         public c() {
         }
 
-        @Override // com.baidu.tieba.k71.b
+        @Override // com.baidu.tieba.x11.b
         public void f(long j) {
             float rint = (float) Math.rint(((float) (100000 - j)) / 1000);
             if (PanelComponent.this.p) {
-                k71 k71Var = PanelComponent.this.r;
-                if (k71Var != null) {
-                    k71Var.a();
+                x11 x11Var = PanelComponent.this.r;
+                if (x11Var != null) {
+                    x11Var.a();
                 }
                 PanelComponent.this.r = null;
                 return;
             }
-            xd1 xd1Var = PanelComponent.this.o;
-            if (xd1Var != null) {
-                xd1Var.update((int) rint);
+            h81 h81Var = PanelComponent.this.o;
+            if (h81Var != null) {
+                h81Var.update((int) rint);
             }
         }
     }
@@ -270,17 +270,17 @@ public final class PanelComponent extends AbsComponentPlugin {
 
         @Override // android.view.View.OnApplyWindowInsetsListener
         public final WindowInsets onApplyWindowInsets(View view2, WindowInsets windowInsets) {
-            View v;
+            View w;
             int i;
             Integer num = PanelComponent.this.u;
             if (num != null) {
-                if (num.intValue() != w61.d(PanelComponent.this.b())) {
+                if (num.intValue() != j11.d(PanelComponent.this.c())) {
                     PanelComponent panelComponent = PanelComponent.this;
-                    panelComponent.u = Integer.valueOf(w61.d(panelComponent.b()));
-                    if (PanelComponent.this.t && (v = PanelComponent.v(PanelComponent.this)) != null) {
-                        int paddingLeft = v.getPaddingLeft();
-                        int paddingTop = v.getPaddingTop();
-                        int paddingRight = v.getPaddingRight();
+                    panelComponent.u = Integer.valueOf(j11.d(panelComponent.c()));
+                    if (PanelComponent.this.t && (w = PanelComponent.w(PanelComponent.this)) != null) {
+                        int paddingLeft = w.getPaddingLeft();
+                        int paddingTop = w.getPaddingTop();
+                        int paddingRight = w.getPaddingRight();
                         int i2 = PanelComponent.this.s;
                         Integer num2 = PanelComponent.this.u;
                         if (num2 != null) {
@@ -288,14 +288,14 @@ public final class PanelComponent extends AbsComponentPlugin {
                         } else {
                             i = 0;
                         }
-                        v.setPadding(paddingLeft, paddingTop, paddingRight, i2 + i);
+                        w.setPadding(paddingLeft, paddingTop, paddingRight, i2 + i);
                     }
                 } else {
                     PanelComponent.this.t = true;
                 }
             } else {
                 PanelComponent panelComponent2 = PanelComponent.this;
-                panelComponent2.u = Integer.valueOf(w61.d(panelComponent2.b()));
+                panelComponent2.u = Integer.valueOf(j11.d(panelComponent2.c()));
             }
             return view2.onApplyWindowInsets(windowInsets);
         }
@@ -308,45 +308,45 @@ public final class PanelComponent extends AbsComponentPlugin {
 
         @Override // java.lang.Runnable
         public final void run() {
-            PanelComponent.this.L();
-            k71 k71Var = PanelComponent.this.r;
-            if (k71Var != null) {
-                k71Var.e();
+            PanelComponent.this.N();
+            x11 x11Var = PanelComponent.this.r;
+            if (x11Var != null) {
+                x11Var.e();
             }
         }
     }
 
-    public final void L() {
-        nq0 nq0Var = (nq0) c().p(nq0.class);
-        if (nq0Var != null) {
+    public final void N() {
+        kl0 kl0Var = (kl0) g().q(kl0.class);
+        if (kl0Var != null) {
             View view2 = this.g;
             if (view2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
             }
-            ni0.g(view2);
-            FrameLayout videoHolder = nq0Var.getVideoHolder();
+            kd0.g(view2);
+            FrameLayout videoHolder = kl0Var.getVideoHolder();
             if (videoHolder != null) {
                 videoHolder.addView(view2);
             }
         }
     }
 
-    public final void P() {
-        k71 k71Var = new k71(100000L, 1000L);
-        k71Var.d(new c());
-        this.r = k71Var;
+    public final void R() {
+        x11 x11Var = new x11(100000L, 1000L);
+        x11Var.d(new c());
+        this.r = x11Var;
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onDestroy() {
         View view2;
         super.onDestroy();
-        if (w61.f() && Build.VERSION.SDK_INT >= 20 && (view2 = this.v) != null) {
+        if (j11.f() && Build.VERSION.SDK_INT >= 20 && (view2 = this.v) != null) {
             view2.setOnApplyWindowInsetsListener(null);
         }
-        k71 k71Var = this.r;
-        if (k71Var != null) {
-            k71Var.a();
+        x11 x11Var = this.r;
+        if (x11Var != null) {
+            x11Var.a();
         }
         this.r = null;
     }
@@ -354,18 +354,18 @@ public final class PanelComponent extends AbsComponentPlugin {
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onPause() {
         super.onPause();
-        k71 k71Var = this.r;
-        if (k71Var != null) {
-            k71Var.b();
+        x11 x11Var = this.r;
+        if (x11Var != null) {
+            x11Var.b();
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void onRelease() {
         super.onRelease();
-        xd1<View> xd1Var = this.o;
-        if (xd1Var != null) {
-            xd1Var.a();
+        h81<View> h81Var = this.o;
+        if (h81Var != null) {
+            h81Var.a();
         }
         this.o = null;
         AlphaAnimation alphaAnimation = this.q;
@@ -377,26 +377,26 @@ public final class PanelComponent extends AbsComponentPlugin {
         if (view2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
         }
-        ni0.g(view2);
+        kd0.g(view2);
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onResume() {
-        k71 k71Var;
+        x11 x11Var;
         super.onResume();
-        nq0 nq0Var = (nq0) c().p(nq0.class);
-        if (nq0Var != null && nq0Var.j() && (k71Var = this.r) != null) {
-            k71Var.c();
+        kl0 kl0Var = (kl0) g().q(kl0.class);
+        if (kl0Var != null && kl0Var.j() && (x11Var = this.r) != null) {
+            x11Var.c();
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void x() {
-        super.x();
-        c().w(mq0.class, M());
+    public void y() {
+        super.y();
+        g().w(jl0.class, O());
     }
 
-    public static final /* synthetic */ View v(PanelComponent panelComponent) {
+    public static final /* synthetic */ View w(PanelComponent panelComponent) {
         View view2 = panelComponent.g;
         if (view2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
@@ -405,29 +405,29 @@ public final class PanelComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void J(ViewGroup parent) {
+    public void K(ViewGroup parent) {
         View view2;
         Intrinsics.checkNotNullParameter(parent, "parent");
         this.v = parent;
-        if (w61.f() && Build.VERSION.SDK_INT >= 20 && (view2 = this.v) != null) {
+        if (j11.f() && Build.VERSION.SDK_INT >= 20 && (view2 = this.v) != null) {
             view2.setOnApplyWindowInsetsListener(new d());
         }
         parent.post(new e());
     }
 
-    public final void N(bq0 bq0Var) {
-        k71 k71Var;
-        int i = rq0.$EnumSwitchMapping$0[bq0Var.getType().ordinal()];
+    public final void P(yk0 yk0Var) {
+        x11 x11Var;
+        int i = ol0.$EnumSwitchMapping$0[yk0Var.b().ordinal()];
         if (i != 1) {
-            if (i == 2 && (k71Var = this.r) != null) {
-                k71Var.b();
+            if (i == 2 && (x11Var = this.r) != null) {
+                x11Var.b();
                 return;
             }
             return;
         }
-        k71 k71Var2 = this.r;
-        if (k71Var2 != null) {
-            k71Var2.c();
+        x11 x11Var2 = this.r;
+        if (x11Var2 != null) {
+            x11Var2.c();
         }
     }
 
@@ -435,20 +435,20 @@ public final class PanelComponent extends AbsComponentPlugin {
     public void onNewIntent(Intent intent) {
         Intrinsics.checkNotNullParameter(intent, "intent");
         super.onNewIntent(intent);
-        T();
-        U(intent);
+        V();
+        W(intent);
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void s(qj0 event) {
+    public void t(ne0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
-        super.s(event);
-        if (Intrinsics.areEqual(event.a(), bq0.class.getSimpleName())) {
-            N((bq0) event);
+        super.t(event);
+        if (Intrinsics.areEqual(event.a(), yk0.class.getSimpleName())) {
+            P((yk0) event);
         }
     }
 
-    public final void O() {
+    public final void Q() {
         b bVar = new b();
         AdImageView adImageView = this.k;
         if (adImageView == null) {
@@ -491,19 +491,19 @@ public final class PanelComponent extends AbsComponentPlugin {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void Q(JSONObject jSONObject) {
+    public final void S(JSONObject jSONObject) {
         int i;
-        er0 c2;
-        List<lr0> list;
+        bm0 c2;
+        List<im0> list;
         boolean z;
         View view2;
-        xd1<View> xd1Var;
-        xd1<View> xd1Var2;
-        xd1<View> xd1Var3;
-        xd1<View> xd1Var4;
+        h81<View> h81Var;
+        h81<View> h81Var2;
+        h81<View> h81Var3;
+        h81<View> h81Var4;
         String appStr;
-        xd1<View> xd1Var5;
-        ir0 a2 = ir0.v.a(jSONObject);
+        h81<View> h81Var5;
+        fm0 a2 = fm0.v.a(jSONObject);
         if (a2 != null) {
             this.f = a2;
             if (a2 != null) {
@@ -520,16 +520,16 @@ public final class PanelComponent extends AbsComponentPlugin {
                             i = 1;
                         }
                         a2.a = i;
-                        c2 = er0.c(h31.c(jSONObject.optString("download")));
+                        c2 = bm0.c(ux0.c(jSONObject.optString("download")));
                         a2.p = c2;
                         if (c2 != null) {
                             c2.b = jSONObject.optString("deferred_cmd");
                         }
-                        hr0 hr0Var = new hr0();
-                        hr0Var.a = ClogBuilder.Page.PAGE_VIDEO_IMMERSIVE_LP.type;
-                        hr0Var.d = jSONObject.optString(MigrateStatisticUtils.EXT_INFO);
+                        em0 em0Var = new em0();
+                        em0Var.a = ClogBuilder.Page.PAGE_VIDEO_IMMERSIVE_LP.type;
+                        em0Var.d = jSONObject.optString(MigrateStatisticUtils.EXT_INFO);
                         Unit unit = Unit.INSTANCE;
-                        a2.q = hr0Var;
+                        a2.q = em0Var;
                         list = a2.o;
                         if (list == null && !list.isEmpty()) {
                             z = false;
@@ -543,26 +543,26 @@ public final class PanelComponent extends AbsComponentPlugin {
                         if (view2 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
                         }
-                        xd1Var = (xd1) view2.findViewById(R.id.max_ebtn);
-                        this.o = xd1Var;
-                        if (xd1Var != null) {
+                        h81Var = (h81) view2.findViewById(R.id.max_ebtn);
+                        this.o = h81Var;
+                        if (h81Var != null) {
                             View view3 = this.g;
                             if (view3 == null) {
                                 Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
                             }
-                            xd1Var.setBtnPlaceholder(view3.findViewById(R.id.ad_video_btn_placeholder));
+                            h81Var.setBtnPlaceholder(view3.findViewById(R.id.ad_video_btn_placeholder));
                         }
-                        xd1Var2 = this.o;
-                        if (xd1Var2 != null) {
-                            xd1Var2.setVisible(0);
+                        h81Var2 = this.o;
+                        if (h81Var2 != null) {
+                            h81Var2.setVisible(0);
                         }
-                        xd1Var3 = this.o;
-                        if (xd1Var3 != null) {
-                            xd1Var3.setBtnIconNightModeEnable(false);
+                        h81Var3 = this.o;
+                        if (h81Var3 != null) {
+                            h81Var3.setBtnIconNightModeEnable(false);
                         }
-                        xd1Var4 = this.o;
-                        if (xd1Var4 != null) {
-                            xd1Var4.setEnhanceBtnListener(new a());
+                        h81Var4 = this.o;
+                        if (h81Var4 != null) {
+                            h81Var4.setEnhanceBtnListener(new a());
                         }
                         appStr = jSONObject.optString("app_info");
                         Intrinsics.checkNotNullExpressionValue(appStr, "appStr");
@@ -570,11 +570,11 @@ public final class PanelComponent extends AbsComponentPlugin {
                             z2 = false;
                         }
                         if (z2) {
-                            a2.s = zr0.d(h31.c(appStr));
+                            a2.s = wm0.d(ux0.c(appStr));
                         }
-                        xd1Var5 = this.o;
-                        if (xd1Var5 == null) {
-                            xd1Var5.setData(a2);
+                        h81Var5 = this.o;
+                        if (h81Var5 == null) {
+                            h81Var5.setData(a2);
                             return;
                         }
                         return;
@@ -583,15 +583,15 @@ public final class PanelComponent extends AbsComponentPlugin {
                 }
                 i = 0;
                 a2.a = i;
-                c2 = er0.c(h31.c(jSONObject.optString("download")));
+                c2 = bm0.c(ux0.c(jSONObject.optString("download")));
                 a2.p = c2;
                 if (c2 != null) {
                 }
-                hr0 hr0Var2 = new hr0();
-                hr0Var2.a = ClogBuilder.Page.PAGE_VIDEO_IMMERSIVE_LP.type;
-                hr0Var2.d = jSONObject.optString(MigrateStatisticUtils.EXT_INFO);
+                em0 em0Var2 = new em0();
+                em0Var2.a = ClogBuilder.Page.PAGE_VIDEO_IMMERSIVE_LP.type;
+                em0Var2.d = jSONObject.optString(MigrateStatisticUtils.EXT_INFO);
                 Unit unit2 = Unit.INSTANCE;
-                a2.q = hr0Var2;
+                a2.q = em0Var2;
                 list = a2.o;
                 if (list == null) {
                 }
@@ -601,18 +601,18 @@ public final class PanelComponent extends AbsComponentPlugin {
                 view2 = this.g;
                 if (view2 == null) {
                 }
-                xd1Var = (xd1) view2.findViewById(R.id.max_ebtn);
-                this.o = xd1Var;
-                if (xd1Var != null) {
+                h81Var = (h81) view2.findViewById(R.id.max_ebtn);
+                this.o = h81Var;
+                if (h81Var != null) {
                 }
-                xd1Var2 = this.o;
-                if (xd1Var2 != null) {
+                h81Var2 = this.o;
+                if (h81Var2 != null) {
                 }
-                xd1Var3 = this.o;
-                if (xd1Var3 != null) {
+                h81Var3 = this.o;
+                if (h81Var3 != null) {
                 }
-                xd1Var4 = this.o;
-                if (xd1Var4 != null) {
+                h81Var4 = this.o;
+                if (h81Var4 != null) {
                 }
                 appStr = jSONObject.optString("app_info");
                 Intrinsics.checkNotNullExpressionValue(appStr, "appStr");
@@ -620,20 +620,20 @@ public final class PanelComponent extends AbsComponentPlugin {
                 }
                 if (z2) {
                 }
-                xd1Var5 = this.o;
-                if (xd1Var5 == null) {
+                h81Var5 = this.o;
+                if (h81Var5 == null) {
                 }
             }
         }
     }
 
-    public final void R() {
+    public final void T() {
         String str;
-        jr0 jr0Var = this.e;
-        if (jr0Var == null) {
+        gm0 gm0Var = this.e;
+        if (gm0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("panelModel");
         }
-        if (!TextUtils.isEmpty(jr0Var.c)) {
+        if (!TextUtils.isEmpty(gm0Var.c)) {
             TextView textView = this.l;
             if (textView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("authorAvatarText");
@@ -643,22 +643,22 @@ public final class PanelComponent extends AbsComponentPlugin {
             if (adImageView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("authorAvatar");
             }
-            jr0 jr0Var2 = this.e;
-            if (jr0Var2 == null) {
+            gm0 gm0Var2 = this.e;
+            if (gm0Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("panelModel");
             }
-            adImageView.r(jr0Var2.c);
+            adImageView.s(gm0Var2.c);
             AdImageView adImageView2 = this.k;
             if (adImageView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("authorAvatar");
             }
             adImageView2.setVisibility(0);
         } else {
-            jr0 jr0Var3 = this.e;
-            if (jr0Var3 == null) {
+            gm0 gm0Var3 = this.e;
+            if (gm0Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("panelModel");
             }
-            if (!TextUtils.isEmpty(jr0Var3.b)) {
+            if (!TextUtils.isEmpty(gm0Var3.b)) {
                 AdImageView adImageView3 = this.k;
                 if (adImageView3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("authorAvatar");
@@ -668,11 +668,11 @@ public final class PanelComponent extends AbsComponentPlugin {
                 if (textView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("authorAvatarText");
                 }
-                jr0 jr0Var4 = this.e;
-                if (jr0Var4 == null) {
+                gm0 gm0Var4 = this.e;
+                if (gm0Var4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("panelModel");
                 }
-                String str2 = jr0Var4.b;
+                String str2 = gm0Var4.b;
                 if (str2 != null) {
                     if (str2 != null) {
                         str = str2.substring(0, 1);
@@ -702,35 +702,35 @@ public final class PanelComponent extends AbsComponentPlugin {
                 textView4.setVisibility(8);
             }
         }
-        jr0 jr0Var5 = this.e;
-        if (jr0Var5 == null) {
+        gm0 gm0Var5 = this.e;
+        if (gm0Var5 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("panelModel");
         }
-        if (!TextUtils.isEmpty(jr0Var5.b)) {
+        if (!TextUtils.isEmpty(gm0Var5.b)) {
             TextView textView5 = this.m;
             if (textView5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("authorName");
             }
-            jr0 jr0Var6 = this.e;
-            if (jr0Var6 == null) {
+            gm0 gm0Var6 = this.e;
+            if (gm0Var6 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("panelModel");
             }
-            textView5.setText(jr0Var6.b);
+            textView5.setText(gm0Var6.b);
         }
-        jr0 jr0Var7 = this.e;
-        if (jr0Var7 == null) {
+        gm0 gm0Var7 = this.e;
+        if (gm0Var7 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("panelModel");
         }
-        if (!TextUtils.isEmpty(jr0Var7.a)) {
+        if (!TextUtils.isEmpty(gm0Var7.a)) {
             TextView textView6 = this.h;
             if (textView6 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("title");
             }
-            jr0 jr0Var8 = this.e;
-            if (jr0Var8 == null) {
+            gm0 gm0Var8 = this.e;
+            if (gm0Var8 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("panelModel");
             }
-            textView6.setText(jr0Var8.a);
+            textView6.setText(gm0Var8.a);
             return;
         }
         TextView textView7 = this.h;
@@ -740,7 +740,7 @@ public final class PanelComponent extends AbsComponentPlugin {
         textView7.setVisibility(8);
     }
 
-    public final void S(JSONObject jSONObject) {
+    public final void U(JSONObject jSONObject) {
         boolean z;
         String optString = jSONObject.optString(WriteActivityConfig.VIDEO_INFO);
         if (optString != null && optString.length() != 0) {
@@ -752,7 +752,7 @@ public final class PanelComponent extends AbsComponentPlugin {
             return;
         }
         boolean areEqual = Intrinsics.areEqual("1", new JSONObject(optString).optString("video_stretch_switch", "0"));
-        int f = vq0.a.f(p61.c.c(getContext()) / p61.c.e(getContext()), areEqual);
+        int f = sl0.a.f(c11.c.c(b()) / c11.c.e(b()), areEqual);
         View view2 = this.n;
         if (view2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("panelBgView");
@@ -760,7 +760,7 @@ public final class PanelComponent extends AbsComponentPlugin {
         view2.getLayoutParams().height = f;
     }
 
-    public final void U(Intent intent) {
+    public final void W(Intent intent) {
         Serializable serializableExtra = intent.getSerializableExtra("map");
         String str = null;
         if (!(serializableExtra instanceof HashMap)) {
@@ -769,7 +769,7 @@ public final class PanelComponent extends AbsComponentPlugin {
         HashMap hashMap = (HashMap) serializableExtra;
         if (hashMap != null) {
             JSONObject jSONObject = new JSONObject(hashMap);
-            jr0 a2 = jr0.d.a(jSONObject);
+            gm0 a2 = gm0.d.a(jSONObject);
             if (a2 != null) {
                 this.e = a2;
                 Object obj = hashMap.get("cmd_policy");
@@ -778,24 +778,24 @@ public final class PanelComponent extends AbsComponentPlugin {
                 }
                 String str2 = str;
                 if (!TextUtils.isEmpty(str2)) {
-                    this.d = bs0.v.a(h31.c(str2));
+                    this.d = ym0.v.a(ux0.c(str2));
                 }
+                U(jSONObject);
+                T();
                 S(jSONObject);
+                Q();
                 R();
-                Q(jSONObject);
-                O();
-                P();
                 return;
             }
-            c().B(this);
+            g().C(this);
         }
     }
 
-    public final void T() {
-        iq0 a2 = jq0.a();
+    public final void V() {
+        fl0 a2 = gl0.a();
         Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
         a2.c();
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_max_over_info_vertical, (ViewGroup) null);
+        View inflate = LayoutInflater.from(b()).inflate(R.layout.nad_max_over_info_vertical, (ViewGroup) null);
         Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…).inflate(layoutId, null)");
         this.g = inflate;
         if (inflate == null) {
@@ -829,7 +829,7 @@ public final class PanelComponent extends AbsComponentPlugin {
         this.n = findViewById7;
     }
 
-    public final void V(long j, boolean z) {
+    public final void X(long j, boolean z) {
         AlphaAnimation alphaAnimation;
         AlphaAnimation alphaAnimation2 = this.q;
         if (alphaAnimation2 != null) {

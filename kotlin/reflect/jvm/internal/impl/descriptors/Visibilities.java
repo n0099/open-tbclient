@@ -20,7 +20,7 @@ import kotlin.reflect.jvm.internal.impl.types.DynamicTypesKt;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.util.ModuleVisibilityHelper;
 import kotlin.reflect.jvm.internal.impl.utils.CollectionsKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public class Visibilities {
     public static final ReceiverValue ALWAYS_SUITABLE_RECEIVER;
     public static final Visibility DEFAULT_VISIBILITY;

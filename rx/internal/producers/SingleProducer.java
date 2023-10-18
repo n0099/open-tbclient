@@ -1,39 +1,39 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.mcc;
-import com.baidu.tieba.qcc;
-import com.baidu.tieba.wcc;
+import com.baidu.tieba.j6c;
+import com.baidu.tieba.n6c;
+import com.baidu.tieba.t6c;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
-public final class SingleProducer<T> extends AtomicBoolean implements mcc {
+public final class SingleProducer<T> extends AtomicBoolean implements j6c {
     public static final long serialVersionUID = -3353584923995471404L;
-    public final qcc<? super T> child;
+    public final n6c<? super T> child;
     public final T value;
 
-    public SingleProducer(qcc<? super T> qccVar, T t) {
-        this.child = qccVar;
+    public SingleProducer(n6c<? super T> n6cVar, T t) {
+        this.child = n6cVar;
         this.value = t;
     }
 
-    @Override // com.baidu.tieba.mcc
+    @Override // com.baidu.tieba.j6c
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i != 0 && compareAndSet(false, true)) {
-                qcc<? super T> qccVar = this.child;
-                if (qccVar.isUnsubscribed()) {
+                n6c<? super T> n6cVar = this.child;
+                if (n6cVar.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.value;
                 try {
-                    qccVar.onNext(obj);
-                    if (qccVar.isUnsubscribed()) {
+                    n6cVar.onNext(obj);
+                    if (n6cVar.isUnsubscribed()) {
                         return;
                     }
-                    qccVar.onCompleted();
+                    n6cVar.onCompleted();
                     return;
                 } catch (Throwable th) {
-                    wcc.g(th, qccVar, obj);
+                    t6c.g(th, n6cVar, obj);
                     return;
                 }
             }

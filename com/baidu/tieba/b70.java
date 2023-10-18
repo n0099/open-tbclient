@@ -1,8 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.searchbox.network.outback.core.Request;
-import java.io.IOException;
 /* loaded from: classes5.dex */
-public interface b70 {
-    y60 a(Request request) throws IOException;
+public interface b70<T> {
+    void call(T t);
 }

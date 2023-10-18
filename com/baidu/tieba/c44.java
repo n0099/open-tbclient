@@ -1,122 +1,137 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.View;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.pa2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c44 implements wz3 {
+public class c44 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<xx1> a;
 
-    public c44() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624774, "Lcom/baidu/tieba/c44;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947624774, "Lcom/baidu/tieba/c44;");
+                return;
+            }
+        }
+        b = am1.a;
+    }
+
+    public c44(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.wz3
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return f44.b();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wz3
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && b()) {
-            SwanAppActivity activity = tw2.T().getActivity();
-            if (activity != null) {
-                activity.setRequestedOrientation(1);
-            }
-            tw2.T().V().g(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.wz3
-    public void a(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            pa2 U = tw2.T().U();
-            Context appContext = AppRuntime.getAppContext();
-            if (U == null) {
-                if (appContext != null) {
-                    ya3.f(appContext, R.string.obfuscated_res_0x7f0f01d3).G();
-                    return;
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            g13 d = g13.d(str, str);
-            d.h(jSONObject.toString());
-            pa2.b i = U.i("adLanding");
-            i.n(pa2.g, pa2.i);
-            i.k("adLanding", d).b();
         }
-    }
-
-    @Override // com.baidu.tieba.wz3
-    public boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-            return f44.c(view2);
+        this.a = new ArrayList();
+        if (jSONArray == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wz3
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
-            return f44.d(view2);
+        if (b) {
+            Log.d("SwanGamePreloadConfig", "jsonArray:" + jSONArray);
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wz3
-    public boolean d(View view2, qy3 qy3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, qy3Var)) == null) {
-            return f44.a(view2, new m13(qy3Var.c(), qy3Var.d(), qy3Var.e(), qy3Var.b()));
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wz3
-    public boolean f(View view2, qy3 qy3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, qy3Var)) == null) {
-            xs1 V = tw2.T().V();
-            if (V != null && V.a(view2, new m13(qy3Var.c(), qy3Var.d(), qy3Var.e(), qy3Var.b()))) {
-                return true;
+        int length = jSONArray.length();
+        int i3 = 0;
+        int i4 = 0;
+        for (int i5 = 0; i5 < length; i5++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i5);
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("type");
+                char c = 65535;
+                int hashCode = optString.hashCode();
+                if (hashCode != 1095692943) {
+                    if (hashCode == 1427818632 && optString.equals("download")) {
+                        c = 1;
+                    }
+                } else if (optString.equals("request")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c == 1 && i4 < 10) {
+                        this.a.add(a(optJSONObject));
+                        i4++;
+                    }
+                } else if (i3 < 3) {
+                    this.a.add(b(optJSONObject));
+                    i3++;
+                }
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+    }
+
+    public final xx1 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            xx1 xx1Var = new xx1();
+            xx1Var.H("type", jSONObject.optString("type"));
+            xx1Var.H("url", jSONObject.optString("url"));
+            xx1Var.H("filePath", jSONObject.optString("filePath"));
+            xx1Var.H("header", c(jSONObject.optJSONObject("header")));
+            return xx1Var;
+        }
+        return (xx1) invokeL.objValue;
+    }
+
+    public final xx1 b(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            xx1 xx1Var = new xx1();
+            xx1Var.H("type", jSONObject.optString("type"));
+            xx1Var.H("url", jSONObject.optString("url"));
+            xx1Var.H("responseType", jSONObject.optString("responseType"));
+            xx1Var.H("header", c(jSONObject.optJSONObject("header")));
+            return xx1Var;
+        }
+        return (xx1) invokeL.objValue;
+    }
+
+    public final xx1 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            xx1 xx1Var = new xx1();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                xx1Var.H(next, jSONObject.optString(next));
+            }
+            return xx1Var;
+        }
+        return (xx1) invokeL.objValue;
     }
 }

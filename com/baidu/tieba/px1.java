@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tieba.nx1;
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
-public interface px1<T extends nx1> extends mx1<T> {
-    @Nullable
-    ef3 getParams();
+public interface px1 {
+    @NonNull
+    public static final px1 a = new qx1(202, "params parsed as JSONObject is null");
+
+    @NonNull
+    String a();
+
+    boolean isSuccess();
 }

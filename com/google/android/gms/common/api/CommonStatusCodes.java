@@ -1,6 +1,7 @@
 package com.google.android.gms.common.api;
 
 import androidx.annotation.NonNull;
+import com.baidu.mobads.sdk.internal.bx;
 import com.google.android.gms.common.annotation.KeepForSdk;
 @KeepForSdk
 /* loaded from: classes9.dex */
@@ -60,7 +61,7 @@ public class CommonStatusCodes {
             case 10:
                 return "DEVELOPER_ERROR";
             case 13:
-                return "ERROR";
+                return bx.l;
             case 14:
                 return "INTERRUPTED";
             case 15:

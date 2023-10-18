@@ -7,7 +7,7 @@ import java.util.Hashtable;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class AppCreateSpeedStats extends AbstractSpeedStats {
     public static final String INIT_IDLE_TASK = "initIdleTask";
     public static final String INIT_LAUNCH_TASK = "initLaunchTask";

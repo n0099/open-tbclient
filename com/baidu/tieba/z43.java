@@ -1,84 +1,106 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.a53;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-/* loaded from: classes8.dex */
-public class z43 implements x43, kw2 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes9.dex */
+public abstract class z43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ExecutorService e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c63 c;
-    public final c63 d;
+    public final View a;
+    public Context b;
+    public Resources c;
+    public List<a53> d;
+    public b53 e;
+    public a53.a f;
+    public PopupWindow g;
+    public View.OnKeyListener h;
+    public int i;
+    public View j;
+    public boolean k;
+    public f l;
+    public boolean m;
+    public float n;
+    public boolean o;
+    public int p;
+    public boolean q;
+    public Runnable r;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    /* loaded from: classes9.dex */
+    public interface f {
+        void onMenuItemUpdated(List<a53> list);
+    }
+
+    /* loaded from: classes9.dex */
+    public interface g {
+    }
+
+    public abstract void l(View view2, List<a53> list);
+
+    public abstract View m(Context context);
+
+    public abstract void u(PopupWindow popupWindow);
+
+    /* loaded from: classes9.dex */
+    public class a implements a53.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
+        public final /* synthetic */ z43 a;
 
-        public a(z43 z43Var, int i) {
+        public a(z43 z43Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z43Var, Integer.valueOf(i)};
+                Object[] objArr = {z43Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i;
+            this.a = z43Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.a53.a
+        public void a(a53 a53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (x43.b) {
-                    try {
-                        x43.b.wait(this.a);
-                    }
+            if (interceptable == null || interceptable.invokeL(1048576, this, a53Var) == null) {
+                if (a53Var.f()) {
+                    this.a.k(a53Var.a());
+                }
+                a53.a aVar = this.a.f;
+                if (aVar != null) {
+                    aVar.a(a53Var);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements c63 {
+    /* loaded from: classes9.dex */
+    public class b implements View.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Runnable, String> c;
-        public boolean d;
-
-        @Override // com.baidu.tieba.c63
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.c63
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "HighPriorityTask" : (String) invokeV.objValue;
-        }
+        public final /* synthetic */ z43 a;
 
         public b(z43 z43Var) {
             Interceptable interceptable = $ic;
@@ -95,89 +117,36 @@ public class z43 implements x43, kw2 {
                     return;
                 }
             }
-            this.c = new ConcurrentHashMap();
-            this.d = false;
+            this.a = z43Var;
         }
 
-        @Override // com.baidu.tieba.c63
-        public void b() {
+        @Override // android.view.View.OnKeyListener
+        public boolean onKey(View view2, int i, KeyEvent keyEvent) {
+            InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.d = false;
-                f();
-            }
-        }
-
-        @Override // com.baidu.tieba.c63
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-                if (this.d) {
-                    this.c.put(runnable, str);
-                } else {
-                    ao3.l(runnable, str);
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view2, i, keyEvent)) == null) {
+                if (keyEvent.getAction() == 1) {
+                    if (i == 4 || i == 82) {
+                        this.a.j();
+                        View.OnKeyListener onKeyListener = this.a.h;
+                        if (onKeyListener != null) {
+                            onKeyListener.onKey(view2, i, keyEvent);
+                        }
+                        return true;
+                    }
+                    return false;
                 }
+                return false;
             }
-        }
-
-        @Override // com.baidu.tieba.c63
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.d = false;
-                long currentTimeMillis = System.currentTimeMillis();
-                int size = this.c.size();
-                f();
-                if (kw2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "high task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.c63
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.d = true;
-            }
-        }
-
-        public final void f() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.c.isEmpty()) {
-                return;
-            }
-            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-                if (entry != null) {
-                    ao3.l(entry.getKey(), entry.getValue());
-                }
-            }
-            this.c.clear();
+            return invokeLIL.booleanValue;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class c implements c63 {
+    /* loaded from: classes9.dex */
+    public class c implements PopupWindow.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Runnable, String> c;
-        public boolean d;
-        public final /* synthetic */ z43 e;
-
-        @Override // com.baidu.tieba.c63
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.c63
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "LowPriorityTask" : (String) invokeV.objValue;
-        }
+        public final /* synthetic */ z43 a;
 
         public c(z43 z43Var) {
             Interceptable interceptable = $ic;
@@ -194,193 +163,323 @@ public class z43 implements x43, kw2 {
                     return;
                 }
             }
-            this.e = z43Var;
-            this.c = new ConcurrentHashMap();
-            this.d = false;
+            this.a = z43Var;
         }
 
-        @Override // com.baidu.tieba.c63
-        public void b() {
+        @Override // android.widget.PopupWindow.OnDismissListener
+        public void onDismiss() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.d = false;
-                f();
-            }
-        }
-
-        @Override // com.baidu.tieba.c63
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-                if (this.d) {
-                    this.c.put(runnable, str);
-                } else {
-                    ao3.l(runnable, str);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.m) {
+                    this.a.h();
+                }
+                b53 b53Var = this.a.e;
+                if (b53Var != null) {
+                    b53Var.onDismissMenu();
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.c63
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.d = false;
-                long currentTimeMillis = System.currentTimeMillis();
-                int size = this.c.size();
-                f();
-                if (kw2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "low task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
-                }
-                if (h53.e()) {
-                    this.e.c();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.c63
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.d = true;
-                if (h53.e()) {
-                    this.e.b(h53.f());
-                }
-            }
-        }
-
-        public final void f() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.c.isEmpty()) {
-                return;
-            }
-            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-                if (entry != null) {
-                    ao3.l(entry.getKey(), entry.getValue());
-                }
-            }
-            this.c.clear();
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static class d {
+    /* loaded from: classes9.dex */
+    public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final z43 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z43 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-279911504, "Lcom/baidu/tieba/z43$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-279911504, "Lcom/baidu/tieba/z43$d;");
+        public d(z43 z43Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z43Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new z43(null);
+            this.a = z43Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.m) {
+                        this.a.i(this.a.n);
+                    }
+                    this.a.u(this.a.g);
+                } catch (Exception e) {
+                    if (am1.a) {
+                        Log.w("PopupWindow", "Exception", e);
+                    }
+                }
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948309936, "Lcom/baidu/tieba/z43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes9.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z43 a;
+
+        public e(z43 z43Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z43Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948309936, "Lcom/baidu/tieba/z43;");
-                return;
+            this.a = z43Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.j();
             }
         }
-        e = Executors.newSingleThreadExecutor();
     }
 
-    public z43() {
+    public z43(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new b(this);
-        this.d = new c(this);
+        this.k = true;
+        this.m = false;
+        this.n = 0.5f;
+        this.o = false;
+        this.p = R.style.obfuscated_res_0x7f100430;
+        this.r = new e(this);
+        this.a = view2;
+        this.b = view2.getContext();
+        this.c = this.a.getResources();
+        this.d = new ArrayList();
+        this.i = -2;
+        this.q = wo2.M().a();
+        o(this.b);
     }
 
-    public static z43 e() {
-        InterceptResult invokeV;
+    public final void v(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return d.a;
-        }
-        return (z43) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x43
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (kw2.a) {
-                Log.d("SwanPerformance", "low priority thread notify");
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            b53 b53Var = this.e;
+            if (b53Var != null) {
+                b53Var.onShowMenu();
             }
-            synchronized (x43.b) {
-                try {
-                    x43.b.notifyAll();
+            w(this.d);
+            l(this.j, this.d);
+            j();
+            if (this.g == null) {
+                PopupWindow popupWindow = new PopupWindow(this.j, this.i, -2, true);
+                this.g = popupWindow;
+                if (this.o) {
+                    popupWindow.setAnimationStyle(this.p);
+                }
+                if (z) {
+                    this.g.setBackgroundDrawable(this.c.getDrawable(R.drawable.obfuscated_res_0x7f0801cc));
+                    this.g.setTouchable(true);
+                } else {
+                    this.g.setTouchable(false);
+                }
+                this.g.setOnDismissListener(new c(this));
+            }
+            View view2 = this.a;
+            if (view2 == null) {
+                b53 b53Var2 = this.e;
+                if (b53Var2 != null) {
+                    b53Var2.onDismissMenu();
+                    return;
+                }
+                return;
+            }
+            view2.post(new d(this));
+            this.j.postInvalidate();
+        }
+    }
+
+    public a53 g(a53 a53Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a53Var)) == null) {
+            a53Var.g(this);
+            if (this.k) {
+                a53Var.h(new a(this));
+            } else {
+                a53Var.h(this.f);
+            }
+            this.d.add(a53Var);
+            return a53Var;
+        }
+        return (a53) invokeL.objValue;
+    }
+
+    public void k(long j) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && (view2 = this.a) != null) {
+            view2.removeCallbacks(this.r);
+            if (j > 0) {
+                this.a.postDelayed(this.r, j);
+            } else {
+                j();
+            }
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.m = z;
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.o = z;
+        }
+    }
+
+    public void r(a53.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void w(List<a53> list) {
+        f fVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048594, this, list) == null) && (fVar = this.l) != null) {
+            fVar.onMenuItemUpdated(list);
+        }
+    }
+
+    public a53 e(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            return f(i, this.c.getString(i2), null);
+        }
+        return (a53) invokeII.objValue;
+    }
+
+    public a53 f(int i, CharSequence charSequence, Drawable drawable) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, charSequence, drawable)) == null) {
+            a53 a53Var = new a53(this.b, i, charSequence, drawable);
+            g(a53Var);
+            return a53Var;
+        }
+        return (a53) invokeILL.objValue;
+    }
+
+    public final void h() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (view2 = this.a) != null) {
+            ((ViewGroup) view2.getRootView()).getOverlay().clear();
+        }
+    }
+
+    public void j() {
+        PopupWindow popupWindow;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (popupWindow = this.g) != null) {
+            try {
+                popupWindow.dismiss();
+            } catch (Exception e2) {
+                if (am1.a) {
+                    Log.w("PopupWindow", "Exception", e2);
                 }
             }
         }
     }
 
-    public void f() {
+    public boolean n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a63.g().i(this.c, 3000);
-            a63.g().i(this.d, 5000);
-        }
-    }
-
-    public /* synthetic */ z43(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.x43
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (kw2.a) {
-                Log.d("SwanPerformance", "low priority thread wait = " + i);
-            }
-            e.execute(new a(this, i));
-        }
-    }
-
-    public boolean d(@NonNull Runnable runnable, @NonNull String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, runnable, str, z)) == null) {
-            if (z) {
-                this.c.c(runnable, str);
-                return true;
-            } else if (h53.e()) {
-                e.execute(runnable);
-                return true;
-            } else {
-                this.d.c(runnable, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            PopupWindow popupWindow = this.g;
+            if (popupWindow != null && popupWindow.isShowing()) {
                 return true;
             }
+            return false;
         }
-        return invokeLLZ.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            if (wo2.M().a() != this.q) {
+                o(this.b);
+                this.g = null;
+            }
+            v(true);
+            this.q = wo2.M().a();
+        }
+    }
+
+    public final void i(float f2) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048580, this, f2) == null) && (view2 = this.a) != null) {
+            ViewGroup viewGroup = (ViewGroup) view2.getRootView();
+            ColorDrawable colorDrawable = new ColorDrawable(-16777216);
+            colorDrawable.setBounds(0, 0, viewGroup.getWidth(), viewGroup.getHeight());
+            colorDrawable.setAlpha((int) (f2 * 255.0f));
+            viewGroup.getOverlay().add(colorDrawable);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void o(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+            View m = m(context);
+            this.j = m;
+            m.setFocusable(true);
+            this.j.setFocusableInTouchMode(true);
+            if (!(this.j instanceof g) && am1.a) {
+                throw new IllegalArgumentException("The view returned by getMenuView() MUST implement OnMenuSetChangedListener!");
+            }
+            this.j.setOnKeyListener(new b(this));
+        }
     }
 }

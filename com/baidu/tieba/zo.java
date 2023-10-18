@@ -1,182 +1,160 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdhttpdns.BDHttpDnsResult;
-import com.baidu.searchbox.dns.transmit.DnsTransmitter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.Inet4Address;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes9.dex */
-public final class zo {
+public final class zo extends dm implements bp {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zo a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final bn d;
+    public final dn e;
+    public final hn f;
+    public final kn g;
+    public final fn h;
+    public final an i;
+    public final gn j;
+    public final cp k;
+    public final kp l;
 
-    /* loaded from: classes9.dex */
-    public interface a {
-        void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public a b;
-        public final /* synthetic */ zo c;
-
-        public b(zo zoVar, String str, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zoVar, str, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = zoVar;
-            this.a = str;
-            this.b = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ArrayList<String> arrayList;
-            ArrayList<String> arrayList2;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Map d = this.c.d(this.a);
-                if (d != null) {
-                    arrayList2 = (ArrayList) d.get("ipv6");
-                    arrayList = (ArrayList) d.get(DnsTransmitter.TYPE_VALUE_IPV4);
-                } else {
-                    arrayList = null;
-                    arrayList2 = null;
-                }
-                if ((arrayList != null && !arrayList.isEmpty()) || (arrayList2 != null && !arrayList2.isEmpty())) {
-                    i = 0;
-                } else {
-                    i = -1;
-                }
-                this.b.a(i, arrayList, arrayList2, 60L, this.a);
-            }
-        }
-    }
-
-    public zo() {
+    public zo(bn bnVar, dn dnVar, hn hnVar, kn knVar, fn fnVar, an anVar, gn gnVar, cp cpVar, kp kpVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bnVar, dnVar, hnVar, knVar, fnVar, anVar, gnVar, cpVar, kpVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = bnVar;
+        this.e = dnVar;
+        this.f = hnVar;
+        this.g = knVar;
+        this.h = fnVar;
+        this.i = anVar;
+        this.j = gnVar;
+        this.k = cpVar;
+        this.l = kpVar;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ zo(bn bnVar, dn dnVar, hn hnVar, kn knVar, fn fnVar, an anVar, gn gnVar, cp cpVar, kp kpVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(bnVar, dnVar, hnVar, knVar, fnVar, anVar, gnVar, r10, r11);
+        dp dpVar;
+        mp mpVar;
+        if ((i & 128) != 0) {
+            dpVar = new dp();
+        } else {
+            dpVar = cpVar;
+        }
+        if ((i & 256) != 0) {
+            mpVar = new mp();
+        } else {
+            mpVar = kpVar;
         }
     }
 
-    public static zo c() {
+    @Override // com.baidu.tieba.cm
+    public gn a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (zo.class) {
-                    if (a == null) {
-                        a = new zo();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.j;
         }
-        return (zo) invokeV.objValue;
+        return (gn) invokeV.objValue;
     }
 
-    public void b(String str, a aVar) {
+    @Override // com.baidu.tieba.cm
+    public hn b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) && str != null && !str.isEmpty()) {
-            ep.b().a().execute(new b(this, str, aVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
         }
+        return (hn) invokeV.objValue;
     }
 
-    public final Map<String, ArrayList> d(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.cm
+    public an c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                InetAddress[] allByName = InetAddress.getAllByName(str);
-                if (allByName != null && allByName.length != 0) {
-                    ArrayList arrayList = new ArrayList();
-                    ArrayList arrayList2 = new ArrayList();
-                    HashMap hashMap = new HashMap();
-                    for (InetAddress inetAddress : allByName) {
-                        if (inetAddress instanceof Inet4Address) {
-                            String hostAddress = inetAddress.getHostAddress();
-                            if (yo.l(hostAddress)) {
-                                arrayList.add(hostAddress);
-                            }
-                        } else if (inetAddress instanceof Inet6Address) {
-                            String hostAddress2 = inetAddress.getHostAddress();
-                            if (yo.m(hostAddress2)) {
-                                arrayList2.add(hostAddress2);
-                            }
-                        }
-                    }
-                    hashMap.put(DnsTransmitter.TYPE_VALUE_IPV4, arrayList);
-                    hashMap.put("ipv6", arrayList2);
-                    if (arrayList.isEmpty() && arrayList2.isEmpty()) {
-                        dp.a("Dns resolve failed, host(%s), get no valid resolve result", str);
-                        return null;
-                    }
-                    dp.a("Dns resolve successful, host(%s), ipv4List(%s), ipv6List(%s)", str, arrayList.toString(), arrayList2.toString());
-                    return hashMap;
-                }
-                dp.a("Dns resolve failed, host(%s), get empty resolve result", str);
-                return null;
-            } catch (UnknownHostException e) {
-                e.printStackTrace();
-                dp.a("Dns resolve failed, host(%s), caught UnknownHostException", str);
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
         }
-        return (Map) invokeL.objValue;
+        return (an) invokeV.objValue;
     }
 
-    public BDHttpDnsResult e(String str) {
-        InterceptResult invokeL;
-        ArrayList arrayList;
+    @Override // com.baidu.tieba.bp
+    public cp d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Map<String, ArrayList> d = d(str);
-            ArrayList arrayList2 = null;
-            if (d != null) {
-                arrayList2 = d.get(DnsTransmitter.TYPE_VALUE_IPV4);
-                arrayList = d.get("ipv6");
-            } else {
-                arrayList = null;
-            }
-            if ((arrayList2 != null && !arrayList2.isEmpty()) || (arrayList != null && !arrayList.isEmpty())) {
-                return new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList2, arrayList);
-            }
-            return new BDHttpDnsResult(BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.k;
         }
-        return (BDHttpDnsResult) invokeL.objValue;
+        return (cp) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cm
+    public kn e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (kn) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bp
+    public kp f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.l;
+        }
+        return (kp) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cm
+    public dn g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (dn) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cm
+    public bn h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return (bn) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cm
+    public fn i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return (fn) invokeV.objValue;
     }
 }

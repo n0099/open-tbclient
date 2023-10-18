@@ -1,40 +1,27 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jr3 extends ProviderDelegation {
+public class jr3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ir3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jr3() {
+    public static synchronized ir3 a() {
+        InterceptResult invokeV;
+        ir3 ir3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (jr3.class) {
+                if (a == null) {
+                    a = new ir3();
+                }
+                ir3Var = a;
             }
+            return ir3Var;
         }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putString("result", hr3.h(getAgent().getContext()));
-            return bundle2;
-        }
-        return (Bundle) invokeL.objValue;
+        return (ir3) invokeV.objValue;
     }
 }

@@ -1,38 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qe4 {
+public class qe4 extends ne4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public volatile float height;
-    @V8JavascriptField
-    public volatile float left;
-    @V8JavascriptField
-    public volatile float top;
-    @V8JavascriptField
-    public volatile float width;
-
-    /* loaded from: classes7.dex */
-    public interface a {
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-        }
-    }
+    public long o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
 
     public qe4() {
-        Resources resources;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,38 +26,28 @@ public class qe4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (nu2.c() != null) {
-            resources = nu2.c().getResources();
-        } else {
-            resources = null;
-        }
-        this.left = a(resources, R.dimen.obfuscated_res_0x7f07089d);
-        this.top = a(resources, R.dimen.obfuscated_res_0x7f07089e);
-        this.width = a(resources, R.dimen.obfuscated_res_0x7f07089f);
-        this.height = a(resources, R.dimen.obfuscated_res_0x7f07089c);
     }
 
-    public String toString() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return System.currentTimeMillis() / 1000;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public final float a(Resources resources, int i) {
-        InterceptResult invokeLI;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
-            if (resources != null && i != 0) {
-                return wd4.b(resources.getDimension(i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (b() - this.d > this.o) {
+                return true;
             }
-            return 0.0f;
+            return false;
         }
-        return invokeLI.floatValue;
+        return invokeV.booleanValue;
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.searchbox.task.sync.appcreate;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.util.ChannelInitHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.util.SoChecker;
 /* loaded from: classes4.dex */
 public class InitGlobalDataTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -23,5 +24,6 @@ public class InitGlobalDataTask extends LaunchTask {
         if (!ChannelInitHelper.hasInitFinish()) {
             ChannelInitHelper.init();
         }
+        SoChecker.b();
     }
 }

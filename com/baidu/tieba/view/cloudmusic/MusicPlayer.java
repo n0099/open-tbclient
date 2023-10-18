@@ -5,8 +5,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fya;
+import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.xsa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +75,7 @@ public class MusicPlayer {
             PREPARED = new MusicPlayerState("PREPARED", 2);
             REPLAY = new MusicPlayerState("REPLAY", 3);
             RESUME = new MusicPlayerState("RESUME", 4);
-            MusicPlayerState musicPlayerState = new MusicPlayerState("ERROR", 5);
+            MusicPlayerState musicPlayerState = new MusicPlayerState(bx.l, 5);
             ERROR = musicPlayerState;
             $VALUES = new MusicPlayerState[]{WAIT, PAUSE, PREPARED, REPLAY, RESUME, musicPlayerState};
         }
@@ -147,7 +148,7 @@ public class MusicPlayer {
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                fya.b().d(this.a);
+                xsa.b().d(this.a);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
                 this.b.a.setLooping(true);
                 this.b.a.start();

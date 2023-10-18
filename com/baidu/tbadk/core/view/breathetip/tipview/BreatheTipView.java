@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ma5;
+import com.baidu.tieba.u45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -109,29 +109,29 @@ public class BreatheTipView extends FrameLayout {
         }
     }
 
-    public void setData(ma5 ma5Var) {
+    public void setData(u45 u45Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ma5Var) != null) || ma5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u45Var) != null) || u45Var == null) {
             return;
         }
-        int i = ma5Var.g;
+        int i = u45Var.g;
         int i2 = -2;
         if (i < 0) {
             i = -2;
         }
-        int i3 = ma5Var.h;
+        int i3 = u45Var.h;
         if (i3 >= 0) {
             i2 = i3;
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i2);
-        layoutParams.setMargins(ma5Var.j, ma5Var.k, ma5Var.i, ma5Var.l);
+        layoutParams.setMargins(u45Var.j, u45Var.k, u45Var.i, u45Var.l);
         setLayoutParams(layoutParams);
-        this.a.setText(ma5Var.a);
-        SkinManager.setViewTextColor(this.a, ma5Var.c);
-        ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ma5Var.f;
-        this.b.setText(ma5Var.b);
-        SkinManager.setViewTextColor(this.b, ma5Var.d);
-        ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = ma5Var.f + BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
-        SkinManager.setBackgroundResource(this, ma5Var.e);
+        this.a.setText(u45Var.a);
+        SkinManager.setViewTextColor(this.a, u45Var.c);
+        ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = u45Var.f;
+        this.b.setText(u45Var.b);
+        SkinManager.setViewTextColor(this.b, u45Var.d);
+        ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = u45Var.f + BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
+        SkinManager.setBackgroundResource(this, u45Var.e);
     }
 }

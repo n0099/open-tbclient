@@ -1,25 +1,81 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Build;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.sdk.api.MobadsPermissionSettings;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes8.dex */
-public final class u11 extends sw0 {
+public class u11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public u11() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return str + "/bddownload/";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return e(context, "/mnt/sdcard");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static File b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT > 28) {
+                    return context.getExternalFilesDir(null);
+                }
+                if ("mounted".equals(Environment.getExternalStorageState())) {
+                    if (n11.a(context, "android.permission.WRITE_EXTERNAL_STORAGE") && n11.b(MobadsPermissionSettings.PERMISSION_STORAGE)) {
+                        return c();
+                    }
+                    if (Build.VERSION.SDK_INT >= 19) {
+                        return context.getExternalFilesDir(null);
+                    }
+                    return context.getFilesDir();
+                }
+                return context.getFilesDir();
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (File) invokeL.objValue;
+    }
+
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Environment.getExternalStorageDirectory();
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static String e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            try {
+                return a(b(context).getPath());
+            } catch (Throwable unused) {
+                return a(str);
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

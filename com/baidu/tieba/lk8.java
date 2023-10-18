@@ -1,20 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.lib.socket.msg.TbReMsgInfo;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class lk8 {
+public class lk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public long d;
+    public YyExtData e;
+    public String f;
+    public String g;
 
     public lk8() {
         Interceptable interceptable = $ic;
@@ -30,59 +35,88 @@ public final class lk8 {
         }
     }
 
-    public IChatRoomEnterListener.ReMsgInfo a(TbReMsgInfo tbInfo) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbInfo)) == null) {
-            Intrinsics.checkNotNullParameter(tbInfo, "tbInfo");
-            IChatRoomEnterListener.ReMsgInfo reMsgInfo = new IChatRoomEnterListener.ReMsgInfo();
-            reMsgInfo.msgType = String.valueOf(tbInfo.getSdkMsgType());
-            reMsgInfo.bdUk = fl8.b(tbInfo.getUid());
-            reMsgInfo.nickName = tbInfo.getNickname();
-            reMsgInfo.msgId = String.valueOf(tbInfo.getMsgId());
-            reMsgInfo.msgKey = tbInfo.getMsgKey();
-            reMsgInfo.url = tbInfo.getUrl();
-            reMsgInfo.content = tbInfo.getContent();
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg_type", Integer.valueOf(tbInfo.getMsgType()));
-            reMsgInfo.ext = DataExt.toJson(hashMap);
-            return reMsgInfo;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (IChatRoomEnterListener.ReMsgInfo) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public TbReMsgInfo b(IChatRoomEnterListener.ReMsgInfo sdkInfo) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkInfo)) == null) {
-            Intrinsics.checkNotNullParameter(sdkInfo, "sdkInfo");
-            TbReMsgInfo tbReMsgInfo = new TbReMsgInfo();
-            String ext = sdkInfo.ext;
-            Intrinsics.checkNotNullExpressionValue(ext, "ext");
-            Long l = (Long) DataExt.toMap(ext).get("msg_type");
-            Intrinsics.checkNotNull(l);
-            tbReMsgInfo.setMsgType((int) l.longValue());
-            String msgType = sdkInfo.msgType;
-            Intrinsics.checkNotNullExpressionValue(msgType, "msgType");
-            tbReMsgInfo.setSdkMsgType(Integer.parseInt(msgType));
-            String bdUk = sdkInfo.bdUk;
-            Intrinsics.checkNotNullExpressionValue(bdUk, "bdUk");
-            tbReMsgInfo.setUid(fl8.a(bdUk));
-            String nickName = sdkInfo.nickName;
-            Intrinsics.checkNotNullExpressionValue(nickName, "nickName");
-            tbReMsgInfo.setNickname(nickName);
-            String msgId = sdkInfo.msgId;
-            Intrinsics.checkNotNullExpressionValue(msgId, "msgId");
-            tbReMsgInfo.setMsgId(Long.parseLong(msgId));
-            String msgKey = sdkInfo.msgKey;
-            Intrinsics.checkNotNullExpressionValue(msgKey, "msgKey");
-            tbReMsgInfo.setMsgKey(msgKey);
-            tbReMsgInfo.setUrl(sdkInfo.url);
-            String content = sdkInfo.content;
-            Intrinsics.checkNotNullExpressionValue(content, "content");
-            tbReMsgInfo.setContent(content);
-            return tbReMsgInfo;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (TbReMsgInfo) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public YyExtData g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (YyExtData) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+        jSONObject.optLong("live_id");
+        this.b = jSONObject.optString("user_name");
+        jSONObject.optString("portrait");
+        this.c = jSONObject.optInt("audience_count");
+        jSONObject.optString("title");
+        this.d = jSONObject.optLong("room_id");
+        jSONObject.optString("cover_wide");
+        JSONObject optJSONObject = jSONObject.optJSONObject("yy_ext");
+        YyExtData yyExtData = new YyExtData();
+        this.e = yyExtData;
+        yyExtData.parserJson(optJSONObject);
+        this.f = jSONObject.optString("label_name");
+        jSONObject.optString("feed_id");
+        this.g = jSONObject.optString("user_id");
     }
 }

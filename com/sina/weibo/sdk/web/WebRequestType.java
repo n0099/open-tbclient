@@ -1,6 +1,5 @@
 package com.sina.weibo.sdk.web;
 
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +32,7 @@ public final class WebRequestType {
         }
         SHARE = new WebRequestType("SHARE", 0);
         AUTH = new WebRequestType("AUTH", 1);
-        WebRequestType webRequestType = new WebRequestType(EngineName.DEFAULT_ENGINE, 2);
+        WebRequestType webRequestType = new WebRequestType("DEFAULT", 2);
         DEFAULT = webRequestType;
         $VALUES = new WebRequestType[]{SHARE, AUTH, webRequestType};
     }

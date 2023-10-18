@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.upload;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface UploadFileCallBack {
     void complete(String str, String str2);
 

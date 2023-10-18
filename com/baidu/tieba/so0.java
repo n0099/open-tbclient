@@ -1,84 +1,128 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.ReadableByteChannel;
 /* loaded from: classes8.dex */
-public class so0 {
+public final class so0 {
     public static /* synthetic */ Interceptable $ic;
-    public static uo0 a;
-    public static vo0 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948158005, "Lcom/baidu/tieba/so0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948158005, "Lcom/baidu/tieba/so0;");
-        }
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(String str, int i);
+
+        void b();
     }
 
-    public so0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes8.dex */
+    public class a implements ho0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ b b;
 
-    public static uo0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (so0.class) {
-                    if (a == null) {
-                        a = (uo0) ServiceManager.getService(uo0.a);
-                    }
-                    if (a == null) {
-                        a = uo0.b;
-                    }
+        public a(File file, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return a;
+            this.a = file;
+            this.b = bVar;
         }
-        return (uo0) invokeV.objValue;
-    }
 
-    public static vo0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (so0.class) {
-                    if (b == null) {
-                        b = (vo0) ServiceManager.getService(vo0.a);
-                    }
-                    if (b == null) {
-                        b = vo0.b;
+        @Override // com.baidu.tieba.ho0
+        public void a(Exception exc, int i) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && (bVar = this.b) != null) {
+                bVar.a(exc.getMessage(), i);
+            }
+        }
+
+        @Override // com.baidu.tieba.ho0
+        public void c(Headers headers, InputStream inputStream, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
+                if (i == 200) {
+                    try {
+                        so0.b(inputStream, this.a);
+                        if (this.b != null) {
+                            this.b.b();
+                            return;
+                        }
+                        return;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        b bVar = this.b;
+                        if (bVar != null) {
+                            bVar.a(e.getMessage(), -1);
+                            return;
+                        }
+                        return;
                     }
                 }
+                b bVar2 = this.b;
+                if (bVar2 != null) {
+                    bVar2.a("", i);
+                }
             }
-            return b;
         }
-        return (vo0) invokeV.objValue;
+    }
+
+    public static void a(@NonNull File file, @NonNull String str, @Nullable b bVar, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, file, str, bVar, str2) == null) {
+            bo0 a2 = xn0.b().a();
+            qo0 qo0Var = new qo0();
+            qo0Var.l(str);
+            qo0Var.c();
+            if (!TextUtils.isEmpty(str2)) {
+                qo0Var.d("User-Agent", str2);
+            }
+            a2.b(qo0Var, new a(file, bVar));
+        }
+    }
+
+    public static void b(@NonNull InputStream inputStream, @NonNull File file) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, inputStream, file) == null) {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            ReadableByteChannel newChannel = Channels.newChannel(inputStream);
+            FileChannel channel = fileOutputStream.getChannel();
+            long j = 4096;
+            long j2 = 0;
+            while (j > 0) {
+                try {
+                    j = channel.transferFrom(newChannel, j2, 4096L);
+                    j2 += j;
+                } finally {
+                    se0.a(fileOutputStream);
+                }
+            }
+        }
     }
 }

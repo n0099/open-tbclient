@@ -1,37 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
 /* loaded from: classes8.dex */
-public abstract class ua extends ya<CustomResponsedMessage<?>> {
+public class ua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ua(int i) {
-        super(i);
+    public static int a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return -1000;
             }
+            if (str.contains("/excellent/personalized")) {
+                return 1002;
+            }
+            if (!str.contains("/frs/generalTabList") && !str.contains("/frs/page") && !str.contains("/frs/threadlist")) {
+                if (str.contains("/pb/page")) {
+                    return 1004;
+                }
+                if (str.contains("/thread/add")) {
+                    return 1005;
+                }
+                if (str.contains("/post/add")) {
+                    return 1008;
+                }
+                return 1000;
+            }
+            return 1003;
         }
-        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.CUSTOM) {
-            throw new InvalidParameterException("cmd invalid");
-        }
+        return invokeL.intValue;
     }
 }

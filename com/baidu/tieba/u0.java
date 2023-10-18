@@ -13,7 +13,7 @@ public abstract class u0 implements Input {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean[] a;
     public final boolean[] b;
-    public final h7 c;
+    public final x2 c;
     public int d;
     public boolean e;
 
@@ -30,7 +30,7 @@ public abstract class u0 implements Input {
                 return;
             }
         }
-        this.c = new h7();
+        this.c = new x2();
         this.a = new boolean[256];
         this.b = new boolean[256];
     }

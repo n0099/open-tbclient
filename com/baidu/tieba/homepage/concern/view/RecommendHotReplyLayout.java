@@ -21,17 +21,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fia;
+import com.baidu.tieba.boa;
 import com.baidu.tieba.homepage.concern.view.RecommendHotReplyLayout;
-import com.baidu.tieba.jta;
-import com.baidu.tieba.ux;
-import com.baidu.tieba.zja;
+import com.baidu.tieba.pea;
+import com.baidu.tieba.rs;
+import com.baidu.tieba.vca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
@@ -40,9 +39,9 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import tbclient.ThemeColorInfo;
-@Metadata(d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u00012\u00020\u0002B'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u001e\u0010$\u001a\u00020%2\f\u0010\u0003\u001a\b\u0012\u0002\b\u0003\u0018\u00010&2\u0006\u0010'\u001a\u00020\bH\u0016J\u001a\u0010(\u001a\u00020%2\b\u0010)\u001a\u0004\u0018\u00010*2\b\u0010+\u001a\u0004\u0018\u00010\u000bJ\u000e\u0010,\u001a\u00020%2\u0006\u0010-\u001a\u00020\u0018R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\f\u001a\u00020\r8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u000e\u0010\u000fR\u001b\u0010\u0012\u001a\u00020\u00138BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0016\u0010\u0011\u001a\u0004\b\u0014\u0010\u0015R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0019\u001a\u00020\u001a8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001d\u0010\u0011\u001a\u0004\b\u001b\u0010\u001cR\u001b\u0010\u001e\u001a\u00020\u001f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\"\u0010\u0011\u001a\u0004\b \u0010!R\u000e\u0010#\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006."}, d2 = {"Lcom/baidu/tieba/homepage/concern/view/RecommendHotReplyLayout;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/card/IChangeSkinAble;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "bgColor", "Ltbclient/ThemeColorInfo;", "mAgreeView", "Lcom/baidu/tbadk/core/view/AgreeView;", "getMAgreeView", "()Lcom/baidu/tbadk/core/view/AgreeView;", "mAgreeView$delegate", "Lkotlin/Lazy;", "mHeadPhotoView", "Lcom/baidu/tbadk/core/view/HeadImageView;", "getMHeadPhotoView", "()Lcom/baidu/tbadk/core/view/HeadImageView;", "mHeadPhotoView$delegate", "mOutOnClickListener", "Landroid/view/View$OnClickListener;", "mRichTextView", "Landroid/widget/TextView;", "getMRichTextView", "()Landroid/widget/TextView;", "mRichTextView$delegate", "mRootLayout", "Landroid/widget/LinearLayout;", "getMRootLayout", "()Landroid/widget/LinearLayout;", "mRootLayout$delegate", "mSkinType", "onChangeSkinType", "", "Lcom/baidu/tbadk/TbPageContext;", WriteMulitImageActivityConfig.SKIN_TYPE, "setData", "data", "Lcom/baidu/tieba/tbadkCore/data/PostData;", "postColor", "setOutOnClickListener", TTDownloadField.TT_ITEM_CLICK_LISTENER, "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u00012\u00020\u0002B'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u001e\u0010$\u001a\u00020%2\f\u0010\u0003\u001a\b\u0012\u0002\b\u0003\u0018\u00010&2\u0006\u0010'\u001a\u00020\bH\u0016J\u001a\u0010(\u001a\u00020%2\b\u0010)\u001a\u0004\u0018\u00010*2\b\u0010+\u001a\u0004\u0018\u00010\u000bJ\u000e\u0010,\u001a\u00020%2\u0006\u0010-\u001a\u00020\u0018R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\f\u001a\u00020\r8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u000e\u0010\u000fR\u001b\u0010\u0012\u001a\u00020\u00138BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0016\u0010\u0011\u001a\u0004\b\u0014\u0010\u0015R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0019\u001a\u00020\u001a8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001d\u0010\u0011\u001a\u0004\b\u001b\u0010\u001cR\u001b\u0010\u001e\u001a\u00020\u001f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\"\u0010\u0011\u001a\u0004\b \u0010!R\u000e\u0010#\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006."}, d2 = {"Lcom/baidu/tieba/homepage/concern/view/RecommendHotReplyLayout;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/card/IChangeSkinAble;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "bgColor", "Ltbclient/ThemeColorInfo;", "mAgreeView", "Lcom/baidu/tbadk/core/view/AgreeView;", "getMAgreeView", "()Lcom/baidu/tbadk/core/view/AgreeView;", "mAgreeView$delegate", "Lkotlin/Lazy;", "mHeadPhotoView", "Lcom/baidu/tbadk/core/view/HeadImageView;", "getMHeadPhotoView", "()Lcom/baidu/tbadk/core/view/HeadImageView;", "mHeadPhotoView$delegate", "mOutOnClickListener", "Landroid/view/View$OnClickListener;", "mRichTextView", "Landroid/widget/TextView;", "getMRichTextView", "()Landroid/widget/TextView;", "mRichTextView$delegate", "mRootLayout", "Landroid/widget/LinearLayout;", "getMRootLayout", "()Landroid/widget/LinearLayout;", "mRootLayout$delegate", "mSkinType", "onChangeSkinType", "", "Lcom/baidu/tbadk/TbPageContext;", WriteMulitImageActivityConfig.SKIN_TYPE, "setData", "data", "Lcom/baidu/tieba/tbadkCore/data/PostData;", "postColor", "setOutOnClickListener", "itemClickListener", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class RecommendHotReplyLayout extends RelativeLayout implements ux {
+public final class RecommendHotReplyLayout extends RelativeLayout implements rs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener a;
@@ -151,7 +150,7 @@ public final class RecommendHotReplyLayout extends RelativeLayout implements ux 
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (LinearLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f090fa6);
+                    return (LinearLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f090fc1);
                 }
                 return (LinearLayout) invokeV.objValue;
             }
@@ -189,7 +188,7 @@ public final class RecommendHotReplyLayout extends RelativeLayout implements ux 
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (HeadImageView) this.this$0.findViewById(R.id.obfuscated_res_0x7f090fa8);
+                    return (HeadImageView) this.this$0.findViewById(R.id.obfuscated_res_0x7f090fc3);
                 }
                 return (HeadImageView) invokeV.objValue;
             }
@@ -265,18 +264,18 @@ public final class RecommendHotReplyLayout extends RelativeLayout implements ux 
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (AgreeView) this.this$0.findViewById(R.id.obfuscated_res_0x7f090fa4);
+                    return (AgreeView) this.this$0.findViewById(R.id.obfuscated_res_0x7f090fbf);
                 }
                 return (AgreeView) invokeV.objValue;
             }
         });
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0871, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0863, (ViewGroup) this, true);
         getMHeadPhotoView().setScaleType(ImageView.ScaleType.CENTER_CROP);
         getMHeadPhotoView().setPlaceHolder(1);
         getMHeadPhotoView().setIsRound(true);
         getMRichTextView().setMaxWidth(BdUtilHelper.getEquipmentWidth(context) - BdUtilHelper.getDimens(context, R.dimen.tbds390));
         int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds72);
-        getMAgreeView().setAgreeClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.j28
+        getMAgreeView().setAgreeClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uw7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -350,34 +349,34 @@ public final class RecommendHotReplyLayout extends RelativeLayout implements ux 
         return (LinearLayout) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.rs
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048576, this, tbPageContext, i) == null) && this.c != i) {
             int color = SkinManager.getColor(i, (int) R.color.CAM_X0301);
-            int a = fia.a(color, 0.06f);
-            int a2 = fia.a(color, 0.04f);
+            int a = vca.a(color, 0.06f);
+            int a2 = vca.a(color, 0.04f);
             ThemeColorInfo themeColorInfo = this.b;
             if (themeColorInfo != null) {
-                String f = jta.f(themeColorInfo);
+                String f = boa.f(themeColorInfo);
                 if (f.length() > 0) {
                     z = true;
                 } else {
                     z = false;
                 }
                 if (z) {
-                    a2 = fia.f(f);
+                    a2 = vca.f(f);
                 }
-                String d = jta.d(themeColorInfo);
+                String d = boa.d(themeColorInfo);
                 if (d.length() > 0) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
                 if (z2) {
-                    a = fia.f(d);
+                    a = vca.f(d);
                 }
             }
             EMManager.from(getMRootLayout()).setCorner(R.string.J_X18).setGradientColorValue(new int[]{a, a2}, Direction.LEFT);
@@ -386,16 +385,16 @@ public final class RecommendHotReplyLayout extends RelativeLayout implements ux 
         }
     }
 
-    public final void setData(zja zjaVar, ThemeColorInfo themeColorInfo) {
+    public final void setData(pea peaVar, ThemeColorInfo themeColorInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zjaVar, themeColorInfo) != null) || zjaVar == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, peaVar, themeColorInfo) != null) || peaVar == null) {
             return;
         }
-        getMHeadPhotoView().startLoad(zjaVar.t().getAvater(), 28, false);
+        getMHeadPhotoView().startLoad(peaVar.t().getAvater(), 28, false);
         this.b = themeColorInfo;
-        getMRichTextView().setText(zjaVar.f0().toString());
+        getMRichTextView().setText(peaVar.f0().toString());
         getMAgreeView().setAgreeAlone(true);
-        getMAgreeView().setData(zjaVar.p());
+        getMAgreeView().setData(peaVar.p());
         onChangeSkinType(TbadkCoreApplication.getInst().getCurrentPageContext(getContext()), TbadkCoreApplication.getInst().getSkinType());
     }
 

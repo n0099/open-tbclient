@@ -1,47 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ik0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static fk0 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ik0 {
+    public static final ServiceReference a = new ServiceReference("nad.business", "rewardVideoLpTaskCenter");
+    public static final ik0 b = new a();
 
-    public ik0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(yj0 yj0Var);
+
+        void onFail(Exception exc);
     }
 
-    public static fk0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (ik0.class) {
-                    if (a == null) {
-                        a = (fk0) ServiceManager.getService(fk0.a);
-                    }
-                    if (a == null) {
-                        a = fk0.b;
-                    }
+    void a(@NonNull pm0 pm0Var, @NonNull in0 in0Var, @NonNull b bVar);
+
+    /* loaded from: classes6.dex */
+    public class a implements ik0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ik0
+        public void a(@NonNull pm0 pm0Var, @NonNull in0 in0Var, @NonNull b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, pm0Var, in0Var, bVar) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return a;
         }
-        return (fk0) invokeV.objValue;
     }
 }

@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e3c;
-import com.baidu.tieba.f3c;
-import com.baidu.tieba.j3c;
+import com.baidu.tieba.bxb;
+import com.baidu.tieba.cxb;
+import com.baidu.tieba.gxb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -167,41 +167,41 @@ public final class Transform extends Message<Transform, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public Transform decode(e3c e3cVar) throws IOException {
+        public Transform decode(bxb bxbVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e3cVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bxbVar)) == null) {
                 Builder builder = new Builder();
-                long c = e3cVar.c();
+                long c = bxbVar.c();
                 while (true) {
-                    int f = e3cVar.f();
+                    int f = bxbVar.f();
                     if (f != -1) {
                         switch (f) {
                             case 1:
-                                builder.a(ProtoAdapter.FLOAT.decode(e3cVar));
+                                builder.a(ProtoAdapter.FLOAT.decode(bxbVar));
                                 break;
                             case 2:
-                                builder.b(ProtoAdapter.FLOAT.decode(e3cVar));
+                                builder.b(ProtoAdapter.FLOAT.decode(bxbVar));
                                 break;
                             case 3:
-                                builder.c(ProtoAdapter.FLOAT.decode(e3cVar));
+                                builder.c(ProtoAdapter.FLOAT.decode(bxbVar));
                                 break;
                             case 4:
-                                builder.d(ProtoAdapter.FLOAT.decode(e3cVar));
+                                builder.d(ProtoAdapter.FLOAT.decode(bxbVar));
                                 break;
                             case 5:
-                                builder.tx(ProtoAdapter.FLOAT.decode(e3cVar));
+                                builder.tx(ProtoAdapter.FLOAT.decode(bxbVar));
                                 break;
                             case 6:
-                                builder.ty(ProtoAdapter.FLOAT.decode(e3cVar));
+                                builder.ty(ProtoAdapter.FLOAT.decode(bxbVar));
                                 break;
                             default:
-                                FieldEncoding g = e3cVar.g();
-                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(e3cVar));
+                                FieldEncoding g = bxbVar.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(bxbVar));
                                 break;
                         }
                     } else {
-                        e3cVar.d(c);
+                        bxbVar.d(c);
                         return builder.build();
                     }
                 }
@@ -280,34 +280,34 @@ public final class Transform extends Message<Transform, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(f3c f3cVar, Transform transform) throws IOException {
+        public void encode(cxb cxbVar, Transform transform) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, f3cVar, transform) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cxbVar, transform) == null) {
                 Float f = transform.a;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(f3cVar, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(cxbVar, 1, f);
                 }
                 Float f2 = transform.b;
                 if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(f3cVar, 2, f2);
+                    ProtoAdapter.FLOAT.encodeWithTag(cxbVar, 2, f2);
                 }
                 Float f3 = transform.c;
                 if (f3 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(f3cVar, 3, f3);
+                    ProtoAdapter.FLOAT.encodeWithTag(cxbVar, 3, f3);
                 }
                 Float f4 = transform.d;
                 if (f4 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(f3cVar, 4, f4);
+                    ProtoAdapter.FLOAT.encodeWithTag(cxbVar, 4, f4);
                 }
                 Float f5 = transform.tx;
                 if (f5 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(f3cVar, 5, f5);
+                    ProtoAdapter.FLOAT.encodeWithTag(cxbVar, 5, f5);
                 }
                 Float f6 = transform.ty;
                 if (f6 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(f3cVar, 6, f6);
+                    ProtoAdapter.FLOAT.encodeWithTag(cxbVar, 6, f6);
                 }
-                f3cVar.k(transform.unknownFields());
+                cxbVar.k(transform.unknownFields());
             }
         }
     }
@@ -415,7 +415,7 @@ public final class Transform extends Message<Transform, Builder> {
                 return false;
             }
             Transform transform = (Transform) obj;
-            if (unknownFields().equals(transform.unknownFields()) && j3c.f(this.a, transform.a) && j3c.f(this.b, transform.b) && j3c.f(this.c, transform.c) && j3c.f(this.d, transform.d) && j3c.f(this.tx, transform.tx) && j3c.f(this.ty, transform.ty)) {
+            if (unknownFields().equals(transform.unknownFields()) && gxb.f(this.a, transform.a) && gxb.f(this.b, transform.b) && gxb.f(this.c, transform.c) && gxb.f(this.d, transform.d) && gxb.f(this.tx, transform.tx) && gxb.f(this.ty, transform.ty)) {
                 return true;
             }
             return false;

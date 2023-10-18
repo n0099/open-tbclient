@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class idb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface idb {
+    void a() throws IOException;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            hdb.a();
-        }
-    }
+    void b(String str) throws IOException;
+
+    int c(byte[] bArr, int i, int i2) throws IOException;
+
+    void d(qdb qdbVar);
 }

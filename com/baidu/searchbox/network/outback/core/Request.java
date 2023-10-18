@@ -680,8 +680,8 @@ public class Request {
                     z = false;
                 }
                 call = callFactory.newCall(this, z);
-            } else if (this.callFactoryMap.containsKey(EngineName.DEFAULT_ENGINE)) {
-                CallFactory callFactory2 = this.callFactoryMap.get(EngineName.DEFAULT_ENGINE);
+            } else if (this.callFactoryMap.containsKey("DEFAULT")) {
+                CallFactory callFactory2 = this.callFactoryMap.get("DEFAULT");
                 if (this.callFactoryMap.size() == 1) {
                     z = false;
                 }
@@ -691,8 +691,8 @@ public class Request {
                 if (this.callFactoryMap.containsKey(EngineName.BACK_UP_ENGINE)) {
                     return this.callFactoryMap.get(EngineName.BACK_UP_ENGINE).newCall(this, false);
                 }
-                if (this.callFactoryMap.containsKey(EngineName.DEFAULT_ENGINE)) {
-                    return this.callFactoryMap.get(EngineName.DEFAULT_ENGINE).newCall(this, false);
+                if (this.callFactoryMap.containsKey("DEFAULT")) {
+                    return this.callFactoryMap.get("DEFAULT").newCall(this, false);
                 }
                 return call;
             }

@@ -47,7 +47,7 @@ public class c0 {
         this.a = context.getApplicationContext();
     }
 
-    public static c0 a(Context context) {
+    public static c0 c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -64,7 +64,7 @@ public class c0 {
     }
 
     @TargetApi(29)
-    public int delete(Uri uri, String str, String[] strArr, a0 a0Var) {
+    public int a(Uri uri, String str, String[] strArr, a0 a0Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, uri, str, strArr, a0Var)) == null) {
@@ -78,7 +78,7 @@ public class c0 {
         return invokeLLLL.intValue;
     }
 
-    public int delete(Uri uri, String str, String[] strArr, String str2, a0 a0Var) {
+    public int b(Uri uri, String str, String[] strArr, String str2, a0 a0Var) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr, str2, a0Var)) == null) {
@@ -111,15 +111,15 @@ public class c0 {
         return invokeLLLLL.intValue;
     }
 
-    public Uri insert(InputStream inputStream, MediaFileProcessor.UriSource uriSource, ContentValues contentValues, String str) {
+    public Uri d(InputStream inputStream, MediaFileProcessor.UriSource uriSource, ContentValues contentValues, String str) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, inputStream, uriSource, contentValues, str)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
-                Uri a = MediaFileProcessor.a(uriSource);
+                Uri c = MediaFileProcessor.c(uriSource);
                 contentValues.put("is_pending", (Integer) 1);
                 ContentResolver contentResolver = this.a.getContentResolver();
-                Uri insert = contentResolver.insert(a, contentValues);
+                Uri insert = contentResolver.insert(c, contentValues);
                 if (insert == null) {
                     Log.e("MediaFileProcessor", " 添加" + str + "文件失败， uri返回为null");
                     return null;
@@ -152,7 +152,7 @@ public class c0 {
     }
 
     @TargetApi(29)
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr, a0 a0Var) {
+    public int e(Uri uri, ContentValues contentValues, String str, String[] strArr, a0 a0Var) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, uri, contentValues, str, strArr, a0Var)) == null) {

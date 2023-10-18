@@ -18,9 +18,9 @@ public class i0 {
     public boolean d;
     public ComponentOperationHandler e;
     public r0<f0> f;
-    public u6<f0> g;
-    public x6 h;
-    public x6 i;
+    public r2<f0> g;
+    public s2 h;
+    public s2 i;
 
     public i0() {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class i0 {
             }
         }
         this.f = new r0<>();
-        this.g = new u6<>(false, 16);
-        this.h = new x6();
-        this.i = new x6();
+        this.g = new r2<>(false, 16);
+        this.h = new s2();
+        this.i = new s2();
         this.a = new q0<>();
         this.b = new q0<>();
     }
@@ -130,7 +130,7 @@ public class i0 {
             f0 a = this.f.a(c);
             if (a != null) {
                 this.f.d(c, null);
-                this.g.i(a, true);
+                this.g.g(a, true);
                 this.h.c(c);
                 return true;
             }
@@ -139,22 +139,22 @@ public class i0 {
         return invokeL.booleanValue;
     }
 
-    public x6 e() {
+    public s2 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.h;
         }
-        return (x6) invokeV.objValue;
+        return (s2) invokeV.objValue;
     }
 
-    public x6 f() {
+    public s2 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.i;
         }
-        return (x6) invokeV.objValue;
+        return (s2) invokeV.objValue;
     }
 
     public void g() {
@@ -179,9 +179,9 @@ public class i0 {
             return;
         }
         while (true) {
-            u6<f0> u6Var = this.g;
-            if (u6Var.b > 0) {
-                i(u6Var.get(0).getClass());
+            r2<f0> r2Var = this.g;
+            if (r2Var.b > 0) {
+                i(r2Var.get(0).getClass());
             } else {
                 return;
             }

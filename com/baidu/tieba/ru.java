@@ -1,52 +1,92 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class ru implements ns {
+import java.security.SecureRandom;
+/* loaded from: classes8.dex */
+public class ru {
     public static /* synthetic */ Interceptable $ic;
+    public static final SecureRandom b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fp a;
+    public tu a;
 
-    public ru(fp fpVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316362, "Lcom/baidu/tieba/ru;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448316362, "Lcom/baidu/tieba/ru;");
+                return;
+            }
+        }
+        b = new SecureRandom();
+    }
+
+    public ru() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fpVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = fpVar;
+        this.a = null;
+        this.a = new tu(new qu(), 16);
     }
 
-    @Override // com.baidu.tieba.ns
-    public ls a() {
-        InterceptResult invokeV;
+    public static byte[] c(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.l();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bArr, bArr2, bArr3)) == null) {
+            ru ruVar = new ru();
+            ruVar.a(1, bArr, bArr2);
+            return ruVar.b(bArr3);
         }
-        return (ls) invokeV.objValue;
+        return (byte[]) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ns
-    public ms b() {
-        InterceptResult invokeV;
+    public static byte[] d(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.s();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bArr, bArr2, bArr3)) == null) {
+            ru ruVar = new ru();
+            ruVar.a(2, bArr, bArr2);
+            return ruVar.b(bArr3);
         }
-        return (ms) invokeV.objValue;
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public void a(int i, byte[] bArr, byte[] bArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, bArr, bArr2) == null) {
+            this.a.c(i, bArr, bArr2, b);
+        }
+    }
+
+    public final byte[] b(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            if (bArr != null) {
+                return this.a.e(bArr, 0, bArr.length);
+            }
+            throw new IllegalArgumentException("Null input buffer");
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

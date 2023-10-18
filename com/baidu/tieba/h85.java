@@ -1,138 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.MessageQueue;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.searchbox.performance.speed.SpeedStats;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h85 {
+public class h85 extends zv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public String d;
-    public boolean e;
-    public Handler f;
-
-    /* loaded from: classes6.dex */
-    public class a implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-
-        public a(h85 h85Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h85Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (h85.a().c == 1) {
-                    i = 8;
-                } else {
-                    i = -1;
-                }
-                if (h85.a().c == 2) {
-                    i = 9;
-                }
-                if (!this.a.getClass().getSimpleName().equals("PbActivity")) {
-                    SpeedStats.getInstance().onSchemeOrPushStatsEnd(this.a, i, h85.a().d);
-                    return false;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MessageQueue.IdleHandler a;
-        public final /* synthetic */ h85 b;
-
-        public b(h85 h85Var, MessageQueue.IdleHandler idleHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h85Var, idleHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = h85Var;
-            this.a = idleHandler;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final h85 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-791482587, "Lcom/baidu/tieba/h85$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-791482587, "Lcom/baidu/tieba/h85$c;");
-                    return;
-                }
-            }
-            a = new h85();
-        }
-    }
+    public long a;
+    public long b;
+    public String c;
 
     public h85() {
         Interceptable interceptable = $ic;
@@ -147,81 +29,50 @@ public class h85 {
                 return;
             }
         }
-        this.c = 0;
-        this.e = false;
+        this.a = Long.MAX_VALUE;
+        this.b = 0L;
+        this.c = null;
     }
 
-    public static h85 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c.a;
-        }
-        return (h85) invokeV.objValue;
-    }
-
-    public final Handler b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f == null) {
-                this.f = new Handler(Looper.getMainLooper());
-            }
-            return this.f;
+            return this.c;
         }
-        return (Handler) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c(Intent intent) {
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            int i = 0;
-            if (TbadkCoreApplication.getInst().isMainProcess(false) && intent != null && intent.getComponent() != null) {
-                String dataString = intent.getDataString();
-                String className = intent.getComponent().getClassName();
-                if ("com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(className)) {
-                    this.c = !di.isEmpty(dataString) ? 1 : 0;
-                    this.d = dataString;
-                } else if (SpeedStats.PUSH_ACTIVITY.equals(className)) {
-                    if (!di.isEmpty(dataString)) {
-                        i = 2;
-                    }
-                    this.c = i;
-                    this.d = dataString;
-                } else {
-                    this.c = 0;
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return invokeV.longValue;
     }
 
-    public void d(MessageQueue.IdleHandler idleHandler) {
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, idleHandler) != null) || idleHandler == null || this.e) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        if (Looper.myLooper() != Looper.getMainLooper()) {
-            b().post(new b(this, idleHandler));
-            return;
-        }
-        Looper.myQueue().addIdleHandler(idleHandler);
-        this.e = true;
+        return invokeV.longValue;
     }
 
-    public void e(Activity activity) {
+    @Override // com.baidu.tieba.zv4
+    public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, activity) != null) || activity == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        if (a().c != 1 && a().c != 2) {
-            return;
-        }
-        String name = activity.getClass().getName();
-        if (i85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
-            if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !SchemeActionHelper.isToMaintab(activity.getIntent())) {
-                return;
-            }
-            a().d(new a(this, activity));
+        try {
+            this.a = jSONObject.optLong("start_time", Long.MAX_VALUE);
+            this.b = jSONObject.optLong("end_time", 0L);
+            this.c = jSONObject.optString("dest_url", "");
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
+
+import java.io.IOException;
 /* loaded from: classes8.dex */
 public interface ybb {
-    void a(long j);
+    void close() throws IOException;
 
-    void b(Exception exc, long j);
-
-    void onComplete(long j);
+    int write(byte[] bArr, int i, int i2) throws IOException;
 }

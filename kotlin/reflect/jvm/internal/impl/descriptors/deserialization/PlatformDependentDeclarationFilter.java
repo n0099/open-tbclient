@@ -2,10 +2,10 @@ package kotlin.reflect.jvm.internal.impl.descriptors.deserialization;
 
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.SimpleFunctionDescriptor;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public interface PlatformDependentDeclarationFilter {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class All implements PlatformDependentDeclarationFilter {
         public static final All INSTANCE = new All();
 
@@ -17,7 +17,7 @@ public interface PlatformDependentDeclarationFilter {
 
     boolean isFunctionAvailable(ClassDescriptor classDescriptor, SimpleFunctionDescriptor simpleFunctionDescriptor);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class NoPlatformDependent implements PlatformDependentDeclarationFilter {
         public static final NoPlatformDependent INSTANCE = new NoPlatformDependent();
 

@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.BdStatsItem;
+import com.baidu.tbadk.performanceLog.PerformanceLogger;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,38 +11,99 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class nn5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static nn5 b;
+public class nn5 extends PerformanceLogger {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 100;
+    public static int b = 10;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Class<? extends mn5>> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948008244, "Lcom/baidu/tieba/nn5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948008244, "Lcom/baidu/tieba/nn5;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948008244, "Lcom/baidu/tieba/nn5;")) == null) {
+            return;
         }
-        b = new nn5();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948008244, "Lcom/baidu/tieba/nn5;");
+        }
     }
 
-    public static nn5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static int a;
+        public static int b;
+        public static int c;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                BdStatsItem logItem = PerformanceLogger.getLogItem();
+                logItem.append("action", "imbusy");
+                logItem.append("totalNum", String.valueOf(a));
+                logItem.append("tfailNum", String.valueOf(b));
+                logItem.append("qfailNum", String.valueOf(c));
+                BdStatisticsManager.getInstance().performance("im", logItem);
+                b();
+            }
         }
-        return (nn5) invokeV.objValue;
+
+        public static void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+                a = 0;
+                b = 0;
+                c = 0;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static int a;
+        public static long b;
+        public static long c;
+        public static long d;
+        public static int e;
+        public static int f;
+        public static long g;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                BdStatsItem logItem = PerformanceLogger.getLogItem();
+                logItem.append("action", "imcost");
+                logItem.append("dect", String.valueOf(b));
+                logItem.append("dlsize", String.valueOf(c));
+                logItem.append("dbt", String.valueOf(d));
+                logItem.append("pnum", String.valueOf(e));
+                logItem.append("reqcost", String.valueOf(g));
+                logItem.append("cpu", String.valueOf(f));
+                logItem.append("totalNum", String.valueOf(a));
+                BdStatisticsManager.getInstance().performance("im", logItem);
+                b();
+            }
+        }
+
+        public static void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+                a = 0;
+                b = 0L;
+                c = 0L;
+                d = 0L;
+                e = 0;
+                f = 0;
+            }
+        }
     }
 
     public nn5() {
@@ -56,157 +116,53 @@ public class nn5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        this.a = new HashMap<>();
-        f(on5.class);
-        f(qn5.class);
-        f(ln5.class);
-        f(pn5.class);
-        f(rn5.class);
-    }
-
-    public mn5 a(ImageOperation imageOperation) {
-        InterceptResult invokeL;
-        mn5 e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageOperation)) == null) {
-            Class<? extends mn5> cls = this.a.get(imageOperation.actionName);
-            if (cls == null || (e = e(cls)) == null) {
-                return null;
-            }
-            e.d(imageOperation.actionParam);
-            return e;
-        }
-        return (mn5) invokeL.objValue;
-    }
-
-    public final mn5 e(Class<? extends mn5> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
-            try {
-                return cls.newInstance();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
-            }
-        }
-        return (mn5) invokeL.objValue;
-    }
-
-    public final void f(Class<? extends mn5> cls) {
-        mn5 e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, cls) == null) && (e = e(cls)) != null) {
-            this.a.put(e.a(), cls);
         }
     }
 
-    public Bitmap b(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
-        InterceptResult invokeCommon;
-        Bitmap bitmap2;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bitmap, Boolean.valueOf(z), list, imageFileInfo})) == null) {
-            if (bitmap == null) {
-                return bitmap;
-            }
-            if (ListUtils.isEmpty(list)) {
-                return bitmap;
-            }
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                mn5 a = a(list.get(i));
-                if ((a instanceof rn5) && imageFileInfo != null) {
-                    ((rn5) a).e(imageFileInfo.getFilePath());
-                    return a.b(bitmap, z);
-                }
-            }
-            on5 on5Var = null;
-            int i2 = 0;
-            while (i2 < size) {
-                ImageOperation imageOperation = list.get(i2);
-                if ("resize".equals(imageOperation.actionName)) {
-                    on5 on5Var2 = (on5) a(imageOperation);
-                    if (on5Var == null || on5Var2.f() <= on5Var.f() || on5Var2.e() <= on5Var.e()) {
-                        on5Var = on5Var2;
-                    }
-                    list.remove(i2);
-                    i2--;
-                }
-                i2++;
-            }
-            if (on5Var != null) {
-                bitmap2 = on5Var.b(bitmap, z);
-            } else {
-                bitmap2 = null;
-            }
-            if (list != null) {
-                for (int i3 = 0; i3 < size; i3++) {
-                    mn5 a2 = a(list.get(i3));
-                    if (a2 != null) {
-                        if (bitmap2 == null) {
-                            return null;
-                        }
-                        bitmap2 = a2.b(bitmap, z);
-                    }
-                }
-            }
-            return bitmap2;
+        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            return;
         }
-        return (Bitmap) invokeCommon.objValue;
+        if (b.a > b) {
+            b.a();
+        }
+        if (a.a > b) {
+            a.a();
+        }
     }
 
-    public Bitmap c(String str, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
-        InterceptResult invokeLLL;
+    public static void a(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, imageFileInfo)) == null) {
-            Bitmap bitmap = null;
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            a.a++;
+            if (z2) {
+                a.b++;
+            } else if (z3) {
+                a.c++;
             }
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                mn5 a = a(list.get(i));
-                if ((a instanceof rn5) && imageFileInfo != null) {
-                    return a.c(imageFileInfo.getFilePath());
-                }
+            if (a.a > a) {
+                a.a();
             }
-            on5 on5Var = null;
-            int i2 = 0;
-            while (i2 < list.size()) {
-                ImageOperation imageOperation = list.get(i2);
-                if ("resize".equals(imageOperation.actionName)) {
-                    on5 on5Var2 = (on5) a(imageOperation);
-                    if (on5Var == null || on5Var2.f() <= on5Var.f() || on5Var2.e() <= on5Var.e()) {
-                        on5Var = on5Var2;
-                    }
-                    list.remove(i2);
-                    i2--;
-                }
-                i2++;
-            }
-            if (on5Var != null) {
-                bitmap = on5Var.c(str);
-            }
-            if (list != null) {
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    mn5 a2 = a(list.get(i3));
-                    if (a2 != null) {
-                        if (bitmap == null) {
-                            bitmap = a2.c(str);
-                        } else {
-                            bitmap = a2.b(bitmap, true);
-                        }
-                    }
-                }
-            }
-            return bitmap;
         }
-        return (Bitmap) invokeLLL.objValue;
+    }
+
+    public void b(kn5 kn5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, kn5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            return;
+        }
+        if (b.a < a) {
+            b.b += kn5Var.b;
+            b.c += kn5Var.c;
+            b.d += kn5Var.d;
+            b.e += kn5Var.e;
+            b.g += kn5Var.f;
+            b.f += kn5Var.g;
+            b.a++;
+            return;
+        }
+        b.a();
     }
 }

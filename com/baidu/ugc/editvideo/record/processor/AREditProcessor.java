@@ -18,15 +18,15 @@ import com.baidu.ar.filter.FilterStateListener;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.arface.bean.Sticker;
 import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.tieba.akb;
-import com.baidu.tieba.dgb;
-import com.baidu.tieba.fgb;
-import com.baidu.tieba.fkb;
-import com.baidu.tieba.hf0;
-import com.baidu.tieba.if0;
-import com.baidu.tieba.mf0;
-import com.baidu.tieba.sg0;
-import com.baidu.tieba.skb;
+import com.baidu.tieba.abb;
+import com.baidu.tieba.afb;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.fa0;
+import com.baidu.tieba.ja0;
+import com.baidu.tieba.nfb;
+import com.baidu.tieba.pb0;
+import com.baidu.tieba.veb;
+import com.baidu.tieba.yab;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
@@ -46,8 +46,8 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     public long mCurrPosition;
     public DuMixCallback mDuMixCallback;
     public DuArEditProcessorCallback mEditProcessCallback;
-    public hf0 mEffect;
-    public hf0.l mEffectHolder;
+    public ea0 mEffect;
+    public ea0.l mEffectHolder;
     public int mFboInputTexId;
     public int mFboOutTexId;
     public FullFrameRect mFullArAlpha;
@@ -69,12 +69,12 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     public boolean mIsSetup = false;
     public boolean mSkipARAfterSetup = true;
     public boolean savePic = false;
-    public mf0 beautyEnableStatus = new mf0();
+    public ja0 beautyEnableStatus = new ja0();
     public int i = 0;
 
     /* loaded from: classes9.dex */
     public interface DuArEditProcessorCallback {
-        void onBeautyEnableChanged(mf0 mf0Var);
+        void onBeautyEnableChanged(ja0 ja0Var);
 
         void onChangeGender(boolean z);
     }
@@ -82,31 +82,31 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     public AREditProcessor() {
         this.mEffectHolder = null;
         this.mIsArLoadSuccess = false;
-        this.mEffectHolder = new hf0.l() { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.1
-            @Override // com.baidu.tieba.hf0.l
-            public void onHolderChanged(hf0.l lVar) {
+        this.mEffectHolder = new ea0.l() { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.1
+            @Override // com.baidu.tieba.ea0.l
+            public void onHolderChanged(ea0.l lVar) {
             }
         };
-        fgb e = dgb.c().e();
-        if (e != null) {
-            this.mIsArLoadSuccess = e.a();
+        abb f = yab.d().f();
+        if (f != null) {
+            this.mIsArLoadSuccess = f.a();
         }
     }
 
     private boolean checkSticker(Sticker sticker) {
-        return sticker != null && sticker.isSupport(hf0.a0()) && !TextUtils.isEmpty(sticker.getPath()) && new File(sticker.getPath()).exists() && hf0.k1(sticker.getPath());
+        return sticker != null && sticker.isSupport(ea0.a0()) && !TextUtils.isEmpty(sticker.getPath()) && new File(sticker.getPath()).exists() && ea0.k1(sticker.getPath());
     }
 
     private void createArInstance() {
-        if (hf0.M(this.mEffect, this.mEffectHolder)) {
+        if (ea0.M(this.mEffect, this.mEffectHolder)) {
             return;
         }
-        if (!hf0.i0()) {
-            hf0.k0();
+        if (!ea0.i0()) {
+            ea0.k0();
         }
-        if (hf0.i0()) {
-            this.mEffect = hf0.U(dgb.c().getContext(), this.mEffectHolder, EGL14.eglGetCurrentContext(), if0.b());
-            hf0.h1(this.mSyncInputContent || this.mPreviewSyncInputContent);
+        if (ea0.i0()) {
+            this.mEffect = ea0.U(yab.d().b(), this.mEffectHolder, EGL14.eglGetCurrentContext(), fa0.b());
+            ea0.h1(this.mSyncInputContent || this.mPreviewSyncInputContent);
             this.mEffect.g1();
             this.mEffect.X0(new FaceListener() { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.7
                 @Override // com.baidu.ar.face.FaceListener
@@ -124,7 +124,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
                     if (faceIds == null) {
                         return;
                     }
-                    akb.c(AREditProcessor.TAG, "faceid  " + faceIds[0] + "  isMale:  " + z + "  result: " + genders[0]);
+                    veb.c(AREditProcessor.TAG, "faceid  " + faceIds[0] + "  isMale:  " + z + "  result: " + genders[0]);
                 }
 
                 @Override // com.baidu.ar.face.FaceListener
@@ -161,9 +161,9 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     }
 
     private void initDefParams() {
-        hf0 hf0Var = this.mEffect;
-        if (hf0Var != null) {
-            hf0Var.c0(false);
+        ea0 ea0Var = this.mEffect;
+        if (ea0Var != null) {
+            ea0Var.c0(false);
         }
     }
 
@@ -199,9 +199,9 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     }
 
     private void innerSetBeautyValues(Map<BeautyType, Object> map) {
-        hf0 hf0Var = this.mEffect;
-        if (hf0Var != null) {
-            hf0Var.R0(map);
+        ea0 ea0Var = this.mEffect;
+        if (ea0Var != null) {
+            ea0Var.R0(map);
         }
     }
 
@@ -209,7 +209,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         if (this.mSticker == null || this.mIsStickerLoaded) {
             return;
         }
-        akb.c(TAG, "mCurrPosition = " + this.mCurrPosition + ", id = " + this.mSticker.getId() + " , path = " + this.mSticker.getPath());
+        veb.c(TAG, "mCurrPosition = " + this.mCurrPosition + ", id = " + this.mSticker.getId() + " , path = " + this.mSticker.getPath());
         Sticker.AbilityModel abilityModel = this.mSticker.getAbilityModel();
         if (abilityModel != null) {
             this.mEffect.d1(abilityModel.getPath());
@@ -222,7 +222,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     private void releaseARInstance() {
         this.mIsSetup = false;
         if (this.mEffect != null) {
-            akb.c(TAG, "release AR instance");
+            veb.c(TAG, "release AR instance");
             this.mEffect.B0();
             this.mEffect = null;
         }
@@ -231,7 +231,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     private void releaseCase() {
         if (this.mEffect != null && this.mIsStickerLoaded) {
             if (this.mSticker != null) {
-                akb.c(TAG, "id = " + this.mSticker.getId() + " , path = " + this.mSticker.getPath());
+                veb.c(TAG, "id = " + this.mSticker.getId() + " , path = " + this.mSticker.getPath());
             }
             this.mEffect.O();
         }
@@ -239,9 +239,9 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     }
 
     private void resetInputAndOutputTexture() {
-        hf0 hf0Var = this.mEffect;
-        if (hf0Var != null) {
-            hf0Var.E0();
+        ea0 ea0Var = this.mEffect;
+        if (ea0Var != null) {
+            ea0Var.E0();
         }
     }
 
@@ -256,13 +256,13 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         if (texture == null) {
             return;
         }
-        hf0 hf0Var = this.mEffect;
-        if (hf0Var == null) {
-            akb.c(TAG, "setInput Effect == null");
+        ea0 ea0Var = this.mEffect;
+        if (ea0Var == null) {
+            veb.c(TAG, "setInput Effect == null");
             return;
         }
-        hf0Var.c1(texture);
-        akb.c(TAG, "check ar size ：width = " + this.mPreviewWidth + " , height = " + this.mPreviewHeight);
+        ea0Var.c1(texture);
+        veb.c(TAG, "check ar size ：width = " + this.mPreviewWidth + " , height = " + this.mPreviewHeight);
         onCameraDrawerCreated(null, this.mPreviewWidth, this.mPreviewHeight);
         onARDrawerCreated(null, null, this.mPreviewWidth, this.mPreviewHeight);
     }
@@ -272,7 +272,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         this.i++;
         if (this.mSyncInputContent && this.savePic && (i3 = this.i) <= 2) {
             if (i3 == 1) {
-                skb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.3
+                nfb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.3
                     @Override // java.lang.Runnable
                     public void run() {
                         FileUtils.deleteFileOrDir(new File("/sdcard/aguogh/"));
@@ -326,16 +326,16 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     }
 
     public boolean isSetup() {
-        return this.mIsSetup && hf0.M(this.mEffect, this.mEffectHolder);
+        return this.mIsSetup && ea0.M(this.mEffect, this.mEffectHolder);
     }
 
     public void onARDrawerChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-        akb.c(TAG, "onARDrawerChanged, mEffect=" + this.mEffect);
+        veb.c(TAG, "onARDrawerChanged, mEffect=" + this.mEffect);
     }
 
     public void onARDrawerCreated(SurfaceTexture surfaceTexture, SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener, int i, int i2) {
         if (this.mEffect == null) {
-            akb.c(TAG, "onARDrawerCreated Effect == null");
+            veb.c(TAG, "onARDrawerCreated Effect == null");
             return;
         }
         initOutputTexture(i, i2);
@@ -364,7 +364,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
                 AREditProcessor.this.beautyEnableStatus.a(bool3 == null || bool3.booleanValue());
                 AREditProcessor.this.beautyEnableStatus.b((bool == null || bool.booleanValue()) ? true : true);
                 if (AREditProcessor.this.mEditProcessCallback != null) {
-                    skb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.2.1
+                    nfb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.AREditProcessor.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             AREditProcessor.this.mEditProcessCallback.onBeautyEnableChanged(AREditProcessor.this.beautyEnableStatus);
@@ -376,18 +376,18 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     }
 
     public void onCameraDrawerCreated(SurfaceTexture surfaceTexture, int i, int i2) {
-        hf0 hf0Var = this.mEffect;
-        if (hf0Var != null) {
-            hf0Var.v0(surfaceTexture, i, i2);
+        ea0 ea0Var = this.mEffect;
+        if (ea0Var != null) {
+            ea0Var.v0(surfaceTexture, i, i2);
         } else {
-            akb.c(TAG, "onCameraDrawerCreated Effect == null");
+            veb.c(TAG, "onCameraDrawerCreated Effect == null");
         }
     }
 
     @Override // com.baidu.ar.DuMixCallback
     public void onCaseCreate(boolean z, String str, String str2) {
         Sticker sticker;
-        akb.b("create callback ---- result b = " + z + " casePath = " + str + " caseId = " + str2);
+        veb.b("create callback ---- result b = " + z + " casePath = " + str + " caseId = " + str2);
         if (str2 == null || (sticker = this.mSticker) == null || !TextUtils.equals(str2, sticker.getId())) {
             this.mIsStickerLoaded = false;
         } else {
@@ -401,7 +401,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
 
     @Override // com.baidu.ar.DuMixCallback
     public void onCaseDestroy() {
-        akb.b("case destroy callback");
+        veb.b("case destroy callback");
         DuMixCallback duMixCallback = this.mDuMixCallback;
         if (duMixCallback != null) {
             duMixCallback.onCaseDestroy();
@@ -417,50 +417,50 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(sg0 sg0Var, int i, float[] fArr) {
+    public int onProcessFrame(pb0 pb0Var, int i, float[] fArr) {
         if (!this.mIsArLoadSuccess) {
-            akb.c(TAG, "ship AR --- AR load so fail");
+            veb.c(TAG, "ship AR --- AR load so fail");
             return i;
         }
         if (this.mInputTexture == null) {
             initInputTexture();
             setupArInstance(this.mInputTexture);
             if (!this.mSyncInputContent || this.mIsSetup) {
-                akb.c(TAG, "----- initAr started -----");
+                veb.c(TAG, "----- initAr started -----");
             } else {
                 try {
-                    akb.c(TAG, "----- waiting -----");
+                    veb.c(TAG, "----- waiting -----");
                     CountDownLatch countDownLatch = new CountDownLatch(1);
                     this.mLatch = countDownLatch;
                     try {
                         countDownLatch.await();
                     } catch (Exception unused) {
                     }
-                    akb.c(TAG, "----- notified -----");
+                    veb.c(TAG, "----- notified -----");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
-        akb.c(TAG, "-----params----- mSyncInputContent : " + this.mSyncInputContent + " mSkipARAfterSetup : " + this.mSkipARAfterSetup + " mBeautyMap : " + fkb.f(this.mBeautyMap) + " mSticker : " + this.mSticker + " mImageQualityOpen : " + this.mImageQualityOpen);
-        if (!this.mSyncInputContent && this.mSkipARAfterSetup && fkb.f(this.mBeautyMap) && this.mSticker == null && !this.mImageQualityOpen) {
-            akb.c(TAG, "ship AR --- no ar effect");
+        veb.c(TAG, "-----params----- mSyncInputContent : " + this.mSyncInputContent + " mSkipARAfterSetup : " + this.mSkipARAfterSetup + " mBeautyMap : " + afb.f(this.mBeautyMap) + " mSticker : " + this.mSticker + " mImageQualityOpen : " + this.mImageQualityOpen);
+        if (!this.mSyncInputContent && this.mSkipARAfterSetup && afb.f(this.mBeautyMap) && this.mSticker == null && !this.mImageQualityOpen) {
+            veb.c(TAG, "ship AR --- no ar effect");
             return i;
         }
-        if (sg0Var != null) {
-            this.mCurrPosition = sg0Var.b();
+        if (pb0Var != null) {
+            this.mCurrPosition = pb0Var.b();
         }
         if (!this.mIsSetup) {
-            akb.c(TAG, "ship AR --- AR not setup or fail to setup, curPos = " + this.mCurrPosition);
+            veb.c(TAG, "ship AR --- AR not setup or fail to setup, curPos = " + this.mCurrPosition);
             return i;
         }
-        hf0 hf0Var = this.mEffect;
-        int X = hf0Var != null ? hf0Var.X() : 0;
+        ea0 ea0Var = this.mEffect;
+        int X = ea0Var != null ? ea0Var.X() : 0;
         if (X == 0) {
-            akb.c(TAG, "ship AR --- AR output texture id is zero, curPos = " + this.mCurrPosition);
+            veb.c(TAG, "ship AR --- AR output texture id is zero, curPos = " + this.mCurrPosition);
             return i;
         } else if (this.mEffect == null) {
-            akb.c(TAG, "ship AR --- AR instace is null, curPos = " + this.mCurrPosition);
+            veb.c(TAG, "ship AR --- AR instace is null, curPos = " + this.mCurrPosition);
             return i;
         } else {
             drawFrameBuffer(i);
@@ -489,7 +489,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
             if (this.mSyncInputContent || !this.mSkipARAfterSetup) {
                 return this.mFboOutTexId;
             }
-            akb.c(TAG, "ship AR --- ar first frame when ar is async, curPos = " + this.mCurrPosition);
+            veb.c(TAG, "ship AR --- ar first frame when ar is async, curPos = " + this.mCurrPosition);
             this.mSkipARAfterSetup = false;
             return i;
         }
@@ -505,10 +505,10 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
 
     @Override // com.baidu.ugc.editvideo.record.processor.BaseEffectProcessor, com.baidu.ugc.editvideo.record.IMediaLifeCycle
     public void onResume() {
-        hf0 hf0Var = this.mEffect;
-        if (hf0Var != null) {
-            hf0Var.F0();
-            akb.c(TAG, "onResume1");
+        ea0 ea0Var = this.mEffect;
+        if (ea0Var != null) {
+            ea0Var.F0();
+            veb.c(TAG, "onResume1");
         }
     }
 
@@ -516,12 +516,12 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
         CountDownLatch countDownLatch;
         if (z) {
-            akb.c(TAG, "----- onSetup result：" + z + " -----");
+            veb.c(TAG, "----- onSetup result：" + z + " -----");
             initDefParams();
             innerSetBeautyValues(this.mBeautyMap);
             setSticker(this.mSticker, this.mStickerStartTime, this.mStickerEndTime);
         } else {
-            akb.c(TAG, "1571，onSetup返回失败：" + z);
+            veb.c(TAG, "1571，onSetup返回失败：" + z);
         }
         this.mIsSetup = z;
         if (this.mSyncInputContent && (countDownLatch = this.mLatch) != null) {
@@ -578,38 +578,38 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
 
     public void setBeautyValue(BeautyType beautyType, float f) {
         this.mBeautyMap.put(beautyType, Float.valueOf(f));
-        hf0 hf0Var = this.mEffect;
-        if (hf0Var != null) {
-            hf0Var.L0(beautyType, f);
+        ea0 ea0Var = this.mEffect;
+        if (ea0Var != null) {
+            ea0Var.L0(beautyType, f);
         }
     }
 
     public void setBeautyValue(BeautyType beautyType, int i) {
         this.mBeautyMap.put(beautyType, Integer.valueOf(i));
-        hf0 hf0Var = this.mEffect;
-        if (hf0Var != null) {
-            hf0Var.M0(beautyType, i);
+        ea0 ea0Var = this.mEffect;
+        if (ea0Var != null) {
+            ea0Var.M0(beautyType, i);
         }
     }
 
     public void setBeautyValue(BeautyType beautyType, String str) {
         this.mBeautyMap.put(beautyType, str);
-        hf0 hf0Var = this.mEffect;
-        if (hf0Var != null) {
-            hf0Var.P0(beautyType, str);
+        ea0 ea0Var = this.mEffect;
+        if (ea0Var != null) {
+            ea0Var.P0(beautyType, str);
         }
     }
 
     public void setBeautyValue(BeautyType beautyType, float[] fArr) {
         this.mBeautyMap.put(beautyType, fArr);
-        hf0 hf0Var = this.mEffect;
-        if (hf0Var != null) {
-            hf0Var.Q0(beautyType, fArr);
+        ea0 ea0Var = this.mEffect;
+        if (ea0Var != null) {
+            ea0Var.Q0(beautyType, fArr);
         }
     }
 
     public void setBeautyValues(Map<BeautyType, Object> map) {
-        if (fkb.f(map)) {
+        if (afb.f(map)) {
             return;
         }
         this.mBeautyMap.putAll(map);
@@ -628,7 +628,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
         float f;
         this.mImageQualityOpen = z;
         if (!z) {
-            if (fkb.f(this.mBeautyMap) && this.mSticker == null) {
+            if (afb.f(this.mBeautyMap) && this.mSticker == null) {
                 return;
             }
             setCloseImageQuality();
@@ -648,8 +648,8 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     @Override // com.baidu.ugc.editvideo.record.processor.BaseEffectProcessor, com.baidu.ugc.editvideo.record.processor.IEffectProcessor
     public void setPreviewSize(int i, int i2) {
         if (i != this.mPreviewWidth && i2 != this.mPreviewHeight) {
-            akb.c(TAG, "check ar size before：width = " + this.mPreviewWidth + " , height = " + this.mPreviewHeight);
-            akb.c(TAG, "check ar size after ：width = " + i + " , height = " + i2);
+            veb.c(TAG, "check ar size before：width = " + this.mPreviewWidth + " , height = " + this.mPreviewHeight);
+            veb.c(TAG, "check ar size after ：width = " + i + " , height = " + i2);
         }
         super.setPreviewSize(i, i2);
     }
@@ -659,7 +659,7 @@ public class AREditProcessor extends BaseEffectProcessor implements DuMixCallbac
     }
 
     public void setSticker(Sticker sticker, long j, long j2) {
-        akb.c(TAG, "startTime = " + j + " , endTime = " + j2);
+        veb.c(TAG, "startTime = " + j + " , endTime = " + j2);
         if (this.mSticker != sticker) {
             releaseCase();
         }

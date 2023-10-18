@@ -161,15 +161,6 @@ public class GLVersion {
         return invokeV.intValue;
     }
 
-    public Type getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (Type) invokeV.objValue;
-    }
-
     public final int c(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

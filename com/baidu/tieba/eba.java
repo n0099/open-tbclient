@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class eba {
+public class eba extends taa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public fba c;
 
     public eba() {
         Interceptable interceptable = $ic;
@@ -25,11 +27,31 @@ public class eba {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public fba h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        DnsModel.MSG_OK.equals(jSONObject.optString("status"));
+        return (fba) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.taa
+    public void d(JSONObject jSONObject) throws Exception {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("forum_dir")) != null) {
+            fba fbaVar = new fba();
+            fbaVar.a(optJSONObject);
+            i(fbaVar);
+        }
+    }
+
+    public void i(fba fbaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fbaVar) == null) {
+            this.c = fbaVar;
+            g(null);
+        }
     }
 }

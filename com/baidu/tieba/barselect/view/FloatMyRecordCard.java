@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-import com.baidu.tieba.li6;
-import com.baidu.tieba.mi6;
-import com.baidu.tieba.ni6;
-import com.baidu.tieba.wi6;
+import com.baidu.tieba.fd6;
+import com.baidu.tieba.uc6;
+import com.baidu.tieba.vc6;
+import com.baidu.tieba.wc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,8 +34,8 @@ public class FloatMyRecordCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public ni6 c;
-    public li6 d;
+    public wc6 c;
+    public uc6 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -142,16 +142,16 @@ public class FloatMyRecordCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0927ca);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0927bf);
             BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
             this.f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.f.getHeadView().setIsRound(true);
             }
             this.g = (TextView) findViewById(R.id.user_name);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e71);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0929e8);
-            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f091856);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e8b);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0929da);
+            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f091873);
         }
     }
 
@@ -167,12 +167,12 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public void d(int i) {
-        li6 li6Var;
+        uc6 uc6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (li6Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (uc6Var = this.d) == null) {
             return;
         }
-        if (li6Var.i() > 3) {
+        if (uc6Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -183,21 +183,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(ni6 ni6Var) {
-        li6 li6Var;
+    public void setData(wc6 wc6Var) {
+        uc6 uc6Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ni6Var) == null) {
-            this.c = ni6Var;
-            if (ni6Var != null && ni6Var.a() != null) {
-                mi6 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, wc6Var) == null) {
+            this.c = wc6Var;
+            if (wc6Var != null && wc6Var.a() != null) {
+                vc6 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.h();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (li6Var = this.d) != null && this.b == wi6.c) {
-                int i = li6Var.i();
+            if (this.c != null && (uc6Var = this.d) != null && this.b == fd6.c) {
+                int i = uc6Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {

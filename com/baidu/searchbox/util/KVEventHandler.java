@@ -7,12 +7,12 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tieba.or1;
+import com.baidu.tieba.yl1;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class KVEventHandler extends or1 {
+public class KVEventHandler extends yl1 {
     public static final String KV_ERROR_UPLOAD_TASK_NAME = "uploadKVFailEvent";
     public static final String TAG = "KVEventHandler";
     public static final String UBC_FILE_NAME_KEY = "file_name";
@@ -75,7 +75,7 @@ public class KVEventHandler extends or1 {
         sUbcManager.onEvent(UBC_ID_KV_ERROR_EVENT, jSONObject);
     }
 
-    @Override // com.baidu.tieba.or1
+    @Override // com.baidu.tieba.yl1
     public void onKVCatchError(final int i, final String str, final String str2) {
         super.onKVCatchError(i, str, str2);
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.util.KVEventHandler.1

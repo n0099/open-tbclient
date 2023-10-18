@@ -1,59 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class og {
+public class og extends BdAsyncTask<List<PackageInfo>, Integer, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
+    public og() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    @SafeVarargs
+    /* renamed from: b */
+    public final Boolean doInBackground(List<PackageInfo>... listArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (BdNetTypeUtil.isWifiNet()) {
-                return "WIFI";
-            }
-            if (BdNetTypeUtil.isMobileNet()) {
-                int curOperatorType = BdNetTypeUtil.curOperatorType();
-                StringBuilder sb = new StringBuilder();
-                if (curOperatorType != 1) {
-                    if (curOperatorType != 2) {
-                        if (curOperatorType != 3) {
-                            sb.append('N');
-                        } else {
-                            sb.append('T');
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listArr)) == null) {
+            if (listArr != null && listArr.length != 0) {
+                List<PackageInfo> list = listArr[0];
+                if (list != null && !list.isEmpty()) {
+                    boolean z = true;
+                    for (PackageInfo packageInfo : list) {
+                        if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
+                            BdBaseApplication.getInst().getResHashMap().remove(packageInfo.name);
+                            File file = new File(rg.b(packageInfo.name));
+                            if (file.exists()) {
+                                TbLog defaultLog = DefaultLog.getInstance();
+                                defaultLog.i("PMS", "待删除文件:" + file);
+                                if (!file.delete()) {
+                                    z = false;
+                                }
+                                TbLog defaultLog2 = DefaultLog.getInstance();
+                                defaultLog2.i("PMS", "文件删除状态:" + z);
+                            }
                         }
-                    } else {
-                        sb.append('U');
                     }
-                } else {
-                    sb.append('M');
+                    TbLog defaultLog3 = DefaultLog.getInstance();
+                    defaultLog3.i("PMS", "删除文件后的 Map: " + BdBaseApplication.getInst().getResHashMap().toString());
+                    return Boolean.valueOf(z);
                 }
-                if (BdNetTypeUtil.isWap()) {
-                    sb.append("_WAP_");
-                } else {
-                    sb.append("_NET_");
-                }
-                if (BdNetTypeUtil.is3GNet()) {
-                    sb.append("3G");
-                } else if (BdNetTypeUtil.is4GNet()) {
-                    sb.append("4G");
-                } else if (BdNetTypeUtil.is2GNet()) {
-                    sb.append("2G");
-                } else {
-                    sb.append('N');
-                }
-                return sb.toString();
+                return Boolean.TRUE;
             }
-            return "unknown";
+            return Boolean.TRUE;
         }
-        return (String) invokeL.objValue;
+        return (Boolean) invokeL.objValue;
     }
 }

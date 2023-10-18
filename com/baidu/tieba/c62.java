@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class c62 extends m42 {
+public class c62 extends z52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public Bitmap d;
 
     public c62() {
         Interceptable interceptable = $ic;
@@ -28,23 +26,30 @@ public class c62 extends m42 {
         }
     }
 
-    @Override // com.baidu.tieba.m42
-    public void a(n42 n42Var, Canvas canvas) {
+    public static c62 a(String str, Bitmap bitmap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, n42Var, canvas) == null) {
-            if (n42Var.a() == 0) {
-                n42Var.b(canvas.save());
-            }
-            canvas.translate(this.a, this.b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
+            c62 c62Var = new c62();
+            c62Var.a = 1;
+            c62Var.b = str;
+            c62Var.c = 0L;
+            c62Var.d = bitmap;
+            return c62Var;
         }
+        return (c62) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.m42
-    public void b(JSONArray jSONArray) {
+    public static c62 b(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
-            this.a = xo3.g((float) jSONArray.optDouble(0));
-            this.b = xo3.g((float) jSONArray.optDouble(1));
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            c62 c62Var = new c62();
+            c62Var.a = 1;
+            c62Var.b = str;
+            c62Var.c = j;
+            return c62Var;
         }
+        return (c62) invokeLJ.objValue;
     }
 }

@@ -8,10 +8,10 @@ import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.tieba.f35;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.pl;
-import com.baidu.tieba.ql;
-import com.baidu.tieba.x85;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.ng;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -233,11 +233,11 @@ public final class FunnySpriteResDownloadUtil {
             });
             String str = "com.baidu.tieba.resloader." + ((String) objectRef.element) + ".zip";
             DefaultLog.getInstance().i("SpriteResDownload", "Sprite Res download start. Res : " + str);
-            pl plVar = new pl(str, new a(System.currentTimeMillis()));
+            mg mgVar = new mg(str, new a(System.currentTimeMillis()));
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(ql.a);
+            requestParams.setRunType(ng.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(plVar);
+            requestParams.addChannel(mgVar);
             PmsManager.getInstance().execute(requestParams);
         }
     }
@@ -406,7 +406,7 @@ public final class FunnySpriteResDownloadUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
             String str3 = a + File.separator + str;
-            boolean b2 = x85.b(a + File.separator + str2, str3 + "_temp");
+            boolean b2 = f35.b(a + File.separator + str2, str3 + "_temp");
             DefaultLog.getInstance().i("SpriteResDownload", "Sprite Res UnZip State in unzipResFile: " + b2);
             if (b2) {
                 File file = new File(str3);

@@ -8,7 +8,7 @@ public final class am implements com.kwad.sdk.core.d<com.kwad.components.core.we
         if (jSONObject == null) {
             return;
         }
-        dVar.NM = jSONObject.optBoolean("autoPlay");
+        dVar.NM = jSONObject.optBoolean(com.baidu.mobads.sdk.internal.o.k);
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -18,7 +18,7 @@ public final class am implements com.kwad.sdk.core.d<com.kwad.components.core.we
         }
         boolean z = dVar.NM;
         if (z) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "autoPlay", z);
+            com.kwad.sdk.utils.r.putValue(jSONObject, com.baidu.mobads.sdk.internal.o.k, z);
         }
         return jSONObject;
     }

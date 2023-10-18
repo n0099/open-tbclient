@@ -3,6 +3,7 @@ package com.baidu.tieba.im.under.common.uiliststyle.group.item;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.UiUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.base.core.repo.MsgProcessor;
 import com.baidu.tieba.im.base.core.uilist.Action;
@@ -10,7 +11,6 @@ import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbActivitySysMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.TopBubbleData;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.ActivitySysItem;
-import com.baidu.tieba.lg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -113,7 +113,7 @@ public final class ActivitySysItem extends BaseItem<TbActivitySysMsg> {
                     topBubbleData.setPinnedType("activity");
                     topBubbleData.setActivityID(activityInfo.getId());
                     topBubbleData.setActivityStatus(activityInfo.getStatus());
-                    lg.g(new Runnable() { // from class: com.baidu.tieba.ko8
+                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ui8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,7 +173,7 @@ public final class ActivitySysItem extends BaseItem<TbActivitySysMsg> {
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.bn
+    @Override // com.baidu.tieba.im.base.core.uilist.BaseItem, com.baidu.tieba.yh
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

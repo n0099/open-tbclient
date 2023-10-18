@@ -11,6 +11,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.nio.ByteBuffer;
+import org.apache.http.HttpStatus;
 /* loaded from: classes9.dex */
 public final class Ac3Util {
     public static final int AC3_SYNCFRAME_AUDIO_SAMPLE_COUNT = 1536;
@@ -20,7 +21,7 @@ public final class Ac3Util {
     public static final int[] SAMPLE_RATE_BY_FSCOD2 = {24000, 22050, 16000};
     public static final int[] CHANNEL_COUNT_BY_ACMOD = {2, 1, 2, 3, 3, 4, 4, 5};
     public static final int[] BITRATE_BY_HALF_FRMSIZECOD = {32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 384, FileUtils.S_IRWXU, 512, 576, 640};
-    public static final int[] SYNCFRAME_SIZE_WORDS_BY_HALF_FRMSIZECOD_44_1 = {69, 87, 104, 121, Cea708Decoder.COMMAND_TGW, MatroskaExtractor.ID_TRACK_ENTRY, 208, 243, 278, 348, 417, 487, 557, 696, 835, 975, 1114, 1253, 1393};
+    public static final int[] SYNCFRAME_SIZE_WORDS_BY_HALF_FRMSIZECOD_44_1 = {69, 87, 104, 121, Cea708Decoder.COMMAND_TGW, MatroskaExtractor.ID_TRACK_ENTRY, 208, 243, 278, 348, HttpStatus.SC_EXPECTATION_FAILED, 487, 557, 696, 835, 975, 1114, 1253, 1393};
 
     public static int getAc3SyncframeAudioSampleCount() {
         return 1536;

@@ -1,22 +1,41 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface sm5 {
-    InputStream a() throws IOException;
+public class sm5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragment a;
 
-    int available() throws IOException;
+    public sm5(BaseFragment baseFragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = baseFragment;
+    }
 
-    void close() throws IOException;
-
-    byte peek() throws IOException;
-
-    int position();
-
-    int read(byte[] bArr, int i, int i2) throws IOException;
-
-    void reset() throws IOException;
-
-    long skip(long j) throws IOException;
+    public BaseFragment a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (BaseFragment) invokeV.objValue;
+    }
 }

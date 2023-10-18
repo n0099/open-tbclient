@@ -57,6 +57,7 @@ import com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask;
 import com.baidu.searchbox.task.sync.appcreate.InitMutiProcessManagerTask;
 import com.baidu.searchbox.task.sync.appcreate.InitPrologueAdTask;
 import com.baidu.searchbox.task.sync.appcreate.InitSDKTask;
+import com.baidu.searchbox.task.sync.appcreate.InitSdkNpsPluginTask;
 import com.baidu.searchbox.task.sync.appcreate.InitStatisticTask;
 import com.baidu.searchbox.task.sync.appcreate.InitSwanDataTask;
 import com.baidu.searchbox.task.sync.appcreate.InitUBCTask;
@@ -165,6 +166,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
             arrayList.add(new InitFlutterNpsPluginTask());
             arrayList.add(new InitMonitorTask());
             arrayList.add(new InitAutoRestartDownloadTask());
+            arrayList.add(new InitSdkNpsPluginTask());
         }
         return arrayList;
     }

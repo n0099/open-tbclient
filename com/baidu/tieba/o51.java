@@ -1,27 +1,18 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.widget.Toast;
+import android.webkit.WebView;
 import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface o51 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "toast");
-    public static final o51 b = new a();
+    public static final o51 a = new a();
 
-    void a(@NonNull Context context, @StringRes int i);
-
-    void b(@NonNull Context context, String str, int i);
-
-    void c(@NonNull Context context, @StringRes int i, int i2);
-
-    void showToast(@NonNull Context context, String str);
+    WebView a(@NonNull Context context);
 
     /* loaded from: classes7.dex */
     public class a implements o51 {
@@ -43,35 +34,13 @@ public interface o51 {
         }
 
         @Override // com.baidu.tieba.o51
-        public void a(@NonNull Context context, @StringRes int i) {
+        public WebView a(@NonNull Context context) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-                Toast.makeText(context, i, 0).show();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return new WebView(context);
             }
-        }
-
-        @Override // com.baidu.tieba.o51
-        public void showToast(@NonNull Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
-                Toast.makeText(context, str, 0).show();
-            }
-        }
-
-        @Override // com.baidu.tieba.o51
-        public void b(@NonNull Context context, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
-                Toast.makeText(context, str, i).show();
-            }
-        }
-
-        @Override // com.baidu.tieba.o51
-        public void c(@NonNull Context context, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, context, i, i2) == null) {
-                Toast.makeText(context, i, i2).show();
-            }
+            return (WebView) invokeL.objValue;
         }
     }
 }

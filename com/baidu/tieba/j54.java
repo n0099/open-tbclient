@@ -1,15 +1,10 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
-import com.baidu.swan.nalib.audio.SwanAudioPlayer;
-import com.baidu.tieba.i54;
+import com.baidu.sapi2.dto.IsShowRealNameGuideDTO;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.tieba.a63;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,118 +12,209 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
+import com.baidu.webkit.internal.CfgFileUtils;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j54 {
+public final class j54 extends y53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static volatile j54 h;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public g54 a;
-    public HashMap<String, Long> b;
-    public String c;
-    public HandlerThread d;
-    public Handler e;
-    public SwanAudioPlayer f;
+    public int b;
+    public b c;
+    public c d;
+    public String e;
+    public d24 f;
+    public c44 g;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j54 a;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
 
-        public a(j54 j54Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j54Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = j54Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static a c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f = SwanAudioPlayer.getInstance();
-                SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return new a();
             }
+            return (a) invokeV.objValue;
+        }
+
+        public static a b(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return c();
+                }
+                a aVar = new a();
+                aVar.b = jSONObject.optString("root");
+                aVar.a = jSONObject.optString("name");
+                if (!TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.a)) {
+                    if (aVar.b.endsWith(".js")) {
+                        String[] split = aVar.b.split(File.separator);
+                        if (split.length < 1) {
+                            return c();
+                        }
+                        aVar.d = split[split.length - 1];
+                        aVar.c = "";
+                        for (int i = 0; i < split.length - 1; i++) {
+                            aVar.c += split[i] + File.separator;
+                        }
+                    } else {
+                        String str = aVar.b;
+                        aVar.c = str;
+                        if (!str.endsWith(File.separator)) {
+                            aVar.c += File.separator;
+                        }
+                        aVar.d = "index.js";
+                    }
+                    return aVar;
+                }
+                return c();
+            }
+            return (a) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j54 a;
+        public List<a> a;
+        public HashMap<String, Boolean> b;
 
-        public b(j54 j54Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j54Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = j54Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static b c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f.pauseAll();
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                b bVar = new b();
+                bVar.a = new ArrayList();
+                bVar.b = new HashMap<>();
+                return bVar;
             }
+            return (b) invokeV.objValue;
+        }
+
+        public static b b(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return c();
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("subpackages");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    b bVar = new b();
+                    bVar.a = new ArrayList();
+                    bVar.b = new HashMap<>();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            bVar.a.add(a.b(optJSONObject));
+                        }
+                    }
+                    return bVar;
+                }
+                return c();
+            }
+            return (b) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements Runnable {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j54 a;
+        public HashMap<String, String> a;
 
-        public c(j54 j54Var) {
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j54Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = j54Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static c c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f.resume();
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                c cVar = new c();
+                cVar.a = new HashMap<>();
+                return cVar;
             }
+            return (c) invokeV.objValue;
+        }
+
+        public static c b(JSONObject jSONObject, b bVar) {
+            InterceptResult invokeLL;
+            List<a> list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, bVar)) == null) {
+                if (jSONObject != null && bVar != null && (list = bVar.a) != null && list.size() > 0) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
+                    if (optJSONObject == null) {
+                        return c();
+                    }
+                    c cVar = new c();
+                    cVar.a = new HashMap<>();
+                    for (a aVar : bVar.a) {
+                        if (aVar != null && !TextUtils.isEmpty(aVar.b)) {
+                            HashMap<String, String> hashMap = cVar.a;
+                            String str = aVar.b;
+                            hashMap.put(str, optJSONObject.optString(str));
+                        }
+                    }
+                    return cVar;
+                }
+                return c();
+            }
+            return (c) invokeLL.objValue;
         }
     }
 
@@ -145,71 +231,7 @@ public class j54 {
                 return;
             }
         }
-        g = qr1.a;
-        zg3.b();
-    }
-
-    public static j54 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (h == null) {
-                synchronized (j54.class) {
-                    if (h == null) {
-                        h = new j54();
-                    }
-                }
-            }
-            return h;
-        }
-        return (j54) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d == null) {
-            HandlerThread handlerThread = new HandlerThread("audio_thread");
-            this.d = handlerThread;
-            handlerThread.start();
-            this.e = new Handler(this.d.getLooper());
-        }
-    }
-
-    public Handler e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SwanAudioPlayer swanAudioPlayer = this.f;
-            if (swanAudioPlayer != null) {
-                swanAudioPlayer.isAudioPlayer();
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f != null) {
-            e().post(new c(this));
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f != null) {
-            e().postDelayed(new b(this), 50L);
-        }
+        h = am1.a;
     }
 
     public j54() {
@@ -222,81 +244,59 @@ public class j54 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = new HashMap<>();
-        this.c = c54.g();
-        this.a = new g54(this.c);
-        c();
-        e().post(new a(this));
     }
 
-    public String g(String str) throws MalformedURLException {
+    public static j54 a(String str) {
         InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.c + c54.d(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void j(String str, f54 f54Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, f54Var) == null) {
-            this.a.e(str, f54Var);
-        }
-    }
-
-    public void m(JsArrayBuffer jsArrayBuffer, i54.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, jsArrayBuffer, bVar) == null) {
-            i54.f().h(jsArrayBuffer, bVar);
-        }
-    }
-
-    public synchronized k54 d(String str, boolean z) {
-        InterceptResult invokeLZ;
-        l54 l54Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            synchronized (this) {
-                if (g) {
-                    Log.e("AudioPlayerManager", "create media player src = " + str);
-                }
-                l54Var = new l54();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return l54Var;
-        }
-        return (k54) invokeLZ.objValue;
-    }
-
-    public long f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (this.b.containsKey(str)) {
-                return this.b.get(str).longValue();
-            }
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            j54 j54Var = new j54();
             try {
-                try {
-                    mediaMetadataRetriever.setDataSource(str);
-                    long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
-                    mediaMetadataRetriever.release();
-                    this.b.put(str, Long.valueOf(parseLong));
-                    return parseLong;
-                } catch (Exception e) {
-                    if (g) {
-                        e.printStackTrace();
-                    }
-                    mediaMetadataRetriever.release();
-                    return 0L;
+                JSONObject jSONObject = new JSONObject(str);
+                j54Var.a = a63.a.a(jSONObject);
+                String optString = jSONObject.optString("deviceOrientation", "portrait");
+                boolean z = false;
+                j54Var.b = 0;
+                if (TextUtils.equals(optString, "landscape")) {
+                    j54Var.b = 1;
                 }
-            } finally {
-                mediaMetadataRetriever.release();
+                jSONObject.optBoolean("showStatusBar", false);
+                jSONObject.optString("workers");
+                b b2 = b.b(jSONObject);
+                j54Var.c = b2;
+                j54Var.d = c.b(jSONObject, b2);
+                j54Var.e = jSONObject.optString("openDataContext");
+                j54Var.f = new d24(jSONObject);
+                JSONArray optJSONArray = jSONObject.optJSONArray("preloadResources");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    z = true;
+                }
+                HybridUbcFlow p = uy2.p("startup");
+                if (z) {
+                    str2 = "1";
+                } else {
+                    str2 = "0";
+                }
+                p.D("preload_resources", str2);
+                j54Var.g = new c44(optJSONArray);
+                JSONObject optJSONObject = jSONObject.optJSONObject(IsShowRealNameGuideDTO.TYPE_SETTING);
+                if (optJSONObject != null) {
+                    optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
+                }
+                return j54Var;
+            } catch (JSONException e) {
+                if (h) {
+                    Log.e("SwanGameConfigData", "buildConfigData json error: " + Log.getStackTraceString(e));
+                }
+                return null;
             }
         }
-        return invokeL.longValue;
+        return (j54) invokeL.objValue;
     }
 }

@@ -5,86 +5,86 @@ import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi;
-import com.baidu.tieba.a02;
-import com.baidu.tieba.a12;
-import com.baidu.tieba.b02;
-import com.baidu.tieba.b12;
-import com.baidu.tieba.b22;
-import com.baidu.tieba.c02;
-import com.baidu.tieba.c12;
-import com.baidu.tieba.d02;
-import com.baidu.tieba.d43;
-import com.baidu.tieba.di3;
-import com.baidu.tieba.e02;
-import com.baidu.tieba.e12;
-import com.baidu.tieba.e32;
-import com.baidu.tieba.f02;
-import com.baidu.tieba.f12;
-import com.baidu.tieba.f32;
-import com.baidu.tieba.g02;
-import com.baidu.tieba.g22;
-import com.baidu.tieba.g32;
-import com.baidu.tieba.h02;
-import com.baidu.tieba.h12;
-import com.baidu.tieba.h22;
-import com.baidu.tieba.h32;
-import com.baidu.tieba.hf2;
-import com.baidu.tieba.hz1;
-import com.baidu.tieba.i02;
-import com.baidu.tieba.i12;
-import com.baidu.tieba.i22;
-import com.baidu.tieba.j02;
-import com.baidu.tieba.j22;
-import com.baidu.tieba.jn3;
-import com.baidu.tieba.jo2;
-import com.baidu.tieba.jz1;
-import com.baidu.tieba.k02;
-import com.baidu.tieba.k12;
-import com.baidu.tieba.k22;
-import com.baidu.tieba.kz1;
-import com.baidu.tieba.l12;
-import com.baidu.tieba.l22;
-import com.baidu.tieba.lf3;
-import com.baidu.tieba.m22;
-import com.baidu.tieba.me3;
-import com.baidu.tieba.mz1;
-import com.baidu.tieba.n02;
-import com.baidu.tieba.n12;
-import com.baidu.tieba.n22;
-import com.baidu.tieba.nd2;
-import com.baidu.tieba.nz1;
-import com.baidu.tieba.o12;
-import com.baidu.tieba.o22;
-import com.baidu.tieba.o63;
-import com.baidu.tieba.oz1;
-import com.baidu.tieba.p12;
-import com.baidu.tieba.p22;
-import com.baidu.tieba.pz1;
-import com.baidu.tieba.q12;
-import com.baidu.tieba.qz1;
-import com.baidu.tieba.r12;
-import com.baidu.tieba.r22;
-import com.baidu.tieba.s12;
-import com.baidu.tieba.sz1;
-import com.baidu.tieba.t02;
-import com.baidu.tieba.t12;
-import com.baidu.tieba.t33;
-import com.baidu.tieba.u02;
-import com.baidu.tieba.u12;
-import com.baidu.tieba.uz1;
-import com.baidu.tieba.v12;
-import com.baidu.tieba.vz1;
-import com.baidu.tieba.w12;
-import com.baidu.tieba.wl3;
-import com.baidu.tieba.wy1;
+import com.baidu.tieba.au1;
+import com.baidu.tieba.aw1;
+import com.baidu.tieba.bw1;
+import com.baidu.tieba.bx1;
+import com.baidu.tieba.cu1;
+import com.baidu.tieba.cw1;
+import com.baidu.tieba.cy2;
+import com.baidu.tieba.dv1;
+import com.baidu.tieba.dw1;
+import com.baidu.tieba.eu1;
+import com.baidu.tieba.ev1;
+import com.baidu.tieba.ew1;
+import com.baidu.tieba.fg3;
+import com.baidu.tieba.fu1;
+import com.baidu.tieba.fw1;
+import com.baidu.tieba.gt1;
+import com.baidu.tieba.gv2;
+import com.baidu.tieba.gw1;
+import com.baidu.tieba.hm1;
+import com.baidu.tieba.i82;
+import com.baidu.tieba.iu1;
+import com.baidu.tieba.iv1;
+import com.baidu.tieba.iv2;
+import com.baidu.tieba.jv1;
+import com.baidu.tieba.jw1;
+import com.baidu.tieba.ku1;
+import com.baidu.tieba.kv1;
+import com.baidu.tieba.lu1;
+import com.baidu.tieba.lv1;
+import com.baidu.tieba.lw1;
+import com.baidu.tieba.mc3;
+import com.baidu.tieba.mu1;
+import com.baidu.tieba.mv1;
+import com.baidu.tieba.my2;
+import com.baidu.tieba.nu1;
+import com.baidu.tieba.ou1;
+import com.baidu.tieba.ov1;
+import com.baidu.tieba.ox1;
+import com.baidu.tieba.pu1;
+import com.baidu.tieba.pv1;
+import com.baidu.tieba.px1;
+import com.baidu.tieba.q92;
+import com.baidu.tieba.qu1;
+import com.baidu.tieba.qw1;
+import com.baidu.tieba.qx1;
+import com.baidu.tieba.rt1;
+import com.baidu.tieba.ru1;
+import com.baidu.tieba.rv1;
+import com.baidu.tieba.rw1;
+import com.baidu.tieba.rx1;
+import com.baidu.tieba.sh3;
+import com.baidu.tieba.si2;
+import com.baidu.tieba.su1;
+import com.baidu.tieba.sv1;
+import com.baidu.tieba.sw1;
+import com.baidu.tieba.tt1;
+import com.baidu.tieba.tu1;
+import com.baidu.tieba.tw1;
+import com.baidu.tieba.u93;
+import com.baidu.tieba.ut1;
+import com.baidu.tieba.uu1;
+import com.baidu.tieba.uv1;
+import com.baidu.tieba.uw1;
+import com.baidu.tieba.v83;
+import com.baidu.tieba.vv1;
+import com.baidu.tieba.vw1;
+import com.baidu.tieba.w72;
+import com.baidu.tieba.wt1;
+import com.baidu.tieba.ww1;
 import com.baidu.tieba.x03;
-import com.baidu.tieba.xr1;
-import com.baidu.tieba.y02;
-import com.baidu.tieba.yz1;
-import com.baidu.tieba.z02;
-import com.baidu.tieba.z03;
-import com.baidu.tieba.z12;
-import com.baidu.tieba.zd2;
+import com.baidu.tieba.xt1;
+import com.baidu.tieba.xu1;
+import com.baidu.tieba.xv1;
+import com.baidu.tieba.xw1;
+import com.baidu.tieba.yt1;
+import com.baidu.tieba.yv1;
+import com.baidu.tieba.yw1;
+import com.baidu.tieba.zt1;
+import com.baidu.tieba.zv1;
+import com.baidu.tieba.zw1;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -92,426 +92,84 @@ import org.json.JSONObject;
 @Keep
 /* loaded from: classes4.dex */
 public class SwanApi$$ModulesProvider {
-    public static Map<String, Object> getV8ApiModules(final hz1 hz1Var) {
+    public static Map<String, Object> getV8ApiModules(final rt1 rt1Var) {
         HashMap hashMap = new HashMap();
-        hashMap.put("_naAccount", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$AccountV8Module
+        hashMap.put("_naAccount", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$AccountV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String checkSession(String str) {
-                nz1 nz1Var;
+                xt1 xt1Var;
                 Object obj = this.mApis.get("1930258908");
-                if (obj != null && (obj instanceof nz1)) {
-                    nz1Var = (nz1) obj;
+                if (obj != null && (obj instanceof xt1)) {
+                    xt1Var = (xt1) obj;
                 } else {
-                    nz1Var = new nz1(this.mSwanApiContext);
-                    this.mApis.put("1930258908", nz1Var);
+                    xt1Var = new xt1(this.mSwanApiContext);
+                    this.mApis.put("1930258908", xt1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(nz1Var, "swanAPI/checkSession");
+                Pair<Boolean, px1> a = rx1.a(xt1Var, "swanAPI/checkSession");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.checkSession")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Account.checkSession")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = nz1Var.x(str);
-                if (x == null) {
+                qx1 y = xt1Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String getLoginCode(String str) {
-                oz1 oz1Var;
+                yt1 yt1Var;
                 Object obj = this.mApis.get("-1017914143");
-                if (obj != null && (obj instanceof oz1)) {
-                    oz1Var = (oz1) obj;
+                if (obj != null && (obj instanceof yt1)) {
+                    yt1Var = (yt1) obj;
                 } else {
-                    oz1Var = new oz1(this.mSwanApiContext);
-                    this.mApis.put("-1017914143", oz1Var);
+                    yt1Var = new yt1(this.mSwanApiContext);
+                    this.mApis.put("-1017914143", yt1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(oz1Var, "swanAPI/getLoginCode");
+                Pair<Boolean, px1> a = rx1.a(yt1Var, "swanAPI/getLoginCode");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.getLoginCode")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Account.getLoginCode")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = oz1Var.C(str);
-                if (C == null) {
+                qx1 D = yt1Var.D(str);
+                if (D == null) {
                     return "";
                 }
-                return C.a();
+                return D.a();
             }
 
             @JavascriptInterface
             public String getOpenId(String str) {
-                pz1 pz1Var;
+                zt1 zt1Var;
                 Object obj = this.mApis.get("1754780133");
-                if (obj != null && (obj instanceof pz1)) {
-                    pz1Var = (pz1) obj;
+                if (obj != null && (obj instanceof zt1)) {
+                    zt1Var = (zt1) obj;
                 } else {
-                    pz1Var = new pz1(this.mSwanApiContext);
-                    this.mApis.put("1754780133", pz1Var);
+                    zt1Var = new zt1(this.mSwanApiContext);
+                    this.mApis.put("1754780133", zt1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(pz1Var, "swanAPI/getOpenId");
+                Pair<Boolean, px1> a = rx1.a(zt1Var, "swanAPI/getOpenId");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.getOpenId")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Account.getOpenId")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = pz1Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String getUnionBDUSS(String str) {
-                wy1 wy1Var;
-                Object obj = this.mApis.get("-343998465");
-                if (obj != null && (obj instanceof wy1)) {
-                    wy1Var = (wy1) obj;
-                } else {
-                    wy1Var = new wy1(this.mSwanApiContext);
-                    this.mApis.put("-343998465", wy1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(wy1Var, "swanAPI/getUnionBDUSS");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.getUnionBDUSS")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = wy1Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String login(String str) {
-                oz1 oz1Var;
-                Object obj = this.mApis.get("-1017914143");
-                if (obj != null && (obj instanceof oz1)) {
-                    oz1Var = (oz1) obj;
-                } else {
-                    oz1Var = new oz1(this.mSwanApiContext);
-                    this.mApis.put("-1017914143", oz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(oz1Var, "swanAPI/login");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.login")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 I = oz1Var.I(str);
-                if (I == null) {
-                    return "";
-                }
-                return I.a();
-            }
-
-            @JavascriptInterface
-            public String isBaiduAccountSync() {
-                mz1 mz1Var;
-                Object obj = this.mApis.get("-337742792");
-                if (obj != null && (obj instanceof mz1)) {
-                    mz1Var = (mz1) obj;
-                } else {
-                    mz1Var = new mz1(this.mSwanApiContext);
-                    this.mApis.put("-337742792", mz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(mz1Var, "swanAPI/isBaiduAccountSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.isBaiduAccountSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = mz1Var.x();
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String isLoginSync() {
-                oz1 oz1Var;
-                Object obj = this.mApis.get("-1017914143");
-                if (obj != null && (obj instanceof oz1)) {
-                    oz1Var = (oz1) obj;
-                } else {
-                    oz1Var = new oz1(this.mSwanApiContext);
-                    this.mApis.put("-1017914143", oz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(oz1Var, "swanAPI/isLoginSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.isLoginSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 H = oz1Var.H();
-                if (H == null) {
-                    return "";
-                }
-                return H.a();
-            }
-        });
-        hashMap.put("_naBasic", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$BasicV8Module
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String loadSubPackage(String str) {
-                qz1 qz1Var;
-                Object obj = this.mApis.get("-1249666566");
-                if (obj != null && (obj instanceof qz1)) {
-                    qz1Var = (qz1) obj;
-                } else {
-                    qz1Var = new qz1(this.mSwanApiContext);
-                    this.mApis.put("-1249666566", qz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(qz1Var, "swanAPI/loadSubPackage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Basic.loadSubPackage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 F = qz1Var.F(str);
-                if (F == null) {
-                    return "";
-                }
-                return F.a();
-            }
-
-            @JavascriptInterface
-            public String loadSubPackages(String str) {
-                qz1 qz1Var;
-                Object obj = this.mApis.get("-1249666566");
-                if (obj != null && (obj instanceof qz1)) {
-                    qz1Var = (qz1) obj;
-                } else {
-                    qz1Var = new qz1(this.mSwanApiContext);
-                    this.mApis.put("-1249666566", qz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(qz1Var, "swanAPI/loadSubPackages");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Basic.loadSubPackages")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 G = qz1Var.G(str);
-                if (G == null) {
-                    return "";
-                }
-                return G.a();
-            }
-        });
-        hashMap.put("_naBookshelf", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$BookshelfV8Module
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String deleteBookshelf(String str) {
-                xr1 xr1Var;
-                Object obj = this.mApis.get("1460300387");
-                if (obj != null && (obj instanceof xr1)) {
-                    xr1Var = (xr1) obj;
-                } else {
-                    xr1Var = new xr1(this.mSwanApiContext);
-                    this.mApis.put("1460300387", xr1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(xr1Var, "swanAPI/bookshelf/deleteBookshelf");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Bookshelf.deleteBookshelf")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 K = xr1Var.K(str);
-                if (K == null) {
-                    return "";
-                }
-                return K.a();
-            }
-
-            @JavascriptInterface
-            public String insertBookshelf(String str) {
-                xr1 xr1Var;
-                Object obj = this.mApis.get("1460300387");
-                if (obj != null && (obj instanceof xr1)) {
-                    xr1Var = (xr1) obj;
-                } else {
-                    xr1Var = new xr1(this.mSwanApiContext);
-                    this.mApis.put("1460300387", xr1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(xr1Var, "swanAPI/bookshelf/insertBookshelf");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Bookshelf.insertBookshelf")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 P = xr1Var.P(str);
-                if (P == null) {
-                    return "";
-                }
-                return P.a();
-            }
-
-            @JavascriptInterface
-            public String navigateToBookshelf(String str) {
-                xr1 xr1Var;
-                Object obj = this.mApis.get("1460300387");
-                if (obj != null && (obj instanceof xr1)) {
-                    xr1Var = (xr1) obj;
-                } else {
-                    xr1Var = new xr1(this.mSwanApiContext);
-                    this.mApis.put("1460300387", xr1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(xr1Var, "swanAPI/bookshelf/navigateToBookshelf");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Bookshelf.navigateToBookshelf")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 U = xr1Var.U(str);
-                if (U == null) {
-                    return "";
-                }
-                return U.a();
-            }
-
-            @JavascriptInterface
-            public String queryBookshelf(String str) {
-                xr1 xr1Var;
-                Object obj = this.mApis.get("1460300387");
-                if (obj != null && (obj instanceof xr1)) {
-                    xr1Var = (xr1) obj;
-                } else {
-                    xr1Var = new xr1(this.mSwanApiContext);
-                    this.mApis.put("1460300387", xr1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(xr1Var, "swanAPI/bookshelf/queryBookshelf");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Bookshelf.queryBookshelf")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 V = xr1Var.V(str);
-                if (V == null) {
-                    return "";
-                }
-                return V.a();
-            }
-
-            @JavascriptInterface
-            public String updateBookshelfReadTime(String str) {
-                xr1 xr1Var;
-                Object obj = this.mApis.get("1460300387");
-                if (obj != null && (obj instanceof xr1)) {
-                    xr1Var = (xr1) obj;
-                } else {
-                    xr1Var = new xr1(this.mSwanApiContext);
-                    this.mApis.put("1460300387", xr1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(xr1Var, "swanAPI/bookshelf/updateBookshelfReadTime");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Bookshelf.updateBookshelfReadTime")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 X = xr1Var.X(str);
-                if (X == null) {
-                    return "";
-                }
-                return X.a();
-            }
-        });
-        hashMap.put("_naCoupon", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$CouponV8Module
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String getPlatformCoupons(String str) {
-                kz1 kz1Var;
-                Object obj = this.mApis.get("-277316359");
-                if (obj != null && (obj instanceof kz1)) {
-                    kz1Var = (kz1) obj;
-                } else {
-                    kz1Var = new kz1(this.mSwanApiContext);
-                    this.mApis.put("-277316359", kz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(kz1Var, "swanAPI/coupon/getPlatformCoupons");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Coupon.getPlatformCoupons")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = kz1Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String getUserCoupons(String str) {
-                kz1 kz1Var;
-                Object obj = this.mApis.get("-277316359");
-                if (obj != null && (obj instanceof kz1)) {
-                    kz1Var = (kz1) obj;
-                } else {
-                    kz1Var = new kz1(this.mSwanApiContext);
-                    this.mApis.put("-277316359", kz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(kz1Var, "swanAPI/coupon/getUserCoupons");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Coupon.getUserCoupons")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 z = kz1Var.z(str);
+                qx1 z = zt1Var.z(str);
                 if (z == null) {
                     return "";
                 }
@@ -519,61 +177,403 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String takeCoupons(String str) {
-                kz1 kz1Var;
-                Object obj = this.mApis.get("-277316359");
-                if (obj != null && (obj instanceof kz1)) {
-                    kz1Var = (kz1) obj;
+            public String getUnionBDUSS(String str) {
+                gt1 gt1Var;
+                Object obj = this.mApis.get("-343998465");
+                if (obj != null && (obj instanceof gt1)) {
+                    gt1Var = (gt1) obj;
                 } else {
-                    kz1Var = new kz1(this.mSwanApiContext);
-                    this.mApis.put("-277316359", kz1Var);
+                    gt1Var = new gt1(this.mSwanApiContext);
+                    this.mApis.put("-343998465", gt1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(kz1Var, "swanAPI/coupon/takeCoupons");
+                Pair<Boolean, px1> a = rx1.a(gt1Var, "swanAPI/getUnionBDUSS");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Coupon.takeCoupons")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Account.getUnionBDUSS")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = kz1Var.C(str);
-                if (C == null) {
+                qx1 z = gt1Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return C.a();
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String login(String str) {
+                yt1 yt1Var;
+                Object obj = this.mApis.get("-1017914143");
+                if (obj != null && (obj instanceof yt1)) {
+                    yt1Var = (yt1) obj;
+                } else {
+                    yt1Var = new yt1(this.mSwanApiContext);
+                    this.mApis.put("-1017914143", yt1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(yt1Var, "swanAPI/login");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Account.login")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 J = yt1Var.J(str);
+                if (J == null) {
+                    return "";
+                }
+                return J.a();
+            }
+
+            @JavascriptInterface
+            public String isBaiduAccountSync() {
+                wt1 wt1Var;
+                Object obj = this.mApis.get("-337742792");
+                if (obj != null && (obj instanceof wt1)) {
+                    wt1Var = (wt1) obj;
+                } else {
+                    wt1Var = new wt1(this.mSwanApiContext);
+                    this.mApis.put("-337742792", wt1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(wt1Var, "swanAPI/isBaiduAccountSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Account.isBaiduAccountSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = wt1Var.y();
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String isLoginSync() {
+                yt1 yt1Var;
+                Object obj = this.mApis.get("-1017914143");
+                if (obj != null && (obj instanceof yt1)) {
+                    yt1Var = (yt1) obj;
+                } else {
+                    yt1Var = new yt1(this.mSwanApiContext);
+                    this.mApis.put("-1017914143", yt1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(yt1Var, "swanAPI/isLoginSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Account.isLoginSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 I = yt1Var.I();
+                if (I == null) {
+                    return "";
+                }
+                return I.a();
             }
         });
-        hashMap.put("_naFavorite", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$FavoriteV8Module
+        hashMap.put("_naBasic", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$BasicV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String loadSubPackage(String str) {
+                au1 au1Var;
+                Object obj = this.mApis.get("-1249666566");
+                if (obj != null && (obj instanceof au1)) {
+                    au1Var = (au1) obj;
+                } else {
+                    au1Var = new au1(this.mSwanApiContext);
+                    this.mApis.put("-1249666566", au1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(au1Var, "swanAPI/loadSubPackage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Basic.loadSubPackage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 G = au1Var.G(str);
+                if (G == null) {
+                    return "";
+                }
+                return G.a();
+            }
+
+            @JavascriptInterface
+            public String loadSubPackages(String str) {
+                au1 au1Var;
+                Object obj = this.mApis.get("-1249666566");
+                if (obj != null && (obj instanceof au1)) {
+                    au1Var = (au1) obj;
+                } else {
+                    au1Var = new au1(this.mSwanApiContext);
+                    this.mApis.put("-1249666566", au1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(au1Var, "swanAPI/loadSubPackages");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Basic.loadSubPackages")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 H = au1Var.H(str);
+                if (H == null) {
+                    return "";
+                }
+                return H.a();
+            }
+        });
+        hashMap.put("_naBookshelf", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$BookshelfV8Module
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String deleteBookshelf(String str) {
+                hm1 hm1Var;
+                Object obj = this.mApis.get("1460300387");
+                if (obj != null && (obj instanceof hm1)) {
+                    hm1Var = (hm1) obj;
+                } else {
+                    hm1Var = new hm1(this.mSwanApiContext);
+                    this.mApis.put("1460300387", hm1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(hm1Var, "swanAPI/bookshelf/deleteBookshelf");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Bookshelf.deleteBookshelf")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 L = hm1Var.L(str);
+                if (L == null) {
+                    return "";
+                }
+                return L.a();
+            }
+
+            @JavascriptInterface
+            public String insertBookshelf(String str) {
+                hm1 hm1Var;
+                Object obj = this.mApis.get("1460300387");
+                if (obj != null && (obj instanceof hm1)) {
+                    hm1Var = (hm1) obj;
+                } else {
+                    hm1Var = new hm1(this.mSwanApiContext);
+                    this.mApis.put("1460300387", hm1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(hm1Var, "swanAPI/bookshelf/insertBookshelf");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Bookshelf.insertBookshelf")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 Q = hm1Var.Q(str);
+                if (Q == null) {
+                    return "";
+                }
+                return Q.a();
+            }
+
+            @JavascriptInterface
+            public String navigateToBookshelf(String str) {
+                hm1 hm1Var;
+                Object obj = this.mApis.get("1460300387");
+                if (obj != null && (obj instanceof hm1)) {
+                    hm1Var = (hm1) obj;
+                } else {
+                    hm1Var = new hm1(this.mSwanApiContext);
+                    this.mApis.put("1460300387", hm1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(hm1Var, "swanAPI/bookshelf/navigateToBookshelf");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Bookshelf.navigateToBookshelf")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 V = hm1Var.V(str);
+                if (V == null) {
+                    return "";
+                }
+                return V.a();
+            }
+
+            @JavascriptInterface
+            public String queryBookshelf(String str) {
+                hm1 hm1Var;
+                Object obj = this.mApis.get("1460300387");
+                if (obj != null && (obj instanceof hm1)) {
+                    hm1Var = (hm1) obj;
+                } else {
+                    hm1Var = new hm1(this.mSwanApiContext);
+                    this.mApis.put("1460300387", hm1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(hm1Var, "swanAPI/bookshelf/queryBookshelf");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Bookshelf.queryBookshelf")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 W = hm1Var.W(str);
+                if (W == null) {
+                    return "";
+                }
+                return W.a();
+            }
+
+            @JavascriptInterface
+            public String updateBookshelfReadTime(String str) {
+                hm1 hm1Var;
+                Object obj = this.mApis.get("1460300387");
+                if (obj != null && (obj instanceof hm1)) {
+                    hm1Var = (hm1) obj;
+                } else {
+                    hm1Var = new hm1(this.mSwanApiContext);
+                    this.mApis.put("1460300387", hm1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(hm1Var, "swanAPI/bookshelf/updateBookshelfReadTime");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Bookshelf.updateBookshelfReadTime")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 Y = hm1Var.Y(str);
+                if (Y == null) {
+                    return "";
+                }
+                return Y.a();
+            }
+        });
+        hashMap.put("_naCoupon", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$CouponV8Module
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String getPlatformCoupons(String str) {
+                ut1 ut1Var;
+                Object obj = this.mApis.get("-277316359");
+                if (obj != null && (obj instanceof ut1)) {
+                    ut1Var = (ut1) obj;
+                } else {
+                    ut1Var = new ut1(this.mSwanApiContext);
+                    this.mApis.put("-277316359", ut1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ut1Var, "swanAPI/coupon/getPlatformCoupons");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Coupon.getPlatformCoupons")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = ut1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String getUserCoupons(String str) {
+                ut1 ut1Var;
+                Object obj = this.mApis.get("-277316359");
+                if (obj != null && (obj instanceof ut1)) {
+                    ut1Var = (ut1) obj;
+                } else {
+                    ut1Var = new ut1(this.mSwanApiContext);
+                    this.mApis.put("-277316359", ut1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ut1Var, "swanAPI/coupon/getUserCoupons");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Coupon.getUserCoupons")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 A = ut1Var.A(str);
+                if (A == null) {
+                    return "";
+                }
+                return A.a();
+            }
+
+            @JavascriptInterface
+            public String takeCoupons(String str) {
+                ut1 ut1Var;
+                Object obj = this.mApis.get("-277316359");
+                if (obj != null && (obj instanceof ut1)) {
+                    ut1Var = (ut1) obj;
+                } else {
+                    ut1Var = new ut1(this.mSwanApiContext);
+                    this.mApis.put("-277316359", ut1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ut1Var, "swanAPI/coupon/takeCoupons");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Coupon.takeCoupons")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 D = ut1Var.D(str);
+                if (D == null) {
+                    return "";
+                }
+                return D.a();
+            }
+        });
+        hashMap.put("_naFavorite", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$FavoriteV8Module
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String getFavorStatus(String str) {
-                sz1 sz1Var;
+                cu1 cu1Var;
                 Object obj = this.mApis.get("-1225406515");
-                if (obj != null && (obj instanceof sz1)) {
-                    sz1Var = (sz1) obj;
+                if (obj != null && (obj instanceof cu1)) {
+                    cu1Var = (cu1) obj;
                 } else {
-                    sz1Var = new sz1(this.mSwanApiContext);
-                    this.mApis.put("-1225406515", sz1Var);
+                    cu1Var = new cu1(this.mSwanApiContext);
+                    this.mApis.put("-1225406515", cu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(sz1Var, "swanAPI/getFavorStatus");
+                Pair<Boolean, px1> a = rx1.a(cu1Var, "swanAPI/getFavorStatus");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Favorite.getFavorStatus")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Favorite.getFavorStatus")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = sz1Var.x(str);
-                if (x == null) {
+                qx1 y = cu1Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
@@ -586,164 +586,328 @@ public class SwanApi$$ModulesProvider {
                     showFavoriteGuideApi = new ShowFavoriteGuideApi(this.mSwanApiContext);
                     this.mApis.put("269275578", showFavoriteGuideApi);
                 }
-                Pair<Boolean, f32> a = h32.a(showFavoriteGuideApi, "swanAPI/showFavoriteGuide");
+                Pair<Boolean, px1> a = rx1.a(showFavoriteGuideApi, "swanAPI/showFavoriteGuide");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Favorite.showFavoriteGuide")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Favorite.showFavoriteGuide")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 G = showFavoriteGuideApi.G(str);
-                if (G == null) {
+                qx1 H = showFavoriteGuideApi.H(str);
+                if (H == null) {
                     return "";
                 }
-                return G.a();
+                return H.a();
             }
         });
-        hashMap.put("_naFile", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$FileV8Module
+        hashMap.put("_naFile", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$FileV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String shareFile(String str) {
-                uz1 uz1Var;
+                eu1 eu1Var;
                 Object obj = this.mApis.get("-2057135077");
-                if (obj != null && (obj instanceof uz1)) {
-                    uz1Var = (uz1) obj;
+                if (obj != null && (obj instanceof eu1)) {
+                    eu1Var = (eu1) obj;
                 } else {
-                    uz1Var = new uz1(this.mSwanApiContext);
-                    this.mApis.put("-2057135077", uz1Var);
+                    eu1Var = new eu1(this.mSwanApiContext);
+                    this.mApis.put("-2057135077", eu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(uz1Var, "swanAPI/shareFile");
+                Pair<Boolean, px1> a = rx1.a(eu1Var, "swanAPI/shareFile");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "File.shareFile")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "File.shareFile")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = uz1Var.y(str);
-                if (y == null) {
+                qx1 z = eu1Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return y.a();
+                return z.a();
             }
         });
-        hashMap.put("_naGameCenter", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$GameCenterV8Module
+        hashMap.put("_naGameCenter", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$GameCenterV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String postGameCenterMessage(String str) {
-                jo2 jo2Var;
+                si2 si2Var;
                 Object obj = this.mApis.get("2077414795");
-                if (obj != null && (obj instanceof jo2)) {
-                    jo2Var = (jo2) obj;
+                if (obj != null && (obj instanceof si2)) {
+                    si2Var = (si2) obj;
                 } else {
-                    jo2Var = new jo2(this.mSwanApiContext);
-                    this.mApis.put("2077414795", jo2Var);
+                    si2Var = new si2(this.mSwanApiContext);
+                    this.mApis.put("2077414795", si2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(jo2Var, "swanAPI/postGameCenterMessage");
+                Pair<Boolean, px1> a = rx1.a(si2Var, "swanAPI/postGameCenterMessage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "GameCenter.postGameCenterMessage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "GameCenter.postGameCenterMessage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = jo2Var.x(str);
-                if (x == null) {
+                qx1 y = si2Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String postGameCenterMessageSync(String str) {
-                jo2 jo2Var;
+                si2 si2Var;
                 Object obj = this.mApis.get("2077414795");
-                if (obj != null && (obj instanceof jo2)) {
-                    jo2Var = (jo2) obj;
+                if (obj != null && (obj instanceof si2)) {
+                    si2Var = (si2) obj;
                 } else {
-                    jo2Var = new jo2(this.mSwanApiContext);
-                    this.mApis.put("2077414795", jo2Var);
+                    si2Var = new si2(this.mSwanApiContext);
+                    this.mApis.put("2077414795", si2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(jo2Var, "swanAPI/postGameCenterMessageSync");
+                Pair<Boolean, px1> a = rx1.a(si2Var, "swanAPI/postGameCenterMessageSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "GameCenter.postGameCenterMessageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "GameCenter.postGameCenterMessageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = jo2Var.y(str);
+                qx1 z = si2Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+        });
+        hashMap.put("_naHostDownloadManager", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$HostDownloadManagerV8Module
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String download(String str) {
+                fu1 fu1Var;
+                Object obj = this.mApis.get("-170124576");
+                if (obj != null && (obj instanceof fu1)) {
+                    fu1Var = (fu1) obj;
+                } else {
+                    fu1Var = new fu1(this.mSwanApiContext);
+                    this.mApis.put("-170124576", fu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fu1Var, "swanAPI/download");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "HostDownloadManager.download")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = fu1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String openFile(String str) {
+                fu1 fu1Var;
+                Object obj = this.mApis.get("-170124576");
+                if (obj != null && (obj instanceof fu1)) {
+                    fu1Var = (fu1) obj;
+                } else {
+                    fu1Var = new fu1(this.mSwanApiContext);
+                    this.mApis.put("-170124576", fu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fu1Var, "swanAPI/openFile");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "HostDownloadManager.openFile")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 A = fu1Var.A(str);
+                if (A == null) {
+                    return "";
+                }
+                return A.a();
+            }
+
+            @JavascriptInterface
+            public String query(String str) {
+                fu1 fu1Var;
+                Object obj = this.mApis.get("-170124576");
+                if (obj != null && (obj instanceof fu1)) {
+                    fu1Var = (fu1) obj;
+                } else {
+                    fu1Var = new fu1(this.mSwanApiContext);
+                    this.mApis.put("-170124576", fu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fu1Var, "swanAPI/query");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "HostDownloadManager.query")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = fu1Var.B(str);
+                if (B == null) {
+                    return "";
+                }
+                return B.a();
+            }
+
+            @JavascriptInterface
+            public String openDownloadCenter() {
+                fu1 fu1Var;
+                Object obj = this.mApis.get("-170124576");
+                if (obj != null && (obj instanceof fu1)) {
+                    fu1Var = (fu1) obj;
+                } else {
+                    fu1Var = new fu1(this.mSwanApiContext);
+                    this.mApis.put("-170124576", fu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fu1Var, "swanAPI/openDownloadCenter");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "HostDownloadManager.openDownloadCenter")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = fu1Var.z();
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+        });
+        hashMap.put("_naImage", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$ImageV8Module
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String callImageMenu(String str) {
+                gv2 gv2Var;
+                Object obj = this.mApis.get("1445003743");
+                if (obj != null && (obj instanceof gv2)) {
+                    gv2Var = (gv2) obj;
+                } else {
+                    gv2Var = new gv2(this.mSwanApiContext);
+                    this.mApis.put("1445003743", gv2Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(gv2Var, "swanAPI/callImageMenu");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Image.callImageMenu")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = gv2Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String compressImage(String str) {
+                iu1 iu1Var;
+                Object obj = this.mApis.get("-1252730367");
+                if (obj != null && (obj instanceof iu1)) {
+                    iu1Var = (iu1) obj;
+                } else {
+                    iu1Var = new iu1(this.mSwanApiContext);
+                    this.mApis.put("-1252730367", iu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(iu1Var, "swanAPI/compressImage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Image.compressImage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = iu1Var.y(str);
                 if (y == null) {
                     return "";
                 }
                 return y.a();
             }
         });
-        hashMap.put("_naHostDownloadManager", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$HostDownloadManagerV8Module
+        hashMap.put("_naInteraction", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$InteractionV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
-            public String download(String str) {
-                vz1 vz1Var;
-                Object obj = this.mApis.get("-170124576");
-                if (obj != null && (obj instanceof vz1)) {
-                    vz1Var = (vz1) obj;
+            public String closeTabBar(String str) {
+                qu1 qu1Var;
+                Object obj = this.mApis.get("-1871435471");
+                if (obj != null && (obj instanceof qu1)) {
+                    qu1Var = (qu1) obj;
                 } else {
-                    vz1Var = new vz1(this.mSwanApiContext);
-                    this.mApis.put("-170124576", vz1Var);
+                    qu1Var = new qu1(this.mSwanApiContext);
+                    this.mApis.put("-1871435471", qu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(vz1Var, "swanAPI/download");
+                Pair<Boolean, px1> a = rx1.a(qu1Var, "swanAPI/closeTabBar");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "HostDownloadManager.download")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.closeTabBar")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = vz1Var.x(str);
-                if (x == null) {
+                qx1 y = qu1Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
-            public String openFile(String str) {
-                vz1 vz1Var;
-                Object obj = this.mApis.get("-170124576");
-                if (obj != null && (obj instanceof vz1)) {
-                    vz1Var = (vz1) obj;
+            public String closeTabBarRedDot(String str) {
+                qu1 qu1Var;
+                Object obj = this.mApis.get("-1871435471");
+                if (obj != null && (obj instanceof qu1)) {
+                    qu1Var = (qu1) obj;
                 } else {
-                    vz1Var = new vz1(this.mSwanApiContext);
-                    this.mApis.put("-170124576", vz1Var);
+                    qu1Var = new qu1(this.mSwanApiContext);
+                    this.mApis.put("-1871435471", qu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(vz1Var, "swanAPI/openFile");
+                Pair<Boolean, px1> a = rx1.a(qu1Var, "swanAPI/closeTabBarRedDot");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "HostDownloadManager.openFile")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.closeTabBarRedDot")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 z = vz1Var.z(str);
+                qx1 z = qu1Var.z(str);
                 if (z == null) {
                     return "";
                 }
@@ -751,235 +915,47 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String query(String str) {
-                vz1 vz1Var;
-                Object obj = this.mApis.get("-170124576");
-                if (obj != null && (obj instanceof vz1)) {
-                    vz1Var = (vz1) obj;
-                } else {
-                    vz1Var = new vz1(this.mSwanApiContext);
-                    this.mApis.put("-170124576", vz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(vz1Var, "swanAPI/query");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "HostDownloadManager.query")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 query = vz1Var.query(str);
-                if (query == null) {
-                    return "";
-                }
-                return query.a();
-            }
-
-            @JavascriptInterface
-            public String openDownloadCenter() {
-                vz1 vz1Var;
-                Object obj = this.mApis.get("-170124576");
-                if (obj != null && (obj instanceof vz1)) {
-                    vz1Var = (vz1) obj;
-                } else {
-                    vz1Var = new vz1(this.mSwanApiContext);
-                    this.mApis.put("-170124576", vz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(vz1Var, "swanAPI/openDownloadCenter");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "HostDownloadManager.openDownloadCenter")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = vz1Var.y();
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-        });
-        hashMap.put("_naImage", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$ImageV8Module
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String callImageMenu(String str) {
-                x03 x03Var;
-                Object obj = this.mApis.get("1445003743");
-                if (obj != null && (obj instanceof x03)) {
-                    x03Var = (x03) obj;
-                } else {
-                    x03Var = new x03(this.mSwanApiContext);
-                    this.mApis.put("1445003743", x03Var);
-                }
-                Pair<Boolean, f32> a = h32.a(x03Var, "swanAPI/callImageMenu");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Image.callImageMenu")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = x03Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String compressImage(String str) {
-                yz1 yz1Var;
-                Object obj = this.mApis.get("-1252730367");
-                if (obj != null && (obj instanceof yz1)) {
-                    yz1Var = (yz1) obj;
-                } else {
-                    yz1Var = new yz1(this.mSwanApiContext);
-                    this.mApis.put("-1252730367", yz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(yz1Var, "swanAPI/compressImage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Image.compressImage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = yz1Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-        });
-        hashMap.put("_naInteraction", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$InteractionV8Module
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String closeTabBar(String str) {
-                g02 g02Var;
-                Object obj = this.mApis.get("-1871435471");
-                if (obj != null && (obj instanceof g02)) {
-                    g02Var = (g02) obj;
-                } else {
-                    g02Var = new g02(this.mSwanApiContext);
-                    this.mApis.put("-1871435471", g02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(g02Var, "swanAPI/closeTabBar");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.closeTabBar")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = g02Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String closeTabBarRedDot(String str) {
-                g02 g02Var;
-                Object obj = this.mApis.get("-1871435471");
-                if (obj != null && (obj instanceof g02)) {
-                    g02Var = (g02) obj;
-                } else {
-                    g02Var = new g02(this.mSwanApiContext);
-                    this.mApis.put("-1871435471", g02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(g02Var, "swanAPI/closeTabBarRedDot");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.closeTabBarRedDot")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = g02Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
             public String hideNavigationBarLoading(String str) {
-                c02 c02Var;
+                mu1 mu1Var;
                 Object obj = this.mApis.get("-246386074");
-                if (obj != null && (obj instanceof c02)) {
-                    c02Var = (c02) obj;
+                if (obj != null && (obj instanceof mu1)) {
+                    mu1Var = (mu1) obj;
                 } else {
-                    c02Var = new c02(this.mSwanApiContext);
-                    this.mApis.put("-246386074", c02Var);
+                    mu1Var = new mu1(this.mSwanApiContext);
+                    this.mApis.put("-246386074", mu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(c02Var, "swanAPI/hideNavigationBarLoading");
+                Pair<Boolean, px1> a = rx1.a(mu1Var, "swanAPI/hideNavigationBarLoading");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.hideNavigationBarLoading")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.hideNavigationBarLoading")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = c02Var.y(str);
-                if (y == null) {
+                qx1 z = mu1Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return y.a();
+                return z.a();
             }
 
             @JavascriptInterface
             public String openMultiPicker(String str) {
-                e02 e02Var;
+                ou1 ou1Var;
                 Object obj = this.mApis.get("-108978463");
-                if (obj != null && (obj instanceof e02)) {
-                    e02Var = (e02) obj;
+                if (obj != null && (obj instanceof ou1)) {
+                    ou1Var = (ou1) obj;
                 } else {
-                    e02Var = new e02(this.mSwanApiContext);
-                    this.mApis.put("-108978463", e02Var);
+                    ou1Var = new ou1(this.mSwanApiContext);
+                    this.mApis.put("-108978463", ou1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(e02Var, "swanAPI/openMultiPicker");
+                Pair<Boolean, px1> a = rx1.a(ou1Var, "swanAPI/openMultiPicker");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.openMultiPicker")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.openMultiPicker")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 G = e02Var.G(str);
-                if (G == null) {
-                    return "";
-                }
-                return G.a();
-            }
-
-            @JavascriptInterface
-            public String openPicker(String str) {
-                e02 e02Var;
-                Object obj = this.mApis.get("-108978463");
-                if (obj != null && (obj instanceof e02)) {
-                    e02Var = (e02) obj;
-                } else {
-                    e02Var = new e02(this.mSwanApiContext);
-                    this.mApis.put("-108978463", e02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(e02Var, "swanAPI/openPicker");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.openPicker")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 H = e02Var.H(str);
+                qx1 H = ou1Var.H(str);
                 if (H == null) {
                     return "";
                 }
@@ -987,119 +963,47 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
+            public String openPicker(String str) {
+                ou1 ou1Var;
+                Object obj = this.mApis.get("-108978463");
+                if (obj != null && (obj instanceof ou1)) {
+                    ou1Var = (ou1) obj;
+                } else {
+                    ou1Var = new ou1(this.mSwanApiContext);
+                    this.mApis.put("-108978463", ou1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ou1Var, "swanAPI/openPicker");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.openPicker")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 I = ou1Var.I(str);
+                if (I == null) {
+                    return "";
+                }
+                return I.a();
+            }
+
+            @JavascriptInterface
             public String openTabBar(String str) {
-                g02 g02Var;
+                qu1 qu1Var;
                 Object obj = this.mApis.get("-1871435471");
-                if (obj != null && (obj instanceof g02)) {
-                    g02Var = (g02) obj;
+                if (obj != null && (obj instanceof qu1)) {
+                    qu1Var = (qu1) obj;
                 } else {
-                    g02Var = new g02(this.mSwanApiContext);
-                    this.mApis.put("-1871435471", g02Var);
+                    qu1Var = new qu1(this.mSwanApiContext);
+                    this.mApis.put("-1871435471", qu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(g02Var, "swanAPI/openTabBar");
+                Pair<Boolean, px1> a = rx1.a(qu1Var, "swanAPI/openTabBar");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.openTabBar")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.openTabBar")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = g02Var.C(str);
-                if (C == null) {
-                    return "";
-                }
-                return C.a();
-            }
-
-            @JavascriptInterface
-            public String pageScrollTo(String str) {
-                d02 d02Var;
-                Object obj = this.mApis.get("-1750613704");
-                if (obj != null && (obj instanceof d02)) {
-                    d02Var = (d02) obj;
-                } else {
-                    d02Var = new d02(this.mSwanApiContext);
-                    this.mApis.put("-1750613704", d02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(d02Var, "swanAPI/pageScrollTo");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.pageScrollTo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = d02Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String setNavigationBarColor(String str) {
-                c02 c02Var;
-                Object obj = this.mApis.get("-246386074");
-                if (obj != null && (obj instanceof c02)) {
-                    c02Var = (c02) obj;
-                } else {
-                    c02Var = new c02(this.mSwanApiContext);
-                    this.mApis.put("-246386074", c02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(c02Var, "swanAPI/setNavigationBarColor");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.setNavigationBarColor")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 z = c02Var.z(str);
-                if (z == null) {
-                    return "";
-                }
-                return z.a();
-            }
-
-            @JavascriptInterface
-            public String setNavigationBarTitle(String str) {
-                c02 c02Var;
-                Object obj = this.mApis.get("-246386074");
-                if (obj != null && (obj instanceof c02)) {
-                    c02Var = (c02) obj;
-                } else {
-                    c02Var = new c02(this.mSwanApiContext);
-                    this.mApis.put("-246386074", c02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(c02Var, "swanAPI/setNavigationBarTitle");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.setNavigationBarTitle")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = c02Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String setTabBarItem(String str) {
-                g02 g02Var;
-                Object obj = this.mApis.get("-1871435471");
-                if (obj != null && (obj instanceof g02)) {
-                    g02Var = (g02) obj;
-                } else {
-                    g02Var = new g02(this.mSwanApiContext);
-                    this.mApis.put("-1871435471", g02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(g02Var, "swanAPI/setTabBarItem");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.setTabBarItem")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 D = g02Var.D(str);
+                qx1 D = qu1Var.D(str);
                 if (D == null) {
                     return "";
                 }
@@ -1107,119 +1011,23 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String showDatePickerView(String str) {
-                e02 e02Var;
-                Object obj = this.mApis.get("-108978463");
-                if (obj != null && (obj instanceof e02)) {
-                    e02Var = (e02) obj;
+            public String pageScrollTo(String str) {
+                nu1 nu1Var;
+                Object obj = this.mApis.get("-1750613704");
+                if (obj != null && (obj instanceof nu1)) {
+                    nu1Var = (nu1) obj;
                 } else {
-                    e02Var = new e02(this.mSwanApiContext);
-                    this.mApis.put("-108978463", e02Var);
+                    nu1Var = new nu1(this.mSwanApiContext);
+                    this.mApis.put("-1750613704", nu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(e02Var, "swanAPI/showDatePickerView");
+                Pair<Boolean, px1> a = rx1.a(nu1Var, "swanAPI/pageScrollTo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showDatePickerView")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.pageScrollTo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 L = e02Var.L(str);
-                if (L == null) {
-                    return "";
-                }
-                return L.a();
-            }
-
-            @JavascriptInterface
-            public String showHalfScreenWebview(String str) {
-                i02 i02Var;
-                Object obj = this.mApis.get("1172469410");
-                if (obj != null && (obj instanceof i02)) {
-                    i02Var = (i02) obj;
-                } else {
-                    i02Var = new i02(this.mSwanApiContext);
-                    this.mApis.put("1172469410", i02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(i02Var, "swanAPI/showHalfScreenWebview");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showHalfScreenWebview")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 K = i02Var.K(str);
-                if (K == null) {
-                    return "";
-                }
-                return K.a();
-            }
-
-            @JavascriptInterface
-            public String showLoading(String str) {
-                a02 a02Var;
-                Object obj = this.mApis.get("5236036");
-                if (obj != null && (obj instanceof a02)) {
-                    a02Var = (a02) obj;
-                } else {
-                    a02Var = new a02(this.mSwanApiContext);
-                    this.mApis.put("5236036", a02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(a02Var, "swanAPI/showLoading");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showLoading")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = a02Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String showModal(String str) {
-                b02 b02Var;
-                Object obj = this.mApis.get("1913747800");
-                if (obj != null && (obj instanceof b02)) {
-                    b02Var = (b02) obj;
-                } else {
-                    b02Var = new b02(this.mSwanApiContext);
-                    this.mApis.put("1913747800", b02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(b02Var, "swanAPI/showModal");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showModal")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = b02Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String showNavigationBarLoading(String str) {
-                c02 c02Var;
-                Object obj = this.mApis.get("-246386074");
-                if (obj != null && (obj instanceof c02)) {
-                    c02Var = (c02) obj;
-                } else {
-                    c02Var = new c02(this.mSwanApiContext);
-                    this.mApis.put("-246386074", c02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(c02Var, "swanAPI/showNavigationBarLoading");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showNavigationBarLoading")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 B = c02Var.B(str);
+                qx1 B = nu1Var.B(str);
                 if (B == null) {
                     return "";
                 }
@@ -1227,71 +1035,95 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String showToast(String str) {
-                h02 h02Var;
-                Object obj = this.mApis.get("1159492510");
-                if (obj != null && (obj instanceof h02)) {
-                    h02Var = (h02) obj;
+            public String setNavigationBarColor(String str) {
+                mu1 mu1Var;
+                Object obj = this.mApis.get("-246386074");
+                if (obj != null && (obj instanceof mu1)) {
+                    mu1Var = (mu1) obj;
                 } else {
-                    h02Var = new h02(this.mSwanApiContext);
-                    this.mApis.put("1159492510", h02Var);
+                    mu1Var = new mu1(this.mSwanApiContext);
+                    this.mApis.put("-246386074", mu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h02Var, "swanAPI/showToast");
+                Pair<Boolean, px1> a = rx1.a(mu1Var, "swanAPI/setNavigationBarColor");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showToast")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.setNavigationBarColor")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 Q = h02Var.Q(str);
-                if (Q == null) {
+                qx1 A = mu1Var.A(str);
+                if (A == null) {
                     return "";
                 }
-                return Q.a();
+                return A.a();
             }
 
             @JavascriptInterface
-            public String stopPullDownRefresh(String str) {
-                f02 f02Var;
-                Object obj = this.mApis.get("1165118609");
-                if (obj != null && (obj instanceof f02)) {
-                    f02Var = (f02) obj;
+            public String setNavigationBarTitle(String str) {
+                mu1 mu1Var;
+                Object obj = this.mApis.get("-246386074");
+                if (obj != null && (obj instanceof mu1)) {
+                    mu1Var = (mu1) obj;
                 } else {
-                    f02Var = new f02(this.mSwanApiContext);
-                    this.mApis.put("1165118609", f02Var);
+                    mu1Var = new mu1(this.mSwanApiContext);
+                    this.mApis.put("-246386074", mu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f02Var, "swanAPI/stopPullDownRefresh");
+                Pair<Boolean, px1> a = rx1.a(mu1Var, "swanAPI/setNavigationBarTitle");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.stopPullDownRefresh")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.setNavigationBarTitle")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = f02Var.x(str);
-                if (x == null) {
+                qx1 B = mu1Var.B(str);
+                if (B == null) {
                     return "";
                 }
-                return x.a();
+                return B.a();
             }
 
             @JavascriptInterface
-            public String updateMultiPicker(String str) {
-                e02 e02Var;
+            public String setTabBarItem(String str) {
+                qu1 qu1Var;
+                Object obj = this.mApis.get("-1871435471");
+                if (obj != null && (obj instanceof qu1)) {
+                    qu1Var = (qu1) obj;
+                } else {
+                    qu1Var = new qu1(this.mSwanApiContext);
+                    this.mApis.put("-1871435471", qu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(qu1Var, "swanAPI/setTabBarItem");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.setTabBarItem")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 E = qu1Var.E(str);
+                if (E == null) {
+                    return "";
+                }
+                return E.a();
+            }
+
+            @JavascriptInterface
+            public String showDatePickerView(String str) {
+                ou1 ou1Var;
                 Object obj = this.mApis.get("-108978463");
-                if (obj != null && (obj instanceof e02)) {
-                    e02Var = (e02) obj;
+                if (obj != null && (obj instanceof ou1)) {
+                    ou1Var = (ou1) obj;
                 } else {
-                    e02Var = new e02(this.mSwanApiContext);
-                    this.mApis.put("-108978463", e02Var);
+                    ou1Var = new ou1(this.mSwanApiContext);
+                    this.mApis.put("-108978463", ou1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(e02Var, "swanAPI/updateMultiPicker");
+                Pair<Boolean, px1> a = rx1.a(ou1Var, "swanAPI/showDatePickerView");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.updateMultiPicker")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showDatePickerView")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 M = e02Var.M(str);
+                qx1 M = ou1Var.M(str);
                 if (M == null) {
                     return "";
                 }
@@ -1299,81 +1131,95 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String hideLoading() {
-                a02 a02Var;
+            public String showHalfScreenWebview(String str) {
+                su1 su1Var;
+                Object obj = this.mApis.get("1172469410");
+                if (obj != null && (obj instanceof su1)) {
+                    su1Var = (su1) obj;
+                } else {
+                    su1Var = new su1(this.mSwanApiContext);
+                    this.mApis.put("1172469410", su1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(su1Var, "swanAPI/showHalfScreenWebview");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showHalfScreenWebview")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 L = su1Var.L(str);
+                if (L == null) {
+                    return "";
+                }
+                return L.a();
+            }
+
+            @JavascriptInterface
+            public String showLoading(String str) {
+                ku1 ku1Var;
                 Object obj = this.mApis.get("5236036");
-                if (obj != null && (obj instanceof a02)) {
-                    a02Var = (a02) obj;
+                if (obj != null && (obj instanceof ku1)) {
+                    ku1Var = (ku1) obj;
                 } else {
-                    a02Var = new a02(this.mSwanApiContext);
-                    this.mApis.put("5236036", a02Var);
+                    ku1Var = new ku1(this.mSwanApiContext);
+                    this.mApis.put("5236036", ku1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(a02Var, "swanAPI/hideLoading");
+                Pair<Boolean, px1> a = rx1.a(ku1Var, "swanAPI/showLoading");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.hideLoading")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showLoading")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = a02Var.x();
-                if (x == null) {
+                qx1 z = ku1Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return x.a();
+                return z.a();
             }
 
             @JavascriptInterface
-            public String hideToast() {
-                h02 h02Var;
-                Object obj = this.mApis.get("1159492510");
-                if (obj != null && (obj instanceof h02)) {
-                    h02Var = (h02) obj;
+            public String showModal(String str) {
+                lu1 lu1Var;
+                Object obj = this.mApis.get("1913747800");
+                if (obj != null && (obj instanceof lu1)) {
+                    lu1Var = (lu1) obj;
                 } else {
-                    h02Var = new h02(this.mSwanApiContext);
-                    this.mApis.put("1159492510", h02Var);
+                    lu1Var = new lu1(this.mSwanApiContext);
+                    this.mApis.put("1913747800", lu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h02Var, "swanAPI/hideToast");
+                Pair<Boolean, px1> a = rx1.a(lu1Var, "swanAPI/showModal");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.hideToast")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showModal")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 K = h02Var.K();
-                if (K == null) {
+                qx1 B = lu1Var.B(str);
+                if (B == null) {
                     return "";
                 }
-                return K.a();
-            }
-        });
-        hashMap.put("_naKeyboard", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$KeyboardV8Module
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
+                return B.a();
             }
 
             @JavascriptInterface
-            public String startKeyboardHeightChange() {
-                j02 j02Var;
-                Object obj = this.mApis.get("-137346255");
-                if (obj != null && (obj instanceof j02)) {
-                    j02Var = (j02) obj;
+            public String showNavigationBarLoading(String str) {
+                mu1 mu1Var;
+                Object obj = this.mApis.get("-246386074");
+                if (obj != null && (obj instanceof mu1)) {
+                    mu1Var = (mu1) obj;
                 } else {
-                    j02Var = new j02(this.mSwanApiContext);
-                    this.mApis.put("-137346255", j02Var);
+                    mu1Var = new mu1(this.mSwanApiContext);
+                    this.mApis.put("-246386074", mu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(j02Var, "swanAPI/startKeyboardHeightChange");
+                Pair<Boolean, px1> a = rx1.a(mu1Var, "swanAPI/showNavigationBarLoading");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Keyboard.startKeyboardHeightChange")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showNavigationBarLoading")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = j02Var.C();
+                qx1 C = mu1Var.C(str);
                 if (C == null) {
                     return "";
                 }
@@ -1381,57 +1227,47 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String stopKeyboardHeightChange() {
-                j02 j02Var;
-                Object obj = this.mApis.get("-137346255");
-                if (obj != null && (obj instanceof j02)) {
-                    j02Var = (j02) obj;
+            public String showToast(String str) {
+                ru1 ru1Var;
+                Object obj = this.mApis.get("1159492510");
+                if (obj != null && (obj instanceof ru1)) {
+                    ru1Var = (ru1) obj;
                 } else {
-                    j02Var = new j02(this.mSwanApiContext);
-                    this.mApis.put("-137346255", j02Var);
+                    ru1Var = new ru1(this.mSwanApiContext);
+                    this.mApis.put("1159492510", ru1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(j02Var, "swanAPI/stopKeyboardHeightChange");
+                Pair<Boolean, px1> a = rx1.a(ru1Var, "swanAPI/showToast");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Keyboard.stopKeyboardHeightChange")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showToast")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 D = j02Var.D();
-                if (D == null) {
+                qx1 R = ru1Var.R(str);
+                if (R == null) {
                     return "";
                 }
-                return D.a();
-            }
-        });
-        hashMap.put("_naLocationService", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$LocationServiceV8Module
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
+                return R.a();
             }
 
             @JavascriptInterface
-            public String getLocation(String str) {
-                k02 k02Var;
-                Object obj = this.mApis.get("-397373095");
-                if (obj != null && (obj instanceof k02)) {
-                    k02Var = (k02) obj;
+            public String stopPullDownRefresh(String str) {
+                pu1 pu1Var;
+                Object obj = this.mApis.get("1165118609");
+                if (obj != null && (obj instanceof pu1)) {
+                    pu1Var = (pu1) obj;
                 } else {
-                    k02Var = new k02(this.mSwanApiContext);
-                    this.mApis.put("-397373095", k02Var);
+                    pu1Var = new pu1(this.mSwanApiContext);
+                    this.mApis.put("1165118609", pu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(k02Var, "swanAPI/getLocation");
+                Pair<Boolean, px1> a = rx1.a(pu1Var, "swanAPI/stopPullDownRefresh");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "LocationService.getLocation")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.stopPullDownRefresh")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = k02Var.y(str);
+                qx1 y = pu1Var.y(str);
                 if (y == null) {
                     return "";
                 }
@@ -1439,163 +1275,279 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String startLocationUpdate(String str) {
-                k02 k02Var;
-                Object obj = this.mApis.get("-397373095");
-                if (obj != null && (obj instanceof k02)) {
-                    k02Var = (k02) obj;
+            public String updateMultiPicker(String str) {
+                ou1 ou1Var;
+                Object obj = this.mApis.get("-108978463");
+                if (obj != null && (obj instanceof ou1)) {
+                    ou1Var = (ou1) obj;
                 } else {
-                    k02Var = new k02(this.mSwanApiContext);
-                    this.mApis.put("-397373095", k02Var);
+                    ou1Var = new ou1(this.mSwanApiContext);
+                    this.mApis.put("-108978463", ou1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(k02Var, "swanAPI/startLocationUpdate");
+                Pair<Boolean, px1> a = rx1.a(ou1Var, "swanAPI/updateMultiPicker");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "LocationService.startLocationUpdate")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.updateMultiPicker")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = k02Var.A(str);
-                if (A == null) {
+                qx1 N = ou1Var.N(str);
+                if (N == null) {
                     return "";
                 }
-                return A.a();
+                return N.a();
             }
 
             @JavascriptInterface
-            public String stopLocationUpdate() {
-                k02 k02Var;
-                Object obj = this.mApis.get("-397373095");
-                if (obj != null && (obj instanceof k02)) {
-                    k02Var = (k02) obj;
+            public String hideLoading() {
+                ku1 ku1Var;
+                Object obj = this.mApis.get("5236036");
+                if (obj != null && (obj instanceof ku1)) {
+                    ku1Var = (ku1) obj;
                 } else {
-                    k02Var = new k02(this.mSwanApiContext);
-                    this.mApis.put("-397373095", k02Var);
+                    ku1Var = new ku1(this.mSwanApiContext);
+                    this.mApis.put("5236036", ku1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(k02Var, "swanAPI/stopLocationUpdate");
+                Pair<Boolean, px1> a = rx1.a(ku1Var, "swanAPI/hideLoading");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "LocationService.stopLocationUpdate")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.hideLoading")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 B = k02Var.B();
+                qx1 y = ku1Var.y();
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String hideToast() {
+                ru1 ru1Var;
+                Object obj = this.mApis.get("1159492510");
+                if (obj != null && (obj instanceof ru1)) {
+                    ru1Var = (ru1) obj;
+                } else {
+                    ru1Var = new ru1(this.mSwanApiContext);
+                    this.mApis.put("1159492510", ru1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ru1Var, "swanAPI/hideToast");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.hideToast")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 L = ru1Var.L();
+                if (L == null) {
+                    return "";
+                }
+                return L.a();
+            }
+        });
+        hashMap.put("_naKeyboard", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$KeyboardV8Module
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String startKeyboardHeightChange() {
+                tu1 tu1Var;
+                Object obj = this.mApis.get("-137346255");
+                if (obj != null && (obj instanceof tu1)) {
+                    tu1Var = (tu1) obj;
+                } else {
+                    tu1Var = new tu1(this.mSwanApiContext);
+                    this.mApis.put("-137346255", tu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(tu1Var, "swanAPI/startKeyboardHeightChange");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Keyboard.startKeyboardHeightChange")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 D = tu1Var.D();
+                if (D == null) {
+                    return "";
+                }
+                return D.a();
+            }
+
+            @JavascriptInterface
+            public String stopKeyboardHeightChange() {
+                tu1 tu1Var;
+                Object obj = this.mApis.get("-137346255");
+                if (obj != null && (obj instanceof tu1)) {
+                    tu1Var = (tu1) obj;
+                } else {
+                    tu1Var = new tu1(this.mSwanApiContext);
+                    this.mApis.put("-137346255", tu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(tu1Var, "swanAPI/stopKeyboardHeightChange");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Keyboard.stopKeyboardHeightChange")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 E = tu1Var.E();
+                if (E == null) {
+                    return "";
+                }
+                return E.a();
+            }
+        });
+        hashMap.put("_naLocationService", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$LocationServiceV8Module
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String getLocation(String str) {
+                uu1 uu1Var;
+                Object obj = this.mApis.get("-397373095");
+                if (obj != null && (obj instanceof uu1)) {
+                    uu1Var = (uu1) obj;
+                } else {
+                    uu1Var = new uu1(this.mSwanApiContext);
+                    this.mApis.put("-397373095", uu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(uu1Var, "swanAPI/getLocation");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "LocationService.getLocation")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = uu1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String startLocationUpdate(String str) {
+                uu1 uu1Var;
+                Object obj = this.mApis.get("-397373095");
+                if (obj != null && (obj instanceof uu1)) {
+                    uu1Var = (uu1) obj;
+                } else {
+                    uu1Var = new uu1(this.mSwanApiContext);
+                    this.mApis.put("-397373095", uu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(uu1Var, "swanAPI/startLocationUpdate");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "LocationService.startLocationUpdate")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = uu1Var.B(str);
                 if (B == null) {
                     return "";
                 }
                 return B.a();
             }
+
+            @JavascriptInterface
+            public String stopLocationUpdate() {
+                uu1 uu1Var;
+                Object obj = this.mApis.get("-397373095");
+                if (obj != null && (obj instanceof uu1)) {
+                    uu1Var = (uu1) obj;
+                } else {
+                    uu1Var = new uu1(this.mSwanApiContext);
+                    this.mApis.put("-397373095", uu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(uu1Var, "swanAPI/stopLocationUpdate");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "LocationService.stopLocationUpdate")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 C = uu1Var.C();
+                if (C == null) {
+                    return "";
+                }
+                return C.a();
+            }
         });
-        hashMap.put("_naMenu", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$MenuV8Module
+        hashMap.put("_naMenu", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$MenuV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String getMenuButtonBoundingClientRect() {
-                b22 b22Var;
+                lw1 lw1Var;
                 Object obj = this.mApis.get("538070032");
-                if (obj != null && (obj instanceof b22)) {
-                    b22Var = (b22) obj;
+                if (obj != null && (obj instanceof lw1)) {
+                    lw1Var = (lw1) obj;
                 } else {
-                    b22Var = new b22(this.mSwanApiContext);
-                    this.mApis.put("538070032", b22Var);
+                    lw1Var = new lw1(this.mSwanApiContext);
+                    this.mApis.put("538070032", lw1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(b22Var, "swanAPI/getMenuButtonBoundingClientRect");
+                Pair<Boolean, px1> a = rx1.a(lw1Var, "swanAPI/getMenuButtonBoundingClientRect");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Menu.getMenuButtonBoundingClientRect")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Menu.getMenuButtonBoundingClientRect")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = b22Var.x();
-                if (x == null) {
+                qx1 y = lw1Var.y();
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
         });
-        hashMap.put("_naNetwork", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$NetworkV8Module
+        hashMap.put("_naNetwork", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$NetworkV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String callService(String str) {
-                n02 n02Var;
+                xu1 xu1Var;
                 Object obj = this.mApis.get("-1076509454");
-                if (obj != null && (obj instanceof n02)) {
-                    n02Var = (n02) obj;
+                if (obj != null && (obj instanceof xu1)) {
+                    xu1Var = (xu1) obj;
                 } else {
-                    n02Var = new n02(this.mSwanApiContext);
-                    this.mApis.put("-1076509454", n02Var);
+                    xu1Var = new xu1(this.mSwanApiContext);
+                    this.mApis.put("-1076509454", xu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(n02Var, "swanAPI/callService");
+                Pair<Boolean, px1> a = rx1.a(xu1Var, "swanAPI/callService");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Network.callService")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Network.callService")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = n02Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String cancelRequest(String str) {
-                u02 u02Var;
-                Object obj = this.mApis.get("968563034");
-                if (obj != null && (obj instanceof u02)) {
-                    u02Var = (u02) obj;
-                } else {
-                    u02Var = new u02(this.mSwanApiContext);
-                    this.mApis.put("968563034", u02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(u02Var, "swanAPI/cancelRequest");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Network.cancelRequest")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 D = u02Var.D(str);
-                if (D == null) {
-                    return "";
-                }
-                return D.a();
-            }
-
-            @JavascriptInterface
-            public String networkStatusChange(String str) {
-                t02 t02Var;
-                Object obj = this.mApis.get("453220699");
-                if (obj != null && (obj instanceof t02)) {
-                    t02Var = (t02) obj;
-                } else {
-                    t02Var = new t02(this.mSwanApiContext);
-                    this.mApis.put("453220699", t02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(t02Var, "swanAPI/networkStatusChange");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Network.networkStatusChange")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = t02Var.y(str);
+                qx1 y = xu1Var.y(str);
                 if (y == null) {
                     return "";
                 }
@@ -1603,62 +1555,110 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String getNetworkType() {
-                t02 t02Var;
-                Object obj = this.mApis.get("453220699");
-                if (obj != null && (obj instanceof t02)) {
-                    t02Var = (t02) obj;
+            public String cancelRequest(String str) {
+                ev1 ev1Var;
+                Object obj = this.mApis.get("968563034");
+                if (obj != null && (obj instanceof ev1)) {
+                    ev1Var = (ev1) obj;
                 } else {
-                    t02Var = new t02(this.mSwanApiContext);
-                    this.mApis.put("453220699", t02Var);
+                    ev1Var = new ev1(this.mSwanApiContext);
+                    this.mApis.put("968563034", ev1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(t02Var, "swanAPI/getNetworkType");
+                Pair<Boolean, px1> a = rx1.a(ev1Var, "swanAPI/cancelRequest");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Network.getNetworkType")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Network.cancelRequest")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = t02Var.x();
-                if (x == null) {
+                qx1 E = ev1Var.E(str);
+                if (E == null) {
                     return "";
                 }
-                return x.a();
+                return E.a();
+            }
+
+            @JavascriptInterface
+            public String networkStatusChange(String str) {
+                dv1 dv1Var;
+                Object obj = this.mApis.get("453220699");
+                if (obj != null && (obj instanceof dv1)) {
+                    dv1Var = (dv1) obj;
+                } else {
+                    dv1Var = new dv1(this.mSwanApiContext);
+                    this.mApis.put("453220699", dv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(dv1Var, "swanAPI/networkStatusChange");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Network.networkStatusChange")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = dv1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String getNetworkType() {
+                dv1 dv1Var;
+                Object obj = this.mApis.get("453220699");
+                if (obj != null && (obj instanceof dv1)) {
+                    dv1Var = (dv1) obj;
+                } else {
+                    dv1Var = new dv1(this.mSwanApiContext);
+                    this.mApis.put("453220699", dv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(dv1Var, "swanAPI/getNetworkType");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Network.getNetworkType")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = dv1Var.y();
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
             }
 
             /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
             @JavascriptInterface
             public String request(JsObject jsObject) {
-                u02 u02Var;
+                ev1 ev1Var;
                 String a;
                 try {
-                    e32.c().a("request");
+                    ox1.c().a("request");
                     Object obj = this.mApis.get("968563034");
-                    if (obj != null && (obj instanceof u02)) {
-                        u02Var = (u02) obj;
+                    if (obj != null && (obj instanceof ev1)) {
+                        ev1Var = (ev1) obj;
                     } else {
-                        u02Var = new u02(this.mSwanApiContext);
-                        this.mApis.put("968563034", u02Var);
+                        ev1Var = new ev1(this.mSwanApiContext);
+                        this.mApis.put("968563034", ev1Var);
                     }
-                    Pair<Boolean, f32> a2 = h32.a(u02Var, "swanAPI/request");
+                    Pair<Boolean, px1> a2 = rx1.a(ev1Var, "swanAPI/request");
                     if (((Boolean) a2.first).booleanValue()) {
-                        a = ((f32) a2.second).a();
-                    } else if (nd2.a(this.mSwanApiContext.e(), "Network.request")) {
-                        a = new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                        a = ((px1) a2.second).a();
+                    } else if (w72.a(this.mSwanApiContext.e(), "Network.request")) {
+                        a = new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     } else {
-                        Pair<f32, JSONObject> t = jz1.t(jsObject);
-                        if (!((f32) t.first).isSuccess()) {
-                            a = ((f32) t.first).a();
+                        Pair<px1, JSONObject> u = tt1.u(jsObject);
+                        if (!((px1) u.first).isSuccess()) {
+                            a = ((px1) u.first).a();
                         } else {
-                            JSONObject jSONObject = (JSONObject) t.second;
+                            JSONObject jSONObject = (JSONObject) u.second;
                             if (jSONObject == null) {
-                                a = f32.a.a();
+                                a = px1.a.a();
                             } else {
-                                g32 V = u02Var.V(jSONObject);
-                                if (V == null) {
+                                qx1 W = ev1Var.W(jSONObject);
+                                if (W == null) {
                                     a = "";
                                 } else {
-                                    a = V.a();
+                                    a = W.a();
                                 }
                             }
                         }
@@ -1668,2498 +1668,1103 @@ public class SwanApi$$ModulesProvider {
                     try {
                         throw th;
                     } finally {
-                        e32.c().b("request");
+                        ox1.c().b("request");
                     }
                 }
             }
         });
-        hashMap.put("_naPayment", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PaymentV8Module
+        hashMap.put("_naPayment", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PaymentV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String chooseCoupon(String str) {
-                d43 d43Var;
+                my2 my2Var;
                 Object obj = this.mApis.get("-336396851");
-                if (obj != null && (obj instanceof d43)) {
-                    d43Var = (d43) obj;
+                if (obj != null && (obj instanceof my2)) {
+                    my2Var = (my2) obj;
                 } else {
-                    d43Var = new d43(this.mSwanApiContext);
-                    this.mApis.put("-336396851", d43Var);
+                    my2Var = new my2(this.mSwanApiContext);
+                    this.mApis.put("-336396851", my2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(d43Var, "swanAPI/chooseCoupon");
+                Pair<Boolean, px1> a = rx1.a(my2Var, "swanAPI/chooseCoupon");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Payment.chooseCoupon")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Payment.chooseCoupon")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = d43Var.x(str);
-                if (x == null) {
+                qx1 y = my2Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String getPaymentInfo(String str) {
-                d43 d43Var;
+                my2 my2Var;
                 Object obj = this.mApis.get("-336396851");
-                if (obj != null && (obj instanceof d43)) {
-                    d43Var = (d43) obj;
+                if (obj != null && (obj instanceof my2)) {
+                    my2Var = (my2) obj;
                 } else {
-                    d43Var = new d43(this.mSwanApiContext);
-                    this.mApis.put("-336396851", d43Var);
+                    my2Var = new my2(this.mSwanApiContext);
+                    this.mApis.put("-336396851", my2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(d43Var, "swanAPI/getPaymentInfo");
+                Pair<Boolean, px1> a = rx1.a(my2Var, "swanAPI/getPaymentInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Payment.getPaymentInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Payment.getPaymentInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = d43Var.y(str);
-                if (y == null) {
+                qx1 z = my2Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return y.a();
+                return z.a();
             }
 
             @JavascriptInterface
             public String requestThirdPayment(String str) {
-                t33 t33Var;
+                cy2 cy2Var;
                 Object obj = this.mApis.get("1854689529");
-                if (obj != null && (obj instanceof t33)) {
-                    t33Var = (t33) obj;
+                if (obj != null && (obj instanceof cy2)) {
+                    cy2Var = (cy2) obj;
                 } else {
-                    t33Var = new t33(this.mSwanApiContext);
-                    this.mApis.put("1854689529", t33Var);
+                    cy2Var = new cy2(this.mSwanApiContext);
+                    this.mApis.put("1854689529", cy2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(t33Var, "swanAPI/requestThirdPayment");
+                Pair<Boolean, px1> a = rx1.a(cy2Var, "swanAPI/requestThirdPayment");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Payment.requestThirdPayment")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Payment.requestThirdPayment")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = t33Var.x(str);
-                if (x == null) {
+                qx1 y = cy2Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String setPaymentInfo(String str) {
-                d43 d43Var;
+                my2 my2Var;
                 Object obj = this.mApis.get("-336396851");
-                if (obj != null && (obj instanceof d43)) {
-                    d43Var = (d43) obj;
+                if (obj != null && (obj instanceof my2)) {
+                    my2Var = (my2) obj;
                 } else {
-                    d43Var = new d43(this.mSwanApiContext);
-                    this.mApis.put("-336396851", d43Var);
+                    my2Var = new my2(this.mSwanApiContext);
+                    this.mApis.put("-336396851", my2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(d43Var, "swanAPI/setPaymentInfo");
+                Pair<Boolean, px1> a = rx1.a(my2Var, "swanAPI/setPaymentInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Payment.setPaymentInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Payment.setPaymentInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 z = d43Var.z(str);
-                if (z == null) {
+                qx1 A = my2Var.A(str);
+                if (A == null) {
                     return "";
                 }
-                return z.a();
+                return A.a();
             }
         });
-        hashMap.put("_naPlugin", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PluginV8Module
+        hashMap.put("_naPlugin", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PluginV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String invokePluginChooseAddress(String str) {
-                o63 o63Var;
+                x03 x03Var;
                 Object obj = this.mApis.get("-254510461");
-                if (obj != null && (obj instanceof o63)) {
-                    o63Var = (o63) obj;
+                if (obj != null && (obj instanceof x03)) {
+                    x03Var = (x03) obj;
                 } else {
-                    o63Var = new o63(this.mSwanApiContext);
-                    this.mApis.put("-254510461", o63Var);
+                    x03Var = new x03(this.mSwanApiContext);
+                    this.mApis.put("-254510461", x03Var);
                 }
-                Pair<Boolean, f32> a = h32.a(o63Var, "swanAPI/invokePluginChooseAddress");
+                Pair<Boolean, px1> a = rx1.a(x03Var, "swanAPI/invokePluginChooseAddress");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Plugin.invokePluginChooseAddress")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Plugin.invokePluginChooseAddress")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = o63Var.y(str);
-                if (y == null) {
+                qx1 z = x03Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return y.a();
+                return z.a();
             }
 
             @JavascriptInterface
             public String invokePluginLoginAndGetUserInfo(String str) {
-                o63 o63Var;
+                x03 x03Var;
                 Object obj = this.mApis.get("-254510461");
-                if (obj != null && (obj instanceof o63)) {
-                    o63Var = (o63) obj;
+                if (obj != null && (obj instanceof x03)) {
+                    x03Var = (x03) obj;
                 } else {
-                    o63Var = new o63(this.mSwanApiContext);
-                    this.mApis.put("-254510461", o63Var);
+                    x03Var = new x03(this.mSwanApiContext);
+                    this.mApis.put("-254510461", x03Var);
                 }
-                Pair<Boolean, f32> a = h32.a(o63Var, "swanAPI/invokePluginLoginAndGetUserInfo");
+                Pair<Boolean, px1> a = rx1.a(x03Var, "swanAPI/invokePluginLoginAndGetUserInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Plugin.invokePluginLoginAndGetUserInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Plugin.invokePluginLoginAndGetUserInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 z = o63Var.z(str);
-                if (z == null) {
+                qx1 A = x03Var.A(str);
+                if (A == null) {
                     return "";
                 }
-                return z.a();
+                return A.a();
             }
 
             @JavascriptInterface
             public String invokePluginPayment(String str) {
-                o63 o63Var;
+                x03 x03Var;
                 Object obj = this.mApis.get("-254510461");
-                if (obj != null && (obj instanceof o63)) {
-                    o63Var = (o63) obj;
+                if (obj != null && (obj instanceof x03)) {
+                    x03Var = (x03) obj;
                 } else {
-                    o63Var = new o63(this.mSwanApiContext);
-                    this.mApis.put("-254510461", o63Var);
+                    x03Var = new x03(this.mSwanApiContext);
+                    this.mApis.put("-254510461", x03Var);
                 }
-                Pair<Boolean, f32> a = h32.a(o63Var, "swanAPI/invokePluginPayment");
+                Pair<Boolean, px1> a = rx1.a(x03Var, "swanAPI/invokePluginPayment");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Plugin.invokePluginPayment")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Plugin.invokePluginPayment")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = o63Var.A(str);
-                if (A == null) {
+                qx1 B = x03Var.B(str);
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
         });
-        hashMap.put("_naPrefetch", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrefetchV8Module
+        hashMap.put("_naPrefetch", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrefetchV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String prefetchResources(String str) {
-                hf2 hf2Var;
+                q92 q92Var;
                 Object obj = this.mApis.get("-2068479848");
-                if (obj != null && (obj instanceof hf2)) {
-                    hf2Var = (hf2) obj;
+                if (obj != null && (obj instanceof q92)) {
+                    q92Var = (q92) obj;
                 } else {
-                    hf2Var = new hf2(this.mSwanApiContext);
-                    this.mApis.put("-2068479848", hf2Var);
+                    q92Var = new q92(this.mSwanApiContext);
+                    this.mApis.put("-2068479848", q92Var);
                 }
-                Pair<Boolean, f32> a = h32.a(hf2Var, "swanAPI/prefetchResources");
+                Pair<Boolean, px1> a = rx1.a(q92Var, "swanAPI/prefetchResources");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Prefetch.prefetchResources")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Prefetch.prefetchResources")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = hf2Var.x(str);
-                if (x == null) {
+                qx1 y = q92Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
         });
-        hashMap.put("_naPreload", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PreloadV8Module
+        hashMap.put("_naPreload", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PreloadV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String preloadStatus(String str) {
-                zd2 zd2Var;
+                i82 i82Var;
                 Object obj = this.mApis.get("423661539");
-                if (obj != null && (obj instanceof zd2)) {
-                    zd2Var = (zd2) obj;
+                if (obj != null && (obj instanceof i82)) {
+                    i82Var = (i82) obj;
                 } else {
-                    zd2Var = new zd2(this.mSwanApiContext);
-                    this.mApis.put("423661539", zd2Var);
+                    i82Var = new i82(this.mSwanApiContext);
+                    this.mApis.put("423661539", i82Var);
                 }
-                Pair<Boolean, f32> a = h32.a(zd2Var, "swanAPI/preloadStatus");
+                Pair<Boolean, px1> a = rx1.a(i82Var, "swanAPI/preloadStatus");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Preload.preloadStatus")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Preload.preloadStatus")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = zd2Var.x(str);
-                if (x == null) {
+                qx1 y = i82Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
         });
-        hashMap.put("_naPrivateFile", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateFileV8Module
+        hashMap.put("_naPrivateFile", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateFileV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String uploadFileToBos(String str) {
-                jn3 jn3Var;
+                sh3 sh3Var;
                 Object obj = this.mApis.get("-1929343869");
-                if (obj != null && (obj instanceof jn3)) {
-                    jn3Var = (jn3) obj;
+                if (obj != null && (obj instanceof sh3)) {
+                    sh3Var = (sh3) obj;
                 } else {
-                    jn3Var = new jn3(this.mSwanApiContext);
-                    this.mApis.put("-1929343869", jn3Var);
+                    sh3Var = new sh3(this.mSwanApiContext);
+                    this.mApis.put("-1929343869", sh3Var);
                 }
-                Pair<Boolean, f32> a = h32.a(jn3Var, "swanAPI/uploadFileToBos");
+                Pair<Boolean, px1> a = rx1.a(sh3Var, "swanAPI/uploadFileToBos");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "PrivateFile.uploadFileToBos")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "PrivateFile.uploadFileToBos")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = jn3Var.C(str);
-                if (C == null) {
+                qx1 D = sh3Var.D(str);
+                if (D == null) {
                     return "";
                 }
-                return C.a();
+                return D.a();
             }
         });
-        hashMap.put("_naRouter", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$RouterV8Module
+        hashMap.put("_naRouter", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$RouterV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String hideModalPage() {
-                y02 y02Var;
+                iv1 iv1Var;
                 Object obj = this.mApis.get("-1495163604");
-                if (obj != null && (obj instanceof y02)) {
-                    y02Var = (y02) obj;
+                if (obj != null && (obj instanceof iv1)) {
+                    iv1Var = (iv1) obj;
                 } else {
-                    y02Var = new y02(this.mSwanApiContext);
-                    this.mApis.put("-1495163604", y02Var);
+                    iv1Var = new iv1(this.mSwanApiContext);
+                    this.mApis.put("-1495163604", iv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(y02Var, "swanAPI/hideModalPage");
+                Pair<Boolean, px1> a = rx1.a(iv1Var, "swanAPI/hideModalPage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.hideModalPage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.hideModalPage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = y02Var.A();
-                if (A == null) {
+                qx1 B = iv1Var.B();
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
 
             @JavascriptInterface
             public String navigateBack(String str) {
-                y02 y02Var;
+                iv1 iv1Var;
                 Object obj = this.mApis.get("-1495163604");
-                if (obj != null && (obj instanceof y02)) {
-                    y02Var = (y02) obj;
+                if (obj != null && (obj instanceof iv1)) {
+                    iv1Var = (iv1) obj;
                 } else {
-                    y02Var = new y02(this.mSwanApiContext);
-                    this.mApis.put("-1495163604", y02Var);
+                    iv1Var = new iv1(this.mSwanApiContext);
+                    this.mApis.put("-1495163604", iv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(y02Var, "swanAPI/navigateBack");
+                Pair<Boolean, px1> a = rx1.a(iv1Var, "swanAPI/navigateBack");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.navigateBack")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.navigateBack")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 B = y02Var.B(str);
-                if (B == null) {
+                qx1 C = iv1Var.C(str);
+                if (C == null) {
                     return "";
                 }
-                return B.a();
+                return C.a();
             }
 
             @JavascriptInterface
             public String navigateTo(String str) {
-                z02 z02Var;
+                jv1 jv1Var;
                 Object obj = this.mApis.get("1968522584");
-                if (obj != null && (obj instanceof z02)) {
-                    z02Var = (z02) obj;
+                if (obj != null && (obj instanceof jv1)) {
+                    jv1Var = (jv1) obj;
                 } else {
-                    z02Var = new z02(this.mSwanApiContext);
-                    this.mApis.put("1968522584", z02Var);
+                    jv1Var = new jv1(this.mSwanApiContext);
+                    this.mApis.put("1968522584", jv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(z02Var, "swanAPI/navigateTo");
+                Pair<Boolean, px1> a = rx1.a(jv1Var, "swanAPI/navigateTo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.navigateTo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.navigateTo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 H = z02Var.H(str);
-                if (H == null) {
+                qx1 I = jv1Var.I(str);
+                if (I == null) {
                     return "";
                 }
-                return H.a();
+                return I.a();
             }
 
             @JavascriptInterface
             public String reLaunch(String str) {
-                b12 b12Var;
+                lv1 lv1Var;
                 Object obj = this.mApis.get("1317280190");
-                if (obj != null && (obj instanceof b12)) {
-                    b12Var = (b12) obj;
+                if (obj != null && (obj instanceof lv1)) {
+                    lv1Var = (lv1) obj;
                 } else {
-                    b12Var = new b12(this.mSwanApiContext);
-                    this.mApis.put("1317280190", b12Var);
+                    lv1Var = new lv1(this.mSwanApiContext);
+                    this.mApis.put("1317280190", lv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(b12Var, "swanAPI/reLaunch");
+                Pair<Boolean, px1> a = rx1.a(lv1Var, "swanAPI/reLaunch");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.reLaunch")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.reLaunch")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = b12Var.A(str);
-                if (A == null) {
+                qx1 B = lv1Var.B(str);
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
 
             @JavascriptInterface
             public String reLoadErrorPage(String str) {
-                c12 c12Var;
+                mv1 mv1Var;
                 Object obj = this.mApis.get("-420075743");
-                if (obj != null && (obj instanceof c12)) {
-                    c12Var = (c12) obj;
+                if (obj != null && (obj instanceof mv1)) {
+                    mv1Var = (mv1) obj;
                 } else {
-                    c12Var = new c12(this.mSwanApiContext);
-                    this.mApis.put("-420075743", c12Var);
+                    mv1Var = new mv1(this.mSwanApiContext);
+                    this.mApis.put("-420075743", mv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(c12Var, "swanAPI/reLoadErrorPage");
+                Pair<Boolean, px1> a = rx1.a(mv1Var, "swanAPI/reLoadErrorPage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.reLoadErrorPage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.reLoadErrorPage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = c12Var.x(str);
-                if (x == null) {
+                qx1 y = mv1Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String redirectTo(String str) {
-                a12 a12Var;
+                kv1 kv1Var;
                 Object obj = this.mApis.get("1792515533");
-                if (obj != null && (obj instanceof a12)) {
-                    a12Var = (a12) obj;
+                if (obj != null && (obj instanceof kv1)) {
+                    kv1Var = (kv1) obj;
                 } else {
-                    a12Var = new a12(this.mSwanApiContext);
-                    this.mApis.put("1792515533", a12Var);
+                    kv1Var = new kv1(this.mSwanApiContext);
+                    this.mApis.put("1792515533", kv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(a12Var, "swanAPI/redirectTo");
+                Pair<Boolean, px1> a = rx1.a(kv1Var, "swanAPI/redirectTo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.redirectTo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.redirectTo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 D = a12Var.D(str);
-                if (D == null) {
+                qx1 E = kv1Var.E(str);
+                if (E == null) {
                     return "";
                 }
-                return D.a();
+                return E.a();
             }
 
             @JavascriptInterface
             public String showModalPage(String str) {
-                z02 z02Var;
+                jv1 jv1Var;
                 Object obj = this.mApis.get("1968522584");
-                if (obj != null && (obj instanceof z02)) {
-                    z02Var = (z02) obj;
+                if (obj != null && (obj instanceof jv1)) {
+                    jv1Var = (jv1) obj;
                 } else {
-                    z02Var = new z02(this.mSwanApiContext);
-                    this.mApis.put("1968522584", z02Var);
+                    jv1Var = new jv1(this.mSwanApiContext);
+                    this.mApis.put("1968522584", jv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(z02Var, "swanAPI/showModalPage");
+                Pair<Boolean, px1> a = rx1.a(jv1Var, "swanAPI/showModalPage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.showModalPage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.showModalPage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 J = z02Var.J(str);
-                if (J == null) {
+                qx1 K = jv1Var.K(str);
+                if (K == null) {
                     return "";
                 }
-                return J.a();
+                return K.a();
             }
         });
-        hashMap.put("_naSetting", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SettingV8Module
+        hashMap.put("_naSetting", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SettingV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String getAppInfoSync() {
-                f12 f12Var;
+                pv1 pv1Var;
                 Object obj = this.mApis.get("-594895721");
-                if (obj != null && (obj instanceof f12)) {
-                    f12Var = (f12) obj;
+                if (obj != null && (obj instanceof pv1)) {
+                    pv1Var = (pv1) obj;
                 } else {
-                    f12Var = new f12(this.mSwanApiContext);
-                    this.mApis.put("-594895721", f12Var);
+                    pv1Var = new pv1(this.mSwanApiContext);
+                    this.mApis.put("-594895721", pv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f12Var, "swanAPI/getAppInfoSync");
+                Pair<Boolean, px1> a = rx1.a(pv1Var, "swanAPI/getAppInfoSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.getAppInfoSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.getAppInfoSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 F = f12Var.F();
-                if (F == null) {
+                qx1 G = pv1Var.G();
+                if (G == null) {
                     return "";
                 }
-                return F.a();
+                return G.a();
             }
 
             @JavascriptInterface
             public String getSlaveIdSync() {
-                f12 f12Var;
+                pv1 pv1Var;
                 Object obj = this.mApis.get("-594895721");
-                if (obj != null && (obj instanceof f12)) {
-                    f12Var = (f12) obj;
+                if (obj != null && (obj instanceof pv1)) {
+                    pv1Var = (pv1) obj;
                 } else {
-                    f12Var = new f12(this.mSwanApiContext);
-                    this.mApis.put("-594895721", f12Var);
+                    pv1Var = new pv1(this.mSwanApiContext);
+                    this.mApis.put("-594895721", pv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f12Var, "swanAPI/getSlaveIdSync");
+                Pair<Boolean, px1> a = rx1.a(pv1Var, "swanAPI/getSlaveIdSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.getSlaveIdSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.getSlaveIdSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 H = f12Var.H();
-                if (H == null) {
+                qx1 I = pv1Var.I();
+                if (I == null) {
                     return "";
                 }
-                return H.a();
+                return I.a();
             }
 
             @JavascriptInterface
             public String isAllowedAdOpenAppSync() {
-                e12 e12Var;
+                ov1 ov1Var;
                 Object obj = this.mApis.get("450273045");
-                if (obj != null && (obj instanceof e12)) {
-                    e12Var = (e12) obj;
+                if (obj != null && (obj instanceof ov1)) {
+                    ov1Var = (ov1) obj;
                 } else {
-                    e12Var = new e12(this.mSwanApiContext);
-                    this.mApis.put("450273045", e12Var);
+                    ov1Var = new ov1(this.mSwanApiContext);
+                    this.mApis.put("450273045", ov1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(e12Var, "swanAPI/isAllowedAdOpenAppSync");
+                Pair<Boolean, px1> a = rx1.a(ov1Var, "swanAPI/isAllowedAdOpenAppSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.isAllowedAdOpenAppSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.isAllowedAdOpenAppSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = e12Var.x();
-                if (x == null) {
+                qx1 y = ov1Var.y();
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String getSetting(String str) {
-                f12 f12Var;
+                pv1 pv1Var;
                 Object obj = this.mApis.get("-594895721");
-                if (obj != null && (obj instanceof f12)) {
-                    f12Var = (f12) obj;
+                if (obj != null && (obj instanceof pv1)) {
+                    pv1Var = (pv1) obj;
                 } else {
-                    f12Var = new f12(this.mSwanApiContext);
-                    this.mApis.put("-594895721", f12Var);
+                    pv1Var = new pv1(this.mSwanApiContext);
+                    this.mApis.put("-594895721", pv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f12Var, "swanAPI/getSetting");
+                Pair<Boolean, px1> a = rx1.a(pv1Var, "swanAPI/getSetting");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.getSetting")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.getSetting")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 G = f12Var.G(str);
-                if (G == null) {
+                qx1 H = pv1Var.H(str);
+                if (H == null) {
                     return "";
                 }
-                return G.a();
+                return H.a();
             }
 
             @JavascriptInterface
             public String getSwanId(String str) {
-                f12 f12Var;
+                pv1 pv1Var;
                 Object obj = this.mApis.get("-594895721");
-                if (obj != null && (obj instanceof f12)) {
-                    f12Var = (f12) obj;
+                if (obj != null && (obj instanceof pv1)) {
+                    pv1Var = (pv1) obj;
                 } else {
-                    f12Var = new f12(this.mSwanApiContext);
-                    this.mApis.put("-594895721", f12Var);
+                    pv1Var = new pv1(this.mSwanApiContext);
+                    this.mApis.put("-594895721", pv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f12Var, "swanAPI/getSwanId");
+                Pair<Boolean, px1> a = rx1.a(pv1Var, "swanAPI/getSwanId");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.getSwanId")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.getSwanId")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 I = f12Var.I(str);
-                if (I == null) {
+                qx1 J = pv1Var.J(str);
+                if (J == null) {
                     return "";
                 }
-                return I.a();
+                return J.a();
             }
 
             @JavascriptInterface
             public String getUserInfo(String str) {
-                f12 f12Var;
+                pv1 pv1Var;
                 Object obj = this.mApis.get("-594895721");
-                if (obj != null && (obj instanceof f12)) {
-                    f12Var = (f12) obj;
+                if (obj != null && (obj instanceof pv1)) {
+                    pv1Var = (pv1) obj;
                 } else {
-                    f12Var = new f12(this.mSwanApiContext);
-                    this.mApis.put("-594895721", f12Var);
+                    pv1Var = new pv1(this.mSwanApiContext);
+                    this.mApis.put("-594895721", pv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f12Var, "swanAPI/getUserInfo");
+                Pair<Boolean, px1> a = rx1.a(pv1Var, "swanAPI/getUserInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.getUserInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.getUserInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 J = f12Var.J(str);
-                if (J == null) {
+                qx1 K = pv1Var.K(str);
+                if (K == null) {
                     return "";
                 }
-                return J.a();
+                return K.a();
             }
         });
-        hashMap.put("_naStatisticEvent", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$StatisticEventV8Module
+        hashMap.put("_naStatisticEvent", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$StatisticEventV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String ubcAndCeresStatisticEvent(String str) {
-                di3 di3Var;
+                mc3 mc3Var;
                 Object obj = this.mApis.get("712777136");
-                if (obj != null && (obj instanceof di3)) {
-                    di3Var = (di3) obj;
+                if (obj != null && (obj instanceof mc3)) {
+                    mc3Var = (mc3) obj;
                 } else {
-                    di3Var = new di3(this.mSwanApiContext);
-                    this.mApis.put("712777136", di3Var);
+                    mc3Var = new mc3(this.mSwanApiContext);
+                    this.mApis.put("712777136", mc3Var);
                 }
-                Pair<Boolean, f32> a = h32.a(di3Var, "swanAPI/ubcAndCeresStatisticEvent");
+                Pair<Boolean, px1> a = rx1.a(mc3Var, "swanAPI/ubcAndCeresStatisticEvent");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "StatisticEvent.ubcAndCeresStatisticEvent")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "StatisticEvent.ubcAndCeresStatisticEvent")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = di3Var.A(str);
-                if (A == null) {
+                qx1 B = mc3Var.B(str);
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
         });
-        hashMap.put("_naStorage", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$StorageV8Module
+        hashMap.put("_naStorage", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$StorageV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String clearGlobalStorage() {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/clearGlobalStorage");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/clearGlobalStorage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.clearGlobalStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.clearGlobalStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = i12Var.A();
-                if (A == null) {
+                qx1 B = sv1Var.B();
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
 
             @JavascriptInterface
             public String clearGlobalStorageSync() {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/clearGlobalStorageSync");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/clearGlobalStorageSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.clearGlobalStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.clearGlobalStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = i12Var.C();
-                if (C == null) {
+                qx1 D = sv1Var.D();
+                if (D == null) {
                     return "";
                 }
-                return C.a();
+                return D.a();
             }
 
             @JavascriptInterface
             public String clearStorage() {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/clearStorage");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/clearStorage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.clearStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.clearStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = h12Var.A();
-                if (A == null) {
+                qx1 B = rv1Var.B();
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
 
             @JavascriptInterface
             public String clearStorageSync() {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/clearStorageSync");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/clearStorageSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.clearStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.clearStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = h12Var.C();
-                if (C == null) {
+                qx1 D = rv1Var.D();
+                if (D == null) {
                     return "";
                 }
-                return C.a();
+                return D.a();
             }
 
             @JavascriptInterface
             public String getGlobalStorageInfo() {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/getGlobalStorageInfo");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/getGlobalStorageInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 G = i12Var.G();
-                if (G == null) {
+                qx1 H = sv1Var.H();
+                if (H == null) {
                     return "";
                 }
-                return G.a();
+                return H.a();
             }
 
             @JavascriptInterface
             public String getGlobalStorageInfoSync() {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/getGlobalStorageInfoSync");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/getGlobalStorageInfoSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageInfoSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageInfoSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 J = i12Var.J();
-                if (J == null) {
+                qx1 K = sv1Var.K();
+                if (K == null) {
                     return "";
                 }
-                return J.a();
+                return K.a();
             }
 
             @JavascriptInterface
             public String getStorageInfo() {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/getStorageInfo");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/getStorageInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getStorageInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getStorageInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 G = h12Var.G();
-                if (G == null) {
+                qx1 H = rv1Var.H();
+                if (H == null) {
                     return "";
                 }
-                return G.a();
+                return H.a();
             }
 
             @JavascriptInterface
             public String getStorageInfoSync() {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/getStorageInfoSync");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/getStorageInfoSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getStorageInfoSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getStorageInfoSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 J = h12Var.J();
-                if (J == null) {
+                qx1 K = rv1Var.K();
+                if (K == null) {
                     return "";
                 }
-                return J.a();
+                return K.a();
             }
 
             @JavascriptInterface
             public String getGlobalStorage(String str) {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/getGlobalStorage");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/getGlobalStorage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getGlobalStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getGlobalStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 D = i12Var.D(str);
-                if (D == null) {
+                qx1 E = sv1Var.E(str);
+                if (E == null) {
                     return "";
                 }
-                return D.a();
+                return E.a();
             }
 
             @JavascriptInterface
             public String getGlobalStorageSync(String str) {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/getGlobalStorageSync");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/getGlobalStorageSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 K = i12Var.K(str);
-                if (K == null) {
+                qx1 L = sv1Var.L(str);
+                if (L == null) {
                     return "";
                 }
-                return K.a();
+                return L.a();
             }
 
             @JavascriptInterface
             public String getStorage(String str) {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/getStorage");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/getStorage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 D = h12Var.D(str);
-                if (D == null) {
+                qx1 E = rv1Var.E(str);
+                if (E == null) {
                     return "";
                 }
-                return D.a();
+                return E.a();
             }
 
             @JavascriptInterface
             public String getStorageInfoAsync(String str) {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/getStorageInfoAsync");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/getStorageInfoAsync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getStorageInfoAsync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getStorageInfoAsync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 H = h12Var.H(str);
-                if (H == null) {
+                qx1 I = rv1Var.I(str);
+                if (I == null) {
                     return "";
                 }
-                return H.a();
+                return I.a();
             }
 
             @JavascriptInterface
             public String getStorageSync(String str) {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/getStorageSync");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/getStorageSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 K = h12Var.K(str);
-                if (K == null) {
+                qx1 L = rv1Var.L(str);
+                if (L == null) {
                     return "";
                 }
-                return K.a();
+                return L.a();
             }
 
             @JavascriptInterface
             public String removeGlobalStorage(String str) {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/removeGlobalStorage");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/removeGlobalStorage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.removeGlobalStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.removeGlobalStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 R = i12Var.R(str);
-                if (R == null) {
+                qx1 S = sv1Var.S(str);
+                if (S == null) {
                     return "";
                 }
-                return R.a();
+                return S.a();
             }
 
             @JavascriptInterface
             public String removeGlobalStorageSync(String str) {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/removeGlobalStorageSync");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/removeGlobalStorageSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.removeGlobalStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.removeGlobalStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 T2 = i12Var.T(str);
-                if (T2 == null) {
+                qx1 U = sv1Var.U(str);
+                if (U == null) {
                     return "";
                 }
-                return T2.a();
+                return U.a();
             }
 
             @JavascriptInterface
             public String removeStorage(String str) {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/removeStorage");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/removeStorage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.removeStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.removeStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 R = h12Var.R(str);
-                if (R == null) {
+                qx1 S = rv1Var.S(str);
+                if (S == null) {
                     return "";
                 }
-                return R.a();
+                return S.a();
             }
 
             @JavascriptInterface
             public String removeStorageSync(String str) {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/removeStorageSync");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/removeStorageSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.removeStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.removeStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 T2 = h12Var.T(str);
-                if (T2 == null) {
+                qx1 U = rv1Var.U(str);
+                if (U == null) {
                     return "";
                 }
-                return T2.a();
+                return U.a();
             }
 
             @JavascriptInterface
             public String setGlobalStorage(String str) {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/setGlobalStorage");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/setGlobalStorage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.setGlobalStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.setGlobalStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 U = i12Var.U(str);
-                if (U == null) {
-                    return "";
-                }
-                return U.a();
-            }
-
-            @JavascriptInterface
-            public String setGlobalStorageSync(String str) {
-                i12 i12Var;
-                Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
-                } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/setGlobalStorageSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.setGlobalStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 W = i12Var.W(str);
-                if (W == null) {
-                    return "";
-                }
-                return W.a();
-            }
-
-            @JavascriptInterface
-            public String setStorage(String str) {
-                h12 h12Var;
-                Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
-                } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/setStorage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.setStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 U = h12Var.U(str);
-                if (U == null) {
-                    return "";
-                }
-                return U.a();
-            }
-
-            @JavascriptInterface
-            public String setStorageSync(String str) {
-                h12 h12Var;
-                Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
-                } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/setStorageSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.setStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 W = h12Var.W(str);
-                if (W == null) {
-                    return "";
-                }
-                return W.a();
-            }
-        });
-        hashMap.put("_naSubscription", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SubscriptionV8Module
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String requestSubscribeFormId(String str) {
-                k12 k12Var;
-                Object obj = this.mApis.get("823117982");
-                if (obj != null && (obj instanceof k12)) {
-                    k12Var = (k12) obj;
-                } else {
-                    k12Var = new k12(this.mSwanApiContext);
-                    this.mApis.put("823117982", k12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(k12Var, "swanAPI/subscription/requestSubscribeFormId");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Subscription.requestSubscribeFormId")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 E = k12Var.E(str);
-                if (E == null) {
-                    return "";
-                }
-                return E.a();
-            }
-
-            @JavascriptInterface
-            public String subscribeService(String str) {
-                l12 l12Var;
-                Object obj = this.mApis.get("-947445811");
-                if (obj != null && (obj instanceof l12)) {
-                    l12Var = (l12) obj;
-                } else {
-                    l12Var = new l12(this.mSwanApiContext);
-                    this.mApis.put("-947445811", l12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(l12Var, "swanAPI/subscribeService");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Subscription.subscribeService")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 F = l12Var.F(str);
-                if (F == null) {
-                    return "";
-                }
-                return F.a();
-            }
-        });
-        hashMap.put("_naSystem", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SystemV8Module
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String exitFullScreen(String str) {
-                s12 s12Var;
-                Object obj = this.mApis.get("1936205521");
-                if (obj != null && (obj instanceof s12)) {
-                    s12Var = (s12) obj;
-                } else {
-                    s12Var = new s12(this.mSwanApiContext);
-                    this.mApis.put("1936205521", s12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(s12Var, "swanAPI/exitFullScreen");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.exitFullScreen")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = s12Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String getDeviceInfo(String str) {
-                r12 r12Var;
-                Object obj = this.mApis.get("1694151270");
-                if (obj != null && (obj instanceof r12)) {
-                    r12Var = (r12) obj;
-                } else {
-                    r12Var = new r12(this.mSwanApiContext);
-                    this.mApis.put("1694151270", r12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(r12Var, "swanAPI/getDeviceInfo");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.getDeviceInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = r12Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String getDeviceProfile(String str) {
-                t12 t12Var;
-                Object obj = this.mApis.get("-1321681619");
-                if (obj != null && (obj instanceof t12)) {
-                    t12Var = (t12) obj;
-                } else {
-                    t12Var = new t12(this.mSwanApiContext);
-                    this.mApis.put("-1321681619", t12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(t12Var, "swanAPI/getDeviceProfile");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.getDeviceProfile")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = t12Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String makePhoneCall(String str) {
-                u12 u12Var;
-                Object obj = this.mApis.get("-1569246082");
-                if (obj != null && (obj instanceof u12)) {
-                    u12Var = (u12) obj;
-                } else {
-                    u12Var = new u12(this.mSwanApiContext);
-                    this.mApis.put("-1569246082", u12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(u12Var, "swanAPI/makePhoneCall");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.makePhoneCall")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = u12Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String openSMSPanel(String str) {
-                w12 w12Var;
-                Object obj = this.mApis.get("1099851202");
-                if (obj != null && (obj instanceof w12)) {
-                    w12Var = (w12) obj;
-                } else {
-                    w12Var = new w12(this.mSwanApiContext);
-                    this.mApis.put("1099851202", w12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(w12Var, "swanAPI/openSMSPanel");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.openSMSPanel")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = w12Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String requestFullScreen(String str) {
-                v12 v12Var;
-                Object obj = this.mApis.get("-1707203360");
-                if (obj != null && (obj instanceof v12)) {
-                    v12Var = (v12) obj;
-                } else {
-                    v12Var = new v12(this.mSwanApiContext);
-                    this.mApis.put("-1707203360", v12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(v12Var, "swanAPI/requestFullScreen");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.requestFullScreen")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 F = v12Var.F(str);
-                if (F == null) {
-                    return "";
-                }
-                return F.a();
-            }
-
-            @JavascriptInterface
-            public String setClipboardData(String str) {
-                p12 p12Var;
-                Object obj = this.mApis.get("-518757484");
-                if (obj != null && (obj instanceof p12)) {
-                    p12Var = (p12) obj;
-                } else {
-                    p12Var = new p12(this.mSwanApiContext);
-                    this.mApis.put("-518757484", p12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(p12Var, "swanAPI/setClipboardData");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.setClipboardData")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = p12Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String setErrorPageType(String str) {
-                z03 z03Var;
-                Object obj = this.mApis.get("1161486049");
-                if (obj != null && (obj instanceof z03)) {
-                    z03Var = (z03) obj;
-                } else {
-                    z03Var = new z03(this.mSwanApiContext);
-                    this.mApis.put("1161486049", z03Var);
-                }
-                Pair<Boolean, f32> a = h32.a(z03Var, "swanAPI/setErrorPageType");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.setErrorPageType")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = z03Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String setMediaVolume(String str) {
-                z12 z12Var;
-                Object obj = this.mApis.get("447234992");
-                if (obj != null && (obj instanceof z12)) {
-                    z12Var = (z12) obj;
-                } else {
-                    z12Var = new z12(this.mSwanApiContext);
-                    this.mApis.put("447234992", z12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(z12Var, "swanAPI/setMediaVolume");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.setMediaVolume")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 z = z12Var.z(str);
-                if (z == null) {
-                    return "";
-                }
-                return z.a();
-            }
-
-            @JavascriptInterface
-            public String startAccelerometer(String str) {
-                n12 n12Var;
-                Object obj = this.mApis.get("1372680763");
-                if (obj != null && (obj instanceof n12)) {
-                    n12Var = (n12) obj;
-                } else {
-                    n12Var = new n12(this.mSwanApiContext);
-                    this.mApis.put("1372680763", n12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(n12Var, "swanAPI/startAccelerometer");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.startAccelerometer")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = n12Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String startCompass(String str) {
-                q12 q12Var;
-                Object obj = this.mApis.get("1689255576");
-                if (obj != null && (obj instanceof q12)) {
-                    q12Var = (q12) obj;
-                } else {
-                    q12Var = new q12(this.mSwanApiContext);
-                    this.mApis.put("1689255576", q12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(q12Var, "swanAPI/startCompass");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.startCompass")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = q12Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String getBrightness() {
-                o12 o12Var;
-                Object obj = this.mApis.get("99997465");
-                if (obj != null && (obj instanceof o12)) {
-                    o12Var = (o12) obj;
-                } else {
-                    o12Var = new o12(this.mSwanApiContext);
-                    this.mApis.put("99997465", o12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(o12Var, "swanAPI/getBrightness");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.getBrightness")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = o12Var.y();
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String getClipboardData() {
-                p12 p12Var;
-                Object obj = this.mApis.get("-518757484");
-                if (obj != null && (obj instanceof p12)) {
-                    p12Var = (p12) obj;
-                } else {
-                    p12Var = new p12(this.mSwanApiContext);
-                    this.mApis.put("-518757484", p12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(p12Var, "swanAPI/getClipboardData");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.getClipboardData")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = p12Var.x();
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String getMediaVolume() {
-                z12 z12Var;
-                Object obj = this.mApis.get("447234992");
-                if (obj != null && (obj instanceof z12)) {
-                    z12Var = (z12) obj;
-                } else {
-                    z12Var = new z12(this.mSwanApiContext);
-                    this.mApis.put("447234992", z12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(z12Var, "swanAPI/getMediaVolume");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.getMediaVolume")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = z12Var.x();
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String stopAccelerometer() {
-                n12 n12Var;
-                Object obj = this.mApis.get("1372680763");
-                if (obj != null && (obj instanceof n12)) {
-                    n12Var = (n12) obj;
-                } else {
-                    n12Var = new n12(this.mSwanApiContext);
-                    this.mApis.put("1372680763", n12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(n12Var, "swanAPI/stopAccelerometer");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.stopAccelerometer")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 B = n12Var.B();
-                if (B == null) {
-                    return "";
-                }
-                return B.a();
-            }
-
-            @JavascriptInterface
-            public String stopCompass() {
-                q12 q12Var;
-                Object obj = this.mApis.get("1689255576");
-                if (obj != null && (obj instanceof q12)) {
-                    q12Var = (q12) obj;
-                } else {
-                    q12Var = new q12(this.mSwanApiContext);
-                    this.mApis.put("1689255576", q12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(q12Var, "swanAPI/stopCompass");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.stopCompass")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 z = q12Var.z();
-                if (z == null) {
-                    return "";
-                }
-                return z.a();
-            }
-        });
-        hashMap.put("_naUtils", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$UtilsV8Module
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String addToDesktop(String str) {
-                k22 k22Var;
-                Object obj = this.mApis.get("201194468");
-                if (obj != null && (obj instanceof k22)) {
-                    k22Var = (k22) obj;
-                } else {
-                    k22Var = new k22(this.mSwanApiContext);
-                    this.mApis.put("201194468", k22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(k22Var, "swanAPI/addToDesktop");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.addToDesktop")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 B = k22Var.B(str);
-                if (B == null) {
-                    return "";
-                }
-                return B.a();
-            }
-
-            @JavascriptInterface
-            public String calcMD5(String str) {
-                g22 g22Var;
-                Object obj = this.mApis.get("-1412306947");
-                if (obj != null && (obj instanceof g22)) {
-                    g22Var = (g22) obj;
-                } else {
-                    g22Var = new g22(this.mSwanApiContext);
-                    this.mApis.put("-1412306947", g22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(g22Var, "swanAPI/calcMD5");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.calcMD5")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = g22Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String checkAppInstalled(String str) {
-                h22 h22Var;
-                Object obj = this.mApis.get("1626415364");
-                if (obj != null && (obj instanceof h22)) {
-                    h22Var = (h22) obj;
-                } else {
-                    h22Var = new h22(this.mSwanApiContext);
-                    this.mApis.put("1626415364", h22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h22Var, "swanAPI/checkAppInstalled");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.checkAppInstalled")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = h22Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String getCommonSysInfo(String str) {
-                j22 j22Var;
-                Object obj = this.mApis.get("-836768778");
-                if (obj != null && (obj instanceof j22)) {
-                    j22Var = (j22) obj;
-                } else {
-                    j22Var = new j22(this.mSwanApiContext);
-                    this.mApis.put("-836768778", j22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(j22Var, "swanAPI/getCommonSysInfo");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getCommonSysInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = j22Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String getPerformanceLevel(String str) {
-                l22 l22Var;
-                Object obj = this.mApis.get("-810858308");
-                if (obj != null && (obj instanceof l22)) {
-                    l22Var = (l22) obj;
-                } else {
-                    l22Var = new l22(this.mSwanApiContext);
-                    this.mApis.put("-810858308", l22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(l22Var, "swanAPI/getPerformanceLevel");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getPerformanceLevel")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = l22Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String getSystemInfoAsync(String str) {
-                p22 p22Var;
-                Object obj = this.mApis.get("-1011537871");
-                if (obj != null && (obj instanceof p22)) {
-                    p22Var = (p22) obj;
-                } else {
-                    p22Var = new p22(this.mSwanApiContext);
-                    this.mApis.put("-1011537871", p22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(p22Var, "swanAPI/getSystemInfoAsync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getSystemInfoAsync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 I = p22Var.I(str);
-                if (I == null) {
-                    return "";
-                }
-                return I.a();
-            }
-
-            @JavascriptInterface
-            public String handleException(String str) {
-                m22 m22Var;
-                Object obj = this.mApis.get("-2097727681");
-                if (obj != null && (obj instanceof m22)) {
-                    m22Var = (m22) obj;
-                } else {
-                    m22Var = new m22(this.mSwanApiContext);
-                    this.mApis.put("-2097727681", m22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(m22Var, "swanAPI/handleException");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.handleException")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = m22Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String hasCloseHandler(String str) {
-                i22 i22Var;
-                Object obj = this.mApis.get("2084449317");
-                if (obj != null && (obj instanceof i22)) {
-                    i22Var = (i22) obj;
-                } else {
-                    i22Var = new i22(this.mSwanApiContext);
-                    this.mApis.put("2084449317", i22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(i22Var, "swanAPI/hasCloseHandler");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.hasCloseHandler")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = i22Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String hideCaptureScreenShareDialog(String str) {
-                lf3 lf3Var;
-                Object obj = this.mApis.get("1031678042");
-                if (obj != null && (obj instanceof lf3)) {
-                    lf3Var = (lf3) obj;
-                } else {
-                    lf3Var = new lf3(this.mSwanApiContext);
-                    this.mApis.put("1031678042", lf3Var);
-                }
-                Pair<Boolean, f32> a = h32.a(lf3Var, "swanAPI/hideCaptureScreenShareDialog");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.hideCaptureScreenShareDialog")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = lf3Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String logToFile(String str) {
-                n22 n22Var;
-                Object obj = this.mApis.get("1751900130");
-                if (obj != null && (obj instanceof n22)) {
-                    n22Var = (n22) obj;
-                } else {
-                    n22Var = new n22(this.mSwanApiContext);
-                    this.mApis.put("1751900130", n22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(n22Var, "swanAPI/logToFile");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.logToFile")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = n22Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String preloadPackage(String str) {
-                me3 me3Var;
-                Object obj = this.mApis.get("1748196865");
-                if (obj != null && (obj instanceof me3)) {
-                    me3Var = (me3) obj;
-                } else {
-                    me3Var = new me3(this.mSwanApiContext);
-                    this.mApis.put("1748196865", me3Var);
-                }
-                Pair<Boolean, f32> a = h32.a(me3Var, "swanAPI/preloadPackage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.preloadPackage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = me3Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String previewImage(String str) {
-                o22 o22Var;
-                Object obj = this.mApis.get("589529211");
-                if (obj != null && (obj instanceof o22)) {
-                    o22Var = (o22) obj;
-                } else {
-                    o22Var = new o22(this.mSwanApiContext);
-                    this.mApis.put("589529211", o22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(o22Var, "swanAPI/previewImage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.previewImage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 B = o22Var.B(str);
-                if (B == null) {
-                    return "";
-                }
-                return B.a();
-            }
-
-            @JavascriptInterface
-            public String ubcFlowJar(String str) {
-                r22 r22Var;
-                Object obj = this.mApis.get("-577481801");
-                if (obj != null && (obj instanceof r22)) {
-                    r22Var = (r22) obj;
-                } else {
-                    r22Var = new r22(this.mSwanApiContext);
-                    this.mApis.put("-577481801", r22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(r22Var, "swanAPI/ubcFlowJar");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.ubcFlowJar")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 I = r22Var.I(str);
-                if (I == null) {
-                    return "";
-                }
-                return I.a();
-            }
-
-            @JavascriptInterface
-            public String getCommonSysInfoSync() {
-                p22 p22Var;
-                Object obj = this.mApis.get("-1011537871");
-                if (obj != null && (obj instanceof p22)) {
-                    p22Var = (p22) obj;
-                } else {
-                    p22Var = new p22(this.mSwanApiContext);
-                    this.mApis.put("-1011537871", p22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(p22Var, "swanAPI/getCommonSysInfoSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getCommonSysInfoSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 E = p22Var.E();
-                if (E == null) {
-                    return "";
-                }
-                return E.a();
-            }
-
-            @JavascriptInterface
-            public String getSystemInfo() {
-                p22 p22Var;
-                Object obj = this.mApis.get("-1011537871");
-                if (obj != null && (obj instanceof p22)) {
-                    p22Var = (p22) obj;
-                } else {
-                    p22Var = new p22(this.mSwanApiContext);
-                    this.mApis.put("-1011537871", p22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(p22Var, "swanAPI/getSystemInfo");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getSystemInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 H = p22Var.H();
-                if (H == null) {
-                    return "";
-                }
-                return H.a();
-            }
-
-            @JavascriptInterface
-            public String getSystemInfoSync() {
-                p22 p22Var;
-                Object obj = this.mApis.get("-1011537871");
-                if (obj != null && (obj instanceof p22)) {
-                    p22Var = (p22) obj;
-                } else {
-                    p22Var = new p22(this.mSwanApiContext);
-                    this.mApis.put("-1011537871", p22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(p22Var, "swanAPI/getSystemInfoSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getSystemInfoSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 J = p22Var.J();
-                if (J == null) {
-                    return "";
-                }
-                return J.a();
-            }
-        });
-        hashMap.put("_naWifi", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$WifiV8Module
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String connectWifi(String str) {
-                wl3 wl3Var;
-                Object obj = this.mApis.get("1879401452");
-                if (obj != null && (obj instanceof wl3)) {
-                    wl3Var = (wl3) obj;
-                } else {
-                    wl3Var = new wl3(this.mSwanApiContext);
-                    this.mApis.put("1879401452", wl3Var);
-                }
-                Pair<Boolean, f32> a = h32.a(wl3Var, "swanAPI/connectWifi");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Wifi.connectWifi")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = wl3Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String getConnectedWifi(String str) {
-                wl3 wl3Var;
-                Object obj = this.mApis.get("1879401452");
-                if (obj != null && (obj instanceof wl3)) {
-                    wl3Var = (wl3) obj;
-                } else {
-                    wl3Var = new wl3(this.mSwanApiContext);
-                    this.mApis.put("1879401452", wl3Var);
-                }
-                Pair<Boolean, f32> a = h32.a(wl3Var, "swanAPI/getConnectedWifi");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Wifi.getConnectedWifi")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 B = wl3Var.B(str);
-                if (B == null) {
-                    return "";
-                }
-                return B.a();
-            }
-
-            @JavascriptInterface
-            public String getWifiList(String str) {
-                wl3 wl3Var;
-                Object obj = this.mApis.get("1879401452");
-                if (obj != null && (obj instanceof wl3)) {
-                    wl3Var = (wl3) obj;
-                } else {
-                    wl3Var = new wl3(this.mSwanApiContext);
-                    this.mApis.put("1879401452", wl3Var);
-                }
-                Pair<Boolean, f32> a = h32.a(wl3Var, "swanAPI/getWifiList");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Wifi.getWifiList")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 C = wl3Var.C(str);
-                if (C == null) {
-                    return "";
-                }
-                return C.a();
-            }
-
-            @JavascriptInterface
-            public String startWifi(String str) {
-                wl3 wl3Var;
-                Object obj = this.mApis.get("1879401452");
-                if (obj != null && (obj instanceof wl3)) {
-                    wl3Var = (wl3) obj;
-                } else {
-                    wl3Var = new wl3(this.mSwanApiContext);
-                    this.mApis.put("1879401452", wl3Var);
-                }
-                Pair<Boolean, f32> a = h32.a(wl3Var, "swanAPI/startWifi");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Wifi.startWifi")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 G = wl3Var.G(str);
-                if (G == null) {
-                    return "";
-                }
-                return G.a();
-            }
-
-            @JavascriptInterface
-            public String stopWifi(String str) {
-                wl3 wl3Var;
-                Object obj = this.mApis.get("1879401452");
-                if (obj != null && (obj instanceof wl3)) {
-                    wl3Var = (wl3) obj;
-                } else {
-                    wl3Var = new wl3(this.mSwanApiContext);
-                    this.mApis.put("1879401452", wl3Var);
-                }
-                Pair<Boolean, f32> a = h32.a(wl3Var, "swanAPI/stopWifi");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Wifi.stopWifi")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 H = wl3Var.H(str);
-                if (H == null) {
-                    return "";
-                }
-                return H.a();
-            }
-        });
-        return hashMap;
-    }
-
-    public static Map<String, Object> getWebviewApiModules(final hz1 hz1Var) {
-        HashMap hashMap = new HashMap();
-        hashMap.put("_naAccount", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$AccountWebviewModule
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String checkSession(String str) {
-                nz1 nz1Var;
-                Object obj = this.mApis.get("1930258908");
-                if (obj != null && (obj instanceof nz1)) {
-                    nz1Var = (nz1) obj;
-                } else {
-                    nz1Var = new nz1(this.mSwanApiContext);
-                    this.mApis.put("1930258908", nz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(nz1Var, "swanAPI/checkSession");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.checkSession")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = nz1Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String getLoginCode(String str) {
-                oz1 oz1Var;
-                Object obj = this.mApis.get("-1017914143");
-                if (obj != null && (obj instanceof oz1)) {
-                    oz1Var = (oz1) obj;
-                } else {
-                    oz1Var = new oz1(this.mSwanApiContext);
-                    this.mApis.put("-1017914143", oz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(oz1Var, "swanAPI/getLoginCode");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.getLoginCode")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 C = oz1Var.C(str);
-                if (C == null) {
-                    return "";
-                }
-                return C.a();
-            }
-
-            @JavascriptInterface
-            public String getOpenId(String str) {
-                pz1 pz1Var;
-                Object obj = this.mApis.get("1754780133");
-                if (obj != null && (obj instanceof pz1)) {
-                    pz1Var = (pz1) obj;
-                } else {
-                    pz1Var = new pz1(this.mSwanApiContext);
-                    this.mApis.put("1754780133", pz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(pz1Var, "swanAPI/getOpenId");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.getOpenId")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = pz1Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String getUnionBDUSS(String str) {
-                wy1 wy1Var;
-                Object obj = this.mApis.get("-343998465");
-                if (obj != null && (obj instanceof wy1)) {
-                    wy1Var = (wy1) obj;
-                } else {
-                    wy1Var = new wy1(this.mSwanApiContext);
-                    this.mApis.put("-343998465", wy1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(wy1Var, "swanAPI/getUnionBDUSS");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.getUnionBDUSS")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = wy1Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String login(String str) {
-                oz1 oz1Var;
-                Object obj = this.mApis.get("-1017914143");
-                if (obj != null && (obj instanceof oz1)) {
-                    oz1Var = (oz1) obj;
-                } else {
-                    oz1Var = new oz1(this.mSwanApiContext);
-                    this.mApis.put("-1017914143", oz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(oz1Var, "swanAPI/login");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.login")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 I = oz1Var.I(str);
-                if (I == null) {
-                    return "";
-                }
-                return I.a();
-            }
-
-            @JavascriptInterface
-            public String isBaiduAccountSync() {
-                mz1 mz1Var;
-                Object obj = this.mApis.get("-337742792");
-                if (obj != null && (obj instanceof mz1)) {
-                    mz1Var = (mz1) obj;
-                } else {
-                    mz1Var = new mz1(this.mSwanApiContext);
-                    this.mApis.put("-337742792", mz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(mz1Var, "swanAPI/isBaiduAccountSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.isBaiduAccountSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = mz1Var.x();
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String isLoginSync() {
-                oz1 oz1Var;
-                Object obj = this.mApis.get("-1017914143");
-                if (obj != null && (obj instanceof oz1)) {
-                    oz1Var = (oz1) obj;
-                } else {
-                    oz1Var = new oz1(this.mSwanApiContext);
-                    this.mApis.put("-1017914143", oz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(oz1Var, "swanAPI/isLoginSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Account.isLoginSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 H = oz1Var.H();
-                if (H == null) {
-                    return "";
-                }
-                return H.a();
-            }
-        });
-        hashMap.put("_naBasic", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$BasicWebviewModule
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String loadSubPackage(String str) {
-                qz1 qz1Var;
-                Object obj = this.mApis.get("-1249666566");
-                if (obj != null && (obj instanceof qz1)) {
-                    qz1Var = (qz1) obj;
-                } else {
-                    qz1Var = new qz1(this.mSwanApiContext);
-                    this.mApis.put("-1249666566", qz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(qz1Var, "swanAPI/loadSubPackage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Basic.loadSubPackage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 F = qz1Var.F(str);
-                if (F == null) {
-                    return "";
-                }
-                return F.a();
-            }
-
-            @JavascriptInterface
-            public String loadSubPackages(String str) {
-                qz1 qz1Var;
-                Object obj = this.mApis.get("-1249666566");
-                if (obj != null && (obj instanceof qz1)) {
-                    qz1Var = (qz1) obj;
-                } else {
-                    qz1Var = new qz1(this.mSwanApiContext);
-                    this.mApis.put("-1249666566", qz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(qz1Var, "swanAPI/loadSubPackages");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Basic.loadSubPackages")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 G = qz1Var.G(str);
-                if (G == null) {
-                    return "";
-                }
-                return G.a();
-            }
-        });
-        hashMap.put("_naBookshelf", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$BookshelfWebviewModule
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String deleteBookshelf(String str) {
-                xr1 xr1Var;
-                Object obj = this.mApis.get("1460300387");
-                if (obj != null && (obj instanceof xr1)) {
-                    xr1Var = (xr1) obj;
-                } else {
-                    xr1Var = new xr1(this.mSwanApiContext);
-                    this.mApis.put("1460300387", xr1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(xr1Var, "swanAPI/bookshelf/deleteBookshelf");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Bookshelf.deleteBookshelf")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 K = xr1Var.K(str);
-                if (K == null) {
-                    return "";
-                }
-                return K.a();
-            }
-
-            @JavascriptInterface
-            public String insertBookshelf(String str) {
-                xr1 xr1Var;
-                Object obj = this.mApis.get("1460300387");
-                if (obj != null && (obj instanceof xr1)) {
-                    xr1Var = (xr1) obj;
-                } else {
-                    xr1Var = new xr1(this.mSwanApiContext);
-                    this.mApis.put("1460300387", xr1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(xr1Var, "swanAPI/bookshelf/insertBookshelf");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Bookshelf.insertBookshelf")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 P = xr1Var.P(str);
-                if (P == null) {
-                    return "";
-                }
-                return P.a();
-            }
-
-            @JavascriptInterface
-            public String navigateToBookshelf(String str) {
-                xr1 xr1Var;
-                Object obj = this.mApis.get("1460300387");
-                if (obj != null && (obj instanceof xr1)) {
-                    xr1Var = (xr1) obj;
-                } else {
-                    xr1Var = new xr1(this.mSwanApiContext);
-                    this.mApis.put("1460300387", xr1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(xr1Var, "swanAPI/bookshelf/navigateToBookshelf");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Bookshelf.navigateToBookshelf")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 U = xr1Var.U(str);
-                if (U == null) {
-                    return "";
-                }
-                return U.a();
-            }
-
-            @JavascriptInterface
-            public String queryBookshelf(String str) {
-                xr1 xr1Var;
-                Object obj = this.mApis.get("1460300387");
-                if (obj != null && (obj instanceof xr1)) {
-                    xr1Var = (xr1) obj;
-                } else {
-                    xr1Var = new xr1(this.mSwanApiContext);
-                    this.mApis.put("1460300387", xr1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(xr1Var, "swanAPI/bookshelf/queryBookshelf");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Bookshelf.queryBookshelf")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 V = xr1Var.V(str);
+                qx1 V = sv1Var.V(str);
                 if (V == null) {
                     return "";
                 }
@@ -4167,81 +2772,163 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String updateBookshelfReadTime(String str) {
-                xr1 xr1Var;
-                Object obj = this.mApis.get("1460300387");
-                if (obj != null && (obj instanceof xr1)) {
-                    xr1Var = (xr1) obj;
+            public String setGlobalStorageSync(String str) {
+                sv1 sv1Var;
+                Object obj = this.mApis.get("-804054859");
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    xr1Var = new xr1(this.mSwanApiContext);
-                    this.mApis.put("1460300387", xr1Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(xr1Var, "swanAPI/bookshelf/updateBookshelfReadTime");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/setGlobalStorageSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Bookshelf.updateBookshelfReadTime")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.setGlobalStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 X = xr1Var.X(str);
+                qx1 X = sv1Var.X(str);
+                if (X == null) {
+                    return "";
+                }
+                return X.a();
+            }
+
+            @JavascriptInterface
+            public String setStorage(String str) {
+                rv1 rv1Var;
+                Object obj = this.mApis.get("130910081");
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
+                } else {
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/setStorage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.setStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 V = rv1Var.V(str);
+                if (V == null) {
+                    return "";
+                }
+                return V.a();
+            }
+
+            @JavascriptInterface
+            public String setStorageSync(String str) {
+                rv1 rv1Var;
+                Object obj = this.mApis.get("130910081");
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
+                } else {
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/setStorageSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.setStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 X = rv1Var.X(str);
                 if (X == null) {
                     return "";
                 }
                 return X.a();
             }
         });
-        hashMap.put("_naCoupon", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$CouponWebviewModule
+        hashMap.put("_naSubscription", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SubscriptionV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
-            public String getPlatformCoupons(String str) {
-                kz1 kz1Var;
-                Object obj = this.mApis.get("-277316359");
-                if (obj != null && (obj instanceof kz1)) {
-                    kz1Var = (kz1) obj;
+            public String requestSubscribeFormId(String str) {
+                uv1 uv1Var;
+                Object obj = this.mApis.get("823117982");
+                if (obj != null && (obj instanceof uv1)) {
+                    uv1Var = (uv1) obj;
                 } else {
-                    kz1Var = new kz1(this.mSwanApiContext);
-                    this.mApis.put("-277316359", kz1Var);
+                    uv1Var = new uv1(this.mSwanApiContext);
+                    this.mApis.put("823117982", uv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(kz1Var, "swanAPI/coupon/getPlatformCoupons");
+                Pair<Boolean, px1> a = rx1.a(uv1Var, "swanAPI/subscription/requestSubscribeFormId");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Coupon.getPlatformCoupons")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Subscription.requestSubscribeFormId")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = kz1Var.x(str);
-                if (x == null) {
+                qx1 F = uv1Var.F(str);
+                if (F == null) {
                     return "";
                 }
-                return x.a();
+                return F.a();
             }
 
             @JavascriptInterface
-            public String getUserCoupons(String str) {
-                kz1 kz1Var;
-                Object obj = this.mApis.get("-277316359");
-                if (obj != null && (obj instanceof kz1)) {
-                    kz1Var = (kz1) obj;
+            public String subscribeService(String str) {
+                vv1 vv1Var;
+                Object obj = this.mApis.get("-947445811");
+                if (obj != null && (obj instanceof vv1)) {
+                    vv1Var = (vv1) obj;
                 } else {
-                    kz1Var = new kz1(this.mSwanApiContext);
-                    this.mApis.put("-277316359", kz1Var);
+                    vv1Var = new vv1(this.mSwanApiContext);
+                    this.mApis.put("-947445811", vv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(kz1Var, "swanAPI/coupon/getUserCoupons");
+                Pair<Boolean, px1> a = rx1.a(vv1Var, "swanAPI/subscribeService");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Coupon.getUserCoupons")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Subscription.subscribeService")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 z = kz1Var.z(str);
+                qx1 G = vv1Var.G(str);
+                if (G == null) {
+                    return "";
+                }
+                return G.a();
+            }
+        });
+        hashMap.put("_naSystem", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SystemV8Module
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String exitFullScreen(String str) {
+                cw1 cw1Var;
+                Object obj = this.mApis.get("1936205521");
+                if (obj != null && (obj instanceof cw1)) {
+                    cw1Var = (cw1) obj;
+                } else {
+                    cw1Var = new cw1(this.mSwanApiContext);
+                    this.mApis.put("1936205521", cw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(cw1Var, "swanAPI/exitFullScreen");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.exitFullScreen")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = cw1Var.z(str);
                 if (z == null) {
                     return "";
                 }
@@ -4249,61 +2936,1374 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String takeCoupons(String str) {
-                kz1 kz1Var;
-                Object obj = this.mApis.get("-277316359");
-                if (obj != null && (obj instanceof kz1)) {
-                    kz1Var = (kz1) obj;
+            public String getDeviceInfo(String str) {
+                bw1 bw1Var;
+                Object obj = this.mApis.get("1694151270");
+                if (obj != null && (obj instanceof bw1)) {
+                    bw1Var = (bw1) obj;
                 } else {
-                    kz1Var = new kz1(this.mSwanApiContext);
-                    this.mApis.put("-277316359", kz1Var);
+                    bw1Var = new bw1(this.mSwanApiContext);
+                    this.mApis.put("1694151270", bw1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(kz1Var, "swanAPI/coupon/takeCoupons");
+                Pair<Boolean, px1> a = rx1.a(bw1Var, "swanAPI/getDeviceInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Coupon.takeCoupons")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "System.getDeviceInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = kz1Var.C(str);
+                qx1 z = bw1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String getDeviceProfile(String str) {
+                dw1 dw1Var;
+                Object obj = this.mApis.get("-1321681619");
+                if (obj != null && (obj instanceof dw1)) {
+                    dw1Var = (dw1) obj;
+                } else {
+                    dw1Var = new dw1(this.mSwanApiContext);
+                    this.mApis.put("-1321681619", dw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(dw1Var, "swanAPI/getDeviceProfile");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.getDeviceProfile")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = dw1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String makePhoneCall(String str) {
+                ew1 ew1Var;
+                Object obj = this.mApis.get("-1569246082");
+                if (obj != null && (obj instanceof ew1)) {
+                    ew1Var = (ew1) obj;
+                } else {
+                    ew1Var = new ew1(this.mSwanApiContext);
+                    this.mApis.put("-1569246082", ew1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ew1Var, "swanAPI/makePhoneCall");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.makePhoneCall")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = ew1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String openSMSPanel(String str) {
+                gw1 gw1Var;
+                Object obj = this.mApis.get("1099851202");
+                if (obj != null && (obj instanceof gw1)) {
+                    gw1Var = (gw1) obj;
+                } else {
+                    gw1Var = new gw1(this.mSwanApiContext);
+                    this.mApis.put("1099851202", gw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(gw1Var, "swanAPI/openSMSPanel");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.openSMSPanel")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = gw1Var.B(str);
+                if (B == null) {
+                    return "";
+                }
+                return B.a();
+            }
+
+            @JavascriptInterface
+            public String requestFullScreen(String str) {
+                fw1 fw1Var;
+                Object obj = this.mApis.get("-1707203360");
+                if (obj != null && (obj instanceof fw1)) {
+                    fw1Var = (fw1) obj;
+                } else {
+                    fw1Var = new fw1(this.mSwanApiContext);
+                    this.mApis.put("-1707203360", fw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fw1Var, "swanAPI/requestFullScreen");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.requestFullScreen")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 G = fw1Var.G(str);
+                if (G == null) {
+                    return "";
+                }
+                return G.a();
+            }
+
+            @JavascriptInterface
+            public String setClipboardData(String str) {
+                zv1 zv1Var;
+                Object obj = this.mApis.get("-518757484");
+                if (obj != null && (obj instanceof zv1)) {
+                    zv1Var = (zv1) obj;
+                } else {
+                    zv1Var = new zv1(this.mSwanApiContext);
+                    this.mApis.put("-518757484", zv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(zv1Var, "swanAPI/setClipboardData");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.setClipboardData")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = zv1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String setErrorPageType(String str) {
+                iv2 iv2Var;
+                Object obj = this.mApis.get("1161486049");
+                if (obj != null && (obj instanceof iv2)) {
+                    iv2Var = (iv2) obj;
+                } else {
+                    iv2Var = new iv2(this.mSwanApiContext);
+                    this.mApis.put("1161486049", iv2Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(iv2Var, "swanAPI/setErrorPageType");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.setErrorPageType")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = iv2Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String setMediaVolume(String str) {
+                jw1 jw1Var;
+                Object obj = this.mApis.get("447234992");
+                if (obj != null && (obj instanceof jw1)) {
+                    jw1Var = (jw1) obj;
+                } else {
+                    jw1Var = new jw1(this.mSwanApiContext);
+                    this.mApis.put("447234992", jw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(jw1Var, "swanAPI/setMediaVolume");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.setMediaVolume")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 A = jw1Var.A(str);
+                if (A == null) {
+                    return "";
+                }
+                return A.a();
+            }
+
+            @JavascriptInterface
+            public String startAccelerometer(String str) {
+                xv1 xv1Var;
+                Object obj = this.mApis.get("1372680763");
+                if (obj != null && (obj instanceof xv1)) {
+                    xv1Var = (xv1) obj;
+                } else {
+                    xv1Var = new xv1(this.mSwanApiContext);
+                    this.mApis.put("1372680763", xv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(xv1Var, "swanAPI/startAccelerometer");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.startAccelerometer")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = xv1Var.B(str);
+                if (B == null) {
+                    return "";
+                }
+                return B.a();
+            }
+
+            @JavascriptInterface
+            public String startCompass(String str) {
+                aw1 aw1Var;
+                Object obj = this.mApis.get("1689255576");
+                if (obj != null && (obj instanceof aw1)) {
+                    aw1Var = (aw1) obj;
+                } else {
+                    aw1Var = new aw1(this.mSwanApiContext);
+                    this.mApis.put("1689255576", aw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(aw1Var, "swanAPI/startCompass");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.startCompass")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = aw1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String getBrightness() {
+                yv1 yv1Var;
+                Object obj = this.mApis.get("99997465");
+                if (obj != null && (obj instanceof yv1)) {
+                    yv1Var = (yv1) obj;
+                } else {
+                    yv1Var = new yv1(this.mSwanApiContext);
+                    this.mApis.put("99997465", yv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(yv1Var, "swanAPI/getBrightness");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.getBrightness")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = yv1Var.z();
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String getClipboardData() {
+                zv1 zv1Var;
+                Object obj = this.mApis.get("-518757484");
+                if (obj != null && (obj instanceof zv1)) {
+                    zv1Var = (zv1) obj;
+                } else {
+                    zv1Var = new zv1(this.mSwanApiContext);
+                    this.mApis.put("-518757484", zv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(zv1Var, "swanAPI/getClipboardData");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.getClipboardData")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = zv1Var.y();
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String getMediaVolume() {
+                jw1 jw1Var;
+                Object obj = this.mApis.get("447234992");
+                if (obj != null && (obj instanceof jw1)) {
+                    jw1Var = (jw1) obj;
+                } else {
+                    jw1Var = new jw1(this.mSwanApiContext);
+                    this.mApis.put("447234992", jw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(jw1Var, "swanAPI/getMediaVolume");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.getMediaVolume")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = jw1Var.y();
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String stopAccelerometer() {
+                xv1 xv1Var;
+                Object obj = this.mApis.get("1372680763");
+                if (obj != null && (obj instanceof xv1)) {
+                    xv1Var = (xv1) obj;
+                } else {
+                    xv1Var = new xv1(this.mSwanApiContext);
+                    this.mApis.put("1372680763", xv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(xv1Var, "swanAPI/stopAccelerometer");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.stopAccelerometer")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 C = xv1Var.C();
                 if (C == null) {
                     return "";
                 }
                 return C.a();
             }
+
+            @JavascriptInterface
+            public String stopCompass() {
+                aw1 aw1Var;
+                Object obj = this.mApis.get("1689255576");
+                if (obj != null && (obj instanceof aw1)) {
+                    aw1Var = (aw1) obj;
+                } else {
+                    aw1Var = new aw1(this.mSwanApiContext);
+                    this.mApis.put("1689255576", aw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(aw1Var, "swanAPI/stopCompass");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.stopCompass")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 A = aw1Var.A();
+                if (A == null) {
+                    return "";
+                }
+                return A.a();
+            }
         });
-        hashMap.put("_naFavorite", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$FavoriteWebviewModule
+        hashMap.put("_naUtils", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$UtilsV8Module
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String addToDesktop(String str) {
+                uw1 uw1Var;
+                Object obj = this.mApis.get("201194468");
+                if (obj != null && (obj instanceof uw1)) {
+                    uw1Var = (uw1) obj;
+                } else {
+                    uw1Var = new uw1(this.mSwanApiContext);
+                    this.mApis.put("201194468", uw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(uw1Var, "swanAPI/addToDesktop");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.addToDesktop")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 C = uw1Var.C(str);
+                if (C == null) {
+                    return "";
+                }
+                return C.a();
+            }
+
+            @JavascriptInterface
+            public String calcMD5(String str) {
+                qw1 qw1Var;
+                Object obj = this.mApis.get("-1412306947");
+                if (obj != null && (obj instanceof qw1)) {
+                    qw1Var = (qw1) obj;
+                } else {
+                    qw1Var = new qw1(this.mSwanApiContext);
+                    this.mApis.put("-1412306947", qw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(qw1Var, "swanAPI/calcMD5");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.calcMD5")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = qw1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String checkAppInstalled(String str) {
+                rw1 rw1Var;
+                Object obj = this.mApis.get("1626415364");
+                if (obj != null && (obj instanceof rw1)) {
+                    rw1Var = (rw1) obj;
+                } else {
+                    rw1Var = new rw1(this.mSwanApiContext);
+                    this.mApis.put("1626415364", rw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rw1Var, "swanAPI/checkAppInstalled");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.checkAppInstalled")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = rw1Var.B(str);
+                if (B == null) {
+                    return "";
+                }
+                return B.a();
+            }
+
+            @JavascriptInterface
+            public String getCommonSysInfo(String str) {
+                tw1 tw1Var;
+                Object obj = this.mApis.get("-836768778");
+                if (obj != null && (obj instanceof tw1)) {
+                    tw1Var = (tw1) obj;
+                } else {
+                    tw1Var = new tw1(this.mSwanApiContext);
+                    this.mApis.put("-836768778", tw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(tw1Var, "swanAPI/getCommonSysInfo");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getCommonSysInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = tw1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String getPerformanceLevel(String str) {
+                vw1 vw1Var;
+                Object obj = this.mApis.get("-810858308");
+                if (obj != null && (obj instanceof vw1)) {
+                    vw1Var = (vw1) obj;
+                } else {
+                    vw1Var = new vw1(this.mSwanApiContext);
+                    this.mApis.put("-810858308", vw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(vw1Var, "swanAPI/getPerformanceLevel");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getPerformanceLevel")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = vw1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String getSystemInfoAsync(String str) {
+                zw1 zw1Var;
+                Object obj = this.mApis.get("-1011537871");
+                if (obj != null && (obj instanceof zw1)) {
+                    zw1Var = (zw1) obj;
+                } else {
+                    zw1Var = new zw1(this.mSwanApiContext);
+                    this.mApis.put("-1011537871", zw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(zw1Var, "swanAPI/getSystemInfoAsync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getSystemInfoAsync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 J = zw1Var.J(str);
+                if (J == null) {
+                    return "";
+                }
+                return J.a();
+            }
+
+            @JavascriptInterface
+            public String handleException(String str) {
+                ww1 ww1Var;
+                Object obj = this.mApis.get("-2097727681");
+                if (obj != null && (obj instanceof ww1)) {
+                    ww1Var = (ww1) obj;
+                } else {
+                    ww1Var = new ww1(this.mSwanApiContext);
+                    this.mApis.put("-2097727681", ww1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ww1Var, "swanAPI/handleException");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.handleException")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = ww1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String hasCloseHandler(String str) {
+                sw1 sw1Var;
+                Object obj = this.mApis.get("2084449317");
+                if (obj != null && (obj instanceof sw1)) {
+                    sw1Var = (sw1) obj;
+                } else {
+                    sw1Var = new sw1(this.mSwanApiContext);
+                    this.mApis.put("2084449317", sw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(sw1Var, "swanAPI/hasCloseHandler");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.hasCloseHandler")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = sw1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String hideCaptureScreenShareDialog(String str) {
+                u93 u93Var;
+                Object obj = this.mApis.get("1031678042");
+                if (obj != null && (obj instanceof u93)) {
+                    u93Var = (u93) obj;
+                } else {
+                    u93Var = new u93(this.mSwanApiContext);
+                    this.mApis.put("1031678042", u93Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(u93Var, "swanAPI/hideCaptureScreenShareDialog");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.hideCaptureScreenShareDialog")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = u93Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String logToFile(String str) {
+                xw1 xw1Var;
+                Object obj = this.mApis.get("1751900130");
+                if (obj != null && (obj instanceof xw1)) {
+                    xw1Var = (xw1) obj;
+                } else {
+                    xw1Var = new xw1(this.mSwanApiContext);
+                    this.mApis.put("1751900130", xw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(xw1Var, "swanAPI/logToFile");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.logToFile")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = xw1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String preloadPackage(String str) {
+                v83 v83Var;
+                Object obj = this.mApis.get("1748196865");
+                if (obj != null && (obj instanceof v83)) {
+                    v83Var = (v83) obj;
+                } else {
+                    v83Var = new v83(this.mSwanApiContext);
+                    this.mApis.put("1748196865", v83Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(v83Var, "swanAPI/preloadPackage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.preloadPackage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = v83Var.B(str);
+                if (B == null) {
+                    return "";
+                }
+                return B.a();
+            }
+
+            @JavascriptInterface
+            public String previewImage(String str) {
+                yw1 yw1Var;
+                Object obj = this.mApis.get("589529211");
+                if (obj != null && (obj instanceof yw1)) {
+                    yw1Var = (yw1) obj;
+                } else {
+                    yw1Var = new yw1(this.mSwanApiContext);
+                    this.mApis.put("589529211", yw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(yw1Var, "swanAPI/previewImage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.previewImage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 C = yw1Var.C(str);
+                if (C == null) {
+                    return "";
+                }
+                return C.a();
+            }
+
+            @JavascriptInterface
+            public String ubcFlowJar(String str) {
+                bx1 bx1Var;
+                Object obj = this.mApis.get("-577481801");
+                if (obj != null && (obj instanceof bx1)) {
+                    bx1Var = (bx1) obj;
+                } else {
+                    bx1Var = new bx1(this.mSwanApiContext);
+                    this.mApis.put("-577481801", bx1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(bx1Var, "swanAPI/ubcFlowJar");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.ubcFlowJar")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 J = bx1Var.J(str);
+                if (J == null) {
+                    return "";
+                }
+                return J.a();
+            }
+
+            @JavascriptInterface
+            public String getCommonSysInfoSync() {
+                zw1 zw1Var;
+                Object obj = this.mApis.get("-1011537871");
+                if (obj != null && (obj instanceof zw1)) {
+                    zw1Var = (zw1) obj;
+                } else {
+                    zw1Var = new zw1(this.mSwanApiContext);
+                    this.mApis.put("-1011537871", zw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(zw1Var, "swanAPI/getCommonSysInfoSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getCommonSysInfoSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 F = zw1Var.F();
+                if (F == null) {
+                    return "";
+                }
+                return F.a();
+            }
+
+            @JavascriptInterface
+            public String getSystemInfo() {
+                zw1 zw1Var;
+                Object obj = this.mApis.get("-1011537871");
+                if (obj != null && (obj instanceof zw1)) {
+                    zw1Var = (zw1) obj;
+                } else {
+                    zw1Var = new zw1(this.mSwanApiContext);
+                    this.mApis.put("-1011537871", zw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(zw1Var, "swanAPI/getSystemInfo");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getSystemInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 I = zw1Var.I();
+                if (I == null) {
+                    return "";
+                }
+                return I.a();
+            }
+
+            @JavascriptInterface
+            public String getSystemInfoSync() {
+                zw1 zw1Var;
+                Object obj = this.mApis.get("-1011537871");
+                if (obj != null && (obj instanceof zw1)) {
+                    zw1Var = (zw1) obj;
+                } else {
+                    zw1Var = new zw1(this.mSwanApiContext);
+                    this.mApis.put("-1011537871", zw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(zw1Var, "swanAPI/getSystemInfoSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getSystemInfoSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 K = zw1Var.K();
+                if (K == null) {
+                    return "";
+                }
+                return K.a();
+            }
+        });
+        hashMap.put("_naWifi", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$WifiV8Module
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String connectWifi(String str) {
+                fg3 fg3Var;
+                Object obj = this.mApis.get("1879401452");
+                if (obj != null && (obj instanceof fg3)) {
+                    fg3Var = (fg3) obj;
+                } else {
+                    fg3Var = new fg3(this.mSwanApiContext);
+                    this.mApis.put("1879401452", fg3Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fg3Var, "swanAPI/connectWifi");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Wifi.connectWifi")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = fg3Var.B(str);
+                if (B == null) {
+                    return "";
+                }
+                return B.a();
+            }
+
+            @JavascriptInterface
+            public String getConnectedWifi(String str) {
+                fg3 fg3Var;
+                Object obj = this.mApis.get("1879401452");
+                if (obj != null && (obj instanceof fg3)) {
+                    fg3Var = (fg3) obj;
+                } else {
+                    fg3Var = new fg3(this.mSwanApiContext);
+                    this.mApis.put("1879401452", fg3Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fg3Var, "swanAPI/getConnectedWifi");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Wifi.getConnectedWifi")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 C = fg3Var.C(str);
+                if (C == null) {
+                    return "";
+                }
+                return C.a();
+            }
+
+            @JavascriptInterface
+            public String getWifiList(String str) {
+                fg3 fg3Var;
+                Object obj = this.mApis.get("1879401452");
+                if (obj != null && (obj instanceof fg3)) {
+                    fg3Var = (fg3) obj;
+                } else {
+                    fg3Var = new fg3(this.mSwanApiContext);
+                    this.mApis.put("1879401452", fg3Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fg3Var, "swanAPI/getWifiList");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Wifi.getWifiList")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 D = fg3Var.D(str);
+                if (D == null) {
+                    return "";
+                }
+                return D.a();
+            }
+
+            @JavascriptInterface
+            public String startWifi(String str) {
+                fg3 fg3Var;
+                Object obj = this.mApis.get("1879401452");
+                if (obj != null && (obj instanceof fg3)) {
+                    fg3Var = (fg3) obj;
+                } else {
+                    fg3Var = new fg3(this.mSwanApiContext);
+                    this.mApis.put("1879401452", fg3Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fg3Var, "swanAPI/startWifi");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Wifi.startWifi")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 H = fg3Var.H(str);
+                if (H == null) {
+                    return "";
+                }
+                return H.a();
+            }
+
+            @JavascriptInterface
+            public String stopWifi(String str) {
+                fg3 fg3Var;
+                Object obj = this.mApis.get("1879401452");
+                if (obj != null && (obj instanceof fg3)) {
+                    fg3Var = (fg3) obj;
+                } else {
+                    fg3Var = new fg3(this.mSwanApiContext);
+                    this.mApis.put("1879401452", fg3Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fg3Var, "swanAPI/stopWifi");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Wifi.stopWifi")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 I = fg3Var.I(str);
+                if (I == null) {
+                    return "";
+                }
+                return I.a();
+            }
+        });
+        return hashMap;
+    }
+
+    public static Map<String, Object> getWebviewApiModules(final rt1 rt1Var) {
+        HashMap hashMap = new HashMap();
+        hashMap.put("_naAccount", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$AccountWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String checkSession(String str) {
+                xt1 xt1Var;
+                Object obj = this.mApis.get("1930258908");
+                if (obj != null && (obj instanceof xt1)) {
+                    xt1Var = (xt1) obj;
+                } else {
+                    xt1Var = new xt1(this.mSwanApiContext);
+                    this.mApis.put("1930258908", xt1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(xt1Var, "swanAPI/checkSession");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Account.checkSession")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = xt1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String getLoginCode(String str) {
+                yt1 yt1Var;
+                Object obj = this.mApis.get("-1017914143");
+                if (obj != null && (obj instanceof yt1)) {
+                    yt1Var = (yt1) obj;
+                } else {
+                    yt1Var = new yt1(this.mSwanApiContext);
+                    this.mApis.put("-1017914143", yt1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(yt1Var, "swanAPI/getLoginCode");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Account.getLoginCode")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 D = yt1Var.D(str);
+                if (D == null) {
+                    return "";
+                }
+                return D.a();
+            }
+
+            @JavascriptInterface
+            public String getOpenId(String str) {
+                zt1 zt1Var;
+                Object obj = this.mApis.get("1754780133");
+                if (obj != null && (obj instanceof zt1)) {
+                    zt1Var = (zt1) obj;
+                } else {
+                    zt1Var = new zt1(this.mSwanApiContext);
+                    this.mApis.put("1754780133", zt1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(zt1Var, "swanAPI/getOpenId");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Account.getOpenId")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = zt1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String getUnionBDUSS(String str) {
+                gt1 gt1Var;
+                Object obj = this.mApis.get("-343998465");
+                if (obj != null && (obj instanceof gt1)) {
+                    gt1Var = (gt1) obj;
+                } else {
+                    gt1Var = new gt1(this.mSwanApiContext);
+                    this.mApis.put("-343998465", gt1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(gt1Var, "swanAPI/getUnionBDUSS");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Account.getUnionBDUSS")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = gt1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String login(String str) {
+                yt1 yt1Var;
+                Object obj = this.mApis.get("-1017914143");
+                if (obj != null && (obj instanceof yt1)) {
+                    yt1Var = (yt1) obj;
+                } else {
+                    yt1Var = new yt1(this.mSwanApiContext);
+                    this.mApis.put("-1017914143", yt1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(yt1Var, "swanAPI/login");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Account.login")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 J = yt1Var.J(str);
+                if (J == null) {
+                    return "";
+                }
+                return J.a();
+            }
+
+            @JavascriptInterface
+            public String isBaiduAccountSync() {
+                wt1 wt1Var;
+                Object obj = this.mApis.get("-337742792");
+                if (obj != null && (obj instanceof wt1)) {
+                    wt1Var = (wt1) obj;
+                } else {
+                    wt1Var = new wt1(this.mSwanApiContext);
+                    this.mApis.put("-337742792", wt1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(wt1Var, "swanAPI/isBaiduAccountSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Account.isBaiduAccountSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = wt1Var.y();
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String isLoginSync() {
+                yt1 yt1Var;
+                Object obj = this.mApis.get("-1017914143");
+                if (obj != null && (obj instanceof yt1)) {
+                    yt1Var = (yt1) obj;
+                } else {
+                    yt1Var = new yt1(this.mSwanApiContext);
+                    this.mApis.put("-1017914143", yt1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(yt1Var, "swanAPI/isLoginSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Account.isLoginSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 I = yt1Var.I();
+                if (I == null) {
+                    return "";
+                }
+                return I.a();
+            }
+        });
+        hashMap.put("_naBasic", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$BasicWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String loadSubPackage(String str) {
+                au1 au1Var;
+                Object obj = this.mApis.get("-1249666566");
+                if (obj != null && (obj instanceof au1)) {
+                    au1Var = (au1) obj;
+                } else {
+                    au1Var = new au1(this.mSwanApiContext);
+                    this.mApis.put("-1249666566", au1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(au1Var, "swanAPI/loadSubPackage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Basic.loadSubPackage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 G = au1Var.G(str);
+                if (G == null) {
+                    return "";
+                }
+                return G.a();
+            }
+
+            @JavascriptInterface
+            public String loadSubPackages(String str) {
+                au1 au1Var;
+                Object obj = this.mApis.get("-1249666566");
+                if (obj != null && (obj instanceof au1)) {
+                    au1Var = (au1) obj;
+                } else {
+                    au1Var = new au1(this.mSwanApiContext);
+                    this.mApis.put("-1249666566", au1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(au1Var, "swanAPI/loadSubPackages");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Basic.loadSubPackages")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 H = au1Var.H(str);
+                if (H == null) {
+                    return "";
+                }
+                return H.a();
+            }
+        });
+        hashMap.put("_naBookshelf", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$BookshelfWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String deleteBookshelf(String str) {
+                hm1 hm1Var;
+                Object obj = this.mApis.get("1460300387");
+                if (obj != null && (obj instanceof hm1)) {
+                    hm1Var = (hm1) obj;
+                } else {
+                    hm1Var = new hm1(this.mSwanApiContext);
+                    this.mApis.put("1460300387", hm1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(hm1Var, "swanAPI/bookshelf/deleteBookshelf");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Bookshelf.deleteBookshelf")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 L = hm1Var.L(str);
+                if (L == null) {
+                    return "";
+                }
+                return L.a();
+            }
+
+            @JavascriptInterface
+            public String insertBookshelf(String str) {
+                hm1 hm1Var;
+                Object obj = this.mApis.get("1460300387");
+                if (obj != null && (obj instanceof hm1)) {
+                    hm1Var = (hm1) obj;
+                } else {
+                    hm1Var = new hm1(this.mSwanApiContext);
+                    this.mApis.put("1460300387", hm1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(hm1Var, "swanAPI/bookshelf/insertBookshelf");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Bookshelf.insertBookshelf")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 Q = hm1Var.Q(str);
+                if (Q == null) {
+                    return "";
+                }
+                return Q.a();
+            }
+
+            @JavascriptInterface
+            public String navigateToBookshelf(String str) {
+                hm1 hm1Var;
+                Object obj = this.mApis.get("1460300387");
+                if (obj != null && (obj instanceof hm1)) {
+                    hm1Var = (hm1) obj;
+                } else {
+                    hm1Var = new hm1(this.mSwanApiContext);
+                    this.mApis.put("1460300387", hm1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(hm1Var, "swanAPI/bookshelf/navigateToBookshelf");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Bookshelf.navigateToBookshelf")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 V = hm1Var.V(str);
+                if (V == null) {
+                    return "";
+                }
+                return V.a();
+            }
+
+            @JavascriptInterface
+            public String queryBookshelf(String str) {
+                hm1 hm1Var;
+                Object obj = this.mApis.get("1460300387");
+                if (obj != null && (obj instanceof hm1)) {
+                    hm1Var = (hm1) obj;
+                } else {
+                    hm1Var = new hm1(this.mSwanApiContext);
+                    this.mApis.put("1460300387", hm1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(hm1Var, "swanAPI/bookshelf/queryBookshelf");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Bookshelf.queryBookshelf")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 W = hm1Var.W(str);
+                if (W == null) {
+                    return "";
+                }
+                return W.a();
+            }
+
+            @JavascriptInterface
+            public String updateBookshelfReadTime(String str) {
+                hm1 hm1Var;
+                Object obj = this.mApis.get("1460300387");
+                if (obj != null && (obj instanceof hm1)) {
+                    hm1Var = (hm1) obj;
+                } else {
+                    hm1Var = new hm1(this.mSwanApiContext);
+                    this.mApis.put("1460300387", hm1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(hm1Var, "swanAPI/bookshelf/updateBookshelfReadTime");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Bookshelf.updateBookshelfReadTime")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 Y = hm1Var.Y(str);
+                if (Y == null) {
+                    return "";
+                }
+                return Y.a();
+            }
+        });
+        hashMap.put("_naCoupon", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$CouponWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String getPlatformCoupons(String str) {
+                ut1 ut1Var;
+                Object obj = this.mApis.get("-277316359");
+                if (obj != null && (obj instanceof ut1)) {
+                    ut1Var = (ut1) obj;
+                } else {
+                    ut1Var = new ut1(this.mSwanApiContext);
+                    this.mApis.put("-277316359", ut1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ut1Var, "swanAPI/coupon/getPlatformCoupons");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Coupon.getPlatformCoupons")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = ut1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String getUserCoupons(String str) {
+                ut1 ut1Var;
+                Object obj = this.mApis.get("-277316359");
+                if (obj != null && (obj instanceof ut1)) {
+                    ut1Var = (ut1) obj;
+                } else {
+                    ut1Var = new ut1(this.mSwanApiContext);
+                    this.mApis.put("-277316359", ut1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ut1Var, "swanAPI/coupon/getUserCoupons");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Coupon.getUserCoupons")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 A = ut1Var.A(str);
+                if (A == null) {
+                    return "";
+                }
+                return A.a();
+            }
+
+            @JavascriptInterface
+            public String takeCoupons(String str) {
+                ut1 ut1Var;
+                Object obj = this.mApis.get("-277316359");
+                if (obj != null && (obj instanceof ut1)) {
+                    ut1Var = (ut1) obj;
+                } else {
+                    ut1Var = new ut1(this.mSwanApiContext);
+                    this.mApis.put("-277316359", ut1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ut1Var, "swanAPI/coupon/takeCoupons");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Coupon.takeCoupons")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 D = ut1Var.D(str);
+                if (D == null) {
+                    return "";
+                }
+                return D.a();
+            }
+        });
+        hashMap.put("_naFavorite", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$FavoriteWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String getFavorStatus(String str) {
-                sz1 sz1Var;
+                cu1 cu1Var;
                 Object obj = this.mApis.get("-1225406515");
-                if (obj != null && (obj instanceof sz1)) {
-                    sz1Var = (sz1) obj;
+                if (obj != null && (obj instanceof cu1)) {
+                    cu1Var = (cu1) obj;
                 } else {
-                    sz1Var = new sz1(this.mSwanApiContext);
-                    this.mApis.put("-1225406515", sz1Var);
+                    cu1Var = new cu1(this.mSwanApiContext);
+                    this.mApis.put("-1225406515", cu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(sz1Var, "swanAPI/getFavorStatus");
+                Pair<Boolean, px1> a = rx1.a(cu1Var, "swanAPI/getFavorStatus");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Favorite.getFavorStatus")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Favorite.getFavorStatus")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = sz1Var.x(str);
-                if (x == null) {
+                qx1 y = cu1Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
@@ -4316,164 +4316,328 @@ public class SwanApi$$ModulesProvider {
                     showFavoriteGuideApi = new ShowFavoriteGuideApi(this.mSwanApiContext);
                     this.mApis.put("269275578", showFavoriteGuideApi);
                 }
-                Pair<Boolean, f32> a = h32.a(showFavoriteGuideApi, "swanAPI/showFavoriteGuide");
+                Pair<Boolean, px1> a = rx1.a(showFavoriteGuideApi, "swanAPI/showFavoriteGuide");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Favorite.showFavoriteGuide")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Favorite.showFavoriteGuide")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 G = showFavoriteGuideApi.G(str);
-                if (G == null) {
+                qx1 H = showFavoriteGuideApi.H(str);
+                if (H == null) {
                     return "";
                 }
-                return G.a();
+                return H.a();
             }
         });
-        hashMap.put("_naFile", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$FileWebviewModule
+        hashMap.put("_naFile", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$FileWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String shareFile(String str) {
-                uz1 uz1Var;
+                eu1 eu1Var;
                 Object obj = this.mApis.get("-2057135077");
-                if (obj != null && (obj instanceof uz1)) {
-                    uz1Var = (uz1) obj;
+                if (obj != null && (obj instanceof eu1)) {
+                    eu1Var = (eu1) obj;
                 } else {
-                    uz1Var = new uz1(this.mSwanApiContext);
-                    this.mApis.put("-2057135077", uz1Var);
+                    eu1Var = new eu1(this.mSwanApiContext);
+                    this.mApis.put("-2057135077", eu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(uz1Var, "swanAPI/shareFile");
+                Pair<Boolean, px1> a = rx1.a(eu1Var, "swanAPI/shareFile");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "File.shareFile")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "File.shareFile")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = uz1Var.y(str);
-                if (y == null) {
+                qx1 z = eu1Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return y.a();
+                return z.a();
             }
         });
-        hashMap.put("_naGameCenter", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$GameCenterWebviewModule
+        hashMap.put("_naGameCenter", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$GameCenterWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String postGameCenterMessage(String str) {
-                jo2 jo2Var;
+                si2 si2Var;
                 Object obj = this.mApis.get("2077414795");
-                if (obj != null && (obj instanceof jo2)) {
-                    jo2Var = (jo2) obj;
+                if (obj != null && (obj instanceof si2)) {
+                    si2Var = (si2) obj;
                 } else {
-                    jo2Var = new jo2(this.mSwanApiContext);
-                    this.mApis.put("2077414795", jo2Var);
+                    si2Var = new si2(this.mSwanApiContext);
+                    this.mApis.put("2077414795", si2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(jo2Var, "swanAPI/postGameCenterMessage");
+                Pair<Boolean, px1> a = rx1.a(si2Var, "swanAPI/postGameCenterMessage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "GameCenter.postGameCenterMessage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "GameCenter.postGameCenterMessage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = jo2Var.x(str);
-                if (x == null) {
+                qx1 y = si2Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String postGameCenterMessageSync(String str) {
-                jo2 jo2Var;
+                si2 si2Var;
                 Object obj = this.mApis.get("2077414795");
-                if (obj != null && (obj instanceof jo2)) {
-                    jo2Var = (jo2) obj;
+                if (obj != null && (obj instanceof si2)) {
+                    si2Var = (si2) obj;
                 } else {
-                    jo2Var = new jo2(this.mSwanApiContext);
-                    this.mApis.put("2077414795", jo2Var);
+                    si2Var = new si2(this.mSwanApiContext);
+                    this.mApis.put("2077414795", si2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(jo2Var, "swanAPI/postGameCenterMessageSync");
+                Pair<Boolean, px1> a = rx1.a(si2Var, "swanAPI/postGameCenterMessageSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "GameCenter.postGameCenterMessageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "GameCenter.postGameCenterMessageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = jo2Var.y(str);
+                qx1 z = si2Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+        });
+        hashMap.put("_naHostDownloadManager", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$HostDownloadManagerWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String download(String str) {
+                fu1 fu1Var;
+                Object obj = this.mApis.get("-170124576");
+                if (obj != null && (obj instanceof fu1)) {
+                    fu1Var = (fu1) obj;
+                } else {
+                    fu1Var = new fu1(this.mSwanApiContext);
+                    this.mApis.put("-170124576", fu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fu1Var, "swanAPI/download");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "HostDownloadManager.download")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = fu1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String openFile(String str) {
+                fu1 fu1Var;
+                Object obj = this.mApis.get("-170124576");
+                if (obj != null && (obj instanceof fu1)) {
+                    fu1Var = (fu1) obj;
+                } else {
+                    fu1Var = new fu1(this.mSwanApiContext);
+                    this.mApis.put("-170124576", fu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fu1Var, "swanAPI/openFile");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "HostDownloadManager.openFile")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 A = fu1Var.A(str);
+                if (A == null) {
+                    return "";
+                }
+                return A.a();
+            }
+
+            @JavascriptInterface
+            public String query(String str) {
+                fu1 fu1Var;
+                Object obj = this.mApis.get("-170124576");
+                if (obj != null && (obj instanceof fu1)) {
+                    fu1Var = (fu1) obj;
+                } else {
+                    fu1Var = new fu1(this.mSwanApiContext);
+                    this.mApis.put("-170124576", fu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fu1Var, "swanAPI/query");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "HostDownloadManager.query")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = fu1Var.B(str);
+                if (B == null) {
+                    return "";
+                }
+                return B.a();
+            }
+
+            @JavascriptInterface
+            public String openDownloadCenter() {
+                fu1 fu1Var;
+                Object obj = this.mApis.get("-170124576");
+                if (obj != null && (obj instanceof fu1)) {
+                    fu1Var = (fu1) obj;
+                } else {
+                    fu1Var = new fu1(this.mSwanApiContext);
+                    this.mApis.put("-170124576", fu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fu1Var, "swanAPI/openDownloadCenter");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "HostDownloadManager.openDownloadCenter")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = fu1Var.z();
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+        });
+        hashMap.put("_naImage", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$ImageWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String callImageMenu(String str) {
+                gv2 gv2Var;
+                Object obj = this.mApis.get("1445003743");
+                if (obj != null && (obj instanceof gv2)) {
+                    gv2Var = (gv2) obj;
+                } else {
+                    gv2Var = new gv2(this.mSwanApiContext);
+                    this.mApis.put("1445003743", gv2Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(gv2Var, "swanAPI/callImageMenu");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Image.callImageMenu")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = gv2Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String compressImage(String str) {
+                iu1 iu1Var;
+                Object obj = this.mApis.get("-1252730367");
+                if (obj != null && (obj instanceof iu1)) {
+                    iu1Var = (iu1) obj;
+                } else {
+                    iu1Var = new iu1(this.mSwanApiContext);
+                    this.mApis.put("-1252730367", iu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(iu1Var, "swanAPI/compressImage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Image.compressImage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = iu1Var.y(str);
                 if (y == null) {
                     return "";
                 }
                 return y.a();
             }
         });
-        hashMap.put("_naHostDownloadManager", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$HostDownloadManagerWebviewModule
+        hashMap.put("_naInteraction", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$InteractionWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
-            public String download(String str) {
-                vz1 vz1Var;
-                Object obj = this.mApis.get("-170124576");
-                if (obj != null && (obj instanceof vz1)) {
-                    vz1Var = (vz1) obj;
+            public String closeTabBar(String str) {
+                qu1 qu1Var;
+                Object obj = this.mApis.get("-1871435471");
+                if (obj != null && (obj instanceof qu1)) {
+                    qu1Var = (qu1) obj;
                 } else {
-                    vz1Var = new vz1(this.mSwanApiContext);
-                    this.mApis.put("-170124576", vz1Var);
+                    qu1Var = new qu1(this.mSwanApiContext);
+                    this.mApis.put("-1871435471", qu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(vz1Var, "swanAPI/download");
+                Pair<Boolean, px1> a = rx1.a(qu1Var, "swanAPI/closeTabBar");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "HostDownloadManager.download")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.closeTabBar")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = vz1Var.x(str);
-                if (x == null) {
+                qx1 y = qu1Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
-            public String openFile(String str) {
-                vz1 vz1Var;
-                Object obj = this.mApis.get("-170124576");
-                if (obj != null && (obj instanceof vz1)) {
-                    vz1Var = (vz1) obj;
+            public String closeTabBarRedDot(String str) {
+                qu1 qu1Var;
+                Object obj = this.mApis.get("-1871435471");
+                if (obj != null && (obj instanceof qu1)) {
+                    qu1Var = (qu1) obj;
                 } else {
-                    vz1Var = new vz1(this.mSwanApiContext);
-                    this.mApis.put("-170124576", vz1Var);
+                    qu1Var = new qu1(this.mSwanApiContext);
+                    this.mApis.put("-1871435471", qu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(vz1Var, "swanAPI/openFile");
+                Pair<Boolean, px1> a = rx1.a(qu1Var, "swanAPI/closeTabBarRedDot");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "HostDownloadManager.openFile")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.closeTabBarRedDot")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 z = vz1Var.z(str);
+                qx1 z = qu1Var.z(str);
                 if (z == null) {
                     return "";
                 }
@@ -4481,235 +4645,47 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String query(String str) {
-                vz1 vz1Var;
-                Object obj = this.mApis.get("-170124576");
-                if (obj != null && (obj instanceof vz1)) {
-                    vz1Var = (vz1) obj;
-                } else {
-                    vz1Var = new vz1(this.mSwanApiContext);
-                    this.mApis.put("-170124576", vz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(vz1Var, "swanAPI/query");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "HostDownloadManager.query")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 query = vz1Var.query(str);
-                if (query == null) {
-                    return "";
-                }
-                return query.a();
-            }
-
-            @JavascriptInterface
-            public String openDownloadCenter() {
-                vz1 vz1Var;
-                Object obj = this.mApis.get("-170124576");
-                if (obj != null && (obj instanceof vz1)) {
-                    vz1Var = (vz1) obj;
-                } else {
-                    vz1Var = new vz1(this.mSwanApiContext);
-                    this.mApis.put("-170124576", vz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(vz1Var, "swanAPI/openDownloadCenter");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "HostDownloadManager.openDownloadCenter")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = vz1Var.y();
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-        });
-        hashMap.put("_naImage", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$ImageWebviewModule
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String callImageMenu(String str) {
-                x03 x03Var;
-                Object obj = this.mApis.get("1445003743");
-                if (obj != null && (obj instanceof x03)) {
-                    x03Var = (x03) obj;
-                } else {
-                    x03Var = new x03(this.mSwanApiContext);
-                    this.mApis.put("1445003743", x03Var);
-                }
-                Pair<Boolean, f32> a = h32.a(x03Var, "swanAPI/callImageMenu");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Image.callImageMenu")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = x03Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String compressImage(String str) {
-                yz1 yz1Var;
-                Object obj = this.mApis.get("-1252730367");
-                if (obj != null && (obj instanceof yz1)) {
-                    yz1Var = (yz1) obj;
-                } else {
-                    yz1Var = new yz1(this.mSwanApiContext);
-                    this.mApis.put("-1252730367", yz1Var);
-                }
-                Pair<Boolean, f32> a = h32.a(yz1Var, "swanAPI/compressImage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Image.compressImage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = yz1Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-        });
-        hashMap.put("_naInteraction", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$InteractionWebviewModule
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String closeTabBar(String str) {
-                g02 g02Var;
-                Object obj = this.mApis.get("-1871435471");
-                if (obj != null && (obj instanceof g02)) {
-                    g02Var = (g02) obj;
-                } else {
-                    g02Var = new g02(this.mSwanApiContext);
-                    this.mApis.put("-1871435471", g02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(g02Var, "swanAPI/closeTabBar");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.closeTabBar")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = g02Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String closeTabBarRedDot(String str) {
-                g02 g02Var;
-                Object obj = this.mApis.get("-1871435471");
-                if (obj != null && (obj instanceof g02)) {
-                    g02Var = (g02) obj;
-                } else {
-                    g02Var = new g02(this.mSwanApiContext);
-                    this.mApis.put("-1871435471", g02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(g02Var, "swanAPI/closeTabBarRedDot");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.closeTabBarRedDot")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = g02Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
             public String hideNavigationBarLoading(String str) {
-                c02 c02Var;
+                mu1 mu1Var;
                 Object obj = this.mApis.get("-246386074");
-                if (obj != null && (obj instanceof c02)) {
-                    c02Var = (c02) obj;
+                if (obj != null && (obj instanceof mu1)) {
+                    mu1Var = (mu1) obj;
                 } else {
-                    c02Var = new c02(this.mSwanApiContext);
-                    this.mApis.put("-246386074", c02Var);
+                    mu1Var = new mu1(this.mSwanApiContext);
+                    this.mApis.put("-246386074", mu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(c02Var, "swanAPI/hideNavigationBarLoading");
+                Pair<Boolean, px1> a = rx1.a(mu1Var, "swanAPI/hideNavigationBarLoading");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.hideNavigationBarLoading")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.hideNavigationBarLoading")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = c02Var.y(str);
-                if (y == null) {
+                qx1 z = mu1Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return y.a();
+                return z.a();
             }
 
             @JavascriptInterface
             public String openMultiPicker(String str) {
-                e02 e02Var;
+                ou1 ou1Var;
                 Object obj = this.mApis.get("-108978463");
-                if (obj != null && (obj instanceof e02)) {
-                    e02Var = (e02) obj;
+                if (obj != null && (obj instanceof ou1)) {
+                    ou1Var = (ou1) obj;
                 } else {
-                    e02Var = new e02(this.mSwanApiContext);
-                    this.mApis.put("-108978463", e02Var);
+                    ou1Var = new ou1(this.mSwanApiContext);
+                    this.mApis.put("-108978463", ou1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(e02Var, "swanAPI/openMultiPicker");
+                Pair<Boolean, px1> a = rx1.a(ou1Var, "swanAPI/openMultiPicker");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.openMultiPicker")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.openMultiPicker")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 G = e02Var.G(str);
-                if (G == null) {
-                    return "";
-                }
-                return G.a();
-            }
-
-            @JavascriptInterface
-            public String openPicker(String str) {
-                e02 e02Var;
-                Object obj = this.mApis.get("-108978463");
-                if (obj != null && (obj instanceof e02)) {
-                    e02Var = (e02) obj;
-                } else {
-                    e02Var = new e02(this.mSwanApiContext);
-                    this.mApis.put("-108978463", e02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(e02Var, "swanAPI/openPicker");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.openPicker")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 H = e02Var.H(str);
+                qx1 H = ou1Var.H(str);
                 if (H == null) {
                     return "";
                 }
@@ -4717,119 +4693,47 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
+            public String openPicker(String str) {
+                ou1 ou1Var;
+                Object obj = this.mApis.get("-108978463");
+                if (obj != null && (obj instanceof ou1)) {
+                    ou1Var = (ou1) obj;
+                } else {
+                    ou1Var = new ou1(this.mSwanApiContext);
+                    this.mApis.put("-108978463", ou1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ou1Var, "swanAPI/openPicker");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.openPicker")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 I = ou1Var.I(str);
+                if (I == null) {
+                    return "";
+                }
+                return I.a();
+            }
+
+            @JavascriptInterface
             public String openTabBar(String str) {
-                g02 g02Var;
+                qu1 qu1Var;
                 Object obj = this.mApis.get("-1871435471");
-                if (obj != null && (obj instanceof g02)) {
-                    g02Var = (g02) obj;
+                if (obj != null && (obj instanceof qu1)) {
+                    qu1Var = (qu1) obj;
                 } else {
-                    g02Var = new g02(this.mSwanApiContext);
-                    this.mApis.put("-1871435471", g02Var);
+                    qu1Var = new qu1(this.mSwanApiContext);
+                    this.mApis.put("-1871435471", qu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(g02Var, "swanAPI/openTabBar");
+                Pair<Boolean, px1> a = rx1.a(qu1Var, "swanAPI/openTabBar");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.openTabBar")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.openTabBar")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = g02Var.C(str);
-                if (C == null) {
-                    return "";
-                }
-                return C.a();
-            }
-
-            @JavascriptInterface
-            public String pageScrollTo(String str) {
-                d02 d02Var;
-                Object obj = this.mApis.get("-1750613704");
-                if (obj != null && (obj instanceof d02)) {
-                    d02Var = (d02) obj;
-                } else {
-                    d02Var = new d02(this.mSwanApiContext);
-                    this.mApis.put("-1750613704", d02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(d02Var, "swanAPI/pageScrollTo");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.pageScrollTo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = d02Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String setNavigationBarColor(String str) {
-                c02 c02Var;
-                Object obj = this.mApis.get("-246386074");
-                if (obj != null && (obj instanceof c02)) {
-                    c02Var = (c02) obj;
-                } else {
-                    c02Var = new c02(this.mSwanApiContext);
-                    this.mApis.put("-246386074", c02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(c02Var, "swanAPI/setNavigationBarColor");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.setNavigationBarColor")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 z = c02Var.z(str);
-                if (z == null) {
-                    return "";
-                }
-                return z.a();
-            }
-
-            @JavascriptInterface
-            public String setNavigationBarTitle(String str) {
-                c02 c02Var;
-                Object obj = this.mApis.get("-246386074");
-                if (obj != null && (obj instanceof c02)) {
-                    c02Var = (c02) obj;
-                } else {
-                    c02Var = new c02(this.mSwanApiContext);
-                    this.mApis.put("-246386074", c02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(c02Var, "swanAPI/setNavigationBarTitle");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.setNavigationBarTitle")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = c02Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String setTabBarItem(String str) {
-                g02 g02Var;
-                Object obj = this.mApis.get("-1871435471");
-                if (obj != null && (obj instanceof g02)) {
-                    g02Var = (g02) obj;
-                } else {
-                    g02Var = new g02(this.mSwanApiContext);
-                    this.mApis.put("-1871435471", g02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(g02Var, "swanAPI/setTabBarItem");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.setTabBarItem")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 D = g02Var.D(str);
+                qx1 D = qu1Var.D(str);
                 if (D == null) {
                     return "";
                 }
@@ -4837,119 +4741,23 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String showDatePickerView(String str) {
-                e02 e02Var;
-                Object obj = this.mApis.get("-108978463");
-                if (obj != null && (obj instanceof e02)) {
-                    e02Var = (e02) obj;
+            public String pageScrollTo(String str) {
+                nu1 nu1Var;
+                Object obj = this.mApis.get("-1750613704");
+                if (obj != null && (obj instanceof nu1)) {
+                    nu1Var = (nu1) obj;
                 } else {
-                    e02Var = new e02(this.mSwanApiContext);
-                    this.mApis.put("-108978463", e02Var);
+                    nu1Var = new nu1(this.mSwanApiContext);
+                    this.mApis.put("-1750613704", nu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(e02Var, "swanAPI/showDatePickerView");
+                Pair<Boolean, px1> a = rx1.a(nu1Var, "swanAPI/pageScrollTo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showDatePickerView")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.pageScrollTo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 L = e02Var.L(str);
-                if (L == null) {
-                    return "";
-                }
-                return L.a();
-            }
-
-            @JavascriptInterface
-            public String showHalfScreenWebview(String str) {
-                i02 i02Var;
-                Object obj = this.mApis.get("1172469410");
-                if (obj != null && (obj instanceof i02)) {
-                    i02Var = (i02) obj;
-                } else {
-                    i02Var = new i02(this.mSwanApiContext);
-                    this.mApis.put("1172469410", i02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(i02Var, "swanAPI/showHalfScreenWebview");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showHalfScreenWebview")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 K = i02Var.K(str);
-                if (K == null) {
-                    return "";
-                }
-                return K.a();
-            }
-
-            @JavascriptInterface
-            public String showLoading(String str) {
-                a02 a02Var;
-                Object obj = this.mApis.get("5236036");
-                if (obj != null && (obj instanceof a02)) {
-                    a02Var = (a02) obj;
-                } else {
-                    a02Var = new a02(this.mSwanApiContext);
-                    this.mApis.put("5236036", a02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(a02Var, "swanAPI/showLoading");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showLoading")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = a02Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String showModal(String str) {
-                b02 b02Var;
-                Object obj = this.mApis.get("1913747800");
-                if (obj != null && (obj instanceof b02)) {
-                    b02Var = (b02) obj;
-                } else {
-                    b02Var = new b02(this.mSwanApiContext);
-                    this.mApis.put("1913747800", b02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(b02Var, "swanAPI/showModal");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showModal")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = b02Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String showNavigationBarLoading(String str) {
-                c02 c02Var;
-                Object obj = this.mApis.get("-246386074");
-                if (obj != null && (obj instanceof c02)) {
-                    c02Var = (c02) obj;
-                } else {
-                    c02Var = new c02(this.mSwanApiContext);
-                    this.mApis.put("-246386074", c02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(c02Var, "swanAPI/showNavigationBarLoading");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showNavigationBarLoading")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 B = c02Var.B(str);
+                qx1 B = nu1Var.B(str);
                 if (B == null) {
                     return "";
                 }
@@ -4957,71 +4765,95 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String showToast(String str) {
-                h02 h02Var;
-                Object obj = this.mApis.get("1159492510");
-                if (obj != null && (obj instanceof h02)) {
-                    h02Var = (h02) obj;
+            public String setNavigationBarColor(String str) {
+                mu1 mu1Var;
+                Object obj = this.mApis.get("-246386074");
+                if (obj != null && (obj instanceof mu1)) {
+                    mu1Var = (mu1) obj;
                 } else {
-                    h02Var = new h02(this.mSwanApiContext);
-                    this.mApis.put("1159492510", h02Var);
+                    mu1Var = new mu1(this.mSwanApiContext);
+                    this.mApis.put("-246386074", mu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h02Var, "swanAPI/showToast");
+                Pair<Boolean, px1> a = rx1.a(mu1Var, "swanAPI/setNavigationBarColor");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.showToast")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.setNavigationBarColor")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 Q = h02Var.Q(str);
-                if (Q == null) {
+                qx1 A = mu1Var.A(str);
+                if (A == null) {
                     return "";
                 }
-                return Q.a();
+                return A.a();
             }
 
             @JavascriptInterface
-            public String stopPullDownRefresh(String str) {
-                f02 f02Var;
-                Object obj = this.mApis.get("1165118609");
-                if (obj != null && (obj instanceof f02)) {
-                    f02Var = (f02) obj;
+            public String setNavigationBarTitle(String str) {
+                mu1 mu1Var;
+                Object obj = this.mApis.get("-246386074");
+                if (obj != null && (obj instanceof mu1)) {
+                    mu1Var = (mu1) obj;
                 } else {
-                    f02Var = new f02(this.mSwanApiContext);
-                    this.mApis.put("1165118609", f02Var);
+                    mu1Var = new mu1(this.mSwanApiContext);
+                    this.mApis.put("-246386074", mu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f02Var, "swanAPI/stopPullDownRefresh");
+                Pair<Boolean, px1> a = rx1.a(mu1Var, "swanAPI/setNavigationBarTitle");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.stopPullDownRefresh")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.setNavigationBarTitle")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = f02Var.x(str);
-                if (x == null) {
+                qx1 B = mu1Var.B(str);
+                if (B == null) {
                     return "";
                 }
-                return x.a();
+                return B.a();
             }
 
             @JavascriptInterface
-            public String updateMultiPicker(String str) {
-                e02 e02Var;
+            public String setTabBarItem(String str) {
+                qu1 qu1Var;
+                Object obj = this.mApis.get("-1871435471");
+                if (obj != null && (obj instanceof qu1)) {
+                    qu1Var = (qu1) obj;
+                } else {
+                    qu1Var = new qu1(this.mSwanApiContext);
+                    this.mApis.put("-1871435471", qu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(qu1Var, "swanAPI/setTabBarItem");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.setTabBarItem")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 E = qu1Var.E(str);
+                if (E == null) {
+                    return "";
+                }
+                return E.a();
+            }
+
+            @JavascriptInterface
+            public String showDatePickerView(String str) {
+                ou1 ou1Var;
                 Object obj = this.mApis.get("-108978463");
-                if (obj != null && (obj instanceof e02)) {
-                    e02Var = (e02) obj;
+                if (obj != null && (obj instanceof ou1)) {
+                    ou1Var = (ou1) obj;
                 } else {
-                    e02Var = new e02(this.mSwanApiContext);
-                    this.mApis.put("-108978463", e02Var);
+                    ou1Var = new ou1(this.mSwanApiContext);
+                    this.mApis.put("-108978463", ou1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(e02Var, "swanAPI/updateMultiPicker");
+                Pair<Boolean, px1> a = rx1.a(ou1Var, "swanAPI/showDatePickerView");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.updateMultiPicker")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showDatePickerView")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 M = e02Var.M(str);
+                qx1 M = ou1Var.M(str);
                 if (M == null) {
                     return "";
                 }
@@ -5029,81 +4861,95 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String hideLoading() {
-                a02 a02Var;
+            public String showHalfScreenWebview(String str) {
+                su1 su1Var;
+                Object obj = this.mApis.get("1172469410");
+                if (obj != null && (obj instanceof su1)) {
+                    su1Var = (su1) obj;
+                } else {
+                    su1Var = new su1(this.mSwanApiContext);
+                    this.mApis.put("1172469410", su1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(su1Var, "swanAPI/showHalfScreenWebview");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showHalfScreenWebview")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 L = su1Var.L(str);
+                if (L == null) {
+                    return "";
+                }
+                return L.a();
+            }
+
+            @JavascriptInterface
+            public String showLoading(String str) {
+                ku1 ku1Var;
                 Object obj = this.mApis.get("5236036");
-                if (obj != null && (obj instanceof a02)) {
-                    a02Var = (a02) obj;
+                if (obj != null && (obj instanceof ku1)) {
+                    ku1Var = (ku1) obj;
                 } else {
-                    a02Var = new a02(this.mSwanApiContext);
-                    this.mApis.put("5236036", a02Var);
+                    ku1Var = new ku1(this.mSwanApiContext);
+                    this.mApis.put("5236036", ku1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(a02Var, "swanAPI/hideLoading");
+                Pair<Boolean, px1> a = rx1.a(ku1Var, "swanAPI/showLoading");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.hideLoading")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showLoading")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = a02Var.x();
-                if (x == null) {
+                qx1 z = ku1Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return x.a();
+                return z.a();
             }
 
             @JavascriptInterface
-            public String hideToast() {
-                h02 h02Var;
-                Object obj = this.mApis.get("1159492510");
-                if (obj != null && (obj instanceof h02)) {
-                    h02Var = (h02) obj;
+            public String showModal(String str) {
+                lu1 lu1Var;
+                Object obj = this.mApis.get("1913747800");
+                if (obj != null && (obj instanceof lu1)) {
+                    lu1Var = (lu1) obj;
                 } else {
-                    h02Var = new h02(this.mSwanApiContext);
-                    this.mApis.put("1159492510", h02Var);
+                    lu1Var = new lu1(this.mSwanApiContext);
+                    this.mApis.put("1913747800", lu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h02Var, "swanAPI/hideToast");
+                Pair<Boolean, px1> a = rx1.a(lu1Var, "swanAPI/showModal");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Interaction.hideToast")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showModal")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 K = h02Var.K();
-                if (K == null) {
+                qx1 B = lu1Var.B(str);
+                if (B == null) {
                     return "";
                 }
-                return K.a();
-            }
-        });
-        hashMap.put("_naKeyboard", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$KeyboardWebviewModule
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
+                return B.a();
             }
 
             @JavascriptInterface
-            public String startKeyboardHeightChange() {
-                j02 j02Var;
-                Object obj = this.mApis.get("-137346255");
-                if (obj != null && (obj instanceof j02)) {
-                    j02Var = (j02) obj;
+            public String showNavigationBarLoading(String str) {
+                mu1 mu1Var;
+                Object obj = this.mApis.get("-246386074");
+                if (obj != null && (obj instanceof mu1)) {
+                    mu1Var = (mu1) obj;
                 } else {
-                    j02Var = new j02(this.mSwanApiContext);
-                    this.mApis.put("-137346255", j02Var);
+                    mu1Var = new mu1(this.mSwanApiContext);
+                    this.mApis.put("-246386074", mu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(j02Var, "swanAPI/startKeyboardHeightChange");
+                Pair<Boolean, px1> a = rx1.a(mu1Var, "swanAPI/showNavigationBarLoading");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Keyboard.startKeyboardHeightChange")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showNavigationBarLoading")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = j02Var.C();
+                qx1 C = mu1Var.C(str);
                 if (C == null) {
                     return "";
                 }
@@ -5111,57 +4957,47 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String stopKeyboardHeightChange() {
-                j02 j02Var;
-                Object obj = this.mApis.get("-137346255");
-                if (obj != null && (obj instanceof j02)) {
-                    j02Var = (j02) obj;
+            public String showToast(String str) {
+                ru1 ru1Var;
+                Object obj = this.mApis.get("1159492510");
+                if (obj != null && (obj instanceof ru1)) {
+                    ru1Var = (ru1) obj;
                 } else {
-                    j02Var = new j02(this.mSwanApiContext);
-                    this.mApis.put("-137346255", j02Var);
+                    ru1Var = new ru1(this.mSwanApiContext);
+                    this.mApis.put("1159492510", ru1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(j02Var, "swanAPI/stopKeyboardHeightChange");
+                Pair<Boolean, px1> a = rx1.a(ru1Var, "swanAPI/showToast");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Keyboard.stopKeyboardHeightChange")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.showToast")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 D = j02Var.D();
-                if (D == null) {
+                qx1 R = ru1Var.R(str);
+                if (R == null) {
                     return "";
                 }
-                return D.a();
-            }
-        });
-        hashMap.put("_naLocationService", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$LocationServiceWebviewModule
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
+                return R.a();
             }
 
             @JavascriptInterface
-            public String getLocation(String str) {
-                k02 k02Var;
-                Object obj = this.mApis.get("-397373095");
-                if (obj != null && (obj instanceof k02)) {
-                    k02Var = (k02) obj;
+            public String stopPullDownRefresh(String str) {
+                pu1 pu1Var;
+                Object obj = this.mApis.get("1165118609");
+                if (obj != null && (obj instanceof pu1)) {
+                    pu1Var = (pu1) obj;
                 } else {
-                    k02Var = new k02(this.mSwanApiContext);
-                    this.mApis.put("-397373095", k02Var);
+                    pu1Var = new pu1(this.mSwanApiContext);
+                    this.mApis.put("1165118609", pu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(k02Var, "swanAPI/getLocation");
+                Pair<Boolean, px1> a = rx1.a(pu1Var, "swanAPI/stopPullDownRefresh");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "LocationService.getLocation")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.stopPullDownRefresh")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = k02Var.y(str);
+                qx1 y = pu1Var.y(str);
                 if (y == null) {
                     return "";
                 }
@@ -5169,163 +5005,279 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String startLocationUpdate(String str) {
-                k02 k02Var;
-                Object obj = this.mApis.get("-397373095");
-                if (obj != null && (obj instanceof k02)) {
-                    k02Var = (k02) obj;
+            public String updateMultiPicker(String str) {
+                ou1 ou1Var;
+                Object obj = this.mApis.get("-108978463");
+                if (obj != null && (obj instanceof ou1)) {
+                    ou1Var = (ou1) obj;
                 } else {
-                    k02Var = new k02(this.mSwanApiContext);
-                    this.mApis.put("-397373095", k02Var);
+                    ou1Var = new ou1(this.mSwanApiContext);
+                    this.mApis.put("-108978463", ou1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(k02Var, "swanAPI/startLocationUpdate");
+                Pair<Boolean, px1> a = rx1.a(ou1Var, "swanAPI/updateMultiPicker");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "LocationService.startLocationUpdate")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.updateMultiPicker")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = k02Var.A(str);
-                if (A == null) {
+                qx1 N = ou1Var.N(str);
+                if (N == null) {
                     return "";
                 }
-                return A.a();
+                return N.a();
             }
 
             @JavascriptInterface
-            public String stopLocationUpdate() {
-                k02 k02Var;
-                Object obj = this.mApis.get("-397373095");
-                if (obj != null && (obj instanceof k02)) {
-                    k02Var = (k02) obj;
+            public String hideLoading() {
+                ku1 ku1Var;
+                Object obj = this.mApis.get("5236036");
+                if (obj != null && (obj instanceof ku1)) {
+                    ku1Var = (ku1) obj;
                 } else {
-                    k02Var = new k02(this.mSwanApiContext);
-                    this.mApis.put("-397373095", k02Var);
+                    ku1Var = new ku1(this.mSwanApiContext);
+                    this.mApis.put("5236036", ku1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(k02Var, "swanAPI/stopLocationUpdate");
+                Pair<Boolean, px1> a = rx1.a(ku1Var, "swanAPI/hideLoading");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "LocationService.stopLocationUpdate")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.hideLoading")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 B = k02Var.B();
+                qx1 y = ku1Var.y();
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String hideToast() {
+                ru1 ru1Var;
+                Object obj = this.mApis.get("1159492510");
+                if (obj != null && (obj instanceof ru1)) {
+                    ru1Var = (ru1) obj;
+                } else {
+                    ru1Var = new ru1(this.mSwanApiContext);
+                    this.mApis.put("1159492510", ru1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ru1Var, "swanAPI/hideToast");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Interaction.hideToast")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 L = ru1Var.L();
+                if (L == null) {
+                    return "";
+                }
+                return L.a();
+            }
+        });
+        hashMap.put("_naKeyboard", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$KeyboardWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String startKeyboardHeightChange() {
+                tu1 tu1Var;
+                Object obj = this.mApis.get("-137346255");
+                if (obj != null && (obj instanceof tu1)) {
+                    tu1Var = (tu1) obj;
+                } else {
+                    tu1Var = new tu1(this.mSwanApiContext);
+                    this.mApis.put("-137346255", tu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(tu1Var, "swanAPI/startKeyboardHeightChange");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Keyboard.startKeyboardHeightChange")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 D = tu1Var.D();
+                if (D == null) {
+                    return "";
+                }
+                return D.a();
+            }
+
+            @JavascriptInterface
+            public String stopKeyboardHeightChange() {
+                tu1 tu1Var;
+                Object obj = this.mApis.get("-137346255");
+                if (obj != null && (obj instanceof tu1)) {
+                    tu1Var = (tu1) obj;
+                } else {
+                    tu1Var = new tu1(this.mSwanApiContext);
+                    this.mApis.put("-137346255", tu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(tu1Var, "swanAPI/stopKeyboardHeightChange");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Keyboard.stopKeyboardHeightChange")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 E = tu1Var.E();
+                if (E == null) {
+                    return "";
+                }
+                return E.a();
+            }
+        });
+        hashMap.put("_naLocationService", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$LocationServiceWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String getLocation(String str) {
+                uu1 uu1Var;
+                Object obj = this.mApis.get("-397373095");
+                if (obj != null && (obj instanceof uu1)) {
+                    uu1Var = (uu1) obj;
+                } else {
+                    uu1Var = new uu1(this.mSwanApiContext);
+                    this.mApis.put("-397373095", uu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(uu1Var, "swanAPI/getLocation");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "LocationService.getLocation")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = uu1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String startLocationUpdate(String str) {
+                uu1 uu1Var;
+                Object obj = this.mApis.get("-397373095");
+                if (obj != null && (obj instanceof uu1)) {
+                    uu1Var = (uu1) obj;
+                } else {
+                    uu1Var = new uu1(this.mSwanApiContext);
+                    this.mApis.put("-397373095", uu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(uu1Var, "swanAPI/startLocationUpdate");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "LocationService.startLocationUpdate")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = uu1Var.B(str);
                 if (B == null) {
                     return "";
                 }
                 return B.a();
             }
+
+            @JavascriptInterface
+            public String stopLocationUpdate() {
+                uu1 uu1Var;
+                Object obj = this.mApis.get("-397373095");
+                if (obj != null && (obj instanceof uu1)) {
+                    uu1Var = (uu1) obj;
+                } else {
+                    uu1Var = new uu1(this.mSwanApiContext);
+                    this.mApis.put("-397373095", uu1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(uu1Var, "swanAPI/stopLocationUpdate");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "LocationService.stopLocationUpdate")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 C = uu1Var.C();
+                if (C == null) {
+                    return "";
+                }
+                return C.a();
+            }
         });
-        hashMap.put("_naMenu", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$MenuWebviewModule
+        hashMap.put("_naMenu", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$MenuWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String getMenuButtonBoundingClientRect() {
-                b22 b22Var;
+                lw1 lw1Var;
                 Object obj = this.mApis.get("538070032");
-                if (obj != null && (obj instanceof b22)) {
-                    b22Var = (b22) obj;
+                if (obj != null && (obj instanceof lw1)) {
+                    lw1Var = (lw1) obj;
                 } else {
-                    b22Var = new b22(this.mSwanApiContext);
-                    this.mApis.put("538070032", b22Var);
+                    lw1Var = new lw1(this.mSwanApiContext);
+                    this.mApis.put("538070032", lw1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(b22Var, "swanAPI/getMenuButtonBoundingClientRect");
+                Pair<Boolean, px1> a = rx1.a(lw1Var, "swanAPI/getMenuButtonBoundingClientRect");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Menu.getMenuButtonBoundingClientRect")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Menu.getMenuButtonBoundingClientRect")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = b22Var.x();
-                if (x == null) {
+                qx1 y = lw1Var.y();
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
         });
-        hashMap.put("_naNetwork", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$NetworkWebviewModule
+        hashMap.put("_naNetwork", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$NetworkWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String callService(String str) {
-                n02 n02Var;
+                xu1 xu1Var;
                 Object obj = this.mApis.get("-1076509454");
-                if (obj != null && (obj instanceof n02)) {
-                    n02Var = (n02) obj;
+                if (obj != null && (obj instanceof xu1)) {
+                    xu1Var = (xu1) obj;
                 } else {
-                    n02Var = new n02(this.mSwanApiContext);
-                    this.mApis.put("-1076509454", n02Var);
+                    xu1Var = new xu1(this.mSwanApiContext);
+                    this.mApis.put("-1076509454", xu1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(n02Var, "swanAPI/callService");
+                Pair<Boolean, px1> a = rx1.a(xu1Var, "swanAPI/callService");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Network.callService")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Network.callService")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = n02Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String cancelRequest(String str) {
-                u02 u02Var;
-                Object obj = this.mApis.get("968563034");
-                if (obj != null && (obj instanceof u02)) {
-                    u02Var = (u02) obj;
-                } else {
-                    u02Var = new u02(this.mSwanApiContext);
-                    this.mApis.put("968563034", u02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(u02Var, "swanAPI/cancelRequest");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Network.cancelRequest")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 D = u02Var.D(str);
-                if (D == null) {
-                    return "";
-                }
-                return D.a();
-            }
-
-            @JavascriptInterface
-            public String networkStatusChange(String str) {
-                t02 t02Var;
-                Object obj = this.mApis.get("453220699");
-                if (obj != null && (obj instanceof t02)) {
-                    t02Var = (t02) obj;
-                } else {
-                    t02Var = new t02(this.mSwanApiContext);
-                    this.mApis.put("453220699", t02Var);
-                }
-                Pair<Boolean, f32> a = h32.a(t02Var, "swanAPI/networkStatusChange");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Network.networkStatusChange")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = t02Var.y(str);
+                qx1 y = xu1Var.y(str);
                 if (y == null) {
                     return "";
                 }
@@ -5333,62 +5285,110 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String getNetworkType() {
-                t02 t02Var;
-                Object obj = this.mApis.get("453220699");
-                if (obj != null && (obj instanceof t02)) {
-                    t02Var = (t02) obj;
+            public String cancelRequest(String str) {
+                ev1 ev1Var;
+                Object obj = this.mApis.get("968563034");
+                if (obj != null && (obj instanceof ev1)) {
+                    ev1Var = (ev1) obj;
                 } else {
-                    t02Var = new t02(this.mSwanApiContext);
-                    this.mApis.put("453220699", t02Var);
+                    ev1Var = new ev1(this.mSwanApiContext);
+                    this.mApis.put("968563034", ev1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(t02Var, "swanAPI/getNetworkType");
+                Pair<Boolean, px1> a = rx1.a(ev1Var, "swanAPI/cancelRequest");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Network.getNetworkType")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Network.cancelRequest")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = t02Var.x();
-                if (x == null) {
+                qx1 E = ev1Var.E(str);
+                if (E == null) {
                     return "";
                 }
-                return x.a();
+                return E.a();
+            }
+
+            @JavascriptInterface
+            public String networkStatusChange(String str) {
+                dv1 dv1Var;
+                Object obj = this.mApis.get("453220699");
+                if (obj != null && (obj instanceof dv1)) {
+                    dv1Var = (dv1) obj;
+                } else {
+                    dv1Var = new dv1(this.mSwanApiContext);
+                    this.mApis.put("453220699", dv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(dv1Var, "swanAPI/networkStatusChange");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Network.networkStatusChange")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = dv1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String getNetworkType() {
+                dv1 dv1Var;
+                Object obj = this.mApis.get("453220699");
+                if (obj != null && (obj instanceof dv1)) {
+                    dv1Var = (dv1) obj;
+                } else {
+                    dv1Var = new dv1(this.mSwanApiContext);
+                    this.mApis.put("453220699", dv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(dv1Var, "swanAPI/getNetworkType");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Network.getNetworkType")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = dv1Var.y();
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
             }
 
             /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
             @JavascriptInterface
             public String request(String str) {
-                u02 u02Var;
+                ev1 ev1Var;
                 String a;
                 try {
-                    e32.c().a("request");
+                    ox1.c().a("request");
                     Object obj = this.mApis.get("968563034");
-                    if (obj != null && (obj instanceof u02)) {
-                        u02Var = (u02) obj;
+                    if (obj != null && (obj instanceof ev1)) {
+                        ev1Var = (ev1) obj;
                     } else {
-                        u02Var = new u02(this.mSwanApiContext);
-                        this.mApis.put("968563034", u02Var);
+                        ev1Var = new ev1(this.mSwanApiContext);
+                        this.mApis.put("968563034", ev1Var);
                     }
-                    Pair<Boolean, f32> a2 = h32.a(u02Var, "swanAPI/request");
+                    Pair<Boolean, px1> a2 = rx1.a(ev1Var, "swanAPI/request");
                     if (((Boolean) a2.first).booleanValue()) {
-                        a = ((f32) a2.second).a();
-                    } else if (nd2.a(this.mSwanApiContext.e(), "Network.request")) {
-                        a = new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                        a = ((px1) a2.second).a();
+                    } else if (w72.a(this.mSwanApiContext.e(), "Network.request")) {
+                        a = new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                     } else {
-                        Pair<f32, JSONObject> u = jz1.u(str);
-                        if (!((f32) u.first).isSuccess()) {
-                            a = ((f32) u.first).a();
+                        Pair<px1, JSONObject> v = tt1.v(str);
+                        if (!((px1) v.first).isSuccess()) {
+                            a = ((px1) v.first).a();
                         } else {
-                            JSONObject jSONObject = (JSONObject) u.second;
+                            JSONObject jSONObject = (JSONObject) v.second;
                             if (jSONObject == null) {
-                                a = f32.a.a();
+                                a = px1.a.a();
                             } else {
-                                g32 V = u02Var.V(jSONObject);
-                                if (V == null) {
+                                qx1 W = ev1Var.W(jSONObject);
+                                if (W == null) {
                                     a = "";
                                 } else {
-                                    a = V.a();
+                                    a = W.a();
                                 }
                             }
                         }
@@ -5398,839 +5398,1387 @@ public class SwanApi$$ModulesProvider {
                     try {
                         throw th;
                     } finally {
-                        e32.c().b("request");
+                        ox1.c().b("request");
                     }
                 }
             }
         });
-        hashMap.put("_naPayment", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PaymentWebviewModule
+        hashMap.put("_naPayment", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PaymentWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String chooseCoupon(String str) {
-                d43 d43Var;
+                my2 my2Var;
                 Object obj = this.mApis.get("-336396851");
-                if (obj != null && (obj instanceof d43)) {
-                    d43Var = (d43) obj;
+                if (obj != null && (obj instanceof my2)) {
+                    my2Var = (my2) obj;
                 } else {
-                    d43Var = new d43(this.mSwanApiContext);
-                    this.mApis.put("-336396851", d43Var);
+                    my2Var = new my2(this.mSwanApiContext);
+                    this.mApis.put("-336396851", my2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(d43Var, "swanAPI/chooseCoupon");
+                Pair<Boolean, px1> a = rx1.a(my2Var, "swanAPI/chooseCoupon");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Payment.chooseCoupon")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Payment.chooseCoupon")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = d43Var.x(str);
-                if (x == null) {
+                qx1 y = my2Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String getPaymentInfo(String str) {
-                d43 d43Var;
+                my2 my2Var;
                 Object obj = this.mApis.get("-336396851");
-                if (obj != null && (obj instanceof d43)) {
-                    d43Var = (d43) obj;
+                if (obj != null && (obj instanceof my2)) {
+                    my2Var = (my2) obj;
                 } else {
-                    d43Var = new d43(this.mSwanApiContext);
-                    this.mApis.put("-336396851", d43Var);
+                    my2Var = new my2(this.mSwanApiContext);
+                    this.mApis.put("-336396851", my2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(d43Var, "swanAPI/getPaymentInfo");
+                Pair<Boolean, px1> a = rx1.a(my2Var, "swanAPI/getPaymentInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Payment.getPaymentInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Payment.getPaymentInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = d43Var.y(str);
-                if (y == null) {
+                qx1 z = my2Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return y.a();
+                return z.a();
             }
 
             @JavascriptInterface
             public String requestThirdPayment(String str) {
-                t33 t33Var;
+                cy2 cy2Var;
                 Object obj = this.mApis.get("1854689529");
-                if (obj != null && (obj instanceof t33)) {
-                    t33Var = (t33) obj;
+                if (obj != null && (obj instanceof cy2)) {
+                    cy2Var = (cy2) obj;
                 } else {
-                    t33Var = new t33(this.mSwanApiContext);
-                    this.mApis.put("1854689529", t33Var);
+                    cy2Var = new cy2(this.mSwanApiContext);
+                    this.mApis.put("1854689529", cy2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(t33Var, "swanAPI/requestThirdPayment");
+                Pair<Boolean, px1> a = rx1.a(cy2Var, "swanAPI/requestThirdPayment");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Payment.requestThirdPayment")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Payment.requestThirdPayment")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = t33Var.x(str);
-                if (x == null) {
+                qx1 y = cy2Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String setPaymentInfo(String str) {
-                d43 d43Var;
+                my2 my2Var;
                 Object obj = this.mApis.get("-336396851");
-                if (obj != null && (obj instanceof d43)) {
-                    d43Var = (d43) obj;
+                if (obj != null && (obj instanceof my2)) {
+                    my2Var = (my2) obj;
                 } else {
-                    d43Var = new d43(this.mSwanApiContext);
-                    this.mApis.put("-336396851", d43Var);
+                    my2Var = new my2(this.mSwanApiContext);
+                    this.mApis.put("-336396851", my2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(d43Var, "swanAPI/setPaymentInfo");
+                Pair<Boolean, px1> a = rx1.a(my2Var, "swanAPI/setPaymentInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Payment.setPaymentInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Payment.setPaymentInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 z = d43Var.z(str);
-                if (z == null) {
+                qx1 A = my2Var.A(str);
+                if (A == null) {
                     return "";
                 }
-                return z.a();
+                return A.a();
             }
         });
-        hashMap.put("_naPlugin", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PluginWebviewModule
+        hashMap.put("_naPlugin", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PluginWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String invokePluginChooseAddress(String str) {
-                o63 o63Var;
+                x03 x03Var;
                 Object obj = this.mApis.get("-254510461");
-                if (obj != null && (obj instanceof o63)) {
-                    o63Var = (o63) obj;
+                if (obj != null && (obj instanceof x03)) {
+                    x03Var = (x03) obj;
                 } else {
-                    o63Var = new o63(this.mSwanApiContext);
-                    this.mApis.put("-254510461", o63Var);
+                    x03Var = new x03(this.mSwanApiContext);
+                    this.mApis.put("-254510461", x03Var);
                 }
-                Pair<Boolean, f32> a = h32.a(o63Var, "swanAPI/invokePluginChooseAddress");
+                Pair<Boolean, px1> a = rx1.a(x03Var, "swanAPI/invokePluginChooseAddress");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Plugin.invokePluginChooseAddress")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Plugin.invokePluginChooseAddress")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = o63Var.y(str);
-                if (y == null) {
+                qx1 z = x03Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return y.a();
+                return z.a();
             }
 
             @JavascriptInterface
             public String invokePluginLoginAndGetUserInfo(String str) {
-                o63 o63Var;
+                x03 x03Var;
                 Object obj = this.mApis.get("-254510461");
-                if (obj != null && (obj instanceof o63)) {
-                    o63Var = (o63) obj;
+                if (obj != null && (obj instanceof x03)) {
+                    x03Var = (x03) obj;
                 } else {
-                    o63Var = new o63(this.mSwanApiContext);
-                    this.mApis.put("-254510461", o63Var);
+                    x03Var = new x03(this.mSwanApiContext);
+                    this.mApis.put("-254510461", x03Var);
                 }
-                Pair<Boolean, f32> a = h32.a(o63Var, "swanAPI/invokePluginLoginAndGetUserInfo");
+                Pair<Boolean, px1> a = rx1.a(x03Var, "swanAPI/invokePluginLoginAndGetUserInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Plugin.invokePluginLoginAndGetUserInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Plugin.invokePluginLoginAndGetUserInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 z = o63Var.z(str);
-                if (z == null) {
+                qx1 A = x03Var.A(str);
+                if (A == null) {
                     return "";
                 }
-                return z.a();
+                return A.a();
             }
 
             @JavascriptInterface
             public String invokePluginPayment(String str) {
-                o63 o63Var;
+                x03 x03Var;
                 Object obj = this.mApis.get("-254510461");
-                if (obj != null && (obj instanceof o63)) {
-                    o63Var = (o63) obj;
+                if (obj != null && (obj instanceof x03)) {
+                    x03Var = (x03) obj;
                 } else {
-                    o63Var = new o63(this.mSwanApiContext);
-                    this.mApis.put("-254510461", o63Var);
+                    x03Var = new x03(this.mSwanApiContext);
+                    this.mApis.put("-254510461", x03Var);
                 }
-                Pair<Boolean, f32> a = h32.a(o63Var, "swanAPI/invokePluginPayment");
+                Pair<Boolean, px1> a = rx1.a(x03Var, "swanAPI/invokePluginPayment");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Plugin.invokePluginPayment")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Plugin.invokePluginPayment")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = o63Var.A(str);
-                if (A == null) {
+                qx1 B = x03Var.B(str);
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
         });
-        hashMap.put("_naPrefetch", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrefetchWebviewModule
+        hashMap.put("_naPrefetch", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrefetchWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String prefetchResources(String str) {
-                hf2 hf2Var;
+                q92 q92Var;
                 Object obj = this.mApis.get("-2068479848");
-                if (obj != null && (obj instanceof hf2)) {
-                    hf2Var = (hf2) obj;
+                if (obj != null && (obj instanceof q92)) {
+                    q92Var = (q92) obj;
                 } else {
-                    hf2Var = new hf2(this.mSwanApiContext);
-                    this.mApis.put("-2068479848", hf2Var);
+                    q92Var = new q92(this.mSwanApiContext);
+                    this.mApis.put("-2068479848", q92Var);
                 }
-                Pair<Boolean, f32> a = h32.a(hf2Var, "swanAPI/prefetchResources");
+                Pair<Boolean, px1> a = rx1.a(q92Var, "swanAPI/prefetchResources");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Prefetch.prefetchResources")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Prefetch.prefetchResources")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = hf2Var.x(str);
-                if (x == null) {
+                qx1 y = q92Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
         });
-        hashMap.put("_naPreload", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PreloadWebviewModule
+        hashMap.put("_naPreload", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PreloadWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String preloadStatus(String str) {
-                zd2 zd2Var;
+                i82 i82Var;
                 Object obj = this.mApis.get("423661539");
-                if (obj != null && (obj instanceof zd2)) {
-                    zd2Var = (zd2) obj;
+                if (obj != null && (obj instanceof i82)) {
+                    i82Var = (i82) obj;
                 } else {
-                    zd2Var = new zd2(this.mSwanApiContext);
-                    this.mApis.put("423661539", zd2Var);
+                    i82Var = new i82(this.mSwanApiContext);
+                    this.mApis.put("423661539", i82Var);
                 }
-                Pair<Boolean, f32> a = h32.a(zd2Var, "swanAPI/preloadStatus");
+                Pair<Boolean, px1> a = rx1.a(i82Var, "swanAPI/preloadStatus");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Preload.preloadStatus")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Preload.preloadStatus")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = zd2Var.x(str);
-                if (x == null) {
+                qx1 y = i82Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
         });
-        hashMap.put("_naPrivateFile", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateFileWebviewModule
+        hashMap.put("_naPrivateFile", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateFileWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String uploadFileToBos(String str) {
-                jn3 jn3Var;
+                sh3 sh3Var;
                 Object obj = this.mApis.get("-1929343869");
-                if (obj != null && (obj instanceof jn3)) {
-                    jn3Var = (jn3) obj;
+                if (obj != null && (obj instanceof sh3)) {
+                    sh3Var = (sh3) obj;
                 } else {
-                    jn3Var = new jn3(this.mSwanApiContext);
-                    this.mApis.put("-1929343869", jn3Var);
+                    sh3Var = new sh3(this.mSwanApiContext);
+                    this.mApis.put("-1929343869", sh3Var);
                 }
-                Pair<Boolean, f32> a = h32.a(jn3Var, "swanAPI/uploadFileToBos");
+                Pair<Boolean, px1> a = rx1.a(sh3Var, "swanAPI/uploadFileToBos");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "PrivateFile.uploadFileToBos")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "PrivateFile.uploadFileToBos")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = jn3Var.C(str);
-                if (C == null) {
+                qx1 D = sh3Var.D(str);
+                if (D == null) {
                     return "";
                 }
-                return C.a();
+                return D.a();
             }
         });
-        hashMap.put("_naRouter", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$RouterWebviewModule
+        hashMap.put("_naRouter", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$RouterWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String hideModalPage() {
-                y02 y02Var;
+                iv1 iv1Var;
                 Object obj = this.mApis.get("-1495163604");
-                if (obj != null && (obj instanceof y02)) {
-                    y02Var = (y02) obj;
+                if (obj != null && (obj instanceof iv1)) {
+                    iv1Var = (iv1) obj;
                 } else {
-                    y02Var = new y02(this.mSwanApiContext);
-                    this.mApis.put("-1495163604", y02Var);
+                    iv1Var = new iv1(this.mSwanApiContext);
+                    this.mApis.put("-1495163604", iv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(y02Var, "swanAPI/hideModalPage");
+                Pair<Boolean, px1> a = rx1.a(iv1Var, "swanAPI/hideModalPage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.hideModalPage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.hideModalPage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = y02Var.A();
-                if (A == null) {
+                qx1 B = iv1Var.B();
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
 
             @JavascriptInterface
             public String navigateBack(String str) {
-                y02 y02Var;
+                iv1 iv1Var;
                 Object obj = this.mApis.get("-1495163604");
-                if (obj != null && (obj instanceof y02)) {
-                    y02Var = (y02) obj;
+                if (obj != null && (obj instanceof iv1)) {
+                    iv1Var = (iv1) obj;
                 } else {
-                    y02Var = new y02(this.mSwanApiContext);
-                    this.mApis.put("-1495163604", y02Var);
+                    iv1Var = new iv1(this.mSwanApiContext);
+                    this.mApis.put("-1495163604", iv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(y02Var, "swanAPI/navigateBack");
+                Pair<Boolean, px1> a = rx1.a(iv1Var, "swanAPI/navigateBack");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.navigateBack")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.navigateBack")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 B = y02Var.B(str);
-                if (B == null) {
+                qx1 C = iv1Var.C(str);
+                if (C == null) {
                     return "";
                 }
-                return B.a();
+                return C.a();
             }
 
             @JavascriptInterface
             public String navigateTo(String str) {
-                z02 z02Var;
+                jv1 jv1Var;
                 Object obj = this.mApis.get("1968522584");
-                if (obj != null && (obj instanceof z02)) {
-                    z02Var = (z02) obj;
+                if (obj != null && (obj instanceof jv1)) {
+                    jv1Var = (jv1) obj;
                 } else {
-                    z02Var = new z02(this.mSwanApiContext);
-                    this.mApis.put("1968522584", z02Var);
+                    jv1Var = new jv1(this.mSwanApiContext);
+                    this.mApis.put("1968522584", jv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(z02Var, "swanAPI/navigateTo");
+                Pair<Boolean, px1> a = rx1.a(jv1Var, "swanAPI/navigateTo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.navigateTo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.navigateTo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 H = z02Var.H(str);
-                if (H == null) {
+                qx1 I = jv1Var.I(str);
+                if (I == null) {
                     return "";
                 }
-                return H.a();
+                return I.a();
             }
 
             @JavascriptInterface
             public String reLaunch(String str) {
-                b12 b12Var;
+                lv1 lv1Var;
                 Object obj = this.mApis.get("1317280190");
-                if (obj != null && (obj instanceof b12)) {
-                    b12Var = (b12) obj;
+                if (obj != null && (obj instanceof lv1)) {
+                    lv1Var = (lv1) obj;
                 } else {
-                    b12Var = new b12(this.mSwanApiContext);
-                    this.mApis.put("1317280190", b12Var);
+                    lv1Var = new lv1(this.mSwanApiContext);
+                    this.mApis.put("1317280190", lv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(b12Var, "swanAPI/reLaunch");
+                Pair<Boolean, px1> a = rx1.a(lv1Var, "swanAPI/reLaunch");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.reLaunch")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.reLaunch")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = b12Var.A(str);
-                if (A == null) {
+                qx1 B = lv1Var.B(str);
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
 
             @JavascriptInterface
             public String reLoadErrorPage(String str) {
-                c12 c12Var;
+                mv1 mv1Var;
                 Object obj = this.mApis.get("-420075743");
-                if (obj != null && (obj instanceof c12)) {
-                    c12Var = (c12) obj;
+                if (obj != null && (obj instanceof mv1)) {
+                    mv1Var = (mv1) obj;
                 } else {
-                    c12Var = new c12(this.mSwanApiContext);
-                    this.mApis.put("-420075743", c12Var);
+                    mv1Var = new mv1(this.mSwanApiContext);
+                    this.mApis.put("-420075743", mv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(c12Var, "swanAPI/reLoadErrorPage");
+                Pair<Boolean, px1> a = rx1.a(mv1Var, "swanAPI/reLoadErrorPage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.reLoadErrorPage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.reLoadErrorPage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = c12Var.x(str);
-                if (x == null) {
+                qx1 y = mv1Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String redirectTo(String str) {
-                a12 a12Var;
+                kv1 kv1Var;
                 Object obj = this.mApis.get("1792515533");
-                if (obj != null && (obj instanceof a12)) {
-                    a12Var = (a12) obj;
+                if (obj != null && (obj instanceof kv1)) {
+                    kv1Var = (kv1) obj;
                 } else {
-                    a12Var = new a12(this.mSwanApiContext);
-                    this.mApis.put("1792515533", a12Var);
+                    kv1Var = new kv1(this.mSwanApiContext);
+                    this.mApis.put("1792515533", kv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(a12Var, "swanAPI/redirectTo");
+                Pair<Boolean, px1> a = rx1.a(kv1Var, "swanAPI/redirectTo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.redirectTo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.redirectTo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 D = a12Var.D(str);
-                if (D == null) {
+                qx1 E = kv1Var.E(str);
+                if (E == null) {
                     return "";
                 }
-                return D.a();
+                return E.a();
             }
 
             @JavascriptInterface
             public String showModalPage(String str) {
-                z02 z02Var;
+                jv1 jv1Var;
                 Object obj = this.mApis.get("1968522584");
-                if (obj != null && (obj instanceof z02)) {
-                    z02Var = (z02) obj;
+                if (obj != null && (obj instanceof jv1)) {
+                    jv1Var = (jv1) obj;
                 } else {
-                    z02Var = new z02(this.mSwanApiContext);
-                    this.mApis.put("1968522584", z02Var);
+                    jv1Var = new jv1(this.mSwanApiContext);
+                    this.mApis.put("1968522584", jv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(z02Var, "swanAPI/showModalPage");
+                Pair<Boolean, px1> a = rx1.a(jv1Var, "swanAPI/showModalPage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Router.showModalPage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Router.showModalPage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 J = z02Var.J(str);
-                if (J == null) {
+                qx1 K = jv1Var.K(str);
+                if (K == null) {
                     return "";
                 }
-                return J.a();
+                return K.a();
             }
         });
-        hashMap.put("_naSetting", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SettingWebviewModule
+        hashMap.put("_naSetting", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SettingWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String getAppInfoSync() {
-                f12 f12Var;
+                pv1 pv1Var;
                 Object obj = this.mApis.get("-594895721");
-                if (obj != null && (obj instanceof f12)) {
-                    f12Var = (f12) obj;
+                if (obj != null && (obj instanceof pv1)) {
+                    pv1Var = (pv1) obj;
                 } else {
-                    f12Var = new f12(this.mSwanApiContext);
-                    this.mApis.put("-594895721", f12Var);
+                    pv1Var = new pv1(this.mSwanApiContext);
+                    this.mApis.put("-594895721", pv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f12Var, "swanAPI/getAppInfoSync");
+                Pair<Boolean, px1> a = rx1.a(pv1Var, "swanAPI/getAppInfoSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.getAppInfoSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.getAppInfoSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 F = f12Var.F();
-                if (F == null) {
+                qx1 G = pv1Var.G();
+                if (G == null) {
                     return "";
                 }
-                return F.a();
+                return G.a();
             }
 
             @JavascriptInterface
             public String getSlaveIdSync() {
-                f12 f12Var;
+                pv1 pv1Var;
                 Object obj = this.mApis.get("-594895721");
-                if (obj != null && (obj instanceof f12)) {
-                    f12Var = (f12) obj;
+                if (obj != null && (obj instanceof pv1)) {
+                    pv1Var = (pv1) obj;
                 } else {
-                    f12Var = new f12(this.mSwanApiContext);
-                    this.mApis.put("-594895721", f12Var);
+                    pv1Var = new pv1(this.mSwanApiContext);
+                    this.mApis.put("-594895721", pv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f12Var, "swanAPI/getSlaveIdSync");
+                Pair<Boolean, px1> a = rx1.a(pv1Var, "swanAPI/getSlaveIdSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.getSlaveIdSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.getSlaveIdSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 H = f12Var.H();
-                if (H == null) {
+                qx1 I = pv1Var.I();
+                if (I == null) {
                     return "";
                 }
-                return H.a();
+                return I.a();
             }
 
             @JavascriptInterface
             public String isAllowedAdOpenAppSync() {
-                e12 e12Var;
+                ov1 ov1Var;
                 Object obj = this.mApis.get("450273045");
-                if (obj != null && (obj instanceof e12)) {
-                    e12Var = (e12) obj;
+                if (obj != null && (obj instanceof ov1)) {
+                    ov1Var = (ov1) obj;
                 } else {
-                    e12Var = new e12(this.mSwanApiContext);
-                    this.mApis.put("450273045", e12Var);
+                    ov1Var = new ov1(this.mSwanApiContext);
+                    this.mApis.put("450273045", ov1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(e12Var, "swanAPI/isAllowedAdOpenAppSync");
+                Pair<Boolean, px1> a = rx1.a(ov1Var, "swanAPI/isAllowedAdOpenAppSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.isAllowedAdOpenAppSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.isAllowedAdOpenAppSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = e12Var.x();
-                if (x == null) {
+                qx1 y = ov1Var.y();
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String getSetting(String str) {
-                f12 f12Var;
+                pv1 pv1Var;
                 Object obj = this.mApis.get("-594895721");
-                if (obj != null && (obj instanceof f12)) {
-                    f12Var = (f12) obj;
+                if (obj != null && (obj instanceof pv1)) {
+                    pv1Var = (pv1) obj;
                 } else {
-                    f12Var = new f12(this.mSwanApiContext);
-                    this.mApis.put("-594895721", f12Var);
+                    pv1Var = new pv1(this.mSwanApiContext);
+                    this.mApis.put("-594895721", pv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f12Var, "swanAPI/getSetting");
+                Pair<Boolean, px1> a = rx1.a(pv1Var, "swanAPI/getSetting");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.getSetting")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.getSetting")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 G = f12Var.G(str);
-                if (G == null) {
+                qx1 H = pv1Var.H(str);
+                if (H == null) {
                     return "";
                 }
-                return G.a();
+                return H.a();
             }
 
             @JavascriptInterface
             public String getSwanId(String str) {
-                f12 f12Var;
+                pv1 pv1Var;
                 Object obj = this.mApis.get("-594895721");
-                if (obj != null && (obj instanceof f12)) {
-                    f12Var = (f12) obj;
+                if (obj != null && (obj instanceof pv1)) {
+                    pv1Var = (pv1) obj;
                 } else {
-                    f12Var = new f12(this.mSwanApiContext);
-                    this.mApis.put("-594895721", f12Var);
+                    pv1Var = new pv1(this.mSwanApiContext);
+                    this.mApis.put("-594895721", pv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f12Var, "swanAPI/getSwanId");
+                Pair<Boolean, px1> a = rx1.a(pv1Var, "swanAPI/getSwanId");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.getSwanId")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.getSwanId")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 I = f12Var.I(str);
-                if (I == null) {
+                qx1 J = pv1Var.J(str);
+                if (J == null) {
                     return "";
                 }
-                return I.a();
+                return J.a();
             }
 
             @JavascriptInterface
             public String getUserInfo(String str) {
-                f12 f12Var;
+                pv1 pv1Var;
                 Object obj = this.mApis.get("-594895721");
-                if (obj != null && (obj instanceof f12)) {
-                    f12Var = (f12) obj;
+                if (obj != null && (obj instanceof pv1)) {
+                    pv1Var = (pv1) obj;
                 } else {
-                    f12Var = new f12(this.mSwanApiContext);
-                    this.mApis.put("-594895721", f12Var);
+                    pv1Var = new pv1(this.mSwanApiContext);
+                    this.mApis.put("-594895721", pv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(f12Var, "swanAPI/getUserInfo");
+                Pair<Boolean, px1> a = rx1.a(pv1Var, "swanAPI/getUserInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Setting.getUserInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Setting.getUserInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 J = f12Var.J(str);
-                if (J == null) {
+                qx1 K = pv1Var.K(str);
+                if (K == null) {
                     return "";
                 }
-                return J.a();
+                return K.a();
             }
         });
-        hashMap.put("_naStatisticEvent", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$StatisticEventWebviewModule
+        hashMap.put("_naStatisticEvent", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$StatisticEventWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String ubcAndCeresStatisticEvent(String str) {
-                di3 di3Var;
+                mc3 mc3Var;
                 Object obj = this.mApis.get("712777136");
-                if (obj != null && (obj instanceof di3)) {
-                    di3Var = (di3) obj;
+                if (obj != null && (obj instanceof mc3)) {
+                    mc3Var = (mc3) obj;
                 } else {
-                    di3Var = new di3(this.mSwanApiContext);
-                    this.mApis.put("712777136", di3Var);
+                    mc3Var = new mc3(this.mSwanApiContext);
+                    this.mApis.put("712777136", mc3Var);
                 }
-                Pair<Boolean, f32> a = h32.a(di3Var, "swanAPI/ubcAndCeresStatisticEvent");
+                Pair<Boolean, px1> a = rx1.a(mc3Var, "swanAPI/ubcAndCeresStatisticEvent");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "StatisticEvent.ubcAndCeresStatisticEvent")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "StatisticEvent.ubcAndCeresStatisticEvent")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = di3Var.A(str);
-                if (A == null) {
+                qx1 B = mc3Var.B(str);
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
         });
-        hashMap.put("_naStorage", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$StorageWebviewModule
+        hashMap.put("_naStorage", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$StorageWebviewModule
             public static final boolean DEBUG = false;
             public static final String TAG = "Api-Base";
             public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
+            public rt1 mSwanApiContext;
 
             {
-                this.mSwanApiContext = hz1Var;
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
             public String clearGlobalStorage() {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/clearGlobalStorage");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/clearGlobalStorage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.clearGlobalStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.clearGlobalStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = i12Var.A();
-                if (A == null) {
+                qx1 B = sv1Var.B();
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
 
             @JavascriptInterface
             public String clearGlobalStorageSync() {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/clearGlobalStorageSync");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/clearGlobalStorageSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.clearGlobalStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.clearGlobalStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = i12Var.C();
-                if (C == null) {
+                qx1 D = sv1Var.D();
+                if (D == null) {
                     return "";
                 }
-                return C.a();
+                return D.a();
             }
 
             @JavascriptInterface
             public String clearStorage() {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/clearStorage");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/clearStorage");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.clearStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.clearStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = h12Var.A();
-                if (A == null) {
+                qx1 B = rv1Var.B();
+                if (B == null) {
                     return "";
                 }
-                return A.a();
+                return B.a();
             }
 
             @JavascriptInterface
             public String clearStorageSync() {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/clearStorageSync");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/clearStorageSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.clearStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.clearStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 C = h12Var.C();
-                if (C == null) {
+                qx1 D = rv1Var.D();
+                if (D == null) {
                     return "";
                 }
-                return C.a();
+                return D.a();
             }
 
             @JavascriptInterface
             public String getGlobalStorageInfo() {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/getGlobalStorageInfo");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/getGlobalStorageInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 G = i12Var.G();
-                if (G == null) {
+                qx1 H = sv1Var.H();
+                if (H == null) {
                     return "";
                 }
-                return G.a();
+                return H.a();
             }
 
             @JavascriptInterface
             public String getGlobalStorageInfoSync() {
-                i12 i12Var;
+                sv1 sv1Var;
                 Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
                 } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/getGlobalStorageInfoSync");
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/getGlobalStorageInfoSync");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageInfoSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageInfoSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 J = i12Var.J();
-                if (J == null) {
+                qx1 K = sv1Var.K();
+                if (K == null) {
                     return "";
                 }
-                return J.a();
+                return K.a();
             }
 
             @JavascriptInterface
             public String getStorageInfo() {
-                h12 h12Var;
+                rv1 rv1Var;
                 Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
                 } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/getStorageInfo");
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/getStorageInfo");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getStorageInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getStorageInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 G = h12Var.G();
+                qx1 H = rv1Var.H();
+                if (H == null) {
+                    return "";
+                }
+                return H.a();
+            }
+
+            @JavascriptInterface
+            public String getStorageInfoSync() {
+                rv1 rv1Var;
+                Object obj = this.mApis.get("130910081");
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
+                } else {
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/getStorageInfoSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getStorageInfoSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 K = rv1Var.K();
+                if (K == null) {
+                    return "";
+                }
+                return K.a();
+            }
+
+            @JavascriptInterface
+            public String getGlobalStorage(String str) {
+                sv1 sv1Var;
+                Object obj = this.mApis.get("-804054859");
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
+                } else {
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/getGlobalStorage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getGlobalStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 E = sv1Var.E(str);
+                if (E == null) {
+                    return "";
+                }
+                return E.a();
+            }
+
+            @JavascriptInterface
+            public String getGlobalStorageSync(String str) {
+                sv1 sv1Var;
+                Object obj = this.mApis.get("-804054859");
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
+                } else {
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/getGlobalStorageSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 L = sv1Var.L(str);
+                if (L == null) {
+                    return "";
+                }
+                return L.a();
+            }
+
+            @JavascriptInterface
+            public String getStorage(String str) {
+                rv1 rv1Var;
+                Object obj = this.mApis.get("130910081");
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
+                } else {
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/getStorage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 E = rv1Var.E(str);
+                if (E == null) {
+                    return "";
+                }
+                return E.a();
+            }
+
+            @JavascriptInterface
+            public String getStorageInfoAsync(String str) {
+                rv1 rv1Var;
+                Object obj = this.mApis.get("130910081");
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
+                } else {
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/getStorageInfoAsync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getStorageInfoAsync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 I = rv1Var.I(str);
+                if (I == null) {
+                    return "";
+                }
+                return I.a();
+            }
+
+            @JavascriptInterface
+            public String getStorageSync(String str) {
+                rv1 rv1Var;
+                Object obj = this.mApis.get("130910081");
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
+                } else {
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/getStorageSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.getStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 L = rv1Var.L(str);
+                if (L == null) {
+                    return "";
+                }
+                return L.a();
+            }
+
+            @JavascriptInterface
+            public String removeGlobalStorage(String str) {
+                sv1 sv1Var;
+                Object obj = this.mApis.get("-804054859");
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
+                } else {
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/removeGlobalStorage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.removeGlobalStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 S = sv1Var.S(str);
+                if (S == null) {
+                    return "";
+                }
+                return S.a();
+            }
+
+            @JavascriptInterface
+            public String removeGlobalStorageSync(String str) {
+                sv1 sv1Var;
+                Object obj = this.mApis.get("-804054859");
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
+                } else {
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/removeGlobalStorageSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.removeGlobalStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 U = sv1Var.U(str);
+                if (U == null) {
+                    return "";
+                }
+                return U.a();
+            }
+
+            @JavascriptInterface
+            public String removeStorage(String str) {
+                rv1 rv1Var;
+                Object obj = this.mApis.get("130910081");
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
+                } else {
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/removeStorage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.removeStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 S = rv1Var.S(str);
+                if (S == null) {
+                    return "";
+                }
+                return S.a();
+            }
+
+            @JavascriptInterface
+            public String removeStorageSync(String str) {
+                rv1 rv1Var;
+                Object obj = this.mApis.get("130910081");
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
+                } else {
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/removeStorageSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.removeStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 U = rv1Var.U(str);
+                if (U == null) {
+                    return "";
+                }
+                return U.a();
+            }
+
+            @JavascriptInterface
+            public String setGlobalStorage(String str) {
+                sv1 sv1Var;
+                Object obj = this.mApis.get("-804054859");
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
+                } else {
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/setGlobalStorage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.setGlobalStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 V = sv1Var.V(str);
+                if (V == null) {
+                    return "";
+                }
+                return V.a();
+            }
+
+            @JavascriptInterface
+            public String setGlobalStorageSync(String str) {
+                sv1 sv1Var;
+                Object obj = this.mApis.get("-804054859");
+                if (obj != null && (obj instanceof sv1)) {
+                    sv1Var = (sv1) obj;
+                } else {
+                    sv1Var = new sv1(this.mSwanApiContext);
+                    this.mApis.put("-804054859", sv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(sv1Var, "swanAPI/setGlobalStorageSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.setGlobalStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 X = sv1Var.X(str);
+                if (X == null) {
+                    return "";
+                }
+                return X.a();
+            }
+
+            @JavascriptInterface
+            public String setStorage(String str) {
+                rv1 rv1Var;
+                Object obj = this.mApis.get("130910081");
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
+                } else {
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/setStorage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.setStorage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 V = rv1Var.V(str);
+                if (V == null) {
+                    return "";
+                }
+                return V.a();
+            }
+
+            @JavascriptInterface
+            public String setStorageSync(String str) {
+                rv1 rv1Var;
+                Object obj = this.mApis.get("130910081");
+                if (obj != null && (obj instanceof rv1)) {
+                    rv1Var = (rv1) obj;
+                } else {
+                    rv1Var = new rv1(this.mSwanApiContext);
+                    this.mApis.put("130910081", rv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rv1Var, "swanAPI/setStorageSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Storage.setStorageSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 X = rv1Var.X(str);
+                if (X == null) {
+                    return "";
+                }
+                return X.a();
+            }
+        });
+        hashMap.put("_naSubscription", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SubscriptionWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String requestSubscribeFormId(String str) {
+                uv1 uv1Var;
+                Object obj = this.mApis.get("823117982");
+                if (obj != null && (obj instanceof uv1)) {
+                    uv1Var = (uv1) obj;
+                } else {
+                    uv1Var = new uv1(this.mSwanApiContext);
+                    this.mApis.put("823117982", uv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(uv1Var, "swanAPI/subscription/requestSubscribeFormId");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Subscription.requestSubscribeFormId")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 F = uv1Var.F(str);
+                if (F == null) {
+                    return "";
+                }
+                return F.a();
+            }
+
+            @JavascriptInterface
+            public String subscribeService(String str) {
+                vv1 vv1Var;
+                Object obj = this.mApis.get("-947445811");
+                if (obj != null && (obj instanceof vv1)) {
+                    vv1Var = (vv1) obj;
+                } else {
+                    vv1Var = new vv1(this.mSwanApiContext);
+                    this.mApis.put("-947445811", vv1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(vv1Var, "swanAPI/subscribeService");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Subscription.subscribeService")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 G = vv1Var.G(str);
+                if (G == null) {
+                    return "";
+                }
+                return G.a();
+            }
+        });
+        hashMap.put("_naSystem", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SystemWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String exitFullScreen(String str) {
+                cw1 cw1Var;
+                Object obj = this.mApis.get("1936205521");
+                if (obj != null && (obj instanceof cw1)) {
+                    cw1Var = (cw1) obj;
+                } else {
+                    cw1Var = new cw1(this.mSwanApiContext);
+                    this.mApis.put("1936205521", cw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(cw1Var, "swanAPI/exitFullScreen");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.exitFullScreen")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = cw1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String getDeviceInfo(String str) {
+                bw1 bw1Var;
+                Object obj = this.mApis.get("1694151270");
+                if (obj != null && (obj instanceof bw1)) {
+                    bw1Var = (bw1) obj;
+                } else {
+                    bw1Var = new bw1(this.mSwanApiContext);
+                    this.mApis.put("1694151270", bw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(bw1Var, "swanAPI/getDeviceInfo");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.getDeviceInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = bw1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String getDeviceProfile(String str) {
+                dw1 dw1Var;
+                Object obj = this.mApis.get("-1321681619");
+                if (obj != null && (obj instanceof dw1)) {
+                    dw1Var = (dw1) obj;
+                } else {
+                    dw1Var = new dw1(this.mSwanApiContext);
+                    this.mApis.put("-1321681619", dw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(dw1Var, "swanAPI/getDeviceProfile");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.getDeviceProfile")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = dw1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String makePhoneCall(String str) {
+                ew1 ew1Var;
+                Object obj = this.mApis.get("-1569246082");
+                if (obj != null && (obj instanceof ew1)) {
+                    ew1Var = (ew1) obj;
+                } else {
+                    ew1Var = new ew1(this.mSwanApiContext);
+                    this.mApis.put("-1569246082", ew1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ew1Var, "swanAPI/makePhoneCall");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.makePhoneCall")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = ew1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String openSMSPanel(String str) {
+                gw1 gw1Var;
+                Object obj = this.mApis.get("1099851202");
+                if (obj != null && (obj instanceof gw1)) {
+                    gw1Var = (gw1) obj;
+                } else {
+                    gw1Var = new gw1(this.mSwanApiContext);
+                    this.mApis.put("1099851202", gw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(gw1Var, "swanAPI/openSMSPanel");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.openSMSPanel")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = gw1Var.B(str);
+                if (B == null) {
+                    return "";
+                }
+                return B.a();
+            }
+
+            @JavascriptInterface
+            public String requestFullScreen(String str) {
+                fw1 fw1Var;
+                Object obj = this.mApis.get("-1707203360");
+                if (obj != null && (obj instanceof fw1)) {
+                    fw1Var = (fw1) obj;
+                } else {
+                    fw1Var = new fw1(this.mSwanApiContext);
+                    this.mApis.put("-1707203360", fw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fw1Var, "swanAPI/requestFullScreen");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "System.requestFullScreen")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 G = fw1Var.G(str);
                 if (G == null) {
                     return "";
                 }
@@ -6238,763 +6786,95 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String getStorageInfoSync() {
-                h12 h12Var;
-                Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
-                } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/getStorageInfoSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getStorageInfoSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 J = h12Var.J();
-                if (J == null) {
-                    return "";
-                }
-                return J.a();
-            }
-
-            @JavascriptInterface
-            public String getGlobalStorage(String str) {
-                i12 i12Var;
-                Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
-                } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/getGlobalStorage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getGlobalStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 D = i12Var.D(str);
-                if (D == null) {
-                    return "";
-                }
-                return D.a();
-            }
-
-            @JavascriptInterface
-            public String getGlobalStorageSync(String str) {
-                i12 i12Var;
-                Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
-                } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/getGlobalStorageSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getGlobalStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 K = i12Var.K(str);
-                if (K == null) {
-                    return "";
-                }
-                return K.a();
-            }
-
-            @JavascriptInterface
-            public String getStorage(String str) {
-                h12 h12Var;
-                Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
-                } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/getStorage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 D = h12Var.D(str);
-                if (D == null) {
-                    return "";
-                }
-                return D.a();
-            }
-
-            @JavascriptInterface
-            public String getStorageInfoAsync(String str) {
-                h12 h12Var;
-                Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
-                } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/getStorageInfoAsync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getStorageInfoAsync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 H = h12Var.H(str);
-                if (H == null) {
-                    return "";
-                }
-                return H.a();
-            }
-
-            @JavascriptInterface
-            public String getStorageSync(String str) {
-                h12 h12Var;
-                Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
-                } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/getStorageSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.getStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 K = h12Var.K(str);
-                if (K == null) {
-                    return "";
-                }
-                return K.a();
-            }
-
-            @JavascriptInterface
-            public String removeGlobalStorage(String str) {
-                i12 i12Var;
-                Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
-                } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/removeGlobalStorage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.removeGlobalStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 R = i12Var.R(str);
-                if (R == null) {
-                    return "";
-                }
-                return R.a();
-            }
-
-            @JavascriptInterface
-            public String removeGlobalStorageSync(String str) {
-                i12 i12Var;
-                Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
-                } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/removeGlobalStorageSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.removeGlobalStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 T2 = i12Var.T(str);
-                if (T2 == null) {
-                    return "";
-                }
-                return T2.a();
-            }
-
-            @JavascriptInterface
-            public String removeStorage(String str) {
-                h12 h12Var;
-                Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
-                } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/removeStorage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.removeStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 R = h12Var.R(str);
-                if (R == null) {
-                    return "";
-                }
-                return R.a();
-            }
-
-            @JavascriptInterface
-            public String removeStorageSync(String str) {
-                h12 h12Var;
-                Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
-                } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/removeStorageSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.removeStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 T2 = h12Var.T(str);
-                if (T2 == null) {
-                    return "";
-                }
-                return T2.a();
-            }
-
-            @JavascriptInterface
-            public String setGlobalStorage(String str) {
-                i12 i12Var;
-                Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
-                } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/setGlobalStorage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.setGlobalStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 U = i12Var.U(str);
-                if (U == null) {
-                    return "";
-                }
-                return U.a();
-            }
-
-            @JavascriptInterface
-            public String setGlobalStorageSync(String str) {
-                i12 i12Var;
-                Object obj = this.mApis.get("-804054859");
-                if (obj != null && (obj instanceof i12)) {
-                    i12Var = (i12) obj;
-                } else {
-                    i12Var = new i12(this.mSwanApiContext);
-                    this.mApis.put("-804054859", i12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(i12Var, "swanAPI/setGlobalStorageSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.setGlobalStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 W = i12Var.W(str);
-                if (W == null) {
-                    return "";
-                }
-                return W.a();
-            }
-
-            @JavascriptInterface
-            public String setStorage(String str) {
-                h12 h12Var;
-                Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
-                } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/setStorage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.setStorage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 U = h12Var.U(str);
-                if (U == null) {
-                    return "";
-                }
-                return U.a();
-            }
-
-            @JavascriptInterface
-            public String setStorageSync(String str) {
-                h12 h12Var;
-                Object obj = this.mApis.get("130910081");
-                if (obj != null && (obj instanceof h12)) {
-                    h12Var = (h12) obj;
-                } else {
-                    h12Var = new h12(this.mSwanApiContext);
-                    this.mApis.put("130910081", h12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h12Var, "swanAPI/setStorageSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Storage.setStorageSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 W = h12Var.W(str);
-                if (W == null) {
-                    return "";
-                }
-                return W.a();
-            }
-        });
-        hashMap.put("_naSubscription", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SubscriptionWebviewModule
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String requestSubscribeFormId(String str) {
-                k12 k12Var;
-                Object obj = this.mApis.get("823117982");
-                if (obj != null && (obj instanceof k12)) {
-                    k12Var = (k12) obj;
-                } else {
-                    k12Var = new k12(this.mSwanApiContext);
-                    this.mApis.put("823117982", k12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(k12Var, "swanAPI/subscription/requestSubscribeFormId");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Subscription.requestSubscribeFormId")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 E = k12Var.E(str);
-                if (E == null) {
-                    return "";
-                }
-                return E.a();
-            }
-
-            @JavascriptInterface
-            public String subscribeService(String str) {
-                l12 l12Var;
-                Object obj = this.mApis.get("-947445811");
-                if (obj != null && (obj instanceof l12)) {
-                    l12Var = (l12) obj;
-                } else {
-                    l12Var = new l12(this.mSwanApiContext);
-                    this.mApis.put("-947445811", l12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(l12Var, "swanAPI/subscribeService");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Subscription.subscribeService")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 F = l12Var.F(str);
-                if (F == null) {
-                    return "";
-                }
-                return F.a();
-            }
-        });
-        hashMap.put("_naSystem", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$SystemWebviewModule
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String exitFullScreen(String str) {
-                s12 s12Var;
-                Object obj = this.mApis.get("1936205521");
-                if (obj != null && (obj instanceof s12)) {
-                    s12Var = (s12) obj;
-                } else {
-                    s12Var = new s12(this.mSwanApiContext);
-                    this.mApis.put("1936205521", s12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(s12Var, "swanAPI/exitFullScreen");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.exitFullScreen")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = s12Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String getDeviceInfo(String str) {
-                r12 r12Var;
-                Object obj = this.mApis.get("1694151270");
-                if (obj != null && (obj instanceof r12)) {
-                    r12Var = (r12) obj;
-                } else {
-                    r12Var = new r12(this.mSwanApiContext);
-                    this.mApis.put("1694151270", r12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(r12Var, "swanAPI/getDeviceInfo");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.getDeviceInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = r12Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String getDeviceProfile(String str) {
-                t12 t12Var;
-                Object obj = this.mApis.get("-1321681619");
-                if (obj != null && (obj instanceof t12)) {
-                    t12Var = (t12) obj;
-                } else {
-                    t12Var = new t12(this.mSwanApiContext);
-                    this.mApis.put("-1321681619", t12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(t12Var, "swanAPI/getDeviceProfile");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.getDeviceProfile")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = t12Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String makePhoneCall(String str) {
-                u12 u12Var;
-                Object obj = this.mApis.get("-1569246082");
-                if (obj != null && (obj instanceof u12)) {
-                    u12Var = (u12) obj;
-                } else {
-                    u12Var = new u12(this.mSwanApiContext);
-                    this.mApis.put("-1569246082", u12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(u12Var, "swanAPI/makePhoneCall");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.makePhoneCall")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = u12Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String openSMSPanel(String str) {
-                w12 w12Var;
-                Object obj = this.mApis.get("1099851202");
-                if (obj != null && (obj instanceof w12)) {
-                    w12Var = (w12) obj;
-                } else {
-                    w12Var = new w12(this.mSwanApiContext);
-                    this.mApis.put("1099851202", w12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(w12Var, "swanAPI/openSMSPanel");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.openSMSPanel")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = w12Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String requestFullScreen(String str) {
-                v12 v12Var;
-                Object obj = this.mApis.get("-1707203360");
-                if (obj != null && (obj instanceof v12)) {
-                    v12Var = (v12) obj;
-                } else {
-                    v12Var = new v12(this.mSwanApiContext);
-                    this.mApis.put("-1707203360", v12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(v12Var, "swanAPI/requestFullScreen");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.requestFullScreen")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 F = v12Var.F(str);
-                if (F == null) {
-                    return "";
-                }
-                return F.a();
-            }
-
-            @JavascriptInterface
             public String setClipboardData(String str) {
-                p12 p12Var;
+                zv1 zv1Var;
                 Object obj = this.mApis.get("-518757484");
-                if (obj != null && (obj instanceof p12)) {
-                    p12Var = (p12) obj;
+                if (obj != null && (obj instanceof zv1)) {
+                    zv1Var = (zv1) obj;
                 } else {
-                    p12Var = new p12(this.mSwanApiContext);
-                    this.mApis.put("-518757484", p12Var);
+                    zv1Var = new zv1(this.mSwanApiContext);
+                    this.mApis.put("-518757484", zv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(p12Var, "swanAPI/setClipboardData");
+                Pair<Boolean, px1> a = rx1.a(zv1Var, "swanAPI/setClipboardData");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "System.setClipboardData")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "System.setClipboardData")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 y = p12Var.y(str);
-                if (y == null) {
+                qx1 z = zv1Var.z(str);
+                if (z == null) {
                     return "";
                 }
-                return y.a();
+                return z.a();
             }
 
             @JavascriptInterface
             public String setErrorPageType(String str) {
-                z03 z03Var;
+                iv2 iv2Var;
                 Object obj = this.mApis.get("1161486049");
-                if (obj != null && (obj instanceof z03)) {
-                    z03Var = (z03) obj;
+                if (obj != null && (obj instanceof iv2)) {
+                    iv2Var = (iv2) obj;
                 } else {
-                    z03Var = new z03(this.mSwanApiContext);
-                    this.mApis.put("1161486049", z03Var);
+                    iv2Var = new iv2(this.mSwanApiContext);
+                    this.mApis.put("1161486049", iv2Var);
                 }
-                Pair<Boolean, f32> a = h32.a(z03Var, "swanAPI/setErrorPageType");
+                Pair<Boolean, px1> a = rx1.a(iv2Var, "swanAPI/setErrorPageType");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "System.setErrorPageType")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "System.setErrorPageType")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = z03Var.x(str);
-                if (x == null) {
+                qx1 y = iv2Var.y(str);
+                if (y == null) {
                     return "";
                 }
-                return x.a();
+                return y.a();
             }
 
             @JavascriptInterface
             public String setMediaVolume(String str) {
-                z12 z12Var;
+                jw1 jw1Var;
                 Object obj = this.mApis.get("447234992");
-                if (obj != null && (obj instanceof z12)) {
-                    z12Var = (z12) obj;
+                if (obj != null && (obj instanceof jw1)) {
+                    jw1Var = (jw1) obj;
                 } else {
-                    z12Var = new z12(this.mSwanApiContext);
-                    this.mApis.put("447234992", z12Var);
+                    jw1Var = new jw1(this.mSwanApiContext);
+                    this.mApis.put("447234992", jw1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(z12Var, "swanAPI/setMediaVolume");
+                Pair<Boolean, px1> a = rx1.a(jw1Var, "swanAPI/setMediaVolume");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "System.setMediaVolume")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "System.setMediaVolume")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 z = z12Var.z(str);
-                if (z == null) {
+                qx1 A = jw1Var.A(str);
+                if (A == null) {
                     return "";
                 }
-                return z.a();
+                return A.a();
             }
 
             @JavascriptInterface
             public String startAccelerometer(String str) {
-                n12 n12Var;
+                xv1 xv1Var;
                 Object obj = this.mApis.get("1372680763");
-                if (obj != null && (obj instanceof n12)) {
-                    n12Var = (n12) obj;
+                if (obj != null && (obj instanceof xv1)) {
+                    xv1Var = (xv1) obj;
                 } else {
-                    n12Var = new n12(this.mSwanApiContext);
-                    this.mApis.put("1372680763", n12Var);
+                    xv1Var = new xv1(this.mSwanApiContext);
+                    this.mApis.put("1372680763", xv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(n12Var, "swanAPI/startAccelerometer");
+                Pair<Boolean, px1> a = rx1.a(xv1Var, "swanAPI/startAccelerometer");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "System.startAccelerometer")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "System.startAccelerometer")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 A = n12Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String startCompass(String str) {
-                q12 q12Var;
-                Object obj = this.mApis.get("1689255576");
-                if (obj != null && (obj instanceof q12)) {
-                    q12Var = (q12) obj;
-                } else {
-                    q12Var = new q12(this.mSwanApiContext);
-                    this.mApis.put("1689255576", q12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(q12Var, "swanAPI/startCompass");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.startCompass")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = q12Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String getBrightness() {
-                o12 o12Var;
-                Object obj = this.mApis.get("99997465");
-                if (obj != null && (obj instanceof o12)) {
-                    o12Var = (o12) obj;
-                } else {
-                    o12Var = new o12(this.mSwanApiContext);
-                    this.mApis.put("99997465", o12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(o12Var, "swanAPI/getBrightness");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.getBrightness")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = o12Var.y();
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String getClipboardData() {
-                p12 p12Var;
-                Object obj = this.mApis.get("-518757484");
-                if (obj != null && (obj instanceof p12)) {
-                    p12Var = (p12) obj;
-                } else {
-                    p12Var = new p12(this.mSwanApiContext);
-                    this.mApis.put("-518757484", p12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(p12Var, "swanAPI/getClipboardData");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.getClipboardData")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = p12Var.x();
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String getMediaVolume() {
-                z12 z12Var;
-                Object obj = this.mApis.get("447234992");
-                if (obj != null && (obj instanceof z12)) {
-                    z12Var = (z12) obj;
-                } else {
-                    z12Var = new z12(this.mSwanApiContext);
-                    this.mApis.put("447234992", z12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(z12Var, "swanAPI/getMediaVolume");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.getMediaVolume")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = z12Var.x();
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String stopAccelerometer() {
-                n12 n12Var;
-                Object obj = this.mApis.get("1372680763");
-                if (obj != null && (obj instanceof n12)) {
-                    n12Var = (n12) obj;
-                } else {
-                    n12Var = new n12(this.mSwanApiContext);
-                    this.mApis.put("1372680763", n12Var);
-                }
-                Pair<Boolean, f32> a = h32.a(n12Var, "swanAPI/stopAccelerometer");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "System.stopAccelerometer")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 B = n12Var.B();
+                qx1 B = xv1Var.B(str);
                 if (B == null) {
                     return "";
                 }
@@ -7002,129 +6882,71 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String stopCompass() {
-                q12 q12Var;
+            public String startCompass(String str) {
+                aw1 aw1Var;
                 Object obj = this.mApis.get("1689255576");
-                if (obj != null && (obj instanceof q12)) {
-                    q12Var = (q12) obj;
+                if (obj != null && (obj instanceof aw1)) {
+                    aw1Var = (aw1) obj;
                 } else {
-                    q12Var = new q12(this.mSwanApiContext);
-                    this.mApis.put("1689255576", q12Var);
+                    aw1Var = new aw1(this.mSwanApiContext);
+                    this.mApis.put("1689255576", aw1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(q12Var, "swanAPI/stopCompass");
+                Pair<Boolean, px1> a = rx1.a(aw1Var, "swanAPI/startCompass");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "System.stopCompass")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "System.startCompass")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 z = q12Var.z();
+                qx1 z = aw1Var.z(str);
                 if (z == null) {
                     return "";
                 }
                 return z.a();
             }
-        });
-        hashMap.put("_naUtils", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$UtilsWebviewModule
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
 
             @JavascriptInterface
-            public String addToDesktop(String str) {
-                k22 k22Var;
-                Object obj = this.mApis.get("201194468");
-                if (obj != null && (obj instanceof k22)) {
-                    k22Var = (k22) obj;
+            public String getBrightness() {
+                yv1 yv1Var;
+                Object obj = this.mApis.get("99997465");
+                if (obj != null && (obj instanceof yv1)) {
+                    yv1Var = (yv1) obj;
                 } else {
-                    k22Var = new k22(this.mSwanApiContext);
-                    this.mApis.put("201194468", k22Var);
+                    yv1Var = new yv1(this.mSwanApiContext);
+                    this.mApis.put("99997465", yv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(k22Var, "swanAPI/addToDesktop");
+                Pair<Boolean, px1> a = rx1.a(yv1Var, "swanAPI/getBrightness");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.addToDesktop")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "System.getBrightness")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 B = k22Var.B(str);
-                if (B == null) {
+                qx1 z = yv1Var.z();
+                if (z == null) {
                     return "";
                 }
-                return B.a();
+                return z.a();
             }
 
             @JavascriptInterface
-            public String calcMD5(String str) {
-                g22 g22Var;
-                Object obj = this.mApis.get("-1412306947");
-                if (obj != null && (obj instanceof g22)) {
-                    g22Var = (g22) obj;
+            public String getClipboardData() {
+                zv1 zv1Var;
+                Object obj = this.mApis.get("-518757484");
+                if (obj != null && (obj instanceof zv1)) {
+                    zv1Var = (zv1) obj;
                 } else {
-                    g22Var = new g22(this.mSwanApiContext);
-                    this.mApis.put("-1412306947", g22Var);
+                    zv1Var = new zv1(this.mSwanApiContext);
+                    this.mApis.put("-518757484", zv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(g22Var, "swanAPI/calcMD5");
+                Pair<Boolean, px1> a = rx1.a(zv1Var, "swanAPI/getClipboardData");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.calcMD5")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "System.getClipboardData")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = g22Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String checkAppInstalled(String str) {
-                h22 h22Var;
-                Object obj = this.mApis.get("1626415364");
-                if (obj != null && (obj instanceof h22)) {
-                    h22Var = (h22) obj;
-                } else {
-                    h22Var = new h22(this.mSwanApiContext);
-                    this.mApis.put("1626415364", h22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(h22Var, "swanAPI/checkAppInstalled");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.checkAppInstalled")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = h22Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String getCommonSysInfo(String str) {
-                j22 j22Var;
-                Object obj = this.mApis.get("-836768778");
-                if (obj != null && (obj instanceof j22)) {
-                    j22Var = (j22) obj;
-                } else {
-                    j22Var = new j22(this.mSwanApiContext);
-                    this.mApis.put("-836768778", j22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(j22Var, "swanAPI/getCommonSysInfo");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getCommonSysInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = j22Var.y(str);
+                qx1 y = zv1Var.y();
                 if (y == null) {
                     return "";
                 }
@@ -7132,95 +6954,23 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String getPerformanceLevel(String str) {
-                l22 l22Var;
-                Object obj = this.mApis.get("-810858308");
-                if (obj != null && (obj instanceof l22)) {
-                    l22Var = (l22) obj;
+            public String getMediaVolume() {
+                jw1 jw1Var;
+                Object obj = this.mApis.get("447234992");
+                if (obj != null && (obj instanceof jw1)) {
+                    jw1Var = (jw1) obj;
                 } else {
-                    l22Var = new l22(this.mSwanApiContext);
-                    this.mApis.put("-810858308", l22Var);
+                    jw1Var = new jw1(this.mSwanApiContext);
+                    this.mApis.put("447234992", jw1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(l22Var, "swanAPI/getPerformanceLevel");
+                Pair<Boolean, px1> a = rx1.a(jw1Var, "swanAPI/getMediaVolume");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getPerformanceLevel")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "System.getMediaVolume")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = l22Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String getSystemInfoAsync(String str) {
-                p22 p22Var;
-                Object obj = this.mApis.get("-1011537871");
-                if (obj != null && (obj instanceof p22)) {
-                    p22Var = (p22) obj;
-                } else {
-                    p22Var = new p22(this.mSwanApiContext);
-                    this.mApis.put("-1011537871", p22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(p22Var, "swanAPI/getSystemInfoAsync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getSystemInfoAsync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 I = p22Var.I(str);
-                if (I == null) {
-                    return "";
-                }
-                return I.a();
-            }
-
-            @JavascriptInterface
-            public String handleException(String str) {
-                m22 m22Var;
-                Object obj = this.mApis.get("-2097727681");
-                if (obj != null && (obj instanceof m22)) {
-                    m22Var = (m22) obj;
-                } else {
-                    m22Var = new m22(this.mSwanApiContext);
-                    this.mApis.put("-2097727681", m22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(m22Var, "swanAPI/handleException");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.handleException")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 x = m22Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String hasCloseHandler(String str) {
-                i22 i22Var;
-                Object obj = this.mApis.get("2084449317");
-                if (obj != null && (obj instanceof i22)) {
-                    i22Var = (i22) obj;
-                } else {
-                    i22Var = new i22(this.mSwanApiContext);
-                    this.mApis.put("2084449317", i22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(i22Var, "swanAPI/hasCloseHandler");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.hasCloseHandler")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = i22Var.y(str);
+                qx1 y = jw1Var.y();
                 if (y == null) {
                     return "";
                 }
@@ -7228,273 +6978,23 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String hideCaptureScreenShareDialog(String str) {
-                lf3 lf3Var;
-                Object obj = this.mApis.get("1031678042");
-                if (obj != null && (obj instanceof lf3)) {
-                    lf3Var = (lf3) obj;
+            public String stopAccelerometer() {
+                xv1 xv1Var;
+                Object obj = this.mApis.get("1372680763");
+                if (obj != null && (obj instanceof xv1)) {
+                    xv1Var = (xv1) obj;
                 } else {
-                    lf3Var = new lf3(this.mSwanApiContext);
-                    this.mApis.put("1031678042", lf3Var);
+                    xv1Var = new xv1(this.mSwanApiContext);
+                    this.mApis.put("1372680763", xv1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(lf3Var, "swanAPI/hideCaptureScreenShareDialog");
+                Pair<Boolean, px1> a = rx1.a(xv1Var, "swanAPI/stopAccelerometer");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.hideCaptureScreenShareDialog")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "System.stopAccelerometer")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 x = lf3Var.x(str);
-                if (x == null) {
-                    return "";
-                }
-                return x.a();
-            }
-
-            @JavascriptInterface
-            public String logToFile(String str) {
-                n22 n22Var;
-                Object obj = this.mApis.get("1751900130");
-                if (obj != null && (obj instanceof n22)) {
-                    n22Var = (n22) obj;
-                } else {
-                    n22Var = new n22(this.mSwanApiContext);
-                    this.mApis.put("1751900130", n22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(n22Var, "swanAPI/logToFile");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.logToFile")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 y = n22Var.y(str);
-                if (y == null) {
-                    return "";
-                }
-                return y.a();
-            }
-
-            @JavascriptInterface
-            public String preloadPackage(String str) {
-                me3 me3Var;
-                Object obj = this.mApis.get("1748196865");
-                if (obj != null && (obj instanceof me3)) {
-                    me3Var = (me3) obj;
-                } else {
-                    me3Var = new me3(this.mSwanApiContext);
-                    this.mApis.put("1748196865", me3Var);
-                }
-                Pair<Boolean, f32> a = h32.a(me3Var, "swanAPI/preloadPackage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.preloadPackage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = me3Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String previewImage(String str) {
-                o22 o22Var;
-                Object obj = this.mApis.get("589529211");
-                if (obj != null && (obj instanceof o22)) {
-                    o22Var = (o22) obj;
-                } else {
-                    o22Var = new o22(this.mSwanApiContext);
-                    this.mApis.put("589529211", o22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(o22Var, "swanAPI/previewImage");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.previewImage")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 B = o22Var.B(str);
-                if (B == null) {
-                    return "";
-                }
-                return B.a();
-            }
-
-            @JavascriptInterface
-            public String ubcFlowJar(String str) {
-                r22 r22Var;
-                Object obj = this.mApis.get("-577481801");
-                if (obj != null && (obj instanceof r22)) {
-                    r22Var = (r22) obj;
-                } else {
-                    r22Var = new r22(this.mSwanApiContext);
-                    this.mApis.put("-577481801", r22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(r22Var, "swanAPI/ubcFlowJar");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.ubcFlowJar")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 I = r22Var.I(str);
-                if (I == null) {
-                    return "";
-                }
-                return I.a();
-            }
-
-            @JavascriptInterface
-            public String getCommonSysInfoSync() {
-                p22 p22Var;
-                Object obj = this.mApis.get("-1011537871");
-                if (obj != null && (obj instanceof p22)) {
-                    p22Var = (p22) obj;
-                } else {
-                    p22Var = new p22(this.mSwanApiContext);
-                    this.mApis.put("-1011537871", p22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(p22Var, "swanAPI/getCommonSysInfoSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getCommonSysInfoSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 E = p22Var.E();
-                if (E == null) {
-                    return "";
-                }
-                return E.a();
-            }
-
-            @JavascriptInterface
-            public String getSystemInfo() {
-                p22 p22Var;
-                Object obj = this.mApis.get("-1011537871");
-                if (obj != null && (obj instanceof p22)) {
-                    p22Var = (p22) obj;
-                } else {
-                    p22Var = new p22(this.mSwanApiContext);
-                    this.mApis.put("-1011537871", p22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(p22Var, "swanAPI/getSystemInfo");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getSystemInfo")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 H = p22Var.H();
-                if (H == null) {
-                    return "";
-                }
-                return H.a();
-            }
-
-            @JavascriptInterface
-            public String getSystemInfoSync() {
-                p22 p22Var;
-                Object obj = this.mApis.get("-1011537871");
-                if (obj != null && (obj instanceof p22)) {
-                    p22Var = (p22) obj;
-                } else {
-                    p22Var = new p22(this.mSwanApiContext);
-                    this.mApis.put("-1011537871", p22Var);
-                }
-                Pair<Boolean, f32> a = h32.a(p22Var, "swanAPI/getSystemInfoSync");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Utils.getSystemInfoSync")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 J = p22Var.J();
-                if (J == null) {
-                    return "";
-                }
-                return J.a();
-            }
-        });
-        hashMap.put("_naWifi", new Object(hz1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$WifiWebviewModule
-            public static final boolean DEBUG = false;
-            public static final String TAG = "Api-Base";
-            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
-            public hz1 mSwanApiContext;
-
-            {
-                this.mSwanApiContext = hz1Var;
-            }
-
-            @JavascriptInterface
-            public String connectWifi(String str) {
-                wl3 wl3Var;
-                Object obj = this.mApis.get("1879401452");
-                if (obj != null && (obj instanceof wl3)) {
-                    wl3Var = (wl3) obj;
-                } else {
-                    wl3Var = new wl3(this.mSwanApiContext);
-                    this.mApis.put("1879401452", wl3Var);
-                }
-                Pair<Boolean, f32> a = h32.a(wl3Var, "swanAPI/connectWifi");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Wifi.connectWifi")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 A = wl3Var.A(str);
-                if (A == null) {
-                    return "";
-                }
-                return A.a();
-            }
-
-            @JavascriptInterface
-            public String getConnectedWifi(String str) {
-                wl3 wl3Var;
-                Object obj = this.mApis.get("1879401452");
-                if (obj != null && (obj instanceof wl3)) {
-                    wl3Var = (wl3) obj;
-                } else {
-                    wl3Var = new wl3(this.mSwanApiContext);
-                    this.mApis.put("1879401452", wl3Var);
-                }
-                Pair<Boolean, f32> a = h32.a(wl3Var, "swanAPI/getConnectedWifi");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Wifi.getConnectedWifi")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 B = wl3Var.B(str);
-                if (B == null) {
-                    return "";
-                }
-                return B.a();
-            }
-
-            @JavascriptInterface
-            public String getWifiList(String str) {
-                wl3 wl3Var;
-                Object obj = this.mApis.get("1879401452");
-                if (obj != null && (obj instanceof wl3)) {
-                    wl3Var = (wl3) obj;
-                } else {
-                    wl3Var = new wl3(this.mSwanApiContext);
-                    this.mApis.put("1879401452", wl3Var);
-                }
-                Pair<Boolean, f32> a = h32.a(wl3Var, "swanAPI/getWifiList");
-                if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
-                }
-                if (nd2.a(this.mSwanApiContext.e(), "Wifi.getWifiList")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
-                }
-                g32 C = wl3Var.C(str);
+                qx1 C = xv1Var.C();
                 if (C == null) {
                     return "";
                 }
@@ -7502,51 +7002,551 @@ public class SwanApi$$ModulesProvider {
             }
 
             @JavascriptInterface
-            public String startWifi(String str) {
-                wl3 wl3Var;
-                Object obj = this.mApis.get("1879401452");
-                if (obj != null && (obj instanceof wl3)) {
-                    wl3Var = (wl3) obj;
+            public String stopCompass() {
+                aw1 aw1Var;
+                Object obj = this.mApis.get("1689255576");
+                if (obj != null && (obj instanceof aw1)) {
+                    aw1Var = (aw1) obj;
                 } else {
-                    wl3Var = new wl3(this.mSwanApiContext);
-                    this.mApis.put("1879401452", wl3Var);
+                    aw1Var = new aw1(this.mSwanApiContext);
+                    this.mApis.put("1689255576", aw1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(wl3Var, "swanAPI/startWifi");
+                Pair<Boolean, px1> a = rx1.a(aw1Var, "swanAPI/stopCompass");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Wifi.startWifi")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "System.stopCompass")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 G = wl3Var.G(str);
-                if (G == null) {
+                qx1 A = aw1Var.A();
+                if (A == null) {
                     return "";
                 }
-                return G.a();
+                return A.a();
+            }
+        });
+        hashMap.put("_naUtils", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$UtilsWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
             }
 
             @JavascriptInterface
-            public String stopWifi(String str) {
-                wl3 wl3Var;
-                Object obj = this.mApis.get("1879401452");
-                if (obj != null && (obj instanceof wl3)) {
-                    wl3Var = (wl3) obj;
+            public String addToDesktop(String str) {
+                uw1 uw1Var;
+                Object obj = this.mApis.get("201194468");
+                if (obj != null && (obj instanceof uw1)) {
+                    uw1Var = (uw1) obj;
                 } else {
-                    wl3Var = new wl3(this.mSwanApiContext);
-                    this.mApis.put("1879401452", wl3Var);
+                    uw1Var = new uw1(this.mSwanApiContext);
+                    this.mApis.put("201194468", uw1Var);
                 }
-                Pair<Boolean, f32> a = h32.a(wl3Var, "swanAPI/stopWifi");
+                Pair<Boolean, px1> a = rx1.a(uw1Var, "swanAPI/addToDesktop");
                 if (((Boolean) a.first).booleanValue()) {
-                    return ((f32) a.second).a();
+                    return ((px1) a.second).a();
                 }
-                if (nd2.a(this.mSwanApiContext.e(), "Wifi.stopWifi")) {
-                    return new g32(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                if (w72.a(this.mSwanApiContext.e(), "Utils.addToDesktop")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                 }
-                g32 H = wl3Var.H(str);
+                qx1 C = uw1Var.C(str);
+                if (C == null) {
+                    return "";
+                }
+                return C.a();
+            }
+
+            @JavascriptInterface
+            public String calcMD5(String str) {
+                qw1 qw1Var;
+                Object obj = this.mApis.get("-1412306947");
+                if (obj != null && (obj instanceof qw1)) {
+                    qw1Var = (qw1) obj;
+                } else {
+                    qw1Var = new qw1(this.mSwanApiContext);
+                    this.mApis.put("-1412306947", qw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(qw1Var, "swanAPI/calcMD5");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.calcMD5")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = qw1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String checkAppInstalled(String str) {
+                rw1 rw1Var;
+                Object obj = this.mApis.get("1626415364");
+                if (obj != null && (obj instanceof rw1)) {
+                    rw1Var = (rw1) obj;
+                } else {
+                    rw1Var = new rw1(this.mSwanApiContext);
+                    this.mApis.put("1626415364", rw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(rw1Var, "swanAPI/checkAppInstalled");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.checkAppInstalled")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = rw1Var.B(str);
+                if (B == null) {
+                    return "";
+                }
+                return B.a();
+            }
+
+            @JavascriptInterface
+            public String getCommonSysInfo(String str) {
+                tw1 tw1Var;
+                Object obj = this.mApis.get("-836768778");
+                if (obj != null && (obj instanceof tw1)) {
+                    tw1Var = (tw1) obj;
+                } else {
+                    tw1Var = new tw1(this.mSwanApiContext);
+                    this.mApis.put("-836768778", tw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(tw1Var, "swanAPI/getCommonSysInfo");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getCommonSysInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = tw1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String getPerformanceLevel(String str) {
+                vw1 vw1Var;
+                Object obj = this.mApis.get("-810858308");
+                if (obj != null && (obj instanceof vw1)) {
+                    vw1Var = (vw1) obj;
+                } else {
+                    vw1Var = new vw1(this.mSwanApiContext);
+                    this.mApis.put("-810858308", vw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(vw1Var, "swanAPI/getPerformanceLevel");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getPerformanceLevel")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = vw1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String getSystemInfoAsync(String str) {
+                zw1 zw1Var;
+                Object obj = this.mApis.get("-1011537871");
+                if (obj != null && (obj instanceof zw1)) {
+                    zw1Var = (zw1) obj;
+                } else {
+                    zw1Var = new zw1(this.mSwanApiContext);
+                    this.mApis.put("-1011537871", zw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(zw1Var, "swanAPI/getSystemInfoAsync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getSystemInfoAsync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 J = zw1Var.J(str);
+                if (J == null) {
+                    return "";
+                }
+                return J.a();
+            }
+
+            @JavascriptInterface
+            public String handleException(String str) {
+                ww1 ww1Var;
+                Object obj = this.mApis.get("-2097727681");
+                if (obj != null && (obj instanceof ww1)) {
+                    ww1Var = (ww1) obj;
+                } else {
+                    ww1Var = new ww1(this.mSwanApiContext);
+                    this.mApis.put("-2097727681", ww1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(ww1Var, "swanAPI/handleException");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.handleException")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = ww1Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String hasCloseHandler(String str) {
+                sw1 sw1Var;
+                Object obj = this.mApis.get("2084449317");
+                if (obj != null && (obj instanceof sw1)) {
+                    sw1Var = (sw1) obj;
+                } else {
+                    sw1Var = new sw1(this.mSwanApiContext);
+                    this.mApis.put("2084449317", sw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(sw1Var, "swanAPI/hasCloseHandler");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.hasCloseHandler")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = sw1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String hideCaptureScreenShareDialog(String str) {
+                u93 u93Var;
+                Object obj = this.mApis.get("1031678042");
+                if (obj != null && (obj instanceof u93)) {
+                    u93Var = (u93) obj;
+                } else {
+                    u93Var = new u93(this.mSwanApiContext);
+                    this.mApis.put("1031678042", u93Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(u93Var, "swanAPI/hideCaptureScreenShareDialog");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.hideCaptureScreenShareDialog")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 y = u93Var.y(str);
+                if (y == null) {
+                    return "";
+                }
+                return y.a();
+            }
+
+            @JavascriptInterface
+            public String logToFile(String str) {
+                xw1 xw1Var;
+                Object obj = this.mApis.get("1751900130");
+                if (obj != null && (obj instanceof xw1)) {
+                    xw1Var = (xw1) obj;
+                } else {
+                    xw1Var = new xw1(this.mSwanApiContext);
+                    this.mApis.put("1751900130", xw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(xw1Var, "swanAPI/logToFile");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.logToFile")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 z = xw1Var.z(str);
+                if (z == null) {
+                    return "";
+                }
+                return z.a();
+            }
+
+            @JavascriptInterface
+            public String preloadPackage(String str) {
+                v83 v83Var;
+                Object obj = this.mApis.get("1748196865");
+                if (obj != null && (obj instanceof v83)) {
+                    v83Var = (v83) obj;
+                } else {
+                    v83Var = new v83(this.mSwanApiContext);
+                    this.mApis.put("1748196865", v83Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(v83Var, "swanAPI/preloadPackage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.preloadPackage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = v83Var.B(str);
+                if (B == null) {
+                    return "";
+                }
+                return B.a();
+            }
+
+            @JavascriptInterface
+            public String previewImage(String str) {
+                yw1 yw1Var;
+                Object obj = this.mApis.get("589529211");
+                if (obj != null && (obj instanceof yw1)) {
+                    yw1Var = (yw1) obj;
+                } else {
+                    yw1Var = new yw1(this.mSwanApiContext);
+                    this.mApis.put("589529211", yw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(yw1Var, "swanAPI/previewImage");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.previewImage")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 C = yw1Var.C(str);
+                if (C == null) {
+                    return "";
+                }
+                return C.a();
+            }
+
+            @JavascriptInterface
+            public String ubcFlowJar(String str) {
+                bx1 bx1Var;
+                Object obj = this.mApis.get("-577481801");
+                if (obj != null && (obj instanceof bx1)) {
+                    bx1Var = (bx1) obj;
+                } else {
+                    bx1Var = new bx1(this.mSwanApiContext);
+                    this.mApis.put("-577481801", bx1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(bx1Var, "swanAPI/ubcFlowJar");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.ubcFlowJar")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 J = bx1Var.J(str);
+                if (J == null) {
+                    return "";
+                }
+                return J.a();
+            }
+
+            @JavascriptInterface
+            public String getCommonSysInfoSync() {
+                zw1 zw1Var;
+                Object obj = this.mApis.get("-1011537871");
+                if (obj != null && (obj instanceof zw1)) {
+                    zw1Var = (zw1) obj;
+                } else {
+                    zw1Var = new zw1(this.mSwanApiContext);
+                    this.mApis.put("-1011537871", zw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(zw1Var, "swanAPI/getCommonSysInfoSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getCommonSysInfoSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 F = zw1Var.F();
+                if (F == null) {
+                    return "";
+                }
+                return F.a();
+            }
+
+            @JavascriptInterface
+            public String getSystemInfo() {
+                zw1 zw1Var;
+                Object obj = this.mApis.get("-1011537871");
+                if (obj != null && (obj instanceof zw1)) {
+                    zw1Var = (zw1) obj;
+                } else {
+                    zw1Var = new zw1(this.mSwanApiContext);
+                    this.mApis.put("-1011537871", zw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(zw1Var, "swanAPI/getSystemInfo");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getSystemInfo")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 I = zw1Var.I();
+                if (I == null) {
+                    return "";
+                }
+                return I.a();
+            }
+
+            @JavascriptInterface
+            public String getSystemInfoSync() {
+                zw1 zw1Var;
+                Object obj = this.mApis.get("-1011537871");
+                if (obj != null && (obj instanceof zw1)) {
+                    zw1Var = (zw1) obj;
+                } else {
+                    zw1Var = new zw1(this.mSwanApiContext);
+                    this.mApis.put("-1011537871", zw1Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(zw1Var, "swanAPI/getSystemInfoSync");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Utils.getSystemInfoSync")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 K = zw1Var.K();
+                if (K == null) {
+                    return "";
+                }
+                return K.a();
+            }
+        });
+        hashMap.put("_naWifi", new Object(rt1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$WifiWebviewModule
+            public static final boolean DEBUG = false;
+            public static final String TAG = "Api-Base";
+            public ConcurrentHashMap<String, Object> mApis = new ConcurrentHashMap<>();
+            public rt1 mSwanApiContext;
+
+            {
+                this.mSwanApiContext = rt1Var;
+            }
+
+            @JavascriptInterface
+            public String connectWifi(String str) {
+                fg3 fg3Var;
+                Object obj = this.mApis.get("1879401452");
+                if (obj != null && (obj instanceof fg3)) {
+                    fg3Var = (fg3) obj;
+                } else {
+                    fg3Var = new fg3(this.mSwanApiContext);
+                    this.mApis.put("1879401452", fg3Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fg3Var, "swanAPI/connectWifi");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Wifi.connectWifi")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 B = fg3Var.B(str);
+                if (B == null) {
+                    return "";
+                }
+                return B.a();
+            }
+
+            @JavascriptInterface
+            public String getConnectedWifi(String str) {
+                fg3 fg3Var;
+                Object obj = this.mApis.get("1879401452");
+                if (obj != null && (obj instanceof fg3)) {
+                    fg3Var = (fg3) obj;
+                } else {
+                    fg3Var = new fg3(this.mSwanApiContext);
+                    this.mApis.put("1879401452", fg3Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fg3Var, "swanAPI/getConnectedWifi");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Wifi.getConnectedWifi")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 C = fg3Var.C(str);
+                if (C == null) {
+                    return "";
+                }
+                return C.a();
+            }
+
+            @JavascriptInterface
+            public String getWifiList(String str) {
+                fg3 fg3Var;
+                Object obj = this.mApis.get("1879401452");
+                if (obj != null && (obj instanceof fg3)) {
+                    fg3Var = (fg3) obj;
+                } else {
+                    fg3Var = new fg3(this.mSwanApiContext);
+                    this.mApis.put("1879401452", fg3Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fg3Var, "swanAPI/getWifiList");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Wifi.getWifiList")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 D = fg3Var.D(str);
+                if (D == null) {
+                    return "";
+                }
+                return D.a();
+            }
+
+            @JavascriptInterface
+            public String startWifi(String str) {
+                fg3 fg3Var;
+                Object obj = this.mApis.get("1879401452");
+                if (obj != null && (obj instanceof fg3)) {
+                    fg3Var = (fg3) obj;
+                } else {
+                    fg3Var = new fg3(this.mSwanApiContext);
+                    this.mApis.put("1879401452", fg3Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fg3Var, "swanAPI/startWifi");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Wifi.startWifi")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 H = fg3Var.H(str);
                 if (H == null) {
                     return "";
                 }
                 return H.a();
+            }
+
+            @JavascriptInterface
+            public String stopWifi(String str) {
+                fg3 fg3Var;
+                Object obj = this.mApis.get("1879401452");
+                if (obj != null && (obj instanceof fg3)) {
+                    fg3Var = (fg3) obj;
+                } else {
+                    fg3Var = new fg3(this.mSwanApiContext);
+                    this.mApis.put("1879401452", fg3Var);
+                }
+                Pair<Boolean, px1> a = rx1.a(fg3Var, "swanAPI/stopWifi");
+                if (((Boolean) a.first).booleanValue()) {
+                    return ((px1) a.second).a();
+                }
+                if (w72.a(this.mSwanApiContext.e(), "Wifi.stopWifi")) {
+                    return new qx1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                }
+                qx1 I = fg3Var.I(str);
+                if (I == null) {
+                    return "";
+                }
+                return I.a();
             }
         });
         return hashMap;

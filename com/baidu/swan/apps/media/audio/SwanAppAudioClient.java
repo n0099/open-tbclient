@@ -13,15 +13,15 @@ import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.IAudioListener;
 import com.baidu.swan.apps.IAudioService;
-import com.baidu.tieba.ap3;
-import com.baidu.tieba.g82;
-import com.baidu.tieba.jy2;
-import com.baidu.tieba.mi3;
-import com.baidu.tieba.qr1;
-import com.baidu.tieba.xo3;
+import com.baidu.tieba.am1;
+import com.baidu.tieba.gj3;
+import com.baidu.tieba.jj3;
+import com.baidu.tieba.p22;
+import com.baidu.tieba.ss2;
+import com.baidu.tieba.vc3;
 /* loaded from: classes4.dex */
 public class SwanAppAudioClient {
-    public static final boolean n = qr1.a;
+    public static final boolean n = am1.a;
     public static final String o = AppRuntime.getAppContext().getPackageName();
     public Context a;
     public IAudioService b;
@@ -67,7 +67,7 @@ public class SwanAppAudioClient {
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onError(int i) throws RemoteException {
-            jy2.b("SwanAppAudioClient", "#onError errCode=" + i);
+            ss2.b("SwanAppAudioClient", "#onError errCode=" + i);
             dispatchAudioEvent(1007, i);
         }
 
@@ -80,88 +80,88 @@ public class SwanAppAudioClient {
             obtain.what = i;
             obtain.arg1 = i2;
             obtain.arg2 = i3;
-            ap3.e0(new a(obtain));
+            jj3.e0(new a(obtain));
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onCanPlay() throws RemoteException {
-            jy2.b("SwanAppAudioClient", "#onCanPlay");
+            ss2.b("SwanAppAudioClient", "#onCanPlay");
             dispatchAudioEvent(1001);
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onEnded() throws RemoteException {
-            jy2.b("SwanAppAudioClient", "#onEnded");
+            ss2.b("SwanAppAudioClient", "#onEnded");
             dispatchAudioEvent(1005);
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onNext() throws RemoteException {
-            jy2.b("SwanAppAudioClient", "#onNext pid=" + Process.myPid());
+            ss2.b("SwanAppAudioClient", "#onNext pid=" + Process.myPid());
             dispatchAudioEvent(1010);
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onPause() throws RemoteException {
-            jy2.b("SwanAppAudioClient", "#onPause");
+            ss2.b("SwanAppAudioClient", "#onPause");
             dispatchAudioEvent(1003);
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onPlay() throws RemoteException {
-            jy2.b("SwanAppAudioClient", "#onPlay");
+            ss2.b("SwanAppAudioClient", "#onPlay");
             dispatchAudioEvent(1002);
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onPrev() throws RemoteException {
-            jy2.b("SwanAppAudioClient", "#onPrev pid=" + Process.myPid());
+            ss2.b("SwanAppAudioClient", "#onPrev pid=" + Process.myPid());
             dispatchAudioEvent(1009);
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onSeekEnd() throws RemoteException {
-            jy2.b("SwanAppAudioClient", "#onSeekEnd pid=" + Process.myPid());
+            ss2.b("SwanAppAudioClient", "#onSeekEnd pid=" + Process.myPid());
             dispatchAudioEvent(1011);
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onSeeking() throws RemoteException {
-            jy2.b("SwanAppAudioClient", "#onSeeking pid=" + Process.myPid());
+            ss2.b("SwanAppAudioClient", "#onSeeking pid=" + Process.myPid());
             dispatchAudioEvent(1012);
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onStop() throws RemoteException {
-            jy2.b("SwanAppAudioClient", "#onStop");
+            ss2.b("SwanAppAudioClient", "#onStop");
             dispatchAudioEvent(1004);
             if (!SwanAppAudioClient.this.f) {
                 SwanAppAudioClient swanAppAudioClient = SwanAppAudioClient.this;
-                swanAppAudioClient.unbindService(swanAppAudioClient.a);
+                swanAppAudioClient.F(swanAppAudioClient.a);
                 SwanAppAudioClient.this.b.unregisterListener(SwanAppAudioClient.this.l);
-                SwanAppAudioClient.this.stopService();
+                SwanAppAudioClient.this.E();
             }
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onChangeSrc(String str) throws RemoteException {
-            jy2.b("SwanAppAudioClient", "#onChangeSrc src=" + str + " mCurrentSrc" + SwanAppAudioClient.this.i + " mIsForeground=" + SwanAppAudioClient.this.f);
+            ss2.b("SwanAppAudioClient", "#onChangeSrc src=" + str + " mCurrentSrc" + SwanAppAudioClient.this.i + " mIsForeground=" + SwanAppAudioClient.this.f);
             if (!SwanAppAudioClient.this.f && !TextUtils.equals(str, SwanAppAudioClient.this.i)) {
                 dispatchAudioEvent(1004);
                 SwanAppAudioClient swanAppAudioClient = SwanAppAudioClient.this;
-                swanAppAudioClient.unbindService(swanAppAudioClient.a);
+                swanAppAudioClient.F(swanAppAudioClient.a);
                 SwanAppAudioClient.this.b.unregisterListener(SwanAppAudioClient.this.l);
             }
         }
 
         @Override // com.baidu.swan.apps.IAudioListener
         public void onTimeUpdate(int i, int i2) throws RemoteException {
-            int r = SwanAppAudioClient.this.r() / 1000;
+            int s = SwanAppAudioClient.this.s() / 1000;
             int i3 = i / 1000;
             if (SwanAppAudioClient.n) {
-                Log.d("SwanAppAudioClient", "onTimeUpdate() duration = " + r + " ; progress = " + i3);
+                Log.d("SwanAppAudioClient", "onTimeUpdate() duration = " + s + " ; progress = " + i3);
             }
-            dispatchAudioEvent(1006, r, i3);
+            dispatchAudioEvent(1006, s, i3);
         }
     };
     public final IBinder.DeathRecipient m = new b();
@@ -190,11 +190,11 @@ public class SwanAppAudioClient {
                 SwanAppAudioClient.this.b = IAudioService.Stub.asInterface(iBinder);
                 SwanAppAudioClient.this.b.registerListener(SwanAppAudioClient.this.l);
                 iBinder.linkToDeath(SwanAppAudioClient.this.m, 0);
-                if (!xo3.B()) {
-                    SwanAppAudioClient.this.p();
+                if (!gj3.B()) {
+                    SwanAppAudioClient.this.q();
                 }
             } catch (RemoteException e) {
-                g82.c("backgroundAudio", e.toString());
+                p22.c("backgroundAudio", e.toString());
                 if (SwanAppAudioClient.n) {
                     e.printStackTrace();
                 }
@@ -213,7 +213,7 @@ public class SwanAppAudioClient {
                         SwanAppAudioClient.this.b.unregisterListener(SwanAppAudioClient.this.l);
                     }
                 } catch (RemoteException e) {
-                    g82.c("backgroundAudio", e.toString());
+                    p22.c("backgroundAudio", e.toString());
                     if (SwanAppAudioClient.n) {
                         e.printStackTrace();
                     }
@@ -245,32 +245,32 @@ public class SwanAppAudioClient {
             SwanAppAudioClient.this.c = false;
             SwanAppAudioClient.this.d = false;
             SwanAppAudioClient swanAppAudioClient = SwanAppAudioClient.this;
-            swanAppAudioClient.bindService(swanAppAudioClient.a);
+            swanAppAudioClient.p(swanAppAudioClient.a);
         }
     }
 
-    public String q() {
+    public void C() {
+        Intent intent = new Intent("com.baidu.swan.apps.action.AUDIO_SERVICE");
+        intent.setPackage(o);
+        this.a.startService(intent);
+    }
+
+    public void E() {
+        Intent intent = new Intent("com.baidu.swan.apps.action.AUDIO_SERVICE");
+        intent.setPackage(o);
+        this.a.stopService(intent);
+    }
+
+    public String r() {
         if (TextUtils.isEmpty(this.i)) {
             return "";
         }
         return this.i;
     }
 
-    public void startService() {
-        Intent intent = new Intent("com.baidu.swan.apps.action.AUDIO_SERVICE");
-        intent.setPackage(o);
-        this.a.startService(intent);
-    }
-
-    public void stopService() {
-        Intent intent = new Intent("com.baidu.swan.apps.action.AUDIO_SERVICE");
-        intent.setPackage(o);
-        this.a.stopService(intent);
-    }
-
-    public void w() {
-        x();
-        unbindService(this.a);
+    public void x() {
+        y();
+        F(this.a);
         this.j = false;
     }
 
@@ -278,8 +278,21 @@ public class SwanAppAudioClient {
         this.a = context;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bindService(Context context) {
+    public void B(c cVar) {
+        this.g = cVar;
+    }
+
+    public final void F(Context context) {
+        if (this.c) {
+            this.c = false;
+            context.unbindService(this.k);
+            if (n) {
+                Log.d("SwanAppAudioClient", "unbindService()");
+            }
+        }
+    }
+
+    public final void p(Context context) {
         if (this.c) {
             return;
         }
@@ -292,90 +305,89 @@ public class SwanAppAudioClient {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void unbindService(Context context) {
-        if (this.c) {
-            this.c = false;
-            context.unbindService(this.k);
-            if (n) {
-                Log.d("SwanAppAudioClient", "unbindService()");
-            }
-        }
-    }
-
-    public void A(c cVar) {
-        this.g = cVar;
-    }
-
-    public void t(boolean z) {
+    public void u(boolean z) {
         this.f = z;
     }
 
-    public void v(String str, String str2) {
+    public void w(String str, String str2) {
         this.e = str;
         this.i = str2;
-        startService();
+        C();
         if (!this.c) {
-            bindService(this.a);
+            p(this.a);
         } else {
-            p();
+            q();
         }
         this.j = false;
     }
 
-    public void B() {
+    public void A(int i) {
         try {
             if (this.c && this.d) {
-                this.b.stop();
-                unbindService(this.a);
-                stopService();
-                this.j = true;
+                this.b.seek(i);
             }
         } catch (RemoteException e) {
-            mi3.b("audio", 2009, "audio stop exception, src is:" + this.i, -1, "");
-            g82.c("backgroundAudio", e.toString());
+            vc3.b("audio", 2009, "audio seek exception, src is:" + this.i, -1, "");
+            p22.c("backgroundAudio", e.toString());
             if (n) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void y() {
+    public void D() {
+        try {
+            if (this.c && this.d) {
+                this.b.stop();
+                F(this.a);
+                E();
+                this.j = true;
+            }
+        } catch (RemoteException e) {
+            vc3.b("audio", 2009, "audio stop exception, src is:" + this.i, -1, "");
+            p22.c("backgroundAudio", e.toString());
+            if (n) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void z() {
         try {
             if (this.c && this.d) {
                 this.b.play();
             } else if (!this.j) {
-                v(this.e, this.i);
+                w(this.e, this.i);
             }
         } catch (RemoteException e) {
-            mi3.b("audio", 2009, "audio resume exception, src is:" + this.i, -1, "");
-            g82.c("backgroundAudio", e.toString());
+            vc3.b("audio", 2009, "audio resume exception, src is:" + this.i, -1, "");
+            p22.c("backgroundAudio", e.toString());
             if (n) {
                 e.printStackTrace();
             }
         }
     }
 
-    public final void p() {
-        jy2.c("SwanAppAudioClient", "#doPlay", new Exception("stack"));
+    public final void q() {
+        ss2.c("SwanAppAudioClient", "#doPlay", new Exception("stack"));
         try {
             if (this.c && this.d) {
                 this.b.setParams(this.e);
             }
         } catch (RemoteException e) {
-            mi3.b("audio", 2009, "audio play exception, src is:" + this.i, -1, "");
-            g82.d("backgroundAudio", "#doPlay error", e);
+            vc3.b("audio", 2009, "audio play exception, src is:" + this.i, -1, "");
+            p22.d("backgroundAudio", "#doPlay error", e);
         }
     }
 
-    public int r() {
+    public int s() {
         try {
             if (this.c && this.d && this.b != null) {
                 return this.b.getDuration();
             }
         } catch (RemoteException e) {
-            mi3.b("audio", 2009, "get audio duration exception, src is:" + this.i, -1, "");
-            g82.c("backgroundAudio", e.toString());
+            vc3.b("audio", 2009, "get audio duration exception, src is:" + this.i, -1, "");
+            p22.c("backgroundAudio", e.toString());
             if (n) {
                 e.printStackTrace();
             }
@@ -383,15 +395,15 @@ public class SwanAppAudioClient {
         return -1;
     }
 
-    public boolean s() {
+    public boolean t() {
         try {
             if (this.c && this.d) {
                 return this.b.isPlaying();
             }
             return false;
         } catch (RemoteException e) {
-            mi3.b("audio", 2009, "get audio isPlaying exception, src is:" + this.i, -1, "");
-            g82.c("backgroundAudio", e.toString());
+            vc3.b("audio", 2009, "get audio isPlaying exception, src is:" + this.i, -1, "");
+            p22.c("backgroundAudio", e.toString());
             if (n) {
                 e.printStackTrace();
                 return false;
@@ -400,42 +412,28 @@ public class SwanAppAudioClient {
         }
     }
 
-    public void u() {
+    public void v() {
         try {
             if (this.c && this.d) {
                 this.b.pause();
             }
         } catch (RemoteException e) {
-            mi3.b("audio", 2009, "audio pause exception, src is:" + this.i, -1, "");
-            g82.c("backgroundAudio", e.toString());
+            vc3.b("audio", 2009, "audio pause exception, src is:" + this.i, -1, "");
+            p22.c("backgroundAudio", e.toString());
             if (n) {
                 e.printStackTrace();
             }
         }
     }
 
-    public final void x() {
+    public final void y() {
         try {
             if (this.c && this.d) {
                 this.b.release();
             }
         } catch (RemoteException e) {
-            mi3.b("audio", 2009, "release audio exception, src is:" + this.i, -1, "");
-            g82.c("backgroundAudio", e.toString());
-            if (n) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void z(int i) {
-        try {
-            if (this.c && this.d) {
-                this.b.seek(i);
-            }
-        } catch (RemoteException e) {
-            mi3.b("audio", 2009, "audio seek exception, src is:" + this.i, -1, "");
-            g82.c("backgroundAudio", e.toString());
+            vc3.b("audio", 2009, "release audio exception, src is:" + this.i, -1, "");
+            p22.c("backgroundAudio", e.toString());
             if (n) {
                 e.printStackTrace();
             }

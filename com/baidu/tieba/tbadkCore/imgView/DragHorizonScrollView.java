@@ -15,7 +15,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lka;
+import com.baidu.tieba.bfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     public Runnable D;
     public BaseAdapter a;
     public View b;
-    public lka c;
+    public bfa c;
     public int d;
     public int e;
     public int f;
@@ -63,7 +63,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     public void setOnSwapDataListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, cVar) == null) {
         }
     }
 
@@ -109,7 +109,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                 } else {
                     max = Math.max(-(((this.a.getWidth() - this.a.getPaddingLeft()) - this.a.getPaddingRight()) - 1), i);
                 }
-                this.a.q(-max);
+                this.a.r(-max);
                 if (!computeScrollOffset) {
                     this.a.k.forceFinished(true);
                     return;
@@ -193,10 +193,10 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         this.B = false;
         this.C = true;
         this.D = new a(this);
-        l(context);
+        m(context);
     }
 
-    public final void l(Context context) {
+    public final void m(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             this.b = null;
@@ -206,7 +206,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
             this.n = viewConfiguration.getScaledMaximumFlingVelocity();
             this.j = new Scroller(context, new LinearInterpolator());
             this.k = new Scroller(context);
-            this.q = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07040c);
+            this.q = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070408);
             this.r = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
         }
     }
@@ -236,7 +236,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         this.B = false;
         this.C = true;
         this.D = new a(this);
-        l(context);
+        m(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -264,18 +264,18 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         this.B = false;
         this.C = true;
         this.D = new a(this);
-        l(context);
+        m(context);
     }
 
-    public final void q(int i) {
+    public final void r(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            scrollBy(r(i), 0);
+            scrollBy(s(i), 0);
             invalidate();
         }
     }
 
-    public final int r(int i) {
+    public final int s(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
@@ -304,56 +304,56 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     public void setAddView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, view2) == null) {
             this.u = view2;
         }
     }
 
     public void setCenterStart(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             this.B = z;
         }
     }
 
-    public void setDragController(lka lkaVar) {
+    public void setDragController(bfa bfaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, lkaVar) == null) {
-            this.c = lkaVar;
+        if (interceptable == null || interceptable.invokeL(1048598, this, bfaVar) == null) {
+            this.c = bfaVar;
         }
     }
 
     public void setMaxItemNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             this.s = i;
         }
     }
 
     public void setNeedRecomputeAddView(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             this.C = z;
         }
     }
 
     public void setPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             this.r = i;
         }
     }
 
     public void setStartEndSpace(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
             this.q = i;
         }
     }
 
     public void setAdapter(BaseAdapter baseAdapter, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048596, this, baseAdapter, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048595, this, baseAdapter, z) == null) {
             this.a = baseAdapter;
             this.j.forceFinished(true);
             this.k.forceFinished(true);
@@ -366,14 +366,14 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     @Override // android.view.View
     public void computeScroll() {
-        lka lkaVar;
+        bfa bfaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.j.computeScrollOffset()) {
                 scrollTo(this.j.getCurrX(), 0);
                 postInvalidateDelayed(16L);
-                if ((this.o || this.p) && (lkaVar = this.c) != null) {
-                    lkaVar.d();
+                if ((this.o || this.p) && (bfaVar = this.c) != null) {
+                    bfaVar.d();
                     return;
                 }
                 return;
@@ -383,10 +383,70 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    public int delete(View view2) {
+    public BaseAdapter getAdapter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (BaseAdapter) invokeV.objValue;
+    }
+
+    public int getMaxItemNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.s;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.g > getMeasuredWidth()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!j()) {
+                return 0;
+            }
+            return this.g - ((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight());
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.y;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onDetachedFromWindow();
+            t();
+        }
+    }
+
+    public int l(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
             this.y = true;
             view2.clearAnimation();
             int indexOfChild = indexOfChild(view2);
@@ -440,7 +500,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
             if ((motionEvent.getAction() == 0 && motionEvent.getEdgeFlags() != 0) || !j()) {
                 return true;
             }
@@ -454,7 +514,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                 if (action != 1) {
                     if (action == 2) {
                         this.h = x;
-                        q((int) (this.h - x));
+                        r((int) (this.h - x));
                     }
                 } else {
                     VelocityTracker velocityTracker = this.l;
@@ -490,67 +550,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         return invokeL.booleanValue;
     }
 
-    public BaseAdapter getAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (BaseAdapter) invokeV.objValue;
-    }
-
-    public int getMaxItemNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.s;
-        }
-        return invokeV.intValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.g > getMeasuredWidth()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!j()) {
-                return 0;
-            }
-            return this.g - ((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight());
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.y;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.onDetachedFromWindow();
-            s();
-        }
-    }
-
-    public final void n(View view2, int i, int i2) {
+    public final void o(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i, i2) == null) {
             ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
@@ -562,42 +562,11 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    public final int[] o(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048585, this, i, i2, i3, i4)) == null) {
-            int[] iArr = new int[2];
-            if (this.a == null) {
-                iArr[0] = getPaddingLeft() + getPaddingRight();
-                iArr[1] = getPaddingTop() + getPaddingBottom();
-                return iArr;
-            }
-            int paddingLeft = getPaddingLeft() + getPaddingRight();
-            int paddingTop = getPaddingTop() + getPaddingBottom();
-            if (i2 == -1) {
-                i2 = this.d - 1;
-            }
-            while (i <= i2) {
-                View p = p(i);
-                if (p.getVisibility() != 8) {
-                    n(p, i3, i4);
-                    paddingLeft += p.getMeasuredWidth();
-                    paddingTop = Math.max(p.getMeasuredHeight(), paddingTop);
-                }
-                i++;
-            }
-            iArr[0] = paddingLeft;
-            iArr[1] = paddingTop;
-            return iArr;
-        }
-        return (int[]) invokeIIII.objValue;
-    }
-
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (!j()) {
                 return false;
@@ -647,7 +616,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             int childCount = getChildCount();
             for (int i5 = 0; i5 < childCount; i5++) {
                 View childAt = getChildAt(i5);
@@ -660,9 +629,9 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
             if (this.B) {
                 int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
                 if (this.d > 0) {
-                    View p = p(0);
-                    n(p, this.e, this.f);
-                    paddingLeft = ((getMeasuredWidth() - p.getMeasuredWidth()) + dimensionPixelSize) / 2;
+                    View q = q(0);
+                    o(q, this.e, this.f);
+                    paddingLeft = ((getMeasuredWidth() - q.getMeasuredWidth()) + dimensionPixelSize) / 2;
                 } else if (this.u != null) {
                     int measuredWidth = ((getMeasuredWidth() - (this.q * 2)) + this.r) / 3;
                     ViewGroup.LayoutParams layoutParams = this.u.getLayoutParams();
@@ -672,24 +641,24 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                     layoutParams.width = measuredWidth;
                     layoutParams.height = -1;
                     this.u.setLayoutParams(layoutParams);
-                    n(this.u, this.e, this.f);
+                    o(this.u, this.e, this.f);
                     paddingLeft = ((getMeasuredWidth() - this.u.getMeasuredWidth()) + dimensionPixelSize) / 2;
                 }
             }
             for (int i6 = 0; i6 < this.d; i6++) {
-                View p2 = p(i6);
-                if (p2 != null && p2.getVisibility() != 8) {
-                    ViewGroup.LayoutParams layoutParams2 = p2.getLayoutParams();
+                View q2 = q(i6);
+                if (q2 != null && q2.getVisibility() != 8) {
+                    ViewGroup.LayoutParams layoutParams2 = q2.getLayoutParams();
                     if (layoutParams2 == null) {
                         layoutParams2 = new ViewGroup.LayoutParams(-2, -2);
-                        p2.setLayoutParams(layoutParams2);
+                        q2.setLayoutParams(layoutParams2);
                     }
-                    addViewInLayout(p2, -1, layoutParams2, true);
-                    n(p2, this.e, this.f);
+                    addViewInLayout(q2, -1, layoutParams2, true);
+                    o(q2, this.e, this.f);
                     int paddingTop = getPaddingTop();
-                    int measuredWidth2 = p2.getMeasuredWidth() + paddingLeft;
-                    p2.layout(paddingLeft, paddingTop, measuredWidth2, p2.getMeasuredHeight() + paddingTop);
-                    p2.setDrawingCacheEnabled(false);
+                    int measuredWidth2 = q2.getMeasuredWidth() + paddingLeft;
+                    q2.layout(paddingLeft, paddingTop, measuredWidth2, q2.getMeasuredHeight() + paddingTop);
+                    q2.setDrawingCacheEnabled(false);
                     paddingLeft = measuredWidth2;
                 }
             }
@@ -704,7 +673,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                     layoutParams3.height = -1;
                     this.u.setLayoutParams(layoutParams3);
                 }
-                n(this.u, this.e, this.f);
+                o(this.u, this.e, this.f);
                 int paddingTop2 = getPaddingTop();
                 int measuredWidth4 = this.u.getMeasuredWidth() + paddingLeft;
                 this.u.layout(paddingLeft, paddingTop2, measuredWidth4, this.u.getMeasuredHeight() + paddingTop2);
@@ -731,7 +700,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     public boolean onLongClick(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, view2)) == null) {
             if (this.A) {
                 return true;
             }
@@ -750,7 +719,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         return invokeL.booleanValue;
     }
 
-    public final View p(int i) {
+    public final View q(int i) {
         InterceptResult invokeI;
         View view2;
         Interceptable interceptable = $ic;
@@ -778,7 +747,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
             int mode = View.MeasureSpec.getMode(i);
             int mode2 = View.MeasureSpec.getMode(i2);
             int size = View.MeasureSpec.getSize(i);
@@ -793,10 +762,10 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
             int min = Math.min(this.s, count);
             this.d = min;
             if (min > 0 && (mode == 0 || mode2 == 0)) {
-                View p = p(0);
-                n(p, i, i2);
-                i4 = p.getMeasuredWidth();
-                i3 = p.getMeasuredHeight();
+                View q = q(0);
+                o(q, i, i2);
+                i4 = q.getMeasuredWidth();
+                i3 = q.getMeasuredHeight();
             } else {
                 i3 = 0;
                 i4 = 0;
@@ -808,13 +777,13 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                 size2 = getPaddingTop() + getPaddingBottom() + i3;
             }
             if (mode == Integer.MIN_VALUE || mode2 == Integer.MIN_VALUE) {
-                int[] o = o(0, -1, i, i2);
+                int[] p = p(0, -1, i, i2);
                 if (mode == Integer.MIN_VALUE) {
-                    size = ViewGroup.resolveSize(o[0], i);
+                    size = ViewGroup.resolveSize(p[0], i);
                     this.z = true;
                 }
                 if (mode2 == Integer.MIN_VALUE) {
-                    size2 = ViewGroup.resolveSize(o[1], i2);
+                    size2 = ViewGroup.resolveSize(p[1], i2);
                 }
             }
             setMeasuredDimension(size, size2);
@@ -823,9 +792,40 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    public final void s() {
+    public final int[] p(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048591, this, i, i2, i3, i4)) == null) {
+            int[] iArr = new int[2];
+            if (this.a == null) {
+                iArr[0] = getPaddingLeft() + getPaddingRight();
+                iArr[1] = getPaddingTop() + getPaddingBottom();
+                return iArr;
+            }
+            int paddingLeft = getPaddingLeft() + getPaddingRight();
+            int paddingTop = getPaddingTop() + getPaddingBottom();
+            if (i2 == -1) {
+                i2 = this.d - 1;
+            }
+            while (i <= i2) {
+                View q = q(i);
+                if (q.getVisibility() != 8) {
+                    o(q, i3, i4);
+                    paddingLeft += q.getMeasuredWidth();
+                    paddingTop = Math.max(q.getMeasuredHeight(), paddingTop);
+                }
+                i++;
+            }
+            iArr[0] = paddingLeft;
+            iArr[1] = paddingTop;
+            return iArr;
+        }
+        return (int[]) invokeIIII.objValue;
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             removeCallbacks(this.D);
             this.j.forceFinished(true);
             this.k.forceFinished(true);

@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
-import java.nio.ShortBuffer;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public interface n5 extends b7 {
-    @Override // com.baidu.tieba.b7
-    void dispose();
+public interface n5 {
+    void a(String str);
 
-    int e();
+    boolean b(int i, String str);
 
-    ShortBuffer getBuffer();
+    void c(ud udVar);
 
-    void invalidate();
+    void d(ce ceVar);
+
+    void g(Map<String, String> map);
 }

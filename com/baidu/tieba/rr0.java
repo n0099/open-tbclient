@@ -1,171 +1,118 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.player.helper.NetUtils;
+import com.baidu.searchbox.player.event.SystemEvent;
+import com.baidu.tieba.ur0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class rr0 {
+/* loaded from: classes8.dex */
+public class rr0 extends dr0 implements ur0.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
+    public final ur0 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948131097, "Lcom/baidu/tieba/rr0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948131097, "Lcom/baidu/tieba/rr0;");
-                return;
-            }
-        }
-        d = new a(null);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof rr0) {
-                    rr0 rr0Var = (rr0) obj;
-                    return Intrinsics.areEqual(this.a, rr0Var.a) && Intrinsics.areEqual(this.b, rr0Var.b) && Intrinsics.areEqual(this.c, rr0Var.c);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.b;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.c;
-            return hashCode2 + (str3 != null ? str3.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "AdRewardTextTag(text=" + this.a + ", textColor=" + this.b + ", bgColor=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final rr0 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("text");
-                    Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"text\")");
-                    String optString2 = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObj.optString(\"text_color\")");
-                    String optString3 = jSONObject.optString("background_color");
-                    Intrinsics.checkNotNullExpressionValue(optString3, "jsonObj.optString(\"background_color\")");
-                    return new rr0(optString, optString2, optString3);
-                }
-                return null;
-            }
-            return (rr0) invokeL.objValue;
-        }
-    }
-
-    public rr0(String text, String textColor, String bgColor) {
+    public rr0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {text, textColor, bgColor};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(text, "text");
-        Intrinsics.checkNotNullParameter(textColor, "textColor");
-        Intrinsics.checkNotNullParameter(bgColor, "bgColor");
-        this.a = text;
-        this.b = textColor;
-        this.c = bgColor;
+        this.b = new ur0(this);
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                this.b.registerReceiver();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ur0.a
+    public void onConfigurationChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c(qr0.x(SystemEvent.ACTION_CONFIGURATION_CHANGED));
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ur0.a
+    public void a(NetUtils.NetStatus netStatus, NetUtils.NetStatus netStatus2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, netStatus, netStatus2) == null) {
+            sr0 x = qr0.x(SystemEvent.ACTION_CONNECT_CHANGED);
+            x.o(1, netStatus2);
+            c(x);
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ur0.a
+    public void onBatteryChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            sr0 x = qr0.x(SystemEvent.ACTION_BATTERY_CHANGED);
+            x.s(1);
+            x.o(4, Integer.valueOf(i));
+            c(x);
+        }
+    }
+
+    @Override // com.baidu.tieba.ur0.a
+    public void onBluetoothHeadsetChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            sr0 x = qr0.x(SystemEvent.ACTION_BLUETOOTH_HEADSET);
+            x.o(6, Boolean.valueOf(z));
+            c(x);
+        }
+    }
+
+    @Override // com.baidu.tieba.ur0.a
+    public void onHeadsetPlug(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            sr0 x = qr0.x(SystemEvent.ACTION_HEADSET_PLUG);
+            x.o(3, Boolean.valueOf(z));
+            c(x);
+        }
+    }
+
+    @Override // com.baidu.tieba.ur0.a
+    public void onScreenStatusChanged(boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z) {
+                str = SystemEvent.ACTION_SCREEN_OFF;
+            } else {
+                str = SystemEvent.ACTION_SCREEN_ON;
+            }
+            sr0 x = qr0.x(str);
+            x.o(2, Boolean.valueOf(z));
+            c(x);
+        }
+    }
+
+    @Override // com.baidu.tieba.ur0.a
+    public void onVolumeChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            sr0 x = qr0.x(SystemEvent.ACTION_VOLUME_CHANGED);
+            x.o(5, Integer.valueOf(i));
+            c(x);
+        }
     }
 }

@@ -34,10 +34,10 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
             String action = intent.getAction();
             if ("android.intent.action.SCREEN_OFF".equals(action)) {
                 AdGallery.this.g = false;
-                AdGallery.this.l();
+                AdGallery.this.n();
             } else if ("android.intent.action.USER_PRESENT".equals(action)) {
                 AdGallery.this.g = true;
-                AdGallery.this.m(false);
+                AdGallery.this.o(false);
             }
         }
     }
@@ -89,7 +89,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
             z = false;
         }
         this.f = z;
-        m(false);
+        o(false);
     }
 
     public void setAutoStart(boolean z) {
@@ -124,10 +124,10 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view2, MotionEvent motionEvent) {
         if (1 != motionEvent.getAction() && 3 != motionEvent.getAction()) {
-            k();
+            l();
             return false;
         }
-        j();
+        k();
         return false;
     }
 
@@ -145,7 +145,52 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         g();
     }
 
-    private void registerReceiver() {
+    public void f() {
+        l();
+    }
+
+    public void g() {
+        setOnTouchListener(this);
+        setSoundEffectsEnabled(false);
+        setFocusableInTouchMode(true);
+    }
+
+    public void j() {
+        k();
+    }
+
+    public void k() {
+        this.e = true;
+        n();
+    }
+
+    public void l() {
+        this.e = false;
+        n();
+    }
+
+    public final void n() {
+        o(true);
+    }
+
+    @Override // android.widget.Gallery, android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        i();
+        if (this.c) {
+            k();
+        }
+    }
+
+    @Override // android.widget.AdapterView, android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        this.f = false;
+        m();
+        n();
+    }
+
+    public final void i() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         intentFilter.addAction("android.intent.action.USER_PRESENT");
@@ -154,7 +199,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         RLog.debug("AdGallery", "[onAttachedToWindow] mHasRegisterReceiver = " + this.i);
     }
 
-    private void unregisterReceiver() {
+    public final void m() {
         RLog.debug("AdGallery", "[onAttachedToWindow] mHasRegisterReceiver = " + this.i);
         if (this.i) {
             RLog.debug("AdGallery", "[onAttachedToWindow] unregisterReceiver");
@@ -167,52 +212,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         }
     }
 
-    public void f() {
-        k();
-    }
-
-    public void g() {
-        setOnTouchListener(this);
-        setSoundEffectsEnabled(false);
-        setFocusableInTouchMode(true);
-    }
-
-    public void i() {
-        j();
-    }
-
-    public void j() {
-        this.e = true;
-        l();
-    }
-
-    public void k() {
-        this.e = false;
-        l();
-    }
-
-    public final void l() {
-        m(true);
-    }
-
-    @Override // android.widget.Gallery, android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        registerReceiver();
-        if (this.c) {
-            j();
-        }
-    }
-
-    @Override // android.widget.AdapterView, android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        this.f = false;
-        unregisterReceiver();
-        l();
-    }
-
-    public final void m(boolean z) {
+    public final void o(boolean z) {
         boolean z2;
         if (this.f && this.e && this.g) {
             z2 = true;

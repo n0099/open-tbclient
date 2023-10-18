@@ -105,7 +105,7 @@ public class MonthAdapter extends BaseAdapter {
         initializeStyles(viewGroup.getContext());
         TextView textView = (TextView) view2;
         if (view2 == null) {
-            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0660, viewGroup, false);
+            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0653, viewGroup, false);
         }
         int firstPositionInMonth = i - firstPositionInMonth();
         if (firstPositionInMonth >= 0) {

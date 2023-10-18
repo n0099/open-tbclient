@@ -44,7 +44,7 @@ public class dq {
             if (z) {
                 ajVar.a((aj.a) duVar, a(baVar.a(hm.UploadFrequency.a(), 86400)));
             } else {
-                ajVar.m262a((aj.a) duVar);
+                ajVar.m261a((aj.a) duVar);
             }
         }
     }
@@ -70,7 +70,7 @@ public class dq {
         if (j == currentTimeMillis) {
             sharedPreferences.edit().putLong("first_try_ts", currentTimeMillis).commit();
         }
-        if (Math.abs(currentTimeMillis - j) < 172800000) {
+        if (Math.abs(currentTimeMillis - j) < com.baidu.mobads.sdk.internal.bj.e) {
             return;
         }
         a(a3, a2, false);
@@ -78,7 +78,7 @@ public class dq {
             int a4 = a(a3.a(hm.StorageCollectionFrequency.a(), 86400));
             a2.a(new dt(this.f233a, a4), a4, 0);
         }
-        if (j.m714a(this.f233a) && (aVar = this.f234a) != null) {
+        if (j.m713a(this.f233a) && (aVar = this.f234a) != null) {
             aVar.a();
         }
         if (a3.a(hm.ActivityTSSwitch.a(), false)) {
@@ -88,7 +88,7 @@ public class dq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m367a() {
+    public void m366a() {
         aj.a(this.f233a).a(new dr(this));
     }
 }

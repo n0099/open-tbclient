@@ -6,7 +6,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public int f() {
+    public int e() {
         return R.layout.nad_video_ad_tail_frame;
     }
 
@@ -23,8 +23,8 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public void g() {
-        super.g();
+    public void f() {
+        super.f();
         this.c.setTextColor(getResources().getColor(R.color.NAD_FC6));
         this.d.setTextColor(getResources().getColor(R.color.NAD_FC38));
         this.e.setTextColor(getResources().getColor(R.color.NAD_FC38));

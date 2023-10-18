@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.db.DBTableDefine;
+import android.content.Context;
+import android.os.IBinder;
+import android.view.inputmethod.InputMethodManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class qi3 {
     public static /* synthetic */ Interceptable $ic;
@@ -29,30 +27,34 @@ public class qi3 {
                 return;
             }
         }
-        a = qr1.a;
+        a = am1.a;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        String W;
-        String queryParameter;
+    public static void a(Context context, IBinder iBinder) {
+        InputMethodManager inputMethodManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            gb3 b0 = gb3.b0();
-            if (b0 == null || (W = b0.W().W()) == null || (queryParameter = Uri.parse(W).getQueryParameter("params")) == null) {
-                return false;
-            }
+        if ((interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
             try {
-            } catch (JSONException e) {
+                inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
+            } catch (Exception e) {
                 if (a) {
                     e.printStackTrace();
                 }
             }
-            if (!TextUtils.equals(new JSONObject(queryParameter).optString("forcePath"), DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE)) {
-                return false;
-            }
-            return true;
         }
-        return invokeV.booleanValue;
+    }
+
+    public static void b(Context context, boolean z) {
+        InputMethodManager inputMethodManager;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
+            if (z) {
+                i = 2;
+            } else {
+                i = 0;
+            }
+            inputMethodManager.toggleSoftInput(i, 2);
+        }
     }
 }

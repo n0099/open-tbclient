@@ -1,39 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.impersonal.components.inputview.ImPersonInputView;
+import com.baidu.tieba.lego.model.LegoPageModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Lego.DataRes;
 /* loaded from: classes5.dex */
-public class d09 {
+public class d09 implements b09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext a;
-    @NonNull
-    public ImPersonInputView b;
-    @NonNull
-    public y19 c;
-    public boolean d;
+    public LegoPageModel a;
+    public c09 b;
+    public LegoPageModel.b c;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a implements LegoPageModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d09 a;
@@ -56,51 +45,45 @@ public class d09 {
             this.a = d09Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
+        public void a(long j, String str, DataRes dataRes, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !this.a.d) {
-                return;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z)}) == null) && this.a.b != null) {
+                this.a.b.c(j, str, dataRes, z);
             }
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                BdUtilHelper.showToast(this.a.a.getString(R.string.obfuscated_res_0x7f0f144f), 2000, true);
-                return;
+        }
+
+        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
+        public void b(long j, String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) && this.a.b != null) {
+                this.a.b.b(j, str, str2, i);
             }
-            String obj = this.a.b.getEditText().getText().toString();
-            if (!TextUtils.isEmpty(obj)) {
-                TiebaStatic.log(new StatisticItem("c15273").param("uid", TbadkCoreApplication.getCurrentAccount()));
-                this.a.j(obj);
-                this.a.g();
+        }
+
+        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
+        public void c(long j, String str, DataRes dataRes, boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.a.b != null) {
+                this.a.b.a(true, dataRes, !z, j, str, i);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements TextWatcher {
+    public class b extends gs5<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d09 a;
+        public final /* synthetic */ m9 a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
 
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        public b(d09 d09Var) {
+        public b(d09 d09Var, m9 m9Var, long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d09Var};
+                Object[] objArr = {d09Var, m9Var, Long.valueOf(j), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -110,73 +93,88 @@ public class d09 {
                     return;
                 }
             }
-            this.a = d09Var;
+            this.a = m9Var;
+            this.b = j;
+            this.c = str;
         }
 
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gs5
+        /* renamed from: a */
+        public DataRes doInBackground() {
+            InterceptResult invokeV;
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, editable) != null) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                m9 m9Var = this.a;
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.b);
+                sb.append("_");
+                if (TextUtils.isEmpty(this.c)) {
+                    str = "";
+                } else {
+                    str = this.c;
+                }
+                sb.append(str);
+                byte[] bArr = (byte[]) m9Var.get(sb.toString());
+                if (bArr != null && bArr.length != 0) {
+                    try {
+                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+                    } catch (IOException unused) {
+                    }
+                }
+                return null;
             }
-            this.a.k(!TextUtils.isEmpty(editable.toString().trim()));
+            return (DataRes) invokeV.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements InputFilter {
+    public class c implements lr5<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final /* synthetic */ d09 b;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ d09 c;
 
-        public c(d09 d09Var, int i) {
+        public c(d09 d09Var, long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d09Var, Integer.valueOf(i)};
+                Object[] objArr = {d09Var, Long.valueOf(j), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = d09Var;
-            this.a = i;
+            this.c = d09Var;
+            this.a = j;
+            this.b = str;
         }
 
-        @Override // android.text.InputFilter
-        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-            InterceptResult invokeCommon;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lr5
+        /* renamed from: a */
+        public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                int length = this.a - (spanned.length() - (i4 - i3));
-                int i5 = i2 - i;
-                if (length < i5) {
-                    BdUtilHelper.showToast(this.b.a.getString(R.string.obfuscated_res_0x7f0f0aa3), 2000, true);
-                }
-                if (length <= 0) {
-                    return "";
-                }
-                if (length >= i5) {
-                    return null;
-                }
-                return charSequence.subSequence(i, length + i);
+            if (interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) {
+                return;
             }
-            return (CharSequence) invokeCommon.objValue;
+            this.c.f(this.a, this.b, dataRes);
         }
     }
 
-    public d09(@NonNull TbPageContext tbPageContext, @NonNull ImPersonInputView imPersonInputView, @NonNull y19 y19Var) {
+    public d09(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, imPersonInputView, y19Var};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -186,53 +184,47 @@ public class d09 {
                 return;
             }
         }
-        this.d = false;
-        this.a = tbPageContext;
-        this.b = imPersonInputView;
-        this.c = y19Var;
-        h();
-        i();
+        this.c = new a(this);
+        LegoPageModel legoPageModel = new LegoPageModel(tbPageContext, bdUniqueId);
+        this.a = legoPageModel;
+        legoPageModel.P(this.c);
     }
 
-    public final void j(@NonNull String str) {
+    @Override // com.baidu.tieba.b09
+    public void b(c09 c09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c.t(t09.a(str));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c09Var) == null) {
+            this.b = c09Var;
         }
     }
 
-    public final void k(boolean z) {
+    @Override // com.baidu.tieba.b09
+    public void a(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (z) {
-                this.b.getSendViewContainer().setAlpha(1.0f);
-                this.d = true;
-                return;
-            }
-            this.b.getSendViewContainer().setAlpha(0.5f);
-            this.d = false;
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) {
+            gz4.k();
+            ks5.b(new b(this, gz4.i("tb.lego_update"), j, str), new c(this, j, str));
         }
     }
 
-    public final void g() {
+    @Override // com.baidu.tieba.b09
+    public void c(int i, long j, String str, int i2, String str2) {
+        LegoPageModel legoPageModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.getEditText().setText("");
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) && (legoPageModel = this.a) != null) {
+            legoPageModel.O(i, j, str, i2, str2);
         }
     }
 
-    public final void h() {
+    public final void f(long j, String str, DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getEditText().setFilters(new InputFilter[]{new c(this, 400)});
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, dataRes}) != null) || j < 0) {
+            return;
         }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.getSendViewContainer().setOnClickListener(new a(this));
-            this.b.getEditText().addTextChangedListener(new b(this));
+        c09 c09Var = this.b;
+        if (c09Var != null) {
+            c09Var.a(false, dataRes, false, j, str, 1);
         }
+        this.a.O(2, j, str, 1, "");
     }
 }

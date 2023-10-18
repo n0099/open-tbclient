@@ -1,13 +1,19 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public interface ge0 {
-    void onError(int i);
+    public static final ServiceReference a = new ServiceReference("nad.core", "cmd");
+    public static final ge0 b = new fe0();
 
-    void onPause();
+    boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable he0 he0Var);
 
-    void onResume();
+    void b(String str, String str2, je0 je0Var);
 
-    void onStart();
+    String[] c();
 
-    void v(int i, String str);
+    boolean d(Context context, String str);
 }

@@ -1,102 +1,94 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class s6 extends o6 implements p6 {
+import java.security.InvalidParameterException;
+/* loaded from: classes8.dex */
+public class s6 extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w3 h;
+    public r6 a;
+    public volatile u6 b;
+    public DiskFileOperate c;
 
-    public s6() {
+    public s6(r6 r6Var, DiskFileOperate diskFileOperate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r6Var, diskFileOperate};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s6(s6 s6Var) {
-        super(s6Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s6Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((p6) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        o(s6Var.h);
-    }
-
-    public s6(w3 w3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {w3Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        if (r6Var != null && diskFileOperate != null) {
+            this.a = r6Var;
+            this.c = diskFileOperate;
+            return;
         }
-        o(w3Var);
+        throw new InvalidParameterException("DiskFileTask parameter null");
     }
 
-    public void o(w3 w3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, w3Var) == null) {
-            this.h = w3Var;
-            if (w3Var != null) {
-                j(w3Var.c());
-                h(w3Var.b());
-            }
-        }
-    }
-
-    public p6 p(e3 e3Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public DiskFileOperate doInBackground(DiskFileOperate... diskFileOperateArr) {
         InterceptResult invokeL;
-        u3 u3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e3Var)) == null) {
-            w3 w3Var = this.h;
-            if (w3Var instanceof v3.a) {
-                u3Var = new v3.b((v3.a) w3Var);
-            } else {
-                u3Var = new u3(w3Var);
-            }
-            u3Var.u(e3Var);
-            u3Var.z(a(), k());
-            r6 r6Var = new r6(u3Var);
-            r6Var.b(l());
-            r6Var.c(g());
-            r6Var.f(i());
-            r6Var.d(e());
-            return r6Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskFileOperateArr)) == null) {
+            this.b = new u6(this.a, this.c);
+            this.b.b();
+            return this.c;
         }
-        return (p6) invokeL.objValue;
+        return (DiskFileOperate) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: c */
+    public void onPostExecute(DiskFileOperate diskFileOperate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diskFileOperate) == null) {
+            super.onPostExecute(diskFileOperate);
+            if (diskFileOperate != null) {
+                this.c.callback(diskFileOperate.isSuccess());
+            } else {
+                this.c.callback(false);
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.cancel();
+            if (this.b != null) {
+                this.b.c();
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreCancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onPreCancel();
+            this.c.callback(false);
+        }
     }
 }

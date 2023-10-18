@@ -1,25 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class ab6 implements jv2 {
+public abstract class ab6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public bb6 a;
 
     public ab6() {
         Interceptable interceptable = $ic;
@@ -35,52 +27,19 @@ public class ab6 implements jv2 {
         }
     }
 
-    @Override // com.baidu.tieba.jv2
-    public boolean a(Context context, String str, zm3 zm3Var) {
-        InterceptResult invokeLLL;
-        String n;
+    public bb6 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, zm3Var)) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
-            if (p96.k().n() == null) {
-                n = "";
-            } else {
-                n = p96.k().n();
-            }
-            statisticItem.param("uid", n);
-            statisticItem.param("obj_param1", zm3Var.h());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, zm3Var.e());
-            TiebaStatic.log(statisticItem);
-            if (zm3Var.j() == 10 && zm3Var.h() == 1013) {
-                b(context, zm3Var);
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeLLL.booleanValue;
+        return (bb6) invokeV.objValue;
     }
 
-    public final void b(Context context, zm3 zm3Var) {
-        boolean z;
+    public void d(bb6 bb6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, zm3Var) == null) {
-            gb3 b0 = gb3.b0();
-            if (context != null && b0 != null) {
-                String i = lk3.i(tw2.T().getCoreVersion(), b0.Y().G());
-                long h = zm3Var.h();
-                String r = zm3Var.r();
-                if (1020 == h && !TextUtils.isEmpty(r)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    r = en4.b().a(h);
-                }
-                ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + ap3.D() + "/" + i + "/" + zm3Var.a());
-                forbiddenInfo.enableSlidingFlag = -1;
-                aw2.l(context, "type_need_update_sdk", zm3Var, forbiddenInfo, b0.Y().D());
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bb6Var) == null) {
+            this.a = bb6Var;
         }
     }
 }

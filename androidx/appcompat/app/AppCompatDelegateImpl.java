@@ -734,7 +734,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (i2 != 0) {
                 newTheme.applyStyle(i2, true);
             } else {
-                newTheme.applyStyle(R.style.obfuscated_res_0x7f100236, true);
+                newTheme.applyStyle(R.style.obfuscated_res_0x7f100230, true);
             }
             ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, 0);
             contextThemeWrapper.getTheme().setTo(newTheme);
@@ -1616,7 +1616,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         context = this.mContext;
                     }
                     viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0017, (ViewGroup) null);
-                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090858);
+                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090873);
                     this.mDecorContentParent = decorContentParent;
                     decorContentParent.setWindowCallback(getWindowCallback());
                     if (this.mOverlayActionBar) {
@@ -1656,7 +1656,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     });
                 }
                 if (this.mDecorContentParent == null) {
-                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09259d);
+                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0925a7);
                 }
                 ViewUtils.makeOptionalFitsSystemWindows(viewGroup);
                 ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09006d);
@@ -2450,7 +2450,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 configuration = generateConfigDelta(configuration2, configuration3);
             }
             Configuration createOverrideConfigurationForDayNight = createOverrideConfigurationForDayNight(context, mapNightMode, configuration);
-            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f100242);
+            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f10023c);
             contextThemeWrapper.applyOverrideConfiguration(createOverrideConfigurationForDayNight);
             boolean z2 = false;
             try {

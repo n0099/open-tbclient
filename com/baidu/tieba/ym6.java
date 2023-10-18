@@ -1,53 +1,35 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public final class ym6 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes9.dex */
+public final class ym6 implements jv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vm6 a;
+    public iz9 a;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ym6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-255810647, "Lcom/baidu/tieba/ym6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-255810647, "Lcom/baidu/tieba/ym6$b;");
-                    return;
-                }
-            }
-            a = new ym6(null);
+    @Override // com.baidu.tieba.jv9
+    public boolean isFullScreen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public ym6() {
+    public ym6(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -57,20 +39,103 @@ public final class ym6 {
                 return;
             }
         }
-        this.a = (vm6) ServiceManager.getService(vm6.a);
+        Intrinsics.checkNotNullParameter(view2, "view");
+        if (mz9.class.isAssignableFrom(view2.getClass())) {
+            this.a = ((mz9) view2).getVideoOrVrView();
+        }
     }
 
-    @NonNull
-    public static vm6 a() {
+    @Override // com.baidu.tieba.jv9
+    public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            iz9 iz9Var = this.a;
+            if (iz9Var != null) {
+                return (int) iz9Var.getCurrentPosition();
+            }
+            return 0;
         }
-        return (vm6) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public /* synthetic */ ym6(a aVar) {
-        this();
+    @Override // com.baidu.tieba.jv9
+    public String getPlayUrl() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            iz9 iz9Var = this.a;
+            if (iz9Var != null) {
+                str = iz9Var.getPlayUrl();
+            } else {
+                str = null;
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jv9
+    public View getVideoContainer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            iz9 iz9Var = this.a;
+            if (iz9Var != null) {
+                return iz9Var.getVideoContainer();
+            }
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jv9
+    public boolean isPlayStarted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            iz9 iz9Var = this.a;
+            if (iz9Var != null) {
+                return iz9Var.isPlayStarted();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jv9
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            iz9 iz9Var = this.a;
+            if (iz9Var != null) {
+                return iz9Var.isPlaying();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jv9
+    public void startPlay() {
+        iz9 iz9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (iz9Var = this.a) != null) {
+            iz9Var.startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.jv9
+    public void stopPlay() {
+        iz9 iz9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (iz9Var = this.a) != null) {
+            iz9Var.stopPlay();
+        }
     }
 }

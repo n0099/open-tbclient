@@ -1,51 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Base64;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.core.atomData.CameraActivityConfig;
+import com.baidu.tbadk.BdToken.GetTokenHttpResponsedMessage;
+import com.baidu.tbadk.BdToken.GetTokenRequestMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialOperation;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vn4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public volatile boolean b;
+    public boolean a;
+    public b b;
+    public NetMessageListener c;
 
     /* loaded from: classes8.dex */
-    public static class a extends qr4 {
+    public interface b {
+        void a(boolean z, no4 no4Var);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vn4 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_host");
+        public a(vn4 vn4Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vn4Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
+            }
+            this.a = vn4Var;
+        }
+
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.a = false;
+                if (responsedMessage != null && responsedMessage.getError() == 0) {
+                    if (!(responsedMessage instanceof GetTokenHttpResponsedMessage)) {
+                        return;
+                    }
+                    this.a.d(true, ((GetTokenHttpResponsedMessage) responsedMessage).getData());
+                    return;
+                }
+                this.a.d(false, null);
             }
         }
     }
@@ -63,193 +85,50 @@ public class vn4 {
                 return;
             }
         }
-        this.b = false;
-        this.a = new a();
+        this.a = false;
+        this.c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
+        f();
+        e();
     }
 
-    public static vn4 e() {
-        InterceptResult invokeV;
+    public final void d(boolean z, no4 no4Var) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (vn4.class) {
-                    if (c == null) {
-                        c = new vn4();
-                    }
-                }
-            }
-            return c;
-        }
-        return (vn4) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String c2 = c("failureUrl");
-            if (!TextUtils.isEmpty(c2)) {
-                return c2;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return Long.valueOf(this.a.getLong("identity", 0L));
-        }
-        return (Long) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.contains("version")) {
-                return this.a.getString("version", "0");
-            }
-            if (!f()) {
-                return "0";
-            }
-            return this.a.getString("version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String string = this.a.getString(str, "");
-            if (!TextUtils.isEmpty(string)) {
-                return string;
-            }
-            if (f()) {
-                String string2 = this.a.getString(str, "");
-                if (!TextUtils.isEmpty(string2)) {
-                    return string2;
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public synchronized boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    return true;
-                }
-                String D = kr4.D(AppRuntime.getAppContext(), "config/union-cfg.json");
-                HashSet hashSet = null;
-                if (TextUtils.isEmpty(D)) {
-                    File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_config/union-cfg.json");
-                    if (file.exists()) {
-                        D = kr4.E(file);
-                    } else {
-                        D = null;
-                    }
-                }
-                if (TextUtils.isEmpty(D)) {
-                    return false;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(D);
-                    String optString = jSONObject.optString("hostName");
-                    String optString2 = jSONObject.optString("schemeHead");
-                    String optString3 = jSONObject.optString("shareCallbackUrl");
-                    String optString4 = jSONObject.optString("failureUrl");
-                    int optInt = jSONObject.optInt("version");
-                    JSONArray optJSONArray = jSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
-                    if (optJSONArray != null && optJSONArray.length() > 0) {
-                        hashSet = new HashSet();
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            hashSet.add(optJSONArray.optString(i));
-                        }
-                    }
-                    HashSet hashSet2 = hashSet;
-                    int optInt2 = jSONObject.optInt("officialNo");
-                    int optInt3 = jSONObject.optInt("containerNo");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("confsk");
-                    long j = 0;
-                    if (optJSONObject != null) {
-                        String optString5 = optJSONObject.optString("value");
-                        long optLong = optJSONObject.optLong("identity");
-                        if (ri4.b() != null) {
-                            ri4.b().d(optString5.getBytes());
-                        }
-                        j = optLong;
-                    }
-                    h(new un4(null, optInt2, optInt3, optString, optString3, optString4, String.valueOf(optInt), hashSet2, optString2, Long.valueOf(j)));
-                    this.b = true;
-                    return true;
-                } catch (JSONException unused) {
-                    return false;
-                }
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            int i = this.a.getInt("use_openbundleid", -1);
-            if (i == -1) {
-                return z;
-            }
-            if (i == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a.edit().putInt("use_openbundleid", i).apply();
+        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, no4Var) == null) && (bVar = this.b) != null) {
+            bVar.a(z, no4Var);
         }
     }
 
-    public final void h(un4 un4Var) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, un4Var) == null) && un4Var != null && !TextUtils.isEmpty(un4Var.d) && !TextUtils.isEmpty(un4Var.i) && !TextUtils.isEmpty(un4Var.g)) {
-            SharedPreferences.Editor putString = this.a.edit().putString("hostName", un4Var.d).putString("schemeHead", un4Var.i).putString("shareCallbackUrl", un4Var.e).putString("failureUrl", un4Var.f).putString("version", un4Var.g);
-            Set<String> set = un4Var.h;
-            if (set != null && !set.isEmpty()) {
-                putString.putStringSet(SocialOperation.GAME_SIGNATURE, un4Var.h);
-            }
-            Long l = un4Var.j;
-            if (l != null) {
-                putString.putLong("identity", l.longValue());
-            }
-            putString.apply();
-        }
-    }
-
-    public void i(un4 un4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, un4Var) != null) || un4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a) {
             return;
         }
-        SharedPreferences.Editor putString = this.a.edit().putString("hostName", un4Var.d).putString("schemeHead", un4Var.i).putString("shareCallbackUrl", un4Var.e).putString("failureUrl", un4Var.f).putString(CameraActivityConfig.KEY_CONTENT_TYPE, un4Var.a).putInt("containerNo", un4Var.c).putInt("officialNo", un4Var.b).putString("version", un4Var.g);
-        Set<String> set = un4Var.h;
-        if (set != null && !set.isEmpty()) {
-            putString.putStringSet(SocialOperation.GAME_SIGNATURE, un4Var.h);
+        this.a = true;
+        GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
+        getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
+        getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
+        MessageManager.getInstance().sendMessage(getTokenRequestMessage);
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
         }
-        putString.apply();
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            xda.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
+        }
+    }
+
+    public void g(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.b = bVar;
+        }
     }
 }

@@ -1,419 +1,131 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.TurbonetEngine;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.net.URL;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.Headers;
-import okhttp3.Interceptor;
-import okhttp3.MediaType;
-import okhttp3.Protocol;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okhttp3.internal.Version;
-import okhttp3.internal.http.RealResponseBody;
-import okio.BufferedSink;
-import okio.BufferedSource;
-import okio.Okio;
 /* loaded from: classes8.dex */
-public class vbb implements Interceptor {
+public class vbb implements dcb {
     public static /* synthetic */ Interceptable $ic;
-    public static Field c;
-    public static boolean d;
-    public static Constructor<RealResponseBody> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieJar a;
-    public TurbonetEngine b;
+    public ibb a;
+    public float b;
+    public boolean c;
 
-    /* loaded from: classes8.dex */
-    public class a implements ybb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ccb a;
-
-        public a(vbb vbbVar, ccb ccbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vbbVar, ccbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ccbVar;
-        }
-
-        @Override // com.baidu.tieba.ybb
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.a.disconnect();
-            }
-        }
-
-        @Override // com.baidu.tieba.ybb
-        public void onComplete(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                this.a.disconnect();
-            }
-        }
-
-        @Override // com.baidu.tieba.ybb
-        public void b(Exception exc, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
-                this.a.disconnect();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements ybb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bbb a;
-        public final /* synthetic */ vbb b;
-
-        public b(vbb vbbVar, bbb bbbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vbbVar, bbbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vbbVar;
-            this.a = bbbVar;
-        }
-
-        @Override // com.baidu.tieba.ybb
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                bbb bbbVar = this.a;
-                bbbVar.e = j;
-                bbbVar.c();
-                bbb bbbVar2 = this.a;
-                bbbVar2.c = -12;
-                bbbVar2.d(this.b.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.ybb
-        public void onComplete(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                bbb bbbVar = this.a;
-                bbbVar.e = j;
-                bbbVar.c();
-                bbb bbbVar2 = this.a;
-                bbbVar2.c = 0;
-                bbbVar2.d(this.b.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.ybb
-        public void b(Exception exc, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
-                bbb bbbVar = this.a;
-                bbbVar.e = j;
-                bbbVar.c();
-                this.a.a(exc);
-                this.a.d(this.b.b);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948236435, "Lcom/baidu/tieba/vbb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948236435, "Lcom/baidu/tieba/vbb;");
-                return;
-            }
-        }
-        try {
-            Field declaredField = RealResponseBody.class.getDeclaredField("source");
-            c = declaredField;
-            declaredField.setAccessible(true);
-        } catch (NoSuchFieldException e2) {
-            Log.e("tn_OkHttp3Intercept", "Can not find source field from RealResponseBody.", e2);
-            c = null;
-        }
-        try {
-            boolean c2 = wbb.c();
-            d = c2;
-            if (c2) {
-                e = RealResponseBody.class.getConstructor(String.class, Long.TYPE, BufferedSource.class);
-                Log.d("tn_OkHttp3Intercept", "found okhttp 3.9+");
-                return;
-            }
-            e = RealResponseBody.class.getConstructor(Headers.class, BufferedSource.class);
-            Log.d("tn_OkHttp3Intercept", "found okhttp 3.8-");
-        } catch (IllegalArgumentException e3) {
-            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e3);
-            e = null;
-        } catch (NoSuchMethodException e4) {
-            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e4);
-            e = null;
-        } catch (NoSuchElementException e5) {
-            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e5);
-            e = null;
-        }
-    }
-
-    public vbb(qbb qbbVar) {
+    public vbb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qbbVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = CookieJar.NO_COOKIES;
-        TurbonetEngine b2 = qbbVar.b();
-        this.b = b2;
-        if (b2 != null) {
+        this.b = 1.0f;
+        this.c = true;
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            ibb ibbVar = this.a;
+            if (ibbVar == null || !ibbVar.putBytes(bArr, i)) {
+                return 0;
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (ibb) lfb.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
+            }
+            ibb ibbVar = this.a;
+            if (ibbVar != null) {
+                ibbVar.init(i3, i2);
+                this.a.setSpeed(1.0f);
+                return false;
+            }
+            return false;
+        }
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            ibb ibbVar = this.a;
+            return ibbVar != null ? ibbVar.getOutPutBytes() : new byte[0];
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.b = f;
+            ibb ibbVar = this.a;
+            if (ibbVar != null) {
+                ibbVar.setSpeed(f);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dcb
+    public void c() {
+        ibb ibbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ibbVar = this.a) == null) {
             return;
         }
-        throw new NullPointerException("TurbonetEngine is null.");
+        ibbVar.flush();
     }
 
-    public final String b(List<Cookie> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dcb
+    public void d() {
+        ibb ibbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (i > 0) {
-                    sb.append("; ");
-                }
-                Cookie cookie = list.get(i);
-                sb.append(cookie.name());
-                sb.append('=');
-                sb.append(cookie.value());
-            }
-            return sb.toString();
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (ibbVar = this.a) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        ibbVar.close();
+        this.a = null;
     }
 
-    public final Response c(Interceptor.Chain chain, Request request) throws IOException {
-        InterceptResult invokeLL;
-        RealResponseBody realResponseBody;
+    @Override // com.baidu.tieba.dcb
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain, request)) == null) {
-            if (c == null) {
-                return chain.proceed(request);
-            }
-            bbb bbbVar = new bbb(request.url().toString());
-            bbbVar.b = request.method();
-            Request.Builder newBuilder = request.newBuilder();
-            RequestBody body = request.body();
-            if (body != null) {
-                MediaType contentType = body.contentType();
-                if (contentType != null) {
-                    newBuilder.header("Content-Type", contentType.toString());
-                }
-                long contentLength = body.contentLength();
-                if (contentLength != -1) {
-                    newBuilder.header("Content-Length", Long.toString(contentLength));
-                    newBuilder.removeHeader("Transfer-Encoding");
-                } else {
-                    newBuilder.header("Transfer-Encoding", "chunked");
-                    newBuilder.removeHeader("Content-Length");
-                }
-            }
-            if (request.header("User-Agent") == null) {
-                newBuilder.header("User-Agent", Version.userAgent());
-            }
-            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
-            if (!loadForRequest.isEmpty()) {
-                newBuilder.header("Cookie", b(loadForRequest));
-            }
-            Response proceed = chain.proceed(newBuilder.build());
-            bbbVar.b();
-            bbbVar.d = proceed.code();
-            ResponseBody body2 = proceed.body();
-            if (body2 instanceof RealResponseBody) {
-                realResponseBody = (RealResponseBody) body2;
-            } else {
-                realResponseBody = null;
-            }
-            if (this.a != CookieJar.NO_COOKIES) {
-                List<Cookie> parseAll = Cookie.parseAll(request.url(), proceed.headers());
-                if (!parseAll.isEmpty()) {
-                    this.a.saveFromResponse(request.url(), parseAll);
-                }
-            }
-            if (realResponseBody != null) {
-                try {
-                    c.set(realResponseBody, Okio.buffer(Okio.source(new xbb(body2.source().inputStream(), new b(this, bbbVar)))));
-                } catch (IllegalAccessException e2) {
-                    Log.e("tn_OkHttp3Intercept", "Can not set ProxyInputStream to Okio's InputStream", e2);
-                }
-            }
-            return proceed;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
-        return (Response) invokeLL.objValue;
-    }
-
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
-        Protocol protocol;
-        InputStream errorStream;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chain)) == null) {
-            Request request = chain.request();
-            if (e != null && !this.b.c() && (!d || chain.call() != null)) {
-                ccb ccbVar = new ccb(new URL(request.url().toString()), this.b);
-                ccbVar.q();
-                if (d && chain.call().isCanceled()) {
-                    ccbVar.disconnect();
-                    return c(chain, request);
-                }
-                if (d) {
-                    ccbVar.setReadTimeout(chain.readTimeoutMillis());
-                    ccbVar.setConnectTimeout(chain.connectTimeoutMillis());
-                }
-                Headers headers = request.headers();
-                for (String str : headers.names()) {
-                    ccbVar.addRequestProperty(str, headers.get(str));
-                }
-                List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
-                if (loadForRequest != null && !loadForRequest.isEmpty()) {
-                    ccbVar.addRequestProperty("Cookie", b(loadForRequest));
-                }
-                ccbVar.setRequestMethod(request.method());
-                try {
-                    if (request.body() != null) {
-                        if (request.body().contentType() != null) {
-                            ccbVar.setRequestProperty("Content-Type", request.body().contentType().toString());
-                        }
-                        ccbVar.setDoOutput(true);
-                        OutputStream outputStream = ccbVar.getOutputStream();
-                        BufferedSink buffer = Okio.buffer(Okio.sink(outputStream));
-                        request.body().writeTo(buffer);
-                        buffer.flush();
-                        outputStream.close();
-                    }
-                    int responseCode = ccbVar.getResponseCode();
-                    if (d && chain.call().isCanceled()) {
-                        ccbVar.disconnect();
-                        return c(chain, request);
-                    }
-                    String str2 = ccbVar.z().d().toString();
-                    try {
-                        protocol = Protocol.get(str2);
-                    } catch (IOException unused) {
-                        Log.e("tn_OkHttp3Intercept", "Unexpected protocol: " + str2);
-                        protocol = Protocol.HTTP_1_1;
-                    }
-                    Response.Builder builder = new Response.Builder();
-                    builder.request(request).protocol(protocol).code(responseCode).message(ccbVar.getResponseMessage());
-                    Headers.Builder builder2 = new Headers.Builder();
-                    for (Map.Entry<String, List<String>> entry : ccbVar.getHeaderFields().entrySet()) {
-                        for (String str3 : entry.getValue()) {
-                            if (entry.getKey() != null && !entry.getKey().isEmpty() && entry.getValue() != null) {
-                                builder.addHeader(entry.getKey(), str3);
-                                builder2.add(entry.getKey(), str3);
-                            }
-                        }
-                    }
-                    Headers build = builder2.build();
-                    if (this.a != CookieJar.NO_COOKIES) {
-                        List<Cookie> parseAll = Cookie.parseAll(request.url(), build);
-                        if (!parseAll.isEmpty()) {
-                            this.a.saveFromResponse(request.url(), parseAll);
-                        }
-                    }
-                    if (responseCode >= 200 && responseCode < 400) {
-                        errorStream = ccbVar.getInputStream();
-                    } else {
-                        errorStream = ccbVar.getErrorStream();
-                    }
-                    BufferedSource buffer2 = Okio.buffer(Okio.source(new xbb(errorStream, new a(this, ccbVar))));
-                    if (builder2.get("Content-Length") == null) {
-                        j = -1L;
-                    } else {
-                        try {
-                            j = Long.valueOf(builder2.get("Content-Length"));
-                        } catch (NumberFormatException e2) {
-                            Log.e("tn_OkHttp3Intercept", "invalid content length: " + builder2.get("Content-Length").toString(), e2);
-                            j = 0L;
-                        }
-                    }
-                    try {
-                        if (d) {
-                            builder.body(e.newInstance(builder2.get("Content-Type"), j, buffer2));
-                        } else {
-                            builder.body(e.newInstance(builder2.build(), buffer2));
-                        }
-                    } catch (Exception e3) {
-                        Log.e("tn_OkHttp3Intercept", "unexpected error:" + e3.toString());
-                    }
-                    String responseMessage = ccbVar.getResponseMessage();
-                    if (responseMessage == null) {
-                        responseMessage = "";
-                    }
-                    return builder.message(responseMessage).build();
-                } catch (IOException e4) {
-                    Log.e("tn_OkHttp3Intercept", "Write data or build connection caught exception: " + e4.toString());
-                    ccbVar.disconnect();
-                    return c(chain, request);
-                }
-            }
-            return c(chain, request);
-        }
-        return (Response) invokeL.objValue;
     }
 }

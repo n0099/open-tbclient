@@ -1,122 +1,116 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class xy2 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<MediaModel> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public long c;
+    public int d;
 
-    public static void a() {
-        ArrayList<MediaModel> arrayList;
+    public xy2() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (arrayList = a) != null) {
-            arrayList.clear();
-            a = null;
-        }
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList == null) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return arrayList.size();
         }
-        return invokeV.intValue;
+        this.d = 0;
     }
 
-    public static ArrayList<MediaModel> e() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList != null && arrayList.size() != 0 && a.get(0) != null) {
-                return a.get(0).getType();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public static int c(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        ArrayList<MediaModel> arrayList;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaModel)) == null) {
-            if (mediaModel == null || (arrayList = a) == null) {
-                return -1;
-            }
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                if (mediaModel.equals(a.get(i))) {
-                    return i;
-                }
-            }
-            return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return invokeL.intValue;
+        return invokeV.intValue;
     }
 
-    public static boolean f(MediaModel mediaModel) {
-        InterceptResult invokeL;
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaModel)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList == null) {
-                return false;
-            }
-            return arrayList.contains(mediaModel);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c - this.b;
         }
-        return invokeL.booleanValue;
+        return invokeV.longValue;
     }
 
-    public static boolean g(MediaModel mediaModel) {
-        InterceptResult invokeL;
+    public long d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mediaModel)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList != null && arrayList.size() != 0) {
-                return a.contains(mediaModel);
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
-        return invokeL.booleanValue;
+        return invokeV.longValue;
     }
 
-    public static void h(MediaModel mediaModel) {
-        ArrayList<MediaModel> arrayList;
+    public long e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) && (arrayList = a) != null) {
-            arrayList.remove(mediaModel);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public static void i(MediaModel mediaModel) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, null, mediaModel) != null) || mediaModel == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
         }
-        if (a == null) {
-            a = new ArrayList<>();
+    }
+
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.c = j;
         }
-        a.add(mediaModel);
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "ApiCalledInfo{mApiName='" + this.a + "', mStart=" + this.b + ", mEnd=" + this.c + ", cost = " + (this.c - this.b) + "ms}";
+        }
+        return (String) invokeV.objValue;
     }
 }

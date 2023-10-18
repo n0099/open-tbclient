@@ -88,7 +88,7 @@ public class a {
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || e.f().a()) {
                     return;
                 }
-                String string = this.a.getString(R.string.obfuscated_res_0x7f0f15d1);
+                String string = this.a.getString(R.string.obfuscated_res_0x7f0f15e2);
                 if (TextUtils.isEmpty(string)) {
                     string = a.b;
                 }

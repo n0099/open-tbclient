@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi1;
+import com.baidu.tieba.id1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,8 +25,8 @@ public class CouponEntranceView extends FrameLayout {
     public TextView a;
     public TextView b;
     public View c;
-    public yi1 d;
-    public yi1.a e;
+    public id1 d;
+    public id1.a e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CouponEntranceView(Context context) {
@@ -53,9 +53,9 @@ public class CouponEntranceView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0234, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0907e7);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0907e6);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091000);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090803);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090802);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09101b);
         }
     }
 
@@ -111,22 +111,22 @@ public class CouponEntranceView extends FrameLayout {
         return (String) invokeJ.objValue;
     }
 
-    public void update(yi1 yi1Var) {
+    public void d(id1 id1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yi1Var) == null) {
-            this.d = yi1Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, id1Var) == null) {
+            this.d = id1Var;
             c();
         }
     }
 
     public void c() {
         boolean z;
-        List<yi1.a> list;
+        List<id1.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e = null;
-            yi1 yi1Var = this.d;
-            if (yi1Var != null && (list = yi1Var.b) != null && list.size() > 0) {
+            id1 id1Var = this.d;
+            if (id1Var != null && (list = id1Var.b) != null && list.size() > 0) {
                 z = true;
             } else {
                 z = false;
@@ -135,12 +135,12 @@ public class CouponEntranceView extends FrameLayout {
                 setVisibility(8);
                 return;
             }
-            Iterator<yi1.a> it = this.d.b.iterator();
+            Iterator<id1.a> it = this.d.b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                yi1.a next = it.next();
+                id1.a next = it.next();
                 if (next.h == 1) {
                     this.e = next;
                     break;
@@ -152,7 +152,7 @@ public class CouponEntranceView extends FrameLayout {
             }
             setVisibility(0);
             this.a.setText(this.e.c);
-            yi1.a aVar = this.e;
+            id1.a aVar = this.e;
             if (aVar.b == -1) {
                 String str = aVar.d;
                 this.b.setVisibility(8);
@@ -171,12 +171,12 @@ public class CouponEntranceView extends FrameLayout {
         }
     }
 
-    public yi1.a getSelectedItem() {
+    public id1.a getSelectedItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.e;
         }
-        return (yi1.a) invokeV.objValue;
+        return (id1.a) invokeV.objValue;
     }
 }

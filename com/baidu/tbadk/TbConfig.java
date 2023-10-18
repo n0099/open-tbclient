@@ -19,7 +19,7 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uh;
+import com.baidu.tieba.rc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -298,6 +298,7 @@ public class TbConfig {
     public static final int NOTIFY_YUN_PUSH = 2500;
     public static String NOVEL_PAY = null;
     public static final long ONE_DAY_TIME = 86400000;
+    public static final String ONE_KEY_SIGN_PAGE_URL = "https://tieba.baidu.com/mo/q/hybrid-business-vip/oneClickSign?nonavigationbar=1&customfullscreen=1";
     public static final int PB_BJH_REPLY_MUTI_IMAGE_MAX_COUNT = 1;
     public static final String PB_CARD_GIFT_GET_URL = "tbmall/businessCard/getCardForGame";
     public static final String PB_FLOOR_AGREE_URL = "c/c/agree/opAgree";
@@ -1370,7 +1371,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                TbImageMemoryCache.A().L(i);
+                TbImageMemoryCache.B().M(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }
@@ -1414,7 +1415,7 @@ public class TbConfig {
             if (f5 >= f3 && f5 <= f4) {
                 f2 = f5;
             }
-            if (!uh.a()) {
+            if (!rc.a()) {
                 return f2 * 0.5f;
             }
             return f2;

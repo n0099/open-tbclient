@@ -2,21 +2,21 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.ve;
+import com.baidu.tieba.t9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ImmersiveStickySwitch extends ve {
+/* loaded from: classes5.dex */
+public class ImmersiveStickySwitch extends t9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "android_immersive_switch";
     public static final int OFF_TYPE = 0;
     public static final int ON_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     /* renamed from: getCrashKeys */
     public String[] mo130getCrashKeys() {
         InterceptResult invokeV;
@@ -27,7 +27,7 @@ public class ImmersiveStickySwitch extends ve {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class ImmersiveStickySwitch extends ve {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class ImmersiveStickySwitch extends ve {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class ImmersiveStickySwitch extends ve {
         }
     }
 
-    @Override // com.baidu.tieba.ve
+    @Override // com.baidu.tieba.t9
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {

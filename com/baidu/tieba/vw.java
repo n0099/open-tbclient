@@ -1,193 +1,404 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.text.TextUtils;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.ext.widget.dialog.BdAlertDialog;
+import com.baidu.android.ext.widget.toast.UniversalToast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.android.ActivityUtils;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.android.util.sp.PreferenceUtils;
+import com.baidu.searchbox.appframework.BdBoxActivityManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.download.unified.EventCallback;
+import com.baidu.searchbox.permission.DangerousPermissionManager;
+import com.baidu.searchbox.permission.DangerousPermissionUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebKitFactory;
-import com.baidu.webkit.sdk.WebViewFactory;
-import com.baidu.webkit.sdk.WebViewFactoryProvider;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.net.URLEncoder;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
 public final class vw {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
+    @RequiresApi(api = 23)
+    public static final String[] b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public interface g {
+        void onRequestPermissionsResult(boolean z);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements DangerousPermissionManager.RequestSystemPermissionCallBack {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ g b;
+        public final /* synthetic */ WeakReference c;
+
+        public a(int i, g gVar, WeakReference weakReference) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), gVar, weakReference};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = gVar;
+            this.c = weakReference;
+        }
+
+        @Override // com.baidu.searchbox.permission.DangerousPermissionManager.RequestSystemPermissionCallBack
+        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == this.a) {
+                boolean z = true;
+                for (int i2 = 0; i2 < strArr.length; i2++) {
+                    if (iArr[i2] == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                }
+                g gVar = this.b;
+                if (gVar != null) {
+                    gVar.onRequestPermissionsResult(z);
+                    if (!z) {
+                        int i3 = this.a;
+                        if (i3 != 101) {
+                            if (i3 == 102 && Build.VERSION.SDK_INT > 25) {
+                                vw.g(this.c);
+                            }
+                        } else if (PreferenceUtils.getBoolean("download_storage_permission_dialog_show", false)) {
+                            vw.i();
+                        } else {
+                            PreferenceUtils.setBoolean("download_storage_permission_dialog_show", true);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements DangerousPermissionManager.RequestGrantPermissionCallBack {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EventCallback a;
+        public final /* synthetic */ String b;
+
+        public b(EventCallback eventCallback, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eventCallback, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eventCallback;
+            this.b = str;
+        }
+
+        @Override // com.baidu.searchbox.permission.DangerousPermissionManager.RequestGrantPermissionCallBack
+        public void isClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                EventCallback eventCallback = this.a;
+                if (eventCallback != null) {
+                    eventCallback.callBack(3, new EventCallback.EventBackInfo(EventCallback.Info.INFO_PERMISSION_SETTINGS_CLICK_NO));
+                }
+                UniversalToast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f05ef).show();
+                xw.o(this.b);
+                xw.r(this.b, false);
+            }
+        }
+
+        @Override // com.baidu.searchbox.permission.DangerousPermissionManager.RequestGrantPermissionCallBack
+        public void isGranted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                EventCallback eventCallback = this.a;
+                if (eventCallback != null) {
+                    eventCallback.callBack(3, new EventCallback.EventBackInfo(EventCallback.Info.INFO_PERMISSION_SETTINGS_CLICK_YES));
+                }
+                xw.r(this.b, true);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements DangerousPermissionManager.RequestGrantPermissionCallBack {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.permission.DangerousPermissionManager.RequestGrantPermissionCallBack
+        public void isClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                xw.y(DownloadStatisticConstants.UBC_PERMISSION_DIALOG_CANCELL, "");
+            }
+        }
+
+        @Override // com.baidu.searchbox.permission.DangerousPermissionManager.RequestGrantPermissionCallBack
+        public void isGranted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                xw.y(DownloadStatisticConstants.UBC_PERMISSION_DIALOG_CONFIRM, "");
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                xw.c(DownloadStatisticConstants.UBC_PERMISSION_INSTALL_DIALOG_PAGE, DownloadStatisticConstants.UBC_PERMISSION_DIALOG_INSTALL_OUT);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e implements BdAlertDialog.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.android.ext.widget.dialog.BdAlertDialog.OnItemClickListener
+        public void onItemClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                vw.e();
+                xw.c(DownloadStatisticConstants.UBC_PERMISSION_INSTALL_DIALOG_PAGE, DownloadStatisticConstants.UBC_PERMISSION_DIALOG_INSTALL_SET);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class f implements BdAlertDialog.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.android.ext.widget.dialog.BdAlertDialog.OnItemClickListener
+        public void onItemClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
+        }
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448320268, "Lcom/baidu/tieba/vw;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448320268, "Lcom/baidu/tieba/vw;");
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        MessageDigest messageDigest;
-        DataInputStream dataInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            DataInputStream dataInputStream2 = null;
-            try {
-                try {
-                    messageDigest = MessageDigest.getInstance("MD5");
-                    dataInputStream = new DataInputStream(new FileInputStream(str));
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448320268, "Lcom/baidu/tieba/vw;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                byte[] bArr = new byte[131072];
-                while (true) {
-                    int read = dataInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-                String b = b(messageDigest.digest(), "");
-                try {
-                    dataInputStream.close();
-                } catch (Exception unused) {
-                }
-                return b;
-            } catch (Exception e2) {
-                e = e2;
-                dataInputStream2 = dataInputStream;
-                e.printStackTrace();
-                if (dataInputStream2 != null) {
-                    try {
-                        dataInputStream2.close();
-                    } catch (Exception unused2) {
-                    }
-                }
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                dataInputStream2 = dataInputStream;
-                if (dataInputStream2 != null) {
-                    try {
-                        dataInputStream2.close();
-                    } catch (Exception unused3) {
-                    }
-                }
-                throw th;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448320268, "Lcom/baidu/tieba/vw;");
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        a = new String[]{com.kuaishou.weapon.p0.h.i, "android.permission.WRITE_EXTERNAL_STORAGE"};
+        b = new String[]{"android.permission.REQUEST_INSTALL_PACKAGES"};
     }
 
-    public static String b(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean c() {
+    public static boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String processTypeString = WebKitFactory.getProcessTypeString();
-            if (TextUtils.isEmpty(processTypeString) || !processTypeString.equals("1")) {
-                Boolean bool = Boolean.FALSE;
-                WebViewFactoryProvider provider = WebViewFactory.getProvider();
-                if (provider != null) {
-                    bool = (Boolean) provider.getStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE);
-                }
-                return bool.booleanValue();
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return c;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean d(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
+    public static void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {
-                int type = activeNetworkInfo.getType();
-                if (activeNetworkInfo.isAvailable() && 1 == type) {
-                    return true;
-                }
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            j("download");
+        }
+    }
+
+    public static boolean b(Activity activity, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, activity, strArr)) == null) {
+            return DangerousPermissionUtils.isPermissionGroupGranted(activity, strArr);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean c(Activity activity, String[] strArr, g gVar, int i) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65539, null, activity, strArr, gVar, i)) == null) {
+            if (!b(activity, strArr)) {
+                f(activity, strArr, gVar, i);
+                return false;
+            }
+            if (gVar != null) {
+                gVar.onRequestPermissionsResult(true);
+            }
+            return true;
+        }
+        return invokeLLLI.booleanValue;
+    }
+
+    public static void f(Activity activity, String[] strArr, g gVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65542, null, activity, strArr, gVar, i) == null) {
+            DangerousPermissionUtils.requestPermissions("download", AppRuntime.getAppContext(), strArr, i, new a(i, gVar, new WeakReference(activity)));
+        }
+    }
+
+    public static boolean d(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
+            Activity topActivity = BdBoxActivityManager.getTopActivity();
+            if (topActivity != null) {
+                return b(topActivity, strArr);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean e(View view2) {
-        InterceptResult invokeL;
-        ViewParent parent;
+    public static void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
-            if (view2 == null || (parent = view2.getParent()) == null || view2.getVisibility() != 0) {
-                return false;
-            }
-            ViewGroup viewGroup = (ViewGroup) parent;
-            int indexOfChild = viewGroup.indexOfChild(view2);
-            int childCount = viewGroup.getChildCount();
-            if (indexOfChild == childCount - 1) {
-                return true;
-            }
-            for (int i = indexOfChild + 1; i < childCount; i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (childAt.getVisibility() == 0 && childAt.getHeight() > 0 && childAt.getWidth() > 0 && view2.getHeight() > 0 && view2.getWidth() > 0 && childAt.getWidth() >= view2.getWidth() && childAt.getHeight() >= view2.getHeight()) {
-                    return false;
-                }
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            xw.y(DownloadStatisticConstants.UBC_PERMISSION_DIALOG_SHOW, "");
+            DangerousPermissionUtils.requestGrantPermissionsDialog(str, "storage", new c());
         }
-        return invokeL.booleanValue;
     }
 
-    public static String f(String str) {
-        InterceptResult invokeL;
+    @RequiresApi(26)
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return URLEncoder.encode(new String(uw.a(str.getBytes())), "UTF-8");
-            } catch (Exception e) {
-                Log.printStackTrace(e);
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            Intent intent = new Intent();
+            intent.setAction("android.settings.MANAGE_UNKNOWN_APP_SOURCES");
+            intent.setData(Uri.fromParts("package", AppRuntime.getAppContext().getPackageName(), null));
+            ActivityUtils.startActivitySafely(AppRuntime.getAppContext(), intent);
         }
-        return (String) invokeL.objValue;
+    }
+
+    @RequiresApi(26)
+    public static void g(WeakReference<Activity> weakReference) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, weakReference) == null) && weakReference != null && weakReference.get() != null && !weakReference.get().isFinishing()) {
+            xw.c(DownloadStatisticConstants.UBC_PERMISSION_INSTALL_DIALOG_PAGE, DownloadStatisticConstants.UBC_PERMISSION_DIALOG_INSTALL_SHOW);
+            String str = Build.MANUFACTURER;
+            String string = weakReference.get().getString(R.string.obfuscated_res_0x7f0f04a3);
+            if ("vivo".equalsIgnoreCase(str)) {
+                string = weakReference.get().getString(R.string.obfuscated_res_0x7f0f1844);
+            } else if ("OPPO".equalsIgnoreCase(str)) {
+                string = weakReference.get().getString(R.string.obfuscated_res_0x7f0f0f2e);
+            } else if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(str)) {
+                string = weakReference.get().getString(R.string.obfuscated_res_0x7f0f18f9);
+            }
+            new BdAlertDialog.Builder(weakReference.get()).setTitle(R.string.obfuscated_res_0x7f0f0abd).setMessage(weakReference.get().getString(R.string.obfuscated_res_0x7f0f0abc, new Object[]{string})).setButton(new BdAlertDialog.ButtonItem(weakReference.get().getString(R.string.obfuscated_res_0x7f0f05eb), new f())).setButton(new BdAlertDialog.ButtonItem(weakReference.get().getString(R.string.obfuscated_res_0x7f0f05ec), new e())).setOnDismissListener(new d()).create().show();
+        }
+    }
+
+    public static void k(Context context, String str, EventCallback eventCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, context, str, eventCallback) == null) {
+            if (eventCallback != null) {
+                eventCallback.callBack(3, new EventCallback.EventBackInfo(EventCallback.Info.INFO_PERMISSION_SETTINGS_SHOW));
+            }
+            xw.s(str);
+            DangerousPermissionUtils.requestGrantPermissionsDialog(context, "download", "storage", new b(eventCallback, str));
+        }
     }
 }

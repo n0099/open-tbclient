@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,7 +81,7 @@ public class Utility {
             StringBuilder sb = new StringBuilder();
             String packageName = context.getPackageName();
             if (!TextUtils.isEmpty(packageName) && packageName.contains("com.sina.weibo")) {
-                str = "weibo";
+                str = ShareItem.OUTSIDE_SHARE_WEIBO;
             } else {
                 str = "weibosdk";
             }

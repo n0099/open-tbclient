@@ -31,13 +31,13 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ck5;
-import com.baidu.tieba.id5;
-import com.baidu.tieba.jj5;
-import com.baidu.tieba.l47;
-import com.baidu.tieba.m47;
-import com.baidu.tieba.sa5;
-import com.baidu.tieba.wi5;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.cd5;
+import com.baidu.tieba.ie5;
+import com.baidu.tieba.pd5;
+import com.baidu.tieba.q75;
+import com.baidu.tieba.uy6;
+import com.baidu.tieba.vy6;
 import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,8 +45,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
-/* loaded from: classes4.dex */
-public class LocalInputContainer extends RelativeLayout implements jj5 {
+/* loaded from: classes5.dex */
+public class LocalInputContainer extends RelativeLayout implements pd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
@@ -56,24 +56,24 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
     public TBSpecificationBtn e;
     public EditorTools f;
     public int g;
-    public ck5 h;
+    public ie5 h;
     public boolean i;
     public c j;
     public CustomMessageListener k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface c {
-        void a(ck5 ck5Var, String str);
+        void a(ie5 ie5Var, String str);
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,12 +181,12 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
         }
     }
 
-    public void e(ck5 ck5Var) {
+    public void e(ie5 ie5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, ck5Var) == null) && ck5Var != null && ck5Var.a() != null) {
-            this.h = ck5Var;
-            this.a.startLoad(ck5Var.a().c, 25, false);
-            this.b.setText(ck5Var.a().b);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, ie5Var) == null) && ie5Var != null && ie5Var.a() != null) {
+            this.h = ie5Var;
+            this.a.startLoad(ie5Var.a().c, 25, false);
+            this.b.setText(ie5Var.a().b);
         }
     }
 
@@ -241,20 +241,20 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
         i();
     }
 
-    public final void c(id5 id5Var) {
+    public final void c(q75 q75Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, id5Var) != null) || id5Var.getType() != EmotionGroupType.LOCAL) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q75Var) != null) || q75Var.g() != EmotionGroupType.LOCAL) {
             return;
         }
-        m47.c(getContext(), id5Var, this.c);
+        vy6.c(getContext(), q75Var, this.c);
     }
 
-    @Override // com.baidu.tieba.jj5
-    public void d0(wi5 wi5Var) {
+    @Override // com.baidu.tieba.pd5
+    public void c0(cd5 cd5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, wi5Var) == null) && (editorTools = this.f) != null) {
-            editorTools.D(wi5Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cd5Var) == null) && (editorTools = this.f) != null) {
+            editorTools.D(cd5Var);
         }
     }
 
@@ -262,13 +262,13 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
         if (this.i) {
             this.i = false;
             this.d.setSelected(false);
-            d0(new wi5(5, 5, null));
+            c0(new cd5(5, 5, null));
             BdUtilHelper.showSoftKeyPad(getContext(), this.c);
             return;
         }
         this.i = true;
         this.d.setSelected(true);
-        d0(new wi5(1, 5, null));
+        c0(new cd5(1, 5, null));
     }
 
     public /* synthetic */ void p(SpannableStringBuilder spannableStringBuilder) {
@@ -277,19 +277,19 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
             SpanGroupEditText spanGroupEditText = this.c;
             spanGroupEditText.setSelection(spanGroupEditText.getText().length());
         }
-        d0(new wi5(5, -1, null));
+        c0(new cd5(5, -1, null));
         requestFocus();
     }
 
-    public final void q(wi5 wi5Var) {
+    public final void q(cd5 cd5Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048600, this, wi5Var) == null) && wi5Var != null && (obj = wi5Var.c) != null && (obj instanceof id5) && !EmotionGroupType.isSendAsPic(((id5) obj).getType())) {
-            c((id5) wi5Var.c);
+        if ((interceptable == null || interceptable.invokeL(1048600, this, cd5Var) == null) && cd5Var != null && (obj = cd5Var.c) != null && (obj instanceof q75) && !EmotionGroupType.isSendAsPic(((q75) obj).g())) {
+            c((q75) cd5Var.c);
         }
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, editorTools) == null) {
@@ -304,7 +304,7 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
         }
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
@@ -312,15 +312,15 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
         }
     }
 
-    @Override // com.baidu.tieba.xi5
-    public void O(wi5 wi5Var) {
+    @Override // com.baidu.tieba.dd5
+    public void O(cd5 cd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, wi5Var) == null) {
-            int i = wi5Var.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cd5Var) == null) {
+            int i = cd5Var.a;
             if (i != 3) {
                 if (i != 6) {
                     if (i == 24) {
-                        q(wi5Var);
+                        q(cd5Var);
                         return;
                     }
                     return;
@@ -329,7 +329,7 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
                 if (spanGroupEditText == null) {
                     return;
                 }
-                Object obj = wi5Var.c;
+                Object obj = cd5Var.c;
                 if (obj == null) {
                     spanGroupEditText.setText((CharSequence) null);
                     return;
@@ -339,11 +339,11 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
                         this.c.setText((CharSequence) null);
                         return;
                     } else {
-                        m47.h(getContext(), str, new m47.i() { // from class: com.baidu.tieba.fk5
+                        vy6.h(getContext(), str, new vy6.i() { // from class: com.baidu.tieba.le5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.baidu.tieba.m47.i
+                            @Override // com.baidu.tieba.vy6.i
                             public final void a(SpannableStringBuilder spannableStringBuilder) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -363,9 +363,9 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.c.getSelectionStart() > 0 && this.c.getText() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.c.getSelectionStart() > 0 && this.c.getText() != null) {
             String substring = this.c.getText().toString().substring(0, this.c.getSelectionStart());
-            Matcher matcher = l47.b.matcher(substring);
+            Matcher matcher = uy6.b.matcher(substring);
             if (matcher.find()) {
                 this.c.getText().delete(this.c.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.c.getSelectionStart()).toString();
                 return;
@@ -400,9 +400,9 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
             layoutParams.addRule(8, R.id.local_input_edit_text);
             layoutParams.addRule(11, R.id.local_input_edit_text);
             this.e.setLayoutParams(layoutParams);
-            sa5 sa5Var = new sa5();
-            sa5Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.e.setConfig(sa5Var);
+            a55 a55Var = new a55();
+            a55Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.e.setConfig(a55Var);
             this.e.setEnabled(false);
             this.e.setTextSize(R.dimen.T_X08);
             this.e.setText(getContext().getString(R.string.send_msg));
@@ -410,7 +410,7 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
         }
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void display() {
         SpanGroupEditText spanGroupEditText;
         Interceptable interceptable = $ic;
@@ -426,7 +426,7 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hk5
+            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ne5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -441,7 +441,7 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
             SpanGroupEditText spanGroupEditText = this.c;
             if (spanGroupEditText != null) {
                 spanGroupEditText.addTextChangedListener(new a(this));
-                this.c.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.gk5
+                this.c.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.me5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -455,7 +455,7 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
             }
             TBSpecificationBtn tBSpecificationBtn = this.e;
             if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ik5
+                tBSpecificationBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.oe5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -493,7 +493,7 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -503,7 +503,7 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -598,7 +598,7 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
 
     public /* synthetic */ boolean n(View view2, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 1) {
-            d0(new wi5(5, -1, null));
+            c0(new cd5(5, -1, null));
             this.c.requestFocus();
             this.d.setSelected(false);
             this.i = false;
@@ -606,7 +606,7 @@ public class LocalInputContainer extends RelativeLayout implements jj5 {
         return false;
     }
 
-    @Override // com.baidu.tieba.jj5
+    @Override // com.baidu.tieba.pd5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {

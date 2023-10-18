@@ -17,11 +17,13 @@ public class NativeUnifiedADAppInfoImpl implements NativeUnifiedADAppMiitInfo {
     public final String d;
     public final String e;
     public final String f;
+    public final String g;
 
     /* loaded from: classes10.dex */
     public interface Keys {
         public static final String APP_NAME = "app_name";
         public static final String AUTHOR_NAME = "author_name";
+        public static final String DESCRIPTION_URL = "description_url";
         public static final String PACKAGE_SIZE = "package_size";
         public static final String PERMISSION_URL = "permission_url";
         public static final String PRIVACY_AGREEMENT = "privacy_agreement";
@@ -49,6 +51,7 @@ public class NativeUnifiedADAppInfoImpl implements NativeUnifiedADAppMiitInfo {
         this.d = jSONObject.optString(Keys.PERMISSION_URL);
         this.e = jSONObject.optString(Keys.PRIVACY_AGREEMENT);
         this.f = jSONObject.optString(Keys.VERSION_NAME);
+        this.g = jSONObject.optString(Keys.DESCRIPTION_URL);
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADAppMiitInfo
@@ -66,30 +69,37 @@ public class NativeUnifiedADAppInfoImpl implements NativeUnifiedADAppMiitInfo {
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADAppMiitInfo
+    public String getDescriptionUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeUnifiedADAppMiitInfo
     public long getPackageSizeBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.longValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADAppMiitInfo
     public String getPermissionsUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADAppMiitInfo
     public String getPrivacyAgreement() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADAppMiitInfo
     public String getVersionName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 }

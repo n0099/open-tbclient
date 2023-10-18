@@ -1,162 +1,62 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import android.os.RemoteException;
-import android.text.TextUtils;
+import android.content.Context;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.w73;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.res.ui.FloatButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public class g83 implements w73.c {
+public class g83 extends m73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Deque<Message>> a;
 
-    public g83() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g83(m63 m63Var) {
+        super(m63Var, "/swanAPI/hideOpenAppGuide");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {m63Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.w73.c
-    public void a() {
+    @Override // com.baidu.tieba.m73
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p53 p53Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (String str : this.a.keySet()) {
-                c(str);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, p53Var)) == null) {
+            if (m73.b) {
+                Log.i("HideFloatButtonGuide", unitedSchemeEntity.toString());
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.w73.c
-    public void b(@NonNull y73 y73Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y73Var) == null) {
-            Message h = y73Var.h();
-            if (y73Var.m()) {
-                h(h);
-            }
-            Set<SwanAppProcessInfo> l = y73Var.l();
-            Set<String> k = y73Var.k();
-            if (y73Var.n()) {
-                Iterator<f83> it = h83.k().q().iterator();
-                while (it.hasNext()) {
-                    f83 next = it.next();
-                    boolean g = g(next, k);
-                    if (l.contains(next.b) || g) {
-                        next.g0(h);
-                        if (g) {
-                            k.remove(next.getAppId());
-                        }
-                    }
-                }
-                f(k, h);
-                return;
-            }
-            Iterator<f83> it2 = h83.k().q().iterator();
-            while (it2.hasNext()) {
-                f83 next2 = it2.next();
-                if (next2 != null && next2.T() && (l.contains(next2.b) || g(next2, k))) {
-                    next2.g0(h);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.w73.c
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Deque<Message> deque = this.a.get(str);
-            w73.f("flushMsg:: appid=" + str + " msgQueue=" + deque);
-            if (deque != null && !deque.isEmpty()) {
-                List<f83> j = h83.k().j(str);
-                w73.f("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + j.size());
-                if (j.isEmpty()) {
-                    return;
-                }
-                for (f83 f83Var : j) {
-                    f83Var.i0(deque);
-                }
-                deque.clear();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.w73.c
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a.remove(str);
-        }
-    }
-
-    public final void h(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
-            try {
-                h83.k().e.send(message);
-            } catch (RemoteException e) {
-                w73.f(Log.getStackTraceString(e));
-            }
-        }
-    }
-
-    public final void e(String str, @NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, message) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Deque<Message> deque = this.a.get(str);
-        if (deque == null) {
-            deque = new ArrayDeque<>();
-            this.a.put(str, deque);
-        }
-        deque.offer(message);
-    }
-
-    public final void f(Set<String> set, @NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, set, message) == null) {
-            for (String str : set) {
-                e(str, message);
-            }
-        }
-    }
-
-    public boolean g(@NonNull f83 f83Var, @NonNull Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, f83Var, set)) == null) {
-            if (f83Var.E() && set.contains(f83Var.getAppId())) {
+            f83 d = f83.d();
+            FloatButton c = d.c();
+            if (c == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 return true;
             }
-            return false;
+            c.setVisibility(8);
+            d.j(null);
+            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

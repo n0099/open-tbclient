@@ -42,28 +42,28 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.BottomInputLayout;
 import com.baidu.tbadk.widget.KeyboardLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bp8;
-import com.baidu.tieba.dp8;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.hl5;
-import com.baidu.tieba.id5;
-import com.baidu.tieba.ij5;
-import com.baidu.tieba.il8;
+import com.baidu.tieba.ae5;
+import com.baidu.tieba.cc8;
+import com.baidu.tieba.cd5;
+import com.baidu.tieba.dd5;
 import com.baidu.tieba.im.data.MsgPageData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.im.widget.PersonalFollowTipLayout;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
-import com.baidu.tieba.jj5;
-import com.baidu.tieba.nj5;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.sf5;
-import com.baidu.tieba.sh8;
-import com.baidu.tieba.si;
-import com.baidu.tieba.uj5;
+import com.baidu.tieba.lj8;
+import com.baidu.tieba.nd;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.nj8;
+import com.baidu.tieba.od5;
+import com.baidu.tieba.pd;
+import com.baidu.tieba.pd5;
+import com.baidu.tieba.pz4;
+import com.baidu.tieba.q75;
+import com.baidu.tieba.sf8;
+import com.baidu.tieba.td5;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.wi5;
-import com.baidu.tieba.xi5;
+import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,25 +77,25 @@ import kotlinx.coroutines.CoroutineContextKt;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> implements si {
+public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> implements pd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PersonalFollowTipLayout followTipLayout;
-    public xi5 mActionListener;
-    public sh8 mAdapter;
+    public dd5 mActionListener;
+    public cc8 mAdapter;
     public View mBtnForumInfo;
     public i mCallback;
     public MsglistActivity mContext;
     public final Handler mHandler;
     public View mImgBack;
     public RelativeLayout mInputControl;
-    public uj5 mInputTool;
+    public ae5 mInputTool;
     public boolean mIsPersonalHeader;
     public ViewGroup mLayBottom;
     public LinearLayout mLayNewMsg;
     public BdTypeListView mLisMsg;
     public FrameLayout mListMain;
-    public h55 mMsgItemOperation;
+    public pz4 mMsgItemOperation;
     public View mMsgListBgView;
     public View mMsgListBgViewMask;
     public NavigationBar mNavigationBar;
@@ -106,7 +106,8 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
     public ProgressBar mPrgLisMsg;
     public ImageView mReceiver;
     public KeyboardLayout mRootView;
-    public ij5 mSendTool;
+    public nf5 mSendNoLaunchTool;
+    public od5 mSendTool;
     public ISendVoiceView mSendVoiceView;
     public TextView mTexGroup;
     public String mTextContent;
@@ -155,7 +156,7 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
 
     public void onSendEmotion() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
         }
     }
 
@@ -218,7 +219,7 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
     }
 
     /* loaded from: classes6.dex */
-    public class a implements xi5 {
+    public class a implements dd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsglistView a;
@@ -241,28 +242,28 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
             this.a = absMsglistView;
         }
 
-        @Override // com.baidu.tieba.xi5
-        public void O(wi5 wi5Var) {
+        @Override // com.baidu.tieba.dd5
+        public void O(cd5 cd5Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, wi5Var) != null) || wi5Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, cd5Var) != null) || cd5Var == null) {
                 return;
             }
-            int i = wi5Var.a;
+            int i = cd5Var.a;
             if (i == 24) {
-                Object obj = wi5Var.c;
-                if (obj != null && (obj instanceof id5)) {
-                    id5 id5Var = (id5) obj;
-                    EmotionGroupType type = id5Var.getType();
-                    String d = id5Var.d();
-                    if (type != EmotionGroupType.LOCAL && d != null) {
-                        this.a.mContext.Q1(id5Var);
+                Object obj = cd5Var.c;
+                if (obj != null && (obj instanceof q75)) {
+                    q75 q75Var = (q75) obj;
+                    EmotionGroupType g = q75Var.g();
+                    String d = q75Var.d();
+                    if (g != EmotionGroupType.LOCAL && d != null) {
+                        this.a.mContext.Q1(q75Var);
                         this.a.onSendEmotion();
                     }
                 }
             } else if (i == 8) {
                 this.a.mContext.R1();
             } else if (i == 4) {
-                Object obj2 = wi5Var.c;
+                Object obj2 = cd5Var.c;
                 if (obj2 != null && (obj2 instanceof String)) {
                     this.a.mTextContent = (String) obj2;
                 }
@@ -535,7 +536,7 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                il8.a(view2.getContext());
+                sf8.a(view2.getContext());
             }
         }
     }
@@ -579,6 +580,7 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         this.mTool = null;
         this.mTextContent = null;
         this.mInputTool = null;
+        this.mSendNoLaunchTool = null;
         this.mActionListener = new a(this);
         this.mSendTool = null;
         this.mSendVoiceView = null;
@@ -628,26 +630,26 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         }
     }
 
-    public void refreshPersonalHeadFooter(String str, sf5 sf5Var) {
+    public void refreshPersonalHeadFooter(String str, z95 z95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048634, this, str, sf5Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048635, this, str, z95Var) == null) {
             this.personal_lbs_title_name.setText(str);
-            if (sf5Var == null) {
+            if (z95Var == null) {
                 return;
             }
-            if (sf5Var.b() >= 0 && sf5Var.b() <= 1) {
-                if (sf5Var.b() == 1) {
+            if (z95Var.b() >= 0 && z95Var.b() <= 1) {
+                if (z95Var.b() == 1) {
                     this.personal_lbs_title_lbsinfo.setVisibility(0);
                     this.personal_lbs_title_lbsinfo.setText(getPageContext().getResources().getString(R.string.contact_yinshen));
                     this.personal_lbs_shadow.setVisibility(8);
                     this.personal_lbs_title_time.setVisibility(8);
                     return;
-                } else if (!StringUtils.isNull(sf5Var.a()) && sf5Var.c() > 0) {
+                } else if (!StringUtils.isNull(z95Var.a()) && z95Var.c() > 0) {
                     this.personal_lbs_title_lbsinfo.setVisibility(0);
                     this.personal_lbs_shadow.setVisibility(0);
                     this.personal_lbs_title_time.setVisibility(0);
-                    this.personal_lbs_title_time.setText(StringHelper.getTimeInterval(sf5Var.c()));
-                    this.personal_lbs_title_lbsinfo.setText(sf5Var.a());
+                    this.personal_lbs_title_time.setText(StringHelper.getTimeInterval(z95Var.c()));
+                    this.personal_lbs_title_lbsinfo.setText(z95Var.a());
                     return;
                 } else {
                     this.personal_lbs_title_lbsinfo.setVisibility(8);
@@ -660,10 +662,10 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onSendVoice(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048623, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048624, this, str, i2) == null) {
             VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
             voiceModel.duration = i2;
             voiceModel.setVoiceId(str);
@@ -675,25 +677,25 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onStartedRecorder(boolean z, int i2) {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
-            iSendVoiceView.onStartedRecorder(z, qi.b);
+        if ((interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+            iSendVoiceView.onStartedRecorder(z, nd.b);
         }
     }
 
     public void refreshHeaderFooter(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048631, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048632, this, str, z) == null) {
             this.mTexGroup.setText(StringHelper.getFixedText(str, 8, true));
         }
     }
 
     public void updateAdapterProgress(int i2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048651, this, i2, chatMessage) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048652, this, i2, chatMessage) == null) {
             chatMessage.setProgressValue(i2);
             this.mAdapter.i(chatMessage);
         }
@@ -703,7 +705,7 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, chatMessage)) == null) {
-            return bp8.i(chatMessage);
+            return lj8.i(chatMessage);
         }
         return (String) invokeL.objValue;
     }
@@ -745,36 +747,43 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         }
     }
 
-    @Override // com.baidu.tieba.si
+    public void isFriend(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+            this.mSendNoLaunchTool.h(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.pd
     public void onDeletedVoice(String str) {
         i iVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048620, this, str) == null) && (iVar = this.mCallback) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048621, this, str) == null) && (iVar = this.mCallback) != null) {
             iVar.a();
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onShowRecordTime(int i2) {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048625, this, i2) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048626, this, i2) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
             iSendVoiceView.onShowRecordTime(i2);
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onShowRecording(int i2) {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048626, this, i2) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048627, this, i2) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
             iSendVoiceView.onShowRecording(i2);
         }
     }
 
     public void refreshGo2New(MsgPageData msgPageData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048630, this, msgPageData) != null) || msgPageData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048631, this, msgPageData) != null) || msgPageData == null) {
             return;
         }
         try {
@@ -793,21 +802,21 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
 
     public void refreshNormal(MsgPageData msgPageData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, msgPageData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, msgPageData) == null) {
             doRefresh(msgPageData, -1);
         }
     }
 
     public void refreshNormalWithSelection(MsgPageData msgPageData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048633, this, msgPageData) == null) && msgPageData != null) {
+        if ((interceptable == null || interceptable.invokeL(1048634, this, msgPageData) == null) && msgPageData != null) {
             doRefresh(msgPageData, msgPageData.size() - 1);
         }
     }
 
     public void refreshPrepage(MsgPageData msgPageData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, msgPageData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048636, this, msgPageData) == null) {
             try {
                 int firstVisiblePosition = this.mLisMsg.getFirstVisiblePosition();
                 if (msgPageData.getIsNewAdd()) {
@@ -824,36 +833,36 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
     public void setRecoding(boolean z) {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048641, this, z) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048642, this, z) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
             iSendVoiceView.setRecoding(z);
         }
     }
 
     public void setRecordCallback(i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, iVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048643, this, iVar) == null) {
             this.mCallback = iVar;
         }
     }
 
     public void setUpdateListener(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048644, this, jVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048645, this, jVar) == null) {
             this.mUpdateListener = jVar;
         }
     }
 
-    public void setVoiceTouchCallback(dp8 dp8Var) {
+    public void setVoiceTouchCallback(nj8 nj8Var) {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048645, this, dp8Var) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
-            iSendVoiceView.setTouchCallBack(dp8Var);
+        if ((interceptable == null || interceptable.invokeL(1048646, this, nj8Var) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+            iSendVoiceView.setTouchCallBack(nj8Var);
         }
     }
 
     public final void showNewMsg(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048648, this, chatMessage) != null) || chatMessage == null || bp8.A(chatMessage)) {
+        if ((interceptable != null && interceptable.invokeL(1048649, this, chatMessage) != null) || chatMessage == null || lj8.A(chatMessage)) {
             return;
         }
         String content = getContent(chatMessage);
@@ -874,14 +883,14 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
             }
             EditorTools editorTools = this.mTool;
             if (editorTools != null) {
-                editorTools.D(new wi5(6, 3, this.mTextContent));
+                editorTools.D(new cd5(6, 3, this.mTextContent));
             }
         }
     }
 
     public void refreshCheckNew(MsgPageData msgPageData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048629, this, msgPageData) != null) || msgPageData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048630, this, msgPageData) != null) || msgPageData == null) {
             return;
         }
         boolean z = false;
@@ -904,18 +913,18 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
 
     public void setDraft(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048639, this, str) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048640, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             String string = jSONObject.getString(TbEnum.ChatInputStatus.INPUT_DRAFT_KEY);
             if (this.mTool != null) {
-                this.mTool.D(new wi5(6, 3, string));
+                this.mTool.D(new cd5(6, 3, string));
             }
             this.mTextContent = string;
             if (jSONObject.getString(TbEnum.ChatInputStatus.INPUT_STATUS_KEY).equals(TbEnum.ChatInputStatus.INPUT_STATUS_VOICE) && this.mTool != null) {
-                this.mTool.D(new wi5(1, 6, null));
+                this.mTool.D(new cd5(1, 6, null));
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -928,7 +937,7 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
             this.mTextContent = null;
             EditorTools editorTools = this.mTool;
             if (editorTools != null) {
-                editorTools.D(new wi5(9, -1, Boolean.TRUE));
+                editorTools.D(new cd5(9, -1, Boolean.TRUE));
             }
         }
     }
@@ -988,13 +997,13 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         }
     }
 
-    public sh8 getAdapter() {
+    public cc8 getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.mAdapter;
         }
-        return (sh8) invokeV.objValue;
+        return (cc8) invokeV.objValue;
     }
 
     public View getBtnBack() {
@@ -1055,13 +1064,13 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         return (FrameLayout) invokeV.objValue;
     }
 
-    public h55 getMsgItemOperationDialog() {
+    public pz4 getMsgItemOperationDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.mMsgItemOperation;
         }
-        return (h55) invokeV.objValue;
+        return (pz4) invokeV.objValue;
     }
 
     public BdTypeListView getMsgListView() {
@@ -1121,7 +1130,7 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
     public boolean isMoreVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
             EditorTools editorTools = this.mTool;
             if (editorTools == null) {
                 return false;
@@ -1131,11 +1140,11 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public boolean isOnCancle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
             ISendVoiceView iSendVoiceView = this.mSendVoiceView;
             if (iSendVoiceView != null) {
                 return iSendVoiceView.isOnCancle();
@@ -1147,34 +1156,34 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
 
     public void onDestory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
             Handler handler = this.mHandler;
             if (handler != null) {
                 handler.removeMessages(1);
             }
-            sh8 sh8Var = this.mAdapter;
-            if (sh8Var != null) {
-                sh8Var.k();
+            cc8 cc8Var = this.mAdapter;
+            if (cc8Var != null) {
+                cc8Var.k();
             }
             ISendVoiceView iSendVoiceView = this.mSendVoiceView;
             if (iSendVoiceView != null) {
-                iSendVoiceView.A();
+                iSendVoiceView.s();
             }
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onStopingRecorder() {
         ISendVoiceView iSendVoiceView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048628, this) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048629, this) == null) && (iSendVoiceView = this.mSendVoiceView) != null) {
             iSendVoiceView.onStopingRecorder();
         }
     }
 
     public void sendmsgCloseSoftkey() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
             EditorTools editorTools = this.mTool;
             if (editorTools != null) {
                 editorTools.t();
@@ -1186,14 +1195,14 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
     public void setSelectionFocusDown() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048643, this) == null) && (bdTypeListView = this.mLisMsg) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048644, this) == null) && (bdTypeListView = this.mLisMsg) != null) {
             bdTypeListView.setSelection(130);
         }
     }
 
     public void showReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048650, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
             this.mReceiver.setVisibility(0);
         }
     }
@@ -1228,10 +1237,10 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         }
     }
 
-    @Override // com.baidu.tieba.si
+    @Override // com.baidu.tieba.pd
     public void onShowErr(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048624, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048625, this, i2, str) == null) {
             ISendVoiceView iSendVoiceView = this.mSendVoiceView;
             if (iSendVoiceView != null) {
                 iSendVoiceView.onShowErr(i2, str);
@@ -1252,11 +1261,11 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
 
     public void showDiaItemContentOperate(int i2, String[] strArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048646, this, i2, strArr) == null) && strArr != null && strArr.length > 0) {
-            h55 h55Var = new h55(this.mContext.getPageContext());
-            h55Var.i(null, strArr, this.mContext);
-            this.mMsgItemOperation = h55Var;
-            h55Var.f().setTag(Integer.valueOf(i2));
+        if ((interceptable == null || interceptable.invokeIL(1048647, this, i2, strArr) == null) && strArr != null && strArr.length > 0) {
+            pz4 pz4Var = new pz4(this.mContext.getPageContext());
+            pz4Var.i(null, strArr, this.mContext);
+            this.mMsgItemOperation = pz4Var;
+            pz4Var.f().setTag(Integer.valueOf(i2));
             this.mMsgItemOperation.l();
         }
     }
@@ -1294,7 +1303,7 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
     public final void removeMoreData(MsgPageData msgPageData) {
         int size;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048636, this, msgPageData) == null) && msgPageData != null && msgPageData.getChatMessages() != null && msgPageData.size() != 0 && (size = msgPageData.size()) > 100) {
+        if ((interceptable == null || interceptable.invokeL(1048637, this, msgPageData) == null) && msgPageData != null && msgPageData.getChatMessages() != null && msgPageData.size() != 0 && (size = msgPageData.size()) > 100) {
             int i2 = size - 100;
             for (int i3 = 0; i3 < i2; i3++) {
                 msgPageData.getChatMessages().remove(0);
@@ -1304,16 +1313,16 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
 
     public String getDraft() {
         InterceptResult invokeV;
-        jj5 jj5Var;
+        pd5 pd5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             EditorTools editorTools = this.mTool;
             if (editorTools == null) {
                 return "";
             }
-            ij5 p = editorTools.p(3);
+            od5 p = editorTools.p(3);
             String str = TbEnum.ChatInputStatus.INPUT_STATUS_TEXT;
-            if (p != null && (jj5Var = p.m) != null && (jj5Var instanceof View) && ((View) jj5Var).getVisibility() != 0) {
+            if (p != null && (pd5Var = p.m) != null && (pd5Var instanceof View) && ((View) pd5Var).getVisibility() != 0) {
                 str = TbEnum.ChatInputStatus.INPUT_STATUS_VOICE;
             }
             HashMap hashMap = new HashMap();
@@ -1327,7 +1336,7 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
     public void showInputControlTouchInterceptView() {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048647, this) == null) && (relativeLayout = this.mInputControl) != null && relativeLayout.findViewById(R.id.input_tool_block_view) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048648, this) == null) && (relativeLayout = this.mInputControl) != null && relativeLayout.findViewById(R.id.input_tool_block_view) == null) {
             View view2 = new View(this.mInputControl.getContext());
             view2.setOnClickListener(new h(this));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
@@ -1340,7 +1349,7 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
 
     public void showNotNotfiy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048649, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048650, this) == null) {
             if (!this.mIsPersonalHeader) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mTexGroup.getLayoutParams();
                 layoutParams.rightMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds3);
@@ -1400,37 +1409,41 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         this.mTool.setBarBackgroundColorId(R.color.CAM_X0207);
         this.mTool.setDeskBackgroundColorId(R.color.CAM_X0206);
         this.mTool.setMoreDeskBgColorId(R.color.CAM_X0206);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, ij5.class, talkableActivity.getActivity());
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, od5.class, talkableActivity.getActivity());
         if (runTask != null && runTask.getData() != null) {
-            ij5 ij5Var = (ij5) runTask.getData();
-            this.mSendTool = ij5Var;
-            jj5 jj5Var = ij5Var.m;
-            if (jj5Var != null && (jj5Var instanceof ISendVoiceView)) {
-                ISendVoiceView iSendVoiceView = (ISendVoiceView) jj5Var;
+            od5 od5Var = (od5) runTask.getData();
+            this.mSendTool = od5Var;
+            pd5 pd5Var = od5Var.m;
+            if (pd5Var != null && (pd5Var instanceof ISendVoiceView)) {
+                ISendVoiceView iSendVoiceView = (ISendVoiceView) pd5Var;
                 this.mSendVoiceView = iSendVoiceView;
                 if (iSendVoiceView instanceof View) {
                     ((View) iSendVoiceView).setOnTouchListener(this.mContext);
                 }
             }
-            ij5 ij5Var2 = this.mSendTool;
-            ij5Var2.l = 1;
-            this.mTool.d(ij5Var2);
+            od5 od5Var2 = this.mSendTool;
+            od5Var2.l = 1;
+            this.mTool.d(od5Var2);
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
         this.mTool.h(arrayList);
-        ij5 p = this.mTool.p(5);
+        od5 p = this.mTool.p(5);
         if (p != null) {
-            p.f(true);
-            p.e(z);
+            p.g(true);
+            p.f(z);
             p.d = 0;
         }
-        uj5 uj5Var = new uj5(talkableActivity.getActivity(), true, false);
-        this.mInputTool = uj5Var;
-        uj5Var.j(true);
+        ae5 ae5Var = new ae5(talkableActivity.getActivity(), true, false);
+        this.mInputTool = ae5Var;
+        ae5Var.k(true);
         this.mTool.d(this.mInputTool);
-        this.mTool.d(new nj5(talkableActivity.getActivity()));
-        this.mTool.d(new hl5(talkableActivity, z));
+        this.mTool.d(new td5(talkableActivity.getActivity()));
+        if (this.mSendNoLaunchTool == null) {
+            nf5 nf5Var = new nf5(talkableActivity, z);
+            this.mSendNoLaunchTool = nf5Var;
+            this.mTool.d(nf5Var);
+        }
         this.mTool.f();
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -2);
         this.mTool.setId(R.id.input_tool_view);
@@ -1440,9 +1453,9 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
         this.mTool.setActionListener(4, this.mActionListener);
         this.mTool.setActionListener(14, this.mActionListener);
         if (TbadkCoreApplication.getInst().isFaceShopNew()) {
-            this.mTool.D(new wi5(2, 5, "N"));
+            this.mTool.D(new cd5(2, 5, "N"));
         }
-        if (il8.c()) {
+        if (sf8.c()) {
             showInputControlTouchInterceptView();
         }
     }
@@ -1458,7 +1471,7 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
             ProgressBar progressBar = (ProgressBar) msglistActivity.findViewById(R.id.msg_progress);
             this.mPrgLisMsg = progressBar;
             progressBar.setVisibility(8);
-            this.mAdapter = new sh8(msglistActivity.getPageContext(), this.mLisMsg);
+            this.mAdapter = new cc8(msglistActivity.getPageContext(), this.mLisMsg);
             setNeedShowName();
             this.mAdapter.q(this.mNeedShowName);
             this.mAdapter.n(isFromReport());
@@ -1483,9 +1496,9 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
     }
 
     public void onChangeSkinType(int i2) {
-        jj5 jj5Var;
+        pd5 pd5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
             this.mNavigationBar.setBarBackgourndColor(R.color.CAM_X0204);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
             SkinManager.setBackgroundColor(this.mListMain, R.color.CAM_X0204);
@@ -1508,9 +1521,9 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
             if (textView4 != null) {
                 SkinManager.setViewTextColor(textView4, R.color.CAM_X0105, 1);
             }
-            sh8 sh8Var = this.mAdapter;
-            if (sh8Var != null) {
-                sh8Var.j(i2);
+            cc8 cc8Var = this.mAdapter;
+            if (cc8Var != null) {
+                cc8Var.j(i2);
             }
             this.mNetworkView.onChangeSkinType(getPageContext(), i2);
             EditorTools editorTools = this.mTool;
@@ -1522,9 +1535,9 @@ public abstract class AbsMsglistView extends BdBaseView<MsglistActivity<?>> impl
                 SkinManager.setImageResource(imageView, R.drawable.icon_chat_call_not);
             }
             this.mNavigationBar.onBackBtnOnChangeSkin();
-            uj5 uj5Var = this.mInputTool;
-            if (uj5Var != null && (jj5Var = uj5Var.m) != null && (jj5Var instanceof EditText)) {
-                EMManager.from((EditText) jj5Var).setTextSize(R.dimen.T_X06).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0209).setBackGroundColor(R.color.CAM_X0212);
+            ae5 ae5Var = this.mInputTool;
+            if (ae5Var != null && (pd5Var = ae5Var.m) != null && (pd5Var instanceof EditText)) {
+                EMManager.from((EditText) pd5Var).setTextSize(R.dimen.T_X06).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0209).setBackGroundColor(R.color.CAM_X0212);
             }
             PersonalFollowTipLayout personalFollowTipLayout = this.followTipLayout;
             if (personalFollowTipLayout != null) {

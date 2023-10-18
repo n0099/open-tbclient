@@ -108,7 +108,7 @@ public class BarInformationModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void M(b bVar) {
+    public void N(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);

@@ -1,139 +1,280 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.view.CustomFitFrameCard;
+import com.baidu.tieba.nx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class rx extends gx {
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+/* loaded from: classes8.dex */
+public class rx extends nx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b15 h;
-    public sp6<b15> i;
-    public CustomFitFrameCard j;
+    public volatile com.baidu.helios.bridge.multiprocess.g c;
+    public volatile px d;
+    public volatile boolean e;
+    public volatile boolean f;
+    public volatile boolean g;
+    public volatile Future<Boolean> h;
+    public volatile Future<Boolean> i;
+    public volatile boolean j;
+    public String k;
+    public Object l;
+    public Object m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rx(Context context) {
-        super(context);
+    /* loaded from: classes8.dex */
+    public class a implements Callable<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rx a;
+
+        public a(rx rxVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rxVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rxVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public Boolean call() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.a.d = new px();
+                this.a.d.b(this.a.a);
+                this.a.d.c(this.a.b);
+                this.a.f = true;
+                return Boolean.TRUE;
+            }
+            return (Boolean) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements Callable<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rx a;
+
+        public b(rx rxVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rxVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rxVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public Boolean call() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                rx rxVar = this.a;
+                rxVar.c = new com.baidu.helios.bridge.multiprocess.g(rxVar, rxVar.k);
+                this.a.c.b(this.a.a);
+                this.a.c.c(this.a.b);
+                this.a.g = true;
+                if (this.a.c.o()) {
+                    this.a.j = true;
+                    return Boolean.TRUE;
+                }
+                this.a.j = false;
+                this.a.e = false;
+                this.a.q();
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeV.objValue;
+        }
+    }
+
+    public rx(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        x(UtilHelper.getDimenPixelSize(R.dimen.tbds17));
+        this.l = new Object();
+        this.m = new Object();
+        this.e = true;
+        this.f = false;
+        this.k = str;
     }
 
-    public final boolean z(b15 b15Var) {
+    @Override // com.baidu.tieba.nx
+    public void a(String str, Bundle bundle, nx.c<String> cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
+            if (this.e) {
+                t();
+                if (this.j) {
+                    this.c.a(str, bundle, cVar);
+                    return;
+                }
+            }
+            n();
+            this.d.a(str, bundle, cVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.nx
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.e) {
+                t();
+                if (this.j && this.c != null) {
+                    this.c.d();
+                    return;
+                }
+            }
+            n();
+            if (this.d != null) {
+                this.d.d();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nx
+    public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, b15Var)) == null) {
-            if (b15Var != null && b15Var.getThreadData() != null && b15Var.getThreadData().getTaskInfoData() != null && b15Var.getThreadData().getTaskInfoData().f() != null && b15Var.getThreadData().getTaskInfoData().j() == 4) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.e) {
+                t();
+                if (this.j) {
+                    return this.c.e(str);
+                }
             }
-            return false;
+            n();
+            return this.d.e(str);
         }
         return invokeL.booleanValue;
     }
 
-    public static final void y(rx this$0, View view2) {
+    @Override // com.baidu.tieba.nx
+    public void f(nx.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            sp6<b15> sp6Var = this$0.i;
-            if (sp6Var != null) {
-                sp6Var.a(view2, this$0.h);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ux
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        CustomFitFrameCard customFitFrameCard;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && (customFitFrameCard = this.j) != null) {
-            customFitFrameCard.b();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
-    /* renamed from: A */
-    public void onBindDataToView(b15 b15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, b15Var) == null) {
-            this.h = b15Var;
-            if (z(b15Var)) {
-                CustomFitFrameCard customFitFrameCard = this.j;
-                if (customFitFrameCard != null) {
-                    customFitFrameCard.setData(b15Var);
-                }
-                CustomFitFrameCard customFitFrameCard2 = this.j;
-                if (customFitFrameCard2 != null) {
-                    customFitFrameCard2.setVisibility(0);
-                    return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            if (this.e) {
+                synchronized (this.l) {
+                    w();
                 }
                 return;
             }
-            CustomFitFrameCard customFitFrameCard3 = this.j;
-            if (customFitFrameCard3 != null) {
-                customFitFrameCard3.setVisibility(8);
+            synchronized (this.m) {
+                q();
             }
         }
     }
 
-    @Override // com.baidu.tieba.zw
-    public void o(sp6<b15> sp6Var) {
+    @Override // com.baidu.tieba.nx
+    public nx.d g(String str, Bundle bundle) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sp6Var) == null) {
-            this.i = sp6Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) {
+            if (this.e) {
+                t();
+                if (this.j) {
+                    nx.d g = this.c.g(str, bundle);
+                    if (g.b()) {
+                        return g;
+                    }
+                    this.e = false;
+                }
+            }
+            n();
+            return this.d.g(str, bundle);
+        }
+        return (nx.d) invokeLL.objValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.e = false;
+            q();
         }
     }
 
-    @Override // com.baidu.tieba.zw
-    public View j() {
-        InterceptResult invokeV;
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Context mContext = this.b;
-            Intrinsics.checkNotNullExpressionValue(mContext, "mContext");
-            CustomFitFrameCard customFitFrameCard = new CustomFitFrameCard(mContext, null, 2, null);
-            this.j = customFitFrameCard;
-            Intrinsics.checkNotNull(customFitFrameCard);
-            customFitFrameCard.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yw
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        rx.y(rx.this, view2);
-                    }
-                }
-            });
-            CustomFitFrameCard customFitFrameCard2 = this.j;
-            Intrinsics.checkNotNull(customFitFrameCard2);
-            return customFitFrameCard2;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.e || this.f) {
+            return;
         }
-        return (View) invokeV.objValue;
+        synchronized (this.m) {
+            q();
+        }
+        try {
+            this.i.get();
+        } catch (Exception unused) {
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !this.f && this.i == null) {
+            this.i = this.a.d.submit(new a(this));
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.e) {
+            if (!this.g) {
+                synchronized (this.l) {
+                    w();
+                }
+            }
+            try {
+                this.h.get();
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.g && this.h == null) {
+            this.h = this.a.d.submit(new b(this));
+        }
     }
 }

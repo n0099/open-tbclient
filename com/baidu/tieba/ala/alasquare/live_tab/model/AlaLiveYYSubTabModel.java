@@ -17,13 +17,13 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
-import com.baidu.tieba.b95;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.cc6;
-import com.baidu.tieba.jd6;
-import com.baidu.tieba.ob6;
-import com.baidu.tieba.wp6;
-import com.baidu.tieba.zc6;
+import com.baidu.tieba.fk6;
+import com.baidu.tieba.i76;
+import com.baidu.tieba.j35;
+import com.baidu.tieba.l66;
+import com.baidu.tieba.s76;
+import com.baidu.tieba.x56;
+import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public zc6 f;
+    public i76 f;
     public long g;
     public int h;
     public int i;
@@ -52,7 +52,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface c {
-        void a(boolean z, List<bn> list);
+        void a(boolean z, List<yh> list);
 
         void b(int i, String str, boolean z);
     }
@@ -111,19 +111,19 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() == 0 && alaTabLiveResponsedMessage.isSuccess()) {
-                    cc6 cc6Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    l66 l66Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
                         if (this.a.f != null) {
-                            this.a.f.a(cc6Var);
+                            this.a.f.a(l66Var);
                         }
                     } else {
-                        ob6.a(this.a.h);
+                        x56.a(this.a.h);
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.f = new zc6(cc6Var, alaLiveYYSubTabModel.j, this.a.k);
-                        this.a.Y();
+                        alaLiveYYSubTabModel.f = new i76(l66Var, alaLiveYYSubTabModel.j, this.a.k);
+                        this.a.Z();
                     }
                     if (this.a.f != null) {
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel2 = this.a;
@@ -148,7 +148,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
 
         @Override // com.baidu.tbadk.core.leveiconlivepolling.PollingModel.d
         public /* synthetic */ void onFail() {
-            b95.a(this);
+            j35.a(this);
         }
 
         public b(AlaLiveYYSubTabModel alaLiveYYSubTabModel) {
@@ -173,7 +173,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         public void onSuccess(List<AlaLiveInfo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                this.a.Y();
+                this.a.Z();
                 if (this.a.m != null && this.a.f != null) {
                     this.a.m.a(this.a.c, this.a.f.d());
                 }
@@ -218,7 +218,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         }
     }
 
-    public final void Y() {
+    public final void Z() {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.f == null) {
@@ -232,9 +232,9 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         } else {
             str = "";
         }
-        jd6 jd6Var = new jd6();
-        jd6Var.a = new wp6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
-        this.f.g(jd6Var);
+        s76 s76Var = new s76();
+        s76Var.a = new fk6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
+        this.f.g(s76Var);
     }
 
     public void b() {
@@ -245,11 +245,11 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 this.g = currentTimeMillis;
             }
             this.d = true;
-            Z(1, ob6.b(this.h) - 1);
+            a0(1, x56.b(this.h) - 1);
         }
     }
 
-    public final void Z(int i, int i2) {
+    public final void a0(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
@@ -282,8 +282,8 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            zc6 zc6Var = this.f;
-            if (zc6Var != null && !ListUtils.isEmpty(zc6Var.d())) {
+            i76 i76Var = this.f;
+            if (i76Var != null && !ListUtils.isEmpty(i76Var.d())) {
                 return true;
             }
             return false;
@@ -318,7 +318,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if (pollingModel != null) {
                 pollingModel.getData(PollingModel.LIVE_FOLLOW_SECOND_FLOOR);
             }
-            Z(0, ob6.b(this.h));
+            a0(0, x56.b(this.h));
         }
     }
 }

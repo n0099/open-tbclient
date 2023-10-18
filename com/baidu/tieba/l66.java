@@ -1,18 +1,57 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.Nullable;
-/* loaded from: classes6.dex */
-public interface l66 extends am0<View> {
+import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class l66 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public ArrayList<SdkLiveInfoData> b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        boolean a(View view2);
+    public l66() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
     }
 
-    boolean a(View view2);
-
-    void onChangeSkinType(int i);
-
-    void setOnClickInterceptListener(@Nullable a aVar);
+    public void a(JSONObject jSONObject, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, jSONObject, str) != null) || jSONObject == null) {
+            return;
+        }
+        boolean z = true;
+        if (jSONObject.optInt("has_more") != 1) {
+            z = false;
+        }
+        this.a = z;
+        JSONArray optJSONArray = jSONObject.optJSONArray("live_list");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            this.b = new ArrayList<>(optJSONArray.length());
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
+                    sdkLiveInfoData.fromJson(optJSONObject, str);
+                    this.b.add(sdkLiveInfoData);
+                }
+            }
+        }
+    }
 }

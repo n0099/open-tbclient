@@ -1,5 +1,6 @@
 package com.baidu.tieba.myCollection.baseEditMark;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.base.BdPageContext;
@@ -12,14 +13,17 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.gw4;
-import com.baidu.tieba.ke9;
-import com.baidu.tieba.me9;
+import com.baidu.tbadk.coreExtra.model.CloudControlData;
+import com.baidu.tbadk.coreExtra.model.ResponseToastLogic;
+import com.baidu.tieba.oq4;
+import com.baidu.tieba.x89;
+import com.baidu.tieba.z89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
 /* loaded from: classes7.dex */
 public class MarkModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -27,7 +31,7 @@ public class MarkModel extends BdBaseModel {
     public boolean a;
     public MarkData b;
     public a c;
-    public gw4.a d;
+    public oq4.a d;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -40,12 +44,59 @@ public class MarkModel extends BdBaseModel {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
+    public static class Result implements Serializable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final boolean isSuccess;
+        @Nullable
+        public final String toastString;
+
+        public Result(boolean z, @Nullable String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.isSuccess = z;
+            this.toastString = str;
+        }
+
+        @Nullable
+        public String getToastString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.toastString;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public boolean isSuccess() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.isSuccess;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends BdAsyncTask<Boolean, Integer, Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public me9 c;
+        public z89 c;
         public final /* synthetic */ MarkModel d;
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -75,22 +126,24 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new me9();
+            this.c = new z89();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public Boolean doInBackground(Boolean... boolArr) {
+        public Result doInBackground(Boolean... boolArr) {
             InterceptResult invokeL;
+            boolean z;
+            String toastConf;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
-                boolean z = false;
+                boolean z2 = false;
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    ke9 ke9Var = new ke9();
-                    ke9Var.j(this.d.b);
-                    this.a.addPostData("data", ke9Var.E(0, 1));
+                    x89 x89Var = new x89();
+                    x89Var.j(this.d.b);
+                    this.a.addPostData("data", x89Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;
@@ -98,44 +151,55 @@ public class MarkModel extends BdBaseModel {
                     this.a.addPostData("tid", this.d.b.getId());
                     this.a.addPostData("fid", this.d.b.getForumId());
                 }
-                this.c.c(this.a.postNetData());
+                String postNetData = this.a.postNetData();
+                this.c.c(postNetData);
                 if (this.c.a() == 0) {
                     z = true;
+                } else {
+                    z = false;
                 }
+                CloudControlData parse = CloudControlData.parse(postNetData);
+                if (parse == null) {
+                    toastConf = "";
+                } else {
+                    toastConf = parse.getCommonConfig().getToastConf();
+                }
+                String a = ResponseToastLogic.a(ResponseToastLogic.Conf.SCENE_MARK, toastConf);
                 if (this.a.getNetContext().getResponse().isRequestSuccess() && z) {
-                    return Boolean.TRUE;
+                    z2 = true;
                 }
-                return Boolean.FALSE;
+                return new Result(z2, a);
             }
-            return (Boolean) invokeL.objValue;
+            return (Result) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
+        /* renamed from: c */
+        public void onPostExecute(Result result) {
             String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result) == null) {
                 try {
                     if (this.c != null) {
                         Logger.addLog(Logger.COLLECTION, 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
                     }
-                    if (bool.booleanValue()) {
+                    if (result.isSuccess()) {
                         if (this.d.d != null) {
-                            this.d.d.a(true, this.b, null);
+                            this.d.d.a(true, this.b, null, result.getToastString());
                         }
                     } else if (this.d.d != null) {
-                        if (this.a != null && !this.a.getNetContext().getResponse().isRequestSuccess()) {
-                            this.d.d.a(false, this.b, this.a.getErrorString());
-                        } else {
-                            gw4.a aVar = this.d.d;
+                        if (this.a == null || this.a.getNetContext().getResponse().isRequestSuccess()) {
+                            oq4.a aVar = this.d.d;
                             boolean z = this.b;
                             if (this.c != null) {
                                 str = this.c.b();
                             } else {
                                 str = "";
                             }
-                            aVar.a(false, z, str);
+                            aVar.a(false, z, str, null);
+                        } else {
+                            this.d.d.a(false, this.b, this.a.getErrorString(), null);
                         }
                     }
                     this.d.c = null;
@@ -148,7 +212,7 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel(true);
                 NetWork netWork = this.a;
                 if (netWork != null) {
@@ -209,28 +273,28 @@ public class MarkModel extends BdBaseModel {
         this.b = new MarkData();
     }
 
-    public void U(boolean z) {
+    public void V(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.a = z;
         }
     }
 
-    public void V(MarkData markData) {
+    public void W(MarkData markData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
             this.b = markData;
         }
     }
 
-    public void W(gw4.a aVar) {
+    public void X(oq4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.d = aVar;
         }
     }
 
-    public void P() {
+    public void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a aVar = this.c;
@@ -244,7 +308,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public void Q() {
+    public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a aVar = this.c;
@@ -258,7 +322,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public boolean R() {
+    public boolean S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -267,7 +331,7 @@ public class MarkModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public MarkData S() {
+    public MarkData T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -276,7 +340,7 @@ public class MarkModel extends BdBaseModel {
         return (MarkData) invokeV.objValue;
     }
 
-    public String T() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

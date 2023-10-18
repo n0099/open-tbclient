@@ -1,5 +1,5 @@
 package com.baidu.searchbox.launch;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class IdleLaunchTask extends SmartLaunchTask {
     public IdleLaunchTask() {
         this.type = 1;

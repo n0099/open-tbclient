@@ -1,106 +1,92 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.yzb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public final class a1c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "SHA";
-    public static final String[] b;
+public abstract class a1c {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public yzb a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947563766, "Lcom/baidu/tieba/a1c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947563766, "Lcom/baidu/tieba/a1c;");
-                return;
-            }
-        }
-        b = new String[]{"SHA-256", "SHA-384", "SHA-512"};
+    public abstract void A(lzb lzbVar);
+
+    public abstract void B(qzb qzbVar);
+
+    public abstract void C(rzb rzbVar);
+
+    public abstract void D(szb szbVar);
+
+    public abstract void E(int i);
+
+    public abstract void F(int i, long j);
+
+    public abstract void G();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract long g();
+
+    public abstract long h();
+
+    public abstract Object i();
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "12.1.0.34" : (String) invokeV.objValue;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            for (String str2 : b) {
-                if (str2.equals(str)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    public abstract int k();
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return c(str, "SHA-256");
-        }
-        return (String) invokeL.objValue;
-    }
+    public abstract int l();
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (!a(str2)) {
-                    h1c.c(a, "algorithm is not safe or legal");
-                    return "";
-                }
-                try {
-                    bArr = str.getBytes("UTF-8");
-                } catch (UnsupportedEncodingException unused) {
-                    bArr = new byte[0];
-                    h1c.c(a, "Error in generate SHA UnsupportedEncodingException");
-                }
-                return e1c.a(d(bArr, str2));
-            }
-            h1c.c(a, "content or algorithm is null.");
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
+    public abstract void m();
 
-    public static byte[] d(byte[] bArr, String str) {
-        InterceptResult invokeLL;
+    public abstract void n();
+
+    public abstract void o();
+
+    public abstract void p();
+
+    public abstract void q(Executor executor, yzb.d dVar);
+
+    public abstract void r(long j);
+
+    public abstract void s(dzb dzbVar);
+
+    public abstract void t(dzb dzbVar);
+
+    public abstract void u(int i);
+
+    public abstract void v(int i);
+
+    public abstract void w(Executor executor, fzb fzbVar);
+
+    public abstract void x(gzb gzbVar);
+
+    public abstract void y(izb izbVar);
+
+    public abstract void z(kzb kzbVar);
+
+    public a1c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
-            if (bArr != null && !TextUtils.isEmpty(str)) {
-                if (!a(str)) {
-                    h1c.c(a, "algorithm is not safe or legal");
-                    return new byte[0];
-                }
-                try {
-                    MessageDigest messageDigest = MessageDigest.getInstance(str);
-                    messageDigest.update(bArr);
-                    return messageDigest.digest();
-                } catch (NoSuchAlgorithmException unused) {
-                    h1c.c(a, "Error in generate SHA NoSuchAlgorithmException");
-                    return new byte[0];
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            h1c.c(a, "content or algorithm is null.");
-            return new byte[0];
         }
-        return (byte[]) invokeLL.objValue;
     }
 }

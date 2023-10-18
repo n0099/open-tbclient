@@ -1,37 +1,35 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n81 extends l81 {
+public class n81 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public n81() {
+    public static boolean a(Application application) {
+        InterceptResult invokeL;
+        Object f;
+        ClassLoader classLoader;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, application)) == null) {
+            try {
+                Context baseContext = application.getBaseContext();
+                if (baseContext == null || (f = aa1.f(baseContext, "mPackageInfo")) == null || (classLoader = (ClassLoader) aa1.f(f, "mClassLoader")) == null) {
+                    return false;
+                }
+                o81 o81Var = new o81(classLoader.getParent(), classLoader);
+                aa1.k(f, "mClassLoader", o81Var);
+                Thread.currentThread().setContextClassLoader(o81Var);
+                return true;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.l81
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

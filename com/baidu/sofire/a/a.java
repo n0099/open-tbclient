@@ -57,11 +57,11 @@ public class a {
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0171a extends Callback {
+    public static class C0173a extends Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0171a() {
+        public C0173a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -373,7 +373,7 @@ public class a {
                         break;
                     }
                 }
-                com.baidu.sofire.b.c.a(100028, "onReceiveAwakeMessage", new C0171a(), new Class[]{Context.class, Intent.class}, context, intent);
+                com.baidu.sofire.b.c.a(100028, "onReceiveAwakeMessage", new C0173a(), new Class[]{Context.class, Intent.class}, context, intent);
             } catch (Throwable unused) {
                 int i2 = b.a;
             }

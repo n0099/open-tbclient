@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.write.webwrite.data.WriteDataManager;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+@Service
 /* loaded from: classes6.dex */
-public final class j3b extends WriteDataManager {
+public final class j3b extends px9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.tx9
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "post_success" : (String) invokeV.objValue;
+    }
 
     public j3b() {
         Interceptable interceptable = $ic;
@@ -25,28 +30,6 @@ public final class j3b extends WriteDataManager {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.write.webwrite.data.WriteDataManager
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b().setType(11);
-            b().setRichTextEditorMode(true);
-            b().setIsArticle(d1b.m);
-        }
-    }
-
-    @Override // com.baidu.tieba.write.webwrite.data.WriteDataManager
-    public void o(TbPageContext<?> pageContext, e3b fileInterceptor, EditorTools editor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pageContext, fileInterceptor, editor) == null) {
-            Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-            Intrinsics.checkNotNullParameter(fileInterceptor, "fileInterceptor");
-            Intrinsics.checkNotNullParameter(editor, "editor");
-            a().l(new w4b(pageContext, c(), b(), fileInterceptor, d(), editor));
-            a().l(new t4b(pageContext, c(), b(), d()));
         }
     }
 }

@@ -1,110 +1,214 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.controller.CustomRule;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import android.content.res.AssetManager;
+import android.content.res.ColorStateList;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class eb extends gb<CustomMessage<?>, CustomMessageTask, CustomRule, CustomResponsedMessage<?>> {
+public class eb extends Resources {
     public static /* synthetic */ Interceptable $ic;
+    public static final ColorStateList c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ba i;
+    public Resources a;
+    public boolean b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448303280, "Lcom/baidu/tieba/eb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448303280, "Lcom/baidu/tieba/eb;");
+                return;
+            }
+        }
+        c = ColorStateList.valueOf(-16777216);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eb(MessageManager messageManager) {
-        super(messageManager);
+    public eb(Resources resources) {
+        super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {messageManager};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {resources};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((MessageManager) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((AssetManager) objArr2[0], (DisplayMetrics) objArr2[1], (Configuration) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.i = null;
-        this.i = new ba(messageManager);
-        this.e = jb.c();
+        this.a = resources;
+        this.b = false;
     }
 
-    public <T> CustomResponsedMessage<T> A(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
-        InterceptResult invokeLLL;
+    @Override // android.content.res.Resources
+    public int getColor(int i) throws Resources.NotFoundException {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, customMessage, customMessageTask, cls)) == null) {
-            return this.i.k(customMessage, customMessageTask, cls);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
+                try {
+                    return this.a.getColor(i);
+                } catch (OutOfMemoryError e) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                } catch (RuntimeException e2) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e2;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                }
+            }
+            a("color", i);
+            return 0;
         }
-        return (CustomResponsedMessage) invokeLLL.objValue;
+        return invokeI.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.x9
-    /* renamed from: B */
-    public void f(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+    @Override // android.content.res.Resources
+    public ColorStateList getColorStateList(int i) throws Resources.NotFoundException {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage, customMessageTask) == null) {
-            this.i.f(customMessage, customMessageTask);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
+                try {
+                    return this.a.getColorStateList(i);
+                } catch (OutOfMemoryError e) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                } catch (RuntimeException e2) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e2;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                }
+            }
+            a("colorstatelist", i);
+            return c;
+        }
+        return (ColorStateList) invokeI.objValue;
+    }
+
+    @Override // android.content.res.Resources
+    public Drawable getDrawable(int i) throws Resources.NotFoundException {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
+                try {
+                    return this.a.getDrawable(i);
+                } catch (OutOfMemoryError e) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                } catch (RuntimeException e2) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e2;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                }
+            }
+            a(ResourceManager.DRAWABLE, i);
+            return null;
+        }
+        return (Drawable) invokeI.objValue;
+    }
+
+    @Override // android.content.res.Resources
+    public String getString(int i) throws Resources.NotFoundException {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
+                try {
+                    return this.a.getString(i);
+                } catch (OutOfMemoryError e) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                } catch (RuntimeException e2) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.b)) {
+                        throw e2;
+                    }
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                }
+            }
+            a(EMABTest.TYPE_STRING, i);
+            return "";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final void a(String str, int i) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            try {
+                str2 = this.a.getResourceEntryName(i);
+            } catch (Exception unused) {
+                str2 = null;
+            }
+            if (str2 == null) {
+                str2 = "";
+            }
+            try {
+                BdStatisticsManager.getInstance().error("resources", str, null, -9115, null, "resid", Integer.valueOf(i), "resname", str2);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
     }
 
-    @Override // com.baidu.tieba.x9
-    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
+    @Override // android.content.res.Resources
+    public InputStream openRawResource(int i) throws Resources.NotFoundException {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return this.a.openRawResource(i);
+        }
+        return (InputStream) invokeI.objValue;
+    }
+
+    @Override // android.content.res.Resources
+    public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId)) == null) {
-            return this.i.e(i, bdUniqueId);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, typedValue)) == null) {
+            return this.a.openRawResource(i, typedValue);
         }
-        return (LinkedList) invokeIL.objValue;
-    }
-
-    @Override // com.baidu.tieba.x9
-    public void h(int i, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bdUniqueId) == null) {
-            this.i.h(i, bdUniqueId);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gb
-    /* renamed from: y */
-    public CustomMessage<?> m(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, customMessage, customMessageTask)) == null) {
-            return this.a.getController().e(customMessage, customMessageTask);
-        }
-        return (CustomMessage) invokeLL.objValue;
-    }
-
-    public LinkedList<CustomMessage<?>> x(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bdUniqueId)) == null) {
-            return this.i.i(bdUniqueId);
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public void z(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.i.j(bdUniqueId);
-        }
+        return (InputStream) invokeIL.objValue;
     }
 }

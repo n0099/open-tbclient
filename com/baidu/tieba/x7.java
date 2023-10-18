@@ -1,76 +1,47 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.badlogic.gdx.utils.reflect.ReflectionException;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class x7<T> extends t7<T> {
+public class x7 implements e8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o8 d;
+    public Object a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x7(Class<T> cls, int i, int i2) {
-        super(i, i2);
+    public x7(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        o8 g = g(cls);
-        this.d = g;
-        if (g != null) {
-            return;
+        if (obj != null && obj.getClass().isArray()) {
+            this.a = obj;
         }
-        throw new RuntimeException("Class cannot be created (missing no-arg constructor): " + cls.getName());
     }
 
-    @Override // com.baidu.tieba.t7
-    public T d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (T) this.d.b(null);
-            } catch (Exception e) {
-                throw new GdxRuntimeException("Unable to create new instance: " + this.d.a().getName(), e);
-            }
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public final o8 g(Class<T> cls) {
+    @Override // com.baidu.tieba.e8
+    public Object a(u8 u8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-            try {
-                try {
-                    return n8.b(cls, null);
-                } catch (ReflectionException unused) {
-                    return null;
-                }
-            } catch (Exception unused2) {
-                o8 c = n8.c(cls, null);
-                c.c(true);
-                return c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u8Var)) == null) {
+            Object obj = this.a;
+            if (obj != null) {
+                return t8.b(obj, u8Var);
             }
+            return null;
         }
-        return (o8) invokeL.objValue;
+        return invokeL.objValue;
     }
 }

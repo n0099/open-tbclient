@@ -11,14 +11,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am0;
-import com.baidu.tieba.hl0;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.xg0;
 /* loaded from: classes3.dex */
-public class DefaultDownloadViewLP extends FrameLayout implements am0<DefaultDownloadViewLP> {
+public class DefaultDownloadViewLP extends FrameLayout implements xg0<DefaultDownloadViewLP> {
     public BannerDownloadView a;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.am0
+    @Override // com.baidu.tieba.xg0
     @NonNull
     public DefaultDownloadViewLP getRealView() {
         return this;
@@ -51,8 +51,8 @@ public class DefaultDownloadViewLP extends FrameLayout implements am0<DefaultDow
         this.a = (BannerDownloadView) findViewById(R.id.lp_download_btn);
     }
 
-    @Override // com.baidu.tieba.am0
-    public void c(@NonNull ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.xg0
+    public void d(@NonNull ViewGroup viewGroup) {
         if (!(viewGroup instanceof RelativeLayout)) {
             return;
         }
@@ -63,7 +63,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements am0<DefaultDow
         viewGroup.bringToFront();
     }
 
-    public void d(boolean z) {
+    public void e(boolean z) {
         int i;
         View findViewById = findViewById(R.id.nad_download_lp_safe_tip);
         if (findViewById == null) {
@@ -81,11 +81,11 @@ public class DefaultDownloadViewLP extends FrameLayout implements am0<DefaultDow
         this(context, attributeSet, 0);
     }
 
-    @Override // com.baidu.tieba.am0
-    public void update(String str, @NonNull hl0 hl0Var) {
-        if (hl0Var.c == AdDownloadStatus.DOWNLOADING) {
+    @Override // com.baidu.tieba.xg0
+    public void c(String str, @NonNull eg0 eg0Var) {
+        if (eg0Var.c == AdDownloadStatus.DOWNLOADING) {
             str = getResources().getString(R.string.nad_download_progress_text) + str;
-            setProgress(hl0Var.i);
+            setProgress(eg0Var.i);
         } else {
             setProgress(0.0f);
         }

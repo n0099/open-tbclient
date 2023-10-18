@@ -6,22 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class w52 implements Cloneable {
+public final class w52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public u42 d;
+    public List<s52> a;
+    public boolean b;
 
-    public w52(JSONArray jSONArray) {
+    public w52() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,37 +28,57 @@ public class w52 implements Cloneable {
                 return;
             }
         }
-        b(jSONArray);
+        this.a = new ArrayList();
+        this.b = false;
     }
 
-    public boolean a() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            u42 u42Var = this.d;
-            if (u42Var != null && u42Var.d()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
         return invokeV.booleanValue;
     }
 
-    public void b(JSONArray jSONArray) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 3) {
-                    this.a = xo3.g((float) jSONArray.optDouble(0));
-                    this.b = xo3.g((float) jSONArray.optDouble(1));
-                    this.c = jSONArray.optInt(2);
-                    this.d = new u42(jSONArray.optJSONArray(3));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String g = di3.g(System.currentTimeMillis(), "【HH:mm:ss】");
+            List<s52> list = this.a;
+            if (list != null && !list.isEmpty()) {
+                int i = 0;
+                int i2 = 0;
+                int i3 = 0;
+                for (s52 s52Var : this.a) {
+                    if (s52Var.c()) {
+                        i++;
+                        if (s52Var.b()) {
+                            i2++;
+                        } else {
+                            i3++;
+                        }
+                    }
                 }
-            } catch (Exception e) {
-                if (qr1.a) {
-                    e.printStackTrace();
-                }
+                return String.format("\n%s jserror：共%d个，影响渲染%d个（框架%d个，开发者%d个）；", g, Integer.valueOf(this.a.size()), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
             }
+            return String.format("\n%s jserror：共0个；", g);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(List<s52> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
+            this.a = list;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
         }
     }
 }

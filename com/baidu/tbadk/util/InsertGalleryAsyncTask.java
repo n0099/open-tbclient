@@ -12,12 +12,11 @@ import com.baidu.adp.lib.safe.BdCloseHelper;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.kb;
-import com.baidu.tieba.zh;
+import com.baidu.tieba.i6;
+import com.baidu.tieba.wc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -157,8 +156,8 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, a> {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, str2, i)) == null) {
-            int b = kb.d().b().b();
-            int b2 = kb.d().c().b();
+            int b = i6.d().b().b();
+            int b2 = i6.d().c().b();
             boolean z = false;
             for (int i2 = 0; i2 < i; i2++) {
                 try {
@@ -297,7 +296,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, a> {
                 if (str2.startsWith("JPEG")) {
                     return ".JPEG";
                 }
-                if (str2.startsWith(NativeConstants.TYPE_GIF)) {
+                if (str2.startsWith("gif")) {
                     return ".gif";
                 }
                 if (str2.startsWith("GIF")) {
@@ -313,7 +312,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
-            zh.k(str);
+            wc.k(str);
             return new File(str);
         }
         return (File) invokeL.objValue;

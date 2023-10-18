@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class um extends BaseCardInfo {
+public class um {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile um a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public bn b;
 
     public um() {
         Interceptable interceptable = $ic;
@@ -29,36 +25,26 @@ public class um extends BaseCardInfo {
         }
     }
 
-    public bn c() {
+    public static um a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (um.class) {
+                    if (a == null) {
+                        a = new um();
+                    }
+                }
+            }
+            return a;
         }
-        return (bn) invokeV.objValue;
+        return (um) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void b(String str, wm wmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void d(bn bnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bnVar) == null) {
-            this.b = bnVar;
-        }
-    }
-
-    public void e(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, wmVar) == null) {
+            zm.b().g(str, wmVar);
         }
     }
 }

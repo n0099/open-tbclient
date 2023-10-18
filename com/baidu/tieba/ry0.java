@@ -1,27 +1,43 @@
 package com.baidu.tieba;
 
+import android.graphics.Typeface;
+import android.widget.TextView;
+import com.baidu.nadcore.styles.Font;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ry0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qy0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized qy0 a() {
-        InterceptResult invokeV;
-        qy0 qy0Var;
+    public static boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ry0.class) {
-                if (a == null) {
-                    a = new qy0();
-                }
-                qy0Var = a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i >= 100 && i <= 900 && i % 100 == 0) {
+                return true;
             }
-            return qy0Var;
+            return false;
         }
-        return (qy0) invokeV.objValue;
+        return invokeI.booleanValue;
+    }
+
+    public static void b(TextView textView, Font font) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, textView, font) == null) && textView != null && font != null) {
+            c(textView, font.getFontWeight());
+        }
+    }
+
+    public static void c(TextView textView, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65538, null, textView, i) == null) && textView != null && a(i)) {
+            if (i >= 600) {
+                textView.setTypeface(Typeface.defaultFromStyle(1));
+            } else {
+                textView.setTypeface(Typeface.defaultFromStyle(0));
+            }
+        }
     }
 }

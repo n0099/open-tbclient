@@ -11,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaAnnotation;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaAnnotationArgument;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ReflectJavaAnnotation extends ReflectJavaElement implements JavaAnnotation {
     public final Annotation annotation;
 

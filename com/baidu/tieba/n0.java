@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t7;
+import com.baidu.tieba.c3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ public class n0 extends h0 {
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public q7<Class<?>, x7> a;
+        public a3<Class<?>, e3> a;
         public int b;
         public int c;
 
@@ -43,7 +43,7 @@ public class n0 extends h0 {
                     return;
                 }
             }
-            this.a = new q7<>();
+            this.a = new a3<>();
             this.b = i;
             this.c = i2;
         }
@@ -52,11 +52,11 @@ public class n0 extends h0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (obj != null) {
-                    x7 c = this.a.c(obj.getClass());
-                    if (c == null) {
+                    e3 b = this.a.b(obj.getClass());
+                    if (b == null) {
                         return;
                     }
-                    c.c(obj);
+                    b.c(obj);
                     return;
                 }
                 throw new IllegalArgumentException("object cannot be null.");
@@ -67,19 +67,19 @@ public class n0 extends h0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-                x7 c = this.a.c(cls);
-                if (c == null) {
-                    c = new x7(cls, this.b, this.c);
-                    this.a.i(cls, c);
+                e3 b = this.a.b(cls);
+                if (b == null) {
+                    b = new e3(cls, this.b, this.c);
+                    this.a.h(cls, b);
                 }
-                return c.e();
+                return b.e();
             }
             return (T) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c extends t7<d> {
+    public class c extends c3<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n0 d;
@@ -107,7 +107,7 @@ public class n0 extends h0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t7
+        @Override // com.baidu.tieba.c3
         /* renamed from: g */
         public d d() {
             InterceptResult invokeV;
@@ -120,7 +120,7 @@ public class n0 extends h0 {
     }
 
     /* loaded from: classes7.dex */
-    public class d extends i0 implements t7.a {
+    public class d extends i0 implements c3.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n0 j;
@@ -161,7 +161,7 @@ public class n0 extends h0 {
             this(n0Var);
         }
 
-        @Override // com.baidu.tieba.t7.a
+        @Override // com.baidu.tieba.c3.a
         public void reset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -174,37 +174,18 @@ public class n0 extends h0 {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public n0() {
-        this(10, 100, 10, 100);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue(), ((Integer) objArr[2]).intValue(), ((Integer) objArr[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
     public n0(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
                 int i6 = i5 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }

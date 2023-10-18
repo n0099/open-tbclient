@@ -10,8 +10,8 @@ import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw8;
-import com.baidu.tieba.cw8;
+import com.baidu.tieba.lq8;
+import com.baidu.tieba.mq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,8 +27,8 @@ import kotlin.jvm.internal.Intrinsics;
 public final class OptionAdapter extends RecyclerView.Adapter<OptionItemVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<cw8> a;
-    public bw8 b;
+    public final ArrayList<mq8> a;
+    public lq8 b;
     public int c;
 
     /* loaded from: classes6.dex */
@@ -62,13 +62,13 @@ public final class OptionAdapter extends RecyclerView.Adapter<OptionItemVH> {
                 OptionAdapter optionAdapter = this.a;
                 Object tag = view2.getTag(R.id.item_data);
                 if (tag != null) {
-                    cw8 cw8Var = (cw8) tag;
-                    Object tag2 = view2.getTag(R.id.obfuscated_res_0x7f091cfd);
+                    mq8 mq8Var = (mq8) tag;
+                    Object tag2 = view2.getTag(R.id.obfuscated_res_0x7f091d25);
                     if (tag2 != null) {
                         int intValue = ((Integer) tag2).intValue();
-                        bw8 bw8Var = optionAdapter.b;
-                        if (bw8Var != null) {
-                            bw8Var.a(cw8Var, intValue);
+                        lq8 lq8Var = optionAdapter.b;
+                        if (lq8Var != null) {
+                            lq8Var.a(mq8Var, intValue);
                             return;
                         }
                         return;
@@ -107,7 +107,7 @@ public final class OptionAdapter extends RecyclerView.Adapter<OptionItemVH> {
     }
 
     @SuppressLint({"NotifyDataSetChanged"})
-    public final void m(List<cw8> options) {
+    public final void m(List<mq8> options) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, options) == null) {
             Intrinsics.checkNotNullParameter(options, "options");
@@ -117,7 +117,7 @@ public final class OptionAdapter extends RecyclerView.Adapter<OptionItemVH> {
         }
     }
 
-    public final void p(bw8 callback) {
+    public final void p(lq8 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -139,12 +139,12 @@ public final class OptionAdapter extends RecyclerView.Adapter<OptionItemVH> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, holder, i) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
-            cw8 cw8Var = this.a.get(i);
-            Intrinsics.checkNotNullExpressionValue(cw8Var, "options[position]");
-            cw8 cw8Var2 = cw8Var;
-            holder.a().setTag(R.id.item_data, cw8Var2);
-            holder.a().setTag(R.id.obfuscated_res_0x7f091cfd, Integer.valueOf(i));
-            holder.a().setText(cw8Var2.a());
+            mq8 mq8Var = this.a.get(i);
+            Intrinsics.checkNotNullExpressionValue(mq8Var, "options[position]");
+            mq8 mq8Var2 = mq8Var;
+            holder.a().setTag(R.id.item_data, mq8Var2);
+            holder.a().setTag(R.id.obfuscated_res_0x7f091d25, Integer.valueOf(i));
+            holder.a().setText(mq8Var2.a());
             if (i == this.c) {
                 EMManager.from(holder.itemView).setTextColor(R.color.CAM_X0306);
             } else {

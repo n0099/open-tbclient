@@ -1,100 +1,94 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class t06 implements bg<o06> {
+public class t06 extends rg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public o06 e(o06 o06Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, o06Var)) == null) ? o06Var : (o06) invokeL.objValue;
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u06 a;
+        public final /* synthetic */ t06 b;
+
+        public a(t06 t06Var, u06 u06Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t06Var, u06Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = t06Var;
+            this.a = u06Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.a(view2)) {
+                return;
+            }
+            this.b.l();
+        }
     }
 
-    public o06 i(o06 o06Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, o06Var)) == null) ? o06Var : (o06) invokeL.objValue;
-    }
-
-    public t06(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: Type inference failed for: r9v4, types: [android.view.View] */
+    public t06(@NonNull u06 u06Var, @NonNull eg0 eg0Var) {
+        super(eg0Var, u06Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {u06Var, eg0Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((eg0) objArr2[0], (xg0) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.bg
-    public /* bridge */ /* synthetic */ o06 a(o06 o06Var) {
-        o06 o06Var2 = o06Var;
-        e(o06Var2);
-        return o06Var2;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.bg
-    public /* bridge */ /* synthetic */ o06 c(o06 o06Var) {
-        o06 o06Var2 = o06Var;
-        i(o06Var2);
-        return o06Var2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bg
-    /* renamed from: f */
-    public void b(o06 o06Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, o06Var) == null) && o06Var != null && o06Var.b() != null) {
-            o06Var.b().recycle();
+        ?? realView = this.e.get().getRealView();
+        if (realView != 0) {
+            realView.setOnClickListener(new a(this, u06Var));
         }
     }
 
-    public void j(int i) {
+    @Override // com.baidu.tieba.rg0, com.baidu.tieba.og0, com.baidu.tieba.wg0
+    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull eg0 eg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, eg0Var) == null) {
+            super.a(adDownloadAction, eg0Var);
         }
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    /* JADX WARN: Type inference failed for: r0v5, types: [android.view.View] */
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.get().getRealView().setVisibility(0);
+            l();
         }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bg
-    /* renamed from: h */
-    public o06 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return new o06(this.a);
-        }
-        return (o06) invokeV.objValue;
     }
 }

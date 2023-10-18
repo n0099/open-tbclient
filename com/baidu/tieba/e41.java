@@ -1,43 +1,49 @@
 package com.baidu.tieba;
 
-import android.graphics.Typeface;
-import android.widget.TextView;
-import com.baidu.nadcore.styles.Font;
+import android.text.TextUtils;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class e41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
+    public static void a(ClogBuilder.LogType logType, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i >= 100 && i <= 900 && i % 100 == 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, logType, str, str2, str3) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType);
+            clogBuilder.u(ClogBuilder.Page.NAD_POP_WEB_PANEL);
+            if (!TextUtils.isEmpty(str)) {
+                clogBuilder.k(str);
             }
-            return false;
+            if (!TextUtils.isEmpty(str3)) {
+                clogBuilder.p(str3);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                clogBuilder.j(str2);
+            }
+            jy0.e(clogBuilder);
         }
-        return invokeI.booleanValue;
     }
 
-    public static void b(TextView textView, Font font) {
+    public static void b(ClogBuilder.Page page, ClogBuilder.LogType logType, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, textView, font) == null) && textView != null && font != null) {
-            c(textView, font.getFontWeight());
-        }
-    }
-
-    public static void c(TextView textView, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65538, null, textView, i) == null) && textView != null && a(i)) {
-            if (i >= 600) {
-                textView.setTypeface(Typeface.defaultFromStyle(1));
-            } else {
-                textView.setTypeface(Typeface.defaultFromStyle(0));
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, page, logType, str, str2, str3) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType);
+            clogBuilder.u(page);
+            if (!TextUtils.isEmpty(str)) {
+                clogBuilder.k(str);
             }
+            if (!TextUtils.isEmpty(str3)) {
+                clogBuilder.p(str3);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                clogBuilder.j(str2);
+            }
+            jy0.e(clogBuilder);
         }
     }
 }

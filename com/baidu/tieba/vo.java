@@ -1,89 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.audiorecorder.lib.voice.SendVoiceView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tieba.view.BdTopToast;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.rule.TaskRuleData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vo extends ij5 {
+public class vo extends mo<TaskRuleData> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int t;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448320020, "Lcom/baidu/tieba/vo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448320020, "Lcom/baidu/tieba/vo;");
-                return;
-            }
-        }
-        t = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "rule" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vo(Context context) {
-        super(context, (String) null, 6);
+    public vo(oo ooVar) {
+        super(ooVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {ooVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                super((oo) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15ce);
-        this.d = R.drawable.icon_pure_post_voice24;
-        this.f = R.color.CAM_X0105;
-        this.i = false;
-        this.j = true;
-        this.o = true;
-        this.n = 5;
-        this.m = new SendVoiceView(context);
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -2);
-        int i3 = t;
-        ((LinearLayout.LayoutParams) layoutParams).topMargin = i3;
-        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i3;
-        ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
-        ((View) this.m).setLayoutParams(layoutParams);
-        this.p = new int[0];
     }
 
-    @Override // com.baidu.tieba.ij5
-    public boolean a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mo
+    /* renamed from: c */
+    public TaskRuleData a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.k && getContext() != null && (this.m instanceof SendVoiceView)) {
-                new BdTopToast(getContext()).setIcon(false).setContent(getContext().getString(R.string.function_can_not_use)).show((ViewGroup) ((SendVoiceView) this.m).getRootView());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String version = jSONObject.optString("ver");
+                String upgrade = jSONObject.optString("url");
+                long optLong = jSONObject.optLong("expire");
+                int optInt = jSONObject.optInt("stay", Integer.MAX_VALUE);
+                int optInt2 = jSONObject.optInt("repeat", Integer.MAX_VALUE);
+                boolean optBoolean = jSONObject.optBoolean(TaskRuleData.keyUniq);
+                boolean optBoolean2 = jSONObject.optBoolean(TaskRuleData.keyPersist);
+                int optInt3 = jSONObject.optInt(TaskRuleData.keyNoClickTimes, -1);
+                boolean optBoolean3 = jSONObject.optBoolean("auto", true);
+                int optInt4 = jSONObject.optInt(TaskRuleData.keyPersistOnFail, 0);
+                Intrinsics.checkExpressionValueIsNotNull(version, "version");
+                Intrinsics.checkExpressionValueIsNotNull(upgrade, "upgrade");
+                return new TaskRuleData(version, upgrade, optLong, optInt, optInt2, optBoolean, optBoolean2, optBoolean3, optInt3, optInt4);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
-            return this.k;
         }
-        return invokeV.booleanValue;
+        return (TaskRuleData) invokeL.objValue;
     }
 }

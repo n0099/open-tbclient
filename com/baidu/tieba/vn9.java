@@ -1,45 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes8.dex */
-public class vn9 extends un9 {
+public class vn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vn9(a26 a26Var) {
-        super(a26Var);
+    public static final sn9 a(TbPageContext<?> tbPageContext, ExcContent excContent) {
+        InterceptResult invokeLL;
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a26Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((a26) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, excContent)) == null) {
+            if (excContent == null || (l = excContent.type) == null) {
+                return null;
             }
+            if (l.longValue() == 2) {
+                return new qn9(excContent);
+            }
+            if (excContent.type.longValue() == 0) {
+                return new wn9(tbPageContext.getPageActivity(), excContent);
+            }
+            if (excContent.type.longValue() != 1) {
+                return null;
+            }
+            return new rn9(tbPageContext, excContent);
         }
-        p(TbConfig.getContentLineSpace(), 1.0f);
-        j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-        A(0);
-        m(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
-        n(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
-        t(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44));
-        g(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
-        u(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32));
-        w(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds38));
-        k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
-        i(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        return (sn9) invokeLL.objValue;
+    }
+
+    public static final tn9 b(ExcContent excContent) {
+        InterceptResult invokeL;
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, excContent)) == null) {
+            if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
+                return null;
+            }
+            return new un9(excContent);
+        }
+        return (tn9) invokeL.objValue;
     }
 }

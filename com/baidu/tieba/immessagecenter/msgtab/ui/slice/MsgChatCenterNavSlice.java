@@ -29,10 +29,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gw8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.msgtab.ui.slice.MsgChatCenterNavSlice;
-import com.baidu.tieba.rx5;
+import com.baidu.tieba.qq8;
+import com.baidu.tieba.zr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,7 +93,7 @@ public final class MsgChatCenterNavSlice extends Slice {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && !z && (tbImageView = this.a.q) != null) {
-                tbImageView.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0804e3));
+                tbImageView.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0804e5));
             }
         }
     }
@@ -119,7 +119,7 @@ public final class MsgChatCenterNavSlice extends Slice {
         this.s = 2;
     }
 
-    public static final void e0(MsgChatCenterNavSlice this$0, View view2) {
+    public static final void f0(MsgChatCenterNavSlice this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -130,7 +130,7 @@ public final class MsgChatCenterNavSlice extends Slice {
         }
     }
 
-    public static final void f0(MsgChatCenterNavSlice this$0, View view2, View view3) {
+    public static final void g0(MsgChatCenterNavSlice this$0, View view2, View view3) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, this$0, view2, view3) == null) {
@@ -148,7 +148,7 @@ public final class MsgChatCenterNavSlice extends Slice {
                 z = true;
             }
             if (!z) {
-                this$0.g0();
+                this$0.h0();
                 Intrinsics.checkNotNull(view2);
                 Context context = view2.getContext();
                 RobotMallConfig robotMallConfig3 = this$0.r;
@@ -163,14 +163,14 @@ public final class MsgChatCenterNavSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
-    public View T(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View U(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         NavigationBar navigationBar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
             Intrinsics.checkNotNullParameter(container, "container");
-            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d08df, container, false);
+            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d08d1, container, false);
             if (inflate instanceof NavigationBar) {
                 navigationBar = (NavigationBar) inflate;
             } else {
@@ -186,33 +186,33 @@ public final class MsgChatCenterNavSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice
-    public void Z(final View view2, Bundle bundle) {
+    public void a0(final View view2, Bundle bundle) {
         LinearLayout linearLayout;
         ImageView imageView;
         EMTextView eMTextView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.Z(view2, bundle);
-            rx5.b(view2);
+            super.a0(view2, bundle);
+            zr5.b(view2);
             NavigationBar navigationBar = this.l;
             if (navigationBar != null) {
                 navigationBar.setStatusBarVisibility(8);
                 TbImageView tbImageView = null;
-                EMTextView eMTextView2 = (EMTextView) navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d06fb, (View.OnClickListener) null).findViewById(R.id.obfuscated_res_0x7f0918d5);
+                EMTextView eMTextView2 = (EMTextView) navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d06ee, (View.OnClickListener) null).findViewById(R.id.obfuscated_res_0x7f091900);
                 this.m = eMTextView2;
                 if (eMTextView2 != null) {
-                    eMTextView2.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0cc7));
+                    eMTextView2.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0cd4));
                 }
-                View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06fa, (View.OnClickListener) null);
+                View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06ed, (View.OnClickListener) null);
                 this.t = addCustomView;
                 if (addCustomView != null) {
-                    linearLayout = (LinearLayout) addCustomView.findViewById(R.id.obfuscated_res_0x7f0918d2);
+                    linearLayout = (LinearLayout) addCustomView.findViewById(R.id.obfuscated_res_0x7f0918fd);
                 } else {
                     linearLayout = null;
                 }
                 this.n = linearLayout;
                 if (linearLayout != null) {
-                    linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qx8
+                    linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.as8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -220,35 +220,35 @@ public final class MsgChatCenterNavSlice extends Slice {
                         public final void onClick(View view3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                                MsgChatCenterNavSlice.e0(MsgChatCenterNavSlice.this, view3);
+                                MsgChatCenterNavSlice.f0(MsgChatCenterNavSlice.this, view3);
                             }
                         }
                     });
                 }
                 View view3 = this.t;
                 if (view3 != null) {
-                    imageView = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f0918d3);
+                    imageView = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f0918fe);
                 } else {
                     imageView = null;
                 }
                 this.p = imageView;
                 View view4 = this.t;
                 if (view4 != null) {
-                    eMTextView = (EMTextView) view4.findViewById(R.id.obfuscated_res_0x7f0918d4);
+                    eMTextView = (EMTextView) view4.findViewById(R.id.obfuscated_res_0x7f0918ff);
                 } else {
                     eMTextView = null;
                 }
                 this.o = eMTextView;
                 if (eMTextView != null) {
-                    eMTextView.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0cc6));
+                    eMTextView.setText(this.k.getString(R.string.obfuscated_res_0x7f0f0cd3));
                 }
                 View view5 = this.t;
                 if (view5 != null) {
-                    tbImageView = (TbImageView) view5.findViewById(R.id.obfuscated_res_0x7f091f92);
+                    tbImageView = (TbImageView) view5.findViewById(R.id.obfuscated_res_0x7f091f9d);
                 }
                 this.q = tbImageView;
                 if (tbImageView != null) {
-                    tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rx8
+                    tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bs8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -256,14 +256,14 @@ public final class MsgChatCenterNavSlice extends Slice {
                         public final void onClick(View view6) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view6) == null) {
-                                MsgChatCenterNavSlice.f0(MsgChatCenterNavSlice.this, view2, view6);
+                                MsgChatCenterNavSlice.g0(MsgChatCenterNavSlice.this, view2, view6);
                             }
                         }
                     });
                 }
                 TbImageView tbImageView2 = this.q;
                 if (tbImageView2 != null) {
-                    tbImageView2.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0804e3);
+                    tbImageView2.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0804e5);
                 }
                 TbImageView tbImageView3 = this.q;
                 if (tbImageView3 != null) {
@@ -273,7 +273,7 @@ public final class MsgChatCenterNavSlice extends Slice {
         }
     }
 
-    public final void d0() {
+    public final void e0() {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
@@ -281,7 +281,7 @@ public final class MsgChatCenterNavSlice extends Slice {
             RobotMallConfig robotMallConfig = TbSingleton.getInstance().getRobotMallConfig();
             Intrinsics.checkNotNullExpressionValue(robotMallConfig, "getInstance().robotMallConfig");
             this.r = robotMallConfig;
-            if (gw8.a.a()) {
+            if (qq8.a.a()) {
                 RobotMallConfig robotMallConfig2 = this.r;
                 RobotMallConfig robotMallConfig3 = null;
                 if (robotMallConfig2 == null) {
@@ -338,7 +338,7 @@ public final class MsgChatCenterNavSlice extends Slice {
         }
     }
 
-    public final void g0() {
+    public final void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ROBOT_MALL_ENTRANCE_EXPLORE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.s));
@@ -354,7 +354,7 @@ public final class MsgChatCenterNavSlice extends Slice {
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(this.j, i);
             }
-            EMManager.from(M()).setCorner(R.string.J_X19).setBackGroundColor(R.color.CAM_X0201);
+            EMManager.from(N()).setCorner(R.string.J_X19).setBackGroundColor(R.color.CAM_X0201);
             EMManager.from(this.o).setTextColor(R.color.CAM_X0107).setTextSize(R.dimen.T_X12);
             EMManager.from(this.m).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X04).setTextStyle(R.string.F_X02);
             WebPManager.setPureDrawable(this.p, R.drawable.obfuscated_res_0x7f080b1c, R.color.CAM_X0107, null);

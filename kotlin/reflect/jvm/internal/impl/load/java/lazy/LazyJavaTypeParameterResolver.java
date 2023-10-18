@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaTypeParameter;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaTypeParameterListOwner;
 import kotlin.reflect.jvm.internal.impl.storage.MemoizedFunctionToNullable;
 import kotlin.reflect.jvm.internal.impl.utils.CollectionsKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class LazyJavaTypeParameterResolver implements TypeParameterResolver {
     public final LazyJavaResolverContext c;
     public final DeclarationDescriptor containingDeclaration;

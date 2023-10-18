@@ -3,7 +3,7 @@ package com.badlogic.gdx.math;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.n7;
+import com.baidu.tieba.z2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -370,7 +370,7 @@ public class Quaternion implements Serializable {
             float f5 = (f * f2) - (f3 * f4);
             float f6 = vector32.x;
             float f7 = vector3.x;
-            return setFromAxisRad(f5, (f3 * f6) - (f2 * f7), (f7 * f4) - (f * f6), (float) Math.acos(d.b(vector3.dot(vector32), -1.0f, 1.0f)));
+            return setFromAxisRad(f5, (f3 * f6) - (f2 * f7), (f7 * f4) - (f * f6), (float) Math.acos(b.b(vector3.dot(vector32), -1.0f, 1.0f)));
         }
         return (Quaternion) invokeLL.objValue;
     }
@@ -410,7 +410,7 @@ public class Quaternion implements Serializable {
                 return false;
             }
             Quaternion quaternion = (Quaternion) obj;
-            if (n7.b(this.w) == n7.b(quaternion.w) && n7.b(this.x) == n7.b(quaternion.x) && n7.b(this.y) == n7.b(quaternion.y) && n7.b(this.z) == n7.b(quaternion.z)) {
+            if (z2.b(this.w) == z2.b(quaternion.w) && z2.b(this.x) == z2.b(quaternion.x) && z2.b(this.y) == z2.b(quaternion.y) && z2.b(this.z) == z2.b(quaternion.z)) {
                 return true;
             }
             return false;
@@ -568,7 +568,7 @@ public class Quaternion implements Serializable {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             float dot = Vector3.dot(this.x, this.y, this.z, f, f2, f3);
             float len2 = len2(f * dot, f2 * dot, f3 * dot, this.w);
-            if (d.h(len2)) {
+            if (b.g(len2)) {
                 return 0.0f;
             }
             if (dot < 0.0f) {
@@ -576,7 +576,7 @@ public class Quaternion implements Serializable {
             } else {
                 f4 = this.w;
             }
-            return (float) (Math.acos(d.b((float) (f4 / Math.sqrt(len2)), -1.0f, 1.0f)) * 2.0d);
+            return (float) (Math.acos(b.b((float) (f4 / Math.sqrt(len2)), -1.0f, 1.0f)) * 2.0d);
         }
         return invokeCommon.floatValue;
     }
@@ -613,7 +613,7 @@ public class Quaternion implements Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             int gimbalPole = getGimbalPole();
             if (gimbalPole == 0) {
-                return (float) Math.asin(d.b(((this.w * this.x) - (this.z * this.y)) * 2.0f, -1.0f, 1.0f));
+                return (float) Math.asin(b.b(((this.w * this.x) - (this.z * this.y)) * 2.0f, -1.0f, 1.0f));
             }
             return gimbalPole * 3.1415927f * 0.5f;
         }
@@ -630,9 +630,9 @@ public class Quaternion implements Serializable {
                 float f2 = this.z;
                 float f3 = this.y;
                 float f4 = this.x;
-                return d.a(((f * f2) + (f3 * f4)) * 2.0f, 1.0f - (((f4 * f4) + (f2 * f2)) * 2.0f));
+                return b.a(((f * f2) + (f3 * f4)) * 2.0f, 1.0f - (((f4 * f4) + (f2 * f2)) * 2.0f));
             }
-            return gimbalPole * 2.0f * d.a(this.y, this.w);
+            return gimbalPole * 2.0f * b.a(this.y, this.w);
         }
         return invokeV.floatValue;
     }
@@ -644,7 +644,7 @@ public class Quaternion implements Serializable {
             if (getGimbalPole() == 0) {
                 float f = this.y;
                 float f2 = this.x;
-                return d.a(((this.w * f) + (this.z * f2)) * 2.0f, 1.0f - (((f * f) + (f2 * f2)) * 2.0f));
+                return b.a(((this.w * f) + (this.z * f2)) * 2.0f, 1.0f - (((f * f) + (f2 * f2)) * 2.0f));
             }
             return 0.0f;
         }
@@ -655,7 +655,7 @@ public class Quaternion implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return ((((((n7.b(this.w) + 31) * 31) + n7.b(this.x)) * 31) + n7.b(this.y)) * 31) + n7.b(this.z);
+            return ((((((z2.b(this.w) + 31) * 31) + z2.b(this.x)) * 31) + z2.b(this.y)) * 31) + z2.b(this.z);
         }
         return invokeV.intValue;
     }
@@ -664,7 +664,7 @@ public class Quaternion implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            if (d.h(this.x) && d.h(this.y) && d.h(this.z) && d.e(this.w, 1.0f)) {
+            if (b.g(this.x) && b.g(this.y) && b.g(this.z) && b.e(this.w, 1.0f)) {
                 return true;
             }
             return false;
@@ -677,7 +677,7 @@ public class Quaternion implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             float len2 = len2();
-            if (len2 != 0.0f && !d.e(len2, 1.0f)) {
+            if (len2 != 0.0f && !b.e(len2, 1.0f)) {
                 float sqrt = (float) Math.sqrt(len2);
                 this.w /= sqrt;
                 this.x /= sqrt;
@@ -712,7 +712,7 @@ public class Quaternion implements Serializable {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048604, this, f)) == null) {
-            if (d.i(this.x, f) && d.i(this.y, f) && d.i(this.z, f) && d.f(this.w, 1.0f, f)) {
+            if (b.h(this.x, f) && b.h(this.y, f) && b.h(this.z, f) && b.f(this.w, 1.0f, f)) {
                 return true;
             }
             return false;
@@ -922,7 +922,7 @@ public class Quaternion implements Serializable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048624, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
-            return setFromAxisRad((f2 * f6) - (f3 * f5), (f3 * f4) - (f6 * f), (f * f5) - (f2 * f4), (float) Math.acos(d.b(Vector3.dot(f, f2, f3, f4, f5, f6), -1.0f, 1.0f)));
+            return setFromAxisRad((f2 * f6) - (f3 * f5), (f3 * f4) - (f6 * f), (f * f5) - (f2 * f4), (float) Math.acos(b.b(Vector3.dot(f, f2, f3, f4, f5, f6), -1.0f, 1.0f)));
         }
         return (Quaternion) invokeCommon.objValue;
     }

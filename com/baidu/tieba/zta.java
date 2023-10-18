@@ -1,47 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.view.headcard.data.QuizCardRespondedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.QuizInfo;
 /* loaded from: classes9.dex */
-public class zta extends BaseAdapter implements View.OnClickListener {
+public final class zta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jua> a;
-    public jua b;
+    public final String a;
+    public a b;
+    public BdUniqueId c;
+    public final b d;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
+    /* loaded from: classes9.dex */
+    public interface a {
+        void a(QuizInfo quizInfo, sta staVar);
+
+        void onError(int i, String str);
     }
 
     /* loaded from: classes9.dex */
-    public class a {
+    public static final class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TextView b;
+        public final /* synthetic */ zta a;
 
-        public a(zta ztaVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(zta ztaVar) {
+            super(CmdConfigHttp.CMD_HTTP_FORUM_QUIZ_CARD_RESULT);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,9 +53,50 @@ public class zta extends BaseAdapter implements View.OnClickListener {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = ztaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003579 && (httpResponsedMessage instanceof QuizCardRespondedMessage)) {
+                    QuizCardRespondedMessage quizCardRespondedMessage = (QuizCardRespondedMessage) httpResponsedMessage;
+                    if (quizCardRespondedMessage.getError() != 0) {
+                        a a = this.a.a();
+                        if (a != null) {
+                            int error = quizCardRespondedMessage.getError();
+                            String errorString = quizCardRespondedMessage.getErrorString();
+                            Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+                            a.onError(error, errorString);
+                        }
+                        TbLog defaultLog = DefaultLog.getInstance();
+                        String b = this.a.b();
+                        defaultLog.i(b, "请求结束，返回错误，错误码为：" + quizCardRespondedMessage.getError());
+                        return;
+                    }
+                    TbLog defaultLog2 = DefaultLog.getInstance();
+                    String b2 = this.a.b();
+                    defaultLog2.i(b2, "请求结束，返回数据，quzi：" + quizCardRespondedMessage.getQuizInfo() + "，dialog：" + quizCardRespondedMessage.getDialogData());
+                    a a2 = this.a.a();
+                    if (a2 != null) {
+                        a2.a(quizCardRespondedMessage.getQuizInfo(), quizCardRespondedMessage.getDialogData());
+                        return;
+                    }
+                    return;
+                }
+                a a3 = this.a.a();
+                if (a3 != null) {
+                    a3.onError(-1, "");
+                }
+                DefaultLog.getInstance().i(this.a.b(), "请求结束，数据不合法");
             }
         }
     }
@@ -71,119 +114,86 @@ public class zta extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = "QuizInfoModel";
+        this.d = new b(this);
+        e();
     }
 
-    public List<jua> a() {
+    public final a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return (List) invokeV.objValue;
+        return (a) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b(jua juaVar) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, juaVar) == null) {
-            if (juaVar == null) {
-                List<jua> list = this.a;
-                if (list != null) {
-                    this.b = list.get(0);
-                }
-            } else {
-                this.b = juaVar;
-            }
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
         }
     }
 
-    public void c(List<jua> list) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null) {
-            this.a = list;
-            if (list.size() > 0) {
-                this.b = this.a.get(0);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            BdUniqueId bdUniqueId = this.c;
+            if (bdUniqueId != null) {
+                this.d.setTag(bdUniqueId);
+                this.d.setSelfListener(true);
             }
+            MessageManager.getInstance().registerListener(this.d);
         }
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public final void c(String quizId, String product, String quizOptionId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, quizId, product, quizOptionId) == null) {
+            Intrinsics.checkNotNullParameter(quizId, "quizId");
+            Intrinsics.checkNotNullParameter(product, "product");
+            Intrinsics.checkNotNullParameter(quizOptionId, "quizOptionId");
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_FORUM_QUIZ_CARD_RESULT);
+            httpMessage.addParam("quiz_id", quizId);
+            httpMessage.addParam("product", product);
+            httpMessage.addParam("quiz_option_id", quizOptionId);
+            BdUniqueId bdUniqueId = this.c;
+            if (bdUniqueId != null) {
+                httpMessage.setTag(bdUniqueId);
             }
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091215 && (view2.getTag() instanceof jua)) {
-            this.b = (jua) view2.getTag();
-            notifyDataSetChanged();
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        a aVar;
-        jua juaVar;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                aVar = new a(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cb, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091215);
-                aVar.a = tbImageView;
-                tbImageView.setIsRound(true);
-                aVar.a.setDrawerType(1);
-                aVar.a.setDefaultBgResource(R.color.transparent);
-                aVar.a.setBorderWidth(BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
-                aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-                aVar.a.setConrers(15);
-                TextView textView = (TextView) view3.findViewById(R.id.tv_name);
-                aVar.b = textView;
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0107);
-                aVar.b = (TextView) view3.findViewById(R.id.tv_name);
-                view3.setTag(aVar);
-            } else {
-                view3 = view2;
-                aVar = (a) view2.getTag();
-            }
-            if (i >= 0 && i < this.a.size()) {
-                jua juaVar2 = this.a.get(i);
-                if (juaVar2 != null) {
-                    aVar.a.setTag(juaVar2);
-                    aVar.a.setOnClickListener(this);
-                    aVar.a.startLoad(String.valueOf(juaVar2.b), 24, false);
-                    aVar.b.setText(juaVar2.a);
-                }
-                if (!TextUtils.isEmpty(juaVar2.a) && (juaVar = this.b) != null && TextUtils.equals(juaVar2.a, juaVar.a)) {
-                    aVar.a.setDrawBorder(true);
-                } else {
-                    aVar.a.setDrawBorder(false);
-                }
-            }
-            return view3;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_FORUM_QUIZ_CARD_RESULT, TbConfig.SERVER_ADDRESS + "c/f/matchActivity/quiz");
+            tbHttpMessageTask.setResponsedClass(QuizCardRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public final void g(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public final void h(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
+            this.c = bdUniqueId;
+        }
     }
 }

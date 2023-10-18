@@ -3,7 +3,7 @@ package com.baidu.searchbox.live.data.resp;
 import kotlin.Metadata;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\t\u0018\u0000B\u000f\u0012\u0006\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\u001b\u0010\u001cR\"\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005\"\u0004\b\u0006\u0010\u0007R\"\u0010\t\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\t\u0010\n\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u0019\u0010\u0010\u001a\u00020\u000f8\u0006@\u0006¢\u0006\f\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u0012\u0010\u0013R$\u0010\u0015\u001a\u0004\u0018\u00010\u00148\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001a¨\u0006\u001d"}, d2 = {"Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "", "constructTimeMills", "J", "getConstructTimeMills", "()J", "setConstructTimeMills", "(J)V", "", "hitCache", "Z", "getHitCache", "()Z", "setHitCache", "(Z)V", "Lorg/json/JSONObject;", "respJsonObj", "Lorg/json/JSONObject;", "getRespJsonObj", "()Lorg/json/JSONObject;", "", "traceid", "Ljava/lang/String;", "getTraceid", "()Ljava/lang/String;", "setTraceid", "(Ljava/lang/String;)V", "<init>", "(Lorg/json/JSONObject;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class LiveRoomEnterRespData {
     public long constructTimeMills = System.currentTimeMillis();
     public boolean hitCache;

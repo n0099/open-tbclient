@@ -1,372 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Process;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieSyncManager;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebKitFactory;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.Executors;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class hh2 {
+public class hh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static volatile hh2 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public volatile boolean b;
-    public boolean c;
-    public boolean d;
-    public final Object e;
-    public final Object f;
-    public ArrayList<e> g;
 
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ hh2 c;
-
-        public a(hh2 hh2Var, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hh2Var, Boolean.valueOf(z), Boolean.valueOf(z2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = hh2Var;
-            this.a = z;
-            this.b = z2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Process.setThreadPriority(10);
-                this.c.g(this.a, this.b);
-                this.c.b = true;
-                synchronized (this.c.f) {
-                    this.c.d = true;
-                    this.c.f.notifyAll();
-                    this.c.m();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(hh2 hh2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hh2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                WebView.setWebContentsDebuggingEnabled(true);
-                Log.setMinLogLevel(3, true);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hh2 a;
-
-        public c(hh2 hh2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hh2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hh2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                CookieSyncManager.createInstance(this.a.a);
-                BdSailor.initCookieSyncManager(this.a.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements aq3<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
-
-        public d(hh2 hh2Var, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hh2Var, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aq3
-        /* renamed from: a */
-        public Void create() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.run();
-                return null;
-            }
-            return (Void) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947823639, "Lcom/baidu/tieba/hh2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947823639, "Lcom/baidu/tieba/hh2;");
-                return;
-            }
-        }
-        h = qr1.a;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j(true, ProcessUtils.checkIsMainProcess(ProcessUtils.getCurProcessName()));
-        }
-    }
-
-    public boolean l() {
+    public static String a() {
         InterceptResult invokeV;
+        String optString;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            p53 c0 = p53.c0();
+            JSONObject jSONObject = new JSONObject();
+            if (c0 != null) {
+                jSONObject = c0.X().N();
+            }
+            if (jSONObject != null && (optString = jSONObject.optString("keyfeed")) != null && (indexOf = optString.indexOf("_")) >= 0 && TextUtils.equals("miniapp", optString.substring(0, indexOf))) {
+                return optString.substring(indexOf + 1);
+            }
+            return "";
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void n() {
+    public static Map<String, Object> b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && l()) {
-            BdSailor.getInstance().destroy();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put("op_type", str2);
+            String a = a();
+            if (!TextUtils.isEmpty(a)) {
+                hashMap.put("nid", a);
+            }
+            return hashMap;
         }
+        return (Map) invokeLL.objValue;
     }
 
-    public hh2(Context context) {
+    public static Map<String, Object> c(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put(QuickPersistConfigConst.KEY_SPLASH_SORT, Integer.valueOf(i));
+            hashMap.put("op_type", "add");
+            return hashMap;
         }
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.e = new Object();
-        this.f = new Object();
-        this.g = new ArrayList<>();
-        this.a = context.getApplicationContext();
-    }
-
-    public static synchronized hh2 h(Context context) {
-        InterceptResult invokeL;
-        hh2 hh2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            synchronized (hh2.class) {
-                if (i == null) {
-                    i = new hh2(context);
-                }
-                hh2Var = i;
-            }
-            return hh2Var;
-        }
-        return (hh2) invokeL.objValue;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            j(false, z);
-        }
-    }
-
-    public void f(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            synchronized (this.f) {
-                if (h) {
-                    android.util.Log.d("BlinkInitHelper", "addBlinkInitListener.");
-                }
-                if (!this.g.contains(eVar)) {
-                    this.g.add(eVar);
-                }
-                if (this.d) {
-                    m();
-                }
-            }
-        }
-    }
-
-    public final void g(boolean z, boolean z2) {
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            WebKitFactory.setNeedDownloadCloudResource(false);
-            WebKitFactory.setProcessType("1");
-            com.baidu.webkit.sdk.WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
-            BdSailor.getInstance().init(this.a, null, null);
-            if (h) {
-                ap3.a0(new b(this));
-            }
-            if (h && f73.G().booleanValue()) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            BdSailor.getInstance().setWebkitEnable(!z3);
-            BdSailor.getInstance().initWebkit("swan", false);
-            BdSailor.getInstance().getSailorSettings().setJavaScriptEnabledOnFileScheme(true);
-            if (BdZeusUtil.isWebkitLoaded()) {
-                if (h) {
-                    android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) success ^V^");
-                }
-            } else if (h) {
-                android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) fail !!!!");
-            }
-            c cVar = new c(this);
-            if (z2) {
-                fb3.M().post(cVar);
-            } else {
-                xp3.b(new d(this, cVar));
-            }
-        }
-    }
-
-    public final void j(boolean z, boolean z2) {
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && !this.b) {
-            if (z && ap3.O()) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            synchronized (this.e) {
-                if (!this.c) {
-                    Executors.newSingleThreadExecutor().execute(new a(this, z2, z3));
-                    this.c = true;
-                }
-            }
-            if (!z) {
-                return;
-            }
-            synchronized (this.f) {
-                while (!this.d) {
-                    try {
-                        this.f.wait(1000L);
-                    } catch (InterruptedException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this.f) {
-                if (h) {
-                    android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
-                }
-                Iterator<e> it = this.g.iterator();
-                while (it.hasNext()) {
-                    it.next().a();
-                }
-                this.g.clear();
-            }
-        }
+        return (Map) invokeLI.objValue;
     }
 }

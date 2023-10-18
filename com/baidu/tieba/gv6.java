@@ -1,70 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.MutableContextWrapper;
-import com.baidu.adp.base.BdPageContextSupport;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gv6 extends MutableContextWrapper implements TbPageContextSupport, BdPageContextSupport {
+public class gv6 implements ul5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gv6(Context context) {
-        super(context);
+    public gv6(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.base.BdPageContextSupport
-    public TbPageContext<?> getPageContext() {
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Context baseContext = getBaseContext();
-            if (baseContext instanceof TbPageContextSupport) {
-                return ((TbPageContextSupport) baseContext).getPageContext();
-            }
-            if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                return null;
-            }
-            throw new IllegalArgumentException("base context is not TbPageContextSupport!!!");
+            return this.a;
         }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    @Override // android.content.MutableContextWrapper
-    public void setBaseContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            if (context instanceof TbPageContextSupport) {
-                super.setBaseContext(context);
-            } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
-            } else {
-                throw new IllegalArgumentException("base context is not TbPageContextSupport!!!");
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

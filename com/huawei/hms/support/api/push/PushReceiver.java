@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +80,7 @@ public final class PushReceiver extends BroadcastReceiver {
                     Bundle bundle = new Bundle();
                     if ("Push".equals(string) && i == 1) {
                         bundle.putString("message_type", AccountConstants.LOGIN_TYPE_NATIVE_SRC_DELIVERY);
-                        bundle.putString("message_id", JsonUtil.getString(b, "msgId", ""));
+                        bundle.putString(ForbidActivityConfig.CHAT_MSG_ID, JsonUtil.getString(b, "msgId", ""));
                         bundle.putInt("error", i2);
                         bundle.putString(CommonCode.MapKey.TRANSACTION_ID, JsonUtil.getString(b, "transactionId", ""));
                     } else {
@@ -87,7 +88,7 @@ public final class PushReceiver extends BroadcastReceiver {
                             bundle.putAll(this.b.getExtras());
                         }
                         bundle.putString("message_type", "received_message");
-                        bundle.putString("message_id", this.b.getStringExtra("msgIdStr"));
+                        bundle.putString(ForbidActivityConfig.CHAT_MSG_ID, this.b.getStringExtra("msgIdStr"));
                         bundle.putByteArray(RemoteMessageConst.MSGBODY, this.b.getByteArrayExtra("msg_data"));
                         bundle.putString(RemoteMessageConst.DEVICE_TOKEN, w.a(this.b.getByteArrayExtra(RemoteMessageConst.DEVICE_TOKEN)));
                         bundle.putInt(RemoteMessageConst.INPUT_TYPE, 1);

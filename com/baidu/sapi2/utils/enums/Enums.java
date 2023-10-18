@@ -6,6 +6,7 @@ import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.ugc.transcoder.interfaces.UgcTranscoderConstant;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 /* loaded from: classes3.dex */
 public class Enums {
 
@@ -58,8 +59,8 @@ public class Enums {
         FACE(UgcTranscoderConstant.URL_GET_FACE, 3),
         TOUCHID(SapiOptions.Gray.FUN_NAME_GINGER, 15),
         WECHAT("wechat", 4),
-        WEIBO("weibo", 5),
-        QQ(LoginConstants.QQ_LOGIN, 6),
+        WEIBO(ShareItem.OUTSIDE_SHARE_WEIBO, 5),
+        QQ("qq", 6),
         HUAWEI(RomUtils.MANUFACTURER_HUAWEI, 10),
         HONOR("honor", 23),
         CFO("cfo", 60),

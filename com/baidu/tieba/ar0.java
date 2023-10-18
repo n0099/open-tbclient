@@ -1,151 +1,284 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.view.KeyEvent;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.container.NadBrowserContainer;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.video.videoplayer.widget.PlayDrawable;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ar0 {
+public class ar0 extends tq0 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NadBrowserContainer a;
+    public ImageView b;
+    public PlayDrawable c;
 
-    public ar0(xq0 frameContext, yq0 frameExtHandler) {
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ ar0 b;
+
+        public a(ar0 ar0Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ar0Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ar0Var;
+            this.a = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a) {
+                    this.b.b.setVisibility(0);
+                } else {
+                    this.b.b.setVisibility(8);
+                }
+            }
+        }
+    }
+
+    public ar0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frameContext, frameExtHandler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(frameContext, "frameContext");
-        Intrinsics.checkNotNullParameter(frameExtHandler, "frameExtHandler");
-        this.a = new NadBrowserContainer(frameContext, frameExtHandler, null);
     }
 
-    public final void a() {
-        NadBrowserContainer nadBrowserContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (nadBrowserContainer = this.a) != null) {
-            nadBrowserContainer.u0(false);
-        }
-    }
-
-    public final Integer b() {
+    @Override // com.baidu.tieba.uq0
+    @NonNull
+    public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NadBrowserContainer nadBrowserContainer = this.a;
-            if (nadBrowserContainer != null) {
-                return Integer.valueOf(nadBrowserContainer.W());
-            }
-            return null;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    public final void c() {
-        NadBrowserContainer nadBrowserContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (nadBrowserContainer = this.a) != null) {
-            nadBrowserContainer.u();
-        }
-    }
-
-    public final void d() {
-        NadBrowserContainer nadBrowserContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (nadBrowserContainer = this.a) != null) {
-            nadBrowserContainer.onDestroy();
-        }
-    }
-
-    public final void f() {
-        NadBrowserContainer nadBrowserContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (nadBrowserContainer = this.a) != null) {
-            nadBrowserContainer.onPause();
-        }
-    }
-
-    public final void g() {
-        NadBrowserContainer nadBrowserContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (nadBrowserContainer = this.a) != null) {
-            nadBrowserContainer.w();
-        }
-    }
-
-    public final void h() {
-        NadBrowserContainer nadBrowserContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (nadBrowserContainer = this.a) != null) {
-            nadBrowserContainer.y();
-        }
-    }
-
-    public final void i() {
-        NadBrowserContainer nadBrowserContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (nadBrowserContainer = this.a) != null) {
-            nadBrowserContainer.z();
-        }
-    }
-
-    public final View j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            NadBrowserContainer nadBrowserContainer = this.a;
-            if (nadBrowserContainer != null) {
-                return nadBrowserContainer.U();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
         return (View) invokeV.objValue;
     }
 
-    public final boolean e(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
+    @Override // com.baidu.tieba.nq0
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, keyEvent)) == null) {
-            NadBrowserContainer nadBrowserContainer = this.a;
-            if (nadBrowserContainer != null) {
-                return nadBrowserContainer.onKeyDown(i, keyEvent);
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = new ImageView(f());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(q21.b(42.0f), q21.b(42.0f));
+            layoutParams.gravity = 17;
+            this.c = new PlayDrawable();
+            this.b.setLayoutParams(layoutParams);
+            this.b.setBackground(f().getResources().getDrawable(R.drawable.nad_videoplayer_playbtn_bg));
+            this.b.setImageDrawable(this.c);
+            this.b.setOnClickListener(this);
+            this.b.setVisibility(8);
         }
-        return invokeIL.booleanValue;
     }
 
-    public final void k(JSONObject jSONObject) {
-        Intent r;
-        Intent r2;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.tieba.nq0
+    public void l(@NonNull sr0 sr0Var) {
+        char c;
+        PlayDrawable.IconState iconState;
+        PlayDrawable.IconState iconState2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) && jSONObject != null) {
-            NadBrowserContainer nadBrowserContainer = this.a;
-            if (nadBrowserContainer != null && (r2 = nadBrowserContainer.r()) != null) {
-                r2.putExtra("immersive_video_stay_time", jSONObject.optString("immersive_video_stay_time"));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sr0Var) == null) {
+            String c2 = sr0Var.c();
+            switch (c2.hashCode()) {
+                case -150836531:
+                    if (c2.equals(LayerEvent.ACTION_DOUBLE_CLICK)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 14382657:
+                    if (c2.equals(ControlEvent.ACTION_STATUS_SYNC)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 154871702:
+                    if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 720027695:
+                    if (c2.equals(ControlEvent.ACTION_PAUSE)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 723345051:
+                    if (c2.equals(ControlEvent.ACTION_START)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 906917140:
+                    if (c2.equals(ControlEvent.ACTION_RESUME)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1370689931:
+                    if (c2.equals(PlayerEvent.ACTION_ON_INFO)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1610373035:
+                    if (c2.equals(LayerEvent.ACTION_WAKE_UP_END)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            NadBrowserContainer nadBrowserContainer2 = this.a;
-            if (nadBrowserContainer2 != null && (r = nadBrowserContainer2.r()) != null) {
-                r.putExtra("immersive_webview_first_show_time", jSONObject.optString("immersive_webview_first_show_time"));
+            switch (c) {
+                case 0:
+                    int g = sr0Var.g(1);
+                    if (g != 904 && g != 956) {
+                        if (702 == g && r().W()) {
+                            this.c.q(PlayDrawable.IconState.PAUSE_STATE);
+                            return;
+                        }
+                        return;
+                    }
+                    this.c.q(PlayDrawable.IconState.PAUSE_STATE);
+                    this.b.setImageDrawable(this.c);
+                    return;
+                case 1:
+                    boolean d = sr0Var.d(6);
+                    PlayDrawable playDrawable = this.c;
+                    if (d) {
+                        iconState = PlayDrawable.IconState.PAUSE_STATE;
+                    } else {
+                        iconState = PlayDrawable.IconState.PLAY_STATE;
+                    }
+                    playDrawable.q(iconState);
+                    return;
+                case 2:
+                    this.c.q(PlayDrawable.IconState.PLAY_STATE);
+                    return;
+                case 3:
+                    this.c.q(PlayDrawable.IconState.PAUSE_STATE);
+                    return;
+                case 4:
+                    if (this.b.getVisibility() == 0) {
+                        this.b.setVisibility(4);
+                        return;
+                    }
+                    return;
+                case 5:
+                    PlayDrawable playDrawable2 = this.c;
+                    if (this.a.x().U()) {
+                        iconState2 = PlayDrawable.IconState.PLAY_STATE;
+                    } else {
+                        iconState2 = PlayDrawable.IconState.PAUSE_STATE;
+                    }
+                    playDrawable2.q(iconState2);
+                    return;
+                case 6:
+                    this.b.setVisibility(4);
+                    return;
+                case 7:
+                    this.b.setVisibility(0);
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nq0
+    public void o(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, playerStatus, playerStatus2) == null) {
+            if (playerStatus != PlayerStatus.PLAYING && playerStatus != PlayerStatus.PREPARED && playerStatus != PlayerStatus.PREPARING) {
+                this.c.q(PlayDrawable.IconState.PLAY_STATE);
+            } else {
+                this.c.q(PlayDrawable.IconState.PAUSE_STATE);
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            if (r().W()) {
+                r().d0(1);
+                y();
+            } else if (r().U()) {
+                r().j0();
+                z();
+            } else {
+                r().I0();
+            }
+            this.c.r(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.tq0
+    public void t(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (r().Q0() && r().a1() == 0) {
+                this.b.postDelayed(new a(this, z), 200L);
+            } else if (z && !z2) {
+                this.b.setVisibility(0);
+            } else {
+                this.b.setVisibility(8);
             }
         }
     }

@@ -1,32 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class gg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public List<om> c;
-    public List<bn> d;
-    public ih6 e;
-    public mg6 f;
+    public final Map<String, qg6> a;
+    public final Map<String, qg6> b;
 
-    public gg6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, ih6 ih6Var) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final gg6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-776676491, "Lcom/baidu/tieba/gg6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-776676491, "Lcom/baidu/tieba/gg6$b;");
+                    return;
+                }
+            }
+            a = new gg6(null);
+        }
+    }
+
+    public gg6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, ih6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,81 +65,131 @@ public class gg6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = ih6Var;
-        a();
+        this.a = new ConcurrentHashMap();
+        this.b = new ConcurrentHashMap();
     }
 
-    public final void a() {
+    public static gg6 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            fg6 fg6Var = new fg6(this.a);
-            jg6 jg6Var = new jg6(this.a);
-            kg6 kg6Var = new kg6(this.a);
-            dg6 dg6Var = new dg6(this.a);
-            ig6 ig6Var = new ig6(this.a);
-            lg6 lg6Var = new lg6(this.a);
-            hg6 hg6Var = new hg6(this.a);
-            eg6 eg6Var = new eg6(this.a);
-            this.f = new mg6(this.a);
-            og6 og6Var = new og6(this.a, this.e);
-            ng6 ng6Var = new ng6(this.a);
-            this.c.add(fg6Var);
-            this.c.add(this.f);
-            this.c.add(jg6Var);
-            this.c.add(kg6Var);
-            this.c.add(dg6Var);
-            this.c.add(ig6Var);
-            this.c.add(lg6Var);
-            this.c.add(hg6Var);
-            this.c.add(eg6Var);
-            this.c.add(og6Var);
-            this.c.add(ng6Var);
-            this.b.addAdapters(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (gg6) invokeV.objValue;
+    }
+
+    public /* synthetic */ gg6(a aVar) {
+        this();
+    }
+
+    public qg6 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.b.get(str);
+        }
+        return (qg6) invokeL.objValue;
+    }
+
+    public qg6 g(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
+            if (uri != null && !TextUtils.isEmpty(uri.getPath())) {
+                return this.a.get(uri.getPath());
+            }
+            return null;
+        }
+        return (qg6) invokeL.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b.remove(str);
         }
     }
 
-    public void b(List<bn> list) {
+    public void j(Map<String, qg6> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && this.b != null && !ListUtils.isEmpty(list)) {
-            this.d.clear();
-            this.d.addAll(list);
-            this.b.setData(this.d);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map) == null) {
+            this.a.clear();
+            if (!zh6.b(map)) {
+                this.a.putAll(map);
+            }
+        }
+    }
+
+    public void a(String str, qg6 qg6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, qg6Var) == null) {
+            this.b.put(str, qg6Var);
+        }
+    }
+
+    public void k(String str, Map<String, qg6> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, map) == null) {
+            i(str);
+            this.a.putAll(map);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !zh6.b(this.a)) {
+            for (String str : this.a.keySet()) {
+                qg6 qg6Var = this.a.get(str);
+                if (qg6Var != null) {
+                    TbLog hybridLog = HybridLog.getInstance();
+                    hybridLog.i("Offline", "设置所有离线包可用：" + str);
+                    qg6Var.g = true;
+                }
+            }
         }
     }
 
     public void c(String str) {
-        mg6 mg6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (mg6Var = this.f) != null) {
-            mg6Var.B(str);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        TbLog hybridLog = HybridLog.getInstance();
+        hybridLog.i("Offline", "设置单个离线包可用：" + str);
+        for (String str2 : this.a.keySet()) {
+            qg6 qg6Var = this.a.get(str2);
+            if (qg6Var != null && str.equals(qg6Var.c)) {
+                qg6Var.g = true;
+            }
         }
     }
 
     public void d(String str) {
-        mg6 mg6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (mg6Var = this.f) != null) {
-            mg6Var.a(str);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        TbLog hybridLog = HybridLog.getInstance();
+        hybridLog.i("Offline", "设置单个离线包禁用：" + str);
+        for (String str2 : this.a.keySet()) {
+            qg6 qg6Var = this.a.get(str2);
+            if (qg6Var != null && str.equals(qg6Var.c)) {
+                qg6Var.g = false;
+            }
         }
     }
 
-    public void e(String str) {
-        mg6 mg6Var;
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (mg6Var = this.f) != null) {
-            mg6Var.C(str);
+        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    public void f(boolean z) {
-        mg6 mg6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (mg6Var = this.f) != null) {
-            mg6Var.D(z);
+        Iterator<String> it = this.a.keySet().iterator();
+        while (it.hasNext()) {
+            qg6 qg6Var = this.a.get(it.next());
+            if (qg6Var != null && str.equals(qg6Var.c)) {
+                it.remove();
+            }
         }
     }
 }

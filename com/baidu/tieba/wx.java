@@ -1,18 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,39 +8,39 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wx extends gx {
+public class wx {
     public static /* synthetic */ Interceptable $ic;
-    public static final int i;
+    public static final byte[][] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemCardView h;
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public byte[] a;
 
-        public a(wx wxVar) {
+        public a(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wxVar};
+                Object[] objArr = {bArr, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = bArr;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public byte[] a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, view2));
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (byte[]) invokeV.objValue;
         }
     }
 
@@ -70,136 +57,114 @@ public class wx extends gx {
                 return;
             }
         }
-        i = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
+        a = new byte[][]{new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
     }
 
-    public int A() {
-        InterceptResult invokeV;
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ItemCardView itemCardView = this.h;
-            if (itemCardView != null) {
-                return itemCardView.getPosition();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            int i2 = i % 3;
+            char c = 1;
+            if (i2 == 1) {
+                i += 2;
+                c = 2;
+            } else if (i2 == 2) {
+                i++;
+            } else {
+                c = 0;
             }
-            return 0;
+            int i3 = (i / 3) * 2;
+            return c > 0 ? i3 + 1 : i3;
         }
-        return invokeV.intValue;
+        return invokeI.intValue;
     }
 
-    public final void E() {
-        ItemCardView itemCardView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (itemCardView = this.h) != null) {
-            itemCardView.setOnClickListenerOfRightBtn(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.zw
-    public View j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            x(i);
-            u(0);
-            D(this.h, i, 0);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wx(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().l instanceof ItemCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().l.getParent() == null) {
-            this.h = (ItemCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().l;
-        } else {
-            this.h = new ItemCardView(context);
-        }
-        E();
-        x(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
-    /* renamed from: B */
-    public void onBindDataToView(b15 b15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b15Var) == null) {
-            if (b15Var != null && b15Var.getThreadData() != null && b15Var.getThreadData().getItem() != null) {
-                this.h.setVisibility(0);
-                this.h.setData(b15Var.getThreadData().itemData, 13, b15Var.getThreadData().tid);
-                return;
-            }
-            this.h.setVisibility(8);
-        }
-    }
-
-    public void C(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.h.setIsShowRightBtn(z);
-        }
-    }
-
-    public void F(int i2) {
-        ItemCardView itemCardView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i2) == null) && (itemCardView = this.h) != null) {
-            itemCardView.setPosition(i2);
-        }
-    }
-
-    public int z(ItemData itemData) {
+    public static a b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, itemData)) == null) {
-            ItemCardView itemCardView = this.h;
-            if (itemCardView != null) {
-                return itemCardView.D(itemData);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            int length = (((bArr.length - 1) / 2) * 3) - (bArr.length % 2 != 0 ? bArr[bArr.length - 1] : 0);
+            int i = length / 8;
+            if (length % 8 > 0) {
+                i++;
             }
-            return -1;
+            byte[] bArr2 = new byte[i];
+            int i2 = 0;
+            int i3 = 8;
+            for (int i4 = 0; i4 < bArr.length - 1; i4 += 2) {
+                byte b = (byte) (((bArr[i4] * 3) + bArr[i4 + 1]) & 255);
+                for (int i5 = 2; i5 >= 0; i5--) {
+                    if (i3 <= 0) {
+                        i2++;
+                        i3 = 8;
+                    }
+                    if (i2 >= i) {
+                        break;
+                    }
+                    bArr2[i2] = (byte) ((bArr2[i2] << 1) | ((b >> i5) & 1));
+                    i3--;
+                }
+            }
+            if (i3 > 0 && i2 < i) {
+                bArr2[i2] = (byte) (bArr2[i2] << i3);
+            }
+            return new a(bArr2, length);
         }
-        return invokeL.intValue;
+        return (a) invokeL.objValue;
     }
 
-    public final void D(View view2, int i2, int i3) {
+    public static byte[] c(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        int i2;
+        byte b;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, view2, i2, i3) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            if (marginLayoutParams.topMargin != i2 || marginLayoutParams.bottomMargin != i3) {
-                marginLayoutParams.topMargin = i2;
-                marginLayoutParams.bottomMargin = i3;
-                view2.setLayoutParams(marginLayoutParams);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
+            int i3 = i % 3;
+            if (i3 == 1) {
+                i2 = i + 2;
+                b = 2;
+            } else if (i3 == 2) {
+                i2 = i + 1;
+                b = 1;
+            } else {
+                i2 = i;
+                b = 0;
             }
+            int i4 = (i2 / 3) * 2;
+            if (b > 0) {
+                i4++;
+            }
+            byte[] bArr2 = new byte[i4];
+            int i5 = 0;
+            int i6 = 0;
+            for (byte b2 : bArr) {
+                for (int i7 = 7; i7 >= 0; i7--) {
+                    bArr2[i5] = (byte) ((bArr2[i5] << 1) | ((b2 >> i7) & 1));
+                    if (i6 % 3 == 2) {
+                        byte[][] bArr3 = a;
+                        bArr2[i5 + 1] = bArr3[bArr2[i5]][1];
+                        bArr2[i5] = bArr3[bArr2[i5]][0];
+                        i5 += 2;
+                    }
+                    i6++;
+                    if (i6 == i) {
+                        break;
+                    }
+                }
+                if (i6 == i) {
+                    break;
+                }
+            }
+            if (b > 0) {
+                bArr2[i5] = (byte) (bArr2[i5] << b);
+                byte[][] bArr4 = a;
+                bArr2[i5 + 1] = bArr4[bArr2[i5]][1];
+                bArr2[i5] = bArr4[bArr2[i5]][0];
+                bArr2[i5 + 2] = b;
+            }
+            return bArr2;
         }
-    }
-
-    @Override // com.baidu.tieba.ux
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, i2) == null) {
-            this.h.M();
-        }
+        return (byte[]) invokeLI.objValue;
     }
 }

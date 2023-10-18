@@ -1,28 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jc6 extends om<nc6, LiveTabConcernRecommendLineHolder> {
+public class jc6 extends cj6<eb6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public xc6 b;
-    public yc6 c;
+    public TextView i;
+    public ProgressBar j;
+    public FrameLayout k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+
+    @Override // com.baidu.tieba.cj6
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010e : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.cj6
+    public void k(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jc6(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), nc6.d);
+    public jc6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,59 +56,63 @@ public class jc6 extends om<nc6, LiveTabConcernRecommendLineHolder> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        o(i());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: s */
-    public LiveTabConcernRecommendLineHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void o(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            xc6 xc6Var = new xc6(this.a, viewGroup);
-            this.b = xc6Var;
-            yc6 yc6Var = this.c;
-            if (yc6Var != null) {
-                xc6Var.s(yc6Var);
-            }
-            return new LiveTabConcernRecommendLineHolder(this.b);
-        }
-        return (LiveTabConcernRecommendLineHolder) invokeL.objValue;
-    }
-
-    public void u(yc6 yc6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yc6Var) == null) {
-            this.c = yc6Var;
-            xc6 xc6Var = this.b;
-            if (xc6Var != null) {
-                xc6Var.s(yc6Var);
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09021d);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09151d);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09151e);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090234);
+            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09021e);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091521);
+            i().setOnClickListener(this);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
+    @Override // com.baidu.tieba.cj6
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nc6 nc6Var, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
-        InterceptResult invokeCommon;
-        xc6 xc6Var;
+    public void j(eb6 eb6Var) {
+        bb6 c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nc6Var, liveTabConcernRecommendLineHolder})) == null) {
-            if (liveTabConcernRecommendLineHolder != null && (xc6Var = liveTabConcernRecommendLineHolder.a) != null) {
-                xc6Var.i(nc6Var);
-                return liveTabConcernRecommendLineHolder.getView();
+        if ((interceptable == null || interceptable.invokeL(1048581, this, eb6Var) == null) && (c = eb6Var.c()) != null && c.b() != null) {
+            String str = "LV." + c.b().yy_level_id;
+            if (!TextUtils.isEmpty(c.b().yy_level_name)) {
+                str = c.b().yy_level_name + str;
+                this.m.setText(c.b().yy_level_name);
             }
-            return null;
+            this.i.setText(str);
+            if (c.b().yy_levelup_exp <= c.b().yy_level_exp) {
+                this.m.setVisibility(8);
+                this.n.setVisibility(8);
+                this.l.setVisibility(8);
+                this.j.setVisibility(8);
+                return;
+            }
+            if (!TextUtils.isEmpty(c.b().yy_level_next_name)) {
+                this.n.setText(c.b().yy_level_next_name);
+            }
+            long j = c.b().yy_levelup_exp;
+            long j2 = c.b().yy_level_exp;
+            this.j.setMax((int) j);
+            this.j.setProgress((int) j2);
+            if (!TextUtils.isEmpty(c.b().yy_level_next_name) && c.b().yy_levelup_exp > c.b().yy_level_exp) {
+                String string = this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0253);
+                int i = (int) ((((float) (c.b().yy_levelup_exp - c.b().yy_level_exp)) * 100.0f) / ((float) c.b().yy_levelup_exp));
+                if (i <= 0) {
+                    i = 1;
+                }
+                this.l.setText(String.format(string, c.b().yy_level_next_name, i + "%"));
+            }
         }
-        return (View) invokeCommon.objValue;
     }
 }

@@ -1,95 +1,276 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.ExperimentalUrlRequest;
-import com.baidu.turbonet.net.UploadDataProvider;
-import java.util.concurrent.Executor;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class rbb extends ExperimentalUrlRequest {
+public class rbb extends pbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public bcb h;
+    public int i;
+    public int j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948117271, "Lcom/baidu/tieba/rbb;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a extends qdb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ AudioPlayData c;
+        public final /* synthetic */ kbb d;
+        public final /* synthetic */ rbb e;
+
+        public a(rbb rbbVar, String str, int i, AudioPlayData audioPlayData, kbb kbbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rbbVar, str, Integer.valueOf(i), audioPlayData, kbbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = rbbVar;
+            this.a = str;
+            this.b = i;
+            this.c = audioPlayData;
+            this.d = kbbVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        @Override // com.baidu.tieba.qdb, com.baidu.tieba.pdb
+        public void onExceptionThrown(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.e.h.cancel();
+                AudioPlayData audioPlayData = this.c;
+                if (audioPlayData.mSpeed != 1.0f || ubb.o(audioPlayData.mSoundTypes)) {
+                    this.e.g(str);
+                    this.e.h.cancel();
+                } else {
+                    this.e.h.cancel();
+                    this.e.q(this.d, this.b);
+                }
+                synchronized (this.e) {
+                    this.e.notifyAll();
+                }
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948117271, "Lcom/baidu/tieba/rbb;");
+
+        @Override // com.baidu.tieba.qdb
+        public void onFinishedWriting(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                if (z) {
+                    this.e.q(new kbb(new AudioPlayData(this.a, 0, -1, 1.0f)), this.b);
+                }
+                synchronized (this.e) {
+                    this.e.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qdb, com.baidu.tieba.pdb
+        public void onProgressChanged(int i, double d, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+                rbb rbbVar = this.e;
+                rbbVar.i((int) (((((rbbVar.j - 1) + d) * 1.0d) / this.e.i) * 100.0d));
+            }
         }
     }
-
-    public abstract void n(String str, String str2);
-
-    public abstract void p(String str);
-
-    public abstract void q(UploadDataProvider uploadDataProvider, Executor executor);
 
     public rbb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int o(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.pbb
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            switch (i) {
-                case 0:
-                    return 0;
-                case 1:
-                    return 1;
-                case 2:
-                    return 2;
-                case 3:
-                    return 3;
-                case 4:
-                    return 4;
-                case 5:
-                default:
-                    throw new IllegalArgumentException("No request status found.");
-                case 6:
-                    return 5;
-                case 7:
-                    return 6;
-                case 8:
-                    return 7;
-                case 9:
-                    return 8;
-                case 10:
-                    return 9;
-                case 11:
-                    return 10;
-                case 12:
-                    return 11;
-                case 13:
-                    return 12;
-                case 14:
-                    return 13;
-                case 15:
-                    return 14;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f = true;
+            bcb bcbVar = this.h;
+            if (bcbVar != null) {
+                bcbVar.cancel();
+            }
+            synchronized (this) {
+                notifyAll();
+            }
+            o();
+        }
+    }
+
+    @Override // com.baidu.tieba.pbb
+    public void d(mbb mbbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mbbVar) == null) {
+            if (mbbVar == null || afb.e(mbbVar.c())) {
+                g("input data error: null or length=0");
+            } else if (!j(mbbVar)) {
+                l(mbbVar);
+            } else {
+                String a2 = mbbVar.a();
+                this.g = a2;
+                if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.g)) {
+                    new File(this.g).mkdir();
+                }
+                this.e = false;
+                this.f = false;
+                y(mbbVar);
+                x(mbbVar);
+                List<obb> c = mbbVar.c();
+                int size = c.size();
+                for (int i = 0; i < size; i++) {
+                    r(c.get(i), i);
+                }
+                if (this.e || this.f) {
+                    return;
+                }
+                l(this.d);
             }
         }
-        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.tieba.pbb
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            bcb bcbVar = this.h;
+            if (bcbVar != null) {
+                bcbVar.J();
+            }
+            synchronized (this) {
+                notifyAll();
+            }
+        }
+    }
+
+    public final void q(kbb kbbVar, int i) {
+        mbb mbbVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, kbbVar, i) == null) || (mbbVar = this.d) == null || mbbVar.c() == null || this.d.c().get(i) == null) {
+            return;
+        }
+        this.d.c().get(i).a().add(kbbVar);
+    }
+
+    public final void r(obb obbVar, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, obbVar, i) == null) || obbVar == null || afb.e(obbVar.a()) || this.f || this.e) {
+            return;
+        }
+        for (kbb kbbVar : obbVar.a()) {
+            if (this.e || this.f) {
+                return;
+            }
+            this.j++;
+            if (t(kbbVar)) {
+                v(kbbVar, i);
+            } else {
+                q(kbbVar, i);
+                i((int) (((this.j * 1.0f) / this.i) * 100.0f));
+            }
+        }
+    }
+
+    public final boolean t(kbb kbbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, kbbVar)) == null) {
+            if (kbbVar == null || kbbVar.b() == null || !kbbVar.c()) {
+                return false;
+            }
+            if (!ubb.o(kbbVar.b().mSoundTypes) && kbbVar.b().mSpeed == 1.0f && kbbVar.b().start == 0 && kbbVar.b().end == -1 && kbbVar.b().volume == 1.0f) {
+                return (kbbVar.a() == null || "audio/mp4a-latm".equals(kbbVar.a().f())) ? false : true;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void v(kbb kbbVar, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, kbbVar, i) == null) || this.f || this.e) {
+            return;
+        }
+        AudioPlayData b = kbbVar.b();
+        if (b == null || !FileUtils.isExists(b.audioPath)) {
+            g("dealAudioPlayData,trackIndx:inputerror");
+            return;
+        }
+        String str = b.audioPath;
+        String a2 = a(str, System.currentTimeMillis() + "_mediacodec.aac");
+        try {
+            bcb bcbVar = new bcb(b.audioPath, a2, b.mSoundTypes);
+            this.h = bcbVar;
+            bcbVar.S(new a(this, a2, i, b, kbbVar));
+            this.h.D(b.mSoundTypes);
+            this.h.G(b.mSpeed);
+            this.h.H(b.volume);
+            this.h.B(b.start);
+            this.h.R(b.end);
+            this.h.I();
+            synchronized (this) {
+                wait();
+            }
+        } catch (Exception e) {
+            g("dealAudioPlayData exception:" + ffb.g(e));
+            e.printStackTrace();
+        }
+    }
+
+    public final void x(mbb mbbVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, mbbVar) == null) || mbbVar == null || afb.e(mbbVar.c())) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < mbbVar.c().size(); i++) {
+            arrayList.add(new obb(new ArrayList()));
+        }
+        mbb mbbVar2 = new mbb(arrayList);
+        this.d = mbbVar2;
+        mbbVar2.e(mbbVar.b());
+        this.d.d(mbbVar.a());
+    }
+
+    public final void y(mbb mbbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mbbVar) == null) {
+            this.i = 0;
+            this.j = 0;
+            List<obb> c = mbbVar.c();
+            int size = c.size();
+            for (int i = 0; i < size; i++) {
+                if (c.get(i) != null && c.get(i).a() != null) {
+                    this.i += c.get(i).a().size();
+                }
+            }
+        }
     }
 }

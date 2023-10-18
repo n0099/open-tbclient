@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.coreExtra.view.LiveRoomEntranceButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yl5;
+import com.baidu.tieba.eg5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0000\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\b\u0018\u00002\u00020\u0001:\u0002()B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010!\u001a\u00020\"J\b\u0010#\u001a\u00020\"H\u0002J\b\u0010$\u001a\u00020\"H\u0002J\b\u0010%\u001a\u00020\"H\u0002J\b\u0010&\u001a\u00020\"H\u0002J\b\u0010'\u001a\u00020\"H\u0002R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\t\u001a\u0004\u0018\u00010\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R(\u0010\u0014\u001a\u0004\u0018\u00010\u00132\b\u0010\u0012\u001a\u0004\u0018\u00010\u0013@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\u001c\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR\u000e\u0010\u001f\u001a\u00020 X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006*"}, d2 = {"Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton;", "Landroid/widget/RelativeLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "centerContainer", "Landroid/widget/LinearLayout;", "clickCallBack", "Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack;", "getClickCallBack", "()Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack;", "setClickCallBack", "(Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack;)V", "closeImg", "Landroid/widget/ImageView;", "iconImg", "value", "Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$LiveRoomEntranceData;", "liveRoomEntranceData", "getLiveRoomEntranceData", "()Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$LiveRoomEntranceData;", "setLiveRoomEntranceData", "(Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$LiveRoomEntranceData;)V", "logData", "", "getLogData", "()Ljava/lang/Object;", "setLogData", "(Ljava/lang/Object;)V", "tipTextView", "Landroid/widget/TextView;", "hideCloseBtn", "", "initCenterContainer", "initCloseImg", "initIconImg", "initRoot", "initTipText", "ClickCallBack", "LiveRoomEntranceData", "tbadk_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class LiveRoomEntranceButton extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,13 +66,13 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
     }
 
     @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\bf\u0018\u00002\u00020\u0001:\u0001\u0007J\u001a\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\b\u0010\u0006\u001a\u0004\u0018\u00010\u0001H&¨\u0006\b"}, d2 = {"Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack;", "", "onClick", "", PushConstants.CLICK_TYPE, "Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack$ClickType;", "logData", "ClickType", "tbadk_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface ClickCallBack {
         void a(ClickType clickType, Object obj);
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         @Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0004\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004¨\u0006\u0005"}, d2 = {"Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack$ClickType;", "", "(Ljava/lang/String;I)V", "ENTER_CLICK", "CLOSE_CLICK", "tbadk_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class ClickType {
             public static final /* synthetic */ ClickType[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -135,7 +135,7 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -292,7 +292,7 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            yl5.a(this.b, "enter_live_room_animation.png");
+            eg5.a(this.b, "enter_live_room_animation.png");
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
             this.a.addView(this.b, new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize));
         }
@@ -335,7 +335,7 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
             layoutParams.addRule(15);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             addView(this.d, layoutParams);
-            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rg5
+            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ya5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -366,7 +366,7 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             EMManager.from(this).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0619).setBackGroundColor(R.color.CAM_X0604);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sg5
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.za5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

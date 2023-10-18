@@ -26,18 +26,18 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fd6;
-import com.baidu.tieba.fo5;
-import com.baidu.tieba.go5;
-import com.baidu.tieba.tb0;
-import com.baidu.tieba.vj7;
+import com.baidu.tieba.ee7;
+import com.baidu.tieba.li5;
+import com.baidu.tieba.mi5;
+import com.baidu.tieba.o76;
+import com.baidu.tieba.q60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements vj7 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements ee7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILiveFeedPageView a;
@@ -107,7 +107,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vj7 {
         this.h = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.vj7
+    @Override // com.baidu.tieba.ee7
     public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -119,7 +119,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vj7 {
         }
     }
 
-    @Override // com.baidu.tieba.vj7
+    @Override // com.baidu.tieba.ee7
     public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -148,7 +148,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vj7 {
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.onViewDestroy();
             }
-            fo5.e().b();
+            li5.e().b();
             MessageManager.getInstance().unRegisterListener(this.h);
         }
     }
@@ -195,16 +195,16 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vj7 {
         }
     }
 
-    @Override // com.baidu.tieba.vj7
-    public void u0() {
+    @Override // com.baidu.tieba.ee7
+    public void t0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             e2("onPageOutEnd");
         }
     }
 
-    @Override // com.baidu.tieba.vj7
-    public void z0() {
+    @Override // com.baidu.tieba.ee7
+    public void y0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             e2(CommonTbJsBridge.CHANGE_SKIN_TYPE);
@@ -227,7 +227,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vj7 {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                 layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
                 layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
-                if (go5.e()) {
+                if (mi5.e()) {
                     layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.tbds177);
                 } else {
                     layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
@@ -249,8 +249,8 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vj7 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
             e2("onCreate");
-            fd6.a().c(TbadkCoreApplication.getInst());
-            this.a = new tb0();
+            o76.a().c(TbadkCoreApplication.getInst());
+            this.a = new q60();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
             registerListener(this.h);
             this.d = new PollingModel(getPageContext(), getUniqueId());
@@ -341,7 +341,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vj7 {
             e2("onLazyLoad");
             super.onLazyLoad();
             if (this.a == null) {
-                this.a = new tb0();
+                this.a = new q60();
             }
             View onCreateView = this.a.onCreateView(getFragmentActivity(), this, LiveFeedPageSdk.HOST_LIVE_TAB, "tab", null, null, false);
             if (onCreateView.getParent() instanceof ViewGroup) {

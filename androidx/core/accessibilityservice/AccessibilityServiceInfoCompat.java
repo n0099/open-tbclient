@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.network.outback.EngineName;
 /* loaded from: classes.dex */
 public final class AccessibilityServiceInfoCompat {
     public static final int CAPABILITY_CAN_FILTER_KEY_EVENTS = 8;
@@ -47,7 +46,7 @@ public final class AccessibilityServiceInfoCompat {
             }
             return "FLAG_INCLUDE_NOT_IMPORTANT_VIEWS";
         }
-        return EngineName.DEFAULT_ENGINE;
+        return "DEFAULT";
     }
 
     @NonNull

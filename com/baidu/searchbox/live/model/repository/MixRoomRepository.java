@@ -2,7 +2,6 @@ package com.baidu.searchbox.live.model.repository;
 
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.account.AccountManager;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.live.arch.runtime.MiniShellRuntime;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.data.constant.MixConstants;
@@ -142,7 +141,7 @@ public final class MixRoomRepository {
                 jSONObject.put("avatar", str3);
             }
             jSONObject.put("im_uk", String.valueOf(AccountManager.getUK(MiniShellRuntime.INSTANCE.getAppContext())));
-            jSONObject.put(TaskProcess.keyTags, "[\"follow\",\"others\"]");
+            jSONObject.put("tags", "[\"follow\",\"others\"]");
             putAudioExtraAppId(jSONObject);
             roomEnterParams.addExtParams(new Pair<>("audio_extra", jSONObject.toString()));
         } catch (Exception e) {

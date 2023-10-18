@@ -475,7 +475,7 @@ public class SpeedStats {
             return SpeedStatsUtils.UBC_VALUE_BANNER_SKIN;
         } else {
             if (this.mHasBanner && !this.mHasSkin) {
-                return SpeedStatsUtils.UBC_VALUE_BANNER;
+                return "banner";
             }
             if (!this.mHasBanner && this.mHasSkin) {
                 return "skin";
